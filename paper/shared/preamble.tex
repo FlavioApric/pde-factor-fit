@@ -1,0 +1,33 @@
+% Common preamble of both papers (after docclass.tex).
+\def\pfshimname{shim}
+\ifx\paperclass\pfshimname
+  \input{../shared/siamshim}
+\else
+  \usepackage{amssymb}
+  \newsiamremark{remark}{Remark}
+  \newsiamremark{example}{Example}
+  \newsiamthm{assumption}{Assumption}
+\fi
+\usepackage{mathtools}
+\usepackage{graphicx}
+\graphicspath{{../shared/figures/}}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,shapes.geometric,backgrounds}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\ifx\paperclass\pfshimname
+  \usepackage[hidelinks]{hyperref}
+  \usepackage[capitalize,nameinlink]{cleveref}
+  \input{../shared/siamshim_thm}
+\else
+  \makeatletter\@ifpackageloaded{cleveref}{}{\usepackage[capitalize,nameinlink]{cleveref}}\makeatother
+\fi
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{example}{Example}{Examples}
+\crefname{remark}{Remark}{Remarks}
+\crefname{algorithm}{Algorithm}{Algorithms}
+\input{../shared/macros}

@@ -1,0 +1,260 @@
+{
+ "F1-0-0.01": {
+  "label": "FIT-COMPATIBLE",
+  "factors": [
+   "1.0*tau - 0.0328872531929569*xi**2 - 0.513106766098807*xi"
+  ],
+  "coef": [
+   {
+    "1,0": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ],
+    "0,1": [
+     [
+      -0.5131067660988071,
+      0.0
+     ],
+     [
+      -0.5132706374403785,
+      0.0
+     ],
+     [
+      -0.5130278739881574,
+      0.0
+     ]
+    ],
+    "0,2": [
+     [
+      -0.03288725319295693,
+      0.0
+     ],
+     [
+      -0.03290640294510303,
+      0.0
+     ],
+     [
+      -0.032858836214939374,
+      0.0
+     ]
+    ]
+   }
+  ],
+  "structures": {
+   "((1, 2),)": 1.0
+  },
+  "w_mean": [],
+  "w_q": [],
+  "note": "structure ((1, 2),) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence 30955.3 -> 30956.5, 2 real coefficient(s) kept by evidence). coefficient intervals from 4 parametric-bootstrap refits at the final structure."
+ },
+ "F1-0-0.05": {
+  "label": "FIT-COMPATIBLE",
+  "factors": [
+   "1.0*tau - 0.0328363199100848*xi**2 - 0.513534136052584*xi"
+  ],
+  "coef": [
+   {
+    "0,1": [
+     [
+      -0.5135341360525839,
+      0.0
+     ],
+     [
+      -0.5143610774555099,
+      0.0
+     ],
+     [
+      -0.5131464610450801,
+      0.0
+     ]
+    ],
+    "0,2": [
+     [
+      -0.03283631991008484,
+      0.0
+     ],
+     [
+      -0.03292864810269438,
+      0.0
+     ],
+     [
+      -0.03269270094965418,
+      0.0
+     ]
+    ],
+    "1,0": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ]
+   }
+  ],
+  "structures": {
+   "((1, 2),)": 1.0
+  },
+  "w_mean": [],
+  "w_q": [],
+  "note": "structure ((1, 2),) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence 17804.4 -> 17800.8, 2 real coefficient(s) kept by evidence). coefficient intervals from 4 parametric-bootstrap refits at the final structure."
+ },
+ "F5-1-0.01": {
+  "label": "FIT-COMPATIBLE",
+  "factors": [
+   "1.0*tau + 0.542088240758688",
+   "1.0*tau + 0.894055798023489*xi"
+  ],
+  "coef": [
+   {
+    "0,0": [
+     [
+      0.542088240758688,
+      0.0
+     ],
+     [
+      0.5417940938324092,
+      0.0
+     ],
+     [
+      0.5422412657731247,
+      0.0
+     ]
+    ],
+    "1,0": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ]
+   },
+   {
+    "1,0": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ],
+    "0,1": [
+     [
+      0.8940557980234893,
+      0.0
+     ],
+     [
+      0.893903101093021,
+      0.0
+     ],
+     [
+      0.8942762026018649,
+      0.0
+     ]
+    ]
+   }
+  ],
+  "structures": {
+   "((1, 0), (1, 1))": 1.0
+  },
+  "w_mean": [
+   0.5295956995006011,
+   0.4704043004993989
+  ],
+  "w_q": [
+   [
+    0.5295323001677739,
+    0.5295968520912164,
+    0.5296686251760069
+   ],
+   [
+    0.4703313748239931,
+    0.47040314790878357,
+    0.4704676998322261
+   ]
+  ],
+  "note": "structure ((1, 0), (1, 1)) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence 25103.9 -> 25110.4, 2 real coefficient(s) kept by evidence). coefficient intervals from 4 parametric-bootstrap refits at the final structure."
+ },
+ "heat-grid-0.05": {
+  "label": "FIT-COMPATIBLE",
+  "factors": [
+   "1.0*tau - 0.299615861471368*xi**2"
+  ],
+  "coef": [
+   {
+    "0,2": [
+     [
+      -0.2996158614713677,
+      0.0
+     ],
+     [
+      -0.299758399176419,
+      0.0
+     ],
+     [
+      -0.29929847616123706,
+      0.0
+     ]
+    ],
+    "1,0": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ]
+   }
+  ],
+  "structures": {
+   "((1, 2),)": 1.0
+  },
+  "w_mean": [],
+  "w_q": [],
+  "note": "structure ((1, 2),) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence 13777.0 -> 13775.6, 1 real coefficient(s) kept by evidence). coefficient intervals from 4 parametric-bootstrap refits at the final structure."
+ },
+ "pure-noise-grid": {
+  "label": "UNDECIDED",
+  "factors": [],
+  "coef": [],
+  "structures": {},
+  "w_mean": [],
+  "w_q": [],
+  "note": ""
+ }
+}
