@@ -1,0 +1,65 @@
+% Paper B: introduction (one idea, running example first).
+\section{Introduction}\label{sec:intro}
+Consider a quantity that is carried by a flow and diffuses at the same time, observed with noise. A natural model is
+\begin{equation}\label{eq:intro-tpd}
+  (\partial_t+c\,\partial_x)(\partial_t-\nu\,\partial_x^2)\,u=0,
+\end{equation}
+whose solutions are sums of a travelling profile and a diffusing one. A method that learns equations by regressing
+$u_t$ on a library of terms such as $u_x$, $u_{xx}$, $u_{xxx}$ looks for one equation of the form $u_t=\sum_k\beta_k\,\partial_x^ku$; the
+data in fact obey the product of two equations, and no single sum of terms fits them. On our benchmark, every
+library-regression method we tested returns a wrong equation for \eqref{eq:intro-tpd} at $5\%$ noise, without warning.
+
+This paper argues that equation learning should group the data by the \emph{factors} of the equation, and develops that
+idea from the algebra to an algorithm that quantifies its uncertainty. In Fourier variables a constant-coefficient operator
+is a polynomial in $(\tau,\xi)$; the operator in \eqref{eq:intro-tpd} is $(\tau+c\,\xi)(\tau-\nu\,\xi^2)$. Every Fourier mode
+$e^{\lambda t+i\kappa x}$ of a solution lies on the zero set of one factor: the modes of the first factor on the line
+$\lambda=-ic\kappa$, those of the second on the parabola $\lambda=-\nu\kappa^2$ (\cref{fig:branches}). Learning the equation
+means learning these groups.
+
+\input{../shared/sections/fig_branches}
+
+\paragraph{The grouping principle} We prove that the groups are exactly the factors of the symbol: every solution splits
+into one component per factor, uniquely up to an overlap whose dimension is the number of intersection points of their
+zero sets (\cref{thm:factor}). Additive terms do not form groups: for two terms whose varieties meet in finitely many points, no solution outside a
+finite-dimensional set is a sum of single-term pieces (\cref{prop:terms}), and the interaction between terms cannot be
+removed stably (\cref{prop:discont}). The split is stable exactly when the conditioning constant $\gN$ of the sum operator
+is positive; for two factors this means a positive Friedrichs angle between their solution spaces, and the error
+amplification is $\gN^{-1/2}$ (\cref{thm:hm}). Finally, without a priori bounds, finite data can support a factored
+equation but never certify it (\cref{thm:ident,prop:certify}).
+
+\paragraph{Learning the groups} The algorithm groups twice (\cref{fig:roadmap}). Within one posterior sample of the field
+it reads the temporal eigenvalues of every wavenumber with a matrix pencil and assigns the resulting modes to factors by
+fitting the zero sets directly, a clustering problem whose clusters are curves. Across posterior samples it clusters the
+factors themselves with a Dirichlet-process mixture. Every decision is then checked against the raw observations, and
+the output is a distribution over equations: factors with $90\%$ intervals, the probability of each number of groups,
+the energy share and separation of each group, and a label that says whether the data support the equation, support
+it only within the chosen class, reject it, or cannot decide.
+
+\paragraph{Contributions}
+\begin{enumerate}
+  \item The grouping principle and its limits: \cref{thm:factor} with the exact ambiguity $\deltaP$, the negative results
+  for terms (\cref{prop:terms,prop:discont}), the conditioning of the split (\cref{thm:hm}), its Bayesian counterpart
+  (\cref{prop:bayes-angle}), and a counting condition on how many wavenumbers a group needs (\cref{prop:counting}).
+  \item An algorithm that learns the groups from noisy, scattered data, with a sampling-based treatment of the
+  high-frequency band and labels that encode what finite data can support.
+  \item Evidence on twenty random equations not used in development ($19$ right or equivalent, $14$ of them with a confident
+  label; no confident wrong answer, against $13$ or more for each of the three library baselines run on this set), on
+  $60$ grid inputs with independent fields and noise (all right; weak SINDy is wrong without warning on $13$) and on ten benchmark equations in three designs, on which the
+  parameters were tuned ($30$ of $30$ factor sets recovered; the best library regression is wrong without warning on $5$).
+\end{enumerate}
+
+\input{../shared/sections/related}
+
+\paragraph{Scope and organization} Everything proved and implemented concerns scalar linear equations with constant
+coefficients in one time and one space variable, observed on a rectangle. \Cref{sec:theory} proves the grouping principle
+and its limits. \Cref{sec:within} describes how the groups are
+learned within one sample and \cref{sec:across} how they are grouped across samples. \Cref{sec:evidence} follows one data
+set through every stage and reports benchmarks, and \cref{sec:discussion} discusses limits, what is lost beyond the linear ring, and extensions. \Cref{eq:intro-tpd}
+with $c=1$, $\nu=0.3$ is the running example throughout; \cref{tab:notation} collects the notation and proofs are in
+\cref{app:proofs}. \emph{Reader's guide.} The algorithm uses four results: the factor decomposition (\cref{thm:factor}), the
+stability of the split (\cref{thm:hm}), the counting condition (\cref{prop:counting}) and the limits of finite data
+(\cref{prop:certify}), which explain the labels. A reader interested mainly in the method can skim the material on
+exponential-polynomials and identification on a first reading.
+
+\input{../shared/sections/fig_roadmap}
+\input{../shared/sections/notation}

@@ -1,0 +1,19 @@
+% Shared module: structured fit (grouping the modes into factors).
+\subsection{Grouping the modes: the structured fit}\label{sec:alg-structfit}
+The natural route, fitting one polynomial $P$ through all points $(\lambda_p,i\kappa_p)$ and then factoring
+it, is ill-posed: a numerical polynomial with noisy coefficients is almost never reducible, and when it is
+the factors move discontinuously with the coefficients. In our tests this route split the irreducible
+Klein--Gordon and telegraph symbols into spurious factors at noise $10^{-4}$.
+
+We group and fit at the same time. For a structure $\Mfit$ with $N$ factors we solve the
+\emph{$N$-varieties} problem, a version of $k$-means clustering in which the cluster centres are curves instead of
+points: assign every mode to the factor whose variety is nearest, refit each factor to the modes assigned to it, and
+repeat the two steps until the assignment no longer changes (8 random starts, 30 iterations). The distance of a mode to factor $Q_j$ is
+the first-order distance to its variety, scaled by the rate uncertainty,
+\begin{equation}\label{eq:vardist}
+  r_j(p)=\frac{\abs{Q_j(\lambda_p,i\kappa_p)}}{\sigma_{\lambda,p}\,\abs{\partial_\tau Q_j(\lambda_p,i\kappa_p)}},
+\end{equation}
+which plays the role of the Euclidean distance in $k$-means, and the misfit of a mode is $\min(r_j(p)^2,9)$; the cap makes isolated outliers count as a fixed
+penalty instead of dragging a factor away. This is a clustering problem in which the clusters are
+algebraic curves rather than points: the grouping of \cref{thm:factor} learned directly from the
+spectrum.

@@ -1,0 +1,25 @@
+% Paper A: conclusions.
+\section{Conclusions}\label{sec:conclusion}
+The factorization of the symbol of a linear constant-coefficient PDE is a grouping structure on its solutions: the
+modes of one factor lie on one curve of the dispersion relation, the solution splits into one component per factor up
+to an overlap of dimension $\deltaP$, and the components are as well separated as the Friedrichs angle between their
+solution spaces allows. Additive terms do not form groups, and their interaction cannot be regularized away. These
+facts determine what a learning algorithm should look for and what it can promise; \cref{tab:status} separates what is
+proved from the design rules derived from it and from what is measured.
+
+\input{../shared/sections/status_table}
+
+The algorithm built on them groups twice, modes into factors within a sample and factors across samples, and reports a
+distribution over equations whose labels and intervals reflect the limits proved in \cref{sec:analysis}: an equation
+is never certified, closely aligned groups come with wide intervals, and repeated factors are reported as undecided.
+On twenty random equations not used in development it is never wrong without warning; on the thirty-input development
+benchmark it recovers every factor set,
+where the best regression on a library of terms fails without warning on five inputs, four of them products of
+factors.
+
+Three directions remain open. For variable coefficients the eigenvalues of the pencil become functions of position
+(\cref{rem:varcoef}), and the factors become families of curves; the algebra is then non-commutative, and a splitting
+theorem is not available. For nonlinear equations the ring is replaced by a dictionary and grouping must be relative
+to it (\cref{sec:nonlinear}). For systems such as the Dirac equation the ideal becomes a module and the conditions for
+splitting become topological. In each case the question asked in this paper, which pieces of the equation a solution
+carries and how stably, is the right starting point.

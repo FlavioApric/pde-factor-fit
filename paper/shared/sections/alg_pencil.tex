@@ -1,0 +1,49 @@
+% Shared module: matrix pencil per wavenumber.
+\subsection{Reading the eigenvalues: the matrix pencil}\label{sec:alg-pencil}
+For each sample field the spatial Fourier transform gives, for every $\kappa\in\mathcal K$, a time series
+$\hat u(t_\ell,\kappa)$, $\ell=0,\dots,n_t-1$. For a constant-coefficient equation it is an exponential sum,
+\begin{equation}\label{eq:expsum}
+  \hat u(t,\kappa)=\sum_{p=1}^{r(\kappa)}A_p\,e^{\lambda_p(\kappa)t},\qquad Q_{j(p)}\big(\lambda_p,i\kappa\big)=0,
+\end{equation}
+one term per root of the symbol at that wavenumber. This step does \emph{not} fit the factors of the equation. It
+extracts, at each wavenumber separately, the temporal rates $\lambda_p(\kappa)$, which are the eigenvalues of $\partial_t$
+restricted to the finite-dimensional space spanned by the time series and its shifts, exactly as in \cref{lem:ep}.
+Because every rate satisfies $Q_j(\lambda_p,i\kappa)=0$ for one factor, the factors are recovered afterwards by finding
+the relation between $\lambda$ and $\kappa$, that is, the dispersion relation of each group (\cref{sec:alg-structfit}):
+the search for the equation happens in frequency.
+
+We compute the rates with the matrix pencil method~\cite{HuaSar90}. From the time series at one wavenumber form the Hankel matrix $H_{\ell k}=\hat u(t_{\ell+k},\kappa)$, whose columns are copies of the time series shifted by
+one step each, and estimate the number of exponentials $r$ from its singular values. Let $Y_0$ be $H$ without its last
+column and $Y_1$ be $H$ without its first column, both projected on the $r$ leading singular directions. Advancing a
+time series by one step multiplies its term $A_pe^{\lambda_pt}$ by $\mu_p=e^{\lambda_p\Delta t}$, so $Y_1$ is $Y_0$ with
+each exponential multiplied by its own $\mu_p$, and these factors are the eigenvalues of the pencil:
+\begin{equation}\label{eq:pencil}
+  \lambda_p=\frac{1}{\Delta t}\log\mu_p,\qquad \mu_p\in\operatorname{eig}\big(Y_0^{+}Y_1\big),
+\end{equation}
+followed by a least-squares fit of the amplitudes $A_p$. A bin is used only if its amplitude exceeds
+$z\,\sigbin$, and the order $r$ is selected per bin by BIC among $r_0,r_0+1,r_0+2$. The uncertainty of each rate is
+taken from the Cram\'er--Rao bound, the smallest variance that any unbiased estimator of $\lambda_p$ can reach at this
+noise level. It depends on how sensitive the time series is to a change of each parameter: with $\mathsf J$ the
+Jacobian of~\eqref{eq:expsum} with respect to all rates and amplitudes in the bin,
+$\sigma_{\lambda,p}^2=\sigbin^2[(\mathsf J^H\mathsf J)^{-1}]_{pp}$. Rates of weak or quickly decaying modes, or of two modes with
+nearly equal rates, are sensitive to noise and receive a large $\sigma_{\lambda,p}$.
+
+The output is a cloud of points $(\kappa,\lambda_p(\kappa))$ with error bars. The modes of one group lie
+on one branch of the dispersion relation; \cref{fig:directions} shows these branches for the
+running example. Two rates closer than about $4/T$ cannot be resolved in a window of length $T$; such
+a bin is flagged as \emph{confluent} and the factors involved are labelled \UND{} rather than forced
+apart.
+
+\begin{remark}[Variable coefficients and higher dimension]\label{rem:varcoef}
+For constant coefficients the rates $\lambda_p(\kappa)$ do not depend on $x$; this is what allows one
+spectral decomposition per wavenumber. If the coefficients vary slowly in $x$, a windowed transform
+gives local rates $\lambda_p(\kappa;x_0)$, and each group becomes a \emph{family} of branches indexed by
+$x_0$; the structured fit below would then regress coefficient functions instead of numbers. In $d$ space dimensions
+the same construction applies with a wavenumber vector $\kappa\in\R^d$: the pencil still reads the temporal rates at
+each $\kappa$, one small eigenvalue problem per wavenumber, and the groups become hypersurfaces $Q_j(\lambda,i\kappa)=0$
+in $\C\times\C^d$. This makes the pencil a natural, though not necessarily the most efficient, first layer for
+decomposing equations in higher dimension. What is missing is the second layer: a decomposition theorem for symbols in
+$d+1$ variables, where two factors can share a whole curve of zeros and the overlap is no longer finite-dimensional.
+Neither extension is implemented, and the algebraic guarantees of \cref{sec:factor} do not carry over unchanged
+(for variable coefficients the ring becomes non-commutative).
+\end{remark}

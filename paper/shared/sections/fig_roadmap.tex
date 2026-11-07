@@ -1,0 +1,31 @@
+% Shared figure: roadmap of the method, each box with the section and the result it rests on.
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  node distance=3.5mm and 4.5mm,
+  box/.style={draw=black!55, rounded corners=2pt, align=center, font=\footnotesize, inner sep=3pt,
+              minimum height=10mm, text width=20mm, fill=white},
+  grp/.style={box, fill=blue!6},
+  thy/.style={font=\scriptsize\itshape, text=black!60, align=center},
+  arr/.style={-{Stealth[length=2mm]}, black!60, thick}]
+\node[box] (data) {noisy data\\$\{(t_i,x_i,y_i)\}$};
+\node[box, right=of data] (gp) {field samples\\$u^{(1)},\dots,u^{(\Nsamp)}$};
+\node[box, right=of gp] (modes) {modes $(\kappa,\lambda)$\\per wavenumber};
+\node[grp, right=of modes] (fac) {factors $Q_j$\\(groups of modes)};
+\node[grp, below=8mm of fac] (cloud) {cloud of factors\\over samples};
+\node[box, left=of cloud] (clus) {clusters and\\$P(k)$, $P(\Mfit)$};
+\node[box, left=of clus] (split) {components $u_j$,\\$w_j$, $\gN$, $\rho$};
+\node[box, left=of split] (out) {equation with\\intervals and label};
+\draw[arr] (data)--(gp); \draw[arr] (gp)--(modes); \draw[arr] (modes)--(fac);
+\draw[arr] (fac)--(cloud); \draw[arr] (cloud)--(clus); \draw[arr] (clus)--(split); \draw[arr] (split)--(out);
+\node[thy, above=1mm of gp] {\S\ref{sec:alg-interp}--\ref{sec:nyquist}};
+\node[thy, above=1mm of modes] {\S\ref{sec:alg-pencil}, Lem.~\ref{lem:ep}};
+\node[thy, above=1mm of fac] {\S\ref{sec:alg-structfit}, Thm.~\ref{thm:factor}};
+\node[thy, below=1mm of cloud] {\S\ref{sec:bayes-cloud}};
+\node[thy, below=1mm of clus] {\S\ref{sec:alg-loop}, \S\ref{sec:bayes-cloud}};
+\node[thy, below=1mm of split] {Thms.~\ref{thm:hm}, \ref{thm:eint}};
+\node[thy, below=1mm of out] {\S\ref{sec:alg-labels}, Thm.~\ref{thm:ident}};
+\end{tikzpicture}
+\caption{The method at a glance. Shaded: the two grouping steps, of modes into factors within one sample and of
+factors across samples. Each box names the section that describes it and the result that justifies it.}\label{fig:roadmap}
+\end{figure}

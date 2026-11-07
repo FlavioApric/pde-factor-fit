@@ -1,0 +1,508 @@
+{
+ "pde": {
+  "equation": "(1.0*tau - 0.3004*I*xi**2) * (1.0*tau + 0.3004*I*xi**2) u = 0",
+  "factors": [
+   "1.0*tau - 1.55860753855075e-15*xi**2 - 0.300434824297446*I*xi**2",
+   "1.0*tau + 3.3398847923416e-16*xi**2 + 0.300434824297447*I*xi**2"
+  ],
+  "pruned": [
+   "1.0*tau - 0.3004*I*xi**2",
+   "1.0*tau + 0.3004*I*xi**2"
+  ],
+  "grid": {
+   "nt": 64,
+   "nx": 128,
+   "T": 2.0,
+   "L": 6.283185307179586
+  },
+  "sigma": 0.049012183584529474,
+  "n_samples": 1,
+  "truth": {
+   "factors": [
+    "tau - 0.3*I*xi**2",
+    "tau + 0.3*I*xi**2"
+   ],
+   "factor_set_match": true,
+   "worst_rel_err": 0.0014494143248218925
+  }
+ },
+ "model": {
+  "label": "FIT-COMPATIBLE",
+  "note": "structure ((1, 0),) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence -286577.1 -> -inf, 5 real coefficient(s) kept by evidence). structure ((3, 4),) preferred after refinement (refined evidence - Occam 12983.4 vs -inf). a factor splits exactly into 3 factors (root branches grouped, repeated to the finest exact split; same product). coefficient intervals from 16 parametric-bootstrap refits at the final structure. 1 redundant factor(s) dropped by the split layer's subset evidence.",
+  "bounds": [
+   3,
+   4
+  ],
+  "regrouped": true,
+  "p_k": {
+   "1": 1.0
+  },
+  "structures": {
+   "((1, 0),)": 1.0
+  },
+  "evidence": {
+   "((2, 4),)": -673.6361730346995,
+   "((1, 0), (2, 4))": -688.1466353022315,
+   "((1, 1), (2, 4))": -693.5933909456583,
+   "((1, 2), (2, 4))": -696.3797879539999,
+   "((1, 3), (2, 4))": -700.1973244853114,
+   "((1, 0),)": -672.7333311714698,
+   "((3, 4),)": -700.0747482775405,
+   "((1, 1),)": -675.5059198937096,
+   "((1, 2),)": -678.2785086159494,
+   "((1, 3),)": -681.0510973381892
+  },
+  "core_labels": {
+   "FIT-COMPATIBLE": 1.0
+  },
+  "dropped": [
+   "1.0*tau"
+  ]
+ },
+ "posterior": {
+  "k_eff": 1.0,
+  "k_det": 1,
+  "k_eff_per_sample": {
+   "q05": 1.0,
+   "q50": 1.0,
+   "q95": 1.0,
+   "mean": 1.0
+  },
+  "W_track": [
+   1.0
+  ],
+  "track_sympy": [
+   "tau - 0.0033301197"
+  ],
+  "theta_bar": [
+   [
+    -0.003330119656610225,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  ],
+  "theta_sd": [
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  ],
+  "k_structure": {
+   "1": 1.0
+  },
+  "p_k_DP": {
+   "1": 1.0
+  },
+  "p_k_finite_BIC": {
+   "1": 1.0
+  },
+  "cF": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 0.0,
+   "mean": 0.0
+  },
+  "gamma": {
+   "q05": 1.0,
+   "q50": 1.0,
+   "q95": 1.0,
+   "mean": 1.0
+  },
+  "n_cloud": 1
+ },
+ "factors": [
+  {
+   "sympy": "1.0*tau - 1.55860753855075e-15*xi**2 - 0.300434824297446*I*xi**2",
+   "W": 0.25,
+   "status": "factor of the reducible factor 1.0*tau**2 + 1.53874009772429e-18*tau*xi**4 + 1.27597496644847e-16*tau*xi**3 - 6.27848538717133e-17*tau*xi**2 - 3.75486730931808e-16*tau*xi + 2.19322031155479e-17*tau + 0.0902610836506353*xi**4 (root branches grouped, relative misfit 4e-14; C12-P2/P3 generalised)",
+   "kappa_support": [
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "children": [],
+   "coef": {
+    "tau^0 xi^2": {
+     "median": [
+      -1.5586075385507457e-15,
+      -0.30043482429744556
+     ],
+     "q05": [
+      -0.00029396443257269914,
+      -0.30085189906575116
+     ],
+     "q95": [
+      0.0007612358828415721,
+      -0.2998330559533135
+     ]
+    },
+    "tau^1 xi^0": {
+     "median": [
+      1.0,
+      0.0
+     ],
+     "q05": [
+      1.0,
+      0.0
+     ],
+     "q95": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "fit": {
+    "n_modes": 8,
+    "norm_u_j": 92.15003977030474,
+    "rel_residual_alone": 0.3133938607101115,
+    "energy_explained_alone": 0.9017842880692113,
+    "weight_from_u_j": 0.500000000000001
+   }
+  },
+  {
+   "sympy": "1.0*tau + 3.3398847923416e-16*xi**2 + 0.300434824297447*I*xi**2",
+   "W": 0.25,
+   "status": "factor of the reducible factor 1.0*tau**2 + 1.53874009772429e-18*tau*xi**4 + 1.27597496644847e-16*tau*xi**3 - 6.27848538717133e-17*tau*xi**2 - 3.75486730931808e-16*tau*xi + 2.19322031155479e-17*tau + 0.0902610836506353*xi**4 (root branches grouped, relative misfit 4e-14; C12-P2/P3 generalised)",
+   "kappa_support": [
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "children": [],
+   "coef": {
+    "tau^0 xi^2": {
+     "median": [
+      3.3398847923415964e-16,
+      0.30043482429744656
+     ],
+     "q05": [
+      -0.00029396443257080656,
+      0.2998330559533145
+     ],
+     "q95": [
+      0.0007612358828434646,
+      0.30085189906575216
+     ]
+    },
+    "tau^1 xi^0": {
+     "median": [
+      1.0,
+      0.0
+     ],
+     "q05": [
+      1.0,
+      0.0
+     ],
+     "q95": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "fit": {
+    "n_modes": 8,
+    "norm_u_j": 92.15003977030437,
+    "rel_residual_alone": 0.31339386071011144,
+    "energy_explained_alone": 0.9017842880692113,
+    "weight_from_u_j": 0.499999999999999
+   }
+  }
+ ],
+ "fit": {
+  "levels": [
+   {
+    "bounds": [
+     3,
+     4
+    ],
+    "p_fit": 1.0,
+    "heldout_mean_se": null,
+    "accepted": true,
+    "note": ""
+   }
+  ],
+  "joint_rel_residual": 0.027460553939540375,
+  "kappas_used": [
+   -4.0,
+   -3.0,
+   -2.0,
+   -1.0,
+   1.0,
+   2.0,
+   3.0,
+   4.0
+  ]
+ },
+ "friedrichs": {
+  "split_layer": {
+   "p_split": 1.0,
+   "cF": 0.939061426940783,
+   "gamma": 0.060938573059217016,
+   "p_include": [
+    1.0,
+    1.0
+   ],
+   "w_mean": [
+    0.666030746196161,
+    0.3339692538038392
+   ],
+   "w_q": [
+    [
+     0.6649276664284254,
+     0.6660297924540408,
+     0.6671106454785417
+    ],
+    [
+     0.3328893545214583,
+     0.33397020754595913,
+     0.33507233357157457
+    ]
+   ],
+   "p_subset": {
+    "(0,)": 0.0,
+    "(1,)": 0.0,
+    "(0, 1)": 1.0
+   }
+  },
+  "gamma_N_block_gram": {
+   "gamma_N": 0.0609385730592172,
+   "cF": 0.9390614269407828,
+   "dim_intersection": 0,
+   "error_amplification": 4.050921801792377
+  }
+ },
+ "interaction": {
+  "rho_Eint": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 0.0,
+   "mean": 0.0
+  },
+  "status": "not computed by core v2 (structfit); reported for completeness",
+  "domain": null
+ },
+ "parameters": {
+  "constants": {
+   "loop.START_BOUNDS": [
+    3,
+    4
+   ],
+   "loop.DX_LIMIT": 8,
+   "loop.M_LIMIT": 4,
+   "loop.P_CONCENTRATED": 0.9,
+   "loop.CAP": 3.0,
+   "loop.PRED_LOGP": -3.0,
+   "loop.EPS_GRID": [
+    0.0001,
+    0.00021690521830457362,
+    0.0004704787372775475,
+    0.0010204929321684646,
+    0.002213502422302753,
+    0.004801202261272812,
+    0.010414058246057907,
+    0.022588635772977355,
+    0.048995929735401546,
+    0.10627472835292823,
+    0.23051543153651158,
+    0.5
+   ],
+   "loop.MERGE_DX0": true,
+   "loop.W_DRAWS": 16,
+   "loop.GROW_PAST": false,
+   "loop.GROW_PAST_M": 1,
+   "loop.GROW_PAST_DX": 2,
+   "loop.GROW_PAST_STEPS": 2,
+   "loop.LOG_BF_STRONG": 5.0106352940962555,
+   "loop.LOG_BF_BARE": 1.0,
+   "loop.SPLIT_PROPOSE": 0.05,
+   "loop.SPLIT_CI": false,
+   "loop.ALT_MIN_MASS": 1e-06,
+   "loop.ALT_TOP": null,
+   "loop.SPLIT_BEATS": true,
+   "loop.EXACT_SPLIT": true,
+   "loop.EPGP_REINTERP": false,
+   "loop.RAW_GOF": true,
+   "loop.PATH_CLASS": true,
+   "loop.GRID_SMOOTH_GOF": true,
+   "loop.FIT_GUARD": "0",
+   "loop.ALT_PRE": false,
+   "loop.CONJ_HALF": true,
+   "loop.SPLIT_FINEST": true,
+   "loop.RAW_GOF_FINAL": true,
+   "loop.PATH_FULL": true,
+   "loop.IDKER_FINAL": false,
+   "aggregate.M_MAX": 2,
+   "aggregate.DX_MAX": 4,
+   "aggregate.CONCENTRATION_GRID": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+   ],
+   "bayes_split.TAU2_GRID": [
+    1e-08,
+    1.7782794100389228e-08,
+    3.162277660168379e-08,
+    5.6234132519034905e-08,
+    1e-07,
+    1.7782794100389227e-07,
+    3.162277660168379e-07,
+    5.62341325190349e-07,
+    1e-06,
+    1.7782794100389227e-06,
+    3.162277660168379e-06,
+    5.623413251903491e-06,
+    9.999999999999999e-06,
+    1.778279410038923e-05,
+    3.1622776601683795e-05,
+    5.623413251903491e-05,
+    0.0001,
+    0.00017782794100389227,
+    0.00031622776601683794,
+    0.0005623413251903491,
+    0.001,
+    0.0017782794100389228,
+    0.0031622776601683794,
+    0.005623413251903491,
+    0.01,
+    0.01778279410038923,
+    0.03162277660168379,
+    0.056234132519034905,
+    0.1,
+    0.1778279410038923,
+    0.31622776601683794,
+    0.5623413251903491,
+    1.0,
+    1.7782794100389228,
+    3.1622776601683795,
+    5.62341325190349,
+    10.0,
+    17.78279410038923,
+    31.622776601683793,
+    56.23413251903491,
+    100.0,
+    177.82794100389228,
+    316.2277660168379,
+    562.341325190349,
+    1000.0,
+    1778.2794100389228,
+    3162.2776601683795,
+    5623.413251903491,
+    10000.0
+   ],
+   "core.structfit.SEED_PROVIDER": null
+  },
+  "env_overrides": {},
+  "run_loop_kwargs": {
+   "case": "beam",
+   "noise": 0.05,
+   "seed": 0,
+   "protocol": "bench_e2e grid",
+   "bootstrap": 16
+  },
+  "doc": "analysis/PARAMETERS.md (meaning, defaults, verdicts)"
+ },
+ "images": {
+  "pixels": {
+   "kappa": 120,
+   "re_tau": 96,
+   "im_tau": 96
+  },
+  "box": {
+   "kappa": [
+    -5.0,
+    5.0
+   ],
+   "re_tau": [
+    -0.0010000000000467582,
+    0.0010000000000467582
+   ],
+   "im_tau": [
+    -9.014044728923396,
+    9.014044728923396
+   ]
+  }
+ },
+ "distances": {
+  "names": [
+   "f0",
+   "f1",
+   "s0t0"
+  ],
+  "operator_norm": [
+   [
+    0.0,
+    0.9090358940789957
+   ],
+   [
+    0.9090358940789957,
+    0.0
+   ]
+  ],
+  "friedrichs_angle_rad": [
+   [
+    0.0,
+    0.35090668363852073
+   ],
+   [
+    0.35090668363852073,
+    0.0
+   ]
+  ],
+  "kernel_gap_rad": [
+   [
+    0.0,
+    1.5363422681031913
+   ],
+   [
+    1.5363422681031913,
+    0.0
+   ]
+  ]
+ },
+ "images_files": [
+  "directions.png",
+  "directions_uncertainty.png",
+  "operator_space.png",
+  "modes_and_components.png",
+  "distributions.png"
+ ]
+}

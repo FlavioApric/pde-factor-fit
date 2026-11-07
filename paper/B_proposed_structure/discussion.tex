@@ -1,0 +1,33 @@
+% Paper B: discussion and conclusion.
+\section{Discussion}\label{sec:discussion}
+\subsection{What is proved, what is measured}
+\Cref{tab:status} separates the three kinds of statement in this paper. The theorems hold for the stated hypotheses; the
+algorithm uses them as design rules, not as guarantees about its output; and the numerical results are evidence on
+synthetic data with white noise.
+
+\input{../shared/sections/status_table}
+
+\subsection{Limits of inference}\label{sec:limits}
+\input{../shared/sections/bayes_limits}
+
+\subsection{Beyond the linear ring}\label{sec:beyond}\label{sec:nonlinear}
+\input{../shared/sections/thy_nonlinear}
+
+\paragraph{Extensions}
+The grouping principle is a statement about the ring of constant-coefficient operators, and its reach is set by that
+ring. For variable coefficients the eigenvalues read by the pencil become functions of position (\cref{rem:varcoef}) and
+each group becomes a family of curves; the operators then form a non-commutative algebra in which factorization is not
+unique, and a splitting theorem would have to be proved for a restricted class of coefficients. For systems, such as the
+Dirac equation, the ideal becomes a module and splitting requires topological conditions beyond simple connectivity. For
+nonlinear equations groups can only be defined relative to a dictionary, as discussed above. In each direction the
+first task is the one carried out here for the linear case: decide which pieces of the equation a solution carries, how
+uniquely and how stably, and only then design the learning procedure around them.
+
+\section{Conclusion}\label{sec:conclusion}
+Groups are factors. This one statement, made precise by \cref{thm:factor} and its companions, determines what an
+equation-learning algorithm should look for (modes on the zero sets of factors), how it should combine evidence
+(clustering factors across posterior samples), how it should measure uncertainty (through the Friedrichs angle), and
+what it may claim (compatibility, never certification). The resulting method gives no confident wrong answer on twenty random equations not used in its
+development, against thirteen or more for each of the three library-regression baselines run on that set, gives the right factor
+set on all sixty grid inputs with independent fields and noise, and recovers every factor set of its
+thirty-input development benchmark, including the products of factors on which regression over a library of terms fails.

@@ -1,0 +1,413 @@
+{
+ "pde": {
+  "equation": "(1.0*tau**2 - 0.9997*xi**2 + 0.9996) u = 0",
+  "factors": [
+   "1.0*tau**2 - 0.999726652904698*xi**2 + 0.999607753911417"
+  ],
+  "pruned": [
+   "1.0*tau**2 - 0.9997*xi**2 + 0.9996"
+  ],
+  "grid": {
+   "nt": 64,
+   "nx": 128,
+   "T": 2.0,
+   "L": 6.283185307179586
+  },
+  "sigma": 0.052727643175070685,
+  "n_samples": 1,
+  "truth": {
+   "factors": [
+    "tau**2 - xi**2 + 1.0"
+   ],
+   "factor_set_match": true,
+   "worst_rel_err": 0.0003922460885831258
+  }
+ },
+ "model": {
+  "label": "FIT-COMPATIBLE",
+  "note": "structure ((2, 2),) chosen by data-level evidence; all samples regrouped at it. factors refined on the observations (log evidence 12379.7 -> 12379.2, 2 real coefficient(s) kept by evidence). coefficient intervals from 16 parametric-bootstrap refits at the final structure.",
+  "bounds": [
+   3,
+   4
+  ],
+  "regrouped": true,
+  "p_k": {
+   "1": 1.0
+  },
+  "structures": {
+   "((2, 2),)": 1.0
+  },
+  "evidence": {
+   "((2, 2),)": -800.89733514932,
+   "((1, 0), (2, 2))": -840.7075636546607,
+   "((2, 3),)": -809.6746239801146,
+   "((1, 1), (2, 2))": -843.5903260949005,
+   "((3, 2),)": -845.7063843747621,
+   "((1, 0),)": -904.4917294498682,
+   "((1, 1),)": -907.3714833088254,
+   "((3, 3),)": -853.5111570391077
+  },
+  "core_labels": {
+   "FIT-COMPATIBLE": 1.0
+  },
+  "dropped": []
+ },
+ "posterior": {
+  "k_eff": 1.0,
+  "k_det": 1,
+  "k_eff_per_sample": {
+   "q05": 1.0,
+   "q50": 1.0,
+   "q95": 1.0,
+   "mean": 1.0
+  },
+  "W_track": [
+   1.0
+  ],
+  "track_sympy": [
+   "tau**2 - 0.9988978338*xi**2 + 0.0024537023*xi + 1.0027355734"
+  ],
+  "theta_bar": [
+   [
+    1.002735573382116,
+    0.0024537023192921594,
+    -0.9988978338052172,
+    0.0,
+    0.0,
+    0.000948121416261595,
+    -0.0005328055227209859,
+    0.00040831861027751826,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  ],
+  "theta_sd": [
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  ],
+  "k_structure": {
+   "1": 1.0
+  },
+  "p_k_DP": {
+   "1": 1.0
+  },
+  "p_k_finite_BIC": {
+   "1": 1.0
+  },
+  "cF": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 0.0,
+   "mean": 0.0
+  },
+  "gamma": {
+   "q05": 1.0,
+   "q50": 1.0,
+   "q95": 1.0,
+   "mean": 1.0
+  },
+  "n_cloud": 1
+ },
+ "factors": [
+  {
+   "sympy": "1.0*tau**2 - 0.999726652904698*xi**2 + 0.999607753911417",
+   "W": 1.0,
+   "status": "not checked; refined on the observations (terms tau^0 xi^1 dropped by evidence)",
+   "kappa_support": [
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "children": [],
+   "coef": {
+    "tau^0 xi^0": {
+     "median": [
+      0.9996077539114169,
+      0.0
+     ],
+     "q05": [
+      0.995189620810303,
+      0.0
+     ],
+     "q95": [
+      1.0050792694854356,
+      0.0
+     ]
+    },
+    "tau^0 xi^2": {
+     "median": [
+      -0.9997266529046975,
+      0.0
+     ],
+     "q05": [
+      -1.0019931297056404,
+      0.0
+     ],
+     "q95": [
+      -0.9976950345579838,
+      0.0
+     ]
+    },
+    "tau^2 xi^0": {
+     "median": [
+      1.0,
+      0.0
+     ],
+     "q05": [
+      1.0,
+      0.0
+     ],
+     "q95": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "fit": {
+    "n_modes": 16,
+    "norm_u_j": 167.61410415464135,
+    "rel_residual_alone": 0.028757207140690466,
+    "energy_explained_alone": 0.9991730230374675,
+    "weight_from_u_j": 1.0
+   }
+  }
+ ],
+ "fit": {
+  "levels": [
+   {
+    "bounds": [
+     3,
+     4
+    ],
+    "p_fit": 1.0,
+    "heldout_mean_se": null,
+    "accepted": true,
+    "note": ""
+   }
+  ],
+  "joint_rel_residual": 0.028757207140690466,
+  "kappas_used": [
+   -4.0,
+   -3.0,
+   -2.0,
+   -1.0,
+   1.0,
+   2.0,
+   3.0,
+   4.0
+  ]
+ },
+ "friedrichs": {},
+ "interaction": {
+  "rho_Eint": {
+   "q05": 0.0,
+   "q50": 0.0,
+   "q95": 0.0,
+   "mean": 0.0
+  },
+  "status": "not computed by core v2 (structfit); reported for completeness",
+  "domain": null
+ },
+ "parameters": {
+  "constants": {
+   "loop.START_BOUNDS": [
+    3,
+    4
+   ],
+   "loop.DX_LIMIT": 8,
+   "loop.M_LIMIT": 4,
+   "loop.P_CONCENTRATED": 0.9,
+   "loop.CAP": 3.0,
+   "loop.PRED_LOGP": -3.0,
+   "loop.EPS_GRID": [
+    0.0001,
+    0.00021690521830457362,
+    0.0004704787372775475,
+    0.0010204929321684646,
+    0.002213502422302753,
+    0.004801202261272812,
+    0.010414058246057907,
+    0.022588635772977355,
+    0.048995929735401546,
+    0.10627472835292823,
+    0.23051543153651158,
+    0.5
+   ],
+   "loop.MERGE_DX0": true,
+   "loop.W_DRAWS": 16,
+   "loop.GROW_PAST": false,
+   "loop.GROW_PAST_M": 1,
+   "loop.GROW_PAST_DX": 2,
+   "loop.GROW_PAST_STEPS": 2,
+   "loop.LOG_BF_STRONG": 5.0106352940962555,
+   "loop.LOG_BF_BARE": 1.0,
+   "loop.SPLIT_PROPOSE": 0.05,
+   "loop.SPLIT_CI": false,
+   "loop.ALT_MIN_MASS": 1e-06,
+   "loop.ALT_TOP": null,
+   "loop.SPLIT_BEATS": true,
+   "loop.EXACT_SPLIT": true,
+   "loop.EPGP_REINTERP": false,
+   "loop.RAW_GOF": true,
+   "loop.PATH_CLASS": true,
+   "loop.GRID_SMOOTH_GOF": true,
+   "loop.FIT_GUARD": "0",
+   "loop.ALT_PRE": false,
+   "loop.CONJ_HALF": true,
+   "loop.SPLIT_FINEST": true,
+   "loop.RAW_GOF_FINAL": true,
+   "loop.PATH_FULL": true,
+   "loop.IDKER_FINAL": false,
+   "aggregate.M_MAX": 2,
+   "aggregate.DX_MAX": 4,
+   "aggregate.CONCENTRATION_GRID": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+   ],
+   "bayes_split.TAU2_GRID": [
+    1e-08,
+    1.7782794100389228e-08,
+    3.162277660168379e-08,
+    5.6234132519034905e-08,
+    1e-07,
+    1.7782794100389227e-07,
+    3.162277660168379e-07,
+    5.62341325190349e-07,
+    1e-06,
+    1.7782794100389227e-06,
+    3.162277660168379e-06,
+    5.623413251903491e-06,
+    9.999999999999999e-06,
+    1.778279410038923e-05,
+    3.1622776601683795e-05,
+    5.623413251903491e-05,
+    0.0001,
+    0.00017782794100389227,
+    0.00031622776601683794,
+    0.0005623413251903491,
+    0.001,
+    0.0017782794100389228,
+    0.0031622776601683794,
+    0.005623413251903491,
+    0.01,
+    0.01778279410038923,
+    0.03162277660168379,
+    0.056234132519034905,
+    0.1,
+    0.1778279410038923,
+    0.31622776601683794,
+    0.5623413251903491,
+    1.0,
+    1.7782794100389228,
+    3.1622776601683795,
+    5.62341325190349,
+    10.0,
+    17.78279410038923,
+    31.622776601683793,
+    56.23413251903491,
+    100.0,
+    177.82794100389228,
+    316.2277660168379,
+    562.341325190349,
+    1000.0,
+    1778.2794100389228,
+    3162.2776601683795,
+    5623.413251903491,
+    10000.0
+   ],
+   "core.structfit.SEED_PROVIDER": null
+  },
+  "env_overrides": {},
+  "run_loop_kwargs": {
+   "case": "klein_gordon",
+   "noise": 0.05,
+   "seed": 0,
+   "protocol": "bench_e2e grid",
+   "bootstrap": 16
+  },
+  "doc": "analysis/PARAMETERS.md (meaning, defaults, verdicts)"
+ },
+ "images": {
+  "pixels": {
+   "kappa": 120,
+   "re_tau": 96,
+   "im_tau": 96
+  },
+  "box": {
+   "kappa": [
+    -5.0,
+    5.0
+   ],
+   "re_tau": [
+    -0.001000000000000533,
+    0.001000000000000533
+   ],
+   "im_tau": [
+    -6.118973085115818,
+    6.118973085115818
+   ]
+  }
+ },
+ "distances": {
+  "names": [
+   "f0",
+   "s0t0"
+  ],
+  "operator_norm": [
+   [
+    0.0
+   ]
+  ],
+  "friedrichs_angle_rad": [
+   [
+    0.0
+   ]
+  ],
+  "kernel_gap_rad": [
+   [
+    0.0
+   ]
+  ]
+ },
+ "images_files": [
+  "directions.png",
+  "directions_uncertainty.png",
+  "operator_space.png",
+  "modes_and_components.png",
+  "distributions.png"
+ ]
+}

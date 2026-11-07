@@ -1,0 +1,95 @@
+% Shared module: recovering the components u_j, interference, recursion, labels, acceptance.
+\subsection{Recovering the groups as functions}\label{sec:alg-components}
+Once modes are assigned, the component of group $j$ is the sum of its modes,
+\begin{equation}\label{eq:uj}
+  u_j(t,x)=\sum_{p:\,j(p)=j}A_p\,e^{\lambda_p(t-t_0)+i\kappa_px},
+\end{equation}
+the discrete counterpart of the projector~\eqref{eq:lagrange}. A mode within distance $3$ of two
+varieties lies in the overlap counted by $\deltaP$ (for the running example, the $\kappa=0$ mode); it is
+split equally between the groups. This is the minimum-norm, or minimum-energy, choice among all splits allowed by
+\cref{thm:factor}: if the shared mode has amplitude $A$ and is given as $\alpha A$ to one group and $(1-\alpha)A$ to the
+other, the energy it adds to the components is $\abs{A}^2\big(\alpha^2+(1-\alpha)^2\big)$, which is smallest at
+$\alpha=\tfrac12$. The data cannot tell the splits apart, so the algorithm takes the one that puts the least energy
+into the ambiguity. It coincides with the posterior mean of the Bayesian layer (\cref{sec:bayes-split}), so the
+convention is not arbitrary. The energy shares $w_j$ of~\eqref{eq:energy}
+are computed from these components.
+
+\subsection{Interference between groups and the recursion over components}\label{sec:alg-interference}
+The groups are not orthogonal. Let $B_j$ be an orthonormal basis of the sampled kernel of $Q_j$ (all
+exponentials $e^{\lambda t+i\kappa x}$ with $Q_j(\lambda,i\kappa)=0$, $\kappa\in\mathcal K$, on the grid) and
+$\sumop=[B_1\cdots B_N]$. Then $\gN$ is the smallest eigenvalue of $\sumop^H\sumop$ above $10^{-8}$, the
+eigenvalues below that threshold count the directions shared by two groups, and for two groups
+$\gamma_2=1-\cF$. Because pairwise angles do not determine $\gN$ for $N\ge3$ (\cref{sec:cond}), the full
+Gram matrix is used.
+
+Each component $u_j$ is then analysed again by the same procedure, up to depth two: a factor that still
+splits on its own component is replaced by its children. A split is accepted without further evidence
+if it leaves the kernel unchanged, and otherwise only if it improves the evidence of \cref{sec:alg-accept} by more
+than one nat. Complex factors of a real field are always kept together with their conjugates. The beam equation of
+\cref{app:cases} is an example. The core first fits it as one factor of degree two in $\tau$,
+$\tau^2+0.0903\,\xi^4$, whose component $u_1$ contains, at every wavenumber, two modes with rates
+$\lambda=\pm0.30\,i\kappa^2$. The recursion finds that this factor splits along its two root branches, into the children
+$\tau-0.3004\,i\xi^2$ and $\tau+0.3004\,i\xi^2$; their kernels together are the kernel of the parent, so the split is
+accepted without further evidence, and the two children, which are complex conjugates, are reported together.
+
+\subsection{Identifiability and the output labels}\label{sec:alg-labels}
+\Cref{sec:certify} rules out the label ``identified''. Each reported structure carries one of four labels.
+\begin{description}[leftmargin=2.9cm,labelwidth=2.7cm]
+  \item[\FC] Every factor $Q_j$, of degree $m_j$ in $\tau$ and $d_j$ in $\xi$, has at least $m_j(d_j+1)+1$ modes
+  (more data than coefficients), modes at $d_j+1$ distinct wavenumbers (\cref{prop:counting}), and $m_j$ modes
+  at some single wavenumber (one per root); and the fit passes the goodness-of-fit test below.
+  The data are compatible with the factored equation and pin down its coefficients within the class.
+  \item[\IDK] The fit is good, but some factor is determined only relative to the declared class (too
+  few distinct wavenumbers): another equation of a larger class fits equally well.
+  \item[\MIS] The goodness-of-fit test rejects the structure.
+  \item[\UND] The data cannot decide, typically because of confluent rates or a repeated factor.
+\end{description}
+Repeated factors ($Q=P_i^2$) are always reported as \UND: by \cref{thm:ident}(b) a repeated factor is
+visible only through polynomial prefactors $t\,e^{\lambda t}$, which finite noisy data cannot separate from
+two nearby rates.
+
+\subsection{Noise level and acceptance}\label{sec:alg-accept}
+The noise level enters in three places. The observation noise $\noise$ is integrated out in the
+interpolation (\cref{sec:alg-interp}). Per Fourier bin it becomes $\sigbin$, which sets the band and the
+rate uncertainties. In the final decision it is used against the \emph{raw observations}, not against the
+interpolated field. A candidate set of factors $Q_1,\dots,Q_N$ defines a linear model for the vector $y$ of the $n$
+observations: let $E_j$ be the matrix whose columns are the exponentials $e^{\lambda t+i\kappa x}$ of the kernel of $Q_j$
+(the functions spanned by $B_j$ in \cref{sec:alg-interference}), evaluated at the observation points, $E=[E_1\cdots E_N]$,
+and let $a$ be the vector of their amplitudes. Then
+\[
+  y=Ea+\varepsilon,\qquad \varepsilon\sim\Normal(0,\noise^2I),\qquad a\sim\Normal(0,\omega^2I),
+\]
+where $I$ is the identity matrix, so that $\noise^2I$ and $\omega^2I$ are the covariance matrices of the noise and of the
+amplitudes, and $\omega^2$ is the prior variance of each amplitude. Both are multivariate Gaussian distributions, and
+integrating the amplitudes out gives the distribution of the data under the candidate,
+\[
+  y\mid Q_1,\dots,Q_N\ \sim\ \Normal\big(0,\ \noise^2I+\omega^2EE^H\big),
+\]
+with $E^H$ the conjugate transpose of $E$. The score of the candidate adds a complexity penalty to the logarithm of
+this density,
+\begin{equation}\label{eq:raw-evidence}
+  S(Q_1,\dots,Q_N)=\log\Normal\big(y;\,0,\ \noise^2I+\omega^2EE^H\big)-\tfrac12\,n_{\rm par}\log n ,
+\end{equation}
+where $n_{\rm par}$ is the number of coefficients that define the factors. The first term is the log-probability of
+the observations actually made under the candidate factors, with the amplitudes integrated out; the second, as in the
+Bayesian information criterion, approximately accounts for the coefficients of the factors themselves, which were fitted
+rather than integrated, and penalizes candidates with more of them.
+The score is built to \emph{compare} candidate structures on the same data, which of two factor sets explains the
+observations better, not to judge one fit in isolation. It decides between candidates: dropping a factor, dropping a term whose $90\%$
+interval contains zero, merging two factors, or splitting one. A change is accepted only if it gains more
+than one nat. The same model gives a goodness-of-fit test: with $\hat y$ the projection of $y$ on the columns of $E$,
+\[
+  \chi^2=\sum_{i=1}^{n}\frac{\abs{y_i-\hat y_i}^2}{\noise^2},
+\]
+which, if the candidate is right and the noise Gaussian (variance $\noise^2$ per real observation), approximately follows
+a chi-squared distribution over noise realizations with $n-\rank E$ degrees of freedom; $\rank E$ rather than the number of
+columns, because a mode shared by two groups appears in both $E_1$ and $E_2$, and only approximately, because the rates in
+$E$ were themselves fitted to the data. (For complex data with $\mathbb E\abs{\varepsilon_i}^2=\noise^2$ the statistic is half
+a chi-squared variable with $2(n-\rank E)$ degrees of freedom.) A $p$-value below $10^{-3}$
+turns the label into \MIS. Deciding on the raw data matters:
+the interpolant has already smoothed the high wavenumbers, and a candidate that fits the interpolant may
+not fit the observations.
+
+Finally the interaction ratio $\rho$ of~\eqref{eq:energy} is computed for every evolution factor (degree one in $\tau$) with more than one
+term from the closed form~\eqref{eq:eint-fourier}. It is reported, not used to accept or reject: by
+\cref{prop:discont} it is a diagnostic of the evolution inside a factor, not a test of the factor.

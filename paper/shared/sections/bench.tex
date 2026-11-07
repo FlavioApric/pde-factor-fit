@@ -1,0 +1,119 @@
+% Shared module: benchmarks.
+\subsection{Benchmarks}\label{sec:bench}
+\paragraph{Design} The benchmark has ten linear constant-coefficient equations in one space dimension:
+transport, heat, advection--diffusion, Airy, Schr\"odinger (complex field), beam, wave, Klein--Gordon,
+telegraph, and the running example. Each is observed in three designs: a $64\times128$ grid with noise
+$1\%$, the same grid with noise $5\%$, and $400$ scattered points with noise $5\%$ (noise standard deviation
+relative to $\mathrm{std}\abs u$). This gives $30$ inputs. We compare with weak SINDy, ensemble SINDy,
+SBR SINDy~\cite{MesBor21,FasKutBru22,HirBarKut22}, PDE-FIND~\cite{RudBruProKut17} and BOP-DMD~\cite{SasKut22}, each
+run on the same input (on the scattered designs, on the same interpolated field) through the reference
+implementations PySINDy and PyDMD. The SINDy variants use a linear library of mixed derivatives, a target
+$\partial_t^{\,m}u$ of every order the benchmark needs, and a sparsity threshold selected by BIC over a grid
+of fourteen values (zero and $10^{-4},\dots,1$); their answers are therefore tuned to the same linear class as ours. An answer is \emph{right} if the recovered set of factors matches the true one
+within relative coefficient error $0.05$; \emph{equivalent} if it is the same product polynomial written
+differently; an \emph{abstention} if the method declines (labels \IDK{} or \UND); and
+\emph{false-confident} if it returns a wrong equation as if it were right. The baselines have no way to
+abstain, so every wrong baseline answer is false-confident.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.7\linewidth]{fig_bench}
+\caption{Outcomes on the 30 benchmark inputs (10 equations $\times$ 3 designs). Hatched: false-confident
+answers, i.e.\ a wrong equation returned without any warning.}\label{fig:bench}
+\end{figure}
+
+\begin{table}[tbp]
+\centering\small
+\caption{Benchmark outcomes per design (right or equivalent / false-confident, out of 10 each) and coefficient
+coverage. ``Previous version'' is an earlier run of the same pipeline with earlier decision rules. Runtimes are wall-clock medians per input; the pipeline ran
+with several workers on a shared machine.}\label{tab:bench}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Method & grid 1\% & grid 5\% & 400 pts 5\% & total & coef.\ cover$_{90}$ & median time\\
+\midrule
+this method        & 10 / 0 & 10 / 0 & 10 / 0 & 30 / 0 & 0.94 & 127 s\\
+previous version   & 10 / 0 & \phantom{1}8 / 1 & \phantom{1}8 / 0 & 26 / 1 & 0.84 & 5 s\\
+weak SINDy         & 10 / 0 & \phantom{1}7 / 3 & \phantom{1}8 / 2 & 25 / 5 & -- & 3 s\\
+ensemble SINDy     & \phantom{1}9 / 1 & \phantom{1}7 / 3 & \phantom{1}6 / 4 & 22 / 8 & -- & 5 s\\
+SBR SINDy          & \phantom{1}8 / 2 & \phantom{1}6 / 4 & \phantom{1}6 / 4 & 20 / 10 & -- & 14 s\\
+PDE-FIND           & \phantom{1}1 / 9 & \phantom{1}1 / 9 & \phantom{1}3 / 7 & \phantom{1}5 / 25 & -- & 0.6 s\\
+BOP-DMD            & \phantom{1}1 / 9 & \phantom{1}0 / 10 & \phantom{1}0 / 10 & \phantom{1}1 / 29 & -- & 1.5 s\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Results} The method returns the right factor set on all $30$ inputs and is never
+false-confident (\cref{fig:bench,tab:bench}). The best baseline, weak SINDy, is right or equivalent on $25$
+and false-confident on $5$: the beam equation and the running example in two designs each, and the
+Schr\"odinger equation on the grid at $5\%$ noise. Four of the five are products of factors (the wave equation, also a
+product, is handled correctly by weak SINDy); the other SINDy variants fail on the same products and on further
+inputs. Where the method returns intervals, the true coefficients fall inside the $90\%$ intervals in
+$94\%$ of cases, and the true energy shares fall inside their intervals in all six inputs where a split was reported. The comparison with the previous version isolates the effect of the grouping decisions of
+\cref{sec:alg-accept}: its one false-confident answer is the duplicated transport factor of
+\cref{sec:worked}.
+
+\paragraph{Independent repetitions} Because the $30$ inputs above share one field and one noise draw per equation,
+we repeated the two grid designs with three further seeds, each drawing a new field \emph{and} a new noise
+realization: $10$ equations $\times$ $2$ noise levels $\times$ $3$ seeds, $60$ independent inputs. \Cref{tab:multiseed}
+compares the method with weak SINDy, the strongest baseline of \cref{tab:bench}. The method returns the right factor
+set with the label \FC{} on all $60$ inputs, with coefficient coverage $0.94$ at nominal $0.90$; weak SINDy is
+false-confident on $13$, again mostly on products of factors (the running example $5$ times, the beam twice) and on the
+Schr\"odinger equation. With $60$ independent trials and no failure, a one-sided $95\%$ upper bound on the method's
+false-confident rate on these designs is $5\%$.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Grid designs repeated with independent fields and noise (seeds $1$--$3$): right / false-confident out of $30$
+per noise level. The weak-SINDy rows were rerun here with PySINDy~2.1.0 and the settings of \cref{tab:bench}.}\label{tab:multiseed}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Method & grid 1\% & grid 5\% & total\\
+\midrule
+this method & 30 / 0 & 30 / 0 & 60 / 0\\
+weak SINDy  & 26 / 4 & 21 / 9 & 47 / 13\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Equations outside the benchmark list} To test generalization we drew $20$ random equations
+from five families: first-order factors (F1), first-order dispersive factors (F2), irreducible
+second-order factors (F3), products of two or three factors (F4), and third-order factors or a reaction
+factor times a transport factor, often with few excited wavenumbers (F5). None of these draws was used to
+set any parameter. Each is observed on the grid
+with $1\%$ noise. \Cref{tab:e13} reports the outcomes. ``Equivalent'' here means that the returned
+equation explains the data as well as the true one by a $\chi^2$ test adjusted for degrees of freedom, and
+``abstain-ok'' that the method abstained on an input that is genuinely not resolvable at this noise level:
+a factor is resolvable when, computed from the truth alone, it has modes above the detection threshold at
+$d_j+1$ distinct $\abs\kappa$ (a stricter count than the label rule of \cref{sec:alg-labels}) and each of its terms moves some visible rate by more than three standard deviations.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Twenty random equations from five families, grid, $1\%$ noise. ``Core'' is the deterministic core of
+\cref{sec:alg-pencil,sec:alg-structfit} run once, without the outer loop and the statistical layer.}\label{tab:e13}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Method & right & equivalent & abstain-ok & abstain & false-confident\\
+\midrule
+this method    & 12 & 7 & 1 & 0 & \phantom{1}0\\
+core only      & \phantom{1}5 & 3 & 3 & 3 & \phantom{1}6\\
+ensemble SINDy & \phantom{1}6 & 1 & 0 & 0 & 13\\
+weak SINDy     & \phantom{1}5 & 1 & 0 & 0 & 14\\
+PDE-FIND       & \phantom{1}2 & 0 & 0 & 0 & 18\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The core alone is false-confident on six of the twenty draws, the full method on none: the outer loop and
+the statistical layer, not the spectral fit, are what turn a fit into a trustworthy answer. Five answers carry an abstaining label although their factors are right (two) or equivalent (three); they are
+counted by their factors, and no law is claimed for them.
+
+\paragraph{What these numbers do and do not show} All inputs are synthetic and noise is white. The $30$
+benchmark inputs share one noise draw per equation, so they are $10$ equations in three correlated
+designs, not $30$ independent trials; \cref{tab:multiseed} supplies independent repetitions for the grid designs, but
+not for the scattered design, whose Gaussian-process interpolation we did not rerun. The default parameters were tuned during
+development on test inputs built from the same ten equations, so \cref{tab:bench} is not a held-out
+evaluation; \cref{tab:e13} is. Runtimes are not comparable across methods: the
+method fits $90$ structures at the starting class ($1353$ if the class grows), each on every sample, and runs a bootstrap. The claims we draw are
+therefore qualitative: on equations whose structure is a product of factors, grouping by factors recovers
+the structure where regression on a term library does not, and the labels and intervals warn instead of
+returning a wrong equation.

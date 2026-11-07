@@ -1,0 +1,134 @@
+% Shared module: the worked example (one complete run).
+\subsection{A complete run on one data set}\label{sec:worked}
+We follow one input through every stage. The data are the running example (\cref{ex:tpd}) with $c=1$,
+$\nu=0.3$, observed on a $64\times128$ grid over $[0,2]\times[0,2\pi)$ with white noise of standard deviation
+$\noise=0.05\,\mathrm{std}\abs u$, the hardest grid setting of the benchmark in \cref{sec:bench}. The pipeline is
+run exactly as in the benchmark: one noisy grid, the outer loop with default parameters, and $16$
+parametric-bootstrap refits for the intervals. The run takes about two minutes on one core.
+The figures of this subsection also use a second run on the same input with $\Nsamp=32$ posterior samples,
+which shows the cloud of \cref{sec:bayes-cloud}.
+
+\paragraph{The band} Of the 64 positive wavenumbers below $\pi/\Delta x=64$, only $\kappa\le4$ rise above the
+detection threshold (\cref{fig:nyquist}); the noise-free field has negligible energy beyond $\kappa\approx5$, and
+a diffusive mode at $\kappa=3$ loses a factor $e^{-0.3\cdot9\cdot2}\approx e^{-5.4}$ of its amplitude over the
+window. Every later decision is made with these few bins.
+
+
+\paragraph{Modes and directions} The matrix pencil returns twelve modes (\cref{fig:directions}). Eight lie on
+the line $\operatorname{Im}\lambda=-\kappa$ with $\operatorname{Re}\lambda\approx0$ (transport), four on the parabola
+$\operatorname{Re}\lambda=-0.3\kappa^2$ with $\operatorname{Im}\lambda\approx0$ (diffusion). Each factor is a
+\emph{direction} in the frequency plane: a curve along which its modes line up. The structured fit
+recovers the two curves; the thin lines are the factors fitted to the 32 posterior samples and show the
+uncertainty of each curve, larger for diffusion at high $\abs\kappa$, where there are no modes. The counting
+condition of \cref{prop:counting} holds: the transport modes occupy eight distinct wavenumbers
+($\kappa=\pm1,\dots,\pm4$) and the diffusion modes four ($\pm1,\pm2$), against the two and three required
+for factors of degree one and two in $\xi$.
+
+\emph{How \cref{fig:directions} is built.} Each point is one mode $(\kappa,\lambda)$ returned by the pencil: its
+horizontal position is the wavenumber, its height the oscillation $\operatorname{Im}\lambda$ (panel a) or the damping
+$\operatorname{Re}\lambda$ (panel b), and its colour the factor to which the structured fit assigned it. Each thin line is
+one fitted factor, drawn as its dispersion curve $\lambda=\Lambda_j(i\kappa)$ for all $\kappa$, one line per factor and
+posterior sample. In the figure, the transport group is a sloped line in (a) and a flat line at zero in (b), a mode
+that travels without decaying; the diffusion group is flat in (a) and a downward parabola in (b), a mode that does not
+travel and decays faster at higher wavenumber. The thin lines bundle tightly where there are modes and fan out where
+there are none.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{fig_directions}
+\caption{The two groups of the running example as directions in the frequency plane. Points: modes found
+by the matrix pencil in the noisy data, coloured by the factor they were assigned to. Dashed: the true
+dispersion branches $\lambda=-ic\kappa$ and $\lambda=-\nu\kappa^2$. Thin lines: the factors fitted to 32
+posterior samples of the same input; their spread is the uncertainty of each direction. The points come from the run
+with the benchmark protocol, the lines from the 32-sample run. (a) Oscillation, $\operatorname{Im}\lambda$;
+(b) damping, $\operatorname{Re}\lambda$.}\label{fig:directions}
+\end{figure}
+
+\paragraph{Grouping and the evidence step} At the starting class the data-level evidence ranks the
+structure $((1,1),(1,2))$ (one factor of degree $(1,1)$, one of degree $(1,2)$) first, $0.13$ nats ahead of
+$((1,1),(1,3))$; the second class contains the first, so both are compatible with the truth and the simpler
+one is kept. The core, applied to the noisy grid, initially returned \emph{three} factors: the diffusion
+factor and two near-copies of the transport factor, $\tau+1.0006\,\xi$ and $\tau+1.0044\,\xi-0.0028$. Grouping
+by evidence on the observations removed the duplicate (the factor set without it has higher evidence), and
+dropped the constant terms, whose intervals contained zero. An earlier version of the pipeline (the row ``previous version'' of \cref{tab:bench}) returned a similar triple on
+this input, two transport copies $\tau+0.9989\,\xi$ and $\tau+1.0044\,\xi$ and a diffusion factor $\tau-0.263\,\xi^2$, and
+labelled it \FC: a confident wrong answer that the grouping step now prevents.
+
+\paragraph{Cloud and clusters} Over 32 posterior samples the core returns 64 factors. In coefficient space
+they form two tight clusters around the true factors (\cref{fig:grouping}a), and the largest principal angle
+between their kernels is near zero inside a cluster and about $1.2$ rad across clusters
+(\cref{fig:grouping}b). The Dirichlet-process mixture finds two clusters with masses $0.767$ and $0.233$;
+$P(k=2)=1$ and $\keff=1.72$ ($90\%$ interval $[1.67,1.79]$), which is far from $2$ only because the two
+groups carry unequal energy.
+
+\emph{How \cref{fig:grouping} is built.} In panel (a) each marker is one factor found in one posterior sample,
+placed at its coefficient of $\xi$ (horizontal) and of $\xi^2$ (vertical), with area proportional to its mass in the
+cloud. Panel (b) compares every pair of these factors by the spaces of functions they allow: for each factor we take the
+span of its kernel exponentials on the grid and band, and compute the principal angles between the two spans from the
+singular values of $B_i^HB_j$ (their cosines). The colour shows the largest of these angles, light for nearly
+the same space and dark for very different spaces, with rows and columns ordered by cluster. The figure shows, in (a),
+two tight, well separated clouds and nothing in between; in (b) two light blocks on the diagonal, because all factors of
+one group allow the same functions, and dark blocks off the diagonal, because the two groups do not. (The largest angle
+is used here to tell kernels apart; the Friedrichs angle of \cref{sec:cond} is the smallest nonzero one, which measures
+how well two different groups can be separated.)
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{fig_grouping}
+\caption{Grouping across posterior samples. (a) Each marker is one factor returned for one of 32 posterior
+samples, placed by its coefficients of $\xi$ and $\xi^2$, the two that separate the groups; area is proportional to its mass $\pi_qw_j$; crosses mark the true
+factors. (b) Largest principal angle between the sampled kernels of every pair of factors, ordered by cluster:
+the block structure is the grouping.}\label{fig:grouping}
+\end{figure}
+
+\paragraph{Components and energy} \Cref{fig:components} shows the data, the two components and the residual.
+The transport group carries $w_1=0.768$ of the energy and the diffusion group $w_2=0.232$, with $90\%$
+intervals of width below $0.002$. The joint residual of the data on the two kernels is $2.5\%$ of the data
+norm, and it shows no structure (\cref{fig:components}d). Each reported factor has a single term besides $\partial_t$, so its
+interaction ratio is $\rho=0$ by definition. Computed on the factors of the cloud before pruning, $\rho$ has median $0.03$
+($90\%$ interval $[0.01,0.07]$ over 32 samples), entirely due to the small constant and $\xi$ coefficients that
+the evidence step removes. For comparison, on the advection--diffusion equation (one factor with the two
+terms $c\partial_x$ and $\nu\partial_x^2$) the same pipeline reports $\rho=0.79$, with a $90\%$ interval
+$[0.788,0.793]$ over 16 samples: there the interaction is most of the evolution, as \cref{thm:eint} predicts.
+
+\emph{How \cref{fig:components} is built.} Each panel is a map of a function of $(t,x)$, with $x$ horizontal and $t$
+vertical, red for positive and blue for negative values, on one colour scale for all panels. The components are the sums
+of the modes of each group, \eqref{eq:uj}. The transport component consists of tilted stripes, a profile
+that moves at speed $c=1$ without changing shape; the diffusion component has vertical structure that fades with time; the
+residual has no pattern left.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{fig_components}
+\caption{The data of the worked example and its two groups as functions of $(t,x)$, on a common colour scale:
+(a) noisy data; (b) transport component; (c) diffusion component; (d) residual, magnified five times, which
+is indistinguishable from the noise.}\label{fig:components}
+\end{figure}
+
+\paragraph{The output} \Cref{tab:worked} lists the final output and how to read it. The separation of the two
+groups is moderate: $\cF=0.827$, $\thetaF=0.60$ rad, so errors in the components are amplified by at most
+$\gN^{-1/2}=2.41$. For contrast, the two conjugate factors of the beam equation
+$\tau\mp0.3\,i\xi^2$ (\cref{app:cases}) are recovered with the same accuracy but are much closer to each other: $\cF=0.939$, an
+amplification of $4.05$.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Output of the worked example and how to read each quantity. Intervals are $90\%$ intervals
+from 16 parametric-bootstrap refits.}\label{tab:worked}
+\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\toprule
+Quantity & Value & Meaning\\
+\midrule
+equation & $(\tau+1.0006\,\xi)(\tau-0.2980\,\xi^2)$ & recovered factors; truth $(\tau+\xi)(\tau-0.3\,\xi^2)$, largest relative error $0.7\%$\\
+coefficient of $\xi$ & $1.0006\ [0.9998,1.0020]$ & speed $c$ of the transport group\\
+coefficient of $\xi^2$ & $-0.2980\ [-0.3049,-0.2919]$ & diffusivity $\nu$ of the diffusion group\\
+label & \FC & enough distinct wavenumbers per factor, goodness of fit passed\\
+$P(k)$ & $P(k=2)=1$ & posterior over the number of groups\\
+$w_1,\ w_2$ & $0.768,\ 0.232$ & energy shares~\eqref{eq:energy} of the two groups\\
+$P(\text{split})$ & $1.000$ & evidence that the data need both groups\\
+$\gN,\ \cF,\ \thetaF$ & $0.173,\ 0.827,\ 0.60$ & separation of the groups (\cref{sec:cond})\\
+$\gN^{-1/2}$ & $2.41$ & worst-case error amplification of the components\\
+$\rho$ & $0$ & no interaction inside either reported factor (single terms)\\
+\bottomrule
+\end{tabularx}
+\end{table}
