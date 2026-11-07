@@ -1,0 +1,99 @@
+% Shared module: the grouping theorem (factor decomposition), projectors, why terms fail, holes.
+\subsection{Groups are factors, not terms}\label{sec:factor}
+Suppose the operator is known and factored as
+\begin{equation}\label{eq:factored}
+  P=P_1^{e_1}\cdots P_N^{e_N},\qquad Q_j=P_j^{e_j}\ \text{pairwise coprime}.
+\end{equation}
+Two ways of splitting a solution suggest themselves: one piece per \emph{factor} $Q_j$, or one piece
+per additive \emph{term} of the operator (for $u_t=\nu u_{xx}-cu_x$, one piece for diffusion and one
+for transport). Only the first works.
+
+\begin{theorem}[Factor decomposition]\label{thm:factor}
+Let $\Omega\subset\R^2$ be bounded, connected and simply connected, and let $P$ be as in
+\eqref{eq:factored}. Every $u\in\ker P(\partial)$ (in $\mathcal D'(\Omega)$ or $C^\infty(\Omega)$) can be
+written
+\begin{equation}\label{eq:decomp}
+  u=\sum_{j=1}^N u_j,\qquad Q_j(\partial)\,u_j=0 .
+\end{equation}
+The tuples $(u_1,\dots,u_N)$ that sum to zero form a space of exponential-polynomials of dimension
+exactly
+\begin{equation}\label{eq:deltaP}
+  \deltaP=\sum_{i<j}\dim_\C\ring/(Q_i,Q_j),
+\end{equation}
+the number of intersection points of the varieties $\Var(Q_i)$, counted pair by pair and with multiplicity.
+\end{theorem}
+
+The number $\dim_\C\ring/(Q_i,Q_j)$ therefore has two readings at once. Geometrically it counts the points where
+the curves $\Var(Q_i)$ and $\Var(Q_j)$ meet, with multiplicity. Analytically it is the dimension of the space of
+exponential-polynomials that solve both $Q_i$ and $Q_j$, one exponential for each meeting point (times polynomials at a
+point of higher multiplicity). For two groups these are exactly the functions that can be moved from one group to the
+other without changing $u$: each meeting point of the two curves is one shared mode. For three or more groups $\deltaP$
+still gives the dimension of the ambiguity, but the ambiguous tuples need not be sums of modes shared by pairs.
+
+In one variable the statement is B\'ezout's identity: if $aQ_1+bQ_2=1$, then
+$u=bQ_2u+aQ_1u$ splits $u$ into a solution of $Q_1$ and a solution of $Q_2$. In two variables
+``coprime'' no longer gives $1\in(Q_1,Q_2)$; it only gives finitely many common zeros, and the
+finite-dimensional quotient $\ring/(Q_1,Q_2)$ measures exactly how much the two groups overlap. The
+proof combines the exact sequence
+$0\to\ring/(Q_1Q_2)\to\ring/(Q_1)\oplus\ring/(Q_2)\to\ring/(Q_1,Q_2)\to0$ with the vanishing of the obstruction
+$\operatorname{Ext}^1(M,C^\infty(\Omega))$ for the finite-dimensional module $M=\ring/(Q_1,Q_2)$, which reduces to
+$H^1_{dR}(\Omega)=0$ (compare the fundamental principle of Ehrenpreis and Palamodov~\cite{Ehr70,Pal70});
+see \cref{app:proofs}.
+
+\begin{example}[Running example: two groups with a two-dimensional overlap]\label{ex:tpd-factor}
+For $Q_1=\tau+c\xi$ and $Q_2=\tau-\nu\xi^2$ the common zeros are $(0,0)$ and $(c^2/\nu,-c/\nu)$,
+both simple, so $\deltaP=2$. The ambiguity is spanned by the constant function and by
+$e^{(c^2/\nu)t-(c/\nu)x}$: a constant (or that growing exponential) can be moved from one group to
+the other without changing $u$. Among Fourier modes ($\xi=i\kappa$, $\kappa\in\R$) only the
+first point is visible: the $\kappa=0$ mode belongs to both groups.
+\end{example}
+
+\paragraph{Projectors from the eigenvalues}
+When each factor is an evolution factor, $Q_j=\tau-\Lambda_j(\xi)$ with pairwise distinct branches
+$\Lambda_j$, a component is an eigenfunction of $\partial_t$: $\partial_tu_j=\Lambda_j(\partial_x)u_j$. Applying
+$\prod_{k\ne j}(\partial_t-\Lambda_k(\partial_x))$ to $u=\sum_lu_l$ removes every $u_l$ with $l\ne j$ and multiplies $u_j$ by $\prod_{k\ne j}(\Lambda_j-\Lambda_k)(\partial_x)$.
+On a spatial Fourier mode $\kappa$ at which no two branches meet this factor is a nonzero number, hence
+\begin{equation}\label{eq:lagrange}
+  \hat u_j=\prod_{k\ne j}\frac{\partial_t-\Lambda_k(i\kappa)}{\Lambda_j(i\kappa)-\Lambda_k(i\kappa)}\;\hat u(t,\kappa) .
+\end{equation}
+This is a multiplier, rational in $\kappa$, with poles exactly where two branches
+meet ($\Lambda_j(i\kappa)=\Lambda_k(i\kappa)$), that is, at the visible part of the overlap counted by $\deltaP$.
+Formula~\eqref{eq:lagrange} is the Lagrange interpolation formula for the spectral projectors of a
+matrix with distinct eigenvalues, applied to $\partial_t$ restricted to one wavenumber: the
+\emph{eigenvalues decide the groups}. For the running example,
+$\hat u_1(t,\kappa)=\big(\partial_t+\nu\kappa^2\big)\hat u/\big(\nu\kappa^2-ic\kappa\big)$, which is
+singular only at $\kappa=0$.
+
+\paragraph{Why additive terms do not form groups}
+\begin{proposition}[Terms do not give components]\label{prop:terms}
+If $P=\mathcal A_1+\mathcal A_2$ with constant coefficients, then
+$\ker P\cap(\ker \mathcal A_1+\ker \mathcal A_2)\subseteq\ker P\cap\ker(\mathcal A_1\mathcal A_2)$, and the right-hand side is
+finite-dimensional whenever $\Var(\mathcal A_1)\cap\Var(\mathcal A_2)$ is finite.
+\end{proposition}
+
+\begin{proof}
+If $u=a+b$ with $\mathcal A_1a=0$ and $\mathcal A_2b=0$, then $\mathcal A_1\mathcal A_2u=\mathcal A_2\mathcal A_1a+\mathcal A_1\mathcal A_2b=0$ because the operators commute.
+At a common zero of $P$ and $\mathcal A_1\mathcal A_2$ either $\mathcal A_1=0$, and then $\mathcal A_2=P-\mathcal A_1=0$, or $\mathcal A_2=0$ and then
+$\mathcal A_1=0$; so $\Var(P,\mathcal A_1\mathcal A_2)=\Var(\mathcal A_1)\cap\Var(\mathcal A_2)$. When this set is finite, the ideal $(P,\mathcal A_1\mathcal A_2)$
+has finite codimension, its common kernel consists of exponential-polynomials with exponents in that
+set (\cref{lem:ep}), and it is finite-dimensional.
+\end{proof}
+
+For the heat equation, $\mathcal A_1=\partial_t$ and $\mathcal A_2=-\nu\partial_x^2$: every sum $f(x)+a(t)+b(t)x$ of a
+solution of $\mathcal A_1$ and one of $\mathcal A_2$ is killed by $\mathcal A_1\mathcal A_2\sim\partial_t\partial_x^2$, while a heat mode
+$e^{-\nu\kappa^2t}\cos\kappa x$ is not. A generic heat solution is \emph{not} ``a diffusion part plus a
+stationary part''. The leftover of any term-wise split is the interaction term of
+\cref{sec:eint}.
+
+\paragraph{Where the decomposition fails}
+The hypotheses of \cref{thm:factor} are not technical. On a disconnected domain different pieces
+can satisfy different equations. On a domain with a hole the decomposition can fail: the Laplacian
+factors as $(\partial_x+i\partial_y)(\partial_x-i\partial_y)$, yet $\log\abs{z}^2$ is harmonic on an annulus
+and is not a sum of a holomorphic and an antiholomorphic single-valued function. The obstruction is
+the first de Rham cohomology of $\Omega$, which is why the algorithm works on rectangles.
+
+\roleinalg{\Cref{thm:factor} is the grouping principle of the paper. The objects that a learning
+algorithm should group are \emph{modes of the same factor}; equivalently, points of the data's
+Fourier--Laplace spectrum lying on the same irreducible component of $\Var(P)$. The overlap $\deltaP$
+is the irreducible amount of ambiguity, and the algorithm resolves it by a fixed convention
+(the companion algorithm paper).}

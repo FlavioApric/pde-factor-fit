@@ -1,0 +1,31 @@
+% Extra definitions for the sections ported from the long analytical manuscript (boxes become plain environments).
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+\usepackage{needspace}
+\definecolor{cA}{HTML}{1F4E79}\definecolor{cB}{HTML}{C0392B}\definecolor{cC}{HTML}{1E8449}
+\definecolor{cD}{HTML}{B9770E}\definecolor{cG}{HTML}{7F8C8D}
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{exp(-(#1)^2/(2*#2))/sqrt(2*pi*#2)}}
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\Gcd}{gcd}
+\DeclareMathOperator{\dimc}{dim}
+% status badges
+\newcommand{\badge}[2]{\textcolor{#1}{\textsf{\footnotesize[#2]}}}
+\newcommand{\proved}[1][]{\badge{cC}{proved#1}}
+\newcommand{\modulo}[1]{\badge{cD}{proved mod.\ #1}}
+\newcommand{\condl}{\badge{cD}{conditional}}
+\newcommand{\openq}{\badge{cB}{open}}
+\newcommand{\falsest}{\badge{cB}{false}}
+\newcommand{\led}[1]{\textcolor{cG}{\textsf{\footnotesize(ledger #1)}}}
+\newcommand{\edmark}[1]{}
+% reading aids and boxes
+\newcommand{\sectionbrief}[3]{\par\noindent{\small\emph{Starting from:} #1 \emph{Why:} #2 \emph{Role:} #3}\par\smallskip}
+\newenvironment{intuition}{\begin{remark}[Intuition]}{\end{remark}}
+\newenvironment{caution}{\begin{remark}[Warning]}{\end{remark}}
+\newenvironment{keypoint}{\begin{remark}[Takeaway]}{\end{remark}}
+\newenvironment{takeaway}{\begin{remark}[Why it matters]}{\end{remark}}
+\newenvironment{aside}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{notebox}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{wstep}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak}{\par\medskip}
+\newcommand{\stepblock}[2]{\par\Needspace{6\baselineskip}\medskip\noindent\textbf{Step #1: #2}\par\nopagebreak\smallskip}
+% the algorithm is not part of this paper: drop the cross-references to it
+\renewcommand{\roleinalg}[1]{}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}

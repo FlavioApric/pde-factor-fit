@@ -1,0 +1,92 @@
+% Shared module: symbols, the operator ring, annihilators, the intrinsic operator.
+\subsection{Derivatives become polynomials}\label{sec:ring}
+Throughout, $\Omega\subset\R^2$ is a domain in the variables $(t,x)$ and every operator has constant
+coefficients,
+\[
+  P(\partial_t,\partial_x)=\sum_{j,k}c_{jk}\,\partial_t^{\,j}\partial_x^{\,k},\qquad c_{jk}\in\C .
+\]
+The exponentials $\psi_{\tau,\xi}(t,x)=e^{\tau t+\xi x}$, $(\tau,\xi)\in\C^2$, are common eigenfunctions of
+all such operators: $\partial_t \psi_{\tau,\xi}=\tau \psi_{\tau,\xi}$, $\partial_x \psi_{\tau,\xi}=\xi \psi_{\tau,\xi}$ and
+therefore
+\begin{equation}\label{eq:symbol-action}
+  P(\partial)\,\psi_{\tau,\xi}=P(\tau,\xi)\,\psi_{\tau,\xi}.
+\end{equation}
+Differentiation is thus replaced by multiplication, and operators are replaced by polynomials.
+
+\begin{definition}[Operator ring, symbol, characteristic variety]\label{def:ring}
+The constant-coefficient operators form the commutative ring
+$\ring=\C[\partial_t,\partial_x]\cong\C[\tau,\xi]$. The polynomial $P(\tau,\xi)$ is the \emph{symbol} of
+$P(\partial)$, and its zero set $\Var(P)=\{(\tau,\xi)\in\C^2:P(\tau,\xi)=0\}$ is the
+\emph{characteristic variety}.
+\end{definition}
+
+By \eqref{eq:symbol-action}, $\psi_{\tau,\xi}$ solves $P(\partial)u=0$ exactly when $(\tau,\xi)\in\Var(P)$.
+A Fourier mode in space is the case $\xi=i\kappa$ with wavenumber $\kappa\in\R$; then
+$P(\tau,i\kappa)=0$ is the \emph{dispersion relation}, and the roots $\tau=\lambda(\kappa)$ are the
+temporal rates of the mode $e^{\lambda(\kappa)t+i\kappa x}$.
+
+\paragraph{Convention}
+We keep the algebraic variable $\xi$ in statements about the ring and write $\xi=i\kappa$ only when we
+evaluate on Fourier modes. With this convention a symbol has real coefficients exactly when the
+equation is real, and no factor $i$ ever appears inside $\ring$.
+
+\begin{example}[Transport plus diffusion: the running example]\label{ex:tpd}
+The operator $P=(\partial_t+c\,\partial_x)(\partial_t-\nu\,\partial_x^2)$, with speed $c>0$ and diffusivity
+$\nu>0$, has symbol
+\[
+  P(\tau,\xi)=Q_1Q_2,\qquad Q_1=\tau+c\,\xi,\qquad Q_2=\tau-\nu\,\xi^2 .
+\]
+On Fourier modes the two factors give two dispersion branches, $\lambda_1(\kappa)=-ic\kappa$ (a
+wave that travels without decay) and $\lambda_2(\kappa)=-\nu\kappa^2$ (a standing mode that decays).
+A solution is any superposition of modes on the two branches. The equation is one object; its
+\emph{two factors} are two groups of modes. Recovering those groups from data is the subject of this
+paper. We use $c=1$, $\nu=0.3$ in all numerical illustrations.
+\end{example}
+
+\subsection{What a solution knows: the annihilator}\label{sec:ann}
+A single function satisfies many equations: $e^{x}$ is annihilated by $\partial_x-1$, by
+$\partial_x^2-1$ and by every multiple of $\partial_x-1$.
+
+\begin{definition}[Annihilator]\label{def:ann}
+For a distribution $u$ on $\Omega$, $\Ann(u)=\{Q\in\ring:\ Q(\partial)u=0\}$.
+\end{definition}
+
+$\Ann(u)$ is an ideal: it is closed under sums and under multiplication by any operator, because
+$(SQ)(\partial)u=S(\partial)\big(Q(\partial)u\big)=0$. It collects every constant-coefficient equation
+that $u$ satisfies. We use three classical facts about $\C[\tau,\xi]$~\cite{CLO15}:
+unique factorization into irreducible polynomials; B\'ezout's theorem (two polynomials without a
+common factor have finitely many common zeros); and Hilbert's Nullstellensatz (if $q$ vanishes on
+the zero set $\Var(I)$ of an ideal $I$, then $q^k\in I$ for some $k$). All three require the complex
+field, which is why symbols are always considered over $\C$.
+
+\begin{lemma}[Splitting off the greatest common divisor]\label{lem:gcd}
+Every nonzero ideal $I\subset\ring$ factors as $I=g\cdot J$, where $g=\gcdop(I)$ and $J$ is an ideal
+with finite zero set $\Var(J)$.
+\end{lemma}
+
+The proof (\cref{app:proofs}) is elementary: divide by $g$, then use B\'ezout on two elements of $J$
+without a common factor. Applied to $I=\Ann(u)$ the lemma gives the decomposition
+\begin{equation}\label{eq:GJ}
+  \Ann(u)=\Gu\,\Ju,\qquad \Gu=\gcdop\Ann(u),\qquad \sigp(u)=\Var(\Ju)\ \text{finite}.
+\end{equation}
+The polynomial $\Gu$ is the part of the equation that $u$ fills out along whole curves of $\C^2$;
+the finite set $\sigp(u)$, the \emph{point spectrum} of $u$, lists the isolated exponentials that $u$
+happens to contain. We call $\Gu$ the \emph{intrinsic operator} of $u$: it depends on $u$ alone,
+whereas an annihilator $P$ supplied from outside may contain spurious factors.
+
+\paragraph{Reading the two pieces}
+The two objects in~\eqref{eq:GJ} answer different questions. The polynomial $\Gu$ is a differential
+equation: its zero set $\Var(\Gu)$ is a union of curves in $\C^2$, and each curve is a continuous family of
+exponential modes $e^{\tau t+\xi x}$, all solving $\Gu(\partial)v=0$. The point spectrum $\sigp(u)$ is a list: the
+finitely many individual exponential modes that are present in this particular function $u$ and are not
+accounted for by $\Gu$. In short, $\Gu$ identifies an equation that describes a whole family of modes;
+$\sigp(u)$ identifies the isolated modes that $u$ happens to contain. \Cref{ex:extremes} shows the two
+extreme cases.
+
+\begin{example}[Two extremes]\label{ex:extremes}
+For $u=e^{x}$, $\Ann(u)=(\tau,\ \xi-1)$ is the ideal of the single point $(0,1)$; hence $\Gu=1$ and
+$\sigp(u)=\{(0,1)\}$: the function knows one exponential and no equation. For $u=f(x-ct)$ with a
+profile $f$ that is not a finite sum of exponentials times polynomials,
+$\Ann(u)=(\tau+c\xi)$; hence $\Gu=\tau+c\xi$ and $\sigp(u)=\emptyset$: the function knows its
+equation completely (\cref{thm:ident}).
+\end{example}

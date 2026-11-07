@@ -1,0 +1,29 @@
+\sectionbrief
+{no new assumptions.}
+{to state what is impossible, what is open, and how reliable the results are.}
+{delimits the claims of the paper.}
+\paragraph{What is impossible} (all \proved).
+\begin{itemize}[nosep]
+\item finite certificates of identification, and black-box identification (Section~\ref{sec:certify});
+\item per-term decomposition of the solution (Proposition~\ref{prop:terms}\edmark{E9});
+\item stable regularization of $\Eint$ (Proposition~\ref{prop:discont});
+\item identification by restricting variable-coefficient operators to one solution;
+\item decomposition on domains with holes (Figure~\ref{fig:hole});
+\item a finite product of single-term flows reproducing non-commuting dynamics.
+\end{itemize}
+
+\paragraph{Open or conditional.}
+\begin{itemize}[nosep]
+\item identification for analytic KdV data with nonzero reflection coefficient \led{INT-Q1} \openq;
+\item time-uniform shock estimate with several shock births \led{OPA-Q1} \condl;
+\item density of the sum of kernels on nonconvex domains \openq;
+\item exact values $\delta_N(K)$ of an invariant for general $N$ \led{OPF5C-Q1} \openq;
+\item nonlinear asymptotics with derivatives \led{S4ID-P8} \condl;
+\item closedness of the sum of kernels for $N\ge3$ differential factors \led{C12-Q2} \openq.
+\end{itemize}
+
+\paragraph{Honest assessment.} Many ingredients are classical (Malgrange--Ehrenpreis, Nullstellensatz, Cole--Hopf, inverse scattering). The contribution is the \emph{package}: sharp characterizations, negative theorems, and counterexamples, each with a verified status. Independent reviewers were AI agents. Fifteen theorems of the algebraic core (the $\Eint$ identity for commuting flows, the comaximal factor decomposition with explicit projector, companion normality for $k=2$, irreducibility results) are formalized in Lean~4/Mathlib without \texttt{sorry}; the analytic parts (distributions, Sobolev spaces, semigroups) are not, since Mathlib lacks the libraries. Several citations were verified only on secondary sources; a result relied upon should be traced to its primary source. Out of scope so far: a variable potential treated as noise (Schr\"odinger/Dirac), matrix-valued coefficients ($4\times4$ Dirac), and any statistical preprocessing.
+
+%======================================================================
+\clearpage
+\appendix

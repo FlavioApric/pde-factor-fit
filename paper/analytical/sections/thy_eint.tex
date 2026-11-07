@@ -1,0 +1,72 @@
+% Shared module: interaction term and energy.
+\subsection{Inside one group: the interaction term and its energy}\label{sec:eint}
+A single factor may have several additive terms: $Q_2=\tau-\nu\xi^2$ has one, but the advection--diffusion
+factor $\tau+c\xi-\nu\xi^2$ has two. \Cref{prop:terms} says that such a factor cannot be split further
+into one solution per term. We now measure exactly what is left over.
+
+Consider an evolution $u_t=\mathcal Au$ with $\mathcal A=\mathcal A_1+\dots+\mathcal A_K$ (the terms), the flow $\flow(t)=e^{t\mathcal A}$ and the
+flows of the single terms $\flow_n(t)=e^{t\mathcal A_n}$. If term $n$ acted alone it would change the datum by
+$\Delta_nu_0=(\flow_n(t)-\Id)u_0$. The \emph{interaction term} is the part of the evolution that is not
+the sum of these single-term changes,
+\begin{equation}\label{eq:eint-def}
+  \Eint(t)=u(t)-u_0-\sum_{n=1}^K\big(\flow_n(t)u_0-u_0\big).
+\end{equation}
+
+\begin{theorem}[Interaction term]\label{thm:eint}
+If the terms commute (in particular, for constant coefficients),
+\[
+  \Eint(t)=\Big[\prod_{n=1}^K(\Id+\Delta_n)-\Id-\sum_{n=1}^K\Delta_n\Big]u_0
+  =\sum_{\mathcal E\subseteq\{1,\dots,K\},\ \abs{\mathcal E}\ge2}\Big(\prod_{n\in\mathcal E}\Delta_n\Big)u_0 .
+\]
+For two terms $\Eint=\Delta_1\Delta_2u_0$. On Fourier modes, with symbols $\hat{\mathcal A}_n(\kappa)$ of the terms,
+\begin{equation}\label{eq:eint-fourier}
+  \widehat{\Eint}(t,\kappa)=\Big[\prod_ne^{t\hat{\mathcal A}_n(\kappa)}-1-\sum_n\big(e^{t\hat{\mathcal A}_n(\kappa)}-1\big)\Big]\hat u_0(\kappa).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Commuting terms give $\flow=\prod_n\flow_n=\prod_n(\Id+\Delta_n)$. Expanding the product over subsets
+$\mathcal E\subseteq\{1,\dots,K\}$ and removing the subsets with zero or one element gives the formula; on
+Fourier modes every operator is multiplication by a number.
+\end{proof}
+
+Formula~\eqref{eq:eint-fourier} costs $O(K)$ operations per wavenumber, although writing out all
+cross terms would need $2^K-K-1$ of them. For advection--diffusion,
+$\abs{\widehat{\Eint}}/\abs{\hat u_0}=\abs{(e^{-ic\kappa t}-1)(e^{-\nu\kappa^2t}-1)}\le2$: the interaction
+is of the same size as the solution, so it is not a small correction that a regularizer could remove.
+
+\begin{proposition}[No stable removal]\label{prop:discont}
+Let $Q=\tau+c\xi-\nu\xi^2$ (advection--diffusion, terms $-c\partial_x$ and $\nu\partial_x^2$) on a bounded
+rectangle $\Omega=(0,T)\times(a,b)$. For every $s\ge0$,
+\[
+  \sup\Big\{\norm{\Eint}_{L^2(\Omega)}/\norm{u}_{\Hs(\Omega)}:\ u\in\EP,\ Q(\partial)u=0,\ u\ne0\Big\}=\infty,
+\]
+so $u\mapsto\Eint$ has no continuous extension to $\ker_{\Hs}Q$. Moreover, a solution of $Q(\partial)u=0$ is a
+sum $v+w$ of solutions of the single-term evolutions $(\partial_t+c\partial_x)v=0$ and $(\partial_t-\nu\partial_x^2)w=0$ only
+if it lies in a finite-dimensional space of exponential-polynomials.
+\end{proposition}
+
+The test solutions are $e^{\lambda_\zeta t+\zeta x}$ with real $\zeta>c/\nu$ and $\lambda_\zeta=\nu\zeta^2-c\zeta$, legitimate
+data on a bounded interval: diffusion alone amplifies them by $e^{\nu\zeta^2t}$, the solution grows only like
+$e^{\lambda_\zeta t}$, and the interaction must cancel a difference that grows faster than any power of $\zeta$
+(\cref{app:proofs}). On a periodic domain with bounded wavenumbers the Fourier multiplier above is bounded by
+$2$; the instability comes from the non-periodic window, which is the situation of real data. The second
+statement means that a model which writes the data as a sum of single-term pieces, with any penalty on the
+pieces, leaves a remainder on generic data, and that remainder is the interaction.
+
+\paragraph{Energy}
+We measure the size of a group and of the interaction by $L^2$ energies on the observation window.
+The \emph{energy share} of group $j$ and the \emph{interaction ratio} are
+\begin{equation}\label{eq:energy}
+  w_j=\frac{\norm{u_j}}{\sum_k\norm{u_k}},\qquad
+  \rho=\frac{\norm{\Eint(T)}}{\norm{u(T)-u_0}} ,
+\end{equation}
+where $T$ is the length of the time window. The shares $w_j$ say how much of the data each group
+explains; $\rho$ says how far the evolution inside a multi-term factor is from the superposition of its
+terms ($\rho=0$ for a factor with a single term). Interactions occur only \emph{inside} a factor:
+different factors superpose exactly, which is another way of saying that factors, not terms, are the
+right groups.
+
+\roleinalg{By \cref{prop:discont}, a value of $\Eint$ computed from one interpolated field on a
+bounded window is not reliable. The algorithm reports the distribution of $\rho$ over posterior samples
+(the companion algorithm paper), never a single number, and uses the shares $w_j$ with credible intervals.}

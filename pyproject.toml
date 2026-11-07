@@ -1,0 +1,12 @@
+[project]
+name = "pde-factor-analytical"
+version = "0.0.1"
+description = "Symbolic verification scripts for the analytical theory of factor decomposition of linear PDEs"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "sympy", "mpmath"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

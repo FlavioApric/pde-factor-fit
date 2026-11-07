@@ -1,0 +1,24 @@
+﻿# Excluded: environments, build caches, vendored third-party repos, drive system folders
+.venv/
+.lake/
+node_modules/
+__pycache__/
+*.pyc
+_vendor/
+.vendor/
+System Volume Information/
+$RECYCLE.BIN/
+avast! sandbox/
+.git_aside/
+.claude/
+skills-local/
+graphify-out/
+.venv/
+.vendor/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+analysis/exp/out/
+benchmarks/out/
+analysis/exp/cache/

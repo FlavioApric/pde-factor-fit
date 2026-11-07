@@ -1,0 +1,46 @@
+% Shared module: exponential-polynomials.
+\subsection{Exponential-polynomials: the solutions that remember too little}\label{sec:ep}
+\begin{definition}[Exponential-polynomials]\label{def:ep}
+$\EP$ is the set of finite sums $\sum_{j}p_j(t,x)\,e^{\tau_jt+\xi_jx}$ with polynomials $p_j$ and
+exponents $(\tau_j,\xi_j)\in\C^2$. $\EP(\Omega)$ denotes their restrictions to $\Omega$.
+\end{definition}
+
+For a function $w$ let $\ring w=\spn\{\partial_t^{\,j}\partial_x^{\,k}w:\ j,k\ge0\}$ be the space of all its
+derivatives. The map $Q\mapsto Q(\partial)w$ is onto $\ring w$ with kernel $\Ann(w)$, so
+$\ring w\cong\ring/\Ann(w)$ as vector spaces.
+
+\begin{lemma}[Finite-dimension criterion]\label{lem:ep}
+Let $\Omega$ be connected. Then $w\in\EP(\Omega)$ if and only if $\dim_\C\ring w<\infty$. In that case
+$\Var(\Ann w)$ is the finite set of exponents $\{(\tau_j,\xi_j)\}$ that occur in $w$.
+\end{lemma}
+
+\begin{proof}[Proof idea]
+We show that $w$ is an exponential-polynomial if and only if its derivatives span a finite-dimensional
+space. ($\Rightarrow$) For one term $w=p(t,x)\,e^{at+bx}$,
+\[
+  \partial_tw=(p_t+a\,p)\,e^{at+bx},\qquad \partial_xw=(p_x+b\,p)\,e^{at+bx}.
+\]
+Differentiation never raises the degree of $p$, so every derivative of $w$ lies in the finite-dimensional space
+of polynomials of degree at most $\deg p$ times $e^{at+bx}$; a finite sum of such terms stays in a finite sum of
+such spaces. ($\Leftarrow$) If $\ring w$ is finite-dimensional, $\partial_t$ and $\partial_x$ map it to itself and act
+on it as two commuting matrices $A$ and $B$. Their minimal polynomials $m_A$ and $m_B$ give two
+constant-coefficient differential equations,
+\[
+  m_A(\partial_t)\,w=0,\qquad m_B(\partial_x)\,w=0,
+\]
+one in each variable. On every rectangle inside $\Omega$ their common solutions are exponential-polynomials, and
+connectedness extends this representation to all of $\Omega$. The joint eigenvalues $(a,b)$ of $A$ and $B$ are
+the exponents that occur in $w$. Details are in \cref{app:proofs}.
+\end{proof}
+
+\inbrief{Deciding whether $w\in\EP$ is a finite-dimensional linear-algebra question: compute the rank
+of the derivatives of $w$. The joint eigenvalues of the two matrices are the exponents, that is, the
+points of $\C^2$ at which $w$ lives. This is the computational core of everything that follows: the
+matrix pencil of \cref{sec:alg-pencil} is exactly this eigenvalue computation, done for $\partial_t$
+one wavenumber at a time.}
+
+\begin{example}[Rich and poor solutions of the heat equation]\label{ex:heat-rich-poor}
+A single heat mode $e^{-\nu\kappa^2t+i\kappa x}$ and any finite sum of such modes belong to $\EP$.
+The heat kernel $t^{-1/2}e^{-x^2/(4\nu t)}$ does not: its $x$-derivatives are polynomials of
+increasing degree times the same Gaussian, so they span an infinite-dimensional space.
+\end{example}

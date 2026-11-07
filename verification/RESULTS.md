@@ -1,0 +1,99 @@
+# Verification scripts: run status (2026-11-07, Linux, Python 3.12, sympy/mpmath/numpy/scipy)
+
+Each script is a symbolic or high-precision check behind a proof package in `proofs/`. They check; they do not prove.
+
+- passed (exit 0 within 90 s): 76
+- slow (still running after 90 s, not judged): 12
+- removed (needed data or helper modules that were not kept): 6 (opf5c_delta, opf5c_nov, opf5c_nov2, kdv_checks_lib, s10b_delta, explore2)
+
+## Slow scripts
+- `OP-ANA/op_q1_burgers.py`
+- `OP-ANA/op_q3_nogo.py`
+- `OP-F5A/opf5a_check3.py`
+- `OP-F5A/opf5a_triple.py`
+- `OP-F5D/solitons.py`
+- `OP-NL/kdv_checks.py`
+- `P3/p3_checks.py`
+- `S10-OPEN-B/s10b_f4.py`
+- `S4-ID/s4id_checks2.py`
+- `S4-TERM/s4_beyond_shock_numeric.py`
+- `S8-DICT/s8dict_checks2.py`
+- `S8-ENC/enc_s8b.py`
+
+## Passed
+- `C1C2/c12_gammaN.py`
+- `C1C2/c12_t1prime.py`
+- `C1C2/c12_counterexample.py`
+- `C1C2/c12_factors.py`
+- `C1C2/c12_gram.py`
+- `C1C2/c12_appell.py`
+- `C1C2/c12_catalog.py`
+- `OP-ALG/op_alg_checks.py`
+- `II/s2_checks.py`
+- `C3/c3_checks.py`
+- `II/s3_ripresa.py`
+- `OP-ANA/op_q2_bordo.py`
+- `OP-F5A/opf5a_q1_burgers.py`
+- `OP-F5A/opf5a_check2b.py`
+- `OP-F5A/opf5a_q3_bordo.py`
+- `OP-F5A/opf5a_check2.py`
+- `OP-F5B/opf5b_checks.py`
+- `OP-F5C/opf5c_k15.py`
+- `OP-F5C/opf5c_gd.py`
+- `OP-F5D/burgers_l1.py`
+- `OP-F5D/zc_all.py`
+- `OP-FUN/opfun_checks.py`
+- `OP-NL/airy_checks.py`
+- `OP-F5D/lax_all.py`
+- `OP-NL/kdv_generic.py`
+- `OP-NL/lax_checks.py`
+- `OP-NL/modlin.py`
+- `OP-F5C/opf5c_checks.py`
+- `P1/p1_checks.py`
+- `OP-NL/k1_checks.py`
+- `P1/p1_checks2.py`
+- `OP-R2/opr2_checks.py`
+- `P2/p2_c2.py`
+- `P2/p2_ripresa4.py`
+- `P3/p3_ripresa5.py`
+- `P2/p2_checks.py`
+- `P4/p4_checks.py`
+- `S10-COL/s10col_sym.py`
+- `S10-OPEN-A/s10a_q6.py`
+- `S10-OPEN-A/s10a_q7.py`
+- `S10-OPEN-B/s10b_annulus.py`
+- `S10-OPEN-A/s10a_p2q1.py`
+- `S10-COL/s10col_flow.py`
+- `S10-OPEN-B/s10b_hm.py`
+- `S10-OPEN-C/s10openc_checks.py`
+- `S4-ID/jetrel.py`
+- `S10-OPEN-C/rev2_checks.py`
+- `S10-OPEN-B/s10b_f4_f5check.py`
+- `S4-ID/reduction_checks.py`
+- `S4-TERM/s2_closed_form.py`
+- `S4-TERM/s3_adjoint_orbit.py`
+- `S4-TERM/s1_jet.py`
+- `S4-TERM/s5_eps2_kdvb.py`
+- `S4-INTEG/integ_checks.py`
+- `S4-ID/s4id_checks.py`
+- `S8-CONV/conv_t5_noise.py`
+- `S8-CONV/conv_t1_t2.py`
+- `S8-CONV/conv_q6_splitting.py`
+- `S8-DICT/s8dict_checks3.py`
+- `S8-DICT/s8dict_checks.py`
+- `S8-ENC/eint_closed.py`
+- `S8-ENC/enc_g8.py`
+- `S8-ENC/enc_algebra.py`
+- `S8-ENC/enc_recep.py`
+- `S8-CONV/conv_loc_dim_bordo.py`
+- `S8-SYS/s8sys_checks.py`
+- `S8-VAR/s8_c3q2.py`
+- `S8-VAR/s8_galois.py`
+- `S8-ENC/enc1_goursat.py`
+- `S8-VAR/s8_lie.py`
+- `S8-VAR/s8_nonaut.py`
+- `S8-VAR/s8_ident.py`
+- `c12_catalog.py`
+- `S8-VAR/s8_osc.py`
+- `S8-VAR/s8_carleman.py`
+- `S8-VAR/s8_pt.py`

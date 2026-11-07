@@ -1,0 +1,32 @@
+% Shared figure for the introductions: the two groups of the running example as curves of modes.
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[x=0.40cm,y=0.40cm,>=Stealth,font=\footnotesize]
+  % (a) oscillation slice
+  \begin{scope}
+    \draw[->,gray] (-4.5,0)--(4.8,0) node[right,black]{$\kappa$};
+    \draw[->,gray] (0,-4.5)--(0,4.8) node[above,black]{$\operatorname{Im}\lambda$};
+    \draw[very thick,color={rgb,255:red,42;green,120;blue,214}] (-4.2,4.2)--(4.2,-4.2);
+    \draw[very thick,color={rgb,255:red,235;green,104;blue,52},dashed] (-4.2,0)--(4.2,0);
+    \foreach \k in {-3,-2,-1,1,2,3} \fill[color={rgb,255:red,42;green,120;blue,214}] (\k,-\k) circle (2.6pt);
+    \foreach \k in {-2,-1,1,2} \fill[color={rgb,255:red,235;green,104;blue,52}] (\k,0) +(-2.4pt,-2.4pt) rectangle +(2.4pt,2.4pt);
+    \node[anchor=west,align=left] at (1.2,3.3) {transport\\$\lambda=-ic\kappa$};
+    \node at (0,-5.8) {(a) oscillation};
+  \end{scope}
+  % (b) damping slice
+  \begin{scope}[xshift=10.6cm]
+    \draw[->,gray] (-4.5,0)--(4.8,0) node[right,black]{$\kappa$};
+    \draw[->,gray] (0,-4.5)--(0,1.6) node[above,black]{$\operatorname{Re}\lambda$};
+    \draw[very thick,color={rgb,255:red,42;green,120;blue,214},dashed] (-4.2,0)--(4.2,0);
+    \draw[very thick,color={rgb,255:red,235;green,104;blue,52},domain=-3.8:3.8,samples=60] plot (\x,{-0.3*\x*\x});
+    \foreach \k in {-3,-2,-1,1,2,3} \fill[color={rgb,255:red,42;green,120;blue,214}] (\k,0) circle (2.6pt);
+    \foreach \k in {-2,-1,1,2} \fill[color={rgb,255:red,235;green,104;blue,52}] (\k,{-0.3*\k*\k}) +(-2.4pt,-2.4pt) rectangle +(2.4pt,2.4pt);
+    \node[anchor=west,align=left] at (1.8,1.6) {diffusion\\$\lambda=-\nu\kappa^2$};
+    \node at (0,-5.8) {(b) damping};
+  \end{scope}
+\end{tikzpicture}
+\caption{The idea of the paper on the equation $(\partial_t+c\,\partial_x)(\partial_t-\nu\,\partial_x^2)u=0$. Every Fourier mode
+$e^{\lambda t+i\kappa x}$ of a solution lies on the zero set of one factor of the symbol $(\tau+c\xi)(\tau-\nu\xi^2)$: circles
+on the line of the transport factor, squares on the parabola of the diffusion factor (schematic; \cref{fig:directions}
+shows the modes found in noisy data). Learning the equation means learning these two groups.}\label{fig:branches}
+\end{figure}
