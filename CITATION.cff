@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "pde-factor-fit: grouping structure of linear PDEs and its use in fitting them from data"
+type: software
+authors:
+  - family-names: Pricoco
+    given-names: Flavio
+    email: flaflapr@gmail.com
+repository-code: "https://github.com/flavioapric/pde-factor-fit"
+license: MIT
+date-released: 2026-11-07
+keywords:
+  - equation discovery
+  - linear PDE
+  - operator factorization
+  - dispersion relation
+  - Dirichlet process

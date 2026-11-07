@@ -1,0 +1,14 @@
+% Fallback that mimics the parts of siamonline used by the papers (only when the class is absent).
+\usepackage[letterpaper,margin=1.15in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\newcommand{\headers}[2]{\pagestyle{fancy}\fancyhf{}\fancyhead[LE]{\small\thepage\quad\textsc{#2}}%
+  \fancyhead[RO]{\small\textsc{#1}\quad\thepage}\fancyhead[LO,RE]{}\renewcommand{\headrulewidth}{0pt}}
+\newcommand{\email}[1]{\texttt{#1}}
+\newcommand{\funding}[1]{\par\noindent\textbf{Funding:} #1}
+\newenvironment{keywords}{\par\smallskip\noindent\textbf{Key words.}\ }{\par}
+\newenvironment{MSCcodes}{\par\smallskip\noindent\textbf{MSC codes.}\ }{\par}
+\newenvironment{AMS}{\par\smallskip\noindent\textbf{AMS subject classifications.}\ }{\par}
+\renewenvironment{abstract}{\par\small\noindent\textbf{Abstract.}\ }{\par\normalsize}

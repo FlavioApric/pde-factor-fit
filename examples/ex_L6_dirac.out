@@ -1,0 +1,11 @@
+    max |KG f| = 0.e-172  max |Dirac psi| = 0.e-174
+    valori singolari (dato non EP): ['4.277e-02', '4.277e-02', '2.952e-01', '2.952e-01', '6.286e-01', '6.286e-01', '1.367e+00', '1.367e+00']
+    valori singolari (onda piana): ['4.866e+00', '4.866e+00', '4.597e-17', '4.597e-17', '2.702e-31', '9.402e-32', '9.280e-32', '4.867e-48']
+PASS (a) fattorizzazione Dirac -> KG
+PASS (b) f risolve KG (num., |res| < 1e-20)
+PASS (b) psi risolve Dirac (num., |res| < 1e-20)
+PASS (c) dato non EP: rango 8 (sigma_min > 1e-6)
+PASS (c) (A,B) = (-i sigma_x, m sigma_z) risolve il sistema
+PASS (c) onda piana risolve Dirac
+PASS (c) dato EP (onda piana): rango 2 < 8
+7/7 PASS

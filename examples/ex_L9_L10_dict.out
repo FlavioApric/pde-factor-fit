@@ -1,0 +1,19 @@
+    r_1 = 0.077828706   r_2 = 4.1297e-33
+    coefficienti livello 2 (1, dx, dxx, dtdx, dtt): ['0.0', '0.0', '-1.0', '0.0', '0.0']
+    autovalori Gram omogeneo livello 2: ['1.251e-28', '0.0001712', '0.0008157', '0.03043', '0.1078', '1.617']
+    rho = 0.0130856  delta = 0.00935951  sin = 0.078548  2 delta/rho = 1.43051
+    (c') eps = 1e-4: delta = 0.000935951  sin = 0.00492534  2 delta/rho = 0.143051
+    (a') r_1 per residuo diretto = 0.077828706
+PASS L9 u_t = -|D| u
+PASS L9 u_t = i u_x (legge locale)
+PASS L10 u risolve il calore
+PASS L10(a) misfit al livello 1: r_1 > 1e-3
+PASS L10(b) fit al livello 2: r_2 < 1e-10
+PASS L10(b) minimizzatore = d_t - d_x^2
+PASS L10(b) esattamente un autovalore nullo
+PASS L10(c) CONV-T4(a): sin <= 2 delta/rho
+PASS L10(c') CONV-T4(a) non vacuo: 2 delta/rho < 1 e sin <= 2 delta/rho
+PASS L10(a') r_1 residuo diretto = r_1 Gram (rel. 1e-10)
+PASS L10(d) ker Phi_u = 0 (ID-ker)
+PASS L10(d) nessuna legge (H-ex falsa)
+12/12 PASS

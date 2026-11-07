@@ -1,0 +1,7 @@
+    max |residuo diretto| = 0.e-177
+PASS (a) w gaussiana risolve Schroedinger libero (residuo 0)
+PASS (a)-(b) u = e^{i(-Bx+g)} w(t, x-s): residuo = t x
+PASS (b) u = exp(l), l finito su I x R: nessuno zero
+PASS (c) DM-phi: residuo di e^{i phi} u = t x - phi'(t)
+PASS (a) controllo diretto su u (|res| < 1e-30)
+5/5 PASS

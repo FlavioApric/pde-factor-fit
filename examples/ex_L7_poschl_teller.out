@@ -1,0 +1,12 @@
+PASS (a) stato legato risolve
+PASS (a) stato di scattering risolve
+PASS (a) residuo (i u_t + u_xx)/u = -2 sech^2 x (verificato come (i u_t + u_xx) - q u = 0)
+PASS (b) DM-phi: residuo = V - phi'(t) (solo V a meno di costante/funzione di t)
+PASS (c) A L_q = L_0 A (su g generica)
+PASS (c) ker A contiene sech x
+PASS (c) A u risolve Schroedinger libero
+PASS (c) A u_b = 0 (modo legato perso)
+PASS (c) A u_s e' multiplo di e^{i(kx - k^2 t)}
+PASS (d) A^+A = L_q + 1
+PASS (d) A A^+ = L_0 + 1
+11/11 PASS
