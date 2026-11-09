@@ -12,9 +12,9 @@ Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 | branch | what it holds | open |
 |---|---|---|
 | **`main`** (you are here) | the algorithm, its tests and benchmarks, and the three papers above | `paper/structure_B.pdf` |
-| `analytical` | the mathematics, all eleven phases: identification, factor decomposition, interaction term, systems, variable coefficients, dictionary, with all proofs | `paper/analytical.pdf` (130 pp) and `paper/analytical_proofs.pdf` (263 pp) |
-| `ml-layers` | machine learning on top of the pipeline: every layer designed, which worked, which did not, why | `paper/ml_layers.pdf` (39 pp) |
-| `model-expansion` | going beyond linear constant coefficients: the ladder of extensions, the routes tried, worked examples | `paper/model_expansion.pdf` (21 pp) |
+| `analytical` | the mathematics, all eleven phases: identification, factor decomposition, interaction term, systems, variable coefficients, dictionary, with all proofs | [`paper/analytical.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/analytical/paper/analytical.pdf) (130 pp) and [`paper/analytical_proofs.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/analytical/paper/analytical_proofs.pdf) (263 pp) |
+| `ml-layers` | machine learning on top of the pipeline: every layer designed, which worked, which did not, why | [`paper/ml_layers.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/ml-layers/paper/ml_layers.pdf) (39 pp) |
+| `model-expansion` | going beyond linear constant coefficients: the ladder of extensions, the routes tried, worked examples | [`paper/model_expansion.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/model-expansion/paper/model_expansion.pdf) (21 pp) |
 
 ## Folders of this branch
 
