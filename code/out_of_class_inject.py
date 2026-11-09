@@ -1,5 +1,5 @@
-# Part of pde-factor-fit, (c) 2026 Flavio Pricoco, MIT. The generators below are self-contained; `inject_input` and the
-# command line at the bottom need `ll_corpus.py`, which lives on the branch `ml-layers` (benchmarks/ml_layers/).
+# Part of pde-factor-fit, (c) 2026 Flavio Pricoco, MIT. The generators below are self-contained except that they import the pipeline package `pdefactor` (branch `main`: pip install -e ".[pipeline]"); `inject_input` and the
+# command line at the bottom also need `ll_corpus.py`, which lives on the branch `ml-layers` (benchmarks/).
 """Corpus I: injected failures on simulator draws (sessions/LEARNED/V1/PLAN.md sec. 1).
 
 Failure targets only, never fitting targets (LEARNED PLAN sec. 1.8). Every generator is generic in

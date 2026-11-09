@@ -1,0 +1,599 @@
+% Paper: extending the factor pipeline beyond linear constant coefficients.
+
+% ---- begin ../shared/docclass.tex
+% Document class selection (\input as the first line of each main.tex).
+% SIMODS is typeset with SIAM's online-journal class siamonline<date>.cls. The class is not on CTAN;
+% download it from SIAM's author page (the CI tries to) and place it in paper/shared/siam/.
+% Without it the paper builds with a compatible fallback (article + siamshim.tex), so that text,
+% numbering and cross-references can be checked; the submission must use the official class.
+\makeatletter
+\let\pf@cls\relax
+\IfFileExists{siamonline220329.cls}{\def\pf@cls{siamonline220329}}{}
+\IfFileExists{siamonline250211.cls}{\def\pf@cls{siamonline250211}}{}
+\ifx\pf@cls\relax
+  \documentclass[11pt]{article}
+  \def\paperclass{shim}
+\else
+  \edef\pf@doc{\noexpand\documentclass[review,onefignum,onetabnum]{\pf@cls}}
+  \pf@doc
+  \def\paperclass{siam}
+\fi
+\makeatother
+
+% ---- end ../shared/docclass.tex
+
+
+% ---- begin ../shared/preamble.tex
+% Common preamble of both papers (after docclass.tex).
+\def\pfshimname{shim}
+\ifx\paperclass\pfshimname
+  
+% ---- begin ../shared/siamshim.tex
+% Fallback that mimics the parts of siamonline used by the papers (only when the class is absent).
+\usepackage[letterpaper,margin=1.15in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\newcommand{\headers}[2]{\pagestyle{fancy}\fancyhf{}\fancyhead[LE]{\small\thepage\quad\textsc{#2}}%
+  \fancyhead[RO]{\small\textsc{#1}\quad\thepage}\fancyhead[LO,RE]{}\renewcommand{\headrulewidth}{0pt}}
+\newcommand{\email}[1]{\texttt{#1}}
+\newcommand{\funding}[1]{\par\noindent\textbf{Funding:} #1}
+\newenvironment{keywords}{\par\smallskip\noindent\textbf{Key words.}\ }{\par}
+\newenvironment{MSCcodes}{\par\smallskip\noindent\textbf{MSC codes.}\ }{\par}
+\newenvironment{AMS}{\par\smallskip\noindent\textbf{AMS subject classifications.}\ }{\par}
+\renewenvironment{abstract}{\par\small\noindent\textbf{Abstract.}\ }{\par\normalsize}
+
+% ---- end ../shared/siamshim.tex
+
+\else
+  \usepackage{amssymb}
+  \newsiamremark{remark}{Remark}
+  \newsiamremark{example}{Example}
+  \newsiamthm{assumption}{Assumption}
+\fi
+\usepackage{mathtools}
+\usepackage{graphicx}
+\graphicspath{{../shared/figures/}}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,shapes.geometric,backgrounds}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\ifx\paperclass\pfshimname
+  \usepackage[hidelinks]{hyperref}
+  \usepackage[capitalize,nameinlink]{cleveref}
+  
+% ---- begin ../shared/siamshim_thm.tex
+% Fallback theorem environments (loaded after hyperref and cleveref so that names resolve).
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% ---- end ../shared/siamshim_thm.tex
+
+\else
+  \makeatletter\@ifpackageloaded{cleveref}{}{\usepackage[capitalize,nameinlink]{cleveref}}\makeatother
+\fi
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{example}{Example}{Examples}
+\crefname{remark}{Remark}{Remarks}
+\crefname{algorithm}{Algorithm}{Algorithms}
+
+% ---- begin ../shared/macros.tex
+% ---------------------------------------------------------------------------------------------
+% Notation macros. ONE symbol, ONE meaning: every macro below is listed in the notation table
+% (sections/notation.tex) and the script tools/check_notation.py checks the correspondence.
+% ---------------------------------------------------------------------------------------------
+% number sets and rings
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ring}{\mathcal{R}}            % ring of constant-coefficient operators C[d_t,d_x] = C[tau,xi]
+% operators and their algebra
+\DeclareMathOperator{\Ann}{Ann}             % annihilator ideal of a function
+\DeclareMathOperator{\gcdop}{gcd}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\Var}{V}                        % characteristic variety V(P)
+\newcommand{\EP}{\mathrm{EP}}               % exponential-polynomials
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Gu}{G_u}                       % intrinsic operator gcd Ann(u)
+\newcommand{\Ju}{J_u}                       % cofactor ideal, Ann(u) = G_u J_u
+\newcommand{\sigp}{\Sigma_{\mathrm p}}      % point spectrum V(J_u)
+\newcommand{\sumop}{\mathcal{S}}            % sum operator (u_1,...,u_N) -> sum u_j
+\newcommand{\Eint}{E_{\mathrm{int}}}        % interaction term
+\newcommand{\flow}{\Phi}                    % flows Phi_n(t) = e^{t A_n}
+\newcommand{\cF}{c_{F}}                     % Friedrichs cosine
+\newcommand{\thetaF}{\theta_{F}}            % Friedrichs angle
+\newcommand{\gN}{\gamma_{N}}                % conditioning constant of the sum operator
+\newcommand{\deltaP}{\delta(P)}             % ambiguity dimension
+\newcommand{\Hs}{H^{s}}                     % Sobolev space of index s
+\newcommand{\noise}{\sigma_{n}}             % observation noise standard deviation
+\newcommand{\sigbin}{\sigma_{\kappa}}       % noise standard deviation of one Fourier bin
+\newcommand{\Nsamp}{N_{\mathrm s}}          % number of posterior field samples
+\newcommand{\keff}{k_{\mathrm{eff}}}        % effective number of factors
+\newcommand{\cloud}{W}                      % cloud of factor vectors (a weighted point measure)
+\newcommand{\Mfit}{\mathsf{M}}              % a candidate structure (model)
+\newcommand{\lab}[1]{\textsf{#1}}           % output labels
+\newcommand{\FC}{\lab{FIT-COMPATIBLE}}
+\newcommand{\IDK}{\lab{ID-KER}}
+\newcommand{\MIS}{\lab{MISFIT}}
+\newcommand{\UND}{\lab{UNDECIDED}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+% editorial
+\newcommand{\roleinalg}[1]{\par\noindent\emph{Role in the algorithm.} #1\par}
+\newcommand{\inbrief}[1]{\par\smallskip\noindent\emph{In brief.} #1\par\smallskip}
+
+% ---- end ../shared/macros.tex
+
+
+% ---- end ../shared/preamble.tex
+
+
+\title{Beyond Linear Constant Coefficients:\\A Ladder of Extensions for Reading Equations from Data}
+\author{Flavio Pricoco\thanks{\email{flaflapr@gmail.com}}}
+\headers{Beyond linear constant coefficients}{F. Pricoco}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The factor pipeline reads a linear, constant-coefficient, scalar equation in one space and one time variable. Real equations are
+often outside this class: they are nonlinear, have a potential, depend on time, form a system, or are nonlocal. This paper maps what
+can be said beyond the class, level by level. We organise the extensions as a ladder of eleven levels and give an extended algorithm with
+six steps, each stating what it takes, what it returns, which results justify it and how it fails. Every output carries two labels: a
+completeness label (is the right law inside the level searched?) and a correctness label (exact, convergent with a bound, no guarantee, or
+only in the limit). The main findings are positive and negative. Positive: for a nonlinear equation, an interaction term can be defined, expanded
+in time and written in closed form before a shock; with a declared dictionary, identification of Burgers' equation with $N$ shocks is
+complete; for a variable potential $V(x)$ every nonzero solution in a regular class identifies $V$ almost everywhere; for first-order
+systems such as Dirac, a point-wise linear system of rank $8$ identifies the law. Negative: finite exact data never certify a fit, the
+annihilator is discontinuous everywhere so no Lipschitz bound exists for the discrete steps, no time-independent encoder exists for a generic
+$V(t,x)$, and a bounded transformation loses about four orders of magnitude in its transported certificates. Four worked examples (Dirac,
+P\"oschl--Teller, Stark, and a dictionary on the heat equation) are checked symbolically. We end with the minimal route for extending the code
+and a list of open questions.
+\end{abstract}
+
+\begin{keywords}
+equation identification, variable coefficients, nonlinear dictionary, systems, annihilator ideal, certificates
+\end{keywords}
+
+\begin{MSCcodes}
+35R30, 35E20, 35Q41, 68W30
+\end{MSCcodes}
+
+\section{Introduction}\label{sec:intro}
+Three equations show what changes when the pipeline's class is left.
+\begin{equation}\label{eq:three}
+u_t+uu_x=\nu u_{xx}\ \text{(Burgers)},\qquad
+iu_t=-u_{xx}+q(x)\,u\ \text{(potential)},\qquad
+iu_t=-u_{xx}+t\,x\,u\ \text{(Stark)}.
+\end{equation}
+The first is nonlinear: solutions do not form a vector space, and there is no polynomial symbol whose zero set carries the modes. The second
+has a coefficient that depends on $x$: Fourier modes are no longer eigenfunctions, and an exact formula such as the one for
+$q=-2\operatorname{sech}^2x$ mixes a bound state with a scattering state. The third depends on $t$ as well, so there is no autonomous
+flow. For each, the questions of the base problem return in a new form. Is the law determined by one solution? Can a solution be split by
+term or by factor? What can an algorithm promise from noisy samples?
+
+This paper answers these questions where answers exist and says where they do not. It has three parts. \Cref{sec:contract} fixes the
+vocabulary: five meanings of ``identify'' and four classes of guarantee. \Cref{sec:ladder} states the extended algorithm over a ladder of
+levels. \Cref{sec:directions} reviews each direction of extension with its proven results and its limits. \Cref{sec:examples} works four
+examples. \Cref{sec:questions} gives the answers to the four questions that started the project (matrix coefficients, variable coefficients, convergence, the universal dictionary), \cref{sec:routes} lists the routes tried, merged, parked or eliminated and what became of the author's ideas, and \cref{sec:algo-state} states the algorithm today. \Cref{sec:route} describes the smallest sequence of steps by which the code can be extended, and \cref{sec:open} lists what is open.
+
+\paragraph{Scope and status} The proofs are in the companion paper on the analytical branch. Every statement is quoted with its status:
+\emph{proved} (a complete proof exists, internally audited), \emph{known} (a published result with a verified source), \emph{conditional} (depends on a hypothesis or an unverified citation, named),
+\emph{open}, or \emph{false} (a counterexample is recorded). The audits were done by independent Claude reviewers, not human referees.
+Nothing here has been implemented in the pipeline: the extended algorithm is a specification, and its worked examples are symbolic checks, not
+benchmarks on noisy data.
+
+\section{Vocabulary: what ``identify'' means and what a guarantee is}\label{sec:contract}
+\subsection{Five senses of identification}
+A solution can determine an equation in different ways, and conflating them gives wrong claims. We write them explicitly.
+\begin{center}\small
+\begin{tabular}{@{}lp{9cm}@{}}
+\toprule
+sense & meaning\\
+\midrule
+ID-ann & the annihilator ideal of $u$ is principal and generated by the law. Never true for an exponential-polynomial solution.\\
+ID-ker & the linear system for the coefficients has trivial kernel inside a declared class, \emph{provided} a law of the class exists (hypothesis H-ex).\\
+ID-res & the coefficient is read from the residual map, for example $V=(iu_t+u_{xx})/u$ where $u\neq0$.\\
+ID-fam & identification modulo a family: $V+c(t)$ for data known up to a global phase, or a gauge class.\\
+ID-lim & identification in a limit of increasing level, never certified at finite level.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The distinction matters: a solution $u=e^{-t}\cos x$ of the heat equation also lies in the kernel of $\partial_t+1$ and $\partial_x^2+1$, so its annihilator is
+not generated by the heat operator, and ID-ann fails; yet ID-ker in the class $u_t=a(\partial_x)u$ of bounded degree can succeed.
+
+\subsection{Data models}
+\begin{center}\small
+\begin{tabular}{@{}lp{5.4cm}p{4.4cm}@{}}
+\toprule
+model & datum & senses allowed\\
+\midrule
+DM1 & finite exponential-polynomial formula & ID-ker in a finite class; never ID-ann\\
+M3-hol & exact holonomic closed form (Bessel, Airy, $\operatorname{sech}$) & ID-ann, ID-res, ID-ker\\
+DM2 & jet at one point & ID-lim only; no finite certificate\\
+DM3 & $u$ known exactly on $\Omega$ & ID-ann, ID-res, ID-ker, ID-fam\\
+DM-$\varphi$ & $u$ up to a global phase $e^{i\varphi(t)}$ & ID-fam ($V$ modulo functions of $t$)\\
+DM-$\delta(Y)$ & $\tilde u$ with $\lVert\tilde u-u\rVert_Y\le\delta$, norm declared & no identification; stability bounds\\
+\bottomrule
+\end{tabular}
+\end{center}
+A noise model without a declared norm $Y$ is undefined: in $C^1$ there is no control of a potential, since $u=1$ and
+$u_\delta=1+\delta^2\sin(x/\delta)$ are $O(\delta)$-close in $C^1$ while $V_\delta$ reaches $1/(1-\delta^2)$.
+
+\subsection{Four classes of guarantee, two layers}
+Each step of the extended pipeline has one of four contracts: \textbf{(A)} finite and exact; \textbf{(B)} convergent with an explicit
+error $\varepsilon_i$; \textbf{(C)} no guarantee; \textbf{(Lim)} in the limit, without a certificate. The pipeline has two layers.
+\emph{Conditioning} (data model, level, identification) produces discrete outputs: a model, a level, an ideal, a class. The annihilator is
+discontinuous at every point (both the principal and the non-principal ideals are dense), so there is no Lipschitz constant and no error bound applies to these steps.
+\emph{Conditional correctness} (misfit certificate, encoder, decomposition) has metric outputs; at the declared level and class, and if each step is (A) or (B) and Lipschitz,
+errors compose as $d(\tilde x_k,x_k)\le\sum_i(\prod_{j>i}L_j)\varepsilon_i$. A step of class (C) or (Lim) makes everything after it (C) or (Lim).
+Therefore each output has \emph{two} labels: completeness (is the right law in the level searched? almost always (C), since the level is chosen by a heuristic and no a priori criterion
+exists) and conditional correctness. The output labels never say ``law identified'' from finite numerical data: \FC, \MIS, \UND, \IDK{} and, only with an exact symbolic proof, a sense-tagged \texttt{IDENTIFIED[sense, model]}.
+
+\section{The ladder and the extended algorithm}\label{sec:ladder}
+\subsection{Levels}
+The dictionary of admissible atoms is filtered by height. The levels that the algorithm can be asked to work at are:
+\begin{center}\small
+\begin{tabular}{@{}llp{6.3cm}@{}}
+\toprule
+level & class & proved tools\\
+\midrule
+L0--L2 & scalar, constant coefficients, monic in $\tau$, increasing degree & annihilator criterion, spectral form\\
+L3 & non-monic or degree $\ge2$ in $\tau$ & Gr\"obner-type reduction\\
+L4 & polynomial nonlinear & interaction term, dictionary-relative ideal\\
+L5 & memory and delay, via an augmented system & delay as transport\\
+L6 & constant-coefficient systems (Dirac, Lam\'e, Maxwell) & module theory, rank criteria\\
+L7 & coefficients depending on $x$ & residual map, encoders\\
+L8 & coefficients depending on $(t,x)$ (Stark, Floquet) & residual map, gauge transforms\\
+L9 & nonlocal (fractional, Fourier multipliers) & non-identifiability theorems\\
+L10 & general dictionary with misfit test and stopping rule & Hahn--Banach residual, Gram determinants\\
+\bottomrule
+\end{tabular}
+\end{center}
+The level is chosen by an ascending search with the stopping rule R5; the search is heuristic, so completeness is (C). If the budget is exhausted the output is \UND.
+
+\subsection{The six steps}
+\begin{enumerate}
+\item \textbf{Data model} (conditioning). Fix the model of \cref{sec:contract}, the coefficient ring, the domain and the budget.
+  Proved limits: no finite jet at one point certifies the annihilator; for exponential-polynomial data, the jet of order $2d-1$ determines it; a black-box
+  identification without extra data is impossible.
+\item \textbf{Level} (conditioning). Pick the level $n$ and a finite set of atoms $\mathcal D_n$. No countable dictionary is exhaustive (the space of smooth functions
+  is not separable), a delay is at distance $\ge1$ from the local dictionary, and no learner identifies the annihilator on the union of principal ideals and the zero ideal.
+\item \textbf{Identification} (conditioning). Decide ID-ann, ID-res or relative ID-ker at level $n$ by the criteria of the direction in question (\cref{sec:directions}).
+\item \textbf{Misfit certificate or best fit} (correctness). Compute the distance $r_n$ of $D_0u$ to the span of the atoms as a \emph{least-squares residual}, not as a ratio of Gram determinants, which is numerically
+  singular when $D_0u$ lies in the span. A misfit is certified if $r_n>0$ is certified; it is class (A) only with a rigorous enclosure of $r_n$ and class (B) with floating-point quadrature.
+  A fit is class (B) at the declared level, with bound $\lvert c-\tilde c\rvert\le2\eta/\sqrt{\lambda_{\min}}$, and \emph{is never certifiable from finite exact data}.
+\item \textbf{Encoder} (correctness). Translate a variable-coefficient problem to a constant-coefficient one \emph{for a known potential}; the encoder is a translation, not a source of information.
+  Bounded (Volterra) translations preserve certificates up to a constant $C_W=1+a^2Qe^{a\sqrt Q}$ ($Q=\lVert q\rVert_\infty$); Darboux translations are unbounded, have a nontrivial kernel and are class (C).
+\item \textbf{Decomposition} (correctness). Split into components by the factors of the law and quantify the interaction term between terms of a factor.
+\end{enumerate}
+
+\section{The extensions, direction by direction}\label{sec:directions}
+\begin{table}[tbp]
+\centering\small
+\caption{Direction, what is proved, and what blocks the next step. Status words as in \cref{sec:intro}.}\label{tab:directions}
+\begin{tabular}{@{}p{2.5cm}p{5.6cm}p{4.2cm}@{}}
+\toprule
+direction & proved & open or impossible\\
+\midrule
+Nonlinear, polynomial & interaction term $E_{\mathrm{int}}$ defined by the flows of single terms; jet in $t$; closed form before the shock at first order; blow-up time; identification relative to a dictionary & several shocks; periodic Korteweg--de Vries; non-uniform estimates in $t$\\
+Nonlinear dictionary & misfit certificates; fit not certifiable from finite data; dictionary-relative rules R1--R6; space of $u$ with a law in the dictionary is meagre & division with variable rank; some parked sub-cases\\
+Variable $V(x)$ & every nonzero $u$ in a regular class identifies $V$ a.e.; Wei--Norman closure finite iff $\deg V\le2$; structured identification for $D$-finite $u$ & multiplications; non-monic symbols; Weyl algebra for PDE\\
+Non-autonomous $V(t,x)$ & identifies iff the zero set of $u$ has empty interior (continuous $V$) or measure zero ($L^\infty$); no $t$-independent encoder for a generic $V$; data up to phase give $V+c(t)$ & the class $W(t)$ for reading the third data model\\
+Encoders & bounded Volterra translation; Darboux chains; transported certificates & tighter bound than $C_W$; Lipschitz constant of $q\mapsto W_q$\\
+Systems & existence of an identifying $u$ for $\det P\neq0$; Dirac, Lam\'e; magnetic family only up to gauge & Dirac with complex mass\\
+Higher dimension & ambiguity is infinite unless the factors are comaximal; split and decomposition & sum closure for $N\ge3$; non-Lipschitz domains\\
+Convergence, noise & stability of the misfit residual; discrepancy rule selects the right degree; locality trichotomy & threshold $\delta_0$ not bounded below by data; unbounded $V$\\
+Nonlocal & indistinguishability from a local law for finite data; no finite degree in the limit & example with infinitely many modes\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Nonlinear} For two terms of an equation with flows $\Phi_n$, the interaction term is the part of the solution that is not a sum of single-term pieces; its time jet has first
+nonzero coefficient $\tfrac12\sum_n T_n'[T_m]$ at order $t^2$, e.g.\ $-\nu(u_0u_0'''+2u_0'u_0'')t^2$ for Burgers. Before the shock a closed form holds at first order in $\nu$ with remainder $\nu^2\varepsilon^2t^3$; at the shock
+time the solution blows up in a way set by the data, and beyond it the jumps of the additive part are independent of $\nu$ and forced by the definition. No finite factorisation of the flows exists for any datum. Relative to a dictionary, identification
+reduces exactly to the sequence $0\to[F]\cap V\to I(u)\cap V\to J_u\cap\psi(V)\to0$: for Burgers with $N$ shocks the criterion is complete in the evolutionary dictionary (the law is identified iff $d\le N$); for $N$-soliton Korteweg--de Vries
+the ideal is principal, $\deg\Pi_2=8$ generically with an exact certificate, and $\deg\Pi_N=(N+2)2^{N-1}$. The literal form of ``one solution identifies the dictionary law'' is false in complete dictionaries and must be stated modulo $[F]\cap V$.
+
+\paragraph{Dictionary and misfit} A misfit is an open condition with a finite certificate; a fit is a closed condition with empty interior. Hence no finite exact datum certifies a fit, which is why the algorithm outputs \FC{} with a bound and never ``identified''.
+
+\paragraph{Variable coefficients} With the coefficient field declared, $V(x)$ is identified a.e.\ by any nonzero $u$ in a regular class; for $V(t,x)$ the condition moves to the zero set of $u$.
+Counterexamples are recorded: a Tychonoff-type series breaks the statement beyond the silence bands. Finite closure of the Wei--Norman expansion holds iff $\deg V\le2$ (Stark and the oscillator), so beyond quadratic potentials the exact flow is not a finite product of simple flows.
+
+\paragraph{Systems} For a $2\times2$ system the existence of an identifying solution follows from $\det P\neq0$ in two or more variables; for Lam\'e it needs $\rho\neq0,\mu\neq0,\lambda+\mu\neq0,\lambda+2\mu\neq0$ and fails at $\lambda=-2\mu$. For Dirac in $1+1$, with $m\neq0$ and the matrix basis fixed, the Hamiltonian class
+$i\psi_t=A\psi_x+B\psi$ has eight unknowns and the pointwise system has rank $8$ for a non-exponential datum, and also for an exponential datum with at least four generic modes; one plane wave gives rank $2$.
+With a magnetic field the solution set is an affine family, never unique: only identification modulo gauge.
+
+\paragraph{Higher dimension and nonlocal} In $2{+}1$ and $3{+}1$ the ambiguity is infinite unless the factors are comaximal, so the factor split needs an extra condition. For nonlocal laws finite data cannot distinguish $u_t=-\lvert D\rvert u$ from a local law (every finite-mode datum satisfies a local law by symbol interpolation), and in the limit
+the multiplier degree $m(\delta)\to\infty$ means the pipeline can only report \UND{} with ``no finite degree''.
+
+
+% ---- begin sections/s_questions.tex
+% Added section: the four questions and the boundary theorems.
+\section{The four questions beyond the class, and their answers}\label{sec:questions}
+The extension project started from four questions about the world outside the constant-coefficient scalar class. The answers below are the corrected forms, after an adversarial review that overturned several first answers.
+
+\paragraph{1. Matrix coefficients (Dirac)} A constant-coefficient operator with matrix coefficients $\lambda_\alpha\in\mathrm{Mat}_k(\C)$ is a matrix of commuting operators. By the Morita and Malgrange--Oberst theory the canonical object becomes the module $M_u=R^{1\times k}/\mathrm{Ann}(u)$ (no longer cyclic), and \emph{no new non-commutative algebra is needed at constant coefficients}.
+From a datum $\psi$ in a fixed basis the system is identified up to left equivalence ($D\sim VD$, $V\in GL(R)$); in Hamiltonian form $i\psi_t=(\alpha\cdot p+\beta m)\psi$ the matrices $\alpha$ and $\beta$ are identified exactly. Dirac is the square root of Klein--Gordon with polynomial projectors. With gauge-invariant data ($\lvert\psi\rvert^2$, currents) only the gauge orbit is identified.
+
+\paragraph{2. Variable and time-dependent coefficients (Schr\"odinger)} Two faces. The \emph{intrinsic} identification is empty: in a large differentially closed class of coefficients every solution without zeros has an annihilator of rank one, so the existence of a law explains nothing (a theorem, VAR-N1).
+The \emph{structured} identification is real: once the form of the equation is fixed ($i\psi_t=-\psi_{xx}+V(t,x)\psi$), then away from the silence bands and in the strong-solution class, $V$ is identified exactly, even if it depends on time, iff the residual map $\rho_u(Q)=Qu/u$ is injective on the class; for $V(t,x)$ the criterion is that the zero set of $u$ has empty interior (continuous $V$) or measure zero ($V\in L^\infty$). With silence bands the statement is false (a Tychonoff-type series). Stationary states give only $V-E$ if the datum is known up to the global time phase.
+For ODEs with rational coefficients there is an exact analogue of the annihilator criterion through cyclicity under the differential Galois group; for PDEs in the Weyl algebra the question is open.
+\emph{An analytic encoder that removes $V$} (the original ``treat $V$ as noise and find an encoder that eliminates it''): for $V(x)$ in one dimension the Volterra transformation operator (Povzner--Levitan--Marchenko) intertwines $-\partial^2+V$ with $-\partial^2$ and works for Schr\"odinger, heat and wave; local encoders exist only in restricted classes (\cref{tab:encoders}); for a generic $V(t,x)$ there is \emph{no} encoder commuting with $\partial_t$; the quadratic cases are handled by metaplectic and gauge transformations. A \emph{blind} encoder (built from the data) gives no identification gain: it reduces to the joint identification of $(q,u)$.
+
+\paragraph{3. Convergence to a differential equation} Yes in the limit, \emph{never certified}. As the jet grows, the minimal-degree rule gives $P$ exactly from some finite step on without knowing the degree, but the convergence time is bounded by no function of the degree and no finite datum says it was reached.
+With noise the identification is discontinuous everywhere; it is stable only at a fixed level with a spectral margin, and consistent with the discrepancy rule below a threshold that cannot be computed from the data. A differential law exists iff the symbol is algebraic on the spectrum of $u$; there is a trichotomy: a local law, a local law only with added variables (Caffarelli--Silvestre, memory, delay as auxiliary transport), or no law; and no rule, even uncomputable, decides in the limit whether a law exists.
+For iterative parts the contract is one of the four classes of \cref{sec:contract}, and the guaranteed chain uses only (A) and (B).
+
+\paragraph{4. Operators outside the catalogue (universal dictionary)} There is no theorem that one dictionary ``takes everything into account''. What is true: for each class (local linear, local nonlinear, nonlocal by symbols, memory and delay, systems) an explicit countable dictionary approximates it in a declared topology;
+at every finite level a computable \emph{misfit certificate} and a best approximation with an estimate exist (the misfit is certified from finite data, the fit is not); identification is relative to the level and in the limit only under a uniqueness hypothesis; and no countable dictionary represents exactly more than a meagre set of operators, so a generic function satisfies no equation of the dictionary.
+Completeness in the sense of Hilbert spaces alone gives no identification: the content is in the \emph{filtration} of the dictionary and in the certificate, not in closure.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Encoders: where each type exists and its status.}\label{tab:encoders}
+\begin{tabular}{@{}p{4.4cm}p{5.3cm}p{2.3cm}@{}}
+\toprule
+type & where it exists & status\\
+\midrule
+Volterra integral (Gelfand--Levitan, Povzner) & every $V(x)$ in one dimension on a symmetric rectangle & proof written, source\\
+differential (Darboux--Crum) modulo constants & potentials of Darboux chains, solitons included (P\"oschl--Teller); ``only if'' for rational $V\to0$ at infinity & from source, to be verified\\
+pointwise and gauge (lens, Avron--Herbst, Niederer) & $V(t,x)$ quadratic in $x$ & from source, to be verified; partial on bounded domains\\
+homogenisation, averaging & rapidly oscillating $V$ & parked (approximation)\\
+wave operators & whole space, $t\to\infty$ & parked (outside the bounded-domain model)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{The boundary: negative theorems}
+(i) no countable dictionary is exhaustive (Baire); (ii) no finite certificate of a fit; (iii) non-monotonicity of identification for exponential-polynomial data; (iv) identification only in the limit, and no rule decides existence of a law; (v) a generic function satisfies no dictionary equation; (vi) the intrinsic variable-coefficient identification is empty;
+(vii) loss of an $\varepsilon$ of regularity is necessary for symbols; (viii) systems: socle obstruction and the magnetic family (only a gauge class); (ix) no encoder independent of $t$ for generic $V(t,x)$; (x) the annihilator is discontinuous everywhere; (xi) no finite Wei--Norman algebra beyond quadratic potentials; (xii) the factorial structure does not survive approximation.
+
+% ---- end sections/s_questions.tex
+
+
+\section{Four worked examples}\label{sec:examples}
+All four are in \texttt{examples/}; each prints its checks and the number that pass. They are symbolic or high-precision verifications, not proofs.
+
+\paragraph{Dirac, $1{+}1$ (7/7 checks)} With $H=-i\sigma_x\partial_x+m\sigma_z$, $m=1$, $(i\partial_t-H)(i\partial_t+H)=-(\tau^2-\xi^2+m^2)I$, so every component solves Klein--Gordon. Take $\psi=(i\partial_t+H)(fe_1)$ with $f=J_0(m\sqrt{t^2-x^2})$; the residual is below $10^{-20}$ at 40 digits.
+The second component is not an exponential-polynomial, so the annihilator premise holds; in the Hamiltonian class the pointwise system has rank $8$ ($\sigma_{\min}\approx4.3\times10^{-2}$) and the true law solves it. With one plane wave the rank is $2<8$.
+\emph{Lesson:} failure of ID-ker depends on the number of modes, not on the datum being exponential-polynomial; the criterion $\psi_2\notin\mathrm{EP}$ is for ID-ann.
+
+\paragraph{P\"oschl--Teller (11/11)} $q=-2\operatorname{sech}^2x$, $u=e^{it}\operatorname{sech}x+e^{-ik^2t}(ik-\tanh x)e^{ikx}$, $k=\tfrac32$. The residual returns $V=q$: ID-res. It is not ID-ann, since $u$ is annihilated by $(L_q+1)(L_q-k^2)$ and $(i\partial_t+1)(i\partial_t-k^2)$.
+Data up to phase gives $q-\varphi'(t)$ (ID-fam). The Darboux operator $A=\partial+\tanh x$ intertwines $A L_q=L_0A$, sends $u$ to a free solution, kills the bound state ($\ker A=\mathbb C\operatorname{sech}$) and sends the scattering part to a plane wave, an exponential-polynomial datum. $A$ is unbounded, so $C_W$ does not apply: class (C), not an instance of the bounded translation.
+
+\paragraph{Stark (5/5)} $V=\beta(t)x$, $\beta=t$. With $B=t^2/2$, $s=-t^3/3$, $g=-t^5/20$, $u=e^{i(-Bx+g)}w(t,x-s)$ and $w$ a free Gaussian solves the equation (direct check below $10^{-30}$). $u$ has no zeros, so $V(t,x)$ is identified by the residual; with unknown phase only $V$ modulo functions of $t$. The Avron--Herbst transformation gives class (A); the Magnus expansion is (C), because $\int\lVert A_I\rVert=\infty$.
+
+\paragraph{Dictionary on the heat equation (12/12)} $u=(t+1)^{-1/2}e^{-x^2/(4(t+1))}$ on $(0,1)\times(-1,1)$, $Y=L^2$, quadrature at 25 digits. At the affine level (atoms $1,\partial_x$) $r_1=0.0778>0$: a misfit, class (B) because the quadrature has no rigorous enclosure. At level 2 (atoms $1,\partial_x,\partial_x^2,\partial_t\partial_x,\partial_t^2$), $r_2\approx4\times10^{-33}$ with minimiser $\partial_t-\partial_x^2$, and the homogeneous Gram matrix has one null eigenvalue ($1.25\times10^{-28}$; the next is $1.71\times10^{-4}$): output \FC{} with bound, not ``identified''.
+Under a perturbation $\varepsilon\cos3x$ the stability bound is vacuous at $\varepsilon=10^{-3}$ ($2\delta/\rho=1.43>1$) and non-trivial at $10^{-4}$ ($0.143$).
+Finally $u=t+\sin x$ in the class $u_t=au_{xx}+bu$ has $\ker\Phi_u=0$ but no law exists: ID-ker without H-ex identifies nothing. A nonlocal example with infinitely many modes that identifies a nonlocal atom is still missing.
+
+
+% ---- begin sections/s_routes.tex
+% Added section: routes, linearisation ideas, your ideas.
+\section{Routes: what was tried, merged, parked or eliminated}\label{sec:routes}
+The extension was managed as a registry of \emph{routes}, each with a promotion and an elimination criterion written before it was evaluated, and decisions recorded at numbered gates. This section lists the routes that matter for extending the algorithm, grouped by what each tries to introduce: linearity, a direct equation, or a change of variables.
+
+\subsection{Introducing linearity}
+\begin{itemize}
+\item \textbf{Factorisation and the log-symbol} (RT-1, RT-2, \emph{promoted}): split an operator by the factors of its symbol (additive split) or a sum of commuting terms by the log-symbol (multiplicative split); proved for scalar evolution equations of first order in $t$.
+\item \textbf{Commutator series} (RT-3, BCH, Zassenhaus, Dyson, Wei--Norman, \emph{promoted}): non-commuting terms; the Wei--Norman factorisation is global for solvable algebras, the Dyson series converges for $c\in L^\infty$ plus diffusion, and the closure is finite iff the potential has degree at most two.
+\item \textbf{Cole--Hopf and the inverse scattering transform} (RT-R7a, RT-R7b): a nonlinear equation becomes linear in other variables ($u=-2\nu\varphi_x/\varphi$ for Burgers; scattering data that evolve linearly for KdV and NLS). Cole--Hopf, with its tropical version, and Hirota, Miura and Darboux transformations were kept as \emph{lemmas} of the nonlinear identification, not autonomous routes.
+\item \textbf{Carleman embedding and normal forms} (a tool of the interaction-term route, \emph{active}): a polynomial nonlinearity becomes an infinite linear system.
+\item \textbf{Koopman operator} (\emph{parked}): reopen only with normal forms, where eigenfunctions carry the nonlinear term; plain dynamic-mode decomposition is regression and was excluded by the no-learning constraint of the analytic part.
+\item \textbf{Faddeev--Lippmann--Schwinger} (RT-S2a, \emph{parked} after review): $u=u^{(0)}+\sum_iu^{(i)}$ with $u^{(i)}=-G_0V_iu$, an $N\times N$ coupled system; exact in $N$ pieces at constant coefficients, but the claimed uniqueness of the equivariant splitting was false (a one-parameter family $L_0^\theta=\partial_t-\theta\sum a_i$).
+\item \textbf{Mori--Zwanzig projection} (\emph{eliminated}): the criterion was false or only source-backed; the lemmas remain.
+\end{itemize}
+
+\subsection{Introducing a direct equation (a declared dictionary)}
+\begin{itemize}
+\item \textbf{Dictionary identification} (MODREL, S4-ID, RT-DICT, \emph{active}): the annihilator ideal is replaced by the differential ideal of relations of a \emph{declared} dictionary; identification is exact only modulo the differential consequences of the equation; misfit certificates MF1--MF3, rules R1--R6, a stopping rule, and the limit statement.
+\item \textbf{Algebraic non-linearities as differential variables} (sine-Gordon, $e^u$; fused into the dictionary route).
+\item \textbf{Systems} (RT-SYS, \emph{active}): Morita equivalence and Malgrange--Oberst; the earlier tensor route (RT-5) was \emph{reopened} here.
+\item \textbf{Structured identification} (RT-IDV, \emph{active}): the residual map, with the boundary VAR-N1; Weyl, Loewy and Galois methods for ODEs (RT-ODE-GAL, restricted to the general C3-Q2).
+\end{itemize}
+
+\subsection{Changing variables, encoders and limits}
+RT-ENC (Volterra transformation, Darboux--Crum chains, pointwise and gauge transformations; \emph{parked as a route} after the Gate 8 proofs, its lemmas going to the dictionary and structured routes), RT-CONV (convergence, noise, boundary and dimension, with the iterative contract; \emph{active}), RT-NA (non-autonomous propagators; \emph{parked}, triggers listed).
+Eliminated or merged: the microlocal route for the core (it gives nothing for elliptic and parabolic operators), morphological component analysis (reduces to choosing a representative in the finite ambiguity), the restriction to the cyclic subspace (in the Weyl algebra the restriction is always injective and does not identify), the tropical estimate (true only on dissipative faces).
+Parked until a trigger: rigidity and Stokes phenomena, Painlev\'e transcendents, the periodic boundary question, the Weyl algebra for PDEs, inverse Sturm--Liouville from spectral data, homogenisation, wave operators.
+
+\subsection{Your ideas, and what was found}
+\paragraph{Idea II: all equations as matrices} Treat every PDE as a matrix equation $J_\varphi\cdot\Phi=0$ with $J_\varphi$ a differential operator, in two ways: (a) a tensor $J_{\omega,\lambda}=\lambda\otimes J_\varphi$ of higher order, one order per order of the equation; (b) more rows, as for ODEs ($\dot X=AX$ with the companion matrix whose last row carries the equation), the last row not being a matrix of numbers.
+The proposed solution is $\hat a=\sum_a f(\lambda_a)v_a\otimes v_a$ with $V_a=\{v\mid J\cdot\Phi v=av\}$ (a generalised eigenvector for higher-order tensors), so that one can work on $f$ and $\Phi$ independently, solve the linear case first and then try $f$ nonlinear. \emph{What was found}: the tensor keeps only the principal symbol (it is a geometric invariant, \emph{parked}); the companion-matrix route gives complete invariants and was \emph{promoted} (RT-6, then RT-SYS for systems); with matrix coefficients the object is the module of \cref{sec:questions}; for variable coefficients the total symbol with the $\star$-product (Weyl, Kohn--Nirenberg) was proposed as the complete tensor version, with the commutator expansion linked to the Moyal product (expected to merge into the companion-matrix route).
+\paragraph{Idea I: encoding plus grouping} Prepare the data (t-SNE, autoencoder) so that components separate, then group with a mixture model, without making the algorithm depend on it; and show that encoding plus grouping drives the interaction term to zero. \emph{What was found}: the analytic result is that no stable \emph{linear} encoder makes the interaction term vanish, and the log-symbol (nonlinear) reads terms linearly; hence analytic features only; the learned version is analysed in the ML paper (rejected for now).
+\paragraph{Process proposed (G)} Solve everything for scalar linear coefficients; see whether nonlinear coefficients can be included; if not, study $f(S\cdot x)$ with $f$ nonlinear; study the reduced space with its eigenvectors and eigenvalues. This is the ladder of \cref{sec:ladder} in its present form (L0--L5, then L6 systems, L7--L8 variable coefficients, L9 nonlocal, L10 dictionary).
+\paragraph{Problems 1 and 2} A variable $V$ (Dirac, Schr\"odinger) treated as noise to be removed by an encoder, and matrix coefficients ($4\times4$ for Dirac) are answered in \cref{sec:questions}.
+
+% ---- end sections/s_routes.tex
+
+
+\section{A minimal route for extending the code}\label{sec:route}
+The pipeline refuses before it extends. Its validators already compare residuals per cell and per time window: a nonlinear equation shows as amplitude-dependent coupling, a variable coefficient as drift of the dispersion relation across cells, two laws as two clusters. The minimal route is therefore:
+\begin{enumerate}
+\item \textbf{Detect and refuse.} Report \MIS{} or \UND{} with the reason (nonlinear, variable coefficient, fractional, two laws). Already specified; the data generator \texttt{benchmarks/out\_of\_class\_inject.py} builds such inputs (nonlinear, variable coefficient, fractional, two laws, coloured noise, heteroscedastic noise, aliasing) at scale-free strengths.
+\item \textbf{Frozen-coefficient cells} for slowly varying $V(x)$: fit each cell with the constant-coefficient pipeline and read the drift (the domain quadtree and aggregate code exist).
+\item \textbf{Structured identification} (the residual map) with a declared coefficient class.
+\item \textbf{Nonlinear only through a declared dictionary}, never free-form, with the misfit certificate of step 4.
+\end{enumerate}
+An evaluation found that a learned detector flags none of the injected nonlinear, variable-coefficient or two-law failures; the first step therefore needs hand-built tests with a theoretical null (the residual per bin and the smooth-structure test), not a learned score.
+
+
+% ---- begin sections/s_algorithm_open.tex
+% Added section: algorithm-side state and extension targets.
+\section{The algorithm today, and what extends it}\label{sec:algo-state}
+The pipeline in \texttt{src/} handles linear, constant-coefficient, autonomous scalar equations in $1{+}1$ dimensions, with symbols monic in $\tau$, on simply connected rectangles. Its output contract is the four labels. Beyond it, each direction has a proven part and a specified detector (see \cref{tab:directions} and \cref{sec:route}); the code entry points for an extension are the per-cell fits and frozen-coefficient cells (\texttt{domain/}, \texttt{aggregate.py}, \texttt{cluster.py}), the dictionary baselines (\texttt{baselines/}), and the generators of out-of-class data (\texttt{benchmarks/out\_of\_class\_inject.py}).
+\begin{table}[tbp]
+\centering\small
+\caption{Direction, proved part, and the next algorithmic step.}\label{tab:algo-next}
+\begin{tabular}{@{}p{2.5cm}p{4.5cm}p{4.8cm}@{}}
+\toprule
+direction & proved & next step\\
+\midrule
+nonlinear (Burgers, KdV--Burgers, Fisher--KPP) & interaction term, identification relative to a dictionary & detect with amplitude and $\kappa$-coupling; declared dictionary only\\
+variable $V(x)$ & structured identification, boundary & frozen-coefficient cells, then the residual map\\
+non-autonomous $V(t,x)$ & criterion on the zero set; data up to phase & residual map off the silence bands\\
+systems & identifying solution exists; Dirac rank 8 & matrix-valued fit in the Hamiltonian class\\
+higher dimension & ambiguity infinite unless comaximal & comaximality test before decomposing\\
+nonlocal & indistinguishable from local law for finite data & report \UND{} ``no finite degree''\\
+non-monic symbols & annihilator principal only for symbols monic in $\tau$ & fit $c(\xi)\tau-a(\xi)$ (candidate)\\
+\bottomrule
+\end{tabular}
+\end{table}
+\paragraph{Open problems of the algorithm itself (constant-coefficient $1{+}1$)} (1) \texttt{two\_pairs}: the true factors are kept but the label is \UND{} (confluent relabelling); the work was started and stopped unfinished, and \UND{} may be the correct honest answer. (2) The refinement step does not charge a factor with no excited branch (the bare-$\tau$ bias). (3) Beam with $400$ points, one seed: the $90\%$ interval covers $0.5$ (an honest miss). (4) The weights over the ambiguity of a shared $\kappa=0$ mode; coloured noise is in no suite; older benchmark seeds share one field; hand-set constants remain.
+(5) Not adopted, code kept off: growing past the limit, EPGP re-interpolation, the guarded and alternate pre-fits (regressions on held-out families). (6) Theory-side leftovers that would change the algorithm: density of the sum of kernels on non-convex domains, the sum closure for $N\ge3$ differential factors, wedges, repeated plinths.
+
+% ---- end sections/s_algorithm_open.tex
+
+
+\section{Open questions and honest limits}\label{sec:open}
+\begin{enumerate}
+\item Robustness under bounded noise $\mathrm{DM}\text{-}\delta(Y)$ for variable coefficients.
+\item An example of infinitely many modes that identifies a nonlocal atom, and non-certifiability of fits for nonlocal atoms.
+\item Cost of the dictionary search per level; an audit of the polynomial-cost elimination algorithm; a rigorous enclosure for the misfit residual (to move it from class (B) to (A)).
+\item A bound for the bounded translation tighter than $C_W$: at $a\sqrt Q=5$, $C_W^2\approx1.4\times10^7$ while $\cosh^2(a\sqrt Q)\approx5.5\times10^3$, so transported certificates may lose about four orders of magnitude; and an explicit Lipschitz constant of $q\mapsto W_q$ for an estimated potential.
+\item Non-monic symbols (BBM type): the annihilator is proved principal only for symbols monic in $\tau$.
+\item Higher dimension: sum closure for $N\ge3$ and non-Lipschitz domains.
+\end{enumerate}
+\paragraph{Honest limits} The overall novelty is modest: many building blocks are classical (Malgrange--Ehrenpreis, the Nullstellensatz, Cole--Hopf, inverse scattering). The contribution is the package of characterisations, negative theorems and counterexamples with verified statuses. The reviewers were independent Claude agents, not human referees.
+The source bibliography has 112 entries, of which some load-bearing theorem numbers remain unchecked; a few results are labelled conditional on them.
+
+\section{Conclusion}\label{sec:conclusion}
+Beyond the linear constant-coefficient class the algorithm can promise little at finite data, and the paper says what. What can be proved is structural: which solutions identify which laws, in which sense, and with which counterexamples.
+The pipeline should therefore grow by refusing correctly first, then by adding structured classes one at a time, each with its sense of identification and its contract label.
+
+\appendix
+
+% ---- begin sections/app_spec.tex
+% Appendix: the extended-algorithm specification, step by step (English rendering of the specification kept in claude/notes).
+\section{The extended specification, step by step}\label{app:spec}
+This appendix renders the specification of the extended pipeline (originally written in Italian, kept in \texttt{claude/notes/ALGORITMO\_ESTESO\_it.md}) as one table per step. The specification introduces no new claim: it composes claims of the proof packages, each quoted with its status (proved; proved modulo a cited theorem; from a verified source; conditional on a verification; open; false).
+A step is \emph{grounded} only on proved claims or on claims from a source whose theorem number was verified; a step that uses an unverified source is marked ``conditional on verification''. Identifiers such as C3-T1, P4-T2, VAR-T1 refer to the claim ledger of the analytical branch.
+
+\paragraph{The pipeline in two layers}
+\begin{verbatim}
+CONDITIONING (discrete outputs, outside the convergence contract, completeness class C)
+  step 1: data model -> step 2: level n (budget; UNDECIDED) -> step 3: class K and sense ID-*
+CONDITIONAL CORRECTNESS "at level n, in class K" (the contract applies)
+  step 4: misfit (A with enclosure, else B) / fit (B) / stop (Lim)
+     -> step 5: encoder (bounded, q given: A/B with C_W^2; else C)
+     -> step 6: factors, terms, interaction term (A/B/C)
+  step 7: double label (completeness, correctness) + bound  sum_i (prod_{j>i} L_j) eps_i
+\end{verbatim}
+
+\subsection*{Step 1: data model (conditioning)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+input & the datum $u$ and its model declaration; for DM-$\delta$ the norm $Y$ and $\delta$; the budget (maximum level, working precision)\\
+output & the fixed model; the declared coefficient ring ($\C[\partial]$, $\C(x)[\partial]$, a Weyl algebra, or a parametric class); the domain; the regularity class; the set of reachable senses\\
+claims & no finite jet at one point certifies $\mathrm{Ann}(u)=(P)$ (proved); black-box identification is impossible without extra data (proved); in DM2 no correct certificate exists (proved); for exponential-polynomial data the jet of order $2d-1$ determines $\mathrm{Ann}(u)$ (proved); Bézout threshold for exponential-polynomial data (proved); $u$ exponential-polynomial implies $\sigma_p\ne\emptyset$ hence no ID-ann (proved); decidability modulo (AC) for $M2^+$ and for holonomic closed forms (proved modulo (AC)); data up to phase gives $V+c$ (proved); gauge-invariant data gives at most the gauge class (proved, source verified); the modulus of continuity of the residual in DM-$\delta$ (proved as an estimate, not a certificate)\\
+failures & DM1: never ID-ann ($e^{-t}\cos x$ solves the heat equation yet $\partial_t+1$ and $\partial_x^2+1$ lie in its annihilator); DM2: no certificate (jets of order 2, 4, 6 of a non-exponential-polynomial solution coincide with those of heat polynomials); DM-$\varphi$: $V$ only modulo functions of $t$; DM-inv: $A$ only modulo gauge; DM-$\delta$ in $C^1$: no control of $V$\\
+contract & conditioning: discrete output, outside the Lipschitz chain; completeness (A) for the declaration of the model (it is an input)\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 2: choice of the level (conditioning)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+input & the model, the budget $n_{\max}$, optional prior knowledge (known $q$, symmetries)\\
+output & a level $n$ and a finite set of atoms $\mathcal D_n$; the sequence of levels to try in order of height; \UND{} at $n=n_{\max}$ without outcome\\
+claims & the space of smooth functions is not separable, so no exhaustive countable dictionary exists (proved); a delay is at distance $\ge1$ from the local dictionary and equals augmented transport (proved); non-monotonicity of identification (proved); functions with a law in the dictionary form a meagre and shy set (proved); no learner identifies the annihilator on the union of principal ideals and the zero ideal (proved)\\
+cost & for the linear family in $1{+}1$ dimensions, $(n+1)(n+2)/2$ monomials of degree $\le n$; for other families no general estimate is proved\\
+failures & the choice of level is a heuristic (completeness class C); a nonlocal atom is never reached by the local dictionary; a generic $u$ has no law\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 3: identification (conditioning of the class)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+3a scalar, constant & input $u$ in DM1, M3-hol, $M2^+$ or DM3, level $n$; output $\mathrm{Ann}(u)\cap R_{\le n}$, the gcd $G_u$, the point spectrum, the decision ID-ann (not in DM1) or relative ID-ker (DM1). Claims: $\mathrm{Ann}(u)=(P)$ iff $u,\partial_tu,\dots,\partial_t^{k-1}u$ are $\C[\partial_x]$-independent for $P$ monic in $\tau$ (proved); the test $w_i\notin\mathrm{EP}$; $G_u$ from any annihilator with an EP test; $\mathrm{Ann}(u)=(P)$ iff $\sigma_p=\emptyset$ and $G_u\sim P$; $u_t=a(\partial_x)u$ identifies relatively in the class $\deg a\le n$; elimination (proved); the algorithm and its polynomial cost are a written proof not yet audited ((A) conditional on it). Failure: $\mathrm{Ann}(\cdot)$ is discontinuous everywhere (proved).\\
+3b systems & input $u\in\mathcal A^r$ and a class of systems; output an existence test of an identifying $u$, and for a given $u$ the decision ID-ann or ID-ker in the Hamiltonian class, plus the component criterion. Claims: existence of an identifying solution on arbitrary $\Omega$ (proved by an own proof, not depending on Oberst for the truth value; $\R^n$ known from Oberst 1993, read only in the abstract; convex $\Omega$ from Oberst 1990, verified); socle obstruction (known); $\det P\ne0$, $n\ge2$ implies an identifying $u$ (proved); Lam\'e with $\rho,\mu,\lambda+\mu,\lambda+2\mu\ne0$ (proved; false for $\lambda=-2\mu$); Dirac in the fixed basis $\alpha=\sigma_x$, $\beta=\sigma_z$ (proved); magnetic case an affine family. Two senses of the Dirac hypothesis: ID-ann (second component not exponential-polynomial) and ID-ker (rank 8 in the Hamiltonian class; fails with one plane wave, holds with $\ge4$ generic modes). Cost: $2r^2$ unknowns (8 for Dirac). Failures: socle $\ge2$; the sum of kernels is not enough without hypotheses on $N$; too few modes for ID-ker; magnetic: only ID-fam. Novelty is conditional on the citation audit.\\
+3c variable & input $u$ in DM3, M3-hol or DM-$\varphi$, declared coefficient ring, regularity class; output $V$ through the residual map $\rho_u$, or the affine set of compatible coefficients. Claims: vacuity in a differentially closed field (proved), so the coefficient field must be fixed; for $V(x)$ every $u\not\equiv0$ in the strong class identifies $V$; for $V(t,x)$ outside the silence bands iff $\mathrm{int}\,Z(u)=\emptyset$ (continuous) or $\lvert Z(u)\rvert=0$ ($L^\infty$); Airy; unique continuation (source verified); the ID-ker version under the hypothesis that a law of the class exists. Conditional on verification: the socle/Loewy structure of the Galois route. Failures: the Tychonoff series (false); silence bands; $x\partial_t$ is never identified.\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 4: misfit certificate or best fit (correctness)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+input & $u$ in DM3 (or DM3$^\delta(Y)$); level and class; guide atom $D_0$; the span $W_n=\mathrm{span}(D_1u,\dots,D_Nu)$ in $Y=L^2$ or $H^s$; working precision $p$\\
+output & \MIS{}(certificate) if $r_n>0$ is certified, else \FC{}$(n,r_n,\text{coefficients with bound})$\\
+claims & the distance as a Hahn--Banach dual; $r_n^2=\det G(D_0u,D_1u,\dots)/\det G(D_1u,\dots)$; a weak form robust when $\sigma_{N+1}(A(\tilde u))>\lVert\delta\rVert_F$ (semi-decision); a misfit is open with a finite certificate, a fit is closed with empty interior; a fit is not certifiable from finite exact data (differential atoms); $\lvert c-\tilde c\rvert\le2\eta/\sqrt{\lambda_{\min}}$; the stopping rule R1 stops at $n_0$ under (H-ID); stability with Lipschitz constant $2\delta/\rho$ at a fixed level; the discrepancy rule selects $m=d$ with a threshold $\delta_0$ that cannot be bounded below from the data. Conditional on verification: one branch of the limit statement, one cited bound\\
+computation & $r_n$ as a least-squares residual (QR, or normal equations followed by the direct residual $\lVert D_0u+\sum c_iD_iu\rVert$), \emph{not} as a ratio of Gram determinants, which is singular when $D_0u$ lies in the span\\
+cost & Gram $(N+1)\times(N+1)$: $O(N^2)$ inner products each a quadrature on $\Omega$; QR $O(N^3)$; working precision $p\gtrsim\log_{10}(1/\lambda_{\min})$ digits (25 in the example)\\
+contract & misfit (A) only with a rigorous enclosure of $r_n$, else (B); fit (B) with the bound at the fixed level; stop (Lim)\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 5: analytic encoder for $V$ (correctness)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+role & the encoder is a \emph{translation} at known $q$, not a source of information: it carries a variable-coefficient problem to a constant-coefficient one, where steps 3a and 4 apply, and carries certificates back; in the non-autonomous form it satisfies $W(t)(i\partial_t-H(t))=(i\partial_t-H_0-c(t))W(t)$\\
+bounded (Volterra) & symmetric Volterra $W_q$: $\lVert W\rVert,\lVert W^{-1}\rVert\le C_W$; (A) for the exact intertwining, (B) for transported certificates with factor $C_W^2$, only if $q$ is exact; $C_W=1+a^2Qe^{a\sqrt Q}$ with $Q=\lVert q\rVert_\infty$; the kernel $K$ from a Goursat problem on the characteristic triangle, $O(M^2)$ evaluations of $q$ (indicative)\\
+Darboux & differential $A$, unbounded, with nontrivial kernel: class (C); bound modes are lost and an identifying datum can become exponential-polynomial\\
+claims & existence, uniqueness and stability of the Volterra transformation; $P(\partial_t,L_q)u=0$ iff $P(\partial_t,L_0)(Wu)=0$; differential $W$ are Darboux chains (prior art verified); no $t$-independent encoder for a generic $V(t,x)$ (proved); the blind-encoder statement is false and reduces to joint identification of $(q,u)$\\
+bound loss & $C_W$ is the only proved bound and grows as $e^{a\sqrt Q}$: at $a\sqrt Q=5$, $C_W^2\approx1.4\times10^7$ while $\cosh^2(a\sqrt Q)\approx5.5\times10^3$, so transported certificates may lose four orders of magnitude (a tighter bound is open)\\
+failures & unknown $q$: no information; $q$ estimated from step 3c: the Lipschitz constant of $q\mapsto W_q$ is not explicit, so transport is (C)\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 6: decomposition into factors and terms; interaction term (correctness)}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+input & the law $P$ (or a candidate) with the factorisation $P=\prod Q_j$; the datum $u$\\
+output & components $u_j\in\ker Q_j$; the ambiguity $\delta(P)$; interaction terms $E^{\mathrm{add}}$, $E^{\mathrm{mult}}$ with estimates\\
+claims & $\ker P=\sum\ker Q_j$ on simply connected $\Omega$ with $\delta(P)=\sum_{i<j}\dim R/(Q_i,Q_j)$, unique iff the varieties are disjoint (proved); components in $H^m$ iff the sum of kernels is closed and dense, $\gN>0$ (proved); the commuting-term identity and its cost $\Theta(M2^N(L+1)^2)$ (proved); every exact selection has Lipschitz constant $\ge\gN^{-1/2}$ (proved); Burgers: jet, closed form before the shock, blow-up (proved), jumps after it (proved modulo Lax--Oleinik = Kru\v zkov, to be verified)\\
+failures & \textbf{false}: the split does not preserve $H^m$ (exact loss of one derivative); on non-simply-connected $\Omega$ the split fails on the kernel of $\iota$ (defect $\le\delta(P)b_1(\Omega)$): \UND{} for the components; in $1{+}d$, $d\ge2$ the ambiguity is infinite unless the factors are comaximal; $E^{\mathrm{add}}$ is unbounded $H^m\to L^2$, so $E_{\mathrm{int}}$ from an approximate datum is (C); boundary conditions are invisible to $\mathrm{Ann}(u)$; for systems the component = factor statement needs $\mathrm{Ext}^1(N,\mathcal A)=0$\\
+contract & (A) in $\mathfrak B$ and the commutative case; (B) with $\gN^{-1/2}$ or with the Faddeev remainder; (C) if $\gN$ is not estimated, for $E_{\mathrm{int}}$ from approximate data, and in the infinite-ambiguity cases\\
+\bottomrule
+\end{tabular}
+
+\subsection*{Step 7: convergence guarantees}
+\begin{tabular}{@{}p{2.2cm}p{9.6cm}@{}}
+\toprule
+output & for each output the completeness label and the conditional-correctness label, with the bound of the chain $d(\tilde x_k,x_k)\le\sum_i(\prod_{j>i}L_j)\varepsilon_i$ computed in $O(k)$ operations by accumulating the product from the right\\
+(A) & elimination (conditional on the unaudited cost proof); exactness from the gcd and the spectral criterion; commuting splitting; the Bezout criterion on the torus\\
+(B) & Dyson--Phillips (one part conditional on verification); Magnus only for bounded generators in finite dimension or truncations with $\lVert H_N\rVert\tau<\pi$ (a source theorem), in infinite dimension under normality of the interaction-picture generator; Trotter--Kato splitting only for bounded or relatively bounded $V$; the proved splitting orders (Lie order 1, Strang $\Theta(h^{5/4})$ with Dirichlet conditions); the dictionary bound; stability at a fixed level\\
+(C) & completeness (the choice of level); Magnus outside its hypotheses, in particular the Stark case where $\int\lVert A_I\rVert=\infty$; splitting for unbounded $V$; $\gN$ not estimated; DM-$\delta$ below an unknown threshold; encoders with estimated $q$ or of Darboux type; $E_{\mathrm{int}}$ from approximate data\\
+(Lim) & identification in the limit without a bound; the stopping rule; the limit statement of the dictionary\\
+failures & no limit procedure decides whether a law exists; discontinuity everywhere (hence steps 1--3 are outside the chain); the noise threshold is not certifiable; two criteria of the nonlocal and Mori--Zwanzig routes are false\\
+\bottomrule
+\end{tabular}
+
+\subsection*{What the pipeline promises (all conditional on the declared level $n$ and class $K$)}
+\begin{enumerate}
+\item \textbf{M3-hol, DM3 with symbolic proof, $M2^+$ modulo (AC):} \texttt{IDENTIFIED[ID-ann | ID-res | ID-ker with (H-ex) | ID-fam]} in the declared class, correctness (A); in the decidable cases completeness is also (A) modulo (AC).
+\item \textbf{DM1 (exponential-polynomial):} only \texttt{IDENTIFIED[ID-ker, DM1]}, relative to a finite class, correctness (A); never ID-ann.
+\item \textbf{DM3 with numerical computation:} misfit (A) with a rigorous enclosure, else (B); fit compatible with a bound (B) at the fixed level; never ``law identified''.
+\item \textbf{DM2:} \texttt{ID-LIM}$(n)$, contract (Lim), no certificate.
+\item \textbf{DM-$\delta(Y)$:} moduli of continuity and a threshold that cannot be certified; robustness stays open.
+\item \textbf{The chain 4--6 bound} holds only if every step is (A) or (B).
+\end{enumerate}
+\emph{Novelty (stated carefully):} not the individual steps, most of which are known, but the composition of levels L6--L10 under one two-layer contract together with the new negative results (the dictionary theorem and the fit certificate, the principal-ideal limit theorem, the Tychonoff counterexample, the encoder obstruction). The delta of the existence theorem on a non-injective $\Omega$ is not claimed as new until the source is read in full.
+
+\subsection*{Open questions of the specification}
+(1) Robustness under noise in DM-$\delta(Y)$. (2) An infinite-mode nonlocal example identifying a nonlocal atom; the fit certificate for nonlocal atoms. (3) The Sobolev-scale form of the limit statement (candidate). (4) The limit gcd without a majorant. (5) The variable-coefficient question on the zero set. (6) The general Weyl-algebra case of the annihilator criterion. (7) Unbounded $V$ in the convergence theorems. (8) Cost per level of the dictionary search; an audit of the elimination algorithm; a rigorous enclosure for the misfit. (9) The Sobolev $H^{2k}$ case and the weak form for the encoder; a bound tighter than $C_W$. (10) An explicit Lipschitz constant of $q\mapsto W_q$. (11) The principal-class form of the observation statement; non-monic symbols; Maxwell. (12) A ledger row for Trotter--Kato and closing the citations listed in the claims table.
+
+% ---- end sections/app_spec.tex
+
+\end{document}

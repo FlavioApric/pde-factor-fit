@@ -1,22 +1,19 @@
-# pde-factor-fit, branch `model-expansion`
+# pde-factor-fit · branch `model-expansion`
 
-How to go beyond linear constant coefficients: nonlinear equations, variable and time-dependent coefficients, systems, nonlocal laws.
-By **Flavio Pricoco**. Code: MIT. Paper: CC BY 4.0.
+**What this branch is.** How to go beyond the base class (linear, constant coefficients, scalar, 1+1 dimensions): nonlinear equations, variable and time-dependent coefficients, systems, nonlocal laws. It gives the ladder of levels L0-L10, the six-step extended algorithm with a contract of guarantees, the answers to the four founding questions, the routes tried (introducing linearity, a direct equation, a change of variables) and what became of your ideas, four checked worked examples, the minimal route for extending the code, and the full specification step by step.
 
-**Read first:** [`paper/model_expansion/main.pdf`](paper/model_expansion/main.pdf) (13 pages): the ladder of levels L0-L10, the six-step extended algorithm,
-what is proved and what is impossible in each direction, **the four questions that started the project and their answers** (matrix coefficients, variable coefficients, convergence, universal dictionary), **the routes tried, merged, parked or eliminated** (introducing linearity, introducing a direct equation, changing variables) and what became of your ideas (Idea I, Idea II, process G), four worked examples, the algorithm today, the minimal route for extending the code, open questions.
+**Open this first:** [`paper/model_expansion.pdf`](paper/model_expansion.pdf) (21 pages; LaTeX source `paper/model_expansion.tex`).
 
-```
-paper/model_expansion/   the paper            examples/    four checked worked examples (7+11+5+12 checks)
-src/pdefactor/, tests/   current pipeline     benchmarks/  out_of_class_inject.py: inputs outside the class (nonlinear, varcoef, ...)
-claude/                  rules, map, status, notes (the full extended-algorithm specification, in Italian)
-```
+| folder | what is in it |
+|---|---|
+| `paper/` | the paper: one `.tex` and one `.pdf` |
+| `code/` | the four worked examples (`ex_L6_dirac.py`, `ex_L7_poschl_teller.py`, `ex_L8_stark.py`, `ex_L9_L10_dict.py`, each with its stored output `.out`) and `out_of_class_inject.py`, the generators of inputs outside the class (nonlinear, variable coefficient, fractional, two laws, coloured noise, aliasing) |
+| `tests/` | `test_examples.py`: runs the four examples (35 checks) |
+| `claude/` | for Claude sessions: rules, status, map, the full specification of the extended algorithm in Italian (`claude/notes/`), where each file came from (`claude/PROVENANCE.md`) |
 
 ```bash
-pip install -e ".[dev]"
-pytest -q tests/test_examples.py        # the four examples, ~1 min
-cd paper/model_expansion && latexmk -pdf main.tex
+pip install -e ".[dev]" && pytest -q tests/test_examples.py        # ~2 min
+cd paper && latexmk -pdf model_expansion.tex
 ```
-
-Status: the extended algorithm is a **specification** plus symbolic checks; it is not implemented in `src/`. The proofs are on branch `analytical`.
-Other branches: `main`, `analytical`, `ml-layers`. See [`claude/REPO_MAP.md`](claude/REPO_MAP.md). Licenses: [`LICENSE`](LICENSE), [`LICENSE-papers.md`](LICENSE-papers.md). Cite: [`CITATION.cff`](CITATION.cff).
+The extension is a specification plus symbolic checks; it is **not** implemented in the pipeline. The pipeline itself lives on branch `main` (`pip install -e ".[pipeline]"` installs it for the generators). The proofs are on branch `analytical`.
+Licenses: code MIT, paper CC BY 4.0; cite via `CITATION.cff`. Author: Flavio Pricoco.

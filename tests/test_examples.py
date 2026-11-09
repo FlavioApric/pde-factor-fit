@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-EX = Path(__file__).resolve().parents[1] / "examples"
+EX = Path(__file__).resolve().parents[1] / "code"
 EXPECTED = {"ex_L6_dirac.py": 7, "ex_L7_poschl_teller.py": 11, "ex_L8_stark.py": 5, "ex_L9_L10_dict.py": 12}
 
 
