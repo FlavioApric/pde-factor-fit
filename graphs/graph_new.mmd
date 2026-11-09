@@ -1,75 +1,69 @@
 flowchart LR
   n0["claude/archive<br/>615 files (report-plan)"]
   n1["verification/research<br/>143 files (python-src)"]
-  n2["verification/CHECK<br/>88 files (data)"]
-  n3["benchmarks/out<br/>83 files (data)"]
-  n4["paper/shared<br/>65 files (paper-tex)"]
-  n5["paper/analytical_complete<br/>59 files (paper-tex)"]
-  n6["verification/CHECK-F10<br/>53 files (python-src)"]
-  n7["src/pdefactor<br/>51 files (python-src)"]
-  n8["benchmarks/ml_layers<br/>48 files (benchmark-script)"]
-  n9["variants/s_interp<br/>39 files (benchmark-script)"]
-  n10["verification/CHECK-F8<br/>38 files (python-src)"]
-  n11["paper/analytical_phases05<br/>34 files (paper-tex)"]
-  n12["benchmarks/data<br/>33 files (data)"]
-  n13["paper/analytical<br/>32 files (paper-tex)"]
+  n2["src/pdefactor<br/>89 files (python-src)"]
+  n3["verification/CHECK<br/>88 files (data)"]
+  n4["benchmarks/out<br/>83 files (data)"]
+  n5["paper/analytical_complete<br/>67 files (paper-tex)"]
+  n6["paper/shared<br/>65 files (paper-tex)"]
+  n7["verification/CHECK-F10<br/>53 files (python-src)"]
+  n8["benchmarks/ml_layers<br/>49 files (benchmark-script)"]
+  n9["paper/analytical<br/>39 files (paper-tex)"]
+  n10["variants/s_interp<br/>39 files (benchmark-script)"]
+  n11["verification/CHECK-F8<br/>38 files (python-src)"]
+  n12["paper/analytical_phases05<br/>34 files (paper-tex)"]
+  n13["benchmarks/data<br/>33 files (data)"]
   n14["analysis/exp<br/>30 files (benchmark-script)"]
-  n15["proofs/lean<br/>20 files (lean)"]
-  n16["benchmarks/sessions<br/>18 files (benchmark-script)"]
-  n17["paper/analytical_explained<br/>18 files (paper-tex)"]
-  n18["paper/explained<br/>18 files (paper-tex)"]
-  n19["verification/S8-VAR<br/>16 files (data)"]
-  n20["claude/notes<br/>14 files (doc)"]
-  n21["verification/C1C2<br/>14 files (data)"]
-  n22["verification/OP-F5C<br/>14 files (data)"]
-  n23["verification/S4-ID<br/>13 files (data)"]
-  n24["verification/OP-F5A<br/>12 files (data)"]
-  n25["verification/OP-NL<br/>12 files (python-src)"]
-  n26["verification/S10-OPEN-B<br/>12 files (data)"]
-  n27["verification/S8-ENC<br/>12 files (data)"]
-  n28["benchmarks/results<br/>11 files (data)"]
-  n29["verification/S10-INT<br/>10 files (data)"]
-  n30["verification/S4-TERM<br/>10 files (data)"]
-  n31["verification/S5-EX<br/>10 files (data)"]
-  n32["verification/S8-CONV<br/>8 files (data)"]
-  n33["benchmarks/final_report_example<br/>7 files (data)"]
-  n34["paper/ml_layers<br/>7 files (paper-tex)"]
-  n35["proofs/lean_project<br/>7 files (other)"]
-  n36["verification/OP-F5D<br/>7 files (python-src)"]
-  n37["verification/OP-ANA<br/>6 files (data)"]
-  n38["verification/P2<br/>6 files (data)"]
-  n39["verification/S10-OPEN-A<br/>6 files (data)"]
-  n0 -->|ref x177| n20
-  n20 -->|ref x156| n0
-  n0 -->|ref x129| n7
-  n0 -->|ref x98| n2
-  n4 -->|ref x81| n33
-  n14 -->|py x79| n7
+  n15["tests/__pycache__<br/>29 files (junk)"]
+  n16["paper/explained<br/>22 files (paper-tex)"]
+  n17["proofs/lean<br/>20 files (lean)"]
+  n18["benchmarks/sessions<br/>18 files (benchmark-script)"]
+  n19["paper/analytical_explained<br/>18 files (paper-tex)"]
+  n20["verification/S8-VAR<br/>16 files (data)"]
+  n21["claude/notes<br/>14 files (doc)"]
+  n22["paper/ml_layers<br/>14 files (junk)"]
+  n23["verification/C1C2<br/>14 files (data)"]
+  n24["verification/OP-F5C<br/>14 files (data)"]
+  n25["verification/S4-ID<br/>13 files (data)"]
+  n26["verification/OP-F5A<br/>12 files (data)"]
+  n27["verification/OP-NL<br/>12 files (python-src)"]
+  n28["verification/S10-OPEN-B<br/>12 files (data)"]
+  n29["verification/S8-ENC<br/>12 files (data)"]
+  n30["benchmarks/results<br/>11 files (data)"]
+  n31["paper/model_expansion<br/>10 files (junk)"]
+  n32["verification/S10-INT<br/>10 files (data)"]
+  n33["verification/S4-TERM<br/>10 files (data)"]
+  n34["verification/S5-EX<br/>10 files (data)"]
+  n35["verification/S8-CONV<br/>8 files (data)"]
+  n36["benchmarks/final_report_example<br/>7 files (data)"]
+  n37["proofs/lean_project<br/>7 files (other)"]
+  n38["verification/OP-F5D<br/>7 files (python-src)"]
+  n39["verification/OP-ANA<br/>6 files (data)"]
+  n0 -->|ref x177| n21
+  n21 -->|ref x156| n0
+  n0 -->|ref x129| n2
+  n0 -->|ref x98| n3
+  n6 -->|ref x81| n36
+  n14 -->|py x79| n2
   n0 -->|ref x77| n1
-  n8 -->|py x40| n7
-  n0 -->|ref x39| n6
+  n8 -->|py x40| n2
+  n0 -->|ref x39| n7
   n0 -->|ref x36| n14
-  n9 -->|py x27| n7
-  n20 -->|ref x24| n7
-  n0 -->|ref x22| n16
-  n0 -->|ref x22| n15
-  n0 -->|ref x22| n26
-  n16 -->|py x21| n7
+  n10 -->|py x27| n2
+  n21 -->|ref x24| n2
+  n0 -->|ref x22| n18
+  n0 -->|ref x22| n17
+  n0 -->|ref x22| n28
+  n18 -->|py x21| n2
   n0 -->|ref x20| n8
-  n7 -->|ref x20| n0
+  n2 -->|ref x20| n0
   n8 -->|ref x15| n0
-  n0 -->|ref x14| n10
-  n4 -->|ref x14| n0
-  n0 -->|ref x13| n21
-  n0 -->|ref x13| n22
-  n0 -->|ref x13| n29
-  n0 -->|ref x11| n24
-  n2 -->|ref x10| n0
-  n0 -->|ref x9| n3
-  n11 -->|ref x9| n0
-  n0 -->|ref x8| n37
-  n0 -->|ref x7| n38
-  n0 -->|ref x7| n12
-  n20 -->|ref x7| n8
-  n5 -->|ref x7| n20
-  n18 -->|ref x7| n7
+  n0 -->|ref x14| n11
+  n6 -->|ref x14| n0
+  n0 -->|ref x13| n23
+  n0 -->|ref x13| n24
+  n0 -->|ref x13| n32
+  n0 -->|ref x11| n26
+  n3 -->|ref x10| n0
+  n0 -->|ref x9| n4
+  n12 -->|ref x9| n0
