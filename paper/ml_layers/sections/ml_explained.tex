@@ -1,0 +1,277 @@
+\section{Explained edition of the learned layers}\label{app:explained-ml}
+\noindent The following text is the explained edition of the machine-learning layers (the map of all layers with their code and status, the rule every learned layer obeys and how tests are built, the optional layers with their experiments and tests, the test inventory, and what is established and what is not). Where it overlaps with the sections above, it is kept for its step-by-step explanations and its tests; labels that coincide with those above are prefixed by \texttt{f:}.
+
+\subsection{The map: every learned or statistical-learning layer}\label{sec:map}
+\sectionbrief
+{the pipeline of the main edition: scattered data, interpolation, spectral core, aggregation, grouping, Bayesian output, loop.}
+{the reader asked for all the machine-learning layers that were built, not only the optional ones. A map first avoids mixing what is in the main pipeline with what is optional.}
+{this section is the table of contents of the project from the point of view of learning; each row is explained in its own section.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+GP & Gaussian process: a probability distribution over functions & Sec.~\ref{sec:gp}\\
+DP mixture & Dirichlet-process mixture: a clustering model with an unbounded number of clusters & Sec.~\ref{sec:dp}\\
+evidence & the probability of the data under a model, with the parameters integrated out & Sec.~\ref{sec:split}\\
+proposal & a candidate offered to the exact evidence, which scores it & Sec.~\ref{sec:rule}\\
+calibration & an offline correction of a probability or an interval & Sec.~\ref{f:sec:calib}\\
+flag & a warning attached to a result; it never changes the label & Sec.~\ref{sec:valid}\\
+LOFO & leave-one-family-out: hold out a whole family of equations when testing & Sec.~\ref{sec:rule}\\
+\end{tabular}
+\end{symbols}
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabular}{@{}L{2.9cm}L{4.6cm}L{3.3cm}L{2.4cm}@{}}
+\toprule
+Layer & Kind of learning & Code & Status\\\midrule
+Interpolator & Gaussian process, hyperparameters marginalised, pathwise samples & \texttt{interp/gp.py} & \impl{}\\
+Factor-wise GP & GP with the factors' exponentials as features (EPGP) & \texttt{interp/epgp.py} & \impl{} (used by the evidence)\\
+Fast GP, ensemble & KISS-GP on a grid; deep ensemble & \texttt{interp/ski.py}, \texttt{ensemble.py} & \impl{} (ablation, experimental)\\
+Aggregation & Dirichlet-process mixture, merge step, finite-mixture BIC & \texttt{aggregate.py} & \impl{}\\
+Grouping & GMM, $k$-means, spectral, agglomerative on window features & \texttt{cluster.py} & \impl{}\\
+Bayesian split & linear-Gaussian model, empirical Bayes, closed-form evidence & \texttt{bayes\_split.py} & \impl{}\\
+Decider, refinement & model selection by raw-data evidence, variable projection & \texttt{loop.py}, \texttt{refine\_raw.py} & \impl{}\\
+Baselines & sparse regression (SINDy variants), DMD, for comparison & \texttt{baselines/} & \impl{}\\
+Simulator & random equations by family (training and test ground) & \texttt{simulator.py} & \impl{} (held-out benchmark)\\
+L0 seeds & CNN that proposes poles of an exponential sum & \texttt{learned/}\allowbreak\texttt{expsum.py}, \texttt{expseeds.py} & mechanism tested; no benefit result\\
+L2 calibration & isotonic regression, monotone boosting, conformal intervals & \texttt{learned/}\allowbreak\texttt{calibrate.py} & no-go (Sec.~\ref{sec:final})\\
+V0 / V1 validator & deterministic diagnostics; boosted trees with risk control and an OOD gate & \texttt{validate.py}, \texttt{learned/}\allowbreak\texttt{validator.py} & V0 \impl{}; V1 no-ship\\
+Remedy table & offline contextual-bandit estimate & \texttt{learned/}\allowbreak\texttt{remedy.py} & unused (no controller)\\
+L1b, L6, controller & set encoder; amortised posterior; remedy controller & none & not built\\
+L5 encoder & learned grouping encoder & none & rejected\\
+\bottomrule
+\end{tabular}
+\caption{All the layers. The first eight are the main pipeline; the next five are the optional learned layers.}
+\end{table}
+
+\begin{takeaway}
+The pipeline already contains real machine learning (a GP, a DP mixture, clustering, Bayesian regression). What was added in Phase~4 is an \emph{optional} layer of neural and tree models, held to a stricter rule than the rest.
+\end{takeaway}
+
+\subsection{The rule every learned layer obeys, and how tests are built}\label{sec:rule}
+\sectionbrief
+{the principle that the analytic core is deterministic and the outer layer is Bayesian (the project rules).}
+{a neural network that can change a label or a likelihood would break the output contract; the rule says exactly what it may do.}
+{this is the template for every test in Section~\ref{sec:learned} and the reason several tests are of one kind, the ``null gate''.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+off switch & a setting under which the pipeline is exactly the deterministic one & each layer\\
+null gate & a test on data where the right answer is ``nothing there'': single pole, pure noise, single factor & Phase~4 plan\\
+simulator prior & the distribution from which the training equations are drawn; outputs depend on it and carry a tag & \texttt{PRIOR\_TAG}\\
+family & one of five groups of random equations F1--F5 & \texttt{simulator.py}\\
+split (fit / calibrate / test) & three disjoint parts of the simulated corpus: one to fit, one to calibrate, one to report & Phase~4 plan\\
+\end{tabular}
+\end{symbols}
+
+\begin{theorem}[{(Rule of Phase 4) \impl}]\label{thm:rule}
+Every learned output is a \textbf{proposal}, a \textbf{calibration} or a \textbf{flag}. The likelihood of the final comparison is fixed and global. Off equals today's pipeline bit for bit. The core changes only through an optional argument, with tests. A layer is switched on only if, on held-out families, it is at least as good as off in right set, coefficient error, coverage and false-confident rate, and passes the null gates.
+\end{theorem}
+\begin{intuition}
+A learned component may change \emph{where} the algorithm looks and \emph{how fast} it gets there. It may never change \emph{what the data say} about a candidate. This is why a seed from a network is scored by the same criterion as one from the matrix pencil.
+\end{intuition}
+
+\begin{explained}{how the tests are built, step by step}
+\textbf{Step 1: the off test.} Run the layer off and compare with a recorded output of the unmodified code. For the seed hook the comparison is against modes stored in \texttt{tests/data/structfit\_golden.npz}, generated with the same data recipe from the previous version of the core, and they must be reproduced exactly.
+
+\medskip\textbf{Step 2: a guarantee that holds whatever the network says.} For L0 the test feeds \emph{junk} seeds and checks that the selected per-bin criterion can only go down, because a seed joins the comparison as one more candidate.
+
+\medskip\textbf{Step 3: the null gate.} A single clean pole with junk seeds of every order must give no extra mode; pure noise must give no mode at all.
+
+\medskip\textbf{Step 4: reliability, coverage and monotonicity.} For a calibration, simulate data with a known answer and check that the probability matches the frequency (reliability) and that intervals cover at the nominal rate.
+
+\medskip\textbf{Step 5: held-out families.} The simulator draws equations by family; model selection never sees the family it is judged on (leave-one-family-out). A test checks that the groups used for splitting are disjoint.
+\end{explained}
+
+\begin{takeaway}
+The tests are not accuracy tests on one case. They check that the layer cannot do harm (off, junk, null) before checking that it helps.
+\end{takeaway}
+
+\subsection{The optional learned layers (Phase 4)}\label{sec:learned}
+\sectionbrief
+{the committed pipeline of Section~\ref{sec:inside-ml}, its failure census, and the rule of Section~\ref{sec:rule}.}
+{the remaining failures are of three kinds: information absent from the data, information lost by the interpolant, and a search that does not propose the right candidate. Only the last two can be helped by learning, and only as proposals or calibrations.}
+{these layers were built in a separate session; they exist as code and unit tests and are \emph{not} connected to the loop.}
+
+\subsubsection{The simulator: the ground where learned layers are trained and judged}\label{sec:sim}
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+F1--F5 & families: real first order; dispersive; second order in $\tau$; products of $2$--$3$ factors; edge cases & Phase~4 plan, P0.3\\
+draw & one random equation with its true factors and excited modes & \texttt{random\_pde}\\
+resolvable & enough distinct wavenumbers are present at this noise to identify each factor & scoring rule\\
+correct abstention & \textsc{id-ker} or \textsc{undecided} where the information is absent & scoring rule\\
+false-confident & \textsc{fit-compatible} with a wrong set & scoring rule\\
+\end{tabular}
+\end{symbols}
+\textbf{What it does.} \texttt{simulator.py} draws a symbol by family from a declared prior with a stability constraint, conjugate pairs for real fields, and a random excitation, so the truth is known by construction. Nothing in the pipeline reads it: it is a held-out test bed. The scoring (\texttt{e13\_summary.py}) rewards honest abstention: a correct abstention counts as right, a confident wrong answer is the worst outcome.
+
+\begin{explained}{how it was tested}
+\texttt{tests/test\_simulator.py} ($4$ tests): every draw is exact (its modes satisfy the dispersion relation), stable and deterministic; the families have their stated shape; a complex factor of a real field is listed with its conjugate; the matching function is scale-aware (right set up to a relative tolerance, not an absolute one).
+\end{explained}
+
+\subsubsection{L0: learned seeds for the exponential fit}\label{sec:l0}
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+$s=\lambda T$ & a pole made dimensionless by the time span $T$ & \texttt{expsum.py}\\
+heatmap & a $67\times161$ image over $\mathrm{Re}\,s\in[-30,3]$, $\mathrm{Im}\,s\in[-40,40]$ with a unit Gaussian at each detectable pole & \texttt{expseeds.py}\\
+order head & a classifier for the number of poles, $0$ to $8$ & \texttt{expseeds.py}\\
+seed & a proposed set of poles that starts a fit & \texttt{SEED\_PROVIDER}\\
+CRB & the Cram\'er--Rao bound: the best possible variance of a rate estimate & core\\
+\end{tabular}
+\end{symbols}
+\textbf{Why.} The matrix pencil is biased at low noise-to-signal ratio and its order choice fails when exponentials merge; the theory has no result for its conditioning (\thy{T10}, open). This is the one place the theory leaves open for learning.
+
+\textbf{What it does.} A network reads one Fourier bin's time series (real, imaginary and a signal-to-noise channel, $64$ samples, zero-padded with a mask) and outputs a heatmap whose peaks are candidate poles and a distribution over the number of poles. It is a four-layer 1-D convolutional encoder followed by two linear layers, with a heatmap head and a count head, trained with a mean-squared heatmap loss plus a cross-entropy on the count. The architecture follows a published design for damped exponentials (Xie, Wakin and Tang, 2021) and its undamped predecessor; the code was reimplemented because the predecessor has no licence and handles undamped lines only. The training data are \emph{generic damped exponential sums} (random order up to $8$, near-merged pairs down to spacing $0.3$, amplitude ratios down to $10^{-3}$, white and coloured noise), \emph{not} PDE solutions: by the Ehrenpreis--Palamodov representation every bin of every in-scope field is such a sum, so the network never sees a PDE family and cannot overfit one. In the pipeline, the proposed pole sets become extra candidates in the per-bin BIC order comparison, with the same refinement budget; \texttt{disable()} restores the deterministic pipeline.
+
+\begin{explained}{how it was tested}
+\textbf{Off and hook tests} (\texttt{tests/test\_learned.py}): the seed hook off is identical to today; the module switch works; a seed can only lower the selected per-bin criterion (junk seeds included); off reproduces the recorded outputs of the unmodified core exactly; a seed never adds an order outside the pencil's range; a seed inside the range is scored (the true pair is selected when the data support two poles, at a tolerance limited by the CRB); with a provider on, every order gets two starts; the null gates (junk seeds on a single pole, pure noise) add no mode; the training draw and its encoding behave.
+
+\medskip\textbf{Experiment E12} (\texttt{e12\_l0\_seeds.py}) is written to compare the network with the pencil plus BIC on held-out sums: order accuracy, rate efficiency against the CRB, false modes, by noise level and pole spacing. \emph{No result file and no trained network were found in the repository}, so there is no evidence yet on whether L0 helps.
+\end{explained}
+
+\begin{capbox}{Status of L0}
+The mechanism and its safety (off, junk, null) are tested. Whether the network actually improves order selection or rate error is not measured; the gate of Section~\ref{sec:rule} has not been run.
+\end{capbox}
+
+\subsubsection{L2: calibration of probabilities and intervals}\label{f:sec:calib}
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+$P(\text{top})$ & posterior probability of the top structure & loop\\
+isotonic map & a non-decreasing function fitted to turn predicted probabilities into observed frequencies & \texttt{ProbabilityCalibrator}\\
+$p^*$ & the Bayes threshold $L_{\mathrm{false}}/(L_{\mathrm{false}}+L_{\mathrm{miss}})$ for a loss pair & \texttt{loss\_threshold}\\
+inflation & a factor $\ge1$ multiplying an interval width & \texttt{IntervalInflator}\\
+Mondrian conformal & a conformal correction computed separately in each regime & \texttt{calibrate}\\
+\end{tabular}
+\end{symbols}
+\textbf{What it does.} (i) The probability of the top structure is recalibrated by one isotonic map, which cannot reorder runs and has one degree of freedom per level, so it cannot memorise the case identities. (ii) Decision thresholds are not tuned: once a probability is calibrated, the Bayes decision for a stated loss gives the threshold, which replaces hand values such as $P_{\mathrm{conc}}$. (iii) Interval widths are inflated by one \emph{monotone} map per quantity type on five theory-defined features whose sign the theory fixes (split amplification $\gamma_N^{-1/2}\sigma/|w|$: non-decreasing; mode-count margin: non-increasing; Vandermonde condition: non-decreasing; per-factor signal-to-noise: non-increasing; disagreement between samples: non-decreasing), followed by a Mondrian split-conformal step on a separate calibrate split. Coverage is then guaranteed only within the simulator prior and conditional on correct selection, and every output carries a prior tag.
+
+\begin{explained}{how it was tested}
+\texttt{tests/test\_learned.py}: the loss threshold; the split into fit, calibrate and test groups is disjoint, nonempty, and raises an error when there are too few groups; isotonic recalibration improves reliability; the interval inflator reaches the nominal coverage and its map is monotone in each feature.
+\end{explained}
+
+\subsubsection{V0 and V1: the validator}\label{sec:valid}
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+V0.$n$ & a deterministic diagnostic statistic with a known null & \texttt{validate.py}\\
+failure mode & one of ten named ways a run can go wrong (high-$\kappa$ loss, too few $\kappa$, spurious factor, local optimum, noise misspecified, degree too low, out of class, unsplit reducible, weights inseparable, repeated factor) & \texttt{FAILURE\_MODES}\\
+conformal risk control & choosing one threshold so that the expected fraction of missed true failures is at most $\alpha$ & \texttt{\_risk\_threshold}\\
+OOD gate & a conformal outlier $p$-value of the Mahalanobis distance of a run's features to the calibration runs & \texttt{ood\_pvalue}\\
+\end{tabular}
+\end{symbols}
+\textbf{V0} (deterministic, read-only on a finished run). Implemented: V0.1 posterior-predictive misfit per wavenumber bin (the whitened residual of each bin after projecting on the predicted exponentials is $\chi^2$ under the fitted law); V0.2 the mode-count margin per factor (distinct $|\kappa|$ minus $dx+1$); V0.3 the evidence gap to the next structure and the structure entropy; V0.10 the split floor ($c_F$, $\gamma_N$, interval width relative to the weight); V0.13 an optional held-out-in-time score. The other eight statistics of the plan are not built.
+
+\textbf{V1} (learned combiner). One boosted-tree classifier per failure mode (scikit-learn histogram gradient boosting, depth $3$, $200$ iterations, with monotonic constraints where the sign of a statistic is known) on the V0 vector plus permutation-invariant aggregates of the factor list (number, min/max/mean of the weakest-coefficient $z$-score, $\kappa$-support, inclusion probability, $\rho$, Vandermonde condition, margin). Identifiers (case name, seed) are never features. It reports a \emph{set} of failure modes chosen by conformal risk control with $\alpha=0.10$; if the run is out of distribution ($p<0.01$) the probabilities are withheld and the report says so. It diagnoses only: it never changes a label and never acts.
+
+\begin{explained}{how it was tested}
+\texttt{tests/test\_validate.py} ($2$): V0.1 is calibrated when the factors are the truth and flags a run with a missing factor; V0.2 flags too few wavenumbers. \texttt{tests/test\_learned.py}: the risk control reaches the stated missed-failure rate and the OOD gate flags a shifted run; factor aggregates are invariant to the order of factors; features are built from a loop result; the validator tolerates all-NaN or constant columns. No accuracy of V1 on a real failure-injected corpus was found in the repository.
+\end{explained}
+
+\subsubsection{The remedy table}
+\textbf{What it does.} Within one diagnosis the controller would try remedies in an order. The table learns that order offline as the empirical success rate of each remedy on failure-injected simulations (an offline contextual bandit, no online exploration). A success counts only when a wrong output becomes right without adding a false factor on the null set; a remedy that only changes the likelihood is not in the table. The ordering uses the lower credible bound of a Beta$(1,1)$ posterior, so a remedy seen twice with two successes does not jump ahead of one seen $200$ times at $80\%$. \emph{Tests:} the order, the cost-aware ordering (without a cost a remedy is not favoured).
+
+\subsubsection{What was not built, and why}
+\begin{table}[!htb]
+\centering\small
+\begin{tabular}{@{}L{3.0cm}L{9.0cm}@{}}
+\toprule
+Layer & Reason \\\midrule
+L1a (deterministic residual search) & planned first: the missed high-$\kappa$ content is raw-data information that a matched-filter scan can recover without learning\\
+L1b (learned residual proposals) & only if an oracle information study shows information present but missed after L1a\\
+Controller & planned: a rule table driven by V0/V1 with the honesty rule that it never changes the likelihood\\
+L6 (amortised posterior) & deferred: its information is already covered by V0/V1 at far less data, and it is valid only in-prior\\
+L5 (learned grouping encoder) & rejected: no stable linear encoder makes the interaction term vanish, and the failures are not grouping failures\\
+Differentiable core & not needed: the refinement on the observations already optimises the raw evidence over the coefficients\\
+\bottomrule
+\end{tabular}
+\caption{Layers planned or refused, with the reason recorded in the Phase~4 plan.}
+\end{table}
+
+\subsection{The final evaluation of the learned layers}\label{sec:final}
+\sectionbrief
+{the learned layers of Section~\ref{sec:learned}, the pipeline after its fixes, and corpora of simulated equations with failures injected, all with the truth known.}
+{the rule of Phase~4 says a layer ships only if it beats the layer-off pipeline on held-out families. This was tested, layer by layer, in a separate session on a branch of its own.}
+{the verdict decides what is part of the algorithm: the answer is that the pipeline after its fixes does not need a learned layer.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+AUROC & probability that a detector scores a random failure above a random clean run; $0.5$ is chance & detection metric\\
+detection rate & fraction of true failures flagged at a fixed false-alarm rate (here $5\%$) & conformal gate\\
+oracle ceiling & fraction of failures some remedy rescues if an oracle picked it; an upper bound & controller study\\
+no-go / no-ship & the layer does not pass the gate; its code stays off & rule of Phase~4\\
+\end{tabular}
+\end{symbols}
+
+\begin{center}\small
+\begin{tabular}{@{}L{3.1cm}L{3.0cm}L{6.6cm}@{}}
+\toprule
+Layer & Verdict & Why\\\midrule
+V1 failure detector & \textbf{no-ship} & leave-one-family-out AUROC $0.85$ against $0.62$ for V0, and the false alarm stays within its bound, but the detection rate at $5\%$ false alarm is only $0$--$8\%$ per family (V0 alone: $26$--$47\%$); a replay that downgrades flagged runs to \textsc{undecided} leaves false-confident answers at $7\to7$ and loses two correct ones\\
+Exact memo (LB) & \textbf{on} & identical label, factors, coefficients and weights in $10/10$ paired runs; time ratio $0.995$: harmless and almost useless since the core got faster\\
+Learned skip (LB) & no-go & skips almost nothing and harmed $2/165$ runs\\
+L2b calibrated $P(\text{top})$ & no-go & $P(\text{top})\ge0.999$ on $96\%$ of runs: there is no resolution to calibrate\\
+L2c calibrated intervals & no-go & the uncalibrated coverage is already $0.895$ at nominal $0.90$; both calibrators over-cover with wider intervals\\
+L2d learned constants & no-go & every leave-one-family-out fold picks today's constants\\
+H0 high-$\kappa$ scan & no-go & never changed an answer in $80/80$ and $40/40$ paired runs, only added time\\
+Controller C$'$ & not built & oracle ceiling $8/12$ failures ($67\%$), mostly by lowering the degree, but V1 as trigger finds $0/12$; the other triggers tried ($\chi^2$ tests) find none either\\
+L0 seeds & mechanism only & the safety properties are tested; no trained network and no benefit result exist\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{explained}{how to read this verdict}
+\textbf{Step 1.} A layer can help only where the pipeline fails. After the fixes of the main sessions, the failures that remain on the final benchmark are none ($30/30$) and, on random equations, a handful.
+
+\medskip\textbf{Step 2.} The detector V1 is good on average (AUROC $0.85$) but a conformal gate needs it to be good in the \emph{tail}: at a false-alarm rate of $5\%$ it catches almost nothing. A detector that cannot flag failures without flagging clean runs cannot be used to downgrade labels.
+
+\medskip\textbf{Step 3.} A controller would need a trigger. The oracle shows that a remedy exists for two thirds of the failures (the degree should often be lower), but no diagnosis available at run time points at them: the diagnosis, not the remedy, is the bottleneck.
+
+\medskip\textbf{Step 4.} Therefore ``pipeline plus ML equals pipeline'': the learned layers are an honest negative result, with code, data and gates kept for a future change of the pipeline.
+\end{explained}
+
+\begin{capbox}{Limits of this evaluation}
+The corpora are simulated, so the verdicts are within the simulator prior; clean runs include timeouts that carry no features; and the detection numbers use few clean runs per fold. A different pipeline, or a different failure mix, could change them, which is why the code and the gates are kept.
+\end{capbox}
+
+\subsection{Test inventory}\label{sec:tests}
+\sectionbrief
+{the test files of the repository.}
+{to give, in one place, what is covered and by how many tests.}
+{a reader can see what has a unit test, what has only an experiment, and what has neither.}
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabular}{@{}L{4.4cm}L{1.2cm}L{6.6cm}@{}}
+\toprule
+File & Tests & Covers\\\midrule
+\texttt{test\_core\_exact} & 6 & exact data: factor sets, terms, weights, components sum to data, $\Eint$ in closed form, the split-ambiguity catalogue\\
+\texttt{test\_core\_v2} & 6 & exact and noisy factor sets, weights, shared $\kappa=0$ mode, repeated factor is \textsc{undecided}, candidate structures\\
+\texttt{test\_domain} & 7 & non-periodic cells: extractor, Cadzow denoising, variable-projection gradient, structure on $L=\pi$, two regimes, admissibility, quadtree interface\\
+\texttt{test\_aggregate\_cluster} & 8 & aggregation, DP, clustering, ARI (Sec.~\ref{sec:dp})\\
+\texttt{test\_interp} & 11 & GP (Sec.~\ref{sec:gp})\\
+\texttt{test\_baselines\_bench} & 7 & baselines, benchmark rows, calibration metrics\\
+\texttt{test\_phase3} & 10 & noise, split layer, decider (Sec.~\ref{sec:split})\\
+\texttt{test\_loop} & 5 & loop (Sec.~\ref{sec:decider})\\
+\texttt{test\_general} & 10 & general structures: cubic in $\tau$, reducible products, conjugates\\
+\texttt{test\_refine\_grid} & 3 & refinement on grids\\
+\texttt{test\_simulator} & 4 & simulator (Sec.~\ref{sec:sim})\\
+\texttt{test\_validate} & 2 & V0 (Sec.~\ref{sec:valid})\\
+\texttt{test\_learned} & 21 & L0, L2, V1, remedy (Secs.~\ref{sec:l0}--\ref{sec:valid})\\
+\texttt{test\_ml\_contract} & -- & entry points, helper signatures, result fields and knobs the learned layers rely on\\
+\texttt{test\_t77}, \texttt{test\_t83\_half\_plane}, \texttt{test\_t83b\_split\_finest}, \texttt{test\_t86}, \texttt{test\_t94}, \texttt{test\_t95\_smooth\_gof}, \texttt{test\_t97}, \texttt{test\_t100\_path\_class\_ard}, \texttt{test\_t101\_final\_raw\_gof}, \texttt{test\_t103\_split\_ci\_idker} & -- & one file per later fix: pooled empty bins, half-plane fit, finest split, raw goodness-of-fit calibration, SVD guard, smooth test, per-branch scales, final goodness of fit, split intervals and identifiability (the main edition of the main edition)\\
+\texttt{test\_run\_loop\_pure}, \texttt{test\_boot\_bare\_factor}, \texttt{test\_bench\_sigma}, \texttt{test\_p3\_grow}, \texttt{test\_p4\_reinterp}, \texttt{test\_p8\_report} & -- & purity of a run, bootstrap of a bare factor, noise conventions of the benchmark, growth and re-interpolation switches, the final report generator\\
+\bottomrule
+\end{tabular}
+\caption{Test functions per file; parametrised tests expand to more cases (the repository collects $142$ cases in all).}
+\end{table}
+
+\begin{explained}{the full-suite run}
+Two runs of the whole suite are on record. The first, run for the earlier version of this document on the then working tree: $142$ passed, $1$ warning, in $19$ minutes $34$ seconds. The second is the project's own handoff of 2026-11-01, after the later fixes and with more test files ($31$ files, among them the tests of the fixes T77--T103 and the contract test that keeps the learned layers' entry points stable): $238$ passed. I did not rerun the second. The slow part is the non-periodic-cell tests (the quadtree test alone took about $140$ s in an older log). An older log of the domain tests had shown one failing quadtree test; it passes in this run. A passing suite shows that the stated properties hold on the cases written for them; it does not by itself show that a layer helps (Section~\ref{sec:status}).
+\end{explained}
+
+\subsection{What is established and what is not}\label{sec:status}
+\begin{keypoint}
+\textbf{Established} (committed code, tests, benchmark): the classical-learning layers of the pipeline and the loop, with the right factor set recovered in $0.90$--$1.00$ of runs on the named cases down to $2000$ points, and $0.73$ at $400$ points with $5\%$ noise, at least as good as every baseline; GP coverage within the criterion in $11$ of $12$ cells; the split layer's coverage close to nominal on the tested cases. \textbf{Evaluated and not adopted:} V1 (no-ship), the calibrations L2b/L2c/L2d, H0 and the learned skip (no-go); the exact memo is on and changes nothing; L0 has its mechanism tested but no benefit result; the remedy table has no controller to use it. \textbf{Not built:} L1a, L1b, the controller, L6. \textbf{Open:} generality beyond the named cases (the pipeline's final random-equation test has $20$ draws, no false-confident answer, and is still small), and the calibration of the weight intervals.
+\end{keypoint}
+
+
+

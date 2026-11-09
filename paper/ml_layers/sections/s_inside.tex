@@ -2,7 +2,7 @@
 \section{Machine learning inside the pipeline}\label{sec:inside-ml}
 Before the optional layers, four components of the pipeline are themselves statistical learning. They are committed, tested and benchmarked, and the optional layers of \cref{sec:design} sit on top of them.
 
-\subsection{The Gaussian process: interpolation with probabilities}
+\subsection{The Gaussian process: interpolation with probabilities}\label{sec:gp}
 The core needs a field on a grid with an error model, and the data are scattered and noisy. A Gaussian process with a sum of separable kernels $k_t\otimes k_x$ (optionally with a time envelope that mimics $e^{\lambda t}$)
 gives many plausible fields $\hat u_s$ with weights $\pi_s$ instead of one smooth curve \cite{RasWil06}. Hyperparameters, noise included, are marginalised: type-II maximum a posteriori, a Laplace approximation and importance reweighting by default,
 NUTS for small samples, a random subset for large ones; samples come from pathwise conditioning (Matheron's rule). Alongside it: a factor-wise EPGP (features $e^{\lambda(\kappa)t+i\kappa x}$ on the factors' varieties, closed-form evidence),
@@ -13,20 +13,20 @@ EPGP prior draws solving transport, EPGP features on the variety, ensemble smoke
 An RBF-only family set fails at $n=2000$ (coverage $0.84$--$0.86$): evidence prefers the smoothest kernel that fits and is overconfident, so the \emph{set} of kernel families is a prior choice made by calibration.
 The first end-to-end test gave only $0.40$ weight to the right factors because the core assumed white noise; this led to per-bin correlated noise in the core.
 
-\subsection{The Dirichlet-process mixture and clustering}
+\subsection{The Dirichlet-process mixture and clustering}\label{sec:dp}
 The factors of all posterior samples form a weighted cloud $\cloud$. A truncated stick-breaking Dirichlet-process mixture is fitted per $\tau$-degree (scikit-learn's Bayesian Gaussian mixture) with a merge step by BIC for clusters that never co-occur in a sample;
 the concentration is chosen by the variational bound and the effective number of factors is $\keff=\exp$ of the entropy of the masses. A second module extracts analytic window features and clusters rectangles by four methods (Gaussian mixture, $k$-means, spectral with adjacency, agglomerative with connectivity),
 the number of groups being the MAP of a BIC posterior; a dominant-balance baseline is included. \emph{Tests} ($11$ in \texttt{test\_aggregate\_cluster.py}): invariance to padding and to factor order, aggregates of transport plus diffusion and of heat, rectangles and adjacency, the two-regime ARI for each method, the dominant-balance baseline.
 \emph{Results}: $P(k=2)=1.0$ on transport plus diffusion with masses $(0.768,0.232)$; $P(k=1)=1.0$ on heat after the merge step (margin $7.96$ against $8.32$, thin); ARI $=1.0$ for all four methods when the windows are aligned with the regime boundary and $0.63$ for three of them when one straddles it; dominant balance $0.20$--$0.35$.
 These runs used the exact components as input, so they show the method on clean separation only.
 
-\subsection{The Bayesian split layer}
+\subsection{The Bayesian split layer}\label{sec:split}
 A linear-Gaussian model per Fourier bin gives credible intervals for the component weights (by Monte Carlo) and the probability that the split exists, with a real (conjugate-pair) parametrisation at $\kappa=0$ and a per-bin correlated noise covariance from the interpolation draws.
 The same machinery supplies the \emph{raw evidence}, the Gaussian evidence of the raw scattered observations in the span of the factors' kernels, which the loop uses to choose the structure. \emph{Tests} ($10$ in \texttt{test\_phase3.py}): per-bin noise recovers an AR(1) autocovariance,
 generalised least squares with white draws equals the white core, the weights cover the truth and the null stays low, the decider rejects constant factors per $\kappa$, rejects a symbol that interpolates few modes, counts only observed branches, rejects an interpolation artefact, and merges conjugate pairs.
 \emph{Experiment}: noise $10^{-2}$, true factors; transport plus diffusion: $90\%$ interval coverage $0.95$--$1.00$ for $T\in[0.25,2]$; wave $0.85$--$1.00$; null (heat with a spurious transport) $P(\text{split})=0.000$. The first version covered only $0.65$--$0.85$, which led to the conjugate-pair parametrisation.
 
-\subsection{The decider, the refinement and the loop}
+\subsection{The decider, the refinement and the loop}\label{sec:decider}
 The loop chooses the structure by raw-data evidence with an Occam term and an outlier-bin mixture, refits the coefficients to the observations by variable projection with terms selected by evidence minus $\tfrac12p\log n$, splits reducible quadratics and conjugate pairs,
 and grows the degree only under a held-out guard. \emph{Benchmark}: ten named cases $\times$ noise $\{10^{-3},10^{-2},5\cdot10^{-2}\}\times$ sampling $\{$grid, 2000, 400$\}$, $30$ runs per cell, against PDE-FIND, weak SINDy, ensemble SINDy, Bayesian SINDy and BOP-DMD:
 right factor set on a grid $1.00/1.00/0.93$, with $2000$ points $1.00/0.97/0.90$, with $400$ points $1.00/0.93/0.73$, at least as good as every baseline in all nine cells; coefficient cover$_{90}$ $0.75$--$0.93$, weight cover$_{90}$ $0.50$--$1.00$.

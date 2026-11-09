@@ -2,6 +2,31 @@
 \input{../shared/docclass}
 \input{../shared/preamble}
 \usepackage{longtable}
+% macros of the explained edition
+\usepackage{caption,needspace}
+\definecolor{cA}{HTML}{1F4E79}\definecolor{cB}{HTML}{C0392B}\definecolor{cC}{HTML}{1E8449}\definecolor{cD}{HTML}{B9770E}\definecolor{cG}{HTML}{7F8C8D}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\badge}[2]{\textcolor{#1}{\textsf{\footnotesize[#2]}}}
+\newcommand{\impl}{\badge{cC}{implemented, tested}}
+\newcommand{\implu}{\badge{cD}{implemented, uncommitted}}
+\newcommand{\proto}{\badge{cD}{prototype}}
+\newcommand{\plan}{\badge{cB}{planned}}
+\newcommand{\openq}{\badge{cB}{open}}
+\newcommand{\thy}[1]{\textcolor{cG}{\textsf{\footnotesize(theory #1)}}}
+\newcommand{\sectionbrief}[3]{\par\noindent{\small\emph{In this section.} #1 #2 #3}\par\smallskip}
+\newenvironment{capbox}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{intuition}[1][]{\begin{remark}[Intuition]}{\end{remark}}
+\newenvironment{caution}[1][]{\begin{remark}[Warning]}{\end{remark}}
+\newenvironment{takeaway}{\begin{remark}[Why it matters]}{\end{remark}}
+\newenvironment{keypoint}{\begin{remark}[Takeaway]}{\end{remark}}
+\newenvironment{notebox}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{aside}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{explained}[1]{\begin{remark}[Explained: #1]}{\end{remark}}
+\newenvironment{wstep}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak}{\par\medskip}
+\newenvironment{ideabox}[1][]{\begin{remark}[Idea]}{\end{remark}}
+\newenvironment{askbox}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{iobox}[1]{\begin{remark}[#1]}{\end{remark}}
+\newenvironment{symbols}{\begin{remark}[Symbols used here]}{\end{remark}}
 
 \title{Learned Layers for a Factor-Based PDE Pipeline:\\What Worked, What Did Not, and Why}
 \author{Flavio Pricoco\thanks{\email{flaflapr@gmail.com}}}
@@ -277,6 +302,8 @@ Finding that trigger, not adding a layer, is the next step.
 
 \appendix
 \input{sections/app_ml}
+\input{sections/ml_explained}
+\input{sections/note}
 
 \IfFileExists{siamplain.bst}{\bibliographystyle{siamplain}}{\bibliographystyle{plain}}
 \bibliography{../shared/refs}
