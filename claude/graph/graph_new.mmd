@@ -1,70 +1,83 @@
 flowchart LR
-  n0["claude/archive<br/>615 files (report-plan)"]
-  n1["verification/research<br/>143 files (python-src)"]
-  n2["verification/CHECK<br/>88 files (data)"]
-  n3["benchmarks/out<br/>83 files (data)"]
-  n4["paper/shared<br/>65 files (paper-tex)"]
-  n5["paper/analytical_complete<br/>59 files (paper-tex)"]
-  n6["verification/CHECK-F10<br/>53 files (python-src)"]
-  n7["src/pdefactor<br/>51 files (python-src)"]
-  n8["benchmarks/ml_layers<br/>48 files (benchmark-script)"]
-  n9["variants/s_interp<br/>39 files (benchmark-script)"]
-  n10["verification/CHECK-F8<br/>38 files (python-src)"]
-  n11["paper/analytical_phases05<br/>34 files (paper-tex)"]
-  n12["benchmarks/data<br/>33 files (data)"]
-  n13["paper/analytical<br/>32 files (paper-tex)"]
-  n14["analysis/exp<br/>30 files (benchmark-script)"]
-  n15["proofs/lean<br/>20 files (lean)"]
-  n16["benchmarks/sessions<br/>18 files (benchmark-script)"]
-  n17["paper/analytical_explained<br/>18 files (paper-tex)"]
-  n18["paper/explained<br/>18 files (paper-tex)"]
-  n19["verification/S8-VAR<br/>16 files (data)"]
-  n20["claude/notes<br/>14 files (doc)"]
-  n21["verification/C1C2<br/>14 files (data)"]
-  n22["verification/OP-F5C<br/>14 files (data)"]
-  n23["verification/S4-ID<br/>13 files (data)"]
-  n24["verification/OP-F5A<br/>12 files (data)"]
-  n25["verification/OP-NL<br/>12 files (python-src)"]
-  n26["verification/S10-OPEN-B<br/>12 files (data)"]
-  n27["verification/S8-ENC<br/>12 files (data)"]
-  n28["benchmarks/results<br/>11 files (data)"]
-  n29["verification/S10-INT<br/>10 files (data)"]
-  n30["verification/S4-TERM<br/>10 files (data)"]
-  n31["verification/S5-EX<br/>10 files (data)"]
-  n32["verification/S8-CONV<br/>8 files (data)"]
-  n33["benchmarks/final_report_example<br/>7 files (data)"]
-  n34["paper/ml_layers<br/>7 files (paper-tex)"]
-  n35["proofs/lean_project<br/>7 files (other)"]
-  n36["verification/OP-F5D<br/>7 files (python-src)"]
-  n37["verification/OP-ANA<br/>6 files (data)"]
-  n38["verification/P2<br/>6 files (data)"]
-  n39["verification/S10-OPEN-A<br/>6 files (data)"]
-  n0 -->|ref x177| n20
-  n20 -->|ref x156| n0
-  n0 -->|ref x129| n7
-  n0 -->|ref x98| n2
-  n4 -->|ref x81| n33
-  n14 -->|py x79| n7
-  n0 -->|ref x77| n1
-  n8 -->|py x40| n7
-  n0 -->|ref x39| n6
-  n0 -->|ref x36| n14
-  n9 -->|py x27| n7
-  n20 -->|ref x24| n7
-  n0 -->|ref x22| n16
-  n0 -->|ref x22| n15
-  n0 -->|ref x22| n26
-  n16 -->|py x21| n7
-  n0 -->|ref x20| n8
-  n7 -->|ref x20| n0
-  n8 -->|ref x15| n0
-  n0 -->|ref x14| n10
-  n4 -->|ref x14| n0
-  n0 -->|ref x13| n21
-  n0 -->|ref x13| n22
-  n0 -->|ref x13| n29
-  n0 -->|ref x11| n24
-  n2 -->|ref x10| n0
-  n0 -->|ref x9| n3
-  n11 -->|ref x9| n0
-  n0 -->|ref x8| n37
+  n0["claude/archive<br/>641 files (report-plan)"]
+  n1["code/verification<br/>534 files (python-src)"]
+  n2["benchmarks/out<br/>108 files (data)"]
+  n3["code/pdefactor<br/>51 files (python-src)"]
+  n4["benchmarks/data<br/>49 files (data)"]
+  n5["claude/benchmark_tables<br/>37 files (doc)"]
+  n6["code/experiments<br/>34 files (python-src)"]
+  n7["claude/proofs<br/>30 files (doc)"]
+  n8["code/s_interp_variant<br/>30 files (python-src)"]
+  n9["code/lean<br/>26 files (lean)"]
+  n10["claude/notes<br/>14 files (doc)"]
+  n11["benchmarks/results<br/>13 files (data)"]
+  n12["code/tools<br/>7 files (python-src)"]
+  n13["claude/graph<br/>6 files (backup)"]
+  n14["paper/figures<br/>5 files (pdf)"]
+  n15["tests/data<br/>3 files (data)"]
+  n16[".github/workflows<br/>2 files (other)"]
+  n17[".gitignore<br/>1 files (other)"]
+  n18["CITATION.cff<br/>1 files (other)"]
+  n19["LICENSE<br/>1 files (other)"]
+  n20["LICENSE-papers.md<br/>1 files (doc)"]
+  n21["README.md<br/>1 files (doc)"]
+  n22["benchmarks/__init__.py<br/>1 files (benchmark-script)"]
+  n23["benchmarks/archive.py<br/>1 files (benchmark-script)"]
+  n24["benchmarks/bench.py<br/>1 files (benchmark-script)"]
+  n25["benchmarks/bench_e2e.py<br/>1 files (benchmark-script)"]
+  n26["benchmarks/cprime_trigger.py<br/>1 files (benchmark-script)"]
+  n27["benchmarks/fastrun.py<br/>1 files (benchmark-script)"]
+  n28["benchmarks/final_report.py<br/>1 files (benchmark-script)"]
+  n29["benchmarks/interp.py<br/>1 files (benchmark-script)"]
+  n30["benchmarks/ll_C_eval.py<br/>1 files (benchmark-script)"]
+  n31["benchmarks/ll_C_logs.py<br/>1 files (benchmark-script)"]
+  n32["benchmarks/ll_C_train.py<br/>1 files (benchmark-script)"]
+  n33["benchmarks/ll_Cprime.py<br/>1 files (benchmark-script)"]
+  n34["benchmarks/ll_budget_corpus.py<br/>1 files (benchmark-script)"]
+  n35["benchmarks/ll_budget_fit.py<br/>1 files (benchmark-script)"]
+  n36["benchmarks/ll_budget_harm.py<br/>1 files (benchmark-script)"]
+  n37["benchmarks/ll_budget_identity.py<br/>1 files (benchmark-script)"]
+  n38["benchmarks/ll_budget_named.py<br/>1 files (benchmark-script)"]
+  n39["benchmarks/ll_budget_profile.py<br/>1 files (benchmark-script)"]
+  n13 -->|ref x627| n0
+  n0 -->|ref x367| n1
+  n7 -->|ref x220| n0
+  n0 -->|ref x182| n10
+  n10 -->|ref x156| n0
+  n0 -->|ref x117| n3
+  n6 -->|py x84| n3
+  n7 -->|ref x81| n1
+  n13 -->|ref x72| n2
+  n5 -->|ref x64| n2
+  n8 -->|py x45| n3
+  n4 -->|ref x35| n2
+  n0 -->|ref x35| n6
+  n5 -->|ref x34| n4
+  n13 -->|ref x32| n4
+  n13 -->|ref x30| n7
+  n10 -->|ref x24| n3
+  n0 -->|ref x22| n9
+  n2 -->|py x21| n3
+  n3 -->|ref x20| n0
+  n13 -->|ref x14| n10
+  n1 -->|ref x14| n0
+  n23 -->|ref x13| n4
+  n0 -->|ref x11| n2
+  n5 -->|ref x11| n0
+  n7 -->|ref x10| n10
+  n6 -->|ref x9| n4
+  n0 -->|ref x8| n8
+  n7 -->|ref x8| n9
+  n4 -->|ref x7| n0
+  n28 -->|ref x6| n2
+  n28 -->|py x6| n3
+  n0 -->|ref x6| n15
+  n24 -->|py x5| n3
+  n25 -->|py x5| n3
+  n31 -->|py x5| n3
+  n0 -->|ref x5| n4
+  n5 -->|ref x5| n3
+  n26 -->|py x4| n3
+  n33 -->|py x4| n3
+  n6 -->|ref x4| n0
+  n3 -->|ref x4| n10
