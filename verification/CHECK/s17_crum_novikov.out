@@ -1,0 +1,18 @@
+OK   N=2 (kappa=1,2): A monico di ordine N
+OK   N=2 (kappa=1,2): intreccio di Crum L A = A L0 (L6)
+OK   N=2 (kappa=1,2): a_1 = -(v''+3v^2) e' antiderivata di K_1
+OK   N=2 (kappa=1,2): a_2 antiderivata di K_2
+OK   N=2 (kappa=1,2): Novikov K_d*[v] = 0 con q = prod(lam - 4 kappa_j^2) (T3)
+OK   N=2 (kappa=1,2): K_0..K_(N-1) linearmente indipendenti (nessuna relazione di grado < N)
+OK   N=2 (kappa=1,2): P = A d A^T monico di ordine 2N+1
+OK   N=2 (kappa=1,2): [P, L] = 0
+OK   N=2 (kappa=1,2): simbolo di A -> prod(ik - kappa_j) a +inf
+OK   N=2 (kappa=1,2): simbolo di A -> prod(ik + kappa_j) a -inf (T = prod (k+i kappa)/(k-i kappa), R = 0)
+OK   N=2: v di Crum = 2 d^2 log f (Hirota, k_j = 2 kappa_j) per opportune fasi c1,c2>0 ([F4-] N=2)
+fasi [{c1: 3, c2: 3}]
+OK   N=3 (kappa=1,2,3): A monico di ordine N
+OK   N=3 (kappa=1,2,3): intreccio di Crum L A = A L0 (L6)
+OK   N=3 (kappa=1,2,3): a_1 = -(v''+3v^2) e' antiderivata di K_1
+OK   N=3 (kappa=1,2,3): a_2 antiderivata di K_2
+OK   N=3 (kappa=1,2,3): Novikov K_d*[v] = 0 con q = prod(lam - 4 kappa_j^2) (T3)
+OK   N=3 (kappa=1,2,3): K_0..K_(N-1) linearmente indipendenti (nessuna relazione di grado < N)

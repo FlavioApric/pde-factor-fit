@@ -1,0 +1,9 @@
+== before the shock, t = 0.5 (t* = 1): ||E^add||_inf / nu vs closed form nu-coefficient ==
+nu=0.0200  sup|E^add|/nu = 0.64349   sup|E1 closed form| = 0.66494   sup|E^add - nu E1|/nu^2 = 1.414
+nu=0.0100  sup|E^add|/nu = 0.65404   sup|E1 closed form| = 0.66494   sup|E^add - nu E1|/nu^2 = 1.453
+nu=0.0050  sup|E^add|/nu = 0.65944   sup|E1 closed form| = 0.66494   sup|E^add - nu E1|/nu^2 = 1.473
+== beyond the shock, t = 2: shock at x0 = pi ==
+jump of S_B(t)u0 at pi ~ D = 1.89460 ; lower bound l(t)/t from {1+t cos a<0}: l = 1.04720
+nu=0.010000  sup|E^add| = 0.9477 (>= D/2 = 0.9473)  sup|E^mult_AB| = 0.7502  ||E^mult_AB||_L1/sqrt(nu) = 2.7434 (2D sqrt(t/pi) = 3.0233)  ||E^add||_L1/nu = 9.824
+nu=0.002500  sup|E^add| = 0.9477 (>= D/2 = 0.9473)  sup|E^mult_AB| = 0.8384  ||E^mult_AB||_L1/sqrt(nu) = 2.8982 (2D sqrt(t/pi) = 3.0233)  ||E^add||_L1/nu = 9.891
+nu=0.000625  sup|E^add| = 0.9477 (>= D/2 = 0.9473)  sup|E^mult_AB| = 0.8895  ||E^mult_AB||_L1/sqrt(nu) = 2.9635 (2D sqrt(t/pi) = 3.0233)  ||E^add||_L1/nu = 10.013

@@ -1,0 +1,13 @@
+OK   §17 φ(0) = 0, φ''(0) ≠ 0, sup|φ| = e^{-1} ≤ 1
+OK   §17 ∂_x^0 h = ε^{1−0/3} φ^(0)
+OK   §17 ∂_x^1 h = ε^{1−1/3} φ^(1)
+OK   §17 ∂_x^2 h = ε^{1−2/3} φ^(2)
+OK   §17 ∂_x^3 h = ε^{1−3/3} φ^(3)
+OK   §17 V_{u_2} − V_{u_1} in x_0 = ε^{1/3}φ''(0)/u_1
+OK   §17 ũ = u_1 + h/2 è ε-vicino a u_1 e u_2
+OK   §17 D39: con u_1 ≡ 2δ_0 e ‖u_1‖ ≤ M/2 serve M ≥ 4δ_0 (ipotesi non scritta)
+    ‖ΔV‖/ε^{1/3} sulla famiglia sinusoidale: [1.001001001001001, 1.000010000100001, 1.00000010000001]
+OK   §17 la famiglia sinusoidale (derivate ≤ M) realizza anch'essa la scala ε^{1/3}
+OK   §17 KA: h indipendente da t, ∂_t u_1 = ∂_t u_2 (l'osservazione in t non separa)
+
+[c_dmdelta] 10/10 OK

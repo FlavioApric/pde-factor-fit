@@ -1,0 +1,16 @@
+_vendor/
+_tools/
+PBLean/
+PBLean_src/
+.venv/
+graphify-out/
+**/sympy/
+*.py
+*.out
+*.lean
+*.bib
+inbox/
+c12_catalog.py
+*_backup.md
+*backup*.md
+*backup*.pdf

@@ -1,0 +1,13 @@
+[B1] B[-2nu phi_x/phi] + 2nu d_x(H[phi]/phi) = 0
+[B2a] H[phi2] = 0
+[B2b] B[u2] = 0
+[B3] B[u_tw] = 0
+[B3b] u_tw == -2nu phi_x/phi per phi = somma di 2 esponenziali-calore: 0
+       H[phitw] = 0
+[B4] E_int = u(phi1+phi2-1) - u(phi1) - u(phi2) = 2*a1*a2*nu*(a1*k2*exp(k1*x)*exp(k1**2*nu*t) + a2*k1*exp(k2*x)*exp(k2**2*nu*t) + k1 + k2)*exp(k1*x)*exp(k2*x)*exp(k1**2*nu*t)*exp(k2**2*nu*t)/((a1*exp(k1*x)*exp(k1**2*nu*t) + 1)*(a2*exp(k2*x)*exp(k2**2*nu*t) + 1)*(a1*exp(k1*x)*exp(k1**2*nu*t) + a2*exp(k2*x)*exp(k2**2*nu*t) + 1))
+[B5] limite nu->0 (Hopf-Lax): -2nu log(sum_j exp(-S_j/(2nu))) -> min_j S_j  (verifica numerica)
+     nu = 1/10  ->  0.274614397791  (min = 0.300000000000000 )
+     nu = 1/100  ->  0.299999999959  (min = 0.300000000000000 )
+     nu = 1/1000  ->  0.300000000000  (min = 0.300000000000000 )
+[B6] autovalori Gram jet 4x4 {u_t,uu_x,u_xx,u_x} (atteso: uno ~0): [7.741e-34, 9.061e-5, 0.1101, 0.4000]
+     residuo max |M (1,1,-nu,0)| = 6.16297582203915e-33

@@ -1,0 +1,514 @@
+\chapter{Decomposition and regularity}\label{ch:cI2}
+\chapterbrief
+{$P=c\prod_{j=1}^sQ_j$ with $Q_j=P_j^{m_j}$ pairwise coprime; $\Omega\subset\R^2$ open; $\mathcal A$ is $\mathcal D'(\Omega)$ or $C^\infty(\Omega)$; the toolkit of Chapter~\ref{ch:cI1}.}
+{to prove that a solution splits into one piece per factor, with an ambiguity of exactly known size, that holes in $\Omega$ can break this, and exactly when the pieces keep the Sobolev regularity of $u$.}
+{Dim.~A10--A18. They prove Chapters~6 and~7 of the paper.}
+
+\begin{notebox}{Notation for the whole chapter}
+For a module $M$ over $\ring$, $\mathrm{Sol}_{\mathcal A}(M)=\mathrm{Hom}_\ring(M,\mathcal A)$ is its solution space; for example $\mathrm{Sol}(\ring/(f))=\ker_{\mathcal A}f$. For $z=(p,q)\in\C^2$ we write $e_z=e^{pt+qx}$ and $D_t=\partial_t-p$, $D_x=\partial_x-q$. Note that $D_t(e_z\tilde w)=e_z\,\partial_t\tilde w$.
+\end{notebox}
+
+%=====================================================================
+\section{Terms and factors}
+
+\begin{dimcard}{A10}{R2-T3}{Terms do not give components}{\proved}{prop:terms}
+Let $L=L_1+L_2\in\ring$.
+\begin{enumerate}[label=(\alph*)]
+\item In every $\ring$-module $\mathcal A$:
+\[
+\ker L\cap\big(\ker L_1+\ker L_2\big)\subseteq\mathrm{Sol}\big(\ring/(L,\ L_1L_2)\big)=\mathrm{Sol}\big(\ring/(L_1+L_2,\ L_1^2)\big).
+\]
+\item If $\mathcal A=C^\infty$ or $\mathcal D'$ of a convex $\Omega$ and $L_1,L_2$ are coprime, equality holds.
+\item $\Var(L_1+L_2,\ L_1^2)=\Var(L_1)\cap\Var(L_2)$. For coprime $L_1,L_2$ the space is finite-dimensional, of dimension $2\sum_pI_p(L_1,L_2)$, and consists of exponential-polynomials with exponents at the common zeros.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+A solution that splits by terms satisfies one extra equation, $L_1L_2u=0$, because the operators commute. Modulo $L$ that extra equation is $L_1^2$, and the common zeros of $L$ and $L_1^2$ are where both terms vanish.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) The extra equation}
+Let $u=u_1+u_2$ with $L_1u_1=0$ and $L_2u_2=0$. Since the operators commute,
+\[
+L_1L_2\,u=L_2(L_1u_1)+L_1(L_2u_2)=0 .
+\]
+Together with $Lu=0$ this gives $u\in\mathrm{Sol}(\ring/(L,L_1L_2))$. Modulo $L$, $L_2\equiv-L_1$, so $L_1L_2\equiv-L_1^2$ and the two ideals coincide.
+
+\step{2}{(b) Equality from the decomposition theorem}
+For coprime $L_1,L_2$ the finite module $\ring/(L_1,L_2)$ has no obstruction (A12), so the sequence of A13 is exact: every element of $\mathrm{Sol}(\ring/(L,L_1L_2))$ is killed by $L_1L_2$, hence by A13 splits as a sum of solutions of $L_1$ and of $L_2$.
+
+\step{3}{(c) The variety}
+On $\Var(L_1)$ we have $L_1+L_2=0\iff L_2=0$. Off $\Var(L_1)$, $L_1^2\ne0$. So
+\[
+\Var(L_1+L_2,\ L_1^2)=\Var(L_1)\cap\Var(L_2).
+\]
+For coprime terms this set is finite (A1(V)). The dimension follows from the additivity of intersection numbers, $I_p(F,GH)=I_p(F,G)+I_p(F,H)$, and $I_p(L_1+L_2,L_1)=I_p(L_2,L_1)$.
+
+\whyworks{commuting terms turn a split by terms into an extra equation, which cuts the solution space down to the finitely many points where both terms vanish.}
+\end{proof}
+\uses{A1, A12, A13.}
+
+\begin{example}{The heat equation as a sum of two terms}
+Take $L_1=\partial_x^2$ and $L_2=-\partial_t$. The ideal is $(\xi^2-\tau,\ \xi^4)=(\tau^2,\ \xi^2-\tau)$, of dimension $4=2\cdot I_0(\xi^2,\tau)$. The solutions that split by terms are
+\[
+1,\qquad x,\qquad x^2+2t,\qquad x^3+6tx .
+\]
+The generic heat solution $e^{s^2t+sx}$ with $s\ne0$ has $L_1L_2u=-s^4u\ne0$, so it does not split.
+\end{example}
+
+%=====================================================================
+\section{The factor decomposition}
+
+\begin{dimcard}{A11}{C12-L3}{The finite quotient of two coprime factors}{\proved}{lem:C12L3}
+Let $f,g,h\in\ring\setminus\{0\}$.
+\begin{enumerate}[label=(\alph*)]
+\item If $f,g$ are coprime, $(f,g)$ contains a nonzero $r(\xi)$ and a nonzero $s(\tau)$; hence $\dimc\ring/(f,g)<\infty$.
+\item If $f$ is coprime to $g$ and to $h$, then
+\[
+\dimc\ring/(f,gh)=\dimc\ring/(f,g)+\dimc\ring/(f,h).
+\]
+\item $(f,g)=\ring\iff\Var(f)\cap\Var(g)=\emptyset$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+(a) is the B\'ezout identity of A1, Step~1. (b) is an exact sequence of finite-dimensional spaces. (c) uses that commuting operators on a nonzero finite-dimensional space have a common eigenvector.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) A finite spanning set}
+A1, Step~1 gives $r(\xi)\in(f,g)$ and symmetrically $s(\tau)\in(f,g)$, both nonzero. Then $\ring/(f,g)$ is spanned by the monomials
+\[
+\tau^a\xi^b,\qquad a<\deg s,\quad b<\deg r .
+\]
+
+\step{2}{(b) An exact sequence}
+The sequence
+\[
+0\to\ring/(f,h)\xrightarrow{\ \cdot g\ }\ring/(f,gh)\to\ring/(f,g)\to0
+\]
+is well defined because $g\,(f,h)\subseteq(f,gh)$, and its middle is exact because the kernel of the projection is $(f,g)/(f,gh)$, the image of multiplication by $g$. Injectivity: if $ga=\alpha f+\beta gh$, then $g(a-\beta h)=\alpha f$; since $\Gcd(f,g)=1$, $f\mid a-\beta h$, so $a\in(f,h)$. Dimensions add.
+
+\step{3}{(c) A common eigenvector gives a common zero}
+($\Leftarrow$) If $f,g$ shared a nonconstant factor $\pi$, then $\emptyset\ne\Var(\pi)\subseteq\Var(f)\cap\Var(g)$ (A1(F)). So disjoint zero sets force coprimality, and (a) applies. If $(f,g)\ne\ring$, then $N=\ring/(f,g)$ is nonzero and finite-dimensional. The commuting operators $\tau,\xi$ on $N$ have a common eigenvector $v$, with eigenvalues $(p,q)$. Then $fv=gv=0$ gives $f(p,q)=g(p,q)=0$, a common zero.
+
+($\Rightarrow$) If $(p,q)$ is a common zero, $(f,g)\subseteq\mathfrak m_{(p,q)}\ne\ring$.
+
+\whyworks{coprime curves meet in finitely many points, and the quotient ring counts them with multiplicity.}
+\end{proof}
+\uses{A1.}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A12}{C12-L1'}{Twisted Poincar\'e lemma; no obstruction for finite modules}{\proved}{lem:twisted}
+\phantomsection\label{dim:C12-L1p}%
+Let $\Omega$ be open, connected, nonempty, with $H^1_{dR}(\Omega)=0$.
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{(C12-L1$'$)} If $\varphi,\psi\in\mathcal A$ satisfy $D_x\varphi=D_t\psi$, there is $w\in\mathcal A$ with
+\[
+D_tw=\varphi,\qquad D_xw=\psi .
+\]
+Moreover $\{w\in\mathcal A:\ D_tw=D_xw=0\}=\C\,e_z$.
+\item \textbf{(C12-L2$'$)} For every $\ring$-module $M$ with $n=\dimc M<\infty$:
+\[
+\mathrm{Ext}^1_\ring(M,\mathcal A)=0,\qquad \dimc\mathrm{Sol}_{\mathcal A}(M)=n,
+\]
+and every solution is the restriction of a unique exponential-polynomial solution on $\R^2$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+Multiplying by $e_z^{-1}$ turns the twisted derivatives into ordinary ones: (i) becomes ``a closed $1$-form is exact''. For distributions, solve locally on squares and glue; the gluing error is a smooth closed form, exact by hypothesis. (ii) follows from (i) for the simplest modules and by induction along a composition series.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Removing the twist}
+Put $\tilde\varphi=e_z^{-1}\varphi$ and $\tilde\psi=e_z^{-1}\psi$. The condition becomes
+\[
+\partial_x\tilde\varphi=\partial_t\tilde\psi,
+\]
+and we look for $\tilde w$ with $\partial_t\tilde w=\tilde\varphi$, $\partial_x\tilde w=\tilde\psi$; then $w=e_z\tilde w$.
+
+\step{2}{Smooth case}
+The $1$-form $\eta=\tilde\varphi\dd t+\tilde\psi\dd x$ is closed, hence exact because $H^1_{dR}(\Omega)=0$.
+
+\step{3}{Distributions: local primitives glued by a partition of unity}
+Cover $\Omega$ by open squares $U_j$ with closure in $\Omega$, and take a locally finite partition of unity $\chi_j\in C_c^\infty(U_j)$. On each square a primitive $w_j$ exists (integration in one variable, as in A2, Step~6). On an overlap $w_j-w_k$ has zero gradient, so it is a constant $c_{jk}$. Set $w=\sum_j\chi_jw_j$. On $U_k$,
+\[
+w-w_k=\sum_j\chi_j\,c_{jk}=:h_k\quad\text{is smooth.}
+\]
+So $a=\tilde\varphi-\partial_tw$ and $b=\tilde\psi-\partial_xw$ equal $-\partial_th_k$, $-\partial_xh_k$ locally. They form a smooth closed $1$-form, which is $d\theta$ for a smooth $\theta$ by hypothesis. Then $w+\theta$ is the required primitive.
+
+\step{4}{The kernel}
+If $\partial_t\tilde w=\partial_x\tilde w=0$, then $\tilde w$ is locally constant, hence constant on the connected $\Omega$.
+
+\step{5}{(ii) The simplest module}
+For $M=\ring/\mathfrak m_z$ use the Koszul resolution
+\[
+0\to\ring\xrightarrow{\ \beta\ }\ring^2\xrightarrow{\ \alpha\ }\ring\to\ring/\mathfrak m_z\to0 .
+\]
+Applying $\mathrm{Hom}(\cdot,\mathcal A)$, the solutions are $\ker(D_t,D_x)=\C e_z$ (Step~4) and $\mathrm{Ext}^1=\ker\beta^*/\mathrm{im}\,\alpha^*$, which is exactly the compatibility problem of (i): it vanishes.
+
+\step{6}{(ii) Induction on the dimension}
+A finite-dimensional $M$ has a composition series with factors $\ring/\mathfrak m_z$. The long exact sequence of $\mathrm{Ext}$ and induction on $n$ give $\mathrm{Ext}^1(M,\mathcal A)=0$ and $\dimc\mathrm{Sol}(M)=n$. On $\R^2$ the solutions are exponential-polynomials; restriction to $\Omega$ is injective (analytic functions vanishing on an open set vanish), and the dimensions agree.
+
+\whyworks{on a region without holes, closed forms are exact, so finite systems of first-order equations are always solvable.}
+\end{proof}
+\uses{A2.}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A13}{C12-T1'}{Factor decomposition}{\proved}{thm:factor}
+\phantomsection\label{dim:C12-T1p}%
+Let $\Omega$ be open, connected, nonempty, with $H^1_{dR}(\Omega)=0$, $\mathcal A\in\{\mathcal D'(\Omega),C^\infty(\Omega)\}$, $P=c\prod_{j=1}^sQ_j$ with pairwise coprime $Q_j$.
+\begin{enumerate}[label=(\roman*)]
+\item $\ker_{\mathcal A}P=\ker_{\mathcal A}Q_1+\dots+\ker_{\mathcal A}Q_s$.
+\item The kernel $\mathcal N$ of the sum map $\Sigma:\bigoplus_j\ker Q_j\to\ker P$ has dimension
+\[
+\delta(P)=\sum_{i<j}\dimc\ring/(Q_i,Q_j)<\infty,
+\]
+and its elements are tuples of exponential-polynomials. For $s=2$, $\mathcal N=\{(w,-w):\ w\in\ker Q_1\cap\ker Q_2\}$.
+\item The decomposition is unique $\iff\delta(P)=0\iff\Var(Q_i)\cap\Var(Q_j)=\emptyset$ for all $i\ne j$.
+\item If $u$ is smooth, every decomposition of $u$ in $\mathcal D'$ consists of smooth functions.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+For two coprime factors there is a short exact sequence of modules. Applying $\mathrm{Hom}(\cdot,\mathcal A)$ gives a sequence of solution spaces that ends with $\mathrm{Ext}^1$ of the finite module $\ring/(f,g)$. That group vanishes on a region without holes (A12), so the sum map is onto, and its kernel is the solution space of the finite quotient.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Two factors: the module sequence}
+Let $f=Q_1$, $g=Q_2$. In a unique factorisation domain $(f)\cap(g)=(fg)$, and the sequence
+\[
+0\to\ring/(fg)\xrightarrow{\ \iota\ }\ring/(f)\oplus\ring/(g)\xrightarrow{\ \pi\ }\ring/(f,g)\to0,
+\qquad \iota(1)=(1,1),\quad \pi(a,b)=a-b,
+\]
+is exact.
+
+\step{2}{Two factors: the solution sequence}
+Since $\ker_{\mathcal A}f=\mathrm{Hom}(\ring/(f),\mathcal A)$, applying $\mathrm{Hom}(\cdot,\mathcal A)$ gives the exact sequence
+\[
+0\to\mathrm{Sol}\big(\ring/(f,g)\big)\xrightarrow{\ \pi^*\ }\ker f\oplus\ker g\xrightarrow{\ \iota^*\ }\ker fg\to\mathrm{Ext}^1_\ring\big(\ring/(f,g),\mathcal A\big),
+\]
+with $\iota^*(u_1,u_2)=u_1+u_2$ and $\pi^*(w)=(w,-w)$.
+
+\step{3}{Two factors: the obstruction vanishes}
+By A11(a), $\ring/(f,g)$ is finite-dimensional. By A12(ii), $\mathrm{Ext}^1=0$ and $\dimc\mathrm{Sol}=\dimc\ring/(f,g)$. So $\iota^*$ is onto, which is (i), and its kernel has dimension $\dimc\ring/(f,g)$, which is (ii) for $s=2$.
+
+\step{4}{Any number of factors: induction}
+$P'=Q_2\cdots Q_s$ is coprime to $Q_1$, so $\ker P=\ker Q_1+\ker P'$, and by induction $\ker P'=\sum_{j\ge2}\ker Q_j$. Write $\Sigma=\Sigma_2\circ(\mathrm{id}\oplus\Sigma')$ with $\Sigma'$ onto. For $B$ onto, $\dim\ker(AB)=\dim\ker B+\dim\ker A$, and A11(b) gives $\dimc\ring/(Q_1,P')=\sum_{j\ge2}\dimc\ring/(Q_1,Q_j)$. Hence
+\[
+\delta(P)=\delta(P')+\sum_{j\ge2}\dimc\ring/(Q_1,Q_j)=\sum_{i<j}\dimc\ring/(Q_i,Q_j).
+\]
+
+\step{5}{The ambiguity consists of exponential-polynomials}
+If $(w_j)\in\mathcal N$, then
+\[
+w_j=-\sum_{i\ne j}w_i\ \in\ \ker Q_j\cap\ker\prod_{i\ne j}Q_i=\mathrm{Sol}\Big(\ring\big/\big(Q_j,\ \textstyle\prod_{i\ne j}Q_i\big)\Big),
+\]
+a finite-dimensional solution space, made of exponential-polynomials by A12(ii).
+
+\step{6}{(iii) and (iv)}
+$\delta(P)=0\iff$ every $\ring/(Q_i,Q_j)=0\iff(Q_i,Q_j)=\ring\iff\Var(Q_i)\cap\Var(Q_j)=\emptyset$ (A11(c)). For (iv), take a smooth decomposition from (i) in $C^\infty$; any other decomposition in $\mathcal D'$ differs from it by an element of $\mathcal N$, which is smooth.
+
+\whyworks{the Chinese remainder sequence is exact as modules; its only possible failure on functions is an $\mathrm{Ext}^1$ of a finite module, and that vanishes when $\Omega$ has no holes.}
+\end{proof}
+\uses{A11, A12.}
+
+\begin{aside}{Where the exact number $\delta(P)$ comes from}
+In terms of local intersection numbers,
+\[
+\delta(P)=\sum_{i<j}m_im_j\sum_zI_z(P_i,P_j).
+\]
+For $s\ge3$ the pairwise formula is exact, with no inclusion--exclusion correction; it was checked on three concurrent lines, three tangent parabolas, a triple point with multiplicity, and four factors.
+\end{aside}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A14}{C12-P10}{Holes break the decomposition}{\proved}{prop:holes}
+Let $\Omega$ contain a closed curve $\gamma$ and a point $\alpha=(t_0,x_0)\notin\Omega$ with winding number $n=\mathrm{Ind}_\gamma(\alpha)\ne0$. For
+\[
+P=\tau^2+\xi^2=(\tau-i\xi)(\tau+i\xi)=Q_1Q_2,
+\]
+the function $u=\log\big((t-t_0)^2+(x-x_0)^2\big)$ lies in $\ker_{C^\infty(\Omega)}P$ but not in $\ker_{\mathcal D'}Q_1+\ker_{\mathcal D'}Q_2$.
+\end{dimcard}
+
+\begin{proofidea}
+A splitting $u=h+k$ would make $dh$ equal to the form $dw/w$ with $w=\overline{z-\alpha}$. An exact form integrates to zero around $\gamma$, but $dw/w$ integrates to $-2\pi i\,n\ne0$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{The candidate component}
+$u$ is harmonic off $\alpha$. Put $w=(t-t_0)-i(x-x_0)$. Then
+\[
+F=Q_2u=\frac{2}{w}
+\]
+is smooth on $\Omega$.
+
+\step{2}{A splitting would make a form exact}
+Suppose $u=h+k$ with $Q_1h=0$ and $Q_2k=0$. Then $Q_2h=F$ and $Q_1h=0$, so
+\[
+\partial_th=\frac F2,\qquad \partial_xh=\frac F{2i}.
+\]
+So the smooth form $\eta=\tfrac F2\dd t+\tfrac F{2i}\dd x=\dfrac{dw}{w}$ equals $dh$.
+
+\step{3}{The integral around $\gamma$}
+Mollify: $\eta_\epsilon=\eta*\rho_\epsilon=d(h*\rho_\epsilon)$ is exact near $\gamma$, so $\oint_\gamma\eta_\epsilon=0$. Since $\eta$ is smooth, $\eta_\epsilon\to\eta$ uniformly on $\gamma$, hence $\oint_\gamma dw/w=0$. But
+\[
+\oint_\gamma\frac{dw}{w}=\overline{\oint_\gamma\frac{dz}{z-\alpha}}=-2\pi i\,n\ne0,
+\]
+a contradiction.
+
+\whyworks{the logarithm has monodromy around the hole, and no single-valued component can carry it.}
+\end{proof}
+\uses{none.}
+
+\begin{caution}[title={For a fixed $P$ the condition is subtler}]
+On the punctured disc, $P=\tau\xi$ decomposes in $C^\infty$ but not in $\mathcal D'$ (take $u=H(x)H(t)$, with $H$ the Heaviside function). The hypothesis $H^1_{dR}=0$ is what makes the theorem hold for \emph{every} $P$; the exact condition for a fixed $P$ is the cohomological criterion \led{OPF-T4} (Part~II).
+\end{caution}
+
+%=====================================================================
+\section{Regularity}
+
+\begin{dimcard}{A15}{C12-C1}{A derivative can be lost}{\falsest{} (counterexample proved)}{cex:loss}
+Let $\Omega=(0,1)^2$, $f=\tau-\xi$, $g=\tau-\xi-1$. For each $m\in\N$ there is
+\[
+u\in H^m(\Omega)\cap C^\infty(\Omega),\qquad f(\partial)g(\partial)u=0,
+\]
+whose unique decomposition $u=u_1+u_2$ ($u_1\in\ker f$, $u_2\in\ker g$) has $u_1,u_2\notin H^m(\Omega)$, while $u_2=f(\partial)u\in H^{m-1}(\Omega)$. The loss is exactly one derivative.
+\end{dimcard}
+
+\begin{proofidea}
+Near the corner $(0,0)$ the characteristic chords of direction $(1,1)$ are short. On a short chord the shapes $1$ and $e^t$ of the two components are nearly equal, so a function that is small on the chord can have large components. A suitable profile along the chords makes $u$ smooth while its components blow up by one derivative.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Characteristic coordinates}
+Use $(t,s)$ with $s=x+t$ (determinant $1$, so Sobolev norms are equivalent). Then
+\[
+f=\partial_t\big|_s,\qquad g=\partial_t\big|_s-1 .
+\]
+Near the corner the region is $\{0<t<s<1\}$: the chord at height $s$ has length $s$.
+
+\step{2}{The function}
+Let $G_0(s)=1/s$ and $G_m(s)=s^{m-1}\log s$ for $m\ge1$, and
+\[
+u=G(s)\,\big(e^t-1\big).
+\]
+Then $fu=G(s)e^t$ and $g(Ge^t)=0$, so $fgu=0$. Since $f-g=1$, $(f,g)=\ring$ and the decomposition is unique:
+\[
+u_1=-g(\partial)u=-G(s),\qquad u_2=f(\partial)u=e^t\,G(s).
+\]
+
+\step{3}{$u$ is in $H^m$}
+The derivatives are $\partial_t^k\partial_s^ju=G^{(j)}(s)\,\partial_t^k(e^t-1)$. Integrating over $t\in(0,s)$ and using $|e^t-1|\le et$:
+\[
+\int_0^s\big|\partial_t^k\partial_s^ju\big|^2\dd t\le
+\begin{cases}
+e^2s\,|G^{(j)}(s)|^2, & k\ge1,\\[3pt]
+\tfrac{e^2}{3}s^3\,|G^{(j)}(s)|^2, & k=0.
+\end{cases}
+\]
+By induction $G^{(j)}=s^{m-1-j}(\alpha_j\log s+\beta_j)$ for $j\le m-1$ and $G^{(m)}=(m-1)!/s$. So the integrals $\int_0^1|G^{(j)}|^2s\dd s$ ($j\le m-1$) and $\int_0^1|G^{(j)}|^2s^3\dd s$ ($j\le m$) are all finite.
+
+\step{4}{$u_2$ is not in $H^m$}
+$\partial_s^mu_2=e^tG^{(m)}$ and
+\[
+\int\big|e^tG^{(m)}\big|^2\ \ge\ c\int_0^1s^{-2}\,s\dd s=\infty .
+\]
+Hence also $u_1=u-u_2\notin H^m$, while $u_2=f(\partial)u\in H^{m-1}$.
+
+\whyworks{the component shapes become collinear on short chords, and the profile $G$ is chosen to sit exactly at the edge of integrability.}
+\end{proof}
+\uses{none.}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A16}{C12-T3}{Chord criterion}{\proved}{thm:chord}
+Let $\Omega$ be bounded, open and convex, $c\in\R$, $d_1\ne d_2$, $f=\partial_t+c\partial_x-d_1$, $g=\partial_t+c\partial_x-d_2$. In coordinates $(t,s)$ with $s=x-ct$, let $\ell(s)$ be the length of the chord at height $s$, and $\mathcal H_i=\ker_{L^2}f_i$. Equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item $\inf_s\ell(s)>0$;
+\item every $u\in L^2$ with $fgu=0$ has components in $L^2$ with $\|u_1\|^2+\|u_2\|^2\le C\|u\|^2$;
+\item $\mathcal H_1+\mathcal H_2$ is closed;
+\item the Friedrichs cosine $c_F(\mathcal H_1,\mathcal H_2)<1$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+On each chord $u$ is $F(s)e^{d_1t}+G(s)e^{d_2t}$. The squared $L^2$ norm on the chord is a Gram quadratic form in $(F,G)$, uniformly positive exactly when the chords do not shrink. The other equivalences are Hilbert-space facts.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{The components on each chord}
+Since $f-g=\kappa:=d_2-d_1\ne0$, the decomposition is unique:
+\[
+u_2=\kappa^{-1}f(\partial)u,\qquad u_1=-\kappa^{-1}g(\partial)u,
+\]
+and $u_1=e^{d_1t}F(s)$, $u_2=e^{d_2t}G(s)$ with $F,G\in L^2_{loc}$.
+
+\step{2}{(a)$\Rightarrow$(b): a uniform Gram bound}
+Let $\ell_0=\inf\ell>0$. The Gram matrix
+\[
+\Gamma(\alpha,\beta)=\Big(\int_\alpha^\beta e^{d_at}\,\overline{e^{d_bt}}\dd t\Big)_{a,b=1,2}
+\]
+is positive definite and continuous; on the compact set $\{-M\le\alpha,\ \alpha+\ell_0\le\beta\le M\}$ its smallest eigenvalue is at least some $\gamma>0$. By Fubini,
+\[
+\int_{\alpha(s)}^{\beta(s)}|u|^2\dd t\ \ge\ \gamma\,\big(|F(s)|^2+|G(s)|^2\big),
+\]
+while $\|e^{d_it}F\|^2\le B\int|F|^2$. Integrating in $s$ gives (b).
+
+\step{3}{(b)$\Rightarrow$(c)$\Rightarrow$(d)}
+$\ker_{L^2}fg$ is closed, and by (b) it equals $\mathcal H_1+\mathcal H_2$. If the sum is closed, the sum map $\mathcal H_1\oplus\mathcal H_2\to\mathcal H_1+\mathcal H_2$ is a continuous bijection of Banach spaces (the intersection is $\{0\}$), so by the open mapping theorem $\|x\|^2+\|y\|^2\le C\|x+y\|^2$. If $c_F=1$, unit vectors $x_k,y_k$ with $\mathrm{Re}\langle x_k,y_k\rangle\to-1$ would give $\|x_k+y_k\|\to0$, a contradiction.
+
+\step{4}{(d)$\Rightarrow$(a), by contraposition}
+Suppose $\inf\ell=0$. Since $\ell$ is concave, $\ell\to0$ at an end $s_-$. Choose disjoint intervals $E_k\to s_-$ with $\sup_{E_k}\ell^2\le4^{-k}$, constants $c_k=(\int_{E_k}\ell)^{-1/2}$, and $G=\sum_kc_k\mathbf 1_{E_k}$. With
+\[
+h_s(t)=e^{d_2t}-e^{\lambda\alpha(s)}e^{d_1t},\qquad |h_s|\le C_1\ell(s)\ \text{on the chord},
+\]
+the function $u=G(s)h_s(t)\in\ker fg$ has
+\[
+\|u\|^2\le C_1^2\sum_kc_k^2\int_{E_k}\ell^3\le C_1^2\sum_k4^{-k}<\infty,
+\qquad
+\|e^{d_2t}G\|^2\ge e^{-2|d_2|M}\sum_kc_k^2\int_{E_k}\ell=\infty .
+\]
+So $u$ is a limit of its truncations, which lie in $\mathcal H_1+\mathcal H_2$, but $u$ itself does not: the sum is not closed, and $c_F=1$.
+
+\whyworks{the conditioning of the split on a chord is a $2\times2$ Gram matrix whose smallest eigenvalue is controlled by the chord length.}
+\end{proof}
+\uses{A13.}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A17}{C12-P7}{Regularity criterion: closed and dense}{\proved}{thm:hm}
+Let $P=c\prod_{j=1}^NQ_j$ with pairwise coprime $Q_j$, $\mathcal H_j=\ker_{H^m(\Omega)}Q_j$, $W=\bigoplus_j\mathcal H_j$, $S(\omega)=\sum_j\omega_j$, and
+\[
+\gamma_N=\inf\sigma\big(S^*S\big|_{(\ker S)^\perp}\big).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Every $u\in\ker_{H^m}P$ has components in $H^m$ $\iff$ $\sum_j\mathcal H_j$ is closed and dense in $\ker_{H^m}P$.
+\item $\sum_j\mathcal H_j$ is closed $\iff\gamma_N>0$; then the minimal-energy split satisfies, optimally,
+\[
+\sum_j\|u_j\|_{H^m}^2\le\gamma_N^{-1}\|u\|_{H^m}^2 .
+\]
+\item For $N=2$: $\gamma_2=1-c_F$, the Friedrichs cosine after removing $\mathcal I=\mathcal H_1\cap\mathcal H_2$.
+\item For $N\ge3$ the pairwise cosines do not decide.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+The components exist in $H^m$ iff the sum map is onto $\ker_{H^m}P$. A bounded map has closed range iff it is bounded below on the orthogonal complement of its kernel, and $\gamma_N$ is the square of that lower bound. For (d), glue infinitely many $3\times3$ examples whose conditioning tends to $0$ while all pairwise angles stay large.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) Closed and dense means equal}
+$\ker_{H^m}P$ is closed in $H^m$ (because $P(\partial):H^m\to\mathcal D'$ is continuous) and contains the sum. A closed dense subspace is the whole space; the converse is clear.
+
+\step{2}{(b) Closed range iff bounded below}
+$S^*S$ is self-adjoint, positive, and leaves $(\ker S)^\perp$ invariant. On it
+\[
+\|S\omega\|^2=\langle S^*S\omega,\omega\rangle\ge\gamma_N\|\omega\|^2 .
+\]
+If $\gamma_N>0$, $S$ is bounded below on $(\ker S)^\perp$, so its range is closed. If the range is closed, $S:(\ker S)^\perp\to\mathrm{im}\,S$ is a continuous bijection between Banach spaces, so its inverse is bounded, $\|S\omega\|\ge c\|\omega\|$, and $\gamma_N\ge c^2>0$. The minimal-energy preimage $S^\dagger u$ satisfies $\|S^\dagger u\|^2\le\gamma_N^{-1}\|u\|^2$, with near-equality along spectral vectors near $\gamma_N$.
+
+\step{3}{(c) Two spaces}
+$(\ker S)^\perp=(A\oplus B)\oplus\{(z,z):\ z\in\mathcal I\}$ with $A=\mathcal H_1\ominus\mathcal I$, $B=\mathcal H_2\ominus\mathcal I$. On the second summand $S^*S=2$. On $A\oplus B$,
+\[
+S^*S=I+K,\qquad K(a,b)=(\Pi_Ab,\ \Pi_Ba),
+\]
+with $\|K\|=c_F$ and spectrum symmetric about $0$. So the bottom of the spectrum is $1-c_F$.
+
+\step{4}{(d) Three lines in $\C^3$}
+For $\varepsilon>0$ let
+\[
+v_1=\frac{(1,0,\varepsilon)}{\sqrt{1+\varepsilon^2}},\qquad v_2=\Big(-\tfrac12,\tfrac{\sqrt3}{2},0\Big),\qquad v_3=\Big(-\tfrac12,-\tfrac{\sqrt3}{2},0\Big),
+\]
+and $\ell_i=\C v_i$. Here $S^*S$ is the Gram matrix of $(v_1,v_2,v_3)$, with
+\[
+\det=\frac{3\varepsilon^2}{4(1+\varepsilon^2)}>0,\qquad \gamma_3(\varepsilon)\sim\frac{\varepsilon^2}{3}\to0,
+\]
+while the pairwise cosines are at most $\tfrac12$.
+
+\step{5}{(d) Gluing the blocks}
+Take the Hilbert direct sum over blocks with $\varepsilon_k\to0$, and $\mathcal L_i=\bigoplus_k\ell_i^{(\varepsilon_k)}$. Pairwise cosines are suprema over blocks, so they stay $\le\tfrac12$ and all pairwise sums are closed. But $S^*S=\bigoplus_kG_{\varepsilon_k}$ has bottom of spectrum $0$ and trivial kernel, so the triple sum is not closed.
+
+\whyworks{regularity of the components is the bounded inverse theorem for the sum map, and $\gamma_N$ is its smallest singular value squared.}
+\end{proof}
+\uses{A13.}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A18}{OPF5B-T1}{Density on bounded convex regions}{\modulo{H\"ormander 10.2.1, Stein VI.3}}{thm:density}
+Let $\Omega\subset\R^2$ be bounded, open, convex, $P=c\prod_{j=1}^NQ_j\ne0$ as in A13, $m\ge0$, and $\mathcal H_j=\ker_{H^m(\Omega)}Q_j$. Then $\sum_j\mathcal H_j$ is dense in $\ker_{H^m(\Omega)}P$. Consequently the components of every $u\in\ker_{H^m}P$ lie in $H^m$ iff $\gamma_N>0$.
+\end{dimcard}
+
+\begin{proofidea}
+Approximate $u$ by solutions of $P$ defined on a neighbourhood of $\bar\Omega$, then apply the decomposition A13 on a slightly larger convex set, where the components are smooth up to $\partial\Omega$. The approximants are built by shifting $u$ slightly inward near each boundary point, gluing with a partition of unity, and correcting the gluing error with a fundamental solution. The correction gains exactly as much as the error loses, for every $P$.
+\end{proofidea}
+
+\begin{notebox}{Tools for this proof}
+Write $p(\zeta)=P(i\zeta)$, $p^{(\alpha)}=\partial_\zeta^\alpha p$, and
+\[
+\tilde P(\zeta)=\Big(\sum_\alpha|p^{(\alpha)}(\zeta)|^2\Big)^{1/2},\qquad k_m(\zeta)=(1+|\zeta|^2)^{m/2}.
+\]
+$B_{2,k}$ is the space of $f$ with $k\hat f\in L^2$; $B_{2,k_m}=H^m$. A weight $k$ is \emph{temperate} if $k(\zeta+\eta)\le C(1+|\eta|)^Nk(\zeta)$.
+\begin{itemize}
+\item \textbf{[F1]} (H\"ormander, ALPDO II, Thm.~10.2.1) \cf: $P$ has a fundamental solution $E$ with $\varphi E\in B_{\infty,\tilde P}$ for every $\varphi\in C_c^\infty$.
+\item \textbf{[F2]} (Stein, Ch.~VI \S3, Thm.~5) \cf: a bounded convex set has a bounded extension operator $H^m(\Omega)\to H^m(\R^2)$.
+\item \textbf{(L1)} $\tilde P$ and $1/\tilde P$ are temperate; $|p^{(\alpha)}|\le\tilde P$, so $P^{(\alpha)}(\partial)$ maps $B_{2,k_m}$ to $B_{2,k}$ with $k=k_m/\tilde P$; multiplication by $\varphi\in C_c^\infty$ is bounded on $B_{2,k}$ for temperate $k$; and $\|(\varphi E)*g\|_{2,k\tilde P}\le\sup|\tilde P\,\widehat{\varphi E}|\cdot\|g\|_{2,k}$.
+\end{itemize}
+\end{notebox}
+
+\begin{proof}
+Let $u\in\ker_{H^m(\Omega)}P$ and $\varepsilon\in(0,1]$.
+
+\step{1}{Fixed choices}
+Fix $o\in\Omega$ and $\rho>0$ with $B(o,\rho)\subset\Omega$. Cover $\partial\Omega$ by balls $B(p_i,\rho/8)$, $i=1,\dots,n$. Take $\Omega_0\Subset\Omega$ containing the rest of $\bar\Omega$, and a partition of unity $\theta_0\in C_c^\infty(\Omega_0)$, $\theta_i\in C_c^\infty(B(p_i,\rho/4))$, with $\sum_i\theta_i=1$ on a neighbourhood $V$ of $\bar\Omega$. Put
+\[
+\tau_0=0,\qquad \tau_i=\varepsilon\,(o-p_i).
+\]
+
+\step{2}{Geometry: inward shifts stay inside}
+For $y_0\in\bar\Omega\cap\bar B(p_i,\rho/2)$,
+\[
+B\big(y_0+\tau_i,\ \varepsilon\rho/2\big)\subset\Omega .
+\]
+Indeed $y_0+\tau_i+q=(1-\varepsilon)y_0+\varepsilon(z+q/\varepsilon)$ with $z=o+y_0-p_i\in\bar B(o,\rho/2)$, and $z+q/\varepsilon\in B(o,\rho)\subset\Omega$ for $|q|<\varepsilon\rho/2$; convexity does the rest. Consequently, on a neighbourhood $V_\varepsilon$ of $\bar\Omega$, every point of $\mathrm{supp}\,\theta_i$ shifted by $\tau_i$ lies in $\Omega$.
+
+\step{3}{Shifted copies solve $P$ where they are used}
+Let $\tilde u=\mathrm{Ext}\,u\in H^m(\R^2)$ [F2], $\tilde u_i=\tilde u(\cdot+\tau_i)$, $w_i=\tilde u_i-\tilde u$. Translations commute with $P(\partial)$, so $P(\partial)\tilde u_i=0$ wherever the shifted point lies in $\Omega$, in particular on $V_\varepsilon\cap\mathrm{supp}\,\theta_i$.
+
+\step{4}{The shifts are small}
+By continuity of translations in $H^m$ (in Fourier variables, dominated convergence with $|\tau_i|\le\varepsilon\,\mathrm{diam}\,\Omega$),
+\[
+\|w_i\|_{H^m(\R^2)}\to0\qquad(\varepsilon\to0).
+\]
+
+\step{5}{The gluing error}
+Let
+\[
+g=\sum_{i=0}^n[P(\partial),\theta_i]\,w_i=\sum_i\sum_{\alpha\ne0}\frac{\partial^\alpha\theta_i}{\alpha!}\,(\partial_z^\alpha P)(\partial)\,w_i .
+\]
+It is supported in a fixed compact set, and by (L1)
+\[
+\|g\|_{2,k}\le C\sum_i\|w_i\|_{H^m},\qquad k=\frac{k_m}{\tilde P},
+\]
+with $C$ independent of $\varepsilon$.
+
+\step{6}{The correction gains what the error loses}
+Let $z=E*g$, so $P(\partial)z=g$. With $\varphi=1$ near the relevant bounded set, $z=(\varphi E)*g$ near $\bar\Omega$, and by (L1) and [F1]
+\[
+\|z\|_{H^m(\Omega)}\le C'\,\sup|\tilde P\,\widehat{\varphi E}|\cdot\|g\|_{2,k}\le C''\sum_i\|w_i\|_{H^m}.
+\]
+
+\step{7}{A solution on a neighbourhood of $\bar\Omega$, close to $u$}
+Put $v=\sum_i\theta_i\tilde u_i-z$. On $V_\varepsilon$,
+\[
+P(\partial)\Big(\sum_i\theta_i\tilde u_i\Big)=\sum_i[P,\theta_i]\tilde u_i=\sum_i[P,\theta_i]w_i+\Big[P,\sum_i\theta_i\Big]\tilde u=g,
+\]
+because $\sum_i\theta_i\equiv1$ there. So $P(\partial)v=0$ on $V_\varepsilon\supset\bar\Omega$. On $\Omega$, $v-u=\sum_i\theta_iw_i-z$, hence
+\[
+\|v-u\|_{H^m(\Omega)}\le C'''\sum_i\|w_i\|_{H^m}\to0 .
+\]
+
+\step{8}{Decompose on a slightly larger convex set}
+For fixed $\varepsilon$, a metric neighbourhood $W'$ of $\bar\Omega$ inside $V_\varepsilon$ is convex. Mollify, $v_\eta=v*\rho_\eta$: it is smooth on $W'$, solves $P$ there, and $v_\eta\to v$ in $H^m(\Omega)$. By A13 on $W'$, $v_\eta=\sum_jv_{\eta,j}$ with smooth $v_{\eta,j}\in\ker Q_j$. Since $\bar\Omega\subset W'$ is compact, the $v_{\eta,j}$ have bounded derivatives on $\Omega$, so $v_{\eta,j}|_\Omega\in\mathcal H_j$. Choosing first $\varepsilon$, then $\eta$, makes $\|v_\eta-u\|_{H^m(\Omega)}$ as small as we like.
+
+\whyworks{the commutator error contains only derivatives of $P$, which are dominated by $\tilde P$, and H\"ormander's fundamental solution gains exactly $\tilde P$; no assumption on the factors is needed.}
+\end{proof}
+\uses{A13; [F1] H\"ormander, [F2] Stein.}

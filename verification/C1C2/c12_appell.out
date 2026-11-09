@@ -1,0 +1,68 @@
+PASS T6 calore: v_0 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_1 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_2 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_3 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_4 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_5 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: v_6 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 calore: funzione generatrice e^(zx + t a(z))
+PASS T6 AD: v_0 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_1 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_2 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_3 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_4 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_5 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: v_6 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 AD: funzione generatrice e^(zx + t a(z))
+PASS T6 Airy: v_0 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_1 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_2 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_3 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_4 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_5 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: v_6 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 Airy: funzione generatrice e^(zx + t a(z))
+PASS T6 trave+: v_0 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_1 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_2 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_3 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_4 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_5 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: v_6 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 trave+: funzione generatrice e^(zx + t a(z))
+PASS T6 reazione-diffusione: v_0 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_1 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_2 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_3 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_4 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_5 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: v_6 soluzione, v_n(0,x)=x^n, d_x v_n = n v_(n-1)
+PASS T6 reazione-diffusione: funzione generatrice e^(zx + t a(z))
+PASS T6 calore: v_0 = polinomio del calore RW
+PASS T6 calore: v_1 = polinomio del calore RW
+PASS T6 calore: v_2 = polinomio del calore RW
+PASS T6 calore: v_3 = polinomio del calore RW
+PASS T6 calore: v_4 = polinomio del calore RW
+PASS T6 calore: v_5 = polinomio del calore RW
+PASS T6 calore: <v_0, v_0>_s = 1
+PASS T6 calore: <v_0, v_1>_s = 0
+PASS T6 calore: <v_0, v_2>_s = 0
+PASS T6 calore: <v_0, v_3>_s = 0
+PASS T6 calore: <v_1, v_0>_s = 0
+PASS T6 calore: <v_1, v_1>_s = 2*s
+PASS T6 calore: <v_1, v_2>_s = 0
+PASS T6 calore: <v_1, v_3>_s = 0
+PASS T6 calore: <v_2, v_0>_s = 0
+PASS T6 calore: <v_2, v_1>_s = 0
+PASS T6 calore: <v_2, v_2>_s = 8*s**2
+PASS T6 calore: <v_2, v_3>_s = 0
+PASS T6 calore: <v_3, v_0>_s = 0
+PASS T6 calore: <v_3, v_1>_s = 0
+PASS T6 calore: <v_3, v_2>_s = 0
+PASS T6 calore: <v_3, v_3>_s = 48*s**3
+  Airy v_3(x,-s) = 6*s + x**3
+PASS T6 stima di crescita calore (n<16, controllo numerico su griglia)
+PASS T6 stima di crescita AD (n<16, controllo numerico su griglia)
+PASS T6 stima di crescita Airy (n<16, controllo numerico su griglia)
+
+RISULTATO: 65 PASS, 0 FAIL

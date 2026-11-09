@@ -1,0 +1,34 @@
+[OK] A1 (H): X,Y_0..Y_8 linearmente indipendenti su C rango 10/10
+[OK] A2 Y_k = c_k xi^k sigma_{x|y} (x per k pari, y per k dispari), c_k != 0 
+[OK] A3 l'algebra torcita (sl2 x C[xi])^theta e' chiusa per commutatore (gradi bassi) 
+[OK] A4 tutti gli Y_k stanno nell'algebra torcita 
+[OK] B1 e^{tA(xi)} = e^{ia sz} e^{ib sx} e^{ia sz} con a,b espliciti err 3.8e-16
+[OK] B2 b(t,xi) -> 0 per xi -> inf ma b(t,0) = -t != 0 (t=0.5): b non polinomiale in xi 
+[OK] B3 g1 = a/xi -> tan(t)/2 per xi -> 0 (t=0.5) 
+[OK] B4 a t = pi/(2m) g1 = a/xi diverge per xi -> 0 (blocco cardanico) g1(1e-4)=7.85e+03
+[OK] C1 X Y = Y X = KG I_2 
+[OK] C2 D D' = D' D = (KG - m^2) I_4 
+[OK] C3 det D = (KG - m^2)^2 
+[OK] C4 Y X - m^2 I = (KG - m^2) I (M_D libero di rango 2 su R/(KG-m^2)) 
+[OK] C5 KG - m^2 irriducibile su Q (m simbolo) 
+[OK] C6 forma hamiltoniana G0^{-1}D = p0 I + (lineare in p1..p3, costante) 
+[OK] C7 Dirac 1+1: det = m^2 - (p0^2-p1^2), psi_1 = (p0-p1)psi_2/m 
+[OK] D1 det P = qP qS^2 
+[OK] D2 xi^T P = qP xi^T (div) 
+[OK] D3 [xi]_x P = qS [xi]_x (rot) 
+[OK] D4 Helmholtz: |xi|^2 I = xi xi^T - [xi]_x^2 
+[OK] D5 rango P mod qS = 1 (mu_qS = 2), rango P mod qP = 2 (mu_qP = 1) 
+[OK] D6 qP, qS irriducibili, distinti per lam+mu != 0 
+[OK] D7 xi^T xi = |xi|^2 non in qS (Ass non contiene |xi|^2) 
+[OK] E1 U1 cap U2 = 0 (dunque P = 0, Sol(P) = A^2) 
+[OK] E2 U1 + U2 = R(1,0) + R(0,xi): N = R/(xi) di lunghezza infinita 
+[OK] E3 I(t) = int f dx = beta(t)/(1-t) -> +inf per t -> 1^- 
+[OK] F1 i u_t = H_A u  <=>  {V = -S_t + Lap rho/rho - |w|^2, d_t rho^2 + 2 div(rho^2 w) = 0} 
+[OK] F2 div(rot psi) = 0 
+[OK] F3 delta B = rot(-k/rho^2) != 0 (operatori non equivalenti di gauge) 
+[OK] G1 u = (a e^x - b e^{2x}, b e^{2x}) risolve [[s-1,1],[0,s-2]] 
+[OK] G2 Smith di [[s-1,1],[0,s-2]]: gcd minori 1x1 = 1, det = (s-1)(s-2) 
+[OK] G3 f = int_0^1 e^{y^2 t + y x} dy risolve f_t = f_xx (sezione s(y) = (y^2, y) di V(tau - xi^2)) 
+[OK] H1 e^{-i chi}(d - i(A + d chi)) e^{i chi} = d - i A 
+
+TOTALE 32/32 OK

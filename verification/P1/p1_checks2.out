@@ -1,0 +1,4 @@
+[PASS] P1-P1(e) AD: log(||E||^2_{L2(I)}/max_t|u|^2)/zeta -> 2cT > 0 (rapporto esponenziale in zeta)
+[PASS] P1-P1(e) |z1| -> 1 per zeta -> +inf
+[PASS] attacco: a1=xi^2, a2=-xi^2: E = 2-2cosh(s k^2)
+ESITO: 3/3 PASS

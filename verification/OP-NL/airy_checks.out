@@ -1,0 +1,16 @@
+OK   Airy equation u_t + u_xxx = 0 for the closed form 
+OK   w_xx + 2(w - a/(3t)) w_x = 1/(3t) 
+OK   autonomous relation G(w,w_x,w_xx,w_xxx)=0 (t eliminated) 
+INFO relation p(y0..y4) = y0**3*(2*y0**2*y4 - 4*y0*y1*y3 - 2*y0*y2**2 + y0*y2*y4 - y0*y3**2 + 4*y1**2*y2 - y1**2*y4 + 2*y1*y2*y3 - y2**3)
+INFO homogeneous degrees present: [6]  total degree: 6
+OK   relation has order 4 (y4 present) 
+OK   closed form = Fourier integral at t=0.5 x=0.3 (diff 2.3e-41)
+OK   relation vanishes numerically at t=0.5 x=0.3 (|p|=7.35e-40)
+OK   closed form = Fourier integral at t=1.0 x=-2.0 (diff 6.89e-40)
+OK   relation vanishes numerically at t=1.0 x=-2.0 (|p|=4.26e-38)
+OK   closed form = Fourier integral at t=0.2 x=1.0 (diff 2.3e-41)
+OK   relation vanishes numerically at t=0.2 x=1.0 (|p|=1.00e-38)
+OK   lowest component p_e0 (degree 6) in I_PW 
+OK   p_e0 vanishes on jets of all solutions of v''=cv 
+INFO p_e0 = y0**3*(2*y0**2*y4 - 4*y0*y1*y3 - 2*y0*y2**2 + y0*y2*y4 - y0*y3**2 + 4*y1**2*y2 - y1**2*y4 + 2*y1*y2*y3 - y2**3)
+TOTAL 12/12 OK

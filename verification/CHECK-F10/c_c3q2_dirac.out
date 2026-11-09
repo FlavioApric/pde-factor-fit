@@ -1,0 +1,19 @@
+OK   §6(b) f^{(k)}/f = T_k(e^y), T_k di Touchard monico di grado k (k ≤ 8)
+OK   §6(b) Σ_{k≤2} a_k T_k(z) = 0 in ℂ[z] forza a_0 = a_1 = a_2 = 0
+OK   §6(b) (∂_t − ∂_x)u = 0
+OK   §6(b) □u = 0, quindi u ∈ Sol(□) e Ann(u) ⊋ A_2□
+OK   §6(b) u(t0, x) = f(x + t0)
+OK   §6(a) divisione: ∂_t³ = ∂_t·L + (t∂_x²)∂_t + ∂_x² (resto con coefficienti in B)
+OK   §7(a) g_1 = a/ξ ∈ ℚ[ξ,m][[t]] fino a t^9 (metodo indipendente)
+OK   §7(a) g_2 = −b/m ∈ ℚ[ξ,m][[t]] fino a t^9 (metodo indipendente)
+    residuo ZXZ 1.35e-31
+    residuo ZXZ 8.76e-32
+    residuo ZXZ 3.04e-31
+OK   §7(a) identità ZXZ numerica in 3 punti nuovi (residuo < 1e-25)
+OK   §7(b) decomposizione esatta di (e^{tA})_11
+OK   §7(b) ω − ξ = m²/(2ξ) + O(ξ^{-3}),  ξ/ω − 1 = O(ξ^{-2})
+    ξ·|G(ξ)|: [0.4149131761720315, 0.41615113716109575, 0.41599715095601075]  atteso m²t/2 = 0.4160000000000001
+OK   §7(b) ξ|G(ξ)| → m²t/2 ≠ 0 (G non tende a 0 più rapidamente di 1/ξ, e non è nullo)
+OK   §7(b) Lemma E: |(1/X)∫_X^{2X}e^{iQ}| piccolo per Q di grado 1, 2, 3 (X = 200)
+
+[c_c3q2_dirac] 13/13 OK

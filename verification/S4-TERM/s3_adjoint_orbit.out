@@ -1,0 +1,20 @@
+PASS Burgers: symbol of ad^1 = (-2 nu xi1 xi2)^1 * (-(xi1+xi2)/2)
+   ad^1 characteristic: 2*nu*Derivative(u(x), x)*Derivative(u(x), (x, 2))   sign(q/pred) = 1
+PASS Burgers: symbol of ad^2 = (-2 nu xi1 xi2)^2 * (-(xi1+xi2)/2)
+   ad^2 characteristic: -4*nu**2*Derivative(u(x), (x, 2))*Derivative(u(x), (x, 3))   sign(q/pred) = 1
+PASS Burgers: symbol of ad^3 = (-2 nu xi1 xi2)^3 * (-(xi1+xi2)/2)
+   ad^3 characteristic: 8*nu**3*Derivative(u(x), (x, 3))*Derivative(u(x), (x, 4))   sign(q/pred) = 1
+PASS Burgers: symbol of ad^4 = (-2 nu xi1 xi2)^4 * (-(xi1+xi2)/2)
+   ad^4 characteristic: -16*nu**4*Derivative(u(x), (x, 4))*Derivative(u(x), (x, 5))   sign(q/pred) = 1
+PASS Burgers: degrees 2k+1 distinct and symbols nonzero (k<=4) => (H)
+PASS KdVB: symbol of ad^1 = (resonance)^1 * qB (up to sign)
+PASS KdVB: symbol of ad^2 = (resonance)^2 * qB (up to sign)
+PASS KdVB: symbol of ad^3 = (resonance)^3 * qB (up to sign)
+KdVB resonance function: xi1*xi2*(3*d*xi1 + 3*d*xi2 - 2*nu)
+PASS Fisher: symbol of ad^1 = (-2 nu xi1 xi2)^1 * (-r) (up to sign)
+   ad^1 characteristic: 2*nu*r*Derivative(u(x), x)**2
+PASS Fisher: symbol of ad^2 = (-2 nu xi1 xi2)^2 * (-r) (up to sign)
+   ad^2 characteristic: -4*nu**2*r*Derivative(u(x), (x, 2))**2
+PASS Fisher: symbol of ad^3 = (-2 nu xi1 xi2)^3 * (-r) (up to sign)
+   ad^3 characteristic: 8*nu**3*r*Derivative(u(x), (x, 3))**2
+SUMMARY: 11/11 PASS

@@ -1,0 +1,10 @@
+Groebner (f,g): [tau + xi, xi**2 + xi]
+V(f)∩V(g): [{tau: 0, xi: 0}, {tau: 1, xi: -1}]
+u= 1  f u= 0  g u= 0
+u= exp(t - x)  f u= 0  g u= 0
+fg(t) = 0
+decomp on R^2: f(x)= 0  g(t-x)= 0
+heat(u1) = Subs(Derivative(phi(_xi_1), _xi_1), _xi_1, s) + Subs(Derivative(phi(_xi_1), (_xi_1, 2)), _xi_1, s) + 1
+phi solutions: Eq(phi(s), C1 + C2*exp(-s) - s)
+f_k = k**2 + tau  g_k = I*k + tau  Res_tau(f,g)(xi) = xi**2 + xi
+modes k with common root: [0]

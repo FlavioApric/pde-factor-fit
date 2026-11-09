@@ -1,0 +1,13 @@
+PASS G1 <e1,e2>_{L2} = E(t1+t2;0,T) E(k1+k2;a,b) (reali)
+PASS G2 <e1,e2>_{H^1} = (1 + t1 t2 + k1 k2) <e1,e2>_{L2}
+PASS P4 dtdx: <A(t),B(x)>_H0 ha solo il termine alpha=0
+PASS P4 dtdx: <A(t),B(x)>_H1 ha solo il termine alpha=0
+PASS P4 dtdx: <A(t),B(x)>_H2 ha solo il termine alpha=0
+PASS T3 coseno(ker f, ker g) su G=1_{s<eps} -> 1 per eps->0
+  coseno a eps=1/10: 0.999718614333
+  onda: autovalori della Gram di {1,s,s^2,s^3,r,r^2,r^3} sul quadrato: [0.000490887976914976, 0.020191297547732433, 0.040542310341988935, 0.5642716386786133, 8.210218151169036, 0.007747574032426642, 0.19463337834852573]
+PASS P4 onda: Gram unione (mod costanti) definita positiva (controllo)
+  onda: coseno di Friedrichs su sottospazi polinomiali di grado <=3: 0.42857142857142116
+PASS P4 onda: coseno < 1 sui polinomi di grado <= 3 (controllo)
+
+RISULTATO: 8 PASS, 0 FAIL

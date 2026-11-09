@@ -1,0 +1,37 @@
+OK   [A0 equazione] 
+OK   [A1 Gram-ratio n=0] r^2=3.145e-03 ratio=3.145e-03
+OK   [A2 certificato HB n=0] r_n=5.608e-02
+OK   [A1 Gram-ratio n=1] r^2=2.910e-03 ratio=2.910e-03
+OK   [A2 certificato HB n=1] r_n=5.394e-02
+OK   [A1 Gram-ratio n=2] r^2=1.016e-05 ratio=1.016e-05
+OK   [A2 certificato HB n=2] r_n=3.188e-03
+OK   [A1 Gram-ratio n=3] r^2=9.443e-06 ratio=9.443e-06
+OK   [A2 certificato HB n=3] r_n=3.073e-03
+OK   [A1 Gram-ratio n=4] r^2=3.204e-08 ratio=3.204e-08
+OK   [A2 certificato HB n=4] r_n=1.790e-04
+OK   [A2 certificato HB n=5] r_n=1.726e-04
+OK   [A2 certificato HB n=6] r_n=1.002e-05
+OK   [A2 certificato HB n=7] r_n=9.659e-06
+OK   [A2 certificato HB n=8] r_n=5.595e-07
+OK   [A3 residui monotoni] 
+OK   [A4 velocita' geometrica ~ rho^{-n}] pendenza log r_n = -1.320, log(rho) = 1.444
+OK   [A5 stima coeff n=2] |dc|=2.306e-02 <= 2eta/sqrt(lam)=1.273e-01 (lam=4.26e-03)
+OK   [A5 stima coeff n=4] |dc|=2.197e-02 <= 2eta/sqrt(lam)=1.165e-01 (lam=1.68e-05)
+OK   [A5 stima coeff n=6] |dc|=2.083e-02 <= 2eta/sqrt(lam)=1.072e-01 (lam=6.26e-08)
+OK   [B0 misfit al livello 0] r_0=2.462e-01
+OK   [B1 livello 1: r=0 e c=(1,1,0..)] r=1.7e-16
+OK   [B1 livello 2: r=0 e c=(1,1,0..)] r=1.2e-16
+OK   [B1 livello 3: r=0 e c=(1,1,0..)] r=2.0e-16
+OK   [C1 livello {d_t, d_xx}: nucleo dim 1 (calore)] 
+OK   [C2 livello {d_t, d_xx, 1}: nucleo dim 2 (non identifica)] 
+OK   [C3 livello {d_t, d_xx, 1, d_x}: nucleo dim 2] 
+OK   [D1 s=0.5] rapporto=3.697 <= 3.716
+OK   [D1 s=1.5] rapporto=3.505 <= 3.679
+     E h=1.0: termini=56, errore relativo max su [1e-3,1] = 1.46e-04
+     E h=0.6: termini=92, errore relativo max su [1e-3,1] = 2.05e-07
+     E h=0.4: termini=138, errore relativo max su [1e-3,1] = 2.14e-09
+OK   [E1 somma di esponenziali, errore rel < 1e-6 con h=0.4] 
+OK   [F1 memoria esponenziale = sistema locale aumentato] 
+OK   [G1 max psi_k = 1 e supporti a sovrapposizione limitata] 
+
+TOTALE: 32/32 OK

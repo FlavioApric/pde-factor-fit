@@ -1,0 +1,5 @@
+N=5 K=9 k=0 (graduato), gradi <= 7: grado minimo di una relazione omogenea = 7 (peso 14)  [398.6s]
+  => delta_N(K)(k) >= 7 per ogni k (limite inferiore)
+N=5 K=8 k=0 (graduato), gradi <= 9: grado minimo di una relazione omogenea = 9 (peso 19)  [5336.3s]
+  => delta_N(K)(k) >= 9 per ogni k (limite inferiore)
+EXIT 0

@@ -1,0 +1,24 @@
+# Domande aperte — S8-VAR
+27/10/2026. Numerazione che prosegue quella di `research/F6-VAR/open_questions.md`.
+
+- **VAR-Q10 (zeri di misura positiva).** Esiste u ∈ C^{1,2}, soluzione di i∂_tu + ∂_x²u = V(t,x)u con V ∈ L^∞_loc, tale che |Z(u)| > 0 ma int Z(u) = ∅? Se no, VAR-T1(c) si semplifica a "V(t,x) è identificato ⟺ u non ha fasce di silenzio". Strumento candidato: unicità forte/misurabile per stime di Carleman (analogia con il calore, dove la risposta è nota per alcune classi).
+- **VAR-Q6′ (gruppo di Galois dell'oscillatore).** Per E ∉ ±(2ℕ + 1), il gruppo di Galois di −∂² + x² − E su ℂ(x) è SL_2(ℂ)? Per E ∈ ±(2ℕ + 1) è il Borel? Non serve all'identificazione (chiusa in §2.3), ma completerebbe VAR-Q6. Strumento: algoritmo di Kovacic o argomento di irregolarità all'infinito.
+- **VAR-Q12 (C3-Q2 per m ≥ 2).** Per L monico di ordine m ≥ 2 in ∂_t, il criterio "u, …, ∂_t^{m−1}u indipendenti su B" ha una caratterizzazione intrinseca (olonomia del modulo A_2u, dimensione caratteristica)? Esiste u non D-finita che non identifica?
+- **VAR-Q13 (C3-Q2, caso non monico).** Per L con coefficiente di testa non costante in ogni direzione, quando Ann(u) è uguale alla saturazione A_2 ∩ ℂ(t,x)⟨∂⟩L? Serve una procedura di decisione (fattorizzazione di D-moduli; puntatore Grigoriev–Schwarz da trovare e leggere).
+- **VAR-Q11 (Floquet differenziale).** Per V(t,x) T-periodico generico, U(T,0) ammette un logaritmo che sia un operatore differenziale (illimitato)? Noto solo per V = v(t) e per i casi quadratici (Floquet classico 2×2).
+- **VAR-Q8 (immutata).** Convergenza della serie di Magnus per operatori illimitati (Schrödinger con V(t,x) illimitato): nessun progresso; Casas 2007 copre solo il limitato.
+- **VAR-Q14 (letteratura per VAR-L1).** Verificare se Saut–Scheurer (J. Differential Equations 66, 1987) o Isakov (J. Differential Equations 105, 1993) contengono VAR-L1 per V ∈ L^∞(t,x) in 1D; in caso affermativo citarli e declassare VAR-L1 a "noto, prova autosufficiente".
+- **VAR-Q15 (SLZ 2011 integrale).** Leggere Schindelar–Levandovskyy–Zerz, JSC 46 (2011) 1189–1204, per confermare il delta di §2.4 (in particolare il punto 4, Ann_{A_1}(u) = A_1 ∩ K[∂]L_u).
+- **Numeri di teorema da verificare** (aggiornato post-Gate 8; Hörmander 8.6.5, Crum 1955 e Casas 2007 Thm 3.4 confermati da CIT-AUDIT-8): van der Put–Singer Prop. 1.34/Thm 1.27; Pazy cap. 5; Folland (capitolo per Stone–von Neumann: cap. 4 dubbio, forse cap. 1); Moan–Niesen 2008 Thm 3.
+
+## Aggiunte dopo l'audit S-CHECK-F8-VAR (27/10/2026)
+- **VAR-Q16 (Dirac matriciale, classe continua).** Nella classe dei V matriciali continui, vale il viceversa "V determinato su un aperto U ⇒ span_t ψ(t,x) = ℂ² su un sottoinsieme denso di U"? Serve una scelta continua (o almeno misurabile e continua dove serve) di una matrice non nulla che uccide lo span dove esso è una retta. Aperto minore (riserva al fix VAR-9).
+- **VAR-Q8′ (Magnus, normalità).** Per A(t) = −i(−∂² + V(t,x)) troncato o V ∈ L^∞, quando Y(t; ε) è normale per ε complesso, come richiede Casas 2007 Thm 3.4 in dimensione infinita? Senza questa ipotesi la convergenza di Magnus per ∫‖A‖ < π non è garantita dalla fonte.
+- **VAR-Q14** è rafforzata dall'audit (fix VAR-16): Saut–Scheurer 1987 contiene con ogni probabilità VAR-L2 e VAR-T1(c)(ii).
+
+## Aggiunte dopo la domanda di S8-ENC (27/10/2026)
+- **VAR-Q17 (osservabilità laterale per soluzioni miti).** Se V ∈ L^∞((0,T) × J) (o C([0,T]; L^∞)) e ψ_0 ∈ L²(J), la soluzione mite di Dyson–Phillips nulla su (0,T) × ω è identicamente nulla? VAR-L2-cor lo dà solo per ψ_0 ∈ D(H_0) e V ∈ C¹([0,T]; L^∞), perché VAR-L2 è provato nella classe (SF). Strumenti candidati: stima di Carleman in norme negative (H^{−1} in x), oppure regolarizzazione in t con mollificatori che commutano con la restrizione a ω (per V indipendente da t la regolarizzazione con (H + i)^{−1} non commuta con la restrizione, quindi non basta). Interessa S8-ENC (lettura "(E1) sulle soluzioni", ENC Q12).
+- **VAR-Q18 (VAR-P11(e) con B solo continuo).** Con A_0 generatore e B ∈ C([0,T]; 𝓛(X)) solo continuo in norma, il propagatore di Dyson–Phillips lascia invariato D(A_0) e dà soluzioni classiche per x ∈ D(A_0)? Il dominio è costante (perturbazione limitata), quindi le ipotesi di Kato sui domini comuni non c'entrano; il problema è la regolarità in t. Per il problema non omogeneo con forzante solo continua la regolarità classica può fallire (Pazy cap. 4, numero da verificare); serve un controesempio o una fonte per il caso perturbativo. Rilievo condiviso con CIT-AUDIT-8 (ENC Q13).
+
+## Aggiunta post-Gate 8 (27/10/2026)
+- **VAR-Q19 (robustezza in DM2, ATTACK-8 O8).** Obiettivo per la Fase 9, non un claim: dato u osservato con rumore di livello noto ε (in quale norma?) su K, con a priori M e δ, costruire uno stimatore di V con errore garantito, oppure dimostrare che l'esponente di Hölder 1/3 di VAR-P3 è anche il limite inferiore minimax. Oggi in DM2 c'è solo il modulo di VAR-P3.

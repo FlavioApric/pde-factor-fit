@@ -1,0 +1,20 @@
+OK   F2 segni N=1
+OK   F3 modulo di rho N=1
+OK   F2 segni N=2
+OK   F3 modulo di rho N=2
+OK   F2 segni N=3
+OK   F3 modulo di rho N=3
+OK   F2 segni N=4
+OK   F3 modulo di rho N=4
+OK   F2 segni N=5
+OK   F3 modulo di rho N=5
+OK   F2 segni N=6
+OK   F3 modulo di rho N=6
+OK   F4 Wronskiano = V e^{-sum kappa x} f~ (N=2), max err rel = 1.57e-41
+OK   F5 (-D^2-u)psi = k^2 psi (N=2), max|res|/|psi| = 4.75e-197
+OK   F6 asintotica ai due estremi (N=2): 2.48e-17, 8.92e-18
+OK   F4 Wronskiano = V e^{-sum kappa x} f~ (N=3), max err rel = 1.8e-41
+OK   F5 (-D^2-u)psi = k^2 psi (N=3), max|res|/|psi| = 4.42e-196
+OK   F6 asintotica ai due estremi (N=3): 9.05e-17, 3.26e-17
+TOTALE: 18/18 OK
+rc=0

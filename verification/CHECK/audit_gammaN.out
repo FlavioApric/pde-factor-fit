@@ -1,0 +1,80 @@
+[OK]  C2(a,b) caso 0: gamma = min sigma(T|kerperp) = inf forma (dim ker S=0)  -- gamma=0.003604
+[OK]  C2(a) caso 0: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 0: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 0: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=16.611281, g^-1/2=16.657372
+[OK]  C2(d) caso 0: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 0: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.2512, lmin=0.0036
+[OK]  C2(e) caso 0: c_F(H_i,H_j) = ||P_iP_j|| (intersezioni nulle)
+[OK]  C2(a,b) caso 1: gamma = min sigma(T|kerperp) = inf forma (dim ker S=1)  -- gamma=0.153477
+[OK]  C2(a) caso 1: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 1: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 1: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=2.552409, g^-1/2=2.552575
+[OK]  C2(d) caso 1: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 1: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.6745, lmin=0.0000
+[OK]  C2(e) caso 1: intersezione H1^H2 != 0 => c_12 = 1, bound banale
+[OK]  C2(a,b) caso 2: gamma = min sigma(T|kerperp) = inf forma (dim ker S=1)  -- gamma=0.175441
+[OK]  C2(a) caso 2: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 2: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 2: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=2.387314, g^-1/2=2.387450
+[OK]  C2(d) caso 2: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 2: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.6241, lmin=0.0000
+[OK]  C2(e) caso 2: c_F(H_i,H_j) = ||P_iP_j|| (intersezioni nulle)
+[OK]  C2(a,b) caso 3: gamma = min sigma(T|kerperp) = inf forma (dim ker S=2)  -- gamma=0.716053
+[OK]  C2(a) caso 3: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 3: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 3: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=1.181739, g^-1/2=1.181755
+[OK]  C2(d) caso 3: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 3: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.6045, lmin=0.0000
+[OK]  C2(e) caso 3: c_F(H_i,H_j) = ||P_iP_j|| (intersezioni nulle)
+[OK]  C2(a,b) caso 4: gamma = min sigma(T|kerperp) = inf forma (dim ker S=3)  -- gamma=0.203011
+[OK]  C2(a) caso 4: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 4: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 4: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=2.219315, g^-1/2=2.219425
+[OK]  C2(d) caso 4: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 4: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=2.3706, lmin=-0.0000
+[OK]  C2(e) caso 4: intersezione H1^H2 != 0 => c_12 = 1, bound banale
+[OK]  C2(a,b) caso 5: gamma = min sigma(T|kerperp) = inf forma (dim ker S=0)  -- gamma=0.177047
+[OK]  C2(a) caso 5: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 5: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 5: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=2.376466, g^-1/2=2.376600
+[OK]  C2(d) caso 5: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 5: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.4107, lmin=0.1770
+[OK]  C2(e) caso 5: c_F(H_i,H_j) = ||P_iP_j|| (intersezioni nulle)
+[OK]  C2(a,b) caso 6: gamma = min sigma(T|kerperp) = inf forma (dim ker S=1)  -- gamma=0.363000
+[OK]  C2(a) caso 6: sigma(T) in {0} U [gamma, N], ||S||^2 <= N
+[OK]  C2(b) caso 6: ||S^+|| = gamma^(-1/2)
+[OK]  C2(c) caso 6: ||R_a||^2 formula, crescente per a->0, < gamma^(-1/2)  -- ||R_1e-5||=1.659720, g^-1/2=1.659766
+[OK]  C2(d) caso 6: ||w_a - S^+u|| <= a/(g+a)||S^+u||, uguaglianza sull'autovettore
+[OK]  C2(e) caso 6: (1-||C||) <= sigma(T) <= 1+||C||, ||C|| <= max riga  -- ||C||=1.3852, lmin=-0.0000
+[OK]  C2(e) caso 6: c_F(H_i,H_j) = ||P_iP_j|| (intersezioni nulle)
+[OK]  C2(e) ||C||<1 => ker S = 0, gamma >= 1-||C|| > 0  -- ||C||=0.9940, gamma=0.3025
+[OK]  C2(e) N=2, I=0: gamma_2 = 1 - c_F
+[OK]  C2(f) VV^T = diag(3/2 cos^2, 3/2 cos^2, 3 sin^2)
+[OK]  C2(f) <v_i,v_j> = -1/2 + 3/2 sin^2 eps (tutte le coppie)
+[OK]  C2(f) sin^2(1/2) < 1/3 (c in (-1/2,0)) e tan^2(1/2) < 1/2 (gamma_3 = 3 sin^2)  -- sin^2=0.2298, tan^2=0.2984
+[OK]  C2(f) gamma_3(2^-k) = 3 sin^2(2^-k), V_k invertibile (k=1..11)
+[OK]  C2(f) troncata K=3: c_F a coppie <= 1/2, ker S = 0, gamma_3 = 3 sin^2(2^-K), im S = H  -- c_F=0.476684, gamma_3=4.663e-02
+[OK]  C2(f) troncata K=6: c_F a coppie <= 1/2, ker S = 0, gamma_3 = 3 sin^2(2^-K), im S = H  -- c_F=0.499634, gamma_3=7.324e-04
+[OK]  C2(f) troncata K=10: c_F a coppie <= 1/2, ker S = 0, gamma_3 = 3 sin^2(2^-K), im S = H  -- c_F=0.499999, gamma_3=2.861e-06
+[OK]  C2(f) non necessita' K=3: gamma_2 = 1-cos(2^-K) -> 0; SS* >= I; gamma_3 >= 1  -- gamma_2=7.802e-03, gamma_3=1.0078
+[OK]  C2(f) non necessita' K=8: gamma_2 = 1-cos(2^-K) -> 0; SS* >= I; gamma_3 >= 1  -- gamma_2=7.629e-06, gamma_3=1.0000
+[OK]  C2(f) sigma(S*S)\{0} = sigma(SS*)\{0} (fatto usato per gamma_3 >= 1)
+[OK]  C2(f) Gram(-1/2): autovalori {0,3/2,3/2}
+[OK]  C2(f) Gram(+1/2): autovalori {2,1/2,1/2}
+[OK]  C2(f) rette a 120 gradi realizzano Gram(-1/2); Cholesky realizza Gram(+1/2)
+[OK]  C2(f) gamma_3 = 3/2 (120 gradi) e 1/2 (Cholesky), c_F a coppie tutti 1/2, rette distinte
+[OK]  C2(e) sui due esempi ||C|| = 1: bound 1-||C|| = 0 <= gamma_3
+[OK]  C12-P7(d) det G_eps = 3 eps^2 / (4(1+eps^2))
+[OK]  C12-P7(d) coseni 1/(2 sqrt(1+eps^2)), 1/(2 sqrt(1+eps^2)), 1/2
+[OK]  C12-P7(d) lambda_min(G_eps) ~ eps^2/3, valori di gram.md  -- 0.1:3.3076e-03, 0.01:3.3331e-05, 0.001:3.3333e-07
+[OK]  C12-P7(d) eps=0: autovalori {0,3/2,3/2}
+[OK]  T4(2) selezione non lineare: S sigma(u)=u, ||sigma(u)-sigma(0)|| >= ||S^+u||, Lip >= gamma^-1/2  -- ratio su autovettore=31.1005 >= 31.0649
+[OK]  C2(c) gamma=0 (troncata K=4): ||R_(lambda_K)|| >= 1/(2 sqrt(lambda_K))  -- 4.62
+[OK]  C2(c) gamma=0 (troncata K=8): ||R_(lambda_K)|| >= 1/(2 sqrt(lambda_K))  -- 73.90
+[OK]  C2(c) gamma=0 (troncata K=12): ||R_(lambda_K)|| >= 1/(2 sqrt(lambda_K))  -- 1182.41
+[OK]  C3-T2(a) Ann(u) cap R_<=3: nucleo diretto (40 punti) = nucleo di Q(z_k+d)q_k = 0  -- dim diretto=5, dim shift=5, residuo=4.3e-14
+[OK]  C3-T2(a) ogni Q in Ann_<=3 si annulla in {z_k}; nei punti (0,0),(1,1),(2,1),(-1,3) no
+[OK]  C3-T2(a) Ann(q_k e^{z_k})_<=3 sono propri e la loro intersezione e' Ann(u)_<=3  -- dim singoli=[8, 9, 8]
+[OK]  C3-T2(a) q_k costante: {Q : Q(z_k+d)q_k=0}_<=3 = m_{z_k} cap R_<=3 (codim 1)
+
+ESITO 78/78 OK

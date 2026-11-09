@@ -1,0 +1,8 @@
+   P14 #monomials of weight 16 in (k1,k2,y0,y1,y2): 359
+OK   P14 nullity at weight 16 mod p=2147483647 is 1 nullity=1 [22.1s]
+OK   P14 nullity at weight 16 mod p=2147483629 is 1 nullity=1 [43.7s]
+   P14 reconstructed Q with 36 nonzero terms; max height 76
+OK   P14 EXACT: Q(1,kappa; jet) = 0 on the full grid 49x17x17 (=> identity, degree bounds 48/16/16) points=14161 bad=0 [49.2s]
+OK   P14 Q: coefficient of y0^8 = 1 (constant), y-degree 8, even in k2 (k1=1) ydeg=8 even=True [49.2s]
+OK   P14 k0=(1,2) not in Z_15 (full rank mod p of 54 y-monomials of weight<=15 => no relation over Q)  [49.3s]
+TOTAL 5/5 OK

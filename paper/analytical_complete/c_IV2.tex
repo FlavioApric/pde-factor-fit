@@ -1,0 +1,230 @@
+\chapter[Encoder and convergence]{Phases 7--8: encoder and convergence (other results)}\label{ch:cIV2}
+\chapterbrief
+{the notation of Chapters~\ref{ch:cIII3} and~\ref{ch:cIII4}: $H_0=-\partial_x^2$, $H(t)=H_0+V(t)$, the propagators $U_0(t)=e^{-itH_0}$ and $U_V(t)$, and the encoder $W$ with the intertwining relation $W L_q=(L_0+c)W$.}
+{to prove the remaining results on the encoder: the classification of time-dependent intertwiners, the normal form with reparametrised time, the blind encoder, the equivalence on a bounded domain, the Faddeev decomposition and the Foldy--Wouthuysen transform. Definitions and statements from cited sources stay as list cards.}
+{Dim.~B110--B116. They prove the corresponding parts of Chapter~\ref{PAP-ch:encoder} of the paper.}
+
+\section{The encoder}
+
+\listcard{ENC-D}{Definition of a \emph{structured encoder}: (E1) $\dim\ker W<\infty$ on the domain of the encoder; (E2$'$) $WL_q=(L_0+c)W$ for a constant $c$; (E3) explicit.}{definition}{The strict version $c=0$ excludes the constant case (B79).}
+
+\begin{dimcard}{B110}{ENC-P0(a)}{Time-dependent intertwiners are interaction pictures}{\pw}{ch:encoder}
+Let $H_0$ be self-adjoint on a Hilbert space with domain $D$, $V\in C(\R;B(\mathcal H))$ norm-continuous and self-adjoint, $H(t)=H_0+V(t)$, and assume a unitary propagator $U_V(t,s)$ strongly continuous in both arguments, with $U_V(t,s)D\subset D$ and the usual differentiation rules (Dyson--Phillips; \cf). Let $W(t)$ be strongly continuous, $W(t)D\subset D$, $C^1$ on $D$, with
+\[
+iW'(t)\psi=H_0W(t)\psi-W(t)H(t)\psi\quad(\psi\in D).\tag{INT}
+\]
+Then (INT) holds iff $W(t)=U_0(t)W(0)U_V(t)^{-1}$ for all $t$.
+\end{dimcard}
+
+\begin{proofidea}
+Along a solution of the true equation, $W(t)u(t)$ solves the free equation; and the free flow is unique. Conversely, compose the three flows and differentiate.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{($\Rightarrow$)}
+Let $u_0\in D$, $u(t)=U_V(t)u_0$, $g(t)=W(t)u(t)$. Write $[g(t+h)-g(t)]/h=W(t+h)\frac{u(t+h)-u(t)}h+\frac{W(t+h)-W(t)}hu(t)$. The first term tends to $W(t)u'(t)$ ($W$ locally bounded by Banach--Steinhaus and strongly continuous), the second to $W'(t)u(t)$ because $u(t)\in D$. So $ig'=H_0g$ with $g(t)\in D$, whence $\frac d{dt}[U_0(-t)g(t)]=0$ and $g(t)=U_0(t)g(0)$: $W(t)U_V(t)u_0=U_0(t)W(0)u_0$ on a dense set, hence on $\mathcal H$ by boundedness.
+
+\step{2}{($\Leftarrow$)}
+Put $M=W(0)$; only $MD\subset D$ is used. $M$ is closed as a map $(D,\|\cdot\|_{\rm graph})\to(D,\|\cdot\|_{\rm graph})$: if $\psi_n\to\psi$ and $M\psi_n\to\varphi$ in the graph norm, then $M\psi_n\to M\psi$ in $\mathcal H$, so $\varphi=M\psi$. By the closed graph theorem $M$ is graph-bounded. For $\psi\in D$ the map $t\mapsto U_V(0,t)\psi$ is $C^1$ in $\mathcal H$ and continuous in the graph norm, so $U_0(t)MU_V(0,t)\psi$ is differentiable and the computation with $iU_V(0,t)H(t)\psi$ gives (INT).
+
+\whyworks{the intertwiner is the interaction picture; the free flow is the only thing that can come out.}
+\end{proof}
+\uses{none.}
+
+\begin{dimcard}{B111}{ENC-P0b-loc, POLE-N-cl}{An encoder independent of time sees only the autonomous region}{\pw}{ch:encoder}
+Let $U\subset J$ be open and $W:D_W\to\mathcal D'(U)$ linear with $D_W\supset C(U)\cdot C_c^\infty(U)$ and $\dim\ker W<\infty$ on all of $D_W$, or $V(t,\cdot)\in C^\infty(U)$ and $W:C^\infty(U)\to C^\infty(U)$. If $W(-\partial_x^2+V(t,\cdot))f=(-\partial_x^2+c(t))Wf$ for all $t$ and $f\in C_c^\infty(U)$, then $V(t,x)-V(s,x)=c(t)-c(s)$ on $U$.
+
+\textbf{(POLE-N$^{\rm cl}$)} If $W(t)=\sum_jw_j(t,x)\partial_x^j$ is an instantaneous intertwiner that also intertwines $i\partial_t-L_{V(t)}$ with $i\partial_t-L_0-c$, then $\partial_tW=0$ on any rectangle free of poles, and $V-c$ is autonomous there.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{Subtract the identities}
+Taking the identity at $t$ and at $s$ and subtracting gives $W(mf)=0$ for $f\in C_c^\infty(U)$, with $m=V(t,\cdot)-V(s,\cdot)-(c(t)-c(s))$ continuous.
+
+\step{2}{An infinite independent family in the kernel}
+If $m(x^*)\ne0$, then $m\ne0$ on an interval $U'\ni x^*$. Pick non-zero $\varphi_1,\varphi_2,\dots\in C_c^\infty(U')$ with disjoint supports: the functions $m\varphi_k$ are linearly independent and lie in $D_W\cap\ker W$, against $\dim\ker W<\infty$.
+
+\step{3}{Why the kernel must be finite on all of $D_W$}
+Requiring it only on $C_c^\infty(U)$ is false: for $X=C_c^\infty(U)$, $w$ continuous and smooth on no interval, $W(g+wf):=g$ on $X\oplus wX$, $V=tw$, $c=0$ satisfies the identity with $\ker W|_X=0$ and $V$ not autonomous.
+
+\step{4}{POLE-N}
+If $W$ also intertwines the evolutions, $\partial_tW=0$, so $\partial_tw_j=0$ on $[s,t]\times U$ and $w_j(t,\cdot)=w_j(s,\cdot)$ there. The leading coefficient $w_n$ is a non-zero constant (ENC-K1$'$), so $\dim\ker W=n\ge1$, and the first part applies. A pole-free interval at the two times is not enough: with the pole at $x=z(t)=t$ and $U=(\frac12,\frac32)$ the interval is free at $t=0,2$ but crossed at $t=1$.
+
+\whyworks{an infinite family of functions supported where $V$ moves would all be in the kernel of the encoder.}
+\end{proof}
+\uses{A44.}
+
+\begin{dimcard}{B112}{ENC-P0p, ENC-P0p-DIC}{Normal form of the encoder, and when the time change can be avoided}{\pw}{ch:encoder}
+Let $U_V(t)$ be unitary with $U_V(0)=I$, $W(t)\in B(\mathcal H)$, $\theta\in C^1(I)$ with $\theta'>0$, $\theta(0)=0$, and $D_0\subset\mathcal H$ dense. If for every $u_0\in D_0$ the function $v(\tau)=W(\theta^{-1}(\tau))U_V(\theta^{-1}(\tau))u_0$ is $C^1$ with values in $D(H_0)$ and $iv'=H_0v$, then $W(t)=U_0(\theta(t))W(0)U_V(t)^{-1}$; in particular $\theta$ is not an invariant of the encoder.
+
+\textbf{(DIC)} For $V=\alpha(t)x^2+\beta(t)x+\gamma(t)$ real, a pointwise-plus-gauge representative has equations $T'=1/\rho^2$, $\rho'=4a\rho$, $a'+4a^2=-\alpha$. There is a representative with $T=\mathrm{id}$ iff $\alpha\equiv0$; for $\alpha\not\equiv0$, $T$ is affine in no representative.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{Normal form}
+$\frac d{d\tau}[U_0(-\tau)v(\tau)]=U_0(-\tau)(v'+iH_0v)=0$, so $v(\tau)=U_0(\tau)v(0)$ with $v(0)=W(0)u_0$. Conclude by density of $D_0$ and boundedness of $W(t)$ and $U_V(t)$. The proof uses neither the propagator hypothesis of B110 nor the class of encoders.
+
+\step{2}{Examples}
+The lens ($H_0=-\frac12\partial^2$, $\theta=\tan$), Avron--Herbst ($V=Fx$, $\theta=\mathrm{id}$, $u=e^{-iFtx-iF^2t^3/3}v(t,x+Ft^2)$) and the class $V=\beta(t)x+\gamma(t)$ (with $\theta=\mathrm{id}$) are instances on $D_0=\mathcal S(\R)$.
+
+\step{3}{(DIC) $\Leftarrow$}
+If $\alpha\equiv0$ take $a\equiv0$, $\rho\equiv1$, $T=\mathrm{id}$.
+
+\step{4}{(DIC) $\Rightarrow$}
+If $T$ is affine, $T'=1/\rho^2$ is constant so $\rho$ is constant; $\rho'=4a\rho$ forces $a\equiv0$ and $a'+4a^2=-\alpha$ forces $\alpha\equiv0$.
+
+\step{5}{The earlier synthesis is false}
+``The exceptions change the time'' fails: for $V=0$ the pseudo-conformal representative $a=a_0/(1+4a_0t)$, $\rho=1+4a_0t$, $\theta(t)=t/(1+4a_0t)$ solves the system with $\alpha\equiv0$ and has $\theta\ne\mathrm{id}$. Also $a\equiv0$ gives only $\rho$ constant, not $\rho\equiv1$. The time change is needed for the quadratic part in the existential sense only.
+
+\whyworks{the free flow is unique, so any reparametrisation is absorbed; whether it can be avoided is decided by one Riccati equation.}
+\end{proof}
+\uses{B110.}
+
+\begin{dimcard}{B113}{ENC-N1-F6, ENC-N1p}{The blind encoder: why the claimed equivalence is false}{\pw}{ch:encoder}
+Fix a family of encoders $\mathcal W=\{W_V\}$ with $W_VL_V=(L_0+c_V)W_V$, $W_V$ injective on the solution space $\mathcal S_V$, $N_V(v)=e^{ic_Vt}v$. A \emph{blind encoder} is a map $E:\bigcup_V[\mathcal S_V]\to\mathcal O$ with $E([u])=[N_VW_Vu']$ for every $V$ and $u'\in\mathcal S_V$, $u'\sim u$. Let (C) be coherence ($u\sim u'$ implies $[N_VW_Vu]=[N_{V'}W_{V'}u']$) and (S) separation.
+(i) A blind encoder exists iff (C). (ii) Identifiability modulo $\sim$ implies (C). (iii) (C)$\wedge$(S) iff identifiability, by definition. (iv) Witness: with DM-$\varphi$ (phase $e^{i\theta(t)}$ allowed) and $\mathcal V=\{q_0+c\}$, $W_{q_0+c}:=W_{\hat q}$, $\hat q=q_0-q_0(x_0)$, a blind encoder exists but $V$ is identified only modulo constants. (v) With the strict family (the Volterra encoder of $q_0+c$ normalised at $x_0$) no blind encoder exists.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i)--(iii)}
+(i) If $E$ exists, (C) is its well-definedness; conversely (C) says $[N_VW_Vu']$ does not depend on the pair $(V,u')$. (ii) If $u\sim u'\ne0$ then $V=V'$, and for a single $V$, $u'=e^{i\theta_0}u$ with $\theta_0$ constant (since $\theta'u=0$), and $W_V$ commutes with a constant phase. (iii) ($\Leftarrow$) is (ii); ($\Rightarrow$) if $V\ne V'$ with $u\sim u'\ne0$ existed, (S) would contradict (C).
+
+\step{2}{(iv) Blind without identifiability}
+One checks $W_{\hat q}L_{q_0+c}=(L_0+q_0(x_0)+c)W_{\hat q}$ and $W_{\hat q}$ commutes with phases in $t$. For $u\in\mathcal S_{q_0}$, $u'=e^{-ict}u\in\mathcal S_{q_0+c}$ has $N_{V'}W_{\hat q}u'=e^{i(q_0(x_0)+c)t}e^{-ict}W_{\hat q}u\approx N_VW_{\hat q}u$. So (C) holds, but $q_0$ and $q_0+c$ are not distinguished.
+
+\step{3}{(v) Dependence on the family}
+For $q_0=0$, $u=e^{-i\lambda t}\cos\sqrt\lambda(x-x_0)\in\mathcal S_0$ and $u'=e^{-ict}u\in\mathcal S_c$: $W_0u=u$ while $W_cu'=e^{-i(\lambda+c)t}\cos\sqrt{\lambda+c}(x-x_0)$, outputs not equivalent modulo phases, so (C) fails.
+
+\step{4}{Gauge reading}
+With DM-$\varphi$, for any regular non-zero $w=e^{i\theta(t)}u$ one has $(iw_t+w_{xx})/w=q(x)-\theta'(t)$: $q$ is identified modulo constants, which is the correct statement: \emph{blind encoder $\iff$ identifiability modulo the gauge group of the data model, for a fixed gauge-respecting family}.
+
+\whyworks{the original equivalence compared a map on potentials with a map on classes; the constant shift of $V$ is invisible on the output and breaks the injectivity of $\Phi$.}
+\end{proof}
+\uses{A47.}
+
+\begin{dimcard}{B114}{NS-EQ-Omega}{Avron--Herbst and the lens on a bounded domain}{\pw}{ch:encoder}
+Let $\Omega=I\times J$ be a bounded rectangle and $\Phi$ the pointwise-plus-gauge encoder: Avron--Herbst $v(t,y)=e^{iFt(y-Ft^2)+iF^2t^3/3}u(t,y-Ft^2)$; lens $v(\tan t,x/\cos t)=(\cos t)^{1/2}e^{ix^2\tan t/2}u(t,x)$, $I\subset(-\frac\pi2,\frac\pi2)$. Then (a) $\Phi:\mathrm{Sol}_V(\Omega)\to\mathrm{Sol}_0(\Omega')$ is a bijection with no boundary condition, where $\Omega'$ is a curved strip (Avron--Herbst; a rectangle iff $F=0$) or $\{|y|/\sqrt{1+\tau^2}\in J\}$ (lens: non-convex, star-shaped with respect to $0$ if $0\in I$), both simply connected. (b) Dirichlet goes to Dirichlet on the moving boundary; Neumann goes to a time-dependent Robin condition ($v_y=iFt\,v$; $v_y=iy\sin t\cos t\,v$). (c) (I) and (S) hold on $\Omega'$, but backwards transport takes place in the conjugated ring $\Phi^{-1}\C[\partial_\tau,\partial_y]\Phi$; (E) fails. (d) For $H=-\frac12\partial^2+\frac12x^2$, $U(\pi)=-iP$ ($P$ the parity), and gluing across the caustics $t=\frac\pi2+k\pi$ is exact on $\R$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a) Domain}
+Direct computation of the images. Non-convexity of the lens: $(\pm T,b\sqrt{1+T^2}-\varepsilon)\in\Omega'$ but $(0,b\sqrt{1+T^2}-\varepsilon)\notin\Omega'$. Star-shapedness: $s\sqrt{1+\tau^2}\le\sqrt{1+s^2\tau^2}$ for $s\in[0,1]$. Simple connectedness: $\Omega'$ is a homeomorphic image of a rectangle.
+
+\step{2}{(b) Boundary}
+The prefactor does not vanish, so Dirichlet is preserved. Differentiating the product gives the Robin conditions.
+
+\step{3}{(c) Identification, splitting, factorisation}
+C3-T1 needs $\Omega$ connected and C12-T1$'$ needs $H^1_{dR}=0$, both true on $\Omega'$. For Avron--Herbst $\Phi^{-1}\partial_y\Phi=\partial_x+iFt$ and $\Phi^{-1}\partial_t\Phi=\partial_t-2Ft\partial_x+iFx-iF^2t^2$ (polynomial in $(t,x)$); for the lens the coefficients are trigonometric in $t$ and polynomial in $x$. The potential is suppressed, not split.
+
+\step{4}{(d) Gluing}
+$e^{-i\pi(n+1/2)}=-i(-1)^n$ on the Hermite functions $h_n$, so $U(\pi)=-iP$ and $u(s+k\pi)=(-iP)^ku(s)$; $W_0(s)$ commutes with $P$ (even chirp, even dilation), so $W_0(s)u(s+k\pi)=(-i)^kP^kW_0(s)u(s)$.
+
+\whyworks{the transformations are pointwise, so the boundary only moves; the conjugated ring has non-constant coefficients.}
+\end{proof}
+\uses{A44, A46.}
+
+\begin{dimcard}{B115}{FAD-1}{Faddeev decomposition at fixed energy}{\pw}{ch:encoder}
+Let $J=[x_0,x_0+\ell]$, $\lambda=k^2\in\C$, $V=\sum_{i=1}^NV_i$, $V_i\in C(J)$, $(G_0f)(x)=\int_{x_0}^x\frac{\sin k(x-y)}kf(y)dy$, $u$ the solution of $-u''+Vu=\lambda u$ with the Cauchy data at $x_0$ of the free solution $u^{(0)}$. Then (i) $u=u^{(0)}+G_0(Vu)$ and $\|(G_0V)^n\|\le(C\|V\|_\infty\ell)^n/n!$, $C=\sup|\sin(kz)/k|$, with no smallness; (ii) the Faddeev components $u^{(i)}=G_0(V_iu)$ satisfy $u=u^{(0)}+\sum u^{(i)}$ and the $N\times N$ system has a unique solution; (iii) with $u_i$ the solution with $V_i$ alone and $\mathbf V=\sum\|V_i\|_\infty$, $E^{\rm add}:=u-\sum u_i+(N-1)u^{(0)}=\sum_{i\ne j}G_0V_iG_0V_ju^{(0)}+R$, $\|R\|\le(C\ell\mathbf V)^3e^{C\ell\mathbf V}\|u^{(0)}\|/3$, uniformly in $N$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i)}
+$(-\partial^2-\lambda)(u^{(0)}+G_0(Vu))=-Vu$ and the Cauchy data agree, so uniqueness of the Cauchy problem gives the identity. $G_0V$ is a Volterra operator with kernel bounded by $C\|V\|$, which gives the factorial bound.
+
+\step{2}{(ii)}
+Summing the components gives (i). Uniqueness follows from the Volterra estimate for the system on $C(J)^N$.
+
+\step{3}{(iii)}
+Expand $u=\sum_n(G_0V)^nu^{(0)}$ and $u_i=\sum_n(G_0V_i)^nu^{(0)}$. The terms of order $0$ and $1$ cancel. At order $2$ what remains is $(G_0V)^2-\sum_i(G_0V_i)^2=\sum_{i\ne j}G_0V_iG_0V_j$. The remainder is $\sum_{n\ge3}[(G_0V)^n-\sum_i(G_0V_i)^n]u^{(0)}$; since $\|V\|\le\mathbf V$ and $\sum_i\|V_i\|^n\le\mathbf V^n$, it is at most $2\sum_{n\ge3}(C\ell\mathbf V)^n/n!\,\|u^{(0)}\|$. With $\|\sum V_i\|_\infty$ in place of $\mathbf V$ the remainder is not controlled, since centres may cancel.
+
+\whyworks{a Volterra operator has a factorially convergent Neumann series, so the exact decomposition by centres costs no smallness; only the cross terms are of second order.}
+\end{proof}
+\uses{A44.}
+
+\begin{dimcard}{B116}{FW-1}{Foldy--Wouthuysen for the free Dirac equation}{\pw}{ch:encoder}
+Let $H=\alpha p+\beta m$ with $\alpha=\sigma_x$, $\beta=\sigma_z$, $m>0$, and $U(p)=\cos\theta+\beta\alpha\sin\theta$, $\tan2\theta=p/m$. Then $U$ is unitary, $UHU^\dagger=\beta E(p)$ with $E=\sqrt{p^2+m^2}$, and $U$ is a Fourier multiplier with non-rational entries ($\sin^2\theta=(1-m/E)/2$), hence non-local. So FW is a decomposition (S) by sheets, not an encoder (E2$'$) towards free Dirac.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{Unitarity and diagonalisation}
+$\beta\alpha=i\sigma_y$ (up to sign) is anti-Hermitian with square $-1$, so $U=\cos\theta+\beta\alpha\sin\theta$ is a rotation, unitary. Using $\beta\alpha\beta=-\alpha$, one computes $UHU^\dagger=\beta(m\cos2\theta+p\sin2\theta)+\alpha(p\cos2\theta-m\sin2\theta)$; $\tan2\theta=p/m$ kills the second bracket and makes the first equal to $E(p)$.
+
+\step{2}{Non-locality}
+A convolution operator is local iff its symbol is a polynomial. The entries $\cos\theta,\sin\theta$ are algebraic non-rational functions of $p$ that tend to constants at infinity without being constant, so $U$ is not a differential operator, consistent with ``rational projectors $\iff$ factors''. With a potential $V(x)I$ the exact decomposition into sheets $\pm E$ exists abstractly ($\Lambda=\mathrm{sign}\,H$, Eriksen; Thaller 1992, ch.~5, \cf); the FW series in $1/m$ is only asymptotic.
+
+\whyworks{the diagonalising rotation depends on the momentum through $\sqrt{p^2+m^2}$, which no polynomial symbol can reproduce.}
+\end{proof}
+\uses{B74.}
+
+\begin{dimcard}{B152}{ENC-POLE-N}{The classical form of ENC-P0(b), and the failure of the POLE route}{\pw}{ch:encoder}
+Let $J$ be an interval, $V\in C(I\times J)$, $c\in C(I)$, and let $W$ be linear, defined on $D_W\supset C(J)\cdot C_c^\infty(J)$ (or on $C^\infty(J)$ if $V(t,\cdot)\in C^\infty$), with $\dim\ker W<\infty$ on all of $D_W$. If $W(-\partial_x^2+V(t,\cdot))f=(-\partial_x^2+c(t))Wf$ for all $t\in I$ and $f\in C_c^\infty(J)$, then $V(t,x)-V(s,x)=c(t)-c(s)$ for all $t,s,x$. Consequence (POLE-N): an \emph{instantaneous} intertwiner $WL_{V(t)}=(L_0+c)W$ that is also an encoder for $iu_t=L_{V(t)}u$ forces $\partial_tW=0$, hence $V$ autonomous modulo $c(t)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{Subtract two times}
+Subtracting the identity at $t$ and $s$ gives $W(mf)=0$ for all $f\in C_c^\infty(J)$, with $m=V(t,\cdot)-V(s,\cdot)-(c(t)-c(s))$ continuous.
+
+\step{2}{Infinitely many independent kernel elements}
+If $m(x^*)\ne0$, then $m\ne0$ on an interval $U\ni x^*$. Choose non-zero $\varphi_1,\varphi_2,\dots\in C_c^\infty(U)$ with disjoint supports: the $m\varphi_k$ are linearly independent, lie in $D_W$ and in $\ker W$, against $\dim\ker W<\infty$.
+
+\step{3}{POLE-N}
+If $W(t)$ also satisfies the encoder relation $iW'=(L_0+c)W-WL_{V(t)}$, the instantaneous intertwining gives $\partial_tW=0$ on a rectangle $[s,t]\times U$ free of poles (for a polar potential such as Adler--Moser one cannot just ask a pole-free interval at both times: with a pole $z(t)=t$ and $U=(\frac12,\frac32)$ the pole crosses $U$ at $t=1$). Then the coefficients $w_j$ do not depend on $t$, $\dim\ker W=n$ because $w_n$ is a non-zero constant, and Steps~1--2 apply: $V$ is autonomous modulo $c$ on $U$.
+
+\whyworks{a time-independent map with a small kernel cannot absorb a potential difference that is non-zero on an interval: it would have to kill infinitely many independent functions.}
+\end{proof}
+\uses{ENC-K1$'$(i), ENC-1.}
+
+\begin{caution}[title={Scope}]
+In $L^2(J)$ with bounded $J$ and a self-adjoint $H_0$ the boundary conditions are not respected by the Volterra encoder, so the Hilbert version of P0(b) does not exclude an ENC-1 type encoder for $V(t,x)$. The localised version needs finite kernel on all of $D_W$: with only $C_c^\infty(U)$ it is false (counterexample $X=C_c^\infty(U)$, $w$ smooth nowhere, $V=tw$). Sub-case: $W$ commuting with $\partial_t$ rather than independent of $t$ (e.g.\ convolutions in $t$) with non-constant $c(t)$ is open.
+\end{caution}
+
+\begin{dimcard}{B153}{ENC-P0p}{Time change is not an invariant of the encoder; ``the exceptions change the time'' is false}{\pw}{ch:encoder}
+(i) Let $U_V(t)$ be unitary with $U_V(0)=I$, $\theta\in C^1(I)$, $\theta'>0$, $\theta(0)=0$, $D_0$ dense, and suppose that for $u_0\in D_0$, $v(\tau)=W(\theta^{-1}\tau)U_V(\theta^{-1}\tau)u_0$ is $C^1$ with values in $D(H_0)$ and $iv'=H_0v$. Then $W(t)=U_0(\theta(t))W(0)U_V(t)^{-1}$; so every such encoder is equivalent to one with $\theta=\mathrm{id}$. (ii) For $V=\alpha(t)x^2+\beta(t)x+\gamma(t)$ there is a point representative plus gauge with $\theta=\mathrm{id}$ iff $\alpha\equiv0$; for $\alpha\not\equiv0$ no representative has $\theta$ affine. (iii) The rev.~1 summary ``the exceptions change the time'' is false as written: the Avron--Herbst potential $V=Fx$ and the whole class $V=\beta(t)x+\gamma(t)$ have $\theta=\mathrm{id}$; and for $V=0$ the pseudo-conformal representative has $\theta\ne\mathrm{id}$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i)}
+$\frac{d}{d\tau}[U_0(-\tau)v(\tau)]=U_0(-\tau)(v'+iH_0v)=0$, so $v(\tau)=U_0(\tau)v(0)$ with $v(0)=W(0)u_0$. Density of $D_0$ and boundedness of $W,U_V$ conclude.
+
+\step{2}{(ii) The point ansatz}
+In the ansatz (chirp $a(t)$, dilation $\rho(t)>0$, translation, phase, time $T(t)$) the equations are $T'=1/\rho^2$, $\rho'=4a\rho$, $a'+4a^2=-\alpha$. If $T$ is affine, $T'$ is constant so $\rho$ is constant, then $a\equiv0$ by $\rho'=4a\rho$, and $\alpha\equiv0$ by the third equation. Conversely $\alpha\equiv0$ allows $a=0$, $\rho=1$, $T=\mathrm{id}$.
+
+\step{3}{(iii) Counterexamples}
+For $V=0$, take $a=a_0/(1+4a_0t)$, $\rho=1+4a_0t$, $\theta(t)=t/(1+4a_0t)$: $u=\rho^{-1/2}e^{iax^2}v(\theta(t),x/\rho)$ maps free solutions to free solutions, with $\theta\ne\mathrm{id}$. For Avron--Herbst, $u=e^{-iFtx-iF^2t^3/3}v(t,x+Ft^2)$ with $\theta=\mathrm{id}$; for $V=\beta(t)x+\gamma(t)$, $u=e^{-iB(t)x-i\Phi(t)-i\int\gamma}v(t,x-\Xi(t))$ with $B'=\beta$, $\Xi'=-2B$, $\Phi'=B^2$.
+
+\whyworks{the time change belongs to the local representative, not to the encoder, since two representatives differ by a free-flow unitary.}
+\end{proof}
+\uses{B152, Bluman--Shtelen 1996 (classification, cited).}
+
+
+\listcard{POLE-N (Hilbert version)}{Instantaneous intertwiners with an evolving $V(t)$ are not encoders for Schr\"odinger; they serve only the Lax flow. Classical version in B152.}{conditional on the propagator hypothesis of B110}{S8-ENC \S4. Classical version in B111.}
+\listcard{ENC-P0-sintesi (rev.~1)}{``The exceptions change the time''; refuted in B153.}{\falsest{} as written}{Avron--Herbst and the whole class $V=\beta(t)x+\gamma(t)$ have $\theta=\mathrm{id}$ (B112, Step~5).}
+\listcard{ENC-N1 (F6)}{``A blind encoder exists iff $\Phi(V,v)=W_V^{-1}v$ is injective.''}{\falsest{} as written}{witness ENC-N1$'$(iv) in B113.}
+\listcard{GAM-O1}{Gamblets: an $L_q$-orthogonal decomposition (S), not an encoder: the bases depend on $q$, so there is no intertwiner $WL_q=L_0W$.}{observation, from cited source}{Owhadi 2017 (theorem numbers to be checked).}
+\listcard{ENC-K1}{Rational $V\to0$: a differential $W$ exists iff $V$ is an iterated Darboux transform of $0$ (Adler--Moser).}{from cited source, to be checked}{Duistermaat--Gr\"unbaum 1986.}
+
+\section{Convergence}
+
+\begin{dimcard}{B154}{CONV-D2}{On a convex set, $\ker(Q_1Q_2)=\ker Q_1+\ker Q_2$ in $C^\infty(\Omega)$}{\cf}{ch:convergence}
+Let $\Omega\subset\R^n$ be convex, $\mathcal A=C^\infty(\Omega)$, $Q_1,Q_2\in R_n=\C[\xi_1..\xi_n]$ coprime. Then $\ker_{\mathcal A}(Q_1Q_2)=\ker_{\mathcal A}Q_1+\ker_{\mathcal A}Q_2$, and the ambiguity of the sum is isomorphic to $\mathrm{Sol}(R/(Q_1,Q_2))$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{The source (cited)}
+For $\Omega$ convex $C^\infty(\Omega)$ is an injective $R_n$-module (Malgrange, Sém.\ Bourbaki exp.~246, Thm~3.2(2), verified; the convention $X_j\mapsto-i\partial_j$ differs by a ring automorphism preserving injectivity).
+
+\step{2}{The homological step}
+In a UFD, $(Q_1)\cap(Q_2)=(Q_1Q_2)$, so $0\to R/(Q_1Q_2)\to R/(Q_1)\oplus R/(Q_2)\to R/(Q_1,Q_2)\to0$ is exact. Applying the exact functor $\mathrm{Hom}(\cdot,\mathcal A)$ yields $0\to\mathrm{Sol}(R/(Q_1,Q_2))\to\ker Q_1\oplus\ker Q_2\to\ker(Q_1Q_2)\to0$. By induction the decomposition exists for any product of pairwise coprime factors.
+
+\whyworks{injectivity of the solution module makes the Hom functor exact on the sequence that expresses the intersection of two principal ideals.}
+\end{proof}
+\uses{none.}
+
+\begin{caution}[title={Restriction}]
+Only $C^\infty$ is claimed: for $\mathcal D'(\Omega)$ injectivity on convex $\Omega$ was not found in the sources (CONV-Q17), and non-convex $\Omega$ is open (CONV-Q5). CONV-D1 (the ambiguity) does not use injectivity and holds in $\mathcal D'(\Omega)$.
+\end{caution}
+
+
+\listcard{ALG-TK}{Trotter--Kato convergence of splitting only for $V$ bounded or relatively bounded in the sense of Trotter 1959, Kato 1978, Engel--Nagel III.5.8.}{from cited source}{F10-G9.}
+
+\noindent{\small \textbf{Proofs moved.} ENC-K1$'$, ENC-A9, CONV-T6, P6, P7, P8, D1, B1, B2, R1, R1-F, MZ1--3, MZ3-F, T7 and T8 have a proof card in Chapters~\ref{ch:cIV6} and~\ref{ch:cIV7} (Dim.~B88--B97). ENC-K1 (cited), CONV-D2 (cited) and CONV-B3 (statement only) stay in Chapter~\ref{ch:cIV6} or above.}

@@ -1,0 +1,20 @@
+OK   (0) Dirichlet: termine di bordo nullo e ||f'||^2 = -<f,f''>
+OK   (0) Neumann: termine di bordo nullo e ||f'||^2 = -<f,f''>
+OK   (0) periodiche: termine di bordo nullo e ||f'||^2 = -<f,f''>
+   P11(e): h = 0.020: errore relativo del rapporto incrementale = 8.03e-02
+   P11(e): h = 0.010: errore relativo del rapporto incrementale = 2.11e-02
+   P11(e): h = 0.005: errore relativo del rapporto incrementale = 5.36e-03
+   P11(e): h = 0.002: errore relativo del rapporto incrementale = 8.61e-04
+OK   (1) P11(e): rapporto incrementale -> -i(H_0+V(t))u, ordine ~2 in h
+   ||u(t)||_H2 in [8.2016, 8.5015], salto massimo su un passo 1.35e-03
+OK   (1) t -> ||u(t)||_{H^2} continua e limitata
+OK   (1) unitarieta' (V reale): ||u(t)||_L2 costante
+   portata: max|u(0)| su omega = 1.5e-07; max_t max|u(t)| su omega = 1.412e-01
+OK   (2) restrizione a omega nulla a t = 0 ma traiettoria non nulla su I x omega
+   autonomo M=64: ||Hg|| = 2.1864 <= 6.5784;  |Hg - (-i int rho' U f)|/|Hg| = 5.9e-07;  ||H psi0|| = 92.97
+   autonomo M=128: ||Hg|| = 2.1864 <= 6.5953;  |Hg - (-i int rho' U f)|/|Hg| = 5.9e-07;  ||H psi0|| = 267.86
+   autonomo M=256: ||Hg|| = 2.1864 <= 6.6038;  |Hg - (-i int rho' U f)|/|Hg| = 5.9e-07;  ||H psi0|| = 770.97
+OK   (3) H g = -i int rho' U psi0 ds
+OK   (3) ||H g|| <= ||rho'||_1 ||psi0||, uniforme nel troncamento
+OK   (3) ||H psi0|| cresce col troncamento (psi0 non in D(H))
+TUTTO OK

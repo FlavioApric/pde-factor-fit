@@ -1,0 +1,27 @@
+# KA attack report — OPF5C-T2 (deg Π_N(k) = (N+2)·2^{N−1})
+
+Reviewer: independent adversarial (kill-argument). Input read: only `work/CHECK/KA_OPF5C_T2_input.md`.
+Scripts: `work/CHECK/sympy/s19ka_*.py` (common lib `s19ka_common.py`, exact power-series jets `s19ka_jets.py`).
+
+## Attacks
+
+| # | Target | Attack | Outcome | Severity |
+|---|---|---|---|---|
+| A1 | (Nov′) | Normalization/sign trap: is it really U \| V²+λG_∞² with κ_i=k_i²/4, Ĝ_j=Σa_{j−i}g_i, V=DU/2? Hand check N=1: at λ=u/2−κ, V²+f = (u′²+2u³−k²u²)/16 = 0. Telescoping (∂³+4u∂+2u′)G+4λG′ = −4∂Ĝ_{N+1} confirmed. Exact rational check at random X: N=2 (k=(1,3),(2,−5)), N=3 (k=(1,2,−4),(2,5,7)), N=4 (k=(1,2,3,−5)): all remainders r_m = 0 (`s19ka_nov.py`, `s19ka_nov3.py`). Zariski-density extension from real k>0, positive orthant X: sound. | survived | — |
+| A2 | L1 | Triangularity: non-linear monomials of g_j (weight 2j, ≥2 factors) only contain y_m with m ≤ 2j−4; Dg_j contains y_{2j−1} linearly, rest ≤ y_{2j−3}. Coefficient −½(−¼)^{j−1} matches g_1,g_2. P_i(0;0)=0 by positive weights. | survived | — |
+| A3 | L2 / T1(a) | Count: n=3N vars, r=N eqs, |p|=2N; V(F,p)={0} via L1+L3 at k=0. Rank = 2^N·(2N+1)⋯(N+2)/((N+2)⋯(2N+1)) = 2^N. Specialization k↦k⁰ preserves freeness. Hironaka applies (F,p is an h.s.o.p. of a polynomial ring ⇒ regular sequence). | survived | — |
+| A4 | L3 | Degree inequalities: deg λE² ≤ 2N−2a−1 ≤ N−1 (N ≤ 2a), deg V² ≤ 2N−2b−2 ≤ N−1; parity argument V² = −λE² ⇒ E=V=0. | survived | — |
+| A5 | T1(b) | Strata dims: (i) f(μ)≠0: local data finite up to sign; (ii) μ=0 needs G_∞(0)=Πκ_i≠0 (true on U_0), m≥2 impossible; (iii) μ=−κ_i exactly double (κ_i distinct, nonzero on U_0), m≥2 gives 1-dim, μ fixed. So stratum dim ≤ #distinct roots < N. Components (dim N by CM-unmixedness) all meet S°, which is irreducible (image of open Ω⊂ℂ^N; sign of ν absorbed by σ↦−σ). Reducedness: locally r ↔ ((V²+f)(μ_j)) by invertible Vandermonde, Jacobian diag(2ν_j) generically nonsingular ⇒ R_0; CM ⇒ S_1 ⇒ reduced. Special k in U_0 (e.g. κ_i=−κ_j, k=(1,i), (2,2i), (1,1+i), (3,1/3)) tested for N=2: Π_2 irreducible over ℚ(i), discriminant in y_2 ≠ 0 (`s19ka_pik.py`). | survived | — |
+| A6 | T1(c) | Jet image dimension N (linear part 2·diag(k_i²)·Vandermonde(k_i), invertible on U_0) inside irreducible N-dim reduced Z_k ⇒ closure = Z_k, hence I(soliton jets) = (F) (radical by T1(b)); restriction to ℂ[y_0..y_N] OK since N ≤ 2N−1. | survived | — |
+| A7 | L4 | Re-derived e_j = −2Σ t_i s_{j−i} from T_N²(1+x) = 1 − 2R(1+x)^{1/2} + R²(1+x), R² of order ≥ 2N+2. Degree bounds deg V², deg E²(λ+c) ≤ N−2 hold (2a′ ≥ N+1, 2b′ ≥ N). λ^{N−1}-coefficient of U is t_1c (deg E ≤ N−2). e_{N+2}+e_{N+1}/2 = −t_{N+1}/(N+2) recomputed by hand ≠ 0. Direct Gröbner check (k=0, y_0=1, y_1..y_N=0, remaining jets free): GB = {1} for N=1..6 (`s19ka_L4.py`). | survived | — |
+| A8 | L5 | k^ε ∈ U_0, Ψ and M depend only on κ ⇒ Z_{k^ε}=Z_k; k^ε-soliton jets ∈ Z_k by (Nov′) for k^ε. Multisets {ε_ik_i} pairwise distinct on U_0 (k_i≠0, k_i≠±k_j) ⇒ ℓ_ε distinct linear forms ⇒ on a generic ray, 2^N distinct y_N-values; with fibre length 2^N each point has length 1 ⇒ disc(χ_k) ≢ 0. Note (consistency, not a flaw): all 2^N sign-flipped families lie in the single irreducible Z_k — consistent since flipping k_i is a reparametrization of the same tau-family up to gauge. | survived | — |
+| A9 | Main proof: m vs χ_k | A_k domain + free ⇒ A_k⊗K = L field, [L:K]=2^N; m ∈ B[z] (B normal); χ_k = m^{[L:K(y_N)]}, squarefree ⇒ exponent 1; kernel of B[z]→A_k = mK[z]∩B[z] = mB[z] (m monic, A_k torsion-free). | survived | — |
+| A10 | Weight argument for y_0 monomial | χ ∈ ℂ[k,y][z] homogeneous of weight W=(N+2)2^N (graded free basis, mult. by y_N of degree N+2). Every y-monomial in χ_k has y-weight ≤ W, degree ≤ W/2, equality iff monomial is y_0^{W/2} with k-free coefficient. Evaluating χ at (k=0; y=(1,0..0); z=0) isolates exactly that coefficient = det(y_N on fibre) = ±Π y_N(q) ≠ 0 by L4. Numerical cross-check: k=0 fibre over (1,0,..,0) has y_N² = −2, 5, −14 (N=1,2,3), predicting coefficient 2, 25, 14⁴; for N=2 the eliminant Π_2 at k=(1,3),(2,7),(1,i),(2,2i),(1,1+i),(3,1/3) has total degree 8, monic y_2^4, coefficient of y_0^8 = 25 (constant in k), vanishes on 2-soliton jets. N=1: Π_1 = y_1² + 2y_0³ − k²y_0², coefficient 2. | survived | — |
+| A11 | Statement wording | "Π_N(k) = ±χ_k": Π_N(k) is defined as a generator of P_k, so only up to ℂ^× (not ±); "omogeneo pesato in (k,y)" refers to the family χ ∈ ℂ[k,y], not to Π_N(k) for fixed k. | gap (cosmetic) | MINOR |
+| A12 | Hidden hypothesis | Only external input is (Nov′) — declared as hypothesis, and verified exactly for N ≤ 4. Not an independent proof for all N, but the theorem is stated under it. | noted | MINOR |
+
+N=3 direct elimination (`s19ka_pi3.py`, k=(1,2,4), sympy lex Gröbner): timed out at 600 s, so it is inconclusive and is not evidence either way. For N=3, (Nov′) and L4 were still checked directly, and the k=0 fibre gives y_3² = −14. That predicts the coefficient of y_0^20 to be 14⁴ = 38416.
+
+## Verdict
+
+**SURVIVES WITH FIXES** (fixes are cosmetic only: normalize Π_N(k) as the monic generator in y_N instead of "±χ_k"; state that weighted homogeneity refers to the universal χ ∈ ℂ[k,y]; keep (Nov′) explicitly as hypothesis or cite a full proof). No FATAL or MAJOR defect found; every lemma step checked, L4 and the y_0-coefficient argument independently confirmed by computation.

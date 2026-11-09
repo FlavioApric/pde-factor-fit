@@ -1,0 +1,8 @@
+[OK] H_j = A_j^+A_j - j^2, A_jA_j^+ - j^2 = H_{j-1}, ker A_j = sech^j, ker A_j^+ = cosh^j (j=1..4) 
+[OK] Jost: H_1 (tanh x - ik)e^{ikx} = k^2 (tanh x - ik) e^{ikx} 
+[OK] ||sech||^2 = 2 
+[OK] H_1 sech = -sech (stato legato a -1) 
+[OK] U_1(t) = e^{it}P_0 + A^+U_0(t)(H_0+1)^{-1}A vs exp(-itH_1), t=0.3,1,2.5 err max = 3.25e-09
+[OK] l=2: U_2 = e^{4it}P + A_2^+U_1(H_1+4)^{-1}A_2 vs exp(-itH_2) err max = 6.06e-13
+[OK] E_int^add(t) = (t^2/2)(A_1A_2 + A_2A_1) + O(t^3) per Poschl-Teller rel = 3.97e-03
+RISULTATO: TUTTO OK

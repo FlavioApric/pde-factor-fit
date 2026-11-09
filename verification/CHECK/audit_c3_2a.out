@@ -1,0 +1,32 @@
+--- C3-L2 ---
+[OK]   I = (τ-ξ²)(τ, ξ²+1): gcd(I) = τ-ξ² (a meno di costante)
+[OK]     J = (τ, ξ²+1): V(J) = {(0,±i)} finito (Gröbner zero-dimensionale)
+[OK]     (iii) J = (τ², ξ): τ ∉ J, (τ,ξ)² ⊆ J  (N = 2 necessario)
+[OK]     (ii) g = g_1 + g_2 coprimo con f = τξ (argomento degli iperpiani)
+[OK]     (ii) Res_τ(f,g) ≠ 0 e Res_ξ(f,g) ≠ 0 ⇒ V(f,g) finito (derivazione autosufficiente al posto di Fulton)
+--- C3-L3 ---
+[OK]   (a) Q(∂)(q e^z) = (Q(z+∂)q) e^z (esempio di grado 3)
+[OK]   (b) {te^{t+x}, e^{t+x}, e^{2t}, x, e^{it}} indipendenti (det di valutazione ≠ 0)
+[OK]   (c) R·w ⊆ span{e^{t-x}, te^{t-x}, x, 1} e rango 4
+[OK]   (c) (τ-1)²τ², (τ+ξ)²ξ² ∈ Ann(w), nulli in (1,-1) e (0,0)
+[OK]   (c) τ+ξ ∉ Ann(w) pur nullo in (1,-1): conta la molteplicità (Ann ⊋ ∏𝔪)
+[OK]   (d) passo 1: (∂_t-λ)(t^{l+1}e^{λt}/(l+1)) = t^l e^{λt}; per μ≠λ unico r di grado l con (D+μ-λ)r = t^l (l ≤ 3)
+[OK]   (d) passo 2: Gram pesata di {1,t,e^t,te^t,e^{2t}} non singolare ⇒ famiglia biortogonale χ·Σ(G⁻¹)g
+[OK]   (d) [STRUTTURALE] Ω sconnesso, w = 1 su Ω₁, 0 su Ω₂: dim R·w = 1 ma w ∉ EP(Ω) per (b) ⇒ "Ω connesso" necessario
+--- Fatto (F) e C3-T1 ---
+[OK]   (F) caso deg_τ P_i = 0: P_i = ξ-2 nullo su (τ,2) ∀τ (V(P_i) = ℂ×{2} infinito)
+[OK]   T1 con P_1 = ξ (deg_τ = 0): P(∂)u = 0 per u = e^t + calore
+[OK]     w_ξ = (P/ξ)(∂)u = e^t ∈ EP
+[OK]     testimone h = τ-1 (ξ ∤ h): Q = (τ-1)(τ-ξ²) ∈ Ann(u) \ (P)
+[OK]   T1(b) f_τ = 0: |V(τ)∩V(I)| = 3 (finito) con I = (τ-ξ²)(τ,ξ²+1), mentre V(τ) è infinito ⇒ V(I) ≠ V(P)
+[OK]     realizzazione: u = calore + cos x, generatori di I ∈ Ann(u); w_τ' = (τ-ξ²)u = cos x ∈ EP
+[OK]   T1(d) onda P = τ²-ξ², u = g(x+t): b = (b_0,b_1) = (-ξ,1) ≠ 0 annulla u ⇒ Ann ≠ (P)
+[OK]     coerente con (a): w = (P/(τ+ξ))(∂)u = (∂_t-∂_x)u = 0 ∈ EP
+--- C3-T6 ---
+[OK]   T6 P = (τ-ξ²)², u = t·v + ∂_x v: P(∂)u = 0 e P_1(∂)u = v
+[OK]     [STRUTTURALE] v con infiniti modi: S = {k : (P/P_1^k)u ∈ EP} = {0} ⇒ f = 2, G_u = P, Ann = (P)
+[OK]     u = v: S = {0,1} ⇒ f = 1, G_u = τ-ξ², G_u(∂)u = 0 ⇒ Ann principale = (τ-ξ²)
+[OK]   T6(ii) u = calore + cos x, P = τ(τ-ξ²): G_u = τ-ξ², G_u(∂)u = cos x ≠ 0 ⇒ Ann non principale
+[OK]   T6 monotonia: P_i(∂) manda EP in EP — (∂_t-∂_x²)[(1+t)e^{t-x} + x e^{2t}] = e^{t-x} + 2x e^{2t}
+
+ESITO GLOBALE: OK

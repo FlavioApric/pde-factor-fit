@@ -1,0 +1,14 @@
+OK    P1-Q7 sinistra: coeff. di nu^1 nullo, coeff. di nu^3 = eps * Duhamel con il solo X0 (nessun X1), f = x^j, j<=3, s^<=4
+OK    P1-Q7 destra (parola XYXYX, tempi formali): coeff. nu^1 nullo; coeff. nu^3 = solo termini (beta), nessun contributo X1
+OK    (H) per (x^3 d, d): deg Y_k = 2k, k<=8, e X fuori dallo span
+OK    (H) per ((x^3+x) d, d): deg Y_k = 2k, k<=8, e X fuori dallo span
+OK    Duhamel con X0: formula di P1-L5 (ordine s^4)
+OK    Dirac: (e^{tA})_11 = e^{iwt} + i(xi/w - 1) sin wt
+OK    Dirac: e^{i(w-xi)t} - 1 = i m^2 t/(2 xi) + O(xi^-2) e xi/w - 1 = O(xi^-2) => G e^{-i xi t} ~ i m^2 t/(2 xi)
+OK    Lemma E' (esempio): media quadratica di S e^{Im R_j0} su [X,2X] ~ sum |d'_j|^2 (scarto 0.000)
+OK    Amitsur elementare, prodotto vettore (N+1=3): r=2, c=[-25, -5, 25] != 0, rango(sum c_i D_i)=2 <= r
+OK    Amitsur elementare, D_i = B C_i (rango locale <= 2 < 4): r=2, rango(sum c_i D_i|_Z)=2 <= r, c != 0
+OK    Amitsur elementare, blocco (prodotto vettore) + identita: r=3, rango=2 <= r
+OK    Bjork: sigma(QL) = sigma(Q) sigma(L) e deg QL = deg Q + deg L (filtrazione di Bernstein, 20 Q casuali)
+OK    Bjork: dim F_j(A2/A2L) = C(j+4,4) - C(j-2+4,4) ha grado 3 in j (dimensione 3 > 2)
+RISULTATO: 13/13

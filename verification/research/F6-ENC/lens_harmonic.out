@@ -1,0 +1,9 @@
+d/dx [log lens(K0) - log Mehler] = 0
+d/dx log lens(gauss) + x = 0
+OK   onda piana libera -> armonica
+OK   gaussiana libera -> armonica
+OK   lens(nucleo libero) risolve armonica
+OK   formula di Mehler risolve armonica
+OK   lens(K0) = Mehler * c(t,y0)
+OK   lens(gauss) = stato fondamentale * fase(t)
+TOTALE 6 / 6

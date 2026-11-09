@@ -1,0 +1,12 @@
+== relazioni sui modi e^{tau t + xi x}, xi = i*kappa
+Poisson ramo 1 : True
+Poisson ramo -1 : True
+sqrt(1-dxx) -> tau^2+xi^2-1: True
+memoria esp.: kernel^ = 1/(T + a) -> tau(tau+a) - xi^2 = 0 (telegrafo)
+s=3/4 (|kappa|^{3/2}), kappa>0: tau^2 - kappa^3 = 0 : True
+
+== crescita del grado minimo: u_M = sum_{j=1}^M e^{-lambda_j t} cos(j x)  (dati M2 esatti, SVD a 60 cifre)
+M=2  calore (lambda=j^2): grado min 2   |  frazionario irr. (lambda=j^sqrt2): grado min 2
+M=3  calore (lambda=j^2): grado min 2   |  frazionario irr. (lambda=j^sqrt2): grado min 2
+M=4  calore (lambda=j^2): grado min 2   |  frazionario irr. (lambda=j^sqrt2): grado min 3
+M=5  calore (lambda=j^2): grado min 2   |  frazionario irr. (lambda=j^sqrt2): grado min 3

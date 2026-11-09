@@ -1,0 +1,66 @@
+=== II-T2 ===
+[OK]   (a) U_1Q_1 + V_1B_1 = r_1 con U_1,V_1 ∈ C[ξ][τ]
+[OK]       N_1 ∈ Mat_3(C[ξ])
+[OK]   (b) generico: Π_j idempotenti ortogonali, somma I, commutano con C
+[OK]       N_i N_j = 0 identicamente (i≠j): ortogonalità vale in ogni ξ0 dove entrambi sono definiti
+[OK]   F1: ξ0=0, r_1(0) = 1 ≠ 0, ma dim(ker Q_2(C0)+ker Q_3(C0)) = 1 < dim ker B_1(C0) = 2 = dim ker Π_1(0)
+[OK]       ker Π_1(0) = ker B_1(0,C0) (stesso sottospazio)
+[OK]       Σ_jΠ_j(0) non definito: r_2(0) = r_3(0) = 0
+[OK]   (b′) 7 famiglie, ogni j: insieme dei poli di Π_j = zeri di r_j
+[OK]       ordine del polo ≤ molteplicità dello zero di r_j (il claim non afferma uguaglianza)
+        Q_j = tau  zeri di r_j (molt.): {0: 2}  ordine polo: {0: 2}
+        Q_j = tau - xi**2  zeri di r_j (molt.): {0: 2}  ordine polo: {0: 2}
+        Q_j = tau - xi  zeri di r_j (molt.): {0: 1}  ordine polo: {0: 1}
+        Q_j = tau + xi  zeri di r_j (molt.): {0: 1}  ordine polo: {0: 1}
+        Q_j = (tau - xi)**2  zeri di r_j (molt.): {0: 2}  ordine polo: {0: 2}
+        Q_j = tau  zeri di r_j (molt.): {0: 2}  ordine polo: {0: 2}
+        Q_j = tau**2 - xi  zeri di r_j (molt.): {1: 1}  ordine polo: {1: 1}
+        Q_j = tau - 1  zeri di r_j (molt.): {1: 1}  ordine polo: {1: 1}
+        Q_j = tau**2 - xi**3  zeri di r_j (molt.): {0: 3}  ordine polo: {0: 3}
+        Q_j = tau  zeri di r_j (molt.): {0: 3}  ordine polo: {0: 3}
+        Q_j = tau - 1  zeri di r_j (molt.): {-1: 1, 1: 1}  ordine polo: {-1: 1, 1: 1}
+        Q_j = tau - xi  zeri di r_j (molt.): {1: 1, 0: 1}  ordine polo: {1: 1, 0: 1}
+        Q_j = tau + xi  zeri di r_j (molt.): {-1: 1, 0: 1}  ordine polo: {-1: 1, 0: 1}
+        Q_j = tau**2 + xi**2 - 1  zeri di r_j (molt.): {-sqrt(2)/2: 1, sqrt(2)/2: 1}  ordine polo: {-sqrt(2)/2: 1, sqrt(2)/2: 1}
+        Q_j = tau - xi  zeri di r_j (molt.): {-sqrt(2)/2: 1, sqrt(2)/2: 1}  ordine polo: {-sqrt(2)/2: 1, sqrt(2)/2: 1}
+[OK]   (c) ξ0 = 1/3: Π_1 v(1) = v(1), Π_1 v(±1/3) = 0
+[OK]       ξ0 = 0 (collisione Q_2=Q_3, r_1(0)≠0): Π_1 v(1)=v(1), Π_1 v(0)=0
+[OK]       u_i ∈ ker Q_i
+[OK]   (d) (V_1B_1)(∂)u = r_1(∂_x)u_1
+[OK]       N_1(∂_x)J(u) = r_1(∂_x)J(u_1)
+[OK]       r_1(∂_x) ha nucleo: (∂_x²-1)e^{t+x} = 0 con e^{t+x} ∈ ker Q_1∩ker Q_2: u_1 recuperato solo mod ker r_1(∂_x)
+=== II-T3 / II-C2 ===
+[OK]   (i)⟺(ii) tau, tau - 1: base di Gröbner = [1]
+[OK]   (i)⟺(ii) tau - xi**2, tau - xi**2 - 1: base di Gröbner = [1]
+[OK]   (i)⟺(ii) tau*xi - 1, xi: base di Gröbner = [1]
+[OK]       identità -P1 + τP2 = 1
+[OK]   (iv) E1 = τξ: E1 w1 = w1 (w1∈ker P1), E1 w2 = 0 (w2∈ker P2)
+[OK]       esistenza: u = aP1 u + bP2 u con bP2 u ∈ ker P1, aP1 u ∈ ker P2 (u = w1+w2)
+[OK]   (v)⇒(i): V(τ)∩V(τ-ξ²) = {(0,0)} ⇒ 1 ∈ ker P1 ∩ ker P2
+[OK]   II-C2: nelle 3 coppie disgiunte σ(P1), σ(P2) hanno un fattore lineare comune
+[OK]   II-C2 viceversa falso: σ = -ξ² per entrambi (zero comune [1:0]) ma V∩V = {(0,0)} ≠ ∅
+[OK]   II-C2 nota: "forma iniziale" = parte di grado MASSIMO; con la parte di grado minimo (τ e -1 per P1=τ, P2=τ-1) l'enunciato fallisce
+=== II-T4 ===
+[OK]   τ²-ξ, S={√ξ}: Π_S idempotente ma non razionale in ξ (contiene √ξ)
+[OK]   (τ-ξ)²(τ+ξ), S={ξ}: Π_S ∈ Mat_3(C(ξ))
+[OK]       gcd(P, g-1) = (τ-ξ)² = Q_S (molteplicità piena, risposta alla domanda)
+[OK]       ord_{τ=ξ}(g-1) = 2 ≥ μ = 2; ord_{τ=-ξ}(g-1) = 0
+[OK]   (τ²-ξ)², S={√ξ}: Π_S non razionale
+[OK]       Π_S (Hermite) = N/r di II-T2
+=== II-P5 ===
+[OK]   k=2: famiglia p0 = e^{iθ}, p1 = i r e^{iθ/2} (r reale): sempre normale (6 campioni)
+[OK]   k=2: λ1 = 2+i, λ2 = -1/λ̄1 (|λ1| ≠ 1): compagna normale
+[OK]   k=3: 20 cubiche casuali, nessuna compagna normale (coerente con (3))
+[OK]   k=3: s³ - e^{2πi/3}: normale
+[OK]   Lagrange: w_aᵀ v(s) = ℓ_a(s) (radici 1, 2, -1)
+[OK]       Π_a = v(λ_a)w_aᵀ è il proiettore spettrale (idempotente, C Π_a = λ_a Π_a)
+=== II-T7 ===
+[OK]   (e) radici NON reali 1+i, 2+i (p complesso): φ_1 = 0 ⟺ e^{-t} = 3/5 + I/5, non reale ⇒ nessuno zero in t ≥ 0
+[OK]       controllo numerico: min_{t∈[0,30]} |φ_1| = 9.882e-01 > 0 (fattorizzazione LDU globale su [0,∞) con radici non reali)
+[OK]       Φ_11 = φ_1 per questa C complessa
+[OK]   (e) radice doppia 1+i: φ_1 = e^{rt}(1-rt) senza zeri reali (t = 1/r non reale)
+[OK]   (e) radici reali: zero in t>0 solo per 0<r1<r2 (5 casi, inclusi r=0)
+[OK]   (d) k=3: per 4 ordini, L ↦ (g_ij) è biiezione polinomiale (Borel, LAG 14.4)
+[OK]   (e) onda κ=1: Δ1 = φ_1 = cos t, primo zero π/2 (globale solo su [0,π/2))
+
+ESITO GLOBALE: OK

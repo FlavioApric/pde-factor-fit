@@ -1,0 +1,12 @@
+# open_questions — SCOUT-1
+
+1. **[S1-Q1, TROP]** Per P(τ,ξ) in 2 variabili (L3): le facce interne del politopo di Newton, pesate con log|λ_k|, corrispondono a sotto-equazioni binomiali λ_iT_i+λ_jT_j i cui nuclei approssimano u lungo i tentacoli dell'ameba di V(P)? Con quale stima di E_int? Questa è la lettura "componente = sotto-equazione" di A6.
+2. **[TROP, identificazione]** Il poligono di Newton pesato si legge dai soli limiti di scala di una soluzione u (esponenti di autosimilarità a t→0 e t→∞, e decadimento di û per bande)? Se sì, si ottiene un'identificazione parziale O(N) dei termini-vertice, indipendente da RT-4.
+3. **[S1-Q2, NAT]** Formulazione precisa di "naturale": quale categoria (oggetti = (L, termini), morfismi = simmetrie del dato: traslazioni, scala, gauge)? La congettura di non-esistenza di E_int naturale è vera in quella categoria?
+4. **[MOB]** Ordine d'interazione nel quadro log per termini che generano un'algebra di Lie nilpotente di passo s: è ≤ s+1? Si ricava da BCH, ma va enunciato con dominio, convergenza e operatori illimitati.
+5. **[EXT]** A L1 (coefficienti polinomiali): esiste un esempio naturale del catalogo C2 in cui D/Ann(u) è un'estensione non spezzata? In quel caso Ext¹ dà una formula chiusa per E_int?
+6. **[RIGID]** Gli esponenti locali / il tipo spettrale si possono estrarre in modo esatto da una sola soluzione u (non dall'intero spazio di soluzioni)? Una soluzione vede solo una parte della monodromia. Domanda per R4.
+7. **[STOKES]** Per le voci del catalogo con punto irregolare (Airy, Bessel, Hermite a ∞) i moltiplicatori di Stokes sono in forma chiusa. Si può presentare E_int = salto di Stokes come voce standard del catalogo (attributo PR-C2e)?
+8. **[Galois parametrizzato]** Per u_t = A(x,∂_x)u con coefficienti variabili, il gruppo di Galois parametrizzato di Cassidy–Singer (∂_t come derivazione-parametro) classifica quando la scomposizione per componenti commuta con l'evoluzione (isomonodromia)? Strada non proposta perché costosa; da rivedere alla Gate 2.
+9. **[MICRO]** Quante voci del catalogo PR-C2b sono iperboliche? La risposta decide se riattivare RT-S1g.
+10. **[meta, C3]** Se NAT è vera, la domanda dell'utente "l'approccio a componenti è giusto?" diventa "quale struttura aggiuntiva rende la scomposizione canonica?". Candidati: scala (TROP), singolarità (MICRO), modulo (EXT), sottoinsiemi (MOB), dati locali (RIGID). Questo andrebbe portato alla Gate 1.

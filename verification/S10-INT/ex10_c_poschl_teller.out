@@ -1,0 +1,19 @@
+PASS (1) A^+A = L_q1 + 1,  A = d + tanh
+PASS (1) AA^+ = L_0 + 1  (partner libero)
+PASS (1) catena di Crum: A2^+A2 = L_q2 + 4, A2 = d + 2 tanh
+PASS (1) A2 A2^+ = L_q1 + 4
+PASS (2) u risolve i u_t = L_q u
+PASS (2) rho_u = q (ID-res, VAR-T1(b))
+PASS (3) superpotenziale W = -phi0'/phi0 = tanh x
+PASS (3) W^2 - W' = q + 1 = V - E0: lo stato fondamentale da' V solo modulo costante (ID-fam)
+PASS (3) con la fase osservata (DM3): rho_{u_b} = q esattamente
+PASS (4) (d_x + tanh x) u_b = 0 e (d_t - i) u_b = 0: annullatori di ordine 1 in K = C(tanh x)
+PASS (4) u_s,x / u_s = ik - (1 - tanh^2)/(ik - tanh) in C(tanh x)
+PASS (5) (L_q + 1)(L_q - k^2) u = 0
+PASS (5) (i d_t + 1)(i d_t - k^2) u = 0
+PASS (6) proiettore (L_q - k^2)/(-1 - k^2) restituisce u_b
+PASS (6) proiettore (L_q + 1)/(k^2 + 1) restituisce u_s
+PASS (7) A u_b = 0 (modo legato perso)
+PASS (7) A u_s = -(1 + k^2) e^{i(kx - k^2 t)}: onda piana, dato EP
+PASS (7) A u risolve Schroedinger libero
+18/18 PASS

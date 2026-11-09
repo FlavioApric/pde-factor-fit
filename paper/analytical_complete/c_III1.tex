@@ -1,0 +1,188 @@
+\chapter[Systems and gauge]{Systems and gauge}\label{ch:cIII1}
+\chapterbrief
+{$R=\C[\zeta_1,\dots,\zeta_n]$ with $\zeta_j\leftrightarrow\partial_j$; $P\in R^{l\times k}$ acts on the left on $u\in\mathcal A^k$, with $\mathcal A=C^\infty(\Omega)$ or $\mathcal D'(\Omega)$ and $\Omega\subset\R^n$ open, connected, non-empty.}
+{to prove when a vector solution $u$ determines a matrix operator $P$, when a sum of kernels is the kernel of a least common left multiple, and how gauge changes what a single field can reveal.}
+{Dim.~A32--A35. They prove Chapter~\ref{PAP-ch:systems} of the paper.}
+
+\begin{notebox}{Notation for the whole chapter}
+$U_P=R^{1\times l}P\subseteq R^{1\times k}$ is the row module and $M_P=R^{1\times k}/U_P$ the module of the system, so $\mathrm{Sol}_{\mathcal A}(P)\cong\mathrm{Hom}_R(M_P,\mathcal A)$. For $u\in\mathcal A^k$, $\Ann(u)=\{r\in R^{1\times k}: r(\partial)u=0\}$ and $M_u=R^{1\times k}/\Ann(u)\cong R u\subseteq\mathcal A$. We say \emph{$u$ identifies $P$} if $\Ann(u)=U_P$, i.e.\ if $M_P\to\mathcal A$, $[r]\mapsto r(\partial)u$, is injective. The \emph{socle} of $M$ at a maximal ideal $\mathfrak m$ is $\mathrm{soc}_{\mathfrak m}(M)=\mathrm{Hom}_R(R/\mathfrak m,M)$. $\mathrm{Ass}(M)$ is the set of associated primes.
+\end{notebox}
+
+\section{Existence of an identifying solution}
+
+\begin{dimcard}{A32}{SYS-EX}{Existence of an identifying solution: socles of dimension at most one}{\proved}{thm:sysex}
+Let $\Omega\subseteq\R^n$ be a non-empty open connected set and $M$ a finitely generated $R$-module. The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item there is an injective homomorphism $M\hookrightarrow\mathcal A$;
+\item $\dim_\C\mathrm{soc}_{\mathfrak m}(M)\le1$ for every maximal ideal $\mathfrak m$ of $R$.
+\end{enumerate}
+In particular, for $P\in R^{l\times k}$: \emph{there exists $u\in\mathrm{Sol}_{\mathcal A}(P)$ that identifies $P$ if and only if $\dim\mathrm{Hom}_R(R/\mathfrak m,M_P)\le1$ for every maximal $\mathfrak m$.} The solution can be taken in $C^\infty(\Omega)$.
+
+\emph{Status of novelty.} For $\Omega=\R^n$ this is known (Oberst; Pommaret; Macaulay). The only new point is that $\Omega$ is arbitrary, also not $P$-convex (SYS-EX, $\Omega$ arbitrary; see A35).
+\end{dimcard}
+
+\begin{proofidea}
+A socle of dimension $\ge2$ at $\mathfrak m_\lambda$ would have to embed in the one-dimensional space $\C e^{\lambda\cdot x}$: that is the obstruction. Conversely, one builds explicit entire solutions, one family of integrals of exponentials over small real patches of each prime variety, and extends from an essential submodule using that $C^\infty(\R^n)$ is injective.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(i)$\Rightarrow$(ii): the socle obstruction (SYS-N1)}
+A homomorphism $\varphi$ maps $\mathrm{soc}_{\mathfrak m_\lambda}(M)$ into $\{f\in\mathcal A:(\partial_j-\lambda_j)f=0\ \forall j\}$. On a connected $\Omega$ this space is $\C e^{\lambda\cdot x}$: writing $f=e^{\lambda\cdot x}g$ gives $\nabla g=0$ in $\mathcal D'(\Omega)$, so $g$ is constant. A linear map from a space of dimension $\ge2$ to a line is not injective.
+
+\step{2}{Two standard lemmas}
+\emph{SYS-L0.} Let $\varphi:M\to F$ be a homomorphism and $E\subseteq M$ essential (every nonzero submodule meets $E$ nontrivially). Then $\varphi$ is injective iff $\varphi|_E$ is: $\ker\varphi\cap E=\ker\varphi|_E=0$ forces $\ker\varphi=0$.
+
+\emph{SYS-L1.} A finitely generated $M$ has a finite family $x_{\mathfrak p,j}$, $\mathfrak p\in\mathrm{Ass}(M)$, $j\le\mu_{\mathfrak p}$, with $Rx_{\mathfrak p,j}\cong R/\mathfrak p$, whose sum $E=\bigoplus Rx_{\mathfrak p,j}\cong\bigoplus_{\mathfrak p}(R/\mathfrak p)^{\mu_{\mathfrak p}}$ is direct and essential. For $\mathfrak p=\mathfrak m$ maximal, $\mu_{\mathfrak m}\le\dim\mathrm{soc}_{\mathfrak m}(M)$.
+
+\step{3}{(ii)$\Rightarrow$(i): entire solutions on each prime variety (SYS-EX-1)}
+Two facts are needed. (EX-L1) If $\nu$ is a complex measure of compact support in $\C^n$ and $\Lambda\nu(x)=\int e^{\zeta\cdot x}\dd\nu(\zeta)$ vanishes on a non-empty open $\Omega$, then $\int h\dd\nu=0$ for every polynomial $h$: $\Lambda\nu$ is entire, hence zero, and its Taylor coefficients at $0$ are the moments $\int\zeta^\alpha\dd\nu$. (EX-L2) For a prime $\mathfrak q$ with $d=\dim V(\mathfrak q)\ge1$ there are linear forms $\ell$, a connected open $U\subseteq\C^d$ meeting $\R^d$ and a holomorphic section $s:U\to V(\mathfrak q)$ with $\ell\circ s=\mathrm{id}$, such that a polynomial vanishing on $s(B)$ for a real ball $B\subset U\cap\R^d$ lies in $\mathfrak q$. (By Noether normalisation, $\ell|_{V(\mathfrak q)}$ is finite and surjective; it is an unramified covering away from a proper Zariski-closed $\Delta$, which contains no real open set.)
+
+For every non-maximal $\mathfrak q\in\mathrm{Ass}(M)$ choose disjoint closed real balls $B_{\mathfrak q,1},\dots,B_{\mathfrak q,\mu_{\mathfrak q}}\subset U\cap\R^d$ and set
+\[
+f_{\mathfrak q,j}(x)=\int_{B_{\mathfrak q,j}}e^{s(y)\cdot x}\dd y .
+\]
+For $r\in\mathfrak q$, $r(\partial)f_{\mathfrak q,j}=\int r(s(y))e^{s(y)\cdot x}\dd y=0$. For maximal $\mathfrak m_\lambda$ put $f_\lambda=e^{\lambda\cdot x}$ (here $\mu=1$ by (ii)). For the heat equation, $\mathfrak q=(\tau-\xi^2)$, $s(y)=(y^2,y)$ and $f(t,x)=\int_0^1e^{y^2t+yx}\dd y$ solves $f_t=f_{xx}$.
+
+\step{4}{The map $\psi:E\to C^\infty(\Omega)$ is injective}
+Suppose $\ker\psi\ne0$. It has an associated prime $\mathfrak q\in\mathrm{Ass}(E)=\mathrm{Ass}(M)$ and contains $z=\sum c_{\mathfrak p,j}x_{\mathfrak p,j}$ with $\Ann(z)=\mathfrak q$. Since each $R/\mathfrak p$ is a domain, $\Ann(z)=\bigcap_{c_{\mathfrak p,j}\ne0}\mathfrak p$; a finite intersection of primes equal to a prime $\mathfrak q$ contains their product, hence contains one of them, so $\mathfrak q$ itself occurs and all other primes present contain $\mathfrak q$. This gives a relation on $\Omega$
+\[
+\sum_jr_{\mathfrak q,j}(\partial)f_{\mathfrak q,j}+\sum_{\mathfrak p\supsetneq\mathfrak q}\sum_jr_{\mathfrak p,j}(\partial)f_{\mathfrak p,j}=0,\qquad\text{some }r_{\mathfrak q,j}\notin\mathfrak q .
+\]
+If $\mathfrak q=\mathfrak m_\lambda$ is maximal, only one term remains: $r(\lambda)e^{\lambda\cdot x}=0$, so $r\in\mathfrak m_\lambda$, a contradiction. If $\mathfrak q$ is not maximal, the left side is $\Lambda\nu$ for $\nu=\nu_{\mathfrak q}+\nu'$ with $\nu'$ supported on $\bigcup_{\mathfrak p\supsetneq\mathfrak q}V(\mathfrak p)$. By EX-L1, $\int h\dd\nu=0$ for all polynomials $h$. Pick $h_0\in\prod_{\mathfrak p\supsetneq\mathfrak q}\mathfrak p$ with $h_0\notin\mathfrak q$ (possible since $\mathfrak q$ is prime); then $h_0\nu'=0$. Taking $h=h_0\cdot g(\ell)$ with $g$ an arbitrary polynomial gives
+\[
+\sum_j\int_{B_{\mathfrak q,j}}g(y)F_j(y)\dd y=0,\qquad F_j=(h_0\circ s)(r_{\mathfrak q,j}\circ s).
+\]
+By Stone--Weierstrass the polynomials are dense in $C(\bigcup_jB_{\mathfrak q,j})$, so every $F_j\equiv0$. By EX-L2, $h_0\circ s$ is real-analytic and not identically zero on $B_{\mathfrak q,j}$, so its zero set is null; hence $r_{\mathfrak q,j}\circ s=0$ on a dense set, hence everywhere, and EX-L2 gives $r_{\mathfrak q,j}\in\mathfrak q$: a contradiction.
+
+\step{5}{Extension from $E$ to $M$}
+$C^\infty(\R^n)$ is an injective $R$-module (Ehrenpreis--Malgrange--Palamodov; cited, \cf). So $\psi$ extends to $\Psi:M\to C^\infty(\R^n)$, and $\rho_\Omega\circ\Psi$ is injective by SYS-L0, because its kernel meets $E$ in $\ker\psi=0$. Taking $M=M_P$ and $u=(\varphi(e_1),\dots,\varphi(e_k))$ gives $r(\partial)u=\varphi([r])$, hence $\Ann(u)=U_P$.
+
+\whyworks{the only thing a single function can do to a socle is send it to a line; and entire solutions built from different real patches of a prime variety are as independent as the polynomials, which is exactly what injectivity needs.}
+\end{proof}
+\uses{SYS-L0, SYS-L1, EX-L1, EX-L2; Malgrange (injectivity of $C^\infty(\R^n)$, \cf).}
+
+\begin{example}{An ODE system}
+For $n=1$ and $P=\mathrm{diag}(s-1,s-1)$ the socle at $(s-1)$ has dimension $2$: no solution ever identifies $P$. For $P=\begin{pmatrix}s-1&1\\0&s-2\end{pmatrix}$ the socles have dimension $1$, and $u=(ae^x-be^{2x},\,be^{2x})$ with $ab\ne0$ identifies it. In general (SYS-T0, known) an ODE system of rank $r$ with invariant factors $e_1\mid\dots\mid e_r$ has an identifying solution iff $e_1=\dots=e_{r-1}=1$.
+\end{example}
+
+\begin{dimcard}{A33}{SYS-C1}{Square non-singular systems in $n\ge2$ variables}{\proved}{thm:sysc1}
+Let $n\ge2$ and $P\in R^{k\times k}$ with $\det P\ne0$. Then $\mathrm{soc}_{\mathfrak m}(M_P)=0$ for every maximal $\mathfrak m$, so on every open connected $\Omega$ there is $u\in\mathrm{Sol}(P)$ that identifies $P$. Moreover $\mathrm{Ass}(M_P)$ is the set of prime factors of $\det P$.
+\end{dimcard}
+
+\begin{proofidea}
+Because $\det P\ne0$, the module $M_P$ has projective dimension $1$ and $\mathfrak m$ has grade $n\ge2$, so there is no room for a socle.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{An exact sequence}
+Right multiplication by $P$ gives the exact sequence $0\to R^{1\times k}\to R^{1\times k}\to M_P\to0$ ($P$ is injective since $\det P\ne0$). Apply $\mathrm{Hom}_R(R/\mathfrak m,-)$:
+\[
+\mathrm{Hom}(R/\mathfrak m,R^k)\to\mathrm{Hom}(R/\mathfrak m,M_P)\to\mathrm{Ext}^1_R(R/\mathfrak m,R)^k .
+\]
+The left term is $0$ ($R$ is a domain). The right term is $0$ because $\mathrm{grade}(\mathfrak m,R)=n\ge2$ ($\mathfrak m$ is generated by the regular sequence $\zeta_j-\lambda_j$), so $\mathrm{Ext}^i(R/\mathfrak m,R)=0$ for $i<n$. Hence $\mathrm{soc}_{\mathfrak m}(M_P)=0$ and A32 applies.
+
+\step{2}{The associated primes}
+$(\subseteq)$ $\mathrm{pd}\,M_P\le1$, so by Auslander--Buchsbaum $\mathrm{depth}\,M_{\mathfrak p}\ge\mathrm{ht}\,\mathfrak p-1$. If $\mathfrak p\in\mathrm{Ass}(M_P)$, the depth is $0$, so $\mathrm{ht}\,\mathfrak p\le1$; $\mathfrak p\ne0$ since $M_P$ is torsion, and $\mathfrak p\supseteq\mathrm{Ann}(M_P)\ni\det P$. So $\mathfrak p$ is a prime factor of $\det P$.
+
+$(\supseteq)$ $\mathrm{Supp}\,M_P=V(\mathrm{Fitt}_0)=V(\det P)$. A prime factor $(f)$ of $\det P$ is minimal in the support (the only smaller prime is $0\notin\mathrm{Supp}$), and minimal primes of the support are associated.
+
+\whyworks{a non-singular square system is a torsion module of grade one; the socle sits where the depth is zero, and in dimension $\ge2$ no maximal ideal is such a point.}
+\end{proof}
+\uses{A32.}
+
+\begin{example}{Dirac 3+1, Klein--Gordon, Lam\'e}
+These systems have $\det P\ne0$ and $n=4$ (or $3$ for the Lam\'e system in space), so each has an identifying field, even when a prime of $\mathrm{Ass}(M_P)$ has multiplicity~$2$. Multiplicity on a non-maximal prime never prevents existence; it only constrains which $u$ works, through an independence test over $R/\mathfrak p$.
+\end{example}
+
+\section{Sums of kernels}
+
+\begin{dimcard}{A34}{SYS-S1}{Sum of kernels and the least common left multiple}{\proved}{thm:syss1}
+Let $Q_1\in R^{a\times k}$, $Q_2\in R^{b\times k}$ with $U_P\subseteq U_{Q_i}$, put $U_i=U_{Q_i}$ and $N=R^{1\times k}/(U_1+U_2)$.
+\begin{enumerate}[label=(\alph*)]
+\item On every non-empty open $\Omega$: $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)=\mathrm{Sol}(P)\ \Rightarrow\ U_1\cap U_2=U_P$.
+\item If $U_1\cap U_2=U_P$ and $\mathrm{Ext}^1_R(N,\mathcal A)=0$, then $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)=\mathrm{Sol}(P)$. This holds when $\Omega$ is convex, and when $N$ has finite length and $H^1_{dR}(\Omega)=0$ (for example $\Omega$ simply connected).
+\item $\mathrm{Sol}(Q_1)\cap\mathrm{Sol}(Q_2)=\mathrm{Sol}(N)$; for connected $\Omega$ it is finite-dimensional iff $\ell(N)<\infty$, and then it consists of exponential-polynomials and has dimension $\delta_{\mathrm{sys}}=\ell(N)$.
+\end{enumerate}
+For $k=1$, $n=2$ and coprime $Q_1,Q_2$ one recovers C12-T1$'$ (A13), with $\delta_{\mathrm{sys}}=\delta(P)$.
+\end{dimcard}
+
+\begin{proofidea}
+The two statements (a) and (b) are the two halves of the exactness of $0\to\mathrm{Sol}(N)\to\mathrm{Sol}(Q_1)\oplus\mathrm{Sol}(Q_2)\to\mathrm{Sol}(P)\to\mathrm{Ext}^1(N,\mathcal A)$. The obstruction to surjectivity is the connecting map into $\mathrm{Ext}^1$, which de Rham cohomology kills when $N$ has finite length.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) A common multiple not in $U_P$ gives a separating solution}
+Let $r\in(U_1\cap U_2)\setminus U_P$. Then $r(\partial)$ kills $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)$. Since $0\ne[r]\in M_P$ and $R[r]\cong R/\Ann([r])$, choose a maximal $\mathfrak m_\lambda\supseteq\Ann([r])$ and the map $R[r]\to R/\mathfrak m_\lambda\to C^\infty(\R^n)$, $[r]\mapsto e^{\lambda\cdot x}$. Extend it to $M_P\to C^\infty(\R^n)$ (injectivity, as in A32 Step~5) and restrict to $\Omega$: we get $v\in\mathrm{Sol}_\Omega(P)$ with $r(\partial)v=e^{\lambda\cdot x}\ne0$, so $v\notin\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)$.
+
+\step{2}{(b) The exact sequences}
+If $U_1\cap U_2=U_P$, the sequence $0\to M_P\to M_{Q_1}\oplus M_{Q_2}\to N\to0$, $[r]\mapsto([r],[r])$ and $([a],[b])\mapsto[a-b]$, is exact: in the middle, $a-b=c_1+c_2$ gives $([a],[b])=([r],[r])$ for $r=a-c_1$; on the left the kernel is $(U_1\cap U_2)/U_P=0$. Applying $\mathrm{Hom}_R(-,\mathcal A)$,
+\[
+0\to\mathrm{Sol}(N)\to\mathrm{Sol}(Q_1)\oplus\mathrm{Sol}(Q_2)\to\mathrm{Sol}(P)\to\mathrm{Ext}^1_R(N,\mathcal A).
+\]
+So if $\mathrm{Ext}^1(N,\mathcal A)=0$ the sum map is onto. On a convex $\Omega$, $\mathcal A$ is injective and Ext vanishes.
+
+\step{3}{(b) Finite length and de Rham cohomology}
+The Koszul resolution of $R/\mathfrak m_\lambda$ gives $\mathrm{Ext}^p_R(R/\mathfrak m_\lambda,\mathcal A)=H^p$ of the Koszul complex of $(\partial_j-\lambda_j)$ on $\mathcal A$. Conjugating by $e^{-\lambda\cdot x}$ turns it into the Koszul complex of $(\partial_1,\dots,\partial_n)$, i.e.\ the de Rham complex of $\Omega$ (with currents when $\mathcal A=\mathcal D'$; de Rham's theorem identifies the cohomologies). So $\mathrm{Ext}^1(R/\mathfrak m_\lambda,\mathcal A)\cong H^1_{dR}(\Omega;\C)=0$. $N$ has a composition series with factors $R/\mathfrak m$, and for $0\to N'\to N\to R/\mathfrak m\to0$ the long exact sequence contains $\mathrm{Ext}^1(R/\mathfrak m,\mathcal A)\to\mathrm{Ext}^1(N,\mathcal A)\to\mathrm{Ext}^1(N',\mathcal A)$; by induction on the length, $\mathrm{Ext}^1(N,\mathcal A)=0$.
+
+\step{4}{(c) Intersection and ambiguity}
+$u$ is killed by $U_1$ and $U_2$ iff it is killed by $U_1+U_2$, so $\mathrm{Sol}(Q_1)\cap\mathrm{Sol}(Q_2)=\mathrm{Sol}(N)$. If $\ell(N)<\infty$, induction with $\dim\mathrm{Hom}(R/\mathfrak m,\mathcal A)=1$ (A32 Step~1) gives $\dim\mathrm{Sol}(N)\le\ell(N)$; and since $\mathrm{Ann}(N)\supseteq\prod\mathfrak m_i^e$ has finite colength, $\mathrm{Sol}(N)\subset\EP$ (A2). Equality holds because the $\mathfrak m_\lambda$-torsion submodule of $\mathcal A$ is $e^{\lambda\cdot x}\C[x]\cong E_R(R/\mathfrak m_\lambda)$ (Macaulay inverse systems) and Matlis duality gives $\dim\mathrm{Hom}(N_\lambda,E(R/\mathfrak m_\lambda))=\ell(N_\lambda)$. Conversely, if $\ell(N)=\infty$, $\mathrm{Ass}(N)$ contains a non-maximal $\mathfrak p$ and $R/\mathfrak p\hookrightarrow N$; the entire functions $f_g=\int_Be^{s(y)\cdot x}g(y)\dd y$ ($g$ a polynomial) are linearly independent solutions (EX-L1 and Stone--Weierstrass), and they extend to $N$ by injectivity of $C^\infty(\R^n)$. So $\dim\mathrm{Sol}(N)=\infty$.
+
+\whyworks{kernels add up exactly when the connecting map into $\mathrm{Ext}^1$ vanishes; for finite-length quotients that Ext is a copy of $H^1_{dR}$, which is why simple connectivity, and nothing more, is needed there.}
+\end{proof}
+\uses{A2, A13, A32.}
+
+\begin{falsebox}{Simple connectivity is not enough when $N$ has infinite length}{\falsest}\label{cex:cIIIS1C}
+\textbf{SYS-S1-C \led{counterexample}.} There exist a simply connected open $\Omega\subset\R^2$ and $Q_1,Q_2\in R^{1\times2}$ with $U_1\cap U_2=U_P$ but $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)\subsetneq\mathrm{Sol}(P)$, in $C^\infty(\Omega)$ and in $\mathcal D'(\Omega)$.
+\end{falsebox}
+\begin{proof}[Construction in $C^\infty$]
+Coordinates $(t,x)$. Let $\Omega=(0,3)\times(0,3)\setminus([1,3)\times[1,2])$, a ``U'' domain (simply connected: it retracts onto the base $(0,1)\times(0,3)$). Take $k=2$, $Q_1=(1,0)$, $Q_2=(1,\partial_x)$. Then $U_1\cap U_2=0=U_P$ and $\mathrm{Sol}(P)=\mathcal A^2$, while $U_1+U_2=R(1,0)+R(0,\xi)$, so $N\cong R/(\xi)$ has infinite length. Moreover
+\[
+\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)=\{(v_1,v_2):\ v_1\in\partial_xC^\infty(\Omega)\}.
+\]
+$\partial_x$ is not onto $C^\infty(\Omega)$: fix $\rho\in C_c^\infty((1,2))$ with $\int\rho=1$ and $\beta\in C^\infty(\R)$, $\beta=0$ on $(-\infty,\tfrac12]$, $\beta=1$ on $[\tfrac34,\infty)$, and put $f(t,x)=\beta(t)\rho(x)/(1-t)$ for $t<1$, $f=0$ elsewhere; $f\in C^\infty(\Omega)$. If $\partial_xh=f$, then for $t\in(\tfrac34,1)$
+\[
+h(t,\tfrac52)-h(t,\tfrac12)=\int_{1/2}^{5/2}f(t,x)\dd x=\frac1{1-t}\to\infty\quad(t\to1^-),
+\]
+but $h$ is continuous at $(1,\tfrac12)$ and $(1,\tfrac52)\in\Omega$: contradiction. Hence $(-f,0)\in\mathrm{Sol}(P)\setminus(\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2))$.
+
+\emph{Variant with a genuine equation:} $k=3$, $Q_1=\begin{pmatrix}1&0&0\\0&0&\tau\end{pmatrix}$, $Q_2=\begin{pmatrix}1&\xi&0\\0&0&\tau\end{pmatrix}$, $P=(0,0,\tau)$.
+
+\emph{The case $\mathcal D'(\Omega)$.} With the $f$ above, $\partial_xh=f$ is solvable in $\mathcal D'$. Use instead $f=\beta(t)\rho(x)e^{1/(1-t)}$ for $t<1$. On $A=(0,1)\times(0,3)$, $B=(0,3)\times(0,1)$, $C=(0,3)\times(2,3)$ the distribution solutions of $\partial_x(\cdot)=0$ are $k(t)\otimes1$, so $h=F+k_A$ on $A$ (with $F=\int_{1/2}^xf$), $h=k_B$ on $B$, $h=k_C$ on $C$; on $A\cap B$, $F=0$, and on $A\cap C$, $F=\beta e^{1/(1-t)}$. Hence $k_C-k_B=\beta e^{1/(1-t)}$ on $(0,1)$ with $k_C-k_B\in\mathcal D'((0,3))$. But $e^{1/(1-t)}$ extends to no distribution near $t=1$: testing against $\varphi_\varepsilon\ge0$ supported in $[1-2\varepsilon,1-\varepsilon]$ gives $\ge c\varepsilon e^{1/(2\varepsilon)}$, whereas an extension of order $N$ would give $O(\varepsilon^{-N})$.
+\end{proof}
+\whyworks{the obstruction is not topological: it is the failure of $\Omega$ to be $P$-convex for $\partial_x$. Simple connectivity suffices only when the quotient $N$ is a finite-length module.}
+
+\section{Hamiltonian Dirac systems}
+
+\begin{dimcard}{A35}{H-DIRAC}{Dirac coefficients are read exactly from an identifying field}{\proved}{thm:hdirac}
+Let $\mathcal C=\{L=I_4\partial_t+\sum_{k=1}^3\alpha^k\partial_k+B:\ \alpha^k,B\in\mathrm{Mat}_4(\C)\}$ (no Clifford relations assumed), $\Omega\subset\R^{1+3}$ open connected non-empty.
+\begin{enumerate}[label=(\alph*)]
+\item If $\psi\in\mathrm{Sol}(L_0)$ identifies $L_0\in\mathcal C$ and $L\in\mathcal C$ satisfies $L\psi=0$, then $L=L_0$.
+\item For every $L_0\in\mathcal C$ there is an identifying $\psi\in C^\infty(\Omega)^4$.
+\item For massive Dirac in $3+1$, in chiral form $D=\begin{pmatrix}-m&X\\Y&-m\end{pmatrix}$, $M_D\cong(R/\mathfrak q)^{1\times2}$ with $\mathfrak q=(KG-m^2)$ prime and $KG=p_0^2-|p|^2$; $\psi$ identifies $D$ iff $(\psi_3,\psi_4)$ are $R/\mathfrak q$-independent. In $1+1$, $M_{D_2}\cong R/\mathfrak q$ and $\psi$ identifies $D_2$ iff $\psi_2\notin\EP$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+The coefficient of $\partial_t$ is normalised to $I$, so any other first-order operator killing $\psi$ differs from $L_0$ by a left multiple $WL_0$ with $W$ of lower degree; comparing the top-degree part forces $W=0$ because $\tau I+\alpha\cdot\xi$ is not a zero divisor.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) $L=VL_0$ and $W=V-I$}
+The rows of $L$ lie in $\Ann(\psi)=R^{1\times4}L_0$, so $L=VL_0$ with $V\in R^{4\times4}$. Put $W=V-I$, so that $L-L_0=WL_0$. The left side contains no $\tau$ and has degree $\le1$.
+
+\step{2}{The leading part cannot cancel}
+Suppose $W\ne0$ and let $W_d\ne0$ be its top homogeneous component, of degree $d$. The degree-$(d+1)$ part of $WL_0$ is $W_dH$ with $H=\tau I+\sum\alpha^k_0\xi_k$. Since $\det H=\tau^4+\cdots\ne0$, $W_dH=0$ would give $W_d\det H=W_dH\,\mathrm{adj}H=0$, hence $W_d=0$. If $d\ge1$ the degree $d+1\ge2$ contradicts ``degree $\le1$''; if $d=0$, $W$ is constant and $WL_0$ has $\tau$-coefficient $W\ne0$, contradicting the absence of $\tau$ in $L-L_0$. So $W=0$ and $L=L_0$.
+
+\step{3}{(b) Existence}
+$\det L_0$ is monic of degree $4$ in $\tau$, so non-zero, and A33 ($n=4$) gives an identifying $\psi$.
+
+\step{4}{(c) The chiral form}
+In $M_D$ the rows of $D$ vanish. The first two give $e_{\rm top}=\tfrac1mXe_{\rm bot}$; substituting in the last two gives $\tfrac1m(YX-m^2)e_{\rm bot}=\tfrac{KG-m^2}{m}e_{\rm bot}=0$. So $M_D\cong R^{1\times2}/R^{1\times2}(KG-m^2)I_2=(R/\mathfrak q)^2$, free over $R/\mathfrak q$ with basis $e_3,e_4$; SYS-L0 on $E=M_D$ gives the criterion. In $1+1$, $M_{D_2}\cong R/\mathfrak q$ is cyclic, and in $\C[\tau,\xi]$ every ideal strictly containing the height-one prime $\mathfrak q$ has finite colength, so $\Ann(\psi_2)\supsetneq\mathfrak q$ iff $\psi_2\in\EP$ (A2).
+
+\whyworks{normalising the time derivative removes the left-$GL$ ambiguity $D\sim VD$ of the covariant form $\gamma^\mu\partial_\mu$; what is left is rigid.}
+\end{proof}
+\uses{A2, A32, A33.}
+
+\begin{caution}[title=Scope]
+The criterion is an independence statement, not a test: for a given $\psi$ it cannot be certified from finitely many data (A7). The statement needs $\Omega$ connected: on $B_1\sqcup B_2$ take $\psi_2=e^{\lambda\cdot x}$ on $B_1$ and $0$ on $B_2$.
+\end{caution}

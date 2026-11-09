@@ -1,0 +1,12 @@
+u2 (full, order eps^2)      = (1 - exp(2*nu*t))*exp(-4*nu*t)*sin(2*x)/(4*nu)
+e_B order eps^2 (inviscid)  = -t*sin(2*x)/2
+E_int^A9 order eps^2        = (2*nu*t*exp(4*nu*t) - exp(2*nu*t) + 1)*exp(-4*nu*t)*sin(2*x)/(4*nu)
+  small-t expansion         = 3*nu*t**2/2 - 7*nu**2*t**3/3 + O(t**4)
+E^NL order eps^2 (F4-LIFT)  = (1 - exp(2*nu*t))*exp(-4*nu*t)*sin(2*x)/(4*nu)
+  small-t expansion         = -t/2 + 3*nu*t**2/2 + O(t**3)
+(t^2/2)*(DB[Aw]-DA[Bw]) at u0=sin x : -nu*sin(2*x)/2 * t^2   (order eps^2)
+ratio leading coeff E_int / bracket  : -3
+(t^2/2)*(DB[Aw]+DA[Bw]) at u0=sin x : 3*nu*sin(2*x)/2 * t^2
+CHECK leading E_int^A9 == (t^2/2)(DA[B]+DB[A]) : True
+CHECK E^NL first order == t*B(u0) (term alone, no interaction): True
+large-t: E_int^A9/sin2x ~ 1/2 * t  (grows linearly: inviscid term-alone flow keeps steepening)

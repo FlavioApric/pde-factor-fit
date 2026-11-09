@@ -1,0 +1,7 @@
+k=1  dimensioni per profondita': [2, 3, 4, 4]  grado max in x: [1, 1, 1]
+k=2  dimensioni per profondita': [2, 3, 3]  grado max in x: [2, 2]
+k=3  dimensioni per profondita': [2, 3, 5, 10, 27, 66]  grado max in x: [3, 4, 5, 8, 13]
+k=4  dimensioni per profondita': [2, 3, 5, 10, 25, 69]  grado max in x: [4, 6, 8, 14, 24]
+OK   k=1 dimensione 4
+OK   k=2 dimensione 3 (sl2; l'identita' compare solo come costante 1/2 dentro x d + 1/2)
+OK   k=3 grado in x crescente (dimensione infinita, evidenza)

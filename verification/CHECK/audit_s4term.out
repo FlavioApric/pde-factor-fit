@@ -1,0 +1,56 @@
+OK   | T1(iii) [s^2]E^add Burgers = -nu(2u'u''+u u''')
+OK   | T1(i) [s^2] = 1/2 sum_{m!=n} T_n'[T_m]
+OK   | T1(iii) omogeneità nu^a, grado b+1, peso 2a+b, a,b>=1 (k<=4)
+OK   | T1(i) getto E^add (parole) = Hopf–Cole − calore − caratteristiche + u0, t^0..t^4 (dato eps(sin x + cos2x/2))
+OK   | T1(iii) legge di scala: [t^k]E(eps, nu=mu*eps) = eps^{k+1}[t^k]E(1,mu)
+OK   | T1 esempio u0=eps sin x: [t^2]E^add = 3/2 nu eps^2 sin2x
+OK   | T1(ii)-(iii) [t^2]E^mult_AB = nu u0'u0'' (composizione esplicita dei flussi)
+OK   | T1(ii)-(iii) [t^2]E^mult_BA = -nu u0'u0''
+OK   | Lemma J(ii): getto di S_A(t)S_B(t)u0 = e^{tD_B}e^{tD_A}u0 (ordine di Gröbner), k<=3
+OK   | T1(ii): E^mult senza parole costanti (nessun termine nu^0, nessun termine eps^1), k<=4
+OK   | T1(iv) KdV–Burgers [s^2]E^add
+OK   | T4(i) KdVB u0=eps sin x
+OK   | T1(v) Fisher [s^2]E^add = r nu(u''-u'^2-2uu'')
+OK   | T1(v) Fisher [s^2]E^mult_AR = r nu u'^2
+OK   | T2 coefficiente di nu^1 di E^add = forma chiusa (t<=5, tutti gli eps; u0=eps sin x)
+OK   | T2 coefficiente di nu^1 di E^mult_AB = t^2 u'u''/J^3 (t<=5)
+OK   | T2 coefficiente di nu^1 di E^mult_BA = -t^2 u'u''/J^2 (t<=5)
+OK   | T2 Passo 7: parte nu^2 di R^add = O(t^3) e senza termine eps^1 (getto t<=5)
+OK   | T2 Passo 7: parte nu^2 di R^AB = O(t^3) e senza termine eps^1 (getto t<=5)
+OK   | T2 Passo 7: parte nu^2 di R^BA = O(t^3) e senza termine eps^1 (getto t<=5)
+OK   | T2 Passo 4: delta = t u0''(a)/J^2 risolve delta_t+(v delta)_x = v_xx (serie t<=4)
+OK   | T2 Passo 4: v_xx = u0''(a)/J^3 (serie t<=5)
+OK   | T2 Passo 7: equazione di hat w (identità esatta)
+OK   | T2 Passo 7(1): d^2(delta - s u0'') = O(s^2) e O(lam^2) (getto s<=4)
+OK   | P3 M_2 = 3*sqrt(3)/16
+OK   | P3 M_3 = 25*sqrt(5)/216
+   P3 eta=0.01: eta^1.5 sup|E1add|=0.45659 eta^2.5 sup|E1AB|=0.35962 eta^1.5 sup|E1BA|=0.45052
+   P3 eta=0.001: eta^1.5 sup|E1add|=0.45901 eta^2.5 sup|E1AB|=0.36536 eta^1.5 sup|E1BA|=0.45840
+   P3 eta=0.0001: eta^1.5 sup|E1add|=0.45925 eta^2.5 sup|E1AB|=0.36594 eta^1.5 sup|E1BA|=0.45919
+   P3 limiti previsti: 0.45928, 0.36600, 0.45928
+OK   | P3 numerico (sin x, eta=1e-4) entro 2%
+   L2(d) sin x, t=2: a^+-pi = 1.895494, D = 1.895494, |I|/t = 1.047198
+OK   | L2(d) D >= |I|/t (sin x, t=2): I = {1+2cos a<0}
+OK   | T3(iii) int_0^inf Phi_N(-s) ds = 1/sqrt(2pi)
+OK   | T3(iii) sqrt2*D*sqrt t * 1/sqrt(2pi) = D sqrt(t/pi)
+OK   | T3(iii) int_0^1 e^{-w^2/4} dw >= e^{-1/4}
+   T3(iii) nu=0.01: sup|E^mult_AB| (finestra)=0.7523, L1(finestra)/sqrt(nu)=2.7415
+   T3(iii) nu=0.0025: sup|E^mult_AB| (finestra)=0.8368, L1(finestra)/sqrt(nu)=2.8874
+   T3(iii) nu=0.000625: sup|E^mult_AB| (finestra)=0.8889, L1(finestra)/sqrt(nu)=2.9509
+   T3(iii) 2D sqrt(t/pi) = 3.0248
+OK   | T3(iii) numerico: L1/sqrt(nu) crescente e sotto/vicino a 2D sqrt(t/pi) (entro 10%% all'ultimo nu)
+OK   | C1(c) Burgers: char(ad_X^k Y) = (-1)^{k+1}(2nu)^k u_k u_{k+1}, k<=4
+OK   | C1(c) Fisher: Q_k = -r(-2nu)^k u_k^2, k=1..4 (Q_0 != Y: Y ha anche la parte r u)
+OK   | C1(c) KdV–Burgers: simbolo di ad^k = rho^k q_B, k<=3
+OK   | C1(a) [D_P,D_Q]G = D_{D_PQ-D_QP}G (test)
+OK   | C1(d) KdVB: X, Y, ad^1..ad^4 linearmente indipendenti (nu=3/7, d=-5/11)
+OK   | T4(iii) delta_d: d/dt(delta_d J) = -J v_xxx, delta_d(0)=0
+OK   | T4(iii) v_xxx(t,X) = u0'''/J^4 - 3t u0''^2/J^5
+OK   | P5 L(t,z) risolve L_t = rL(1-L), L(0,z)=z
+OK   | P5 d_z L(t,0) = e^{rt}
+OK   | P6 bracket = -nu t^2 (k_l^2+k_lk_m+k_m^2) + O(t^3)
+OK   | P6 E^add_[2] (formula) = parte eps^2 del getto Hopf–Cole, t<=4
+   P6 u0=eps sin x: E^add_[2] = (2*nu*t*exp(4*nu*t) - exp(2*nu*t) + 1)*exp(-4*nu*t)*sin(2*x)/(4*nu)
+OK   | P6 sin: [t^2] = 3/2 nu sin 2x
+
+TOTALE: 44/44 OK

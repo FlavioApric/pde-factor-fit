@@ -1,0 +1,13 @@
+# R3 SymPy check s02 -- C2.2d trasporto.
+exec(open(r'D:\ProblemaBase\research\R3\sympy\_hdr.py', encoding='utf8').read())
+t, x, c, r = symbols('t x c r')
+g, h = Function('g'), Function('h')
+check('(dt + c dx) g(x-ct) = 0', diff(g(x-c*t), t) + c*diff(g(x-c*t), x))
+check('(dt + x dx) g(x e^{-t}) = 0', diff(g(x*exp(-t)), t) + x*diff(g(x*exp(-t)), x))
+cf = Function('cf')
+Phi = sp.Integral(1/cf(x), x)
+check('(dt + c(x) dx) g(t - int dx/c) = 0', diff(g(t - Phi), t) + cf(x)*diff(g(t - Phi), x))
+u = exp(r*t)*g(x-c*t)
+check('(dt + c dx - r) e^{rt} g(x-ct) = 0', diff(u, t) + c*diff(u, x) - r*u)
+check('dt h(x) = 0  (ker dt = functions of x)', diff(h(x), t))
+summary()

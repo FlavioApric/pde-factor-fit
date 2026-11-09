@@ -1,0 +1,46 @@
+=== Q1: test EP via eliminanti (OP-ALG-T1) ===
+OK   Q1-E1a eliminante in t per G + e^{t+x} trovato :: [-t**3/2 + t**2*x**2/4 - 3*t**2/4 + 3*t*x**2/4 - x**4/16, -t**4 + 3*t**2/4 - 3*t*x**2/4 + x**4/16, t**4 + t**3/2 - t**2*x**2/4]
+OK   Q1-E1b L_t annulla u
+OK   Q1-E1c esponente tau=1 di e^{t+x} in T_t :: (tau**2 - tau, [1, 0], {1: 0, 0: -1})
+OK   Q1-E1d eliminante in x trovato :: [-t*x/2 + t/2 - x**2/4, -t**2 - t/2 + x**2/4, t**2 + t*x/2]
+OK   Q1-E1e esponente xi=1 in T_x :: (tau/4 - 1/4, [1], {1: 0})
+OK   Q1-E1f a*(d_t)u != 0  => u non EP => Ann(u)=(tau-xi^2) :: tau - 1
+OK   Q1-E1g e^{t+x}: a*(d_t)E = 0 e b*(d_x)E = 0 (EP riconosciuto)
+OK   Q1-E2a L_w = (2t-1)d_t - (4t^2-2t+2) annulla w = (2t-1)e^{t^2}
+OK   Q1-E2b T_t vuoto => w EP solo se w = 0; w != 0 => w non EP :: (2, -4)
+OK   Q1-E2c fattore tau-1: (P/(tau-1))u = d_x u = 0 (EP) => G_u = xi
+OK   Q1-E3a L annulla G
+OK   Q1-E3b indiciale iota(n)=4n, K0=0 (punto regolare) :: (-1, 4*n)
+OK   Q1-E3c t d_t - 3 in t0=0: K0 = 3 (servono 4 coefficienti) :: (0, n - 3)
+OK   Q1-E3d iota(n;x) = (x+1)(n-2): K0 = 2 :: n*x + n - 2*x - 2
+=== QMIN: avversario per B (OP-ALG-T3) ===
+OK   QMIN-a P(d)u = 0
+OK   QMIN-b (tau-xi^2)u = e^{(t-1)+x} (EP, chi=0)
+OK   QMIN-c getti di G in (1,0) razionali :: [1, 0, -1/2, -1/2, 0, 3/4]
+OK   QMIN-d v1 EP in ker(tau-xi^2) con 2-getto di G
+OK   QMIN-e spazio dei padding a getto nullo: dim >= |F| - N0 :: 7
+OK   QMIN-f padding generico: > B modi non nulli :: 12
+OK   QMIN-g u' ha lo stesso 2-getto di u
+OK   QMIN-h stesse risposte di zero su 6 operatori campione
+OK   QMIN-i u' EP con > B esponenti distinti: dim R u' > B, mentre dim(R u cap EP) = 1
+=== Q2: algebra di Weyl, controesempio alla struttura G.J (OP-ALG-C1) ===
+OK   Q2-a P1 d_x = d_x P2
+OK   Q2-b P1 P2 = P2 P1
+OK   Q2-c P2 - P1 = 1 (comassimali)
+OK   Q2-d (1 + lam d_x) P = P1 Q_lam
+OK   Q2-e u2 in ker P2
+OK   Q2-f P u^(lam) = 0
+OK   Q2-g Q_lam u^(lam) = 0 (Q_lam di grado 1 in d_t: Ann != A P)
+OK   Q2-h (P/P2)u = P1 u = -u2
+OK   Q2-i (P/P1)u = P2 u = lam d_x u2
+OK   Q2-j Q_mu u^(lam) = (lam - mu) d_x u2
+OK   Q2-k (V-ex) u2 non annullato da b in A_1 (ord<=2, grado<=2)
+OK   Q2-l u*_1 in ker P1, u*_2 in ker P2
+OK   Q2-m (V-ex) u* identifica: nessuna relazione di ordine/grado <= 1
+=== INT-18: esempi per il testo di G* punto 1 ===
+OK   I18-a P=(tau-xi^2)^2, u=G: (P/P_1)u = 0 in EP => Ann(G) != (P)
+OK   I18-b ... ma (P/P_1^2)u = G non EP => V(Ann G) = V(P) (radicale uguale, ideale no)
+OK   I18-c u = tG: (P/P_1)u = G non EP => Ann(tG) = (P)
+OK   I18-d u = G + (t-1)e^{t-1+x}: G_u = tau - xi^2, J_u = m_(1,1) (parte EP di dim 1)
+
+TOTALE: 40/40 OK

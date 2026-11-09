@@ -1,0 +1,16 @@
+      K1: range g' campionato = [-1.4142, 1.4142], kappa = 0.3891
+[OK] (K1a) kappa > 0 q.o.: kappa = 0.3891
+[OK] (K1b) testimone di W(0) in D(0): min (y_2-g(y_1))/t = 0.6438 >= kappa/2 = 0.1945 su 400000 terne (x,u,t)
+[OK] (K1c) flusso dal bordo oscillante: min (y_2-g(y_1))/t lungo il flusso = 0.6739 (atteso >= ~kappa/2)
+[OK] (K1d) W(0) sul bordo del cono di Clarke: kappa_ess -> 0: kappa su |x|<1e-1,1e-3,1e-6,1e-9 = 3.7e-10, 5.8e-10, 5.8e-10, 5.8e-10 (l'ipotesi di TB fallisce, nessun controesempio)
+      K2: |g'| max = 0.7771, kappa = 0.3827
+[OK] (K2) flusso dagli angoli che si accumulano: kappa = 0.3827; 119 angoli (fino a |x| = 2^-30); min (y_2-g)/t = 0.5991
+[OK] (K3a) two-brick: D(p) vuoto: direzioni (su 20000) che entrano da entrambe le facce z=0 vicino a p: 0
+[OK] (K3b) two-brick: nessun V continuo con V.nu >= kappa: max_w min_faccia w.nu = -0.0000 <= 0 (le normali +-e3 si accumulano in p)
+      K4 [fessure larghe 1]: 119 carte, disaccordi carte-vertice = 0, min sum phi = 2.09e-01, kappa = 9.88e-03; angolo max tra carte con palle sovrapposte = 180.0 gradi (sovrapposizione fuori dal bordo), tra carte con un punto di bordo comune = 171.9 gradi
+[OK] (K4) pettine, fessure larghe 1: 5296 punti iniziali, violazioni = 0, c_emp = 9.87e-03
+      K4 [fessure larghe 0.15]: 289 carte, disaccordi carte-vertice = 0, min sum phi = 2.17e-01, kappa = 1.02e-02; angolo max tra carte con palle sovrapposte = 180.0 gradi (sovrapposizione fuori dal bordo), tra carte con un punto di bordo comune = 171.9 gradi
+[OK] (K4) pettine, fessure larghe 0.15: 5296 punti iniziali, violazioni = 0, c_emp = 1.02e-02
+[OK] (K4neg1) una direzione di carta invertita: violazioni = 39 (attese > 0)
+[OK] (K4neg2) direzioni tangenti su un lato (kappa = 0): kappa = 1.17e-16, c_emp = 1.17e-16, violazioni = 0 (uniformita' persa)
+ESITO: TUTTO OK

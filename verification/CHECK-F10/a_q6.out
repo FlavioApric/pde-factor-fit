@@ -1,0 +1,12 @@
+OK   RD: E^add = (e^{sDz^2}-1)(e^{sr}-1)e^{zx}
+OK   L1(ii): E^add(Mv) = E'(v) + B(v)
+OK   L1(i): Q(e^{kap t} f) = e^{kap t} Q'(f)
+OK   N=0: E' identicamente nullo su ker tau
+OK   Leibniz: stima e^{gt} B_rho in B_{rho+|g|}
+   RD : ['0.12558', '0.053808', '0.020698', '0.0076143']
+   ADR: ['0.21527', '6.0937', '24926.0', '2.1914e+12']
+OK   RD: R limitato (<= 1) sulla famiglia
+OK   ADR: R cresce di almeno 10^6 sulla famiglia
+   RD oscill.: ['0.81476', '0.20038', '0.050037']
+OK   RD oscillante: R limitato
+8/8 OK

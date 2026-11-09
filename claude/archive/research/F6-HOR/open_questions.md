@@ -1,0 +1,10 @@
+# open_questions — F6-HOR (26/10/2026)
+1. **HOR-P1 (→ F6-VAR):** con V(x) libero, il criterio lineare u(i u_tt − L₀u_t) − u_t(i u_t − L₀u) = 0 identifica L₀ ∈ span 𝓓 ⟺ nucleo affine banale. Qual è l'analogo di C3-T1 (condizione "non EP") che garantisce il nucleo banale? Congettura: basta che u non sia combinazione di ≤ k stati stazionari, con k legato a dim 𝓓 (HOR-O1 è il caso k = 1).
+2. **(→ F6-ENC)** Trasporto di C12-T1′ attraverso un encoder differenziale W: l'ambiguità è esattamente ker W (dim = ordine di W) sommata a δ(P)? Serve un enunciato su Ω limitato (W ha poli: Ω deve evitarli).
+3. **(→ F6-ENC, F6-VAR)** Versione non autonoma di NS-GALDAR: per V(t,x) razionale che evolve per KdV (Airault–McKean–Moser) l'encoder W(t) esiste per ogni t; la condizione è isomonodromica (Galois parametrizzato, Cassidy–Singer). Esiste un criterio decidibile?
+4. **(→ F6-ENC)** NS-EQUIV su Ω limitato: la lente deforma il dominio e vive per t < π/(2ω). Si può incollare per intervalli di tempo? Cosa succede alle condizioni al bordo?
+5. **(→ F6-DICT)** Ax–Schanuel per dizionari con e^{u}: enunciare l'analogo di ALG-T1 ("I(u) = [F] ⟺ trdeg ℂ⟨u, e^u⟩ = ∞") e dire se le soluzioni di trdeg finito (kink, multi-kink via Hirota) sono l'unica ostruzione di tipo forma chiusa.
+6. **(→ F6-CONV)** Mori–Zwanzig come criterio di località C2: "la legge chiusa di 𝒫u è differenziale ⟺ eliminazione finita" vale a coefficienti costanti (Malgrange). E a coefficienti variabili?
+7. **(→ F6-SYS)** Dirac: la varietà caratteristica non distingue Dirac da KG⊗I. Il criterio di identificazione per sistemi deve passare per gli ideali di Fitting superiori / divisori elementari, non per la sola Fitt₀. Enunciato candidato?
+8. **(→ F6-SYS, F6-ENC)** Foldy–Wouthuysen con potenziale: la serie FW è asintotica in 1/m. Se non converge, l'encoder FW è solo approssimato: serve una stima d'errore (C3).
+9. **RIGID (→ F6-VAR):** per potenziali fuchsiani non rigidi, la dimensione dell'ambiguità di identificazione coincide con il numero dei parametri accessori?

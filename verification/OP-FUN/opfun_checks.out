@@ -1,0 +1,35 @@
+[OK]   T1 trave: xi^2 = (Q2-Q1)/(2i)
+[OK]   T1 trave: tau^2 = Q1*Q2 - xi^4 e xi^4 = ((Q2-Q1)/(2i))^2 -> tau^2 in (Q1,Q2)
+[OK]   T1 calxtr: r = xi + xi^2 = Q2 - Q1
+[OK]   T1 calxtr: s = tau - tau^2 = Q1 - (tau - xi) Q2
+[OK]   T1 KGxtr: Res_tau(f,g) = -1 costante (comassimale)
+[OK]   T2 (d_t - a(d_x))^2 u = 0 per u = e^{ta}(f0 + t f1)e^{zx}
+[OK]   T2 anche per x e^{zx} (derivata in zeta)
+[OK]   T2 E^add = somma sui |S|>=2 (termini a1 I, a2 I, N)
+[OK]   T2 componente 0 di U = e^{sa}(f0 + s f1)
+[OK]   T2 termini commutano: [N, a_n I] = 0
+[OK]   P3 KG: coeff. s^2 di E^mult ha entrata (1,1) != 0 per ogni ordinamento (6 ordini)
+[OK]   P3 telegrafo: idem (6 ordini)
+[OK]   P3 k=3: entrata (k-1,1) del coeff. s^2 != 0 per ogni ordinamento (24 ordini)
+[OK]   P3 formula: [s^2](e^{s(A+B)} - e^{sA}e^{sB}) = -(AB-BA)/2
+[OK]   P4 Bessel: d_x d_t u - u = solo termini di troncamento
+[OK]   P4 Bessel: u(0,x) = 0
+[OK]   P4 Bessel: u != 0 (coeff. di t = 1)
+[OK]   P4 Bessel: integrale di contorno = serie (t=0.7, x=-0.4)
+[OK]   P4 Bessel: integrale di contorno nullo a t=0
+[OK]   P4 Runge: 1/zeta approssimata da polinomi su |zeta-3|<=1 (err < 1e-10)
+[OK]   T5 trave: P(d)(u o Phi_lam) = lam^4 (P(d)u) o Phi_lam
+[OK]   T5 onda: tau^2 - xi^2 omogeneo
+[OK]   T5 calore x trasporto NON quasi omogeneo (nessun peso (a,b) > 0)
+[OK]   T5 trasporti paralleli: Phi_lam(Omega') in Omega' (2000 punti)
+[OK]   T5 rettangolo: contrazione anisotropa verso un punto interno manda Omega-bar nell'interno
+[OK]   P6 Gram di 3 esponenziali su corde di lunghezza in [0.2,1.5]: min autov. > 0
+[OK]   P6 Gram normalizzata dipende solo dalla lunghezza della corda
+[OK]   T4 log r^2 armonica
+[OK]   T4 d(theta) = (-x dt + t dx)/r^2 (forma dell'angolo, chiusa)
+[OK]   T4 Q1(theta) = -(x + i t)/r^2 = -i/(t + i x) monodroma
+[OK]   T4 Q2(log r^2) = 2/(t - i x)
+[OK]   S5-L2 (i): H_i' cap H_j' = 0 su esempio casuale con intersezione comune
+[OK]   S5-L2 non necessita': tre rette a 120 gradi, ||C|| = 1 (criterio muto) ma somma = R^2 chiusa
+
+TOTALE: 33/33

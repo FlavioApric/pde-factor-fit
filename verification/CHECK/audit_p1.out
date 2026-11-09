@@ -1,0 +1,45 @@
+== P1-P1(e) avvezione-diffusione ==
+[OK]   P1e.1 u_zeta in ker Q (Q = tau + c xi - D xi^2)
+[OK]   P1e.2 E^add = z1 z2 e^{zeta x}
+[OK]   P1e.3 esponente del rapporto: 2 D zeta^2 T - 2 a T = 2 c zeta T
+[OK]   P1e.4 rapporto ||E||^2/||u||^2_{H^2} illimitato in zeta (c=D=T=1), t0=0.0 -- 6.5716, 1.0695e+7, 9.1155e+21, 1.8998e+54
+[OK]   P1e.4 rapporto ||E||^2/||u||^2_{H^2} illimitato in zeta (c=D=T=1), t0=0.5 -- 0.00029416, 0.022041, 38726.0, 3.4289e+19
+[OK]   P1e.4 rapporto ||E||^2/||u||^2_{H^2} illimitato in zeta (c=D=T=1), t0=1.0 -- 65.711, 2.1389e+8, 3.6462e+23, 1.5199e+56
+[OK]   P1e.5 minorazione della prova verificata (zeta=3,6,12; c=D=T=1)
+== P1-T2(iv) coefficienti multinomiali ==
+[OK]   T2iv.1 coefficiente di s^k/k! = somma multinomiale con >=2 indici positivi (N=3, k<=6)
+[OK]   T2iv.2 somma sui sottoinsiemi = prodotto (troncato)
+== P1-L2(c) ==
+[OK]   L2c.1 A(d)^k (x^2 e^{zeta x}) = d_zeta^2 (A(zeta)^k e^{zeta x}), k<5
+== P1-T5 ==
+[OK]   T5.H a=3: Y_k = c_k x^{k(a-1)} d, c_k formula, gradi distinti e != a (k<=7) -- [0, 2, 4, 6, 8, 10, 12, 14]
+[OK]   T5.H a=4: Y_k = c_k x^{k(a-1)} d, c_k formula, gradi distinti e != a (k<=7) -- [0, 3, 6, 9, 12, 15, 18, 21]
+[OK]   T5.H a=5: Y_k = c_k x^{k(a-1)} d, c_k formula, gradi distinti e != a (k<=7) -- [0, 4, 8, 12, 16, 20, 24, 28]
+[OK]   T5.H a=2: orbita finita (Y_2 = 2x^2 d, Y_3 = 0: c_3 contiene il fattore 2(a-1)-a = 0) -- [1, -2*x, 2*x**2, 0, 0]
+[OK]   T5.duh d/de e^{t(X+eY)}|_0 = e^{tX} sum (-1)^k t^{k+1}/(k+1)! ad_X^k Y (coeff. t^0..t^5)
+[OK]   L5b e^{gX}Ye^{-gX} = sum g^k ad^k Y/k! (coeff. t^0..t^5)
+[OK]   T5.hank det H_n = t^{n^2} det Hilb_n != 0 (n<=6)
+[OK]   T5.rank Hankel di p atomi ha rango <= p (p=1,2,3)
+[OK]   T5.p1 G-t di ordine m => coeff. t^m di e^{(G-t)X} = (G-t)_m X != 0
+== P1-C1 ==
+[OK]   C1.1 la formula scritta e^{-tT1}e^{t(T1+T2)} NON e' (e^{tT1}e^{tT2})^{-1}e^{tA} (termini non commutanti)
+[OK]   C1.2 forma corretta e^{-tT2}e^{-tT1}e^{t(T1+T2)}: 3 esponenziali nello span (conclusione di C1 invariata)
+== P1-P3 ==
+[OK]   P3.1 ambiguita' w = e^{2t+x} cambia E^add del fattore 1 di (e^s-1)^2 e^x != 0
+== P1-L4 ==
+[OK]   L4.1 G risolve r(d)G=0 con dati di Volterra
+[OK]   L4.2 r(d_x) w = F per F = e^{2t+3x}(1+x^2)
+== P1-P4 ==
+[OK]   P4.1 Gauss 2x2 in anello commutativo: M = L diag(p11, det/p11) U
+[OK]   P4.2 KG (m=2,c=1): T*(rho)=pi/(2 sqrt(m^2+c^2 rho^2)) >= log2/K, phi1 != 0 per t<T* -- rho=0.5 T*=0.7619 bound=0.1631; rho=1 T*=0.7025 bound=0.1386; rho=3 T*=0.4357 bound=0.05332
+[OK]   P4.3 KG modo reale xi=1: zero di phi1 a t*=pi/(2 sqrt(3)) e T*(rho>=1) <= t*
+== P1-P6 ==
+[OK]   P6.1 M A M^{-1} = D d^2 - c^2/(4D)
+[OK]   P6.2 resolvente inflow: lambda u + c u' = f, u(0)=0
+== P1-T4 OU ==
+[OK]   T4.OU e^{-t x d} e^{g2 d^2} x^n risolve u_t = u_xx - x u_x con dato x^n (n<=6)
+[OK]   P5.1 rotazione: lower-left di Gauss = -tan t
+== P1-T3 ==
+[OK]   T3.1 DP prod(1+lambda z_n) = e_k (N=7), #c_S = 2^7-7-1 = 120
+
+ESITO GLOBALE: OK (32/32)

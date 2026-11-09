@@ -1,0 +1,20 @@
+OK   §13 θ(s + N/2) = 1 − θ
+OK   §13 θ_j = 1 − θ(j + N/2) = 2(s+1−j)/(2s+2+N) = θ(s+1−j)
+OK   §13 esponente nitido: (N/2)θ − (s+1)(1−θ) = −s
+OK   §13 passo 2: f(y) − T_x(y) = formula del resto (s = 2, N = 1)
+    §13 rapporti ‖f‖_{C^1}/(‖f‖_2^θ‖f‖_{C^{1,1}}^{1−θ}): [0.35, 0.35, 0.35, 0.35, 0.35]
+OK   §13 rapporto limitato e non degenere per ℓ → 0 (θ = 2/5 nitido)
+OK   §14 (J/e²)^J/J! ≤ e^{−J} (J < 60)
+OK   §14 D33: max|ω_J| su [0,Λ] = 2(Λ/4)^J (J = 3, 6, 9)
+OK   §14 (1 − e^{−λT})/λ ≥ (1 − e^{−1})min(T, 1/λ) (campionamento)
+    §14 k = t^{-1/2}: (J, errL1, stima (ii)) [(4, 0.7537008690230841, 0.778696073481327), (8, 0.5415844975600116, 0.5424386898849768), (12, 0.4426771557549529, 0.4427238183449561)]
+OK   §14 stima (ii) verificata su k = t^{-1/2} (J = 4, 8, 12)
+OK   §14 τ_k(Λ) per t^{-β}: ∫_Λ^∞ λ^{β−2}/Γ(β) = Λ^{β−1}/((1−β)Γ(β))
+OK   §15 V = u''/u = 4/x^6 − 6/x^4 su x > 0
+OK   §15 V → +∞ per x → 0⁺ (nessuna V ∈ L^∞_loc, né continua)
+OK   §15 u piatta in 0: u^{(k)}(0⁺) = 0 per k ≤ 6 (quindi θ = 0 è soluzione formale)
+OK   §16 Σc_iD_i ha rango 1 (immagine ⊂ span{Σc_iψ_i})
+OK   §16 v con ∫v = 0: D_iv = 0 per ogni i (fit), quindi nessun misfit con quel dato
+OK   §16 con ∫w ≠ 0 i D_iw = ψ_i∫w sono indipendenti (misfit esiste fuori da Z)
+
+[c_dict] 16/16 OK

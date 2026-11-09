@@ -1,0 +1,25 @@
+# R7-S1: Cole-Hopf (Burgers <-> heat) e superposizione "a pesi" (mixture/softmax)
+import sympy as sp
+x,t,nu=sp.symbols('x t nu',positive=True)
+phi=sp.Function('phi')(x,t)
+u=-2*nu*sp.diff(phi,x)/phi
+burg=sp.diff(u,t)+u*sp.diff(u,x)-nu*sp.diff(u,x,2)
+heat=sp.diff(phi,t)-nu*sp.diff(phi,x,2)
+# identita': Burgers[u] = -2 nu d/dx( heat[phi]/phi )
+print("S1a identita' Cole-Hopf:", sp.simplify(burg-(-2*nu*sp.diff(heat/phi,x)))==0)
+# superposizione: phi = phi1+phi2  =>  u = w1 u1 + w2 u2, w_i = phi_i/(phi1+phi2)
+p1=sp.Function('p1')(x,t); p2=sp.Function('p2')(x,t)
+U=lambda p: -2*nu*sp.diff(p,x)/p
+uu=U(p1+p2); w1=p1/(p1+p2); w2=p2/(p1+p2)
+print("S1b u = w1 u1 + w2 u2:", sp.simplify(uu-(w1*U(p1)+w2*U(p2)))==0)
+Eint=sp.simplify(uu-U(p1)-U(p2))
+print("S1c E_int = u-u1-u2 =", sp.simplify(Eint+(w2*U(p1)+w1*U(p2)))==0, "(cioe' E_int = -(w2 u1 + w1 u2))")
+# esempio esplicito: due onde piane del calore -> due stati costanti c1,c2 ; shock viscoso
+c1,c2=sp.symbols('c1 c2',real=True)
+th=lambda c: -(c*x - c**2*t/2)/(2*nu)
+P=sp.exp(th(c1))+sp.exp(th(c2))
+uex=sp.simplify(U(P))
+print("S1d phi_i heat?:", [sp.simplify(sp.diff(sp.exp(th(c)),t)-nu*sp.diff(sp.exp(th(c)),x,2)) for c in (c1,c2)])
+print("S1e u Burgers?:", sp.simplify(sp.diff(uex,t)+uex*sp.diff(uex,x)-nu*sp.diff(uex,x,2)))
+print("S1f u =", sp.simplify(uex.rewrite(sp.exp)))
+# limite nu->0 (dequantizzazione di Maslov): -2nu log(sum e^{theta_i}) -> max(c_i x - c_i^2 t/2)

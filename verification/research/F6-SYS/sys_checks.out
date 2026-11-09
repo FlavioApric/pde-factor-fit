@@ -1,0 +1,49 @@
+OK   A1 Clifford 1+1: g0^2=I, g1^2=-I, {g0,g1}=0
+OK   A2 D*D' = D'*D = (p^2-m^2) I
+OK   A3 det D = -KG (1+1, una sola copia del simbolo scalare; segno corretto dopo FAIL iniziale)
+   D = [[-m, p0 + p1], [p0 - p1, -m]]
+OK   A4 riga1 = (-m, p0+p1), riga2 = (p0-p1, -m)
+OK   A5 Ann(e2) in M_D genera (KG): (p0-p1)*(p0+p1)/m - m = KG/m
+OK   A6 psi=(P0+P1)phi/m, phi): riga1 = 0 identicamente
+OK   A7 riga2 = KG(phi)/m (=> psi in Sol(D) <=> phi in Sol(KG))
+OK   B1 X*Y = Y*X = (p0^2-|p|^2) I2
+OK   B2 D4*D4' = KG4*I4 (Dirac = radice matriciale di KG)
+OK   B3 det D4 = KG4^2
+OK   B4 Y*X/m - m*I = (KG4/m) I  => M_D = S^{1x2} (libero, rango 2)
+OK   B5 {g^mu, g^nu} = 2 eta^{mu nu} I4
+OK   B6 fattorizzazione non unica: (S D S^-1)(S D' S^-1) = KG I, S D S^-1 != D
+OK   C1 Pi_+ + Pi_- = I
+OK   C2 Pi_+^2 - Pi_+ = KG/(4m^2) I (idempotente mod KG)
+OK   C3 D*Pi_+ = KG/(2m) I (Im Pi_+ in ker D su Sol(KG))
+OK   C4 identita' r(D'-D)/(2m) = r  (sostanza della prova di lcm)
+OK   D1 (c2,-c1).u = 0 per ogni soluzione costante u
+OK   D2 u=(e^{s^2}, e^{s^3}), s=t+x, risolve (d_t-d_x)u=0
+OK   D3 u=(g,g'): (d_x,-1).u = 0 -> Ann(u) != U (molteplicita' 2, test non EP insufficiente)
+OK   D4 (d_x,-1) non e' multiplo di (tau-xi) in R^{1x2}: seconda entrata costante -1
+   valori singolari min/max: 0.0010451 991.08
+OK   D5 nessuna relazione polinomiale q1 e^{s^2}+q2 e^{s^3}=0 (gradi<=3, rango 8 della collocazione)
+   Smith P1: [[s - 1, 0], [0, s - 1]]  Smith P2: [[1, 0], [0, s**2 - 3*s + 2]]
+OK   E1 Smith(P1) = diag(s-1, s-1): due fattori invarianti non banali => nessuna u identifica
+OK   E2 Smith(P2) = diag(1, (s-1)(s-2)): torsione ciclica => identificabile
+OK   E3 u=(a e^x - b e^{2x}, b e^{2x}) [segno corretto] risolve P2(d)u=0
+OK   F1 [A(xi),B] != 0 per xi != 0, m != 0 (termini non commutanti a coeff. costanti)
+OK   F2 (A+B)^2 = -(xi^2+m^2) I (dispersione relativistica)
+OK   F3 forma chiusa e^{t(A+B)} = cos(wt) I + sin(wt)/w (A+B)
+OK   F3b forme chiuse dei flussi dei singoli termini
+OK   F4 E^mult = -(t^2/2)[A,B] + O(t^3) (entrata (0,1); segno corretto)
+OK   F5 [A,[A,B]] e [B,[A,B]] in span{A,B,[A,B]} (alg. di Lie di dim 3)
+OK   F6 [[g,g],[g,g]] = g (derivata = g: non risolubile => Wei-Norman solo locale)
+   ZXZ: ['0.54541811', '1.0252091', '0.54541811'] err 2.2223e-31
+OK   F7 e^{t(A+B)} = e^{g1 A'}e^{g2 B'}e^{g3 A'} (Euler; P1-T5 NON si trasporta: prodotto finito esiste)
+OK   G1 e^{-i chi}(d - i(A + d chi))e^{i chi} = d - iA (covarianza di gauge)
+OK   G2 (d_x - i c)(e^{icx}u) = e^{icx} d_x u  (P(xi) -> P(xi - ic))
+OK   G3 det[g0 psi, g1 psi] = -2 psi1 psi2 (A recuperabile algebricamente: Radford, Booth-Legg-Jarvis)
+OK   G4 per psi generico esiste unico A complesso con (g(p-A)-m)psi=0 (psi1 psi2 != 0)
+OK   G5 equivarianza: A[e^{i chi}psi] = A[psi] - d chi (convenzione p=i d)
+OK   G6 |e^{i chi}psi|^2 = |psi|^2 (dato invariante => solo l'orbita e' identificabile)
+OK   H1 P_A * grad = 0 (gauge: A -> A + d chi e' in Sol)
+OK   H2 rango P_A = 1 => M_A ha rango 1 (parte libera = direzione di gauge)
+OK   H3 g_L * grad = q0^2 + q1^2 != 0
+OK   H4 righe di U_A uccidono grad; la riga di gauge no => U_A = {r in Ann(A): r grad = 0}
+
+TOTALE: 43/43 OK

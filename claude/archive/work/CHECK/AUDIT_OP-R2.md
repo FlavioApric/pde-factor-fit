@@ -1,0 +1,136 @@
+# AUDIT — OP-R2 (S-CHECK-16, revisore indipendente) · 26/10/2026
+
+**Oggetto:** `work/OP-R2/CHECK_REQUEST.md` (le 4 domande precise sono in §8). Le prove sono in `work/OP-R2/PROOF_PACKAGE.md` §1–§6, che ho letto per i claim auditati. Riferimenti puntuali esterni, dichiarati: `claims/LEDGER.md` per gli stati delle dipendenze (C12-T1′, C12-T3, C12-P7, OPF-T5/P6/O1, OP-ALG-T3/T4/C1, P4-L7, S4T-T2, S4ID-T3, S4ID-P8, OP-T1, OP-L2); `work/CHECK/AUDIT_P4-L7.md` (passo (3) di P4-L7, per controllare cosa usa di e^{x²}); `work/OP-ALG/PROOF_PACKAGE.md` §3 (OP-ALG-D2 e la prova di OP-ALG-T3(f), per OPR2-C2); `work/OP-NL/PROOF_PACKAGE.md` [OP-L2] (definizione di I_PW, per OPR2-O9).
+**Skill caricate** (lettura dei SKILL.md, nessuno script _vendor eseguito): skills-local/session-protocol (per prima), skills-local/claim-lifecycle, proof-checker (enunciati canonici, micro-claim, red team, severità a due assi, acceptance gate; il revisore sono io, niente Codex), kill-argument (revisori = subagenti Claude freschi; verdetto calcolato da me con la tabella della skill), sympy.
+**Fatti presi come dati** (LEDGER, DIMOSTRATO): C12-T1′, C12-T3, C12-P7(a),(b), OPF-T5(b), OPF-P6, OPF-O1, OP-ALG-T4, OP-ALG-C1(iii), OP-ALG-T3, P4-L7, P4-T5, C3-T1(a), S4T-T2, S4ID-T3(a,b), OP-T1, OP-L2. Le CON-FONTE (ipoellitticità del calore, estensione di Stein, Ore/estensione di δ, (LWP), (Nov), Kay–Moses, (SR)) non sono auditate: ho controllato solo dove e con quali ipotesi sono usate (CIT-AUDIT-F5 lavora in parallelo sulle fonti). **Eccezione: (LWP) ha un problema d'uso, rilievo T5-1.**
+**SymPy/mpmath (red team, scritto da zero, indipendente da opr2_checks.py):** `work/CHECK/sympy/audit_opr2.py` → `audit_opr2.out`, **48/48 OK**. Il primo run completo dava 46/48: E3, E4 (relazioni di Novikov sui solitoni) fallivano per precisione (punti x in virgola mobile a 15 cifre). Rifatti con punti razionali e 30 cifre: residuo 0. Nessun processo altrui toccato; nessun file temporaneo nel progetto.
+**Kill-argument** su OPR2-T1, OPR2-T3, OPR2-L2 (§9).
+
+## 0. Sintesi dei verdetti
+| claim | verdetto | severità massima | stato proposto |
+|---|---|---|---|
+| OPR2-L0 | PASS | — | DIMOSTRATO |
+| OPR2-T1 | PASS-con-fix(T1-1..T1-4); KA **PASS** | MINOR | DIMOSTRATO (rettangolo, ogni c, ogni m; ipoellitticità ed estensione CON-FONTE, quest'ultima eliminabile con la riflessione); "Estensione" a convessi: abbozzo, non claim |
+| OPR2-L1 | PASS-con-fix(L1-1) | MINOR | DIMOSTRATO |
+| OPR2-T2 | PASS-con-fix(T2-1) | MINOR | DIMOSTRATO |
+| OPR2-C2a | PASS | — | DIMOSTRATO |
+| OPR2-Q2′ | — (congettura dichiarata) | — | APERTO (congettura) |
+| OPR2-L3 | PASS-con-fix(L3-1) | MINOR | DIMOSTRATO (estensione di δ a K CON-FONTE, fatto standard) |
+| OPR2-T3 | PASS-con-fix(**T3-1**, **T3-2**, T3-3); KA **WARN** | MINOR | DIMOSTRATO (criterio); la parentetica su D_i e l'esempio della Lettura vanno corretti |
+| OPR2-P3′ | PASS | — | DIMOSTRATO |
+| OPR2-L2 | PASS-con-fix(L2-1); KA **PASS** | MINOR | DIMOSTRATO |
+| OPR2-C2 | PASS-con-fix(C2-1, C2-2) | MINOR | DIMOSTRATO — OP-ALG-Q2 CHIUSO |
+| OPR2-P4 | PASS-con-fix(P4-1) | MINOR | DIMOSTRATO mod (Nov) CON-FONTE; c_j = (−1)^{N−j}e_{N−j}(k²) V-ex N = 1,2,3 |
+| OPR2-L5 | PASS | — | DIMOSTRATO |
+| OPR2-T5 | PASS-con-fix(**T5-1**, T5-2, T5-3) | **MAJOR** (fonte (LWP) mal applicata; locale) | DIMOSTRATO mod (LWP) **dopo** T5-1 (fonte corretta o prova di 10 righe, data in §6); S4T-Q2 CHIUSO |
+| OPR2-P6 | PASS-con-fix(P6-1) | MINOR | DIMOSTRATO (Kay–Moses e IST CON-FONTE) |
+| OPR2-P7 | PASS | — | CONDIZIONALE a (SR) con derivate |
+| OPR2-O8 | PASS-con-fix(O8-1) | MINOR | DIMOSTRATO |
+| OPR2-O9 | **FAIL** come scritta (**O9-1**) → sostituita da O9′ | **CRITICAL locale** (INVALID+LOCAL) | O9 con p = Π_1 + y_0DΠ_1: **FALSO** (y_1² − k²y_0² ∉ I_PW); **O9′** (p′ = y_0y_3 − y_1y_2 + 3y_0²y_1): DIMOSTRATO (prova del revisore, §7) |
+
+**Acceptance gate:** 0 FATAL. Una CRITICAL, O9-1: è INVALID+LOCAL, nessun claim ne dipende (è un'ostruzione documentaria), controesempio verificato in SymPy (G5, G6). La sostituzione O9′ conserva la conclusione voluta ("i due vincoli non escludono J_u ≠ 0") ed è verificata (G7–G10). Una MAJOR, T5-1: la (LWP) citata (Pazy §6.3, Henry cap. 3) richiede un generatore settoriale/analitico, che per d ≠ 0 manca. L'enunciato (LWP) resta vero; il fix dà la prova diretta. Tutte le altre lacune sono MINOR. Ipotesi esplicite; controesempi tentati su ogni lemma chiave.
+
+**Esiti sui problemi:** OPF-Q1 **CHIUSO** (densità; la chiusura C12-Q1 per questo P resta aperta). OPF-Q2/C12-Q2: nessun esempio nella famiglia dei trasporti reali sotto (H∠); residuo OPR2-Q2′ APERTO. OP-ALG-Q1 **CHIUSO** (sì, socle senza molteplicità); residuo OPR2-Q3 APERTO. OP-ALG-Q2 **CHIUSO**. OP-K15 APERTO, δ_N(K) ≤ N+1 per K ≥ 2N. S4T-Q2 **CHIUSO** mod (LWP), con T5-1. INT-Q1 (analitici) APERTO; ostruzioni OP-O5, OPR2-O8, **OPR2-O9′** (non O9).
+
+---
+## 1. OPR2-L0 + OPR2-T1 (calore × trasporto)
+**Enunciato canonico (T1).** ∀ Ω = (0,T)×(a,b), ∀ c ∈ ℝ, ∀ m ∈ ℕ: 𝓗_1 + 𝓗_2 è denso in ker_{H^m(Ω)}P, P = (τ−ξ²)(τ+cξ).
+
+| passo | contenuto | esito |
+|---|---|---|
+| L0 | ‖K_0‖_{L¹} = (1−e^{−Lξ²})/ξ² ≤ L, ‖K_1‖_{L¹} = (1−e^{−Lξ²})/|ξ| ≤ min(L|ξ|, 1/|ξ|) ≤ √L (L = T′+1); Young in t + Plancherel in x | OK. SymPy A3a (simbolico), A3b (griglia, con expm1: la prima versione falliva per cancellazione numerica a ξ = 10⁻⁴, non per la stima). |
+| L0 | ∂_t commuta con Duhamel se G(−1) = 0; ∂_tẑ = −ξ²ẑ + Ĝ | OK. ẑ(t) = ∫_0^{t+1}e^{−ρξ²}Ĝ(t−ρ)dρ, il termine di bordo è e^{−(t+1)ξ²}Ĝ(−1) = 0. SymPy A4, A5 su un G esplicito. Le derivate miste ∂^α con |α| ≤ m: z[∂^αG], stima L². |
+| c ≤ 0 | riflessione x ↦ a+b−x; c = 0 via OPF-T5(b) | OK. (τ−ξ²)τ è quasi omogeneo con pesi (2,1) e il rettangolo ha lati paralleli agli assi: è esattamente il dominio di OPF-T5(b) dopo il fix T5-2 di AUDIT_OP-FUN. |
+| 1 | u = u_1 + F(s), F ∈ 𝒟′(S) | OK. Fette in t: (0,T) ∩ ((a−s)/c, (b−s)/c), intervalli. |
+| 2 | F ∈ H^m_loc(S) per media lungo le corde | OK. Accoppiamento con ψ(t)φ(x−ct) (jacobiano 1); ∂_s^jA = ∫(∂_x^ju)(t,s+ct)ψ dt, Cauchy–Schwarz. B è liscia fino a N̄ perché {(t,s+ct): t ∈ [α,β], s ∈ N̄} è un compatto di Ω (scrivere C^∞(N̄): T1-2). ‖G∘s‖_{L²(Ω_K)}² ≤ T‖G‖²_{L²(K)}. |
+| 3(a),(b) | traslati compatti in Ω; s(y+τ_i) = s(y) ∓ σ | OK. y ∈ Ω̄∩B̄(C₁,3r) ⇒ y+τ₁ ∈ [ε, 3r+ε]×[b−3r−ε, b−ε], compatto in Ω se 3r+ε₀ < min(T, b−a) (da scrivere: T1-1). SymPy A2, A6 (4 rettangoli, anche c = 0.05 e c = 4). |
+| 4–6 | ũ_2 ∈ 𝓗_2; Hũ_1 = 0; ũ_1 ∈ H^m | OK. Commutatore H(θw) = θHw + (θ_t+θ_xx)w − 2∂_x(θ_xw) (SymPy A1). Su supp∇θ_i ∩ Ω: s ∈ [a−cT+δ, b−δ] (perché {s > b−δ}∩Ω ⊂ B(C₁,r) e B̄(C₁,2r) non contiene C₂), traslati in s ∓ σ ancora in un compatto fisso se σ₀ < δ/2. Il primo addendo (1−θ_1−θ_2)u_1 vive dove s ∈ [a−cT+δ, b−δ]. θ_iu_1∘(·+τ_i) è liscia fino al bordo. |
+| 7 | v − u → 0 | OK. Ho ricontrollato l'identità v − u = Σ[θ_i(u∘(·+τ_i) − u) + (χ_i − θ_i)(F(s∓σ) − F)] − z espandendo: torna esattamente. (i) continuità delle traslazioni di 1_Ω∂^αu (i traslati stanno in Ω); (ii) χ_1 − θ_1 = 0 su {s ≥ b−δ/2}∩Ω e il resto del supporto ha s in un compatto; (iii) costante di L0 indipendente da ε. |
+| Q1 | ordine r → δ → (θ_i, χ_i) → ε₀ → K → ε ↓ 0 | **OK, senza circolarità** (domanda 1, §8). |
+| Tesi | ⟺ via C12-P7(a),(b) | OK. Con la densità, "componenti in H^m ∀u" ⟺ somma chiusa (C12-P7(a)) ⟺ c_F < 1 (C12-P7(b)); γ_2 = 1 − c_F. Simboli non definiti nel §1 (T1-3). |
+| Estensione | convessi con insiemi estremali puntiformi | Corretta nelle linee essenziali: y+τ = (1−ε)y + ε(o+y−p) dista ≥ ερ/2 da ∂Ω e s(τ) = ε(s(o) − s(p)) < 0. Il Passo 3 va però riscritto per il dominio generale: è un abbozzo (T1-4). Il caso c = 0 non è coperto fuori dai rettangoli (OPF-T5(b) vale solo lì). |
+| O1 | compatibilità con OPF-O1 / O1-1 | OK. OPF-O1 esclude simmetrie affini (anche pesate) **globali** che tendono all'identità. Qui le traslazioni sono locali e sono incollate in modo diverso nei due fattori, quindi nessun conflitto. |
+
+- **T1-1 (MINOR, UNCLEAR+LOCAL):** nel Passo 3 scrivere le condizioni implicite: 3r + ε₀ < min(T, b−a); δ < (b−a+cT)/2 (χ_1, χ_2 a supporti disgiunti); σ₀ = ε₀(1+c) < δ/2; poi K := [a−cT+δ/2, b−δ/2] fisso, indipendente da ε (Ω_K è definito con int K).
+- **T1-2 (MINOR):** Passo 2: "B ∈ C^∞(N̄)" (derivate limitate).
+- **T1-3 (MINOR):** definire c_F (coseno di Friedrichs) e γ_2 = 1 − c_F, o rinviare a C12-P7(b).
+- **T1-4 (MINOR, OVERSTATED):** "Estensione" → "abbozzo (non claim)": il Passo 3 per Ω convesso generico va scritto. Facoltativo: sul rettangolo l'estensione H^m(Ω) → H^m(ℝ²) per riflessione d'ordine m elimina la dipendenza da Stein.
+**Verdetto: L0 PASS → DIMOSTRATO; T1 PASS-con-fix(T1-1..T1-4) → DIMOSTRATO.** OPF-Q1 CHIUSO; P2-Q1 chiuso anche per calore × trasporto sui rettangoli.
+
+## 2. OPR2-L1, OPR2-T2, OPR2-C2a (trasporti)
+- **L1:** i blocchi (i,j) di Σ*Σ sono Π_i|_{𝓗_j} = Π_iΠ_j|_{𝓗_j}, compatti. Σ*Σ = I + 𝒦 è autoaggiunto di Fredholm, quindi ha immagine chiusa e lacuna spettrale su (ker Σ)^⊥, e ‖Σx‖² = ⟨Σ*Σx, x⟩ ≥ γ‖x‖² lì: im Σ è chiusa. Per r = 2: c_F = ‖Π_1Π_2(I − Π_𝓘)‖ (Deutsch), l'operatore è compatto, la norma è raggiunta e il caso ‖T‖ = 1 dà x′ ∈ 𝓘 ∩ 𝓘^⊥. **OK.** **L1-1 (MINOR, UNCLEAR):** la frase "im Σ*Σ = (ker Σ)^⊥ ⟺ γ > 0" è confusa; va sostituita con la catena sopra.
+- **T2, domanda 2 (nucleo e fattore 1/|sin∠|):** (Π_pΠ_{p′}f)(y) = ∫∫k_p(y,z)k_{p′}(z,y′)f(y′)dσ dσ′ con z = y + σe, y′ = z + σ′f. La mappa (σ,σ′) ↦ y′ ha jacobiano |det(e,f)| = |sin∠| (SymPy B2), quindi K(y,y′) = k_p(y,z*)k_{p′}(z*,y′)/|sin∠|. **OK.** Per la norma HS, (z,a,b) ↦ (y,y′) = (z+ae, z+bf) ha jacobiano |sin∠| (SymPy B1). Quindi ‖K‖²_HS = |sin∠|^{−1}∫_Ω dz ∫_{corda_p(z)}|k_p|²da ∫_{corda_{p′}(z)}|k_{p′}|²db ≤ C∫_Ω ℓ_pℓ_{p′}sup|k_p|²sup|k_{p′}|². Il package scrive "≤ C" senza il fattore 1/|sin∠|. È una costante e non cambia nulla (T2-1, cosmetico). Con un nucleo limitato e l'altro ≤ C/ℓ: ∫_Ω dz/ℓ_{p′} = ampiezza trasversale (SymPy B3: 2 sul quadrato con w = (1,1) parametrico). **OK.**
+- Nuclei di proiezione: Gram di {e^{d_jσ}} su [0,ℓ] definita positiva e continua in ℓ ∈ [ℓ₀, diam Ω] (SymPy B4), e il nucleo dipende solo da ℓ, non dalla posizione della corda. Singolo fattore: |k| ≤ C/ℓ (Re d limitato, corde ≤ diam). **OK.**
+- (⇒): la u di C12-T3 ha componenti distribuzionali non L² (altrimenti starebbe nella somma, perché l'ambiguità è EP ⊂ L²). La relazione Σ_lη_l = 0 con η_l ∈ ker_{𝒟′}Q_l è EP per C12-T1′(ii), con fattori del 1° ordine non associati, quindi coprimi. **OK.** Ultima equivalenza: OPF-P6. **OK.**
+- **T2-1 (MINOR, COSMETIC):** inserire il fattore |sin∠|^{−1} nella stima HS (o assorbirlo dichiaratamente in C).
+- **C2a:** i tre casi sono corretti. "Coppie chiuse ⇒ (1,2) chiusa ⇒ inf ℓ_v > 0 ⇒ (H∠) ⇒ tripla chiusa." **OK.** Nota: inf ℓ > 0 su un convesso limitato richiede due lati paralleli a v (p.es. rettangolo e v parallelo a un lato), quindi il candidato chiuso è "quadrato, v verticale, w diagonale".
+- **Q2′:** il cuneo dà un'interazione HS log-divergente (SymPy B5, coerente con B2 del package). La congettura è dichiarata come tale. **OK come APERTO.**
+**Verdetto: L1 PASS-con-fix(L1-1), T2 PASS-con-fix(T2-1), C2a PASS → DIMOSTRATO.**
+
+## 3. OPR2-L3, OPR2-T3, OPR2-P3′ (coefficienti variabili)
+- **L3(a):** 𝔎 = K[∂_t;δ] su un corpo è euclideo da entrambi i lati, quindi PID. M_K ha K-dimensione m e lunghezza ≤ m. **OK.**
+- **L3(b):** KN = {b^{−1}n} è chiuso per somma (denominatore comune sinistro, Ore) e per ∂_t (∂_tb^{−1}n = b^{−1}∂_tn − b^{−1}δ(b)b^{−1}n). W ∩ 𝔄^m è saturato. K(W∩𝔄^m) = W e KN ∩ 𝔄^m = N per N saturato. M → M_K è iniettiva perché 𝔄^m è senza torsione. **OK.** **L3-1 (MINOR):** definire "saturato" (M/N senza 𝔄-torsione) nell'enunciato.
+- **L3(c):** atomi ↔ semplici; l'intersezione di saturati è saturata; ogni saturato ⊋ 𝔇P contiene un atomo (lunghezza finita). **OK.**
+- **T3, domanda 3 (r ≤ ℓ ≤ m):** la catena 𝔎P ⊂ 𝔎A_2⋯A_ℓ ⊂ … ⊂ 𝔎 ha quozienti ≅ 𝔎/𝔎A_j, semplici. Con fattori a due a due non simili, due semplici distinti S, S′ danno S⊕S′ ⊆ M_K, e una serie di composizione che passa per S ⊂ S⊕S′ avrebbe due fattori isomorfi se S ≅ S′ (Jordan–Hölder). Socle = ⊕_{i∈I}S_i con gli S_i a due a due non isomorfi. Ogni semplice S nel socle ha una sola proiezione non nulla, quindi S = S_i. Ne segue r = |I| ≤ lunghezza = ℓ ≤ m. **OK.**
+- **Domanda 3 (D_i ∈ 𝔇, denominatori sinistri):** S_i ∩ 𝔄^m ≠ 0 (w = b^{−1}n ⇒ n = bw ∈ S_i); un rappresentante di grado < m sta in 𝔇∖𝔇P. **OK.** **Ma la parentetica è falsa in generale.** "D_i è, a meno di un fattore sinistro in K, un divisore destro di P" vale solo per la scelta di grado minimo. S_i = 𝔎Q_i/𝔎P con P = A_iQ_i, e se deg A_i ≥ 2 anche kQ_i con 1 ≤ deg k < deg A_i è ammesso dalla Tesi, ma non è K·(divisore destro). Testimone dell'arbitro KA: 𝔇 = 𝒟, P = ∂_t² − x, irriducibile in 𝔎; D = ∂_t è ammesso ma non è divisore destro → **T3-1**.
+- **Criterio:** (⇒) OP-ALG-T4. (⇐) L_u ⊋ 𝔇P è saturato (OP-ALG-C1(iii); ricontrollato: aTu ∈ 𝒯 ⇒ Tu ∈ 𝒯), contiene un atomo = S_i ∩ 𝔄^m ∋ [D_i]. **OK.** Il (⇐) usa solo la finitezza degli atomi. La molteplicità serve per avere un numero finito di test.
+- **Esempio (i):** P = ∂_t(∂_t − x) = (∂_t − x)∂_t in A_1[∂_t] (SymPy C3). 0 è coniugato solo a sé, quindi i fattori non sono simili. **OK.**
+- **Lettura, "(∂_t − a)² con ∂_t centrale è uniseriale": FALSO per a = x** (trovato da me e, indipendentemente, dall'attaccante KA). ∂_t − x − e è divisore destro di (∂_t − x)² ⟺ e² = [x,e], e e = (∂_x + c)^{−1} risolve per ogni c ∈ ℂ, perché [x, ∂_x^{−1}] = ∂_x^{−2}. Quindi (∂_t − x)² = (∂_t − x + e_c)(∂_t − x − e_c), con socle S⊕S e infiniti atomi: è l'ostruzione OP-ALG-C1. SymPy C1, C2: identità verificata realizzando ∂_x^{−1} con ∫_0^x. Vale solo per a ∈ ℂ (C4) → **T3-2**.
+- **P3′:** i grafici {s + λφ(s)}, λ ∈ ℂ centrale, sono semplici distinti; un T ∉ 𝔇P sta in al più un atomo. La portata ("nessun insieme finito di test atomici"; il teorema negativo generale dipende da OPR2-Q3) è dichiarata correttamente. **OK.**
+- **T3-1 (MINOR, OVERSTATED+LOCAL, dal KA):** sostituire la parentetica con "si può scegliere D_i = b_iQ_i, con P = A_iQ_i in 𝔎, A_i irriducibile, b_i ∈ 𝔄 denominatore comune sinistro; il criterio vale per qualunque D_i con classe in S_i∖0".
+- **T3-2 (MINOR, INVALID nella Lettura, non nella Tesi; dal KA):** "(∂_t − a)² con a ∈ ℂ, 𝔇 = 𝒟". Aggiungere (∂_t − x)² come esempio d'avvertimento: fattori uguali, socle S⊕S, infiniti atomi. La tesi "socle senza molteplicità è strettamente più debole della non similitudine" resta vera con a ∈ ℂ.
+- **T3-3 (MINOR, COSMETIC):** nel (⇐) scrivere "la classe di D_i sta in S_i ∩ 𝔄^m" (non "D_i ∈ KS_i ∩ 𝔄^m").
+**Verdetto: L3 PASS-con-fix(L3-1); T3 PASS-con-fix(T3-1, T3-2, T3-3) → DIMOSTRATO; P3′ PASS → DIMOSTRATO.** OP-ALG-Q1 CHIUSO (sì); OPR2-Q3 APERTO.
+
+## 4. OPR2-L2, OPR2-C2 (P4-L7 globale)
+- (1) A ∈ GL₂(ℚ), coordinate y′ = A^{−1}(y − p₀): come P4-L7 (AUDIT_P4-L7 L7.1–L7.9). **OK.**
+- (2) La ricorrenza dà u_k d'ordine ≤ k, con a_k ≤ C_PΣ_{l<m}a_{k−m+l} e crescita geometrica (SymPy D5: rapporti ≤ 2.03 su un esempio). Inoltre |g^{(i)}(z)| ≤ Σ_nR^n/(n!(n+i)!) ≤ (Σ R^{n/2}/n!)² = e^{2√R}, uniformemente in i (SymPy D2). Ne segue Σ_k|t|^ka_ke^{2√R}/k! < ∞: U è intera. La derivazione termine a termine è lecita (Weierstrass), e P(∂)U = 0 si ricava confrontando i coefficienti (SymPy D3, residuo 0 fino a t⁵, x²⁴). I getti sono in ℚ (D4). **OK.**
+- (3) Cosa usa P4-L7 passo (3) di e^{x²} (AUDIT_P4-L7 L7.12–L7.16): solo "r ≠ 0 ⇒ r(∂_x)f ∉ EP(J₀)" e la scelta di λ fuori da un'unione finita di sottospazi propri. Per g: se s(∂)r(∂)g = 0 su J₀, per analiticità vale su ℝ, e il coefficiente di x^n dà Σ_ia_i(n+N)!/(n+i)! = 0, polinomio in n con coefficiente direttore a_0, da cui per induzione a_i = 0 (SymPy D1: rango pieno per N = 3, 7). La fetta {t′ = 0} ∩ Ω′ contiene un intervallo J₀ ∋ 0, la restrizione di un EP è EP, C3-T1(a) vale su Ω connesso. **OK.**
+- **L2-1 (MINOR, dal KA):** "Per λ ∈ ℚ^m" → "per λ ∈ ℚ^m fuori dall'unione finita dei sottospazi propri {r_i^λ = 0} (P4-L7)". λ = 0 non va.
+- **C2:** OP-ALG-D2 definisce 𝒰 solo localmente: u reale-analitica su Ω, P(∂)u = 0, getti in p₀ in K. Nessuna condizione globale, quindi anche Ω illimitato va bene. P4-T5 Passi 1–3 usa esponenziali centrati e^{⟨z,y−p₀⟩} e nessun ε. L'avversario di OP-ALG-T3(f) usa la località solo nell'istanza base. **OK.**
+- **C2-1 (MINOR, dal KA, testuale):** la prova verbatim di OP-ALG-T3(f) usa e^{⟨z₀,y⟩} ed e^{⟨z,·⟩} (z ∈ F) **non centrati**. Per p₀ ≠ 0 i getti portano il fattore e^{⟨z,p₀⟩}, trascendente (Lindemann–Weierstrass), quindi u′ ∉ 𝒰. OPR2-C2 ricentra solo e. Va scritto che **tutti** gli esponenziali dell'avversario (z₀, z ∈ F, la definizione di S_F) sono e^{⟨z,y−p₀⟩}.
+- **C2-2 (MINOR, portata):** la prova non usa che p₀ sia algebrico. Dichiarare che p₀ ∈ (K∩ℝ)² è la convenzione del modello M2⁺ (P4-T5), oppure togliere l'ipotesi.
+**Verdetto: L2 PASS-con-fix(L2-1) → DIMOSTRATO; C2 PASS-con-fix(C2-1, C2-2) → DIMOSTRATO.** OP-ALG-Q2 CHIUSO.
+
+## 5. OPR2-P4 (Novikov integrato)
+- R_n: R_1 = y_0, R_2 = y_2 + 3y_0², R_3 = y_4 + 10y_0y_2 + 5y_1² + 10y_0³ (SymPy E1, ricavati da me per integrazione nell'algebra differenziale). **Il coefficiente di y_0^n in R_n non è mai nullo:** dalla ricorrenza, 4u∂(c_nu^n) + 2u_xc_nu^n = (4n+2)c_nu^nu_x, quindi c_{n+1} = (4n+2)c_n/(n+1) > 0 (1, 3, 10, 35: E2). Questo giustifica "deg p_N = N+1", che il package afferma senza prova.
+- G costante in x, che tende a 0 per x → +∞: p_N(0) = 0 per quasi omogeneità di peso > 0. **OK.** Indipendenza dei c_j da t: parte di (Nov).
+- V-ex indipendente: N = 1 (E4) e N = 2, k = (1,2), con c = (−5, 4) = ((−1)e_1(k²), e_2(k²)), residuo esatto 0 a 30 cifre in 4 punti razionali (E3). Coefficiente di y_4 uguale a 1 e grado 3 (E5). **OK.**
+- **P4-1 (MINOR, HIDDEN_ASSUMPTION):** il limite x → +∞ richiede k_i reali positivi distinti. Per la "famiglia formale" (k generici) va aggiunto: p_N(k) si annulla per k reali positivi, cioè su un aperto, e la relazione è un'identità polinomiale/analitica in k, quindi vale per ogni k (densità di Zariski). In alternativa, enunciare con k_i > 0.
+**Verdetto: PASS-con-fix(P4-1) → DIMOSTRATO mod (Nov) CON-FONTE.** δ_N(K) ≤ N+1 per K ≥ 2N; OP-K15 APERTO (il rapporto di blocco è corretto e onesto).
+
+## 6. OPR2-L5, OPR2-T5 (KdV–Burgers prima dello shock)
+- **L5:** con ∂_x = J^{−1}∂_a si ottiene v_xxx = u₀‴/J⁴ − 3tu₀″²/J⁵ (SymPy F3). La formula soddisfa d/dt(δ_dJ) = −Jv_xxx (F1) e vale δ_d(0) = 0 (F2). **OK.**
+- **Passo 1:** l'equazione di e è corretta. Antisimmetria di ∂³ e dissipazione (F5); ⟨v∂^{j+1}e, ∂^je⟩ = −½∫v_x(∂^je)² (F6). Nel termine quadratico, per 1 ≤ i ≤ j, ∂^{j−i+1}e ha ordine ≤ j ≤ k e ‖∂^ie‖_∞ ≤ C‖e‖_{H^k} se i ≤ k−1; il caso i = j = k dà ∫e_x(∂^ke)². Con k ≥ 2 si ha ‖e_x‖_∞ ≤ C‖e‖_{H^2}. **OK.**
+- **Domanda 4 (√Y quando Y si annulla; qui Y(0) = 0):** il passaggio a (√Y)′ non è lecito dove Y = 0. Il fix è Z_η := (Y+η)^{1/2}. Si ha Z′ = Y′/(2Z) ≤ (C_1/2)(1+√Y)Y/Z + ‖g‖√Y/Z ≤ C_1Z + ‖g‖ finché √Y ≤ 1 (perché Y ≤ Z², √Y ≤ Z), quindi Z(t) ≤ (√η + ‖g‖t)e^{C_1t}, e si fa η → 0 (SymPy F7: 20000 campioni). La conclusione del package è corretta → **T5-2 (MINOR, ADD_DERIVATION)**. Il bootstrap va scritto come argomento di continuità: T° := sup{t ≤ min(T, T_max): √Y ≤ 1 su [0,t]}; lì √Y ≤ ½, quindi T° = min(T, T_max), e T_max > T per il criterio di esplosione.
+- **Passo 2:** la formula di f è verificata in SymPy con funzioni generiche (F4). ‖ee_x‖_{H^k} ≤ C‖e‖_{H^k}‖e‖_{H^{k+1}} usa il Passo 1 con k+1, quindi η_k := η_{k+1}^{Passo 1}, come dichiarato. δ, δ_d ∈ C^∞ perché J ≥ 1 − T/t* > 0. Per w la stima d'energia è lineare (stesso trucco η). **OK.**
+- **Passo 3:** Taylor dei moltiplicatori (F8); i segni di S_C (moltiplicatore e^{idn³t}) danno +dtu₀‴. **OK.** **T5-3 (MINOR, COSMETIC):** "k = 1, Sobolev" contraddice k ≥ 2: usare k = 2 (H² ⊂ L^∞, o H¹ ⊂ L^∞ dalla stima H²).
+- **T5-1 (MAJOR: UNJUSTIFIED+LOCAL, REFERENCE_MISMATCH).** (LWP) cita Pazy §6.3 ("semilinear equations with analytic semigroups") ed Henry cap. 3 (operatori settoriali). Per d ≠ 0 il generatore ν∂² − d∂³ ha spettro −νn² + idn³ con arg → π/2 (SymPy F9): non è settoriale e il semigruppo non è analitico. I teoremi citati non si applicano come enunciati. Per d = 0 vanno bene. **L'enunciato (LWP) resta vero**, e c'è una prova diretta di poche righe. Il moltiplicatore ha modulo e^{−νtn²}, quindi ‖∂_xS(t)‖_{H^s→H^s} ≤ (νt)^{−1/2}·C (F10). Il punto fisso di Duhamel per u = S(t)u₀ − ½∫_0^tS(t−τ)∂_x(u²)dτ in C([0,T₀]; H^s), s ≥ 1, chiude con T₀ = T₀(ν, ‖u₀‖_{H^s}), perché ∫_0^t(ν(t−τ))^{−1/2}dτ < ∞ e H^s è un'algebra. Ne seguono il criterio di esplosione in H^s per s = 2 e la persistenza della regolarità H^k (con le stesse stime d'energia del Passo 1). Fonte alternativa da verificare (CIT-AUDIT-F5): Molinet–Ribaud 2002 (KdV–Burgers); Bona–Smith 1975. Il **fix** consiste nell'inserire questa prova, o la fonte corretta, al posto di Pazy/Henry. Poiché le costanti C_k di T5 non dipendono da ν (le stime del Passo 1 sono uniformi), l'uso della (LWP) è solo qualitativo e T_max(ν) non entra nelle costanti.
+**Verdetto: L5 PASS → DIMOSTRATO; T5 PASS-con-fix(T5-1 MAJOR, T5-2, T5-3) → DIMOSTRATO mod (LWP), dopo T5-1.** S4T-Q2 CHIUSO; S4T-T4(iii) → DIMOSTRATO mod (LWP).
+
+## 7. OPR2-P6, P7, O8, O9 (INT-Q1 analitici)
+- **P6:** IFT analitico, u_x = φ(u) su U. Poi u_t = Ψ(u), c = Ψ/φ = −αu − β(φφ′)′ analitica, e la compatibilità dà −c′φ² = 0 (SymPy G1). Su U′ connesso con φ(u) ≠ 0, u non è costante, l'immagine è un intervallo e c è costante. L'ODE si estende a ℝ per analiticità; il decadimento dà A = B = 0 (integrale primo, G2) e quindi il solitone (classico). Un solo t₁ con u(t₁) solitone o 0 basta: |r| è invariante, quindi r ≡ 0, e "per ogni t solitone o 0" segue dall'IST (dati senza riflessione con un autovalore) o dall'unicità (u ≡ 0). **OK.** **P6-1 (MINOR):** dichiarare questo ultimo passaggio con IST/unicità come CON-FONTE (oggi è implicito), e scrivere esplicitamente il caso φ(u) ≡ 0 su U (u(t,·) costante su un intervallo ⇒ 0).
+- **P7:** p è autonomo, quindi p(getto di u(t,·+x_t)) = 0; il limite C^∞_loc dà p(getto φ_κ) = 0. **OK, CONDIZIONALE a (SR) con derivate** (come (H-as) in OP-NL).
+- **O8:** l'eliminazione di x e t è corretta. R ≠ 0, d'ordine 5 (SymPy G3), e si annulla sul getto di una soluzione autosimile numerica (mpmath, ODE f‴ = 2f + zf′ − 6ff′, residuo relativo 5·10⁻²⁶: G4). **OK.** **O8-1 (MINOR, UNCLEAR):** la parentetica "(|r| costante, non di Schwartz)" non ha senso per potenziali non di Schwartz (i dati di scattering non sono definiti nel quadro standard). Scrivere: "esistono soluzioni di KdV, reali-analitiche in x, con J_u ≠ 0 che non sono potenziali di Schwartz né solitoni".
+- **O9 — FAIL come scritta (O9-1, CRITICAL locale: INVALID+LOCAL).** Per OP-L2, I_PW = ker Φ*, Φ(α,β,c) = (α, β, cα, cβ, c²α, …): un polinomio sta in I_PW se e solo se si annulla sui getti di **tutte** le soluzioni di v″ = cv, **per ogni** c. Invece (y_1² − k²y_0²)∘Φ = β² − k²α² ≢ 0 (SymPy G5). Su v = cosh(kx) vale −k² (G6). Il controllo F3c del package verifica solo che y_1² − k²y_0² sia la componente minima, non l'appartenenza a I_PW. La frase "si annulla su v″ = k²v" è falsa anche per il solo c = k² (si annulla su e^{±kx}, non su cosh). Quindi p = Π_1 + y_0DΠ_1 **non** soddisfa il vincolo di S4ID-P8: O9 com'è scritta è **FALSA**. La parte "p irriducibile e nullo sul solitone" è vera (G11) ma non serve.
+- **O9′ (sostituzione, prova del revisore).** Sia p′ := y_0y_3 − y_1y_2 + 3y_0²y_1 = y_0·D(R) − y_1·R con R := y_2 − k²y_0 + 3y_0² (R = 0 è l'ODE del solitone u″ = k²u − 3u²; il k si elimina).
+  (a) p′ si annulla sui getti del solitone, per ogni k (G7).
+  (b) La componente omogenea minima è y_0y_3 − y_1y_2, uno dei minori y_iy_{j+2} − y_{i+2}y_j ∈ I_PW (OP-L2; G8).
+  (c) p′ è irriducibile su ℂ: è lineare in y_3 con coefficiente y_0, e il termine noto y_1(3y_0² − y_2) è coprimo con y_0 (G9).
+  (d) Non ha parte lineare e ha ordine 3 ≥ 2, quindi è compatibile con OPR2-P6 (G10).
+  Quindi i due vincoli disponibili (OPR2-P7 e S4ID-P8) sono soddisfatti insieme da un polinomio irriducibile, e non escludono J_u ≠ 0: **la conclusione voluta da O9 vale con p′.**
+**Verdetto: P6 PASS-con-fix(P6-1) → DIMOSTRATO; P7 PASS → CONDIZIONALE (SR); O8 PASS-con-fix(O8-1) → DIMOSTRATO; O9 FAIL → FALSO (com'è scritta); O9′ → DIMOSTRATO.** INT-Q1 (analitici) resta APERTO; le ostruzioni sono OP-O5, OPR2-O8, OPR2-O9′.
+
+## 8. Risposte alle 4 domande della CHECK_REQUEST
+1. **T1 Passo 7(iii), ordine r, δ, ε:** nessuna circolarità. L'ordine è r (geometria degli angoli) → δ (triangoli dentro B(C_i,r)) → θ_i, χ_i → ε₀ con 3r+ε₀ < min(T, b−a) e σ₀ = ε₀(1+c) < δ/2 → K = [a−cT+δ/2, b−δ/2] fisso → ε ↓ 0. I traslati di supp∇θ_i ∩ Ω restano in Ω_K per ogni ε < ε₀. Le condizioni vanno scritte (T1-1).
+2. **T2, nucleo e HS:** il fattore 1/|sin∠| del nucleo è corretto. Nel cambio di variabili HS il jacobiano è |sin∠|, quindi ‖K‖²_HS porta un fattore 1/|sin∠| (costante, assorbibile: T2-1). SymPy B1, B2.
+3. **T3, r ≤ ℓ ≤ m e D_i:** "r ≤ ℓ ≤ m" è corretto (Jordan–Hölder + socle senza molteplicità). La scelta di D_i ∈ 𝔇 per moltiplicazione a sinistra con un denominatore comune è corretta. La descrizione "divisore destro di P" è falsa per scelte non minime (T3-1), e l'esempio uniseriale della Lettura è falso per a = x (T3-2).
+4. **T5, √Y con Y → 0:** si usa (Y+η)^{1/2} con η → 0, come suggerito (T5-2, F7). Il punto vero da correggere in §5 del package è invece la fonte della (LWP) (T5-1).
+
+## 9. Kill-argument (subagenti Claude freschi; verdetto calcolato da me con la tabella della skill)
+- **OPR2-T1** (KA_OPR2_T1_*): attacco "cannot kill". L'attaccante ha verificato commutatore, supporti, ordine delle costanti, L0, riduzioni ed estensione. Arbitrato: 5 answered, 2 partially (minor: c_F/γ_2 non definiti; condizioni implicite e CON-FONTE), 0 still_unresolved. Difetti aggiuntivi, tutti minor: C^∞(N̄), K esplicito, Estensione come abbozzo. **Verdetto: PASS** → fix T1-1..T1-4.
+- **OPR2-T3** (KA_OPR2_T3_*): attacco "weak reject" su due punti: (a) esempio uniseriale falso per a = x; (b) parentetica su D_i falsa se deg A_i ≥ 2. Arbitrato: entrambi **still_unresolved, minor**, fuori dal nucleo logico. Il criterio sopravvive, P3′ corretto. **Verdetto: WARN** (unresolved minor) → fix T3-1, T3-2 obbligatori, T3-3. Il punto (a) l'avevo trovato anch'io indipendentemente (SymPy C2).
+- **OPR2-L2** (KA_OPR2_L2_*): attacco "cannot kill" sul lemma. Sul corollario: "prova per rinvio". Arbitrato con appendice verbatim (OP-ALG-D2, OP-ALG-T3(f), P4-T5): R1, R2 answered (𝒰 definito localmente, avversario indipendente dal dominio); R3, R4 partially (minor). Difetti aggiuntivi: esponenziali non centrati (C2-1), portata in p₀ (C2-2), λ generico (L2-1). **Verdetto: PASS** → fix L2-1, C2-1, C2-2.
+
+## 10. Fix (riepilogo per il recepimento)
+MAJOR: **T5-1** (fonte (LWP): sostituire Pazy/Henry con la prova diretta per lisciamento (§6) o con una fonte per KdV–Burgers, da verificare in CIT-AUDIT-F5). CRITICAL locale: **O9-1** (O9 → O9′ con p′ = y_0y_3 − y_1y_2 + 3y_0²y_1; dichiarare FALSO l'enunciato con Π_1 + y_0DΠ_1; correggere il commento di F3c in opr2_checks.py). MINOR: T1-1, T1-2, T1-3, T1-4, L1-1, T2-1, L3-1, T3-1, T3-2, T3-3, L2-1, C2-1, C2-2, P4-1, T5-2, T5-3, P6-1, O8-1.

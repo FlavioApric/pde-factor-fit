@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper,oneside]{report}
+\input{preamble_all}
+\externaldocument[PAP-]{paper_tutte_le_fasi}
+\renewcommand{\shorttitle}{Catalogue of proofs --- Phases 0--10}
+\newcommand{\inc}[1]{\IfFileExists{#1.tex}{\input{#1}}{}}
+
+\newcommand{\paperref}[1]{\ifx\relax#1\relax\else\textsf{\footnotesize\color{cG}Stated in the paper as no.~\ref{PAP-#1}, p.~\pageref{PAP-#1}}\fi}
+\newtcolorbox{dimcardbox}[5]{enhanced,colback=cA!4,colframe=cA,boxrule=0.8pt,arc=1.5pt,
+  left=9pt,right=9pt,top=8pt,bottom=6pt,before skip=16pt,after skip=10pt,
+  fonttitle=\bfseries\sffamily,coltitle=white,colbacktitle=cA,
+  title={Dim.~#1\hfill #2},
+  before upper={\setlength{\parskip}{0.5em}\phantomsection\label{dim:#2}{\sffamily\bfseries\large #3}\hfill #4\par\smallskip},
+  after upper={\par\smallskip\paperref{#5}}}
+\newenvironment{dimcard}[5]{\par\Needspace{12\baselineskip}\begin{dimcardbox}{#1}{#2}{#3}{#4}{#5}}{\end{dimcardbox}}
+\newcommand{\listcard}[4]{\par\noindent\begin{tabular}{@{}L{2.4cm}L{9.0cm}L{3.2cm}@{}}\textsf{\small\bfseries #1} & #2 & #3\end{tabular}\par\noindent{\small #4}\par\medskip}
+
+\begin{document}
+\pagenumbering{roman}
+\begin{titlepage}
+\centering
+\vspace*{2.4cm}
+{\sffamily\color{cG}\large Companion volume \textperiodcentered{} Phases 0--10\par}
+\vspace{0.8cm}
+{\sffamily\bfseries\Huge\color{cA!85!black} Catalogue of Proofs\par}
+\vspace{0.6cm}
+{\large Exact recovery of a differential operator from a single solution\par}
+\vspace{1.4cm}
+\begin{tikzpicture}[font=\small\sffamily]
+\node[draw=cA,fill=cA!8,rounded corners=2pt,text width=5.0cm,align=center,minimum height=15mm] (a) {\textbf{Part I}\\ Phases 0--5, load-bearing\\ Dim.~A1--A31};
+\node[draw=cA,fill=cA!8,rounded corners=2pt,text width=5.0cm,align=center,minimum height=15mm,right=8mm of a] (b) {\textbf{Part II}\\ Phases 6--10, load-bearing\\ Dim.~A32--A53};
+\node[draw=cG,fill=cG!8,rounded corners=2pt,text width=5.0cm,align=center,minimum height=15mm,below=6mm of a] (c) {\textbf{Part III}\\ Phases 0--5, the rest\\ Dim.~B1--B72};
+\node[draw=cG,fill=cG!8,rounded corners=2pt,text width=5.0cm,align=center,minimum height=15mm,right=8mm of c] (d) {\textbf{Part IV}\\ Phases 6--10, the rest\\ Dim.~B73--B97, list cards};
+\end{tikzpicture}
+\vfill
+{\small Every card carries its ledger identifier, its trust label, and the page of the statement in the companion paper \emph{Exact Recovery of a Differential Operator from a Single Solution, complete edition, Phases~0--10}.\par}
+\vspace{0.4cm}
+{\small October 2026\par}
+\end{titlepage}
+
+\inc{c_front_all}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\part{Phases 0--5: the load-bearing proofs}
+\inc{c_I1}
+\inc{c_I2}
+\inc{c_I3}
+\inc{c_I4}
+
+\part{Phases 6--10: the load-bearing proofs}
+\inc{c_III1}
+\inc{c_III2}
+\inc{c_III3}
+\inc{c_III4}
+\inc{c_III5}
+\inc{c_III6}
+
+\part{Phases 0--5: the other results}
+\inc{c_II1}
+\inc{c_II2}
+\inc{c_II3}
+\inc{c_II4}
+
+\part{Phases 6--10: the other results}
+\inc{c_IV1}
+\inc{c_IV2}
+\inc{c_IV3}
+\inc{c_IV4}
+\inc{c_IV5}
+\inc{c_IV6}
+\inc{c_IV7}
+
+\appendix
+\inc{c_index_all}
+\inc{p_refs}
+\end{document}

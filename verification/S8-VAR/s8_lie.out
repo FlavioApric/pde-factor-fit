@@ -1,0 +1,7 @@
+[OK] (i) ad^j_{d^2}(c d^3 + ...) ha coefficiente di testa 2^j c^{(j)} (j=1..3) 
+[OK] (ii) [f,[d^2,g]] = -2 f' g' 
+[OK] (iii) span{d^2, x^2, x d + 1/2, d, x, 1} chiuso per commutatori 
+    V=x^3: gradi delle funzioni prodotte: [4, 5, 6, 7]
+    V=e^x: [-2*exp(2*x), 8*exp(3*x), -48*exp(4*x)]
+[OK] (iv) x^3: grado cresce; e^x: e^{kx} nuove; sech^2: nessuna derivata nulla 
+RISULTATO: TUTTO OK

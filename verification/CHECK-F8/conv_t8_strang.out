@@ -1,0 +1,25 @@
+PASS b/(a-b)=1/(e^x-1)
+PASS (a+b)/(a-b)=coth(x/2)
+PASS V_21 = -4c*2*1/(L*3)
+PASS forma chiusa (a) = somma diretta (err 2.3e-36)
+pendenze Strang: ['1.25417', '1.25126', '1.25043', '1.25017']
+pendenze Lie   : ['0.921293', '0.96566', '0.98391', '0.992207']
+PASS Strang pendenza -> 5/4 (|ultima-1.25|<3e-3)
+PASS Lie pendenza -> 1 (|ultima-1|<3e-2)
+G^Str/h^(5/4): ['8.43701e-5', '8.38836e-5', '8.37369e-5', '8.36868e-5', '8.36675e-5']
+PASS phi* = (coth(1/2)-2)/2 = 0.08198
+h=0.0025  ||G^Str||=4.68553e-8  minorante=1.87884e-9
+h=0.001  ||G^Str||=1.4891e-8  minorante=5.97676e-10
+h=0.0003333  ||G^Str||=3.76959e-9  minorante=1.51378e-10
+PASS minorante (c) rispettato
+PASS #pari in W_h >= 1/(4 sqrt(kappa h)) per kappa h <= 1/36
+PASS |phi_S| crescente
+PASS |phi_S(x)| <= min(x/12,1/2)
+m=4: |V_41|=1.06667, 8/(3Lm)=0.666667, 16/(3Lm)=1.33333
+PASS (d): il bound 8|c|/(3Lm) e' FALSO per m=4 (fix CONV-5)
+PASS (d): il bound 16|c|/(3Lm) vale per m pari >= 2
+pendenze difetto locale Strang: ['1.16923', '1.23005', '1.24514', '1.24885']
+PASS difetto locale Strang -> 5/4
+[V-ex] pendenze L^inf (x<=0.05): ['1.0021', '1.0041', '0.99795']
+PASS [V-ex] L^inf Strang pendenza ~1 (|ultima-1|<0.1)
+TUTTI PASS (15/15)

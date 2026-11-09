@@ -1,0 +1,22 @@
+# VERDETTO — F4-LIN · strada (iv) linearizzazioni esatte · 26/10/2026
+Skill: session-protocol, route-scout, claim-lifecycle (stati), research-lit (solo web), novelty-check (A, B, D; C = REVIEW_UNAVAILABLE), math-skill (proof), formula-derivation, sympy. SymPy: ch_gauge 17/17, trop_burgers 12/12, miura_darboux 10/10. Dettagli e prove: NOTE.md. Nulla è DIMOSTRATO; nessun audit.
+
+**Triage.** Serve G★′ a L5 (Fase 4). È analitica (k3). Cole–Hopf trasforma Burgers in un **cono** di calori positivi (non in uno spazio lineare), tramite una gauge piatta definita solo su Ω con H¹_dR = 0 (la stessa ipotesi di C12-T1′, F4LIN-P2).
+
+## Risposte I / S / E
+| mappa | (I) identificazione | (S) scomposizione | (E) E_int |
+|---|---|---|---|
+| **Cole–Hopf** | **parziale.** F4LIN-P1: Q ↦ B_Q[u] = φ⁻¹Q(∂)φ manda Ann(φ) nell'ideale differenziale di u (sezione "linearizzabile"). C3-T1 → "nessuna relazione linearizzabile extra ⟺ φ ∉ EP"; C3-T3 → basta il x-getto di u d'ordine 4d−3 (F4LIN-T3). **Ostruzione F4LIN-C1**: la mappa dipende da ν incognito; φ = nucleo del calore identifica il calore per ogni ν, ma u = x/t risolve Burgers per ogni ν | **parziale.** Fattori: banale (τ−νξ² irriducibile, O1). Sovrapposizione: u = Σ w_j u_j, w = softmax, esatta; canonica su ℝ (Widder: raggi estremi del cono = misura di Ehrenpreis positiva, CON-FONTE da verificare); non intrinseca su Ω limitato; instabile (F4LIN-P5, candidato). **Termini: no** (F4LIN-O1: in φ i flussi di uu_x e νu_xx diventano non lineari; il calore ha un solo termine) | **sì**: in φ è 0; E^mix esatta, costo O(N) (contro Θ(2^N) per la tabella di P1-T3) |
+| **tropicale (RT-R7b)** | ν si perde nel limite (u⁰ costante a tratti: ostruzione da simmetria RT-R7c); con ν > 0 si legge dalla larghezza degli shock | celle tropicali D_i = {S_i minimo}; shock = curva tropicale; albero degli shock duale alla suddivisione regolare dei punti spettrali su V(P) (classico in KP/KdV tropicale) | **sì, F4LIN-T2 (prova scritta)**: −2ν log N ≤ ψ^ν − ψ⁰ ≤ 0 ovunque, ogni t, ogni N; per shock isolato ‖u^ν − u⁰‖_{L¹} = 4ν ln 2 esatto (indipendente dal salto), ‖·‖_{Ḣ^s} ∝ ν^{1/2−s} per s < 1/2, nessuna convergenza per s ≥ 1/2; N onde: 4ν ln 2·#shock + o(ν) (V-ex) |
+| **Miura** | una direzione, prova scritta: I(v) = [mKdV] ⇒ I(u) = [KdV] (getti, jacobiano triangolare); viceversa da F4-ALG via Galois SL₂ (fonte da verificare) | solo come fattore di Lax: −∂² + u = (−∂−v)(∂−v) (Loewy) | nessuno in proprio |
+| **Darboux/Crum** | nulla oltre R7-L4 | componenti = autofunzioni del seme (lineari) | interazione solo a coppie = fattorizzazione del Vandermonde del Wronskiano: A_ij = ((k_i−k_j)/(k_i+k_j))², A_123 = A_12A_13A_23 (V-ex N ≤ 3; classico) |
+
+## Novità (novelty-check, 4/10, PROCEED WITH CAUTION)
+Stime e geometria tropicale sono territorio classico: profilo dello shock viscoso; Tang–Teng (O(ν) senza rarefazioni, O(ν|log ν|) in generale); Wang (log ottimale per Burgers); Maslov/Litvinov; Dimakis–Müller-Hoissen (KP/KdV tropicale); Crum, Freeman–Nimmo. Nessun articolo trovato contiene il pacchetto: trasporto I/S/E di Fase 3 con le ostruzioni F4LIN-C1 (parametro) e F4LIN-O1 (termini), e lettura di Widder come Ehrenpreis positiva. Nessun ABANDON.
+
+## Raccomandazioni (criteri del PLAN §3, fissati prima)
+- **RT-R7b (Cole–Hopf + tropicale): PROMUOVI**, con portata ristretta. (P-a) è soddisfatto: stima esplicita in ν con costante, per N arbitrario (F4LIN-T2(i),(ii)). (P-b) è soddisfatto: (S) trasportato come Choquet/Widder ↔ misura di Ehrenpreis (G6, R4), (I) come C3-T3 sul getto (F4LIN-T3). Avvertenza onesta: la stima da sola è quasi classica; il valore per G★′ è il dizionario e le due ostruzioni. Proposta per il Gate 4a: una sessione "Burgers L5" con obiettivi (1) F4LIN-T2 + LIN-Q1 (collisioni), (2) LIN-Q2 (fattore log = misura continua), (3) LIN-Q3 (E^mult per **termini** nei tre semianelli: l'unico punto dove la strada può dare qualcosa di nuovo sullo strato "termini"). Criterio di eliminazione per la sessione: se LIN-Q3 non dà forma chiusa né stima, la strada si riduce a lemma di RT-2 (corollario di regime).
+- **Cole–Hopf (propria)**: confluisce in RT-R7b (stesso oggetto); trasporta I e S parzialmente, E sì.
+- **Miura: MERGE in RT-R7a** (strumento: fattorizzazione dell'operatore di Lax; il trasporto di (I) va nella tabella hub di F4-ALG).
+- **Darboux/Bäcklund/Crum: MERGE in RT-R7a** (S ed E per N-solitoni passano tutti per L; "a coppie ⟸ Vandermonde" consegnato a F4-INT, LIN-Q8).
+- Nessuna NEW-ROUTE. Stato del criterio "PROMUOVI": proposta per il Gate 4a, non decisione.

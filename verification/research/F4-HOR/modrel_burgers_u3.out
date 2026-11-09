@@ -1,0 +1,7 @@
+== Burgers 2-shock, (u,u^2,u^3), K=2: 18 feature, dim relazioni = 4
+    (1)*dt^0dx^2(u^1) + (-1)*dt^1dx^0(u^1) + (-1/2)*dt^0dx^1(u^2)
+    (1)*dt^0dx^0(u^1) + (-3/2)*dt^0dx^1(u^1) + (-1/4)*dt^0dx^2(u^1) + (3/4)*dt^1dx^0(u^1) + (3/4)*dt^0dx^0(u^2) + (1/8)*dt^0dx^0(u^3)
+    (1)*dt^0dx^1(u^1) + (-3/2)*dt^1dx^0(u^1) + (1/2)*dt^1dx^1(u^1) + (-1/8)*dt^0dx^2(u^2) + (1/8)*dt^0dx^1(u^3)
+    (1)*dt^1dx^0(u^1) + (-3/2)*dt^1dx^1(u^1) + (1/2)*dt^2dx^0(u^1) + (3/4)*dt^1dx^0(u^2) + (-1/8)*dt^1dx^1(u^2) + (1/8)*dt^1dx^0(u^3)
+== KdV 2-solitone, (u,u^2), K=3: 20 feature, dim relazioni = 1
+    (1)*dt^0dx^3(u^1) + (1)*dt^1dx^0(u^1) + (3)*dt^0dx^1(u^2)

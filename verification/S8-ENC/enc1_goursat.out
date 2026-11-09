@@ -1,0 +1,16 @@
+OK   ENC-1 intertwining L_q T f = T L_0 f, q = x: residuo O(x^19) 
+OK   ENC-1 dati di Cauchy conservati, q = x 
+OK   ENC-1 K(x,-x)=0 e K(x,x)=1/2 int q, q = x 
+OK   ENC-1 inverso T'T f = f, q = x: errore O(x^21) 
+OK   ENC-1 L_0 T' = T' L_q, q = x: residuo O(x^19) 
+OK   ENC-1 intertwining L_q T f = T L_0 f, q = 1 + w^2 (q(x)=1+x^2): residuo O(x^12) 
+OK   ENC-1 dati di Cauchy conservati, q = 1 + w^2 (q(x)=1+x^2) 
+OK   ENC-1 K(x,-x)=0 e K(x,x)=1/2 int q, q = 1 + w^2 (q(x)=1+x^2) 
+OK   ENC-1 inverso T'T f = f, q = 1 + w^2 (q(x)=1+x^2): errore O(x^16) 
+OK   ENC-1 L_0 T' = T' L_q, q = 1 + w^2 (q(x)=1+x^2): residuo O(x^12) 
+OK   ENC-U1 T_{k0} intreccia per ogni k0 (residuo O(x^17)) 
+OK   ENC-U1 (T_{k0} f)'(0) = f'(0) + 2 k0 f(0) 2*k0
+OK   ENC-U1 q=0: I + k0 int_{-x}^{x} commuta con L_0 0
+OK   punto base: T_0 e^{ikx} != T_{1/5} e^{ikx} per q = 2 (entrambe autofunzioni) (0.09198919653339645+0.011898861857309255j)
+
+TOTALE: 14/14 OK

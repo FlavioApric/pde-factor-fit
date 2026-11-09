@@ -1,0 +1,28 @@
+--- C3-T1 ---
+[OK]   P=(τ-ξ²)², u modi del calore: w_1 = (P/P_1)u = 0 ∈ EP ⇒ Ann(u) ≠ (P) (a)
+[OK]     w_1' = (P/P_1^2)u = u (infiniti modi nella versione non troncata ⇒ ∉ EP) ⇒ V(Ann u) = V(P) (b): (a) e (b) differiscono
+[OK]   P=τ(τ-ξ²), u = calore + cos x: w_τ = (∂_t-∂_x²)u = cos x ∈ EP
+[OK]     testimone h·P/P_i = (ξ²+1)(τ-ξ²) ∈ Ann(u) \ (P)
+[OK]   L3(c): (τ-1)²τ² ∈ Ann((1+t)e^{t-x} + x)
+[OK]   M2: il jet di ordine < 4 di u in (1,0) è il jet di un polinomio (∈ EP): "w ∉ EP" non è certificabile da un jet finito
+--- II-T2 ---
+[OK]   r_1 = Res(Q_1,B_1) = -(xi - 1)*(xi + 1) ≠ 0
+[OK]   Π_1 idempotente, commuta con C
+[OK]   ξ₀=0 (r_1(0)≠0 ma Q_2,Q_3 collidono): dim ker B_1(C₀) = 2 > dim(ker Q_2(C₀)+ker Q_3(C₀)) = 1
+[OK]     ker Π_1(0) = ker B_1(C₀) (dim 2): "lungo ⊕_{i≠j} ker Q_i(C₀)" va sostituito con "lungo ker B_j(C₀)"
+[OK]   (b′) r_2 = 2*xi*(xi - 1): zeri ξ = 0 (Q_2∩Q_3) e ξ = 1 (Q_2∩Q_1) = ascisse dei punti comuni
+--- II-T3 / II-C2 ---
+[OK]   V(τ)∩V(τ-1)=∅ e forme iniziali τ, τ con zero comune [0:1] in ℙ¹ (C2)
+--- II-T4 ---
+[OK]   τ²-ξ irriducibile su ℂ(ξ): il proiettore su una sola radice √ξ non è razionale (nessun fattore)
+--- II-P5 ---
+[OK]   k=2: CC*-C*C coincide con la formula della prova
+[OK]   s²+s-1: compagna normale (simmetrica) e non della forma s²-c
+[OK]     λ_1 λ̄_2 = -1 (radice quadrata non banale dell'unità)
+[OK]   k=3, s³-1/2 (|c|≠1): non normale
+--- II-T7 ---
+[OK]   radici 0<1<2: φ_1 ha uno zero in t = ln 2 > 0 (fattorizzazione non globale)
+[OK]   radici -2<-1: φ_1 > 0 per t ≥ 0 (globale)
+[OK]   Φ_11 = φ_1 e det Φ = e^{-p_1 t} = e^{3t}
+
+ESITO GLOBALE: OK

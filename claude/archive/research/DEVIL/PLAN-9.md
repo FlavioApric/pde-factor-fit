@@ -1,0 +1,10 @@
+# PLAN-9 — DEVIL-9 (avvocato del diavolo sulla specifica di Fase 9)
+
+27/10/2026. Sessione DEVIL-9, avviata dal coordinatore.
+
+1. **Letture.** `ALGORITMO_ESTESO.md`; `work/S9-ALG/{PLAN,open_questions}.md` e `work/S9-ALG/sympy/`; PROBLEM v3.1 (G★″); GATE8; LEDGER (sezione «Fase 8» con la tabella delle decisioni del coordinatore, e le righe delle Fasi 1–5 citate dalla specifica); NOTAZIONE v5; ATTACK-8; coda di `inbox/central-F6.md` (AVVISO DM2 di S9-ALG). Skill: `skills-local/claim-lifecycle` e kill-argument (`_vendor`, solo lettura, solo il thread di ATTACCO: memo unico ≤ 250 parole, poi obiezioni atomiche).
+2. **Bersagli, passo per passo.** (a) ogni ID citato esiste nel LEDGER con lo stato dichiarato; (b) nessun fondamento su PROVA SCRITTA, CANDIDATO, APERTO; (c) compatibilità delle ipotesi fra passi consecutivi; (d) coerenza dei sensi ID-*; (e) DM3 contro DM2/DM-δ; (f) completezza dei modi di fallimento rispetto ai teoremi negativi del LEDGER; (g) onestà dei costi; (h) catena CONV-T7 con Magnus condizionato; (i) encoder come traduzione, non come informazione.
+3. **SymPy/mpmath** (`sympy9/devil9_checks.py`, solo verifica, `.venv\Scripts\python.exe -I`): riesecuzione dei quattro script di S9-ALG; tentativi di controesempio: dato EP a più modi che dà rango pieno nella classe hamiltoniana di Dirac; dato EP (DM1) che non identifica; getto d'ordine qualsiasi di un dato non EP riprodotto da un dato EP; annullatore non evolutivo per il dato di Pöschl–Teller nel sottoanello ℂ[∂_t, L_q]; interpolazione locale di un dato non locale a modi finiti; dipendenza dalla norma in DM-δ (VAR-P3); precisione di lavoro e certificato di misfit (MF2) sul calore; vacuità del bound CONV-T4 nell'esempio 9.5(c); ordine di grandezza di C_W.
+4. **Uscita.** `ATTACK-9.md`: memo, obiezioni con severità, proposta per il Gate 9, raccomandazione DM2/DM-δ per NOTAZIONE v6. Riga `DONE DEVIL-9` in `inbox/central-F6.md`.
+
+Vincoli: scrivo solo in `research/DEVIL/` e in append su `inbox/`; non tocco LEDGER, BOARD, ROUTES, PROBLEM, NOTAZIONE, RIPRESA, ALGORITMO_ESTESO; niente script `_vendor`; niente ML.

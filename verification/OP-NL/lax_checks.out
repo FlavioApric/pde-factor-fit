@@ -1,0 +1,10 @@
+OK   K_1 = -(u_xxx + 6 u u_x) 
+OK   KdV: exists B_0 = d^1 + lower (no constant terms) with [B,L] = c K_0, c != 0 (c = 1)
+OK   KdV: exists B_1 = d^3 + lower (no constant terms) with [B,L] = c K_1, c != 0 (c = 1/4)
+OK   KdV: exists B_2 = d^5 + lower (no constant terms) with [B,L] = c K_2, c != 0 (c = 1/16)
+OK   KdV: exists B_3 = d^7 + lower (no constant terms) with [B,L] = c K_3, c != 0 (c = 1/64)
+OK   NLS: zero-curvature V_0 exists, traceless part of V at q=r=0 = c z^0 diag(1,-1) (V at q=r=0: diag(I, 0))
+OK   NLS: zero-curvature V_1 exists, traceless part of V at q=r=0 = c z^1 diag(1,-1) (V at q=r=0: diag(-2*I*z, 0))
+OK   NLS: zero-curvature V_2 exists, traceless part of V at q=r=0 = c z^2 diag(1,-1) (V at q=r=0: diag(-4*I*z**2, 0))
+OK   NLS: zero-curvature V_3 exists, traceless part of V at q=r=0 = c z^3 diag(1,-1) (V at q=r=0: diag(-8*I*z**3, 0))
+TOTAL 9/9 OK

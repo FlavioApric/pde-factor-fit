@@ -1,0 +1,5 @@
+S N=5 K=10 d<=6 p=1000000007: classi=71 max=467 punti=487; relazione di grado minimo 6 (peso 12) [gen 0.4s, tot 25.3s]
+S N=5 K=9 d<=7 p=1000000007: classi=76 max=710 punti=730; relazione di grado minimo 7 (peso 14) [gen 0.4s, tot 91.3s]
+W N=6 K=12 d<=6 p=1000000007: classi=83 max=901 punti=921; nessuna relazione omogenea pesata di grado <= 6 [gen 2.8s, tot 220.8s]
+W N=5 K=8 d<=8 p=1000000007: classi=79 max=872 punti=892; nessuna relazione omogenea pesata di grado <= 8 [gen 1.9s, tot 198.4s]
+S N=6 K=11 d<=7 p=1000000007: classi=90 max=1608 punti=1628; nessuna relazione omogenea pesata di grado <= 7 [gen 1.2s, tot 1222.9s]

@@ -1,0 +1,10 @@
+OK   log r armonica
+OK   Phi(log r) = 2 pi
+OK   Phi = 0 su z^n e conj(z)^n, |n| <= 5
+OK   Phi(f) = -i oint f' dz per f = z^n
+OK   Res_{z=0} 1/(2z) = 1/2
+   ||log r||_L2 = 1.428144   Phi/||.|| = 4.3995461
+OK   ||log r||_L2 > 0 finito
+   sup|d_r h|/||h||_L2 su r=3/2, n=1..8: 0.773079
+OK   stima interna uniforme sul campione (rapporto limitato)
+7/7 OK

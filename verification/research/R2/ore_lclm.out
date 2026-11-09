@@ -1,0 +1,8 @@
+ker L1 check: 0   ker L2 check: 0
+L1L2 y = x*Derivative(y(x), (x, 2)) - Derivative(y(x), x)
+ker(L1L2): Eq(y(x), C1 + C2*x**2)
+is x in ker(L1L2)?  L1L2(x) = -1
+LCLM coefficients: {a: 0, b: 0}  -> LCLM = D^2, ker = span{1,x} = ker L1 + ker L2
+L2L1 y = x*Derivative(y(x), (x, 2))
+LCLM(D-2x, D^2+1) = D^3 + ( -2*x*(4*x**2 + 7)/(4*x**2 + 3) )D^2 + ( 1 )D + ( -2*x*(4*x**2 + 7)/(4*x**2 + 3) )
+check on f+g: 0

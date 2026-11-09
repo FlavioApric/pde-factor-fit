@@ -1,0 +1,35 @@
+OK   ricorrenza lineare m=0
+OK   ricorrenza lineare m=1
+OK   ricorrenza lineare m=2
+OK   ricorrenza lineare m=3
+OK   ricorrenza lineare m=4
+OK   ricorrenza lineare m=5
+OK   ricorrenza lineare m=6
+OK   f_1 senza termine costante
+OK   f_2 senza termine costante
+OK   f_3 senza termine costante
+OK   f_4 senza termine costante
+OK   f_5 senza termine costante
+OK   f_6 senza termine costante
+OK   f_7 senza termine costante
+OK   d/dx anti_0 = K_0
+OK   d/dx anti_1 = K_1
+OK   d/dx anti_2 = K_2
+OK   d/dx anti_3 = K_3
+OK   d/dx anti_4 = K_4
+OK   d/dx anti_5 = K_5
+OK   K_1 = -(v3+6vv1)
+OK   K_2 = -(v5+10vv3+20v1v2+30v^2v1)
+OK   [B_0,L] = 4^-n K_n (operatori)
+OK   B_0 monico
+OK   [B_1,L] = 4^-n K_n (operatori)
+OK   B_1 monico
+OK   [B_2,L] = 4^-n K_n (operatori)
+OK   B_2 monico
+OK   [B_3,L] = 4^-n K_n (operatori)
+OK   B_3 monico
+OK   [B_4,L] = 4^-n K_n (operatori)
+OK   B_4 monico
+OK   [B_5,L] = 4^-n K_n (operatori)
+OK   B_5 monico
+TOTALE 34/34

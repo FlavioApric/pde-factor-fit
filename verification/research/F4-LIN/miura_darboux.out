@@ -1,0 +1,14 @@
+[OK]   M1 (-d - v)(d - v) = -d^2 + v^2 + v_x
+[OK]   M2 KdV[v^2+v_x] = (2v + d) mKdV[v]
+[OK]   M3 (d - v)(-d - v) = -d^2 + v^2 - v_x = -d^2 + u - 2 v_x
+[OK]   M3b v = psi_x/psi  =>  (-d^2 + v^2 + v_x) psi = 0
+[OK]   M4 Jacobian d(u_0..u_K)/d(v_1..v_{K+1}) is lower-triangular with unit diagonal (det = 1)
+[OK]   M5 (2v + d)(C/psi^2) = 0 with v = psi_x/psi
+[OK]   M6a psi_j: -psi_xx = -k^2 psi and psi_t = -4 psi_xxx
+[OK]   M6b Crum 2-soliton solves KdV (exact expression, evaluated at 3 points, |res|<1e-10)
+     cross-ratio N=2 = (k1 - k2)**2/(k1 + k2)**2
+[OK]   M7 cross-ratio of Wronskian coefficients = ((k1-k2)/(k1+k2))^2 = Hirota A_12
+[OK]   M8 N=3: triple interaction = product of pairwise (A_123 = A_12 A_13 A_23)
+     pairwise: {(0, 1): (k1 - k2)**2/(k1 + k2)**2, (0, 2): (k1 - k3)**2/(k1 + k3)**2, (1, 2): (k2 - k3)**2/(k2 + k3)**2}
+
+SUMMARY: 10/10 OK

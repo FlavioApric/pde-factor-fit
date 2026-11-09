@@ -1,0 +1,18 @@
+NF-1 Burgers: residuo O(eps^2) nullo: OK
+   H2 incrociato (coeff. di c1 c2 e1 e2, simmetrizzato) = (k1 + k2)/(2*k1*k2*nu)
+   Cole-Hopf al 1o ordine = v: OK
+   Cole-Hopf al 2o ordine = u2 (forma normale): OK
+   w = u*exp(-(1/2nu) int u) risolve w_t = nu w_xx: OK
+NF KdV-Burgers: divisore quadratico = -I*k1*k2*(3*d*k1 + 3*d*k2 + 2*I*nu)
+   divisore cubico: Re = 2*nu*(a*b + a*c + b*c) ; Im = -3*d*(a + b)*(a + c)*(b + c)
+NF KdV: divisore quadratico = -3*I*k1*k2*(k1 + k2)
+PAINLEVE Burgers u_t + a u u_x = nu u_xx: bilancio dominante -> r = [0, -2*nu/a]
+   phi = x^2 + 2 nu t risolve il calore: OK
+   u = -2nu phi_x/phi risolve Burgers: OK
+   u = -2nu[1/(x-x1) + 1/(x-x2)]: OK
+   dinamica dei poli x1' = -2nu/(x1-x2): OK
+   polo singolo e' soluzione <=> xj' = 0: residuo = -2*nu*Derivative(xj(t), t)/(x - xj(t))**2
+KdV razionale u = -2/x^2: OK
+   bilancio dominante KdV (doppio polo) -> rK = [-2, 0]
+MON-1 1-shock: d(u_xx/u_x)^du = 0 => nu NON identificato (atteso per onda viaggiante); d(u_t/u_x)^du = 0
+MON-1 2-shock: nu identificato = 1 ; f'(u) - u = 0

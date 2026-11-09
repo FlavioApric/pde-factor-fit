@@ -1,0 +1,74 @@
+OK   L-S settore: Re(e^{-iτm}M) >= cos(|τ|w/2) E e^{σX} (200 leggi x 20 punti) 
+OK   L-S ottimalità: zeri di (1+e^z)/2 in z = iπ(2k+1) 
+OK   F4L-P3(iii) u(t,0) = 4νG tanh(εA/4ν) 
+OK   F4L-P3(iii) R(t,x): zero del denominatore e |zero| = formula R=3.1781551
+OK   F4L-P3(iii) radice n-esima (n=40) ~ R(t,x) (entro 10%) root=3.41115
+OK   F4L-P3(iii) R(t,x) >= 2πν/A 
+OK   F4L-P3(iii) R(t,x): zero del denominatore e |zero| = formula R=0.33053925
+OK   F4L-P3(iii) radice n-esima (n=40) ~ R(t,x) (entro 10%) root=0.342269
+OK   F4L-P3(iii) R(t,x) >= 2πν/A 
+OK   F4L-P3(iii) R(t,x): zero del denominatore e |zero| = formula R=2.2485796
+OK   F4L-P3(iii) radice n-esima (n=40) ~ R(t,x) (entro 10%) root=2.29642
+OK   F4L-P3(iii) R(t,x) >= 2πν/A 
+OK   F4L-P3(ii) |u_ε| <= 2ν e^{rw/2ν}/(cos(rw/4ν)√(πνt)) su 30 dati a gradini x 15 punti 
+OK   F4L-P3(iv) G_N >= 0, massa 1 massa=1.0
+OK   F4L-P3(iv) ||d_x G_N(t,x,.)||_{L1(0,L)} <= 1/sqrt(pi nu t) 2.1943664 <= 2.5231325
+OK   F4L-P3(iv) d_x G_N = 0 in x = 0, L 
+OK   F4L-P3(iv) G_N >= 0, massa 1 massa=1.0
+OK   F4L-P3(iv) ||d_x G_N(t,x,.)||_{L1(0,L)} <= 1/sqrt(pi nu t) 0.16754139 <= 1.0300645
+OK   F4L-P3(iv) d_x G_N = 0 in x = 0, L 
+OK   F4L-P3(iv) G_N >= 0, massa 1 massa=1.0
+OK   F4L-P3(iv) ||d_x G_N(t,x,.)||_{L1(0,L)} <= 1/sqrt(pi nu t) 0.00065526751 <= 0.35682482
+OK   F4L-P3(iv) d_x G_N = 0 in x = 0, L 
+OK   Kieffer forma integrale (massa 1): zero in δ = 2πi/Re 
+OK   Kieffer forma integrale: NON zero in δ = iπ/Re 
+OK   Kieffer 'e^{δRe}' (massa 2): 1+e^{δRe} zero in δ = iπ/Re 
+OK   Kieffer (v=0): w = δu risolve Burgers (ν = 1/Re) 
+OK   INT-P5(a) f = det(I+C) (N=3, simbolico in E) 
+OK   INT-P5(a) K definita positiva (minori principali > 0) 
+OK   INT-P5(b) cumulanti b_S solo a coppie (N=3) 
+OK   INT-P6 ∫E_int = 2[(log Z)_x] → 0 -2.1429e-32
+OK   INT-P6 ∫u = 2Σk_i 
+OK   INT-P6 quadratura diretta ∫E_int ≈ 0 -2.1052e-32
+OK   INT-P5(c) E_int(0) ≠ 0 
+OK   INT-P5(e) (log f)'' = tr(M^-1 M'') - tr((M^-1 M')^2) 
+OK   F4LIN-T2(ii) ∫_0^∞(1-tanh) = ln2 
+OK   F4LIN-T2(ii) ∫_0^∞(1-tanh)^2 = 2ln2 - 1 
+OK   F4LIN-T2(ii) ∫sech^4 = 4/3 
+OK   F4LIN-T2(ii) profilo risolve Burgers 
+OK   F4LIN-T2 R5 chiuso: F̂(η) = i(π csch(πη/2) − 2/η) η=0.3
+OK   F4LIN-T2 R5 chiuso: F̂(η) = i(π csch(πη/2) − 2/η) η=1.0
+OK   F4LIN-T2 R5 chiuso: F̂(η) = i(π csch(πη/2) − 2/η) η=4.0
+    t=1.0 ν=0.05 K=1 δ=0.5  err=0.00067266  e^{-δ/2ν}=0.0067379  e^{-δ/4ν}=0.082085
+OK   F4LIN-T2(iii) err <= 4νK e^{-δ/2ν} + C e^{-δ/4ν} (C<=10) 
+OK   F4LIN-T2(iii) err/e^{-δ/2ν} limitato (stima migliorata e^{-δ/2ν}) rapporto=0.099832
+    t=1.0 ν=0.1 K=1 δ=0.5  err=0.016089  e^{-δ/2ν}=0.082085  e^{-δ/4ν}=0.2865
+OK   F4LIN-T2(iii) err <= 4νK e^{-δ/2ν} + C e^{-δ/4ν} (C<=10) 
+OK   F4LIN-T2(iii) err/e^{-δ/2ν} limitato (stima migliorata e^{-δ/2ν}) rapporto=0.196
+    t=1.0 ν=0.2 K=1 δ=0.5  err=0.1071  e^{-δ/2ν}=0.2865  e^{-δ/4ν}=0.53526
+OK   F4LIN-T2(iii) err <= 4νK e^{-δ/2ν} + C e^{-δ/4ν} (C<=10) 
+OK   F4LIN-T2(iii) err/e^{-δ/2ν} limitato (stima migliorata e^{-δ/2ν}) rapporto=0.37382
+OK   F4LIN-T2(iii) N=4 casuale: err/e^{-δ/2ν} limitato K=2 δ=0.4147 err=0.001773 e^{-δ/2ν}=0.005609
+OK   F4LIN-T2(iii) N=4 casuale: err/e^{-δ/2ν} limitato K=1 δ=0.7233 err=9.507e-6 e^{-δ/2ν}=0.0001185
+OK   F4LIN-T2(iii) N=4 casuale: err/e^{-δ/2ν} limitato K=1 δ=0.1055 err=0.02008 e^{-δ/2ν}=0.2674
+OK   F4LIN-T2(iii) N=4 casuale: err/e^{-δ/2ν} limitato K=1 δ=0.3338 err=0.001229 e^{-δ/2ν}=0.01542
+OK   INT-T1 K_1 = -(u_xxx+6uu_x) 
+OK   INT-T1 K_2 = -(u_5x+10uu_xxx+20u_xu_xx+30u^2u_x) 
+OK   INT-T1 K_3 locale (∂^{-1}K_2 esatto: K_2 è una derivata totale) K_3 = -140*j0**3*j1 - 70*j0**2*j3 - 280*j0*j1*j2 - 14*j0*j5 - 70*j1**3 - 42*j1*j4 - 70...
+OK   F-C: K_m'[u]K_n = K_n'[u]K_m per 0<=m<n<=3 (identità in u) 
+OK   INT-T1 K_1'[u]w = -(w_xxx+6uw_x+6u_xw) 
+OK   F-MS (N=2, k=(1,2)): K_n[u] = -Σk_j^{2n+1}∂_{c_j}u per n=0..3 (V-ex, mpmath 60 cifre) max residuo relativo=3.09e-61
+OK   INT-T1(B) Novikov 4K_0-5K_1+K_2 = 0 su 2-solitone (1,2) max=1.24e-60
+OK   INT-T1 B1: Wronskiano ≠ 0 
+OK   UC-1 necessità c_1≠0: per u=u_0(x−c_0t) con u_0≡0 su (−1,1), K_d[u]=0 su Ω={|x−c_0t|<1/2} ∀d, ma K_0[u] ≢ 0 
+OK   INT-T2 flussi NLS: [T_2, T_3] = 0 (componente q) 
+OK   ALG-P4 F_B(−2νφ_x/φ) = −2ν∂_x((φ_t−νφ_xx)/φ) 
+OK   ALG-P4(a) dω_u = F_B(u) dt∧dx 
+OK   ALG-P4(c) u = −2ν(G_ν)_x/G_ν = x/t, G_ν risolve il calore 
+OK   ALG-P6 KdV[−(v²+v_x)] = −(2v+∂_x) mKdV[v] 
+OK   ALG-L1 [D, D_N] = 0 su polinomio di prova (KdV) 
+OK   ALG-T1(c)/P3 1-solitone: relazione d'ordine 1 y_1² − y_0² + 2y_0³ ∈ J_u (separante 2y_1 ∉ J_u) 
+OK   MODREL Burgers: gcd(τ−νξ², ξ/2) = 1 
+OK   MODREL T1: v non primitivo ⇒ R·v non saturato (esempio v = ξ·(τ, ξ)) 
+
+TOTALE: 69 OK, 0 FAIL

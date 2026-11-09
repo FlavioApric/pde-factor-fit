@@ -1,0 +1,35 @@
+[OK] T3(i) V_mn = -4cmn/(L(m^2-n^2)) (m+n dispari), 0 altrimenti, m,n<=8 
+[OK] T3(ii) sin(n pi - mu_n x) = (-1)^(n+1) sin(mu_n x) 
+[OK] T3(2) T_nm = g(kn^2t,km^2t)/(k(m^2-n^2)), m>n 
+[OK] T3(2) g(a,b) = int_a^b e^-y (y-a) dy 
+   J = 0.1720277681  ratios ||E||/asintotica: ['0.99582', '0.99958', '0.99996', '1.00000']  pendenze: ['1.24836', '1.24984', '1.24998']
+[OK] T3(iii) e1: ||E||/(2|c|sqrt(J)k^{1/4}t^{5/4}/L) -> 1 (verifica dell'esponente analitico 5/4) 
+[OK] T3(iii)(b) bound inferiore |c||S|k^{1/4}t^{5/4}/(32L) per t<=t_* (e1) t_*=2.111e-03
+[OK] T3(iii)(a) bound superiore con le costanti dichiarate (3 dati, anche complessi) 
+   e1 - e3/3 (S_disp=S_pari=0): ||E|| = ['1.206e-03', '8.713e-06', '5.032e-08']  pendenze: ['2.1410', '2.2384']
+[OK] T3(iii)(c) dati compatibili: ordine >= 2 (osservato) 
+[OK] contro-esempio KA: coefficienti di x^2(1-x)^2 in forma chiusa = quadratura (n<=6) 
+   x^2(1-x)^2: ||E|| = ['9.735e-05', '2.292e-06', '4.431e-08']  pendenze: ['1.6281', '1.7138']
+[OK] KA-T3: u0=x^2(1-x)^2 (Vu0 in H^2 cap H^1_0, A0u0 not in H^1_0): ordine < 2 (-> 7/4) 
+[OK] L2(a) integrale di Beta (gamma=2/3, n=3) 
+[OK] T1(a2) argmax e valore di sup y^k e^{-s delta y^q} 
+[OK] T1(b) sup mu^2 e^{-2D mu^2 s} = 1/(2eDs) 
+[OK] C1(a) sup (2ty)^n e^{-ty}/n! = (2n)^n e^{-n}/n! (n=12) 
+[OK] T2 Lemma D (anche punti ripetuti) 
+[OK] T2 F_j a punti coincidenti = t^j e^{tz}/j! 
+[OK] T2(a),(b) 1� e 2� ordine Dyson = formula dei cammini (Van Loan) 
+[OK] P1(c) zero non reale di e^w-1-w (2.088843 + 7.4614893j)
+[OK] P1(c) elemento moltiplicativo nullo a t=1 con lambda_n-lambda_m = w0 
+[OK] T4(a),(c) B_t = sum eps^k t^{k+1} a^(k)/(k+1)!, soluzione, altro ordine, grado esatto (deg a = 2, 3) 
+[OK] T4(f) (x-x0)v_n = v_{n+1} - t sum C(n,j) a^(j+1)(0) v_{n-j} (a cubico, n<=4) 
+[OK] T4(e) [a(d),x] = a'(d) su a cubico (azione su f) 
+[OK] T5(iii) momenti M_j = (-1)^j h^(j)(0) (calore) 
+[OK] T5(iii) biortogonalit� int v_n(-s,y) K_s^(m)(x0-y) dy = n! delta (calore, n,m<=3) 
+[OK] T5(iv) p per KdV-Burgers, Airy, Schrodinger, AD 
+[OK] P2(b),(c) duale di Lagrange, (w)_k = 1/P', Kato = -T/P' (anche differenza finita) 
+[OK] T6(iv) E^(i) = G_i a_i sum_{j!=i} u^(j) (= E_int^(i) di SCOUT-2) e coeff. s^2 = a_i(a-a_i)/2 
+[OK] KA-T6(vi) famiglia L0^theta: esatta, simmetrica nei termini, non degenere, dipende da theta, � una quadratura di u 
+[OK] T6 principio di bilancio d_s u^(i) = a_i u seleziona theta=0 (per theta in (0,1) fallisce) 
+[OK] T6(iii) G_c a_c su e^{i kappa (x + c r)}: i c kappa t e^{i kappa(x+ct)} 
+
+TOTALE: 30 / 30 OK

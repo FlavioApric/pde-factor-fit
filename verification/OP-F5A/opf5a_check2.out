@@ -1,0 +1,4 @@
+(T1) profilo integrato = 6.061280   formula = 6.061246
+(T2) nu=1.0e-04 r=0.05 ny=400001: (e - nu int|kappa|)/nu = 6.04259  (formula 6.06125);  max|uv-nu kap|/nu fuori strato = 4.353e-04
+(T2) nu=1.0e-04 r=0.2 ny=400001: (e - nu int|kappa|)/nu = 6.04264  (formula 6.06125);  max|uv-nu kap|/nu fuori strato = 4.157e-04
+(T2) nu=2.5e-05 r=0.05 ny=800001: (e - nu int|kappa|)/nu = 6.04256  (formula 6.06125);  max|uv-nu kap|/nu fuori strato = 1.252e-04

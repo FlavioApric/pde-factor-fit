@@ -1,0 +1,6 @@
+OK   LAX d(Kint_1) == K_1  [0.1s]
+OK   LAX K_1 = -v_xxx - 6 v v_x  [0.2s]
+OK   LAX n=0: exists B_n = d^{2n+1} + lower (coefficients w/o constant term) with [B_n, L] = 4^{-n} K_n {} [0.2s]
+OK   LAX n=1: exists B_n = d^{2n+1} + lower (coefficients w/o constant term) with [B_n, L] = 4^{-n} K_n {c_0_0: 3/4, c_1_1: 3/2} [0.3s]
+OK   LAX n=2: exists B_n = d^{2n+1} + lower (coefficients w/o constant term) with [B_n, L] = 4^{-n} K_n {c_0_0: 15/8, c_0_1: 15/16, c_1_2: 15/8, c_1_3: 25/8, c_2_4: 15/4, c_3_5: 5/2} [0.7s]
+TOTAL 5/5 OK

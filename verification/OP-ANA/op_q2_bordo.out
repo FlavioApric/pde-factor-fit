@@ -1,0 +1,25 @@
+[OK] commutatore modo n=1
+[OK] commutatore modo n=2
+[OK] commutatore modo n=3
+[OK] <f',c_0> = mu_n f_n  (f=x^2(L-x))
+[OK] <f',c_1> = mu_n f_n  (f=x^2(L-x))
+[OK] <f',c_2> = mu_n f_n  (f=x^2(L-x))
+[OK] <f',c_3> = mu_n f_n  (f=x^2(L-x))
+[OK] K^N-K^D = 2 sum_j G(x+y-2jL) in (x,y)=(0.1,0.05): 3.2146553460 vs 3.2146553460
+[OK] K^N-K^D = 2 sum_j G(x+y-2jL) in (x,y)=(0.5,0.3): 0.0000006349 vs 0.0000006349
+[OK] K^N-K^D = 2 sum_j G(x+y-2jL) in (x,y)=(0.95,0.9): 3.2146553460 vs 3.2146553460
+[OK] trasformata seno di erfc(w/2): forma chiusa vs quadratura
+[OK] N_0 (quadratura) = 0.234005 vs sqrt(J/pi) = 0.234005 (J=0.172028)
+N_1 = 0.162622
+e_1: t=1e-03 ||E||/t^(5/4) = 1.464142  (predetto 1.470294)
+e_1: t=1e-04 ||E||/t^(5/4) = 1.469677  (predetto 1.470294)
+e_1: t=1e-05 ||E||/t^(5/4) = 1.470232  (predetto 1.470294)
+[OK] e_1: costante = 2*sqrt(J)*pi^{1/2} (audit S-CHECK-5) = |c| N_0 * 2 pi
+[OK] e_1: rapporto a t=1e-5 entro 1% dal predetto
+x^2(1-x)^2: t=3e-03 ||E||/t^(7/4) = 0.371750  (predetto limite 0.459965)
+x^2(1-x)^2: t=1e-03 ||E||/t^(7/4) = 0.407587  (predetto limite 0.459965)
+x^2(1-x)^2: t=3e-04 ||E||/t^(7/4) = 0.430787  (predetto limite 0.459965)
+x^2(1-x)^2: t=1e-04 ||E||/t^(7/4) = 0.442974  (predetto limite 0.459965)
+estrapolazione r0 + r1 sqrt(t) + r2 t: r0 = 0.45996, r1 = -1.719, r2 = 1.977
+[OK] x^2(1-x)^2: limite estrapolato entro 2% da |c| N_1 sqrt(8)
+RISULTATO: 15/15 OK

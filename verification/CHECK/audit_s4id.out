@@ -1,0 +1,30 @@
+== A. ALG-L1 / L2: commutazione [D, D_N] = 0, triangolarita' di psi
+OK   [D,D_N]=0 su polinomi casuali, Burgers
+OK   L2: psi(d_t^a d_x^b y) = sigma^a y_{na+b} + ordine minore, grado <= 1+a(delta-1), Burgers, a,b<=2
+OK   [D,D_N]=0 su polinomi casuali, Fisher
+OK   L2: psi(d_t^a d_x^b y) = sigma^a y_{na+b} + ordine minore, grado <= 1+a(delta-1), Fisher, a,b<=2
+OK   [D,D_N]=0 su polinomi casuali, KdV
+OK   L2: psi(d_t^a d_x^b y) = sigma^a y_{na+b} + ordine minore, grado <= 1+a(delta-1), KdV, a,b<=2
+OK   [D,D_N]=0 su polinomi casuali, KdVB
+OK   L2: psi(d_t^a d_x^b y) = sigma^a y_{na+b} + ordine minore, grado <= 1+a(delta-1), KdVB, a,b<=2
+
+== B. S4ID-P1: dim([F] ∩ V_{d,k}) = dim ker psi|V (ALG-L1), contro i valori dichiarati
+OK   P1 Burgers (d,k)=(2,2): dim [F]∩V = 1 (dichiarato 1), dim V = 28
+OK   P1 Burgers (d,k)=(2,3): dim [F]∩V = 3 (dichiarato 3), dim V = 66
+OK   P1 Burgers (d,k)=(3,2): dim [F]∩V = 7 (dichiarato 7), dim V = 84
+OK   P1 Burgers (d,k)=(3,3): dim [F]∩V = 34 (dichiarato 34), dim V = 286
+OK   P1 Fisher (d,k)=(2,2): dim [F]∩V = 1 (dichiarato 1), dim V = 28
+OK   P1 Fisher (d,k)=(2,3): dim [F]∩V = 6 (dichiarato 6), dim V = 66
+OK   P1 Fisher (d,k)=(3,2): dim [F]∩V = 7 (dichiarato 7), dim V = 84
+OK   P1 KdV (d,k)=(2,3): dim [F]∩V = 1 (dichiarato 1), dim V = 66
+OK   P1 KdV (d,k)=(2,4): dim [F]∩V = 3 (dichiarato 3), dim V = 136
+OK   P1 KdV (d,k)=(3,3): dim [F]∩V = 11 (dichiarato 11), dim V = 286
+OK   P1 KdVB (d,k)=(2,3): dim [F]∩V = 1 (dichiarato 1), dim V = 66
+
+== B2. P1 su N casuali di grado 2 (n = 1..4): =1 solo per (2,n), >=2 altrove (d<=3, k<=n+1)
+OK   P1 random n=1 N=2*y0**2 + 2*y0 - 2*y1: {(2, 1): 1, (2, 2): 6, (3, 1): 4, (3, 2): 34}
+OK   P1 random n=1 N=-y0**2 + 3*y0 + y1: {(2, 1): 1, (2, 2): 6, (3, 1): 4, (3, 2): 34}
+OK   P1 random n=2 N=y0**2 + y1**2 - y1 - 2*y2: {(2, 2): 1, (2, 3): 3, (3, 2): 7, (3, 3): 34}
+OK   P1 random n=2 N=2*y0**2 + 3*y2: {(2, 2): 1, (2, 3): 6, (3, 2): 7, (3, 3): 58}
+OK   P1 random n=3 N=-2*y1 - 4*y2**2 + y3: {(2, 3): 1, (2, 4): 6, (3, 3): 11}
+OK   P1 random n=3 N=-y0 - 2*y1*y2 + 2*y2**2 - y2 + 3*y3: {(2, 3): 1, (2, 4): 3, (3, 3): 11}

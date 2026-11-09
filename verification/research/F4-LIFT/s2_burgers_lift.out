@@ -1,0 +1,17 @@
+Burgers K_2 = -I*(k1 + k2)/(2*k1*k2*nu)
+Burgers K_3 = -(k1 + k2 + k3)/(2*k1*k2*k3*nu**2)
+Burgers K_4 = 3*I*(k1 + k2 + k3 + k4)/(4*k1*k2*k3*k4*nu**3)
+Burgers K_5 = 3*(k1 + k2 + k3 + k4 + k5)/(2*k1*k2*k3*k4*k5*nu**4)
+u^2: K_2 = 1/(k1*k2)   K_3 = (k1 + k2 + k3)/(k1*k2*k3*(k1*k2 + k1*k3 + k2*k3))
+K2 Burgers = I*(-k1 - k2)/(2*k1*k2*nu)  target (coeff. di c1c2 in vV/2nu) = I*(-k1 - k2)/(2*k1*k2*nu)
+PASS B1 u(t,0) = 4 nu G tanh(eps A/4nu)
+PASS B1 coeff. Volterra = Bernoulli (n<=5)
+PASS B1 raggio in z ~ pi/2 (ratio test 1.57079633)
+PASS B2 min_x R = 2 pi nu/A a Phi=1/2
+PASS B2 R >= 2 pi nu/A (log^2 >= 0)
+PASS B2 eps* zero di phi
+PASS B3 Burgers: K_n Laurent (n<=5)
+PASS B3 u^2: e2 divide il denominatore di K_3
+PASS B3 u^2: numeratore != 0 sul cono e2=0 (k=(1,1,-1/2))
+PASS B4 K_2 Burgers = vV/(2nu)
+totale 10/10

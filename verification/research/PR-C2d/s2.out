@@ -1,0 +1,11 @@
+PASS a1 F[heat kernel] = exp(-D t xi^2)
+PASS a2 heat kernel solves K_t = D K_xx
+PASS b1 Plancherel ||g||^2 = (1/2pi)||Fg||^2
+PASS c1 inverse F of 1/(1+xi^2) = e^{-|x|}/2 (x>0 branch)
+PASS c2 <K(y0,.),u>_{H^1} = u(y0)
+PASS c3 K(y,y)=1/2  =>  sup|u| <= ||u||_{H^1}/sqrt(2)
+PASS d1 PW_pi reproducing kernel = sin(pi(x-y))/(pi(x-y))
+PASS d2 <sinc_0,sinc_1> = (1/2pi) int_{-pi}^{pi} e^{i xi} dxi = 0
+PASS e1 int_R e^{2x} dx diverges (kernel of d/dx-1 not in L^2(R))
+PASS f1 symbol additivity: log uhat / t = -D xi^2 - i c xi
+ALL PASS

@@ -1,0 +1,21 @@
+[OK]   G1 curl(omega_u) == Burgers[u]
+[OK]   G2a (phi_t - nu phi_xx)/phi == 0 identically given potential
+[OK]   G2b [D_t,D_x] = -(1/2nu) Burgers[u]
+[OK]   G3a B_{tau-nu xi^2}[u] == 0 identically
+     B_{xi^3}[u] = -(4*nu**2*Derivative(u(t, x), (x, 2)) - 6*nu*u(t, x)*Derivative(u(t, x), x) + u(t, x)**3)/(8*nu**3)
+[OK]   G3b B_{xi^3} is a differential polynomial in u (no exp)
+[OK]   G4a heat(phi1)=0
+[OK]   G4b (d_t - nu k d_x) phi1 = 0
+[OK]   G4c u1 solves Burgers
+[OK]   G4d u1_t = nu k u1_x (transported relation)
+[OK]   G4e B_{tau - nu k xi}[u1] == 0
+     B_{tau-nu k xi}[u] = k*u(t, x)/2 - Derivative(u(t, x), x)/2 + u(t, x)**2/(4*nu)  (Riccati-type x-relation: nu u_x = u^2/2 + nu k u)
+[OK]   G5 d_t^i d_x^j phi/phi uses x-jet of u up to order exactly 2i+j-1 (i<=2,j<=3)
+[OK]   G6a HJ term flow in phi: phi_t = nu phi_x^2/phi
+[OK]   G6b diffusive term flow in phi: phi_t = nu(phi_xx - phi_x^2/phi)
+[OK]   G6c the two phi-flows sum to the heat flow
+[OK]   G6d HJ phi-flow is not additive (F(e1+e2) != F(e1)+F(e2))
+[OK]   G7 d_x of psi_t + psi_x^2/2 is u_t + u u_x with u = psi_x
+[OK]   G8 phi = 2 e^{nu k^2 t} sinh(kx) gives u = -2 nu k coth(kx) (pole at x=0)
+
+SUMMARY: 17/17 OK

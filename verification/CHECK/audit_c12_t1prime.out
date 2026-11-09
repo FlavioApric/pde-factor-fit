@@ -1,0 +1,31 @@
+OK   a1 Q1Q2 = Laplaciano (simbolo)
+OK   a2 u armonica fuori da alpha
+OK   a3 Q2 u = 2/w  | 2*I/(I*t - I*t0 + x - x0)
+OK   a4 d_t h = F/2 = 1/w
+OK   a5 d_x h = F/(2i) = -i/w
+OK   a6 dw/w chiusa
+OK   a7 periodo di dw/w su cerchio antiorario = -2*pi*i (= coniugato di 2*pi*i*Ind)  | -2*I*pi
+OK   a8 twist Q1
+OK   a9 twist Q2
+OK   a10 (tau-p)^2+(xi-q)^2 = prodotto dei twist
+OK   a11 (Q1,Q2) = (tau, xi): dim R/(Q1,Q2) = 1  | [tau, xi]
+OK   b1 periodo di omega_eps sul cerchio antiorario attorno ad alpha = -1  | -1.0
+OK   b2 cerchio percorso 2 volte (Ind = 2): periodo = -2  | -2.0
+OK   b3 cerchio che non circonda alpha: periodo = 0  | 0.0
+OK   b4 cerchio decentrato che circonda alpha: periodo = -1 (chiusura su E)  | -1.0
+OK   b5 d(H_eps(x) rho(t) dt) = H_eps'(x) rho(t) dx^dt
+OK   b6 <dt dx (H(x)H(t)), phi> = phi(alpha)  | exp(-5)
+OK   c1 costruzione A, B: d_t A = 0, d_x B = 0
+OK   c2 coerenza O-1 vs (c): [-1/2,1/2]^2 \ {0} interseca D*(0,2) (u di O-1 non e' in ker su D*)
+OK   L1p-4 h_1 = sum_j chi_j (c_j - c_1) (liscia, combinazione delle chi)  | c1*chi1(t, x) - c1 + c2*chi2(t, x) - c3*chi1(t, x) - c3*chi2(t, x) + c3
+OK   L1p-5 a = -d_t h_1, b = -d_x h_1
+OK   L1p-6 a dt + b dx chiusa
+OK   L1p-7 d theta chiusa
+OK   L1p-8 periodo di d theta = 2 pi (non esatta: il passo (5) e' l'unico che usa H^1_dR = 0)  | 2*pi
+OK   T1p-1 Laplaciano: delta = 1
+OK   T1p-2 tau*xi: delta = dim R/(tau,xi) = 1
+OK   T1p-3 calore x trasporto: delta = 2
+OK   T1p-4 tre rette per 0 (tau, xi, tau-xi): delta = 3
+OK   L2p-1 EP non nullo non si annulla identicamente vicino a (0,0) (jet)
+
+ESITO: 29/29 OK

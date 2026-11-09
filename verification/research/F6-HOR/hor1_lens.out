@@ -1,0 +1,4 @@
+lente [due onde piane libere]: max |residuo/u| su 6 punti = 2.26e-15
+lente [gaussiana libera]: max |residuo/u| su 6 punti = 3.43e-15
+controllo: |(i u_t + u_xx/2)/u| in (0.3,1.1) = 1.1858000000000004
+ESITO OK

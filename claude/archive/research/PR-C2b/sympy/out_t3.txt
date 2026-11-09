@@ -1,0 +1,43 @@
+PASS C2.7 H e^{D xi^2 t + xi x} = 0
+PASS C2.7 modi su T: e^{ikx - D k^2 t}
+PASS C2.7 nucleo del calore G
+PASS C2.7 massa di G = 1
+PASS C2.7 polinomio del calore v_0 risolve
+PASS C2.7 polinomio del calore v_1 risolve
+PASS C2.7 polinomio del calore v_2 risolve
+PASS C2.7 polinomio del calore v_3 risolve
+PASS C2.7 polinomio del calore v_4 risolve
+PASS C2.7 polinomio del calore v_5 risolve
+PASS C2.7 v_4 = x^4 + 12 D t x^2 + 12 D^2 t^2
+PASS C2.7 biortogonalita' <v_n(.,-t), w_m(.,t)> = n! delta_nm  (n,m<=4)
+PASS C2.7 w_0 risolve il calore
+PASS C2.7 w_1 risolve il calore
+PASS C2.7 w_2 risolve il calore
+PASS C2.7 w_3 risolve il calore
+PASS C2.7 w_4 risolve il calore
+PASS C2.7 w_0 = (4Dt)^(-n/2) H_0(x/sqrt(4Dt)) G
+PASS C2.7 w_1 = (4Dt)^(-n/2) H_1(x/sqrt(4Dt)) G
+PASS C2.7 w_2 = (4Dt)^(-n/2) H_2(x/sqrt(4Dt)) G
+PASS C2.7 w_3 = (4Dt)^(-n/2) H_3(x/sqrt(4Dt)) G
+PASS C2.7 w_4 = (4Dt)^(-n/2) H_4(x/sqrt(4Dt)) G
+PASS C2.7 Appell(v_0) risolve il calore
+PASS C2.7 Appell(v_1) risolve il calore
+PASS C2.7 Appell(v_2) risolve il calore
+PASS C2.7 Appell(v_3) risolve il calore
+PASS C2.7 Gram diagonale nel modo k
+PASS C2.7xC2.6 dim C[tau,xi]/(tau+c xi, tau-D xi^2) = 2   dim=2
+PASS C2.7xC2.6 e^{c^2 t/D - c x/D} in ker(trasporto)
+PASS C2.7xC2.6 e^{c^2 t/D - c x/D} in ker(calore)
+PASS C2.21 OU: He_0(x)e^(-0t)
+PASS C2.21 OU: He_1(x)e^(-1t)
+PASS C2.21 OU: He_2(x)e^(-2t)
+PASS C2.21 OU: He_3(x)e^(-3t)
+PASS C2.21 OU: He_4(x)e^(-4t)
+PASS C2.21 OU: He_5(x)e^(-5t)
+PASS C2.21 [d^2, x d] = 2 d^2
+PASS C2.21 [d^2, x^2] = 4 x d + 2
+PASS C2.21 [x d, x^2] = 2 x^2
+PASS C2.21 (x d)^2: x^xi e^{xi^2 t}
+PASS C2.21 (x^2 u_x)_x: x^m e^{m(m+1)t}
+PASS C2.39 Barenblatt m=2 (interno supporto)
+== t3_parabolic: 42/42 PASS

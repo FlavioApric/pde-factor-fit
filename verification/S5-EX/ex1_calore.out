@@ -1,0 +1,57 @@
+== E1.1 nucleo del calore G: non EP, identifica (C3-T4(a), C3-T1(d)) ==
+[OK]   E1.1a P(d)G = 0
+[OK]   E1.1b deg_x(d_x^k G / G) = k, k<=10 => dim R.G = inf => G non EP (C3-L3(e)) :: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[OK]   E1.1c Ann(G) ∩ R_<=2 = P·R_<=0 (identificazione, C3-T4(a)) :: dim 1
+[OK]   E1.1c Ann(G) ∩ R_<=3 = P·R_<=1 (identificazione, C3-T4(a)) :: dim 3
+[OK]   E1.1c Ann(G) ∩ R_<=4 = P·R_<=2 (identificazione, C3-T4(a)) :: dim 6
+== E1.2 molteplicita: P = (tau-xi^2)^2 (C3-T1(a), C3-T6) ==
+[OK]   E1.2a P2(d)(tG) = 0
+[OK]   E1.2b (P2/P1)(d)(tG) = G (non EP) => Ann(tG) = (P2)
+[OK]   E1.2c Ann(tG) ∩ R_<=4 = P2·R_<=0 :: dim 1
+[OK]   E1.2c Ann(tG) ∩ R_<=5 = P2·R_<=1 :: dim 3
+[OK]   E1.2d C3-T6 per u=G, P=P2: (P2/P1)G = 0 ∈ EP, (P2/P1^2)G = G ∉ EP => G_u = tau-xi^2
+[OK]   E1.2e P2(d)(G + t e^{t+x}) = 0
+[OK]   E1.2f (P2/P1)u = e^{t+x} ∈ EP => non identifica P2 (C3-T1(a))
+[OK]   E1.2g Ann(G+te^(t+x)) ∩ R_<=3 = [G_u·J_u]_<=3, G_u = tau-xi^2, J_u = (tau-1, xi-1) (C3-T6, P4-T2) :: dim 2
+[OK]   E1.2g Ann(G+te^(t+x)) ∩ R_<=4 = [G_u·J_u]_<=4, G_u = tau-xi^2, J_u = (tau-1, xi-1) (C3-T6, P4-T2) :: dim 5
+[OK]   E1.2h P4-T2: sigma_p = V(J_u) = {(1,1)}: w = G_u(d)u = e^{t+x} autovettore congiunto
+[OK]   E1.2i P4-T2(iii): dim(R·u ∩ EP) = dim R/J_u = 1
+== E1.3 dati EP: C3-C2 (mai identificazione), C3-T3 (jet 2d-1), P4-T2 (G_u = 1) ==
+[OK]   E1.3a [x^2+2t] P(d)u = 0
+[OK]   E1.3b [x^2+2t] d = dim R·u = 3; Ann generato in grado <= d: dim R/(Ann_<=d) = d (C3-T3(ii)) :: quot_dim=3
+[OK]   E1.3c [x^2+2t] jet di ordine 2d-1 = 5 in p0 ricostruisce Ann_<=d (C3-T3(i)-(ii))
+       [info] [x^2+2t] jet di ordine 2d-2: dim nucleo 7 vs dim Ann_<=d 7 (basta già; C3-T3(iii) è solo nel caso peggiore)
+[OK]   E1.3d [x^2+2t] C3-C2: Ann(u) ≠ (P) (esiste Q ∈ Ann_<=d non multiplo di P)
+[OK]   E1.3e [x^2+2t] P4-T2(v)(b): u EP => G_u = gcd Ann = 1, sigma_p = V(Ann) finito
+[OK]   E1.3a [x^3+6tx] P(d)u = 0
+[OK]   E1.3b [x^3+6tx] d = dim R·u = 4; Ann generato in grado <= d: dim R/(Ann_<=d) = d (C3-T3(ii)) :: quot_dim=4
+[OK]   E1.3c [x^3+6tx] jet di ordine 2d-1 = 7 in p0 ricostruisce Ann_<=d (C3-T3(i)-(ii))
+       [info] [x^3+6tx] jet di ordine 2d-2: dim nucleo 11 vs dim Ann_<=d 11 (basta già; C3-T3(iii) è solo nel caso peggiore)
+[OK]   E1.3d [x^3+6tx] C3-C2: Ann(u) ≠ (P) (esiste Q ∈ Ann_<=d non multiplo di P)
+[OK]   E1.3e [x^3+6tx] P4-T2(v)(b): u EP => G_u = gcd Ann = 1, sigma_p = V(Ann) finito
+[OK]   E1.3a [e^{-4t}sin 2x] P(d)u = 0
+[OK]   E1.3b [e^{-4t}sin 2x] d = dim R·u = 2; Ann generato in grado <= d: dim R/(Ann_<=d) = d (C3-T3(ii)) :: quot_dim=2
+[OK]   E1.3c [e^{-4t}sin 2x] jet di ordine 2d-1 = 3 in p0 ricostruisce Ann_<=d (C3-T3(i)-(ii))
+       [info] [e^{-4t}sin 2x] jet di ordine 2d-2: dim nucleo 5 vs dim Ann_<=d 4 (non basta; C3-T3(iii) è solo nel caso peggiore)
+[OK]   E1.3d [e^{-4t}sin 2x] C3-C2: Ann(u) ≠ (P) (esiste Q ∈ Ann_<=d non multiplo di P)
+[OK]   E1.3e [e^{-4t}sin 2x] P4-T2(v)(b): u EP => G_u = gcd Ann = 1, sigma_p = V(Ann) finito
+[OK]   E1.3a [(x^2+2t)+e^{t+x}] P(d)u = 0
+[OK]   E1.3b [(x^2+2t)+e^{t+x}] d = dim R·u = 4; Ann generato in grado <= d: dim R/(Ann_<=d) = d (C3-T3(ii)) :: quot_dim=4
+[OK]   E1.3c [(x^2+2t)+e^{t+x}] jet di ordine 2d-1 = 7 in p0 ricostruisce Ann_<=d (C3-T3(i)-(ii))
+       [info] [(x^2+2t)+e^{t+x}] jet di ordine 2d-2: dim nucleo 11 vs dim Ann_<=d 11 (basta già; C3-T3(iii) è solo nel caso peggiore)
+[OK]   E1.3d [(x^2+2t)+e^{t+x}] C3-C2: Ann(u) ≠ (P) (esiste Q ∈ Ann_<=d non multiplo di P)
+[OK]   E1.3e [(x^2+2t)+e^{t+x}] P4-T2(v)(b): u EP => G_u = gcd Ann = 1, sigma_p = V(Ann) finito
+[OK]   E1.3a [e^{t+x}+e^{4t+2x}+e^{9t+3x}] P(d)u = 0
+[OK]   E1.3b [e^{t+x}+e^{4t+2x}+e^{9t+3x}] d = dim R·u = 3; Ann generato in grado <= d: dim R/(Ann_<=d) = d (C3-T3(ii)) :: quot_dim=3
+[OK]   E1.3c [e^{t+x}+e^{4t+2x}+e^{9t+3x}] jet di ordine 2d-1 = 5 in p0 ricostruisce Ann_<=d (C3-T3(i)-(ii))
+       [info] [e^{t+x}+e^{4t+2x}+e^{9t+3x}] jet di ordine 2d-2: dim nucleo 7 vs dim Ann_<=d 7 (basta già; C3-T3(iii) è solo nel caso peggiore)
+[OK]   E1.3d [e^{t+x}+e^{4t+2x}+e^{9t+3x}] C3-C2: Ann(u) ≠ (P) (esiste Q ∈ Ann_<=d non multiplo di P)
+[OK]   E1.3e [e^{t+x}+e^{4t+2x}+e^{9t+3x}] P4-T2(v)(b): u EP => G_u = gcd Ann = 1, sigma_p = V(Ann) finito
+== E1.4 C3-T4(b): u = (x^2+2t)+e^{t+x}, D = 4: tau-b ∈ Ann con deg b <= n unico per n <= 3 ==
+       [info] E1.4 n=1: fuori dalla ipotesi essenziale deg a = 2 <= n di C3-T4(b); osservato: insieme vuoto (dim -1)
+[OK]   E1.4 n=2: dim affine soluzioni = 0, predetto 0
+[OK]   E1.4 n=3: dim affine soluzioni = 0, predetto 0
+[OK]   E1.4 n=4: dim affine soluzioni = 1, predetto 1
+[OK]   E1.4 n=5: dim affine soluzioni = 2, predetto 2
+
+TOTALE E1: 45/45 OK

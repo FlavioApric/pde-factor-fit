@@ -1,0 +1,18 @@
+== A. Leading term of P(alpha,L_q)(x-x1)^M, x1=0, q generic Taylor (order 12) ==
+d=1 M=3: lowest order 1 (expected 1), coeff -6*p1, matches=True
+d=2 M=5: lowest order 1 (expected 1), coeff 120*p2, matches=True
+d=3 M=7: lowest order 1 (expected 1), coeff -5040*p3, matches=True
+d=2 M=8: lowest order 4 (expected 4), coeff 1680*p2, matches=True
+== A2. q-term is not a 'higher power' polynomial: L_q x^3 with q=1/(1+x) ==
+x*(x**2 - 6*x - 6)/(x + 1)
+== B. u=exp(x^2), q=0, u'=u+exp(alpha t) x^M: Ann not principal ==
+tau*(tau-alpha) annihilates: True
+tau*sigma^3 annihilates: True
+gcd = tau ; tau annihilates: False ; 1 annihilates: False
+modified h = exp(alpha t) x^M exp(x^2): tau*(tau-alpha) annihilates: True
+== C. Degree-<=1 prior: 4-jet of u=exp(x^2) at (0,0) forces P=c1*tau ==
+equations: [c0 - 2*c2, 0, c0 - 6*c2] solution: [{c0: 0, c2: 0}]
+== D. Counterexample to P0(b)^loc: W(g + w*f)=g on X (+) wX, V=t*w, c=0 ==
+decomposition exact: True
+W(L_V f) = Xpart = -Derivative(f(x), (x, 2)) ; (-d_xx)(W f) = (-d_xx) f = -Derivative(f(x), (x, 2)) ; equal: True
+V(t)-V(s) = (t-s)*w(x), not constant in x unless w const

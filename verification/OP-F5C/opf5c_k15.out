@@ -1,0 +1,20 @@
+[fibra speciale (1,0..0)] N=1: zero-dim=True, lunghezza=2 (atteso 2^N=2), chi squarefree=True, chi(s_const)=1/8 (!=0: True), tempo 0.2s
+[STAR_1] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1]] N=1: zero-dim=True, lunghezza=2 (atteso 2^N=2), chi squarefree=True, chi(s_const)=1 (!=0: True), tempo 0.0s
+[SQF_1] (lunghezza 2^N, chi squarefree) OK
+[fibra speciale (1,0..0)] N=2: zero-dim=True, lunghezza=4 (atteso 2^N=4), chi squarefree=False, chi(s_const)=25/4096 (!=0: True), tempo 0.0s
+[STAR_2] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3]] N=2: zero-dim=True, lunghezza=4 (atteso 2^N=4), chi squarefree=True, chi(s_const)=-5538095/331776 (!=0: True), tempo 0.0s
+[SQF_2] (lunghezza 2^N, chi squarefree) OK
+[fibra speciale (1,0..0)] N=3: zero-dim=True, lunghezza=8 (atteso 2^N=8), chi squarefree=False, chi(s_const)=2401/268435456 (!=0: True), tempo 0.1s
+[STAR_3] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3, -3/2]] N=3: zero-dim=True, lunghezza=8 (atteso 2^N=8), chi squarefree=True, chi(s_const)=-97486825675/472392 (!=0: True), tempo 0.1s
+[SQF_3] (lunghezza 2^N, chi squarefree) OK
+[fibra speciale (1,0..0)] N=4: zero-dim=True, lunghezza=16 (atteso 2^N=16), chi squarefree=False, chi(s_const)=8.009302e-12 (!=0: True), tempo 0.2s
+[STAR_4] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3, -3/2, 5/4]] N=4: zero-dim=True, lunghezza=16 (atteso 2^N=16), chi squarefree=True, chi(s_const)=5.113055e+15 (!=0: True), tempo 0.5s
+[SQF_4] (lunghezza 2^N, chi squarefree) OK
+[fibra speciale (1,0..0)] N=5: zero-dim=True, lunghezza=32 (atteso 2^N=32), chi squarefree=False, chi(s_const)=1.353392e-24 (!=0: True), tempo 0.7s
+[STAR_5] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3, -3/2, 5/4, 3/2]] N=5: zero-dim=True, lunghezza=32 (atteso 2^N=32), chi squarefree=True, chi(s_const)=7.887121e+39 (!=0: True), tempo 4.1s
+[SQF_5] (lunghezza 2^N, chi squarefree) OK

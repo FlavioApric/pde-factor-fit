@@ -1,0 +1,32 @@
+PASS 1a Gram fuori diagonale = -cos^2/2 + sin^2 (tutte le coppie)
+PASS 1b S S^T = diag(3/2 cos^2, 3/2 cos^2, 3 sin^2)
+PASS 1c det S^T S = (9/4) cos^4 * 3 sin^2 > 0: ker S = 0 per eps in (0,pi/2)
+PASS 1d eps=1/2: gamma_3 = 3 sin^2 eps = 6.895e-01, c_F a coppie = 0.1552 < 1/2
+PASS 1d eps=1/10: gamma_3 = 3 sin^2 eps = 2.990e-02, c_F a coppie = 0.4850 < 1/2
+PASS 1d eps=1/1000: gamma_3 = 3 sin^2 eps = 3.000e-06, c_F a coppie = 0.5000 < 1/2
+PASS 1e c(eps) = -1/2 + (3/2) sin^2 eps (quindi |c| < 1/2 per sin^2 eps < 2/3)
+PASS 2 K=5 blocchi: c_F a coppie = 0.4985 <= 1/2, ker S = 0 (lam_min>0), gamma_3 = 2.93e-03 = 3 sin^2(2^-K)
+PASS 2 K=12 blocchi: c_F a coppie = 0.5000 <= 1/2, ker S = 0 (lam_min>0), gamma_3 = 1.79e-07 = 3 sin^2(2^-K)
+PASS 2 K=20 blocchi: c_F a coppie = 0.5000 <= 1/2, ker S = 0 (lam_min>0), gamma_3 = 2.73e-12 = 3 sin^2(2^-K)
+PASS 3 coppia (1,2): gamma_2 = 1-cos(2^-k) = 2.98e-08 -> 0 (somma non chiusa); terna: inf gamma_3 = 1.0000 >= 1 (chiusa)
+PASS 4a Gram (+1/2): autovalori {2: 1, 1/2: 2} -> gamma_3 = 1/2 (rette indipendenti in R^3)
+PASS 4b Gram (-1/2) (rette a 120 gradi in R^2): autovalori {3/2: 2, 0: 1} -> gamma_3 = 3/2
+PASS 4c rette a 120 gradi: Gram = matrice (-1/2)
+PASS 4d Gram (+1/2) realizzata (Cholesky L L^T = G, colonne unitarie)
+PASS 5 N=3: gamma_N = 0.6952 >= 1-||C|| = 0.5544 >= 1-maxrow = 0.5024 > 0; ||S||^2 = 1.3532 <= 1+||C||
+PASS 5 N=4: gamma_N = 0.5842 >= 1-||C|| = 0.4281 >= 1-maxrow = 0.3218 > 0; ||S||^2 = 1.3624 <= 1+||C||
+PASS 5 N=5: gamma_N = 0.5457 >= 1-||C|| = 0.1584 >= 1-maxrow = 0.0036 > 0; ||S||^2 = 1.6513 <= 1+||C||
+PASS 5 N=3: gamma_N = 0.6849 >= 1-||C|| = 0.5961 >= 1-maxrow = 0.5459 > 0; ||S||^2 = 1.3617 <= 1+||C||
+PASS 5 N=4: gamma_N = 0.6844 >= 1-||C|| = 0.3168 >= 1-maxrow = 0.2920 > 0; ||S||^2 = 1.6088 <= 1+||C||
+PASS 5 N=5: gamma_N = 0.3451 >= 1-||C|| = 0.0397 >= 1-maxrow = -0.1101 > 0; ||S||^2 = 1.6034 <= 1+||C||
+PASS 5 N=3: gamma_N = 0.6611 >= 1-||C|| = 0.4638 >= 1-maxrow = 0.4302 > 0; ||S||^2 = 1.5109 <= 1+||C||
+PASS 5 N=4: gamma_N = 0.5940 >= 1-||C|| = 0.4043 >= 1-maxrow = 0.3653 > 0; ||S||^2 = 1.4107 <= 1+||C||
+PASS 6 prova 0: dim ker S = 1 (=1), ||S^+|| = gamma^-1/2 (3.8300), sup_a||R_a|| = 3.8299 <= gamma^-1/2, tasso = a/(g+a) sull'autovettore, <= in generale
+PASS 6 prova 1: dim ker S = 1 (=1), ||S^+|| = gamma^-1/2 (3.1417), sup_a||R_a|| = 3.1417 <= gamma^-1/2, tasso = a/(g+a) sull'autovettore, <= in generale
+PASS 6 prova 2: dim ker S = 1 (=1), ||S^+|| = gamma^-1/2 (8.5723), sup_a||R_a|| = 8.5716 <= gamma^-1/2, tasso = a/(g+a) sull'autovettore, <= in generale
+PASS 6 prova 3: dim ker S = 1 (=1), ||S^+|| = gamma^-1/2 (13.0386), sup_a||R_a|| = 13.0364 <= gamma^-1/2, tasso = a/(g+a) sull'autovettore, <= in generale
+PASS 7 gamma_3 -> 0: ||R_(lambda_k)|| = 75674.3 >= 1/(2 sqrt(lambda_k)) = 75674.3
+PASS 8 T4-1: ogni preimmagine >= ||S^+u||; selezione non lineare esatta; Lip(sigma) >= 6.4532 >= ||S^+|| = 5.9975
+PASS 9 N=2: gamma_2 = 1 - cos(theta) = 1 - c_F
+
+TOTALE: 30/30 PASS

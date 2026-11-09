@@ -1,0 +1,46 @@
+== E2.1 nucleo di AD: non EP, identifica (C3-T4(a)) ==
+[OK]   E2.1a P(d)G_AD = 0
+[OK]   E2.1b deg_x(d_x^k G_AD/G_AD) = k => G_AD non EP => Ann = (P) :: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+== E2.2 P2-T2: {E_perp = 0} = Sol(tau-a, g), g = (a-a1)(a-a2) = -cD xi^3 ==
+[OK]   E2.2a g = -c D xi^3, K = 3
+[OK]   E2.2b Q - g ∈ (tau - a)R (divisione): Q(d)u = g(d_x)u su ker P
+[OK]   E2.2c sul modo e^{a(z)t+zx}: Q(d)u = -cD z^3 u (≠0 per z≠0: E_perp ≠ 0, P2-L1)
+[OK]   E2.2d Sol(tau-a, xi^3) = span{1, x-ct, (x-ct)^2+2Dt} (dim 3)
+[OK]   E2.2e (x-ct)^2+2Dt = v1 + v2, v1 ∈ ker(tau-a1), v2 ∈ ker(tau-a2) (componenti in D_1, D_2)
+[OK]   E2.2f u = (x-ct)^3+6Dt(x-ct) ∈ ker P ma g(d_x)u = -6cD ≠ 0 => E_perp(u) ≠ 0 (fuori dallo spazio K=3)
+[OK]   E2.2g nota P2-T2: la componente v1 non sta in Sol(R/J_1), J_1 = (tau-a1, a-a1): D xi^2 v1 ≠ 0
+== E2.3 P1-T2: formula chiusa di E_int^add, E^mult = 0 (classe B) ==
+[OK]   E2.3a flussi per termine u_n = e^{t a_n(z)} e^{zx} risolvono (d_t - a_n(d_x))u_n = 0, u_n(0) = u0
+[OK]   E2.3b (ii)-(iii): E^add = z1 z2 e^{zx}
+[OK]   E2.3c E^mult = 0 sul modo: e^{t a} = e^{t a1} e^{t a2}
+[OK]   E2.3d (iii) con molteplicità: u0 = x e^{z0 x}, E^add = d_z[e_{>=2}(z) e^{zx}]_{z0}
+[OK]   E2.3e u0 = x^2: E^add = 0 = serie formale (iv), predetto 0
+[OK]   E2.3e u0 = x^3: E^add = -6*D*c*t**2 = serie formale (iv), predetto -6*D*c*t**2
+[OK]   E2.3e u0 = x^4: E^add = -12*D*c*t**2*(-c*t + 2*x) = serie formale (iv)
+[OK]   E2.3f (iv) N=3 (trasporto+diffusione+reazione), coefficiente di s^2/2! per f generica
+[OK]   E2.3f (iv) N=3 (trasporto+diffusione+reazione), coefficiente di s^3/3! per f generica
+[OK]   E2.3f (iv) N=3 (trasporto+diffusione+reazione), coefficiente di s^4/4! per f generica
+== E2.4 P1-E1: dato stazionario e^{cx/D}, E^add = -4 sinh^2(theta/2) e^{cx/D}, theta = c^2 t/D ==
+[OK]   E2.4a a(c/D) = 0 (stazionario)
+[OK]   E2.4b E^add/u0 = -4 sinh^2(theta/2)
+== E2.5 P1-T3: aggregati per ordine in O(N^2) (DP) vs tabella di Moebius Theta(2^N) ==
+[OK]   E2.5 N=2: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 3; tabella 2^N-N-1 = 1; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=3: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 6; tabella 2^N-N-1 = 4; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=4: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 10; tabella 2^N-N-1 = 11; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=5: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 15; tabella 2^N-N-1 = 26; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=6: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 21; tabella 2^N-N-1 = 57; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=7: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 28; tabella 2^N-N-1 = 120; E^add = sum_k>=2 e_k
+[OK]   E2.5 N=8: e_k(z) da DP = somma sui sottoinsiemi; molt. DP = N(N+1)/2 = 36; tabella 2^N-N-1 = 247; E^add = sum_k>=2 e_k
+== E2.6 P1-P1(e): u -> E^add non continua in H^m(Omega) (c = D = 1, Omega = (0,1)^2, m = 1) ==
+[OK]   E2.6 rapporto ||E^add||^2_{L2}/||u||^2_{H1} crescente e > 10^3 volte per z: 2 -> 16 (P1-P1(e), V-ex) :: ['1.9579', '13.311', '2427.3', '1.2795e+9']
+== E2.7 P3-T1(a1): criterio (Par) sul simbolo ==
+[OK]   E2.7 Re a(i kappa) = -D kappa^2: q = 2 pari, Re(alpha_q i^q) = -D < 0 => (Par) vale, Dyson-Phillips per AD su L2(R)
+== E2.8 P3-P1 / P3-T3: AD su (0,L) con Dirichlet, accoppiamento V = -c d_x ==
+[OK]   E2.8a V_mn = <e_m, -c d_x e_n> = -4cmn/(L(m^2-n^2)) se m+n dispari, 0 altrimenti (m,n <= 6)
+[OK]   E2.8b P3-P1(b): F_1 - t e^{lm t} = t e^{lm t} phi(t(ln-lm)), phi(w) = (e^w-1-w)/w
+[OK]   E2.8c P3-T3: u0 = e_1 ((u0'(0),u0'(L)) ≠ 0): pendenza log-log di ||E^{mult,(1)}|| -> 5/4 (V-ex numerico) :: ['1.2484', '1.2498', '1.25']
+[OK]   E2.8d P3-T3: u0 = e_1 - e_3/3 (u0'(0) = u0'(L) = 0): pendenza >= 2 - 0.02 (O(t^2)) (V-ex numerico) :: ['2.2384', '2.2488', '2.2499']
+[OK]   E2.8e OPA-T2(iii) k=1: costante ||E||/t^{5/4} -> |c| N_0 * 2pi (t = 1e-6) :: ['1.47029', '1.4703']
+[OK]   E2.8f OPA-T2(iii) k=3 (contatto cubico): esponente 9/4 e costante |c| N_2 * 8 pi^3 (t = 1e-6) :: ['50.4638', '50.4653']
+
+TOTALE E2: 36/36 OK

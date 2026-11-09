@@ -1,0 +1,26 @@
+(1) costanti
+  k=1: Ntil_k=0.234005  k*N_(k-1)=0.234005  OK
+  k=2: Ntil_k=0.325244  k*N_(k-1)=0.325244  OK
+  k=3: Ntil_k=0.610344  k*N_(k-1)=0.610344  OK
+(2)-(3) E^mult a eps=1 (c=D=L=1)
+  sin(pi x)  k=1: predetto ||E||/t^(k/2+3/4) -> 1.039655
+    t=1e-02: ||E||/t^p=0.99958  |E_modale-E_chiusa|/|E|=1.7e-03  ||E-E1||/t^(p+1/2)=0.6636
+    t=3e-03: ||E||/t^p=1.02747  |E_modale-E_chiusa|/|E|=4.8e-04  ||E-E1||/t^(p+1/2)=0.7019
+    t=1e-03: ||E||/t^p=1.03558  |E_modale-E_chiusa|/|E|=1.5e-04  ||E-E1||/t^(p+1/2)=0.7144
+    t=3e-04: ||E||/t^p=1.03844  |E_modale-E_chiusa|/|E|=2.6e-05  ||E-E1||/t^(p+1/2)=0.7198
+  x^2(1-x)^2 k=2: predetto ||E||/t^(k/2+3/4) -> 0.459965
+    t=1e-02: ||E||/t^p=0.30966  |E_modale-E_chiusa|/|E|=8.4e-05  ||E-E1||/t^(p+1/2)=0.2606
+    t=3e-03: ||E||/t^p=0.37251  |E_modale-E_chiusa|/|E|=1.1e-05  ||E-E1||/t^(p+1/2)=0.3315
+    t=1e-03: ||E||/t^p=0.40788  |E_modale-E_chiusa|/|E|=1.9e-06  ||E-E1||/t^(p+1/2)=0.3719
+    t=3e-04: ||E||/t^p=0.43088  |E_modale-E_chiusa|/|E|=1.0e-07  ||E-E1||/t^(p+1/2)=0.3982
+  x^3(1-x)^3 k=3: predetto ||E||/t^(k/2+3/4) -> 0.863156
+    t=1e-02: ||E||/t^p=0.41659  |E_modale-E_chiusa|/|E|=3.7e-06  ||E-E1||/t^(p+1/2)=0.4119
+    t=3e-03: ||E||/t^p=0.58547  |E_modale-E_chiusa|/|E|=2.4e-07  ||E-E1||/t^(p+1/2)=0.6247
+    t=1e-03: ||E||/t^p=0.69203  |E_modale-E_chiusa|/|E|=2.0e-08  ||E-E1||/t^(p+1/2)=0.7631
+    t=3e-04: ||E||/t^p=0.76557  |E_modale-E_chiusa|/|E|=4.3e-10  ||E-E1||/t^(p+1/2)=0.8598
+  x^2(1-x)^3 k=(2,3): predetto ||E||/t^(k/2+3/4) -> 0.325244
+    t=1e-02: ||E||/t^p=0.17176  |E_modale-E_chiusa|/|E|=9.1e-07  ||E-E1||/t^(p+1/2)=0.1478
+    t=3e-03: ||E||/t^p=0.22788  |E_modale-E_chiusa|/|E|=3.4e-08  ||E-E1||/t^(p+1/2)=0.2050
+    t=1e-03: ||E||/t^p=0.26460  |E_modale-E_chiusa|/|E|=1.7e-09  ||E-E1||/t^(p+1/2)=0.2426
+    t=3e-04: ||E||/t^p=0.29043  |E_modale-E_chiusa|/|E|=3.5e-08  ||E-E1||/t^(p+1/2)=0.2692
+esito: 19/19 OK

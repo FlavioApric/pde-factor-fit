@@ -1,0 +1,5 @@
+W''(a_i) = [16.25, 4.5, 47.109375]
+costante predetta (3 minimizzanti) = 6.061246;  senza il ramo centrale = 2.912561
+nu=4.0e-04: (e - nu*int|kappa|)/nu = 6.04755   predetto 6.06125
+nu=1.0e-04: (e - nu*int|kappa|)/nu = 6.04727   predetto 6.06125
+nu=2.5e-05: (e - nu*int|kappa|)/nu = 6.04720   predetto 6.06125

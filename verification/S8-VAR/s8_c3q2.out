@@ -1,0 +1,6 @@
+[OK] (a) divisione Q = Q'L + R, R in C[t,x]<dx> (verificata su F generica) 
+[OK] (b) calore: u_t = u_xx 
+[OK] (b) R = (1+4t)dx + 2x in B uccide u: u non identifica dt - dx^2 in A_2 
+[OK] (b') Schrodinger libero: i u_t + u_xx = 0 e (1+4it)dx + 2x uccide u 
+[OK] (c) a(t,x)*x dt ha coefficiente divisibile per x: dt notin A_2 x dt (al grado 0 in dt-coefficiente) 
+RISULTATO: TUTTO OK

@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper,oneside]{report}
+\input{preamble05}
+\externaldocument[PAP-]{paper_fasi05}
+\renewcommand{\shorttitle}{Catalogue of proofs --- Phases 0--5}
+\newcommand{\inc}[1]{\IfFileExists{#1.tex}{\input{#1}}{}}
+
+% ---------- proof card: one per result
+% \begin{dimcard}{A3}{C3-T1}{Identification criterion}{\proved}{thm:ident} ... statement ... \end{dimcard}
+% #1 catalogue number, #2 ledger ID (also the label key dim:#2), #3 name, #4 trust badge, #5 paper label (or empty)
+\newcommand{\paperref}[1]{\ifx\relax#1\relax\else\textsf{\footnotesize\color{cG}Stated in the paper as no.~\ref{PAP-#1}, p.~\pageref{PAP-#1}}\fi}
+\newtcolorbox{dimcardbox}[5]{enhanced,colback=cA!4,colframe=cA,boxrule=0.8pt,arc=1.5pt,
+  left=9pt,right=9pt,top=8pt,bottom=6pt,before skip=16pt,after skip=10pt,
+  fonttitle=\bfseries\sffamily,coltitle=white,colbacktitle=cA,
+  title={Dim.~#1\hfill #2},
+  before upper={\setlength{\parskip}{0.5em}\phantomsection\label{dim:#2}{\sffamily\bfseries\large #3}\hfill #4\par\smallskip},
+  after upper={\par\smallskip\paperref{#5}}}
+\newenvironment{dimcard}[5]{\par\Needspace{12\baselineskip}\begin{dimcardbox}{#1}{#2}{#3}{#4}{#5}}{\end{dimcardbox}}
+% a short card for results listed without proof (cited, conditional, examples only)
+\newcommand{\listcard}[4]{\par\noindent\begin{tabular}{@{}L{2.4cm}L{9.0cm}L{3.2cm}@{}}\textsf{\small\bfseries #1} & #2 & #3\end{tabular}\par\noindent{\small #4}\par\medskip}
+
+\begin{document}
+\pagenumbering{roman}
+\begin{titlepage}
+\centering
+\vspace*{2.6cm}
+{\sffamily\color{cG}\large Companion volume \textperiodcentered{} Phases 0--5\par}
+\vspace{0.8cm}
+{\sffamily\bfseries\Huge\color{cA!85!black} Catalogue of Proofs\par}
+\vspace{0.6cm}
+{\large Exact recovery of a linear differential operator from a single solution\par}
+\vspace{1.6cm}
+\begin{tikzpicture}[font=\small\sffamily]
+\node[draw=cA,fill=cA!8,rounded corners=2pt,text width=5.2cm,align=center,minimum height=16mm] (a) {\textbf{Part I}\\ the 31 load-bearing proofs\\ Dim.~A1--A31};
+\node[draw=cG,fill=cG!8,rounded corners=2pt,text width=5.2cm,align=center,minimum height=16mm,right=8mm of a] (b) {\textbf{Part II}\\ all the other results\\ Dim.~B1--\dots};
+\end{tikzpicture}
+\vfill
+{\small Every card carries its ledger identifier (for example C3-T1), its trust label, and the page of the statement in the companion paper \emph{Exact Recovery of a Linear Differential Operator from a Single Solution, complete edition, Phases~0--5}.\par}
+\vspace{0.4cm}
+{\small October 2026\par}
+\end{titlepage}
+
+\inc{c_front}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\part{The load-bearing proofs}
+\inc{c_I1}
+\inc{c_I2}
+\inc{c_I3}
+\inc{c_I4}
+
+\part{The other results}
+\inc{c_II1}
+\inc{c_II2}
+\inc{c_II3}
+\inc{c_II4}
+\inc{c_II5}
+
+\appendix
+\inc{c_index}
+\inc{p_refs}
+\end{document}

@@ -1,0 +1,17 @@
+[OK] C1a rank Hankel 4x4 del jet in 0 = 3 = deg p_u
+[OK] C1b nucleo Hankel 3x4 di dim 1
+[OK] C1c polinomio di Prony = (z-2)^2 (z+1)
+[OK] C1d p_u(D) u = 0
+[OK] C2 rank Gram = 3, dim ker = 5-3 = 2 (n=4, d=3) -> non identificabile (rank=3)
+[OK] C3 denominatore ridotto di Laplace(u) = p_u(z)
+[OK] C4 D^k - 1 annulla e^x per k=1..6 (infiniti annullatori 2-sparsi)
+[OK] C5a |S u -S|=2 < n+1=4: due operatori reali di grado 3 diversi annullano U
+[OK] C5b con |S u -S|=4 = n+1 l'operatore a2 NON annulla piu' U2
+[OK] C5c interpolazione su {�1,�2} restituisce a unicamente
+[OK] C6a W risolve il calore
+[OK] C6b W risolve anche u_tt + 5u_t + 4u = 0 (Z finito => Ann(u) 0-dimensionale)
+[OK] C6c modo complesso: u_t = 3i u_x + 2u
+[OK] C7a (D-2x) w = 0
+[OK] C7b x(D-2x) w = 0 (moltiplo sinistro polinomiale: stessa classe, grado maggiore)
+[OK] C7c (D^2 - 4x^2 - 2) w = 0 (ordine 2, moltiplo sinistro (D+2x)(D-2x))
+[OK] C7d g D - g' annulla qualsiasi g (non-identificabilita' strutturale a coeff. liberi)

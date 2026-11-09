@@ -1,0 +1,10 @@
+PASS a1 K solves K_t = D K_xx - c K_x
+PASS b1 E_int bilinear identity (N=2)
+PASS b2 N=3: product expansion has 2^3-1=7 monomials in E_i
+PASS b3 log-symbol: log(e^{ta1}e^{ta2}e^{ta3}) = t(a1+a2+a3) (3 terms)
+PASS c1 BCH 2nd order: e^{tA}e^{tB}-e^{t(A+B)} = t^2/2 [A,B] + O(t^3)
+PASS c2 Lie-Trotter error is O(1/n): err(10)/err(100) ~ 10
+PASS d1 [d_x^2, x] f = 2 f'
+PASS e1 |e^{-D t xi^2 - i c t xi}| <= 1 (dissipative symbol, Lumer-Phillips)
+PASS e2 Airy symbol: |e^{i t xi^3}| = 1 (unitary group, Stone)
+ALL PASS

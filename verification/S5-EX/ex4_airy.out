@@ -1,0 +1,44 @@
+== E4.1 Airy PDE: soluzione fondamentale u = (3t)^(-1/3) Ai(x/(3t)^(1/3)) ==
+[OK]   E4.1a P(d)u = u_t + u_xxx = 0
+[OK]   E4.1b nessuna relazione sum_(k<=12) g_k Ai^(k) = 0 non banale (Ai, Ai' indipendenti su C(x)) => t-getto libero (V-ex fino a K=12) :: [{g0: 0, g1: 0, g10: 0, g11: 0, g12: 0, g2: 0, g3: 0, g4: 0, g5: 0, g6: 0, g7: 0, g8: 0, g9: 0}]
+[OK]   E4.1c (argomento generale) Ai ha infiniti zeri reali (primi tre ~ -2.338, -4.088, -5.521) => Ai'/Ai non razionale => Ai, Ai' indipendenti su C(x)
+== E4.2 Airy PDE, dati EP: C3-T3 (jet 2d-1), C3-C2 ==
+[OK]   E4.2a [x^3-6t] P(d)u = 0
+[OK]   E4.2b [x^3-6t] d = 4; dim R/(Ann_<=d) = d
+[OK]   E4.2c [x^3-6t] jet di ordine 2d-1 = 7 ricostruisce Ann_<=d
+[OK]   E4.2d [x^3-6t] C3-C2: Ann(u) ≠ (P)
+[OK]   E4.2a [e^{x-t}+e^{2x-8t}+e^{-x+t}] P(d)u = 0
+[OK]   E4.2b [e^{x-t}+e^{2x-8t}+e^{-x+t}] d = 3; dim R/(Ann_<=d) = d
+[OK]   E4.2c [e^{x-t}+e^{2x-8t}+e^{-x+t}] jet di ordine 2d-1 = 5 ricostruisce Ann_<=d
+[OK]   E4.2d [e^{x-t}+e^{2x-8t}+e^{-x+t}] C3-C2: Ann(u) ≠ (P)
+[OK]   E4.2a [x^4-24tx] P(d)u = 0
+[OK]   E4.2b [x^4-24tx] d = 5; dim R/(Ann_<=d) = d
+[OK]   E4.2c [x^4-24tx] jet di ordine 2d-1 = 9 ricostruisce Ann_<=d
+[OK]   E4.2d [x^4-24tx] C3-C2: Ann(u) ≠ (P)
+== E4.3 KdV lineare u_t = -c u_x - u_xxx (termini a1 = -c xi, a2 = -xi^3): P2-T2 e P1-T2(iv) ==
+[OK]   E4.3a g = c xi^4, K = 4
+[OK]   E4.3b Sol(tau-a, xi^4) = span{1, x-ct, (x-ct)^2, (x-ct)^3-6t} (dim 4): spazio {E_perp = 0} di P2-T2
+[OK]   E4.3c (x-ct)^3-6t = v1 + v2, v1 ∈ ker(tau+c xi), v2 ∈ ker(tau+xi^3)
+[OK]   E4.3d P1-T2: u0 = x^4, E^add = (S1-I)(S2-I)x^4 = 24 c t^2 :: 24*c*t**2
+== E4.4 P3-T1(a1): (Par) fallisce per i termini dispersivi del 3° ordine ==
+[OK]   E4.4 [Airy -xi^3] q = 3 dispari, Re a(i kappa) = 0: (Par) non vale => P3-T1(a) non si applica con questo A_0
+[OK]   E4.4 [KdV-Burgers lineare D xi^2 - xi^3] q = 3 dispari, Re a(i kappa) = -kappa**2: (Par) non vale => P3-T1(a) non si applica con questo A_0
+== E5.1 Airy EDO: Ann_{A_1}(Ai) e P4-C1 ==
+[OK]   E5.1a (d^2 - x) Ai = 0, (d^2 - x) Bi = 0
+[OK]   E5.1b Ann_A1(Ai) ∩ box(3,4) ⊆ A_1(d^2-x) (resto della divisione nullo); dim = 9 = dim A_1(d^2-x) ∩ box = 9
+[OK]   E5.1c P4-C1(a): rho_Ai : A_1 -> End(A_1·Ai) iniettiva su box(3,4) (nucleo 0) mentre Ann ∩ box ≠ 0
+[OK]   E5.1d 𝓛 = span{1, d, d^2, x}: Ann ∩ 𝓛 = C(d^2 - x) (dim 1): Ai identifica in 𝓛
+== E5.2 coefficienti variabili in D = A_1[d_t]: P = d_t - d_x^2 + x (monico, m = 1), OP-ALG-T4 ==
+[OK]   E5.2a u_mu = e^{mu t} Ai(x+mu): P u_mu = 0
+[OK]   E5.2b u_mu ∈ 𝒯 (b = d_x^2 - x - mu ∈ A_1 la annulla) => per OP-ALG-T4(d) Ann ≠ D·P: testimone b ∉ D·P (grado 0 in d_t)
+[OK]   E5.2c u* = exp(-xt + t^3/3) G(t, x - t^2) (G nucleo del calore): P u* = 0
+[OK]   E5.2d u* ∉ 𝒯: nessun b ∈ A_1 ∩ box(4,4) non nullo con b u* = 0 (V-ex; prova generale: coefficiente di t^(-K))
+[OK]   E5.2e (log u*)_x = -x/(2t) - t/2: il termine dominante in t^-1 rende la prova del punto d generale
+[OK]   E5.2f OP-ALG-P5 (in A_2 una soluzione olonoma non identifica): L = 2t d_x + x + t^2 ∈ C[t,x]<d_x> annulla u*
+== E5.3 OPR2-T3, esempio (i): P = d_t (d_t - x) in D, fattori non simili, test D_1 = d_t, D_2 = d_t - x ==
+[OK]   E5.3a u = e^{xt} + 1: P u = 0; (d_t - x)u = -x ∈ 𝒯 => non identifica; testimone Q = d_x^2 (d_t - x) ∉ D·P, Q u = 0
+[OK]   E5.3b u = e^{xt} + exp(e^x): P u = 0
+[OK]   E5.3c test di OPR2-T3: D_1 u = x e^{xt} ∉ 𝒯 e D_2 u = -x exp(e^x) ∉ 𝒯 (box(4,4); V-ex) => predetto Ann = D·P
+[OK]   E5.3d osservato: nessuna relazione b1 d_t u + b0 u = 0 con b_i ∈ box(3,3) (t-getto libero, OP-ALG-T4(b))
+
+TOTALE E4/E5: 35/35 OK

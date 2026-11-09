@@ -1,0 +1,16 @@
+OK   D6 sup s^{-k}e^{-1/(2s²)}: punto critico y = k
+OK   D6 valore k^{k/2}e^{-k/2}
+OK   D6 (k^{k/2}e^{-k/2}/(k!)^{1/2})^{1/k} ≤ 1 per k ≤ 200
+OK   D6 Re(1+ζ)^{-2} ≥ 1/2 su |ζ| ≤ 0.1 (min ≈ 0.8264)
+OK   D6 |g_0^{(k)}| ≤ k!(s/10)^{-k}e^{-1/(2s²)} (k ≤ 8, 7 punti)
+OK   D7 punto critico di log ℓ + ℓ^{-4}/2 è ℓ = 2^{1/4} > 1 (quindi decrescente su (0,1])
+OK   D7 valore in ℓ = 1: 1/2 > 0
+OK   §3 passo 3: sup ℓ^{-k}e^{-ℓ^{-4}/2} = (k/(2e))^{k/4}
+OK   §3 Leibniz: Σ_j C(k,j)(j!(k−j)!)^{3/2} ≤ 2^k(k!)^{3/2} (k < 30)
+OK   D8 (k+j)! ≤ 2^{k+j} k! j! (k, j < 25)
+OK   §3 (2k)! ≥ (k!)²
+OK   §3 serie di Tychonoff: L_0 u_K = i(−i)^K g^{(K+1)}x^{2K}/(2K)!
+OK   §3 u(t,0) = g(t)
+OK   §3 g_j piatta agli estremi del gap (k ≤ 3)
+
+[c_q10] 14/14 OK

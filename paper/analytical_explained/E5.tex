@@ -1,0 +1,27 @@
+%--- E5: Section 4.1, after the easy-direction proof / before the takeaway --
+\begin{explained}{what Theorem~\ref{thm:ident} asks, and why}
+\textbf{Step 1: the problem.} Given an open connected $\Omega\subset\R^2$, a distribution $u\in\mathcal D'(\Omega)$ and a constant-coefficient operator with $P(\partial)u=0$, does $u$ \emph{uniquely identify} $P$, in the sense $\Ann(u)=(P)$? That equality says that every constant-coefficient operator annihilating $u$ is a multiple of $P$: there is no genuinely smaller equation. A single function can satisfy many different PDEs, so the answer is not automatically yes.
+
+\medskip\textbf{Counterexample.} $P=\partial_x^2-1=(\partial_x-1)(\partial_x+1)$ and $u=e^x$: $P(\partial)u=0$, but also $(\partial_x-1)u=0$, so $\Ann(u)\ne(P)$ (in $\C[\partial_x]$ it equals $(\partial_x-1)$; in $\ring$ it is $(\partial_t,\partial_x-1)$). Knowing $u=e^x$ does not tell us that the second-order equation is the minimal one.
+
+\medskip\textbf{Step 2: factor $P$.} $P=\prod_{i=1}^rP_i^{e_i}$ with distinct irreducible $P_i$. Example: $P=(\tau-\xi)^2(\tau+\xi)$ has $P_1=\tau-\xi$ ($e_1=2$) and $P_2=\tau+\xi$ ($e_2=1$). Each factor is a potential piece of the equation that might be unnecessary to explain this particular $u$.
+
+\medskip\textbf{Step 3: the key construction.} For each $i$ put $w_i=(P/P_i)(\partial)u$. Because $P(\partial)u=0$,
+\[
+P_i(\partial)w_i=P_i(\partial)\tfrac{P}{P_i}(\partial)u=P(\partial)u=0,\qquad\text{i.e.}\qquad w_i\in\ker P_i(\partial).
+\]
+After removing one factor, the resulting function satisfies the PDE of that factor alone. The theorem asks whether $w_i$ is an exponential-polynomial:
+\begin{itemize}[nosep]
+\item $w_i\notin\EP$: it has infinitely many independent derivatives, which prevents the factor $P_i$ from being removed from the annihilator;
+\item $w_i\in\EP$: it lives in a finite-dimensional derivative space, which signals a possible ambiguity in identifying the equation.
+\end{itemize}
+
+\medskip\textbf{Step 4: part (a).} $\Ann(u)=(P)\iff(P/P_i)(\partial)u\notin\EP(\Omega)$ for every $i$. If another annihilator $Q$ were not a multiple of $P$, the annihilator would contain more information than $(P)$; the theorem rules this out precisely by the non-$\EP$ tests. \emph{Check on the counterexample:} for $P_1=\partial_x-1$, $P/P_1=\partial_x+1$ and $w_1=(\partial_x+1)e^x=2e^x\in\EP$; for $P_2=\partial_x+1$, $w_2=(\partial_x-1)e^x=0\in\EP$. The tests say $\EP$, so $u$ does not identify $P$, as it should. Note the theorem concerns the \emph{full annihilator ideal}, not merely whether $P$ is satisfied.
+
+\medskip\textbf{Step 5: part (b).} $\Var(\Ann u)=\Var(P)\iff(P/P_i^{e_i})(\partial)u\notin\EP$ for all $i$. In (a) one removes one copy of $P_i$, in (b) the whole power $P_i^{e_i}$, because the characteristic variety sees zeros, not multiplicities. For instance $(\tau-\xi)^2$ and $\tau-\xi$ have the same zero set $\{\tau=\xi\}$ but are different polynomials. Identifying the variety is therefore weaker than identifying the annihilator.
+
+\medskip\textbf{Step 6: part (c).} If $P$ is \emph{reduced} (all $e_i=1$), removing one copy of $P_i$ equals removing its whole power, so (a) and (b) coincide. If $P$ is monic in $\tau$ of degree $k$ in $\tau$, the test can be done on the finite $t$-jet $u,\partial_tu,\dots,\partial_t^{k-1}u$: a jet is just a finite list of derivatives, so the test needs only finitely many derivative components.
+
+\medskip\textbf{The logical chain.} Given $P(\partial)u=0$ $\to$ factor $P$ $\to$ remove factors, $w_i=(P/P_i)(\partial)u$ $\to$ test membership in $\EP$ (finite-dimensional derivative span, Lemma~\ref{lem:ep}) $\to$ decide whether $u$ determines the full annihilator or only its characteristic variety. One precision: the theorem does \emph{not} say that an exponential-polynomial solution can never identify any PDE; it tests the particular functions $w_i$ obtained after removing factors, not whether $u$ itself is in $\EP$.
+\end{explained}
+

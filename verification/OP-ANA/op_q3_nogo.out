@@ -1,0 +1,19 @@
+[OK] sum_k e^{2pi i e k/d} = 0 per d|e falso (d<=6, e<=12)
+[OK] AD, t0=0.0, theta=0.000: log R^2 cresce (r=20,80,160: [15.6, 124.8, 279.3])
+[OK] AD, t0=0.5, theta=0.000: log R^2 cresce (r=20,80,160: [-4.4, 44.8, 119.3])
+[OK] AD, t0=1.0, theta=2.094: log R^2 cresce (r=20,80,160: [-4.4, 44.8, 119.3])
+[OK] tre monomi (xi^3, xi^2, xi), t0=0.0: esiste una direzione con log R^2 crescente: [20.669277787719757, 130.39440757784487]
+[OK] tre monomi (xi^3, xi^2, xi), t0=1.0: esiste una direzione con log R^2 crescente: [8.810209397697433, 83.4184087965424]
+[OK] proporzionale theta=1/2, t0=0.0: log R^2 limitato (<= 5) su a=+-lambda: max -4.34
+[OK] proporzionale theta=1/2, t0=0.5: log R^2 limitato (<= 5) su a=+-lambda: max -9.59
+[OK] proporzionale theta=1/2, t0=1.0: log R^2 limitato (<= 5) su a=+-lambda: max -4.34
+[OK] proporzionale theta=2, t0=0: log R^2 cresce: [42.1398149424908, 189.71527172824656, 787.1287630685464]
+[OK] theta=(-0.3,1.3), t0=0.5: illimitato atteso (theta=1.3>1): max log R^2 = 107.6
+[OK] theta=(-0.3,1.3), t0=0.1: illimitato atteso (theta=1.3>1): max log R^2 = 203.6
+[OK] theta=(-0.3,0.6,0.7), t0=0.5: atteso lim (TC <=> t0 in [0.2308,0.7692]); max log R^2 = -7.2
+[OK] theta=(-0.3,0.6,0.7), t0=0.1: atteso illim (TC <=> t0 in [0.2308,0.7692]); max log R^2 = 125.0
+[OK] theta=(-0.3,0.6,0.7), t0=0.9: atteso illim (TC <=> t0 in [0.2308,0.7692]); max log R^2 = 125.0
+[OK] classe (F) xi^2, xi^2+xi, t0=0.0: illimitato lungo a(zeta) in iR
+[OK] classe (F) xi^2, xi^2+xi, t0=0.5: illimitato lungo a(zeta) in iR
+[OK] classe (F) xi^2, xi^2+xi, t0=1.0: illimitato lungo a(zeta) in iR
+RISULTATO: 18/18 OK

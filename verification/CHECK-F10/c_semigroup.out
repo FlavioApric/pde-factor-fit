@@ -1,0 +1,11 @@
+OK   §1 Lemma C: F' = T(t-s)f(s) + ∫T(t-r)f'(r)dr (matrice 2x2)
+OK   §1 Lemma C: A F = F' - f
+OK   §2 prima componente: ∫_0^t c = C(t)
+OK   §2 seconda componente: 1 − ∫⟨y,f⟩ = cos(nt)
+OK   §2 B antiaggiunto (B^* = −B) sul modello finito
+OK   §2 ‖B(t)−B(t')‖ = ‖f(t)−f(t')‖ ≤ 2‖f(t)−f(t')‖
+OK   §2 x = Σ e^{ikθ}/k: x ∈ L² ma ∉ D(d/dθ)
+OK   §4 gauge: e^{-i∫v}ψ̃ risolve con V_0 + v
+OK   §4 lemma delle medie: formula con termine di bordo k(0)
+
+[c_semigroup] 9/9 OK

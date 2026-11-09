@@ -1,0 +1,22 @@
+[OK]   A1 Leibniz [P,theta]w = sum_(alpha!=0) d^alpha theta/alpha! P^(alpha)(D) w  (trave tau^2+xi^4)
+[OK]   A1 Leibniz [P,theta]w = sum_(alpha!=0) d^alpha theta/alpha! P^(alpha)(D) w  (calore x trasporto (tau-xi^2)(tau+xi))
+[OK]   A1 Leibniz [P,theta]w = sum_(alpha!=0) d^alpha theta/alpha! P^(alpha)(D) w  (onda tau^2-xi^2)
+[OK]   A2 temperanza P~ trave: max P~(z+h)/((1+|h|)^4 P~(z)) = 0.038 (costante finita, Taylor d� C<=sum 1/beta!)
+[OK]   A3 traslazione locale verso o=(1,1.5) sul parallelogramma L=2: dist >= eps*rho/2 (rho=0.354), 20000 punti
+[OK]   B1 cuneo: inf_sigma lambda_min(Gram normalizzata) = 0.0054 > 0 su |sigma|<=80
+[OK]   B2 off-diagonali -> 0 (fase non stazionaria): max per |sigma|>60 = 0.0289
+[OK]   B3 controllo di sanit�: esponente a=1 (forme lineari) d� Gram singolare
+[OK]   B4 esponente a=2 (potenze quadrate di 3 forme distinte) Gram non singolare
+[OK]   C0 u* = u*_1+u*_2 risolve P = P1 P2
+[OK]   C1 R_lambda u* = (1+lam d_x) u*_2 (endomorfismo E_lambda applicato a u*)
+[OK]   C2 P u_lambda = 0
+[OK]   C3 Q_lambda u_lambda = 0 (Ann(u_lambda) != DP)
+[OK]   C4 intertwiner P1 d_x = d_x P2
+[OK]   C5 Q_lambda u_mu = (mu-lambda) d_x u*_2
+[OK]   D1 P_r u_G = 0, u_G = t^-1 exp(-x^2/4t)
+[OK]   D2 P_r = x * (d_t - d_x^2 - x^-1 d_x) (Phat monico in A_1[x^-1][d_t])
+[OK]   D3 azione destra di P_r su D/xD = C[eta,T]: f -> T f' - eta f - eta^2 f' (eta^i T^k, i<=6, k<=2)
+[OK]   D4 iniettivit�: f�P_r = 0 => f = 0 (grado <= 8 in eta, <= 3 in T)
+[OK]   D5 u_G non � di A_1-torsione (ordine <= 3, grado <= 3: solo b = 0)
+[OK]   D6 modo e^{-k^2 t}J_0(kx) (k=2) � di torsione: (x d^2 + d + k^2 x) u = 0
+TOTALE 21/21

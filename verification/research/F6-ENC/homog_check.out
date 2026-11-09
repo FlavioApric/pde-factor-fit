@@ -1,0 +1,5 @@
+V=cos y eps^-2 E0 -> [-0.491558 -0.497832 -0.499454 -0.499913]  atteso -0.5
+V=cos y + 0.5 sin 2y eps^-2 E0 -> [-0.524093 -0.529421 -0.53079  -0.531176]  atteso -0.53125
+OK   shift efficace = -<(d^{-1}V)^2>
+ampiezza O(1): E0 -> [-0.005   -0.00125 -0.0002 ] (atteso 0)
+OK   ampiezza O(1): operatore efficace libero

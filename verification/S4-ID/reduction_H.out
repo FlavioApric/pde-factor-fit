@@ -1,0 +1,6 @@
+burgers Hammerstein D=2 ord<=2: dim([F] cap H) = 1; dim(R.F_B cap H) = 1
+burgers Hammerstein D=2 ord<=3: dim([F] cap H) = 3; dim(R.F_B cap H) = 3
+burgers Hammerstein D=2 ord<=4: dim([F] cap H) = 6; dim(R.F_B cap H) = 6
+burgers Hammerstein D=3 ord<=2: dim([F] cap H) = 1; dim(R.F_B cap H) = 1
+burgers Hammerstein D=3 ord<=3: dim([F] cap H) = 3; dim(R.F_B cap H) = 3
+burgers Hammerstein D=3 ord<=4: dim([F] cap H) = 6; dim(R.F_B cap H) = 6

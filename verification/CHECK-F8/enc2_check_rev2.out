@@ -1,0 +1,17 @@
+OK   L1 lente: u risolve i u_t = -u_xx/2 + x^2 u/2
+OK   L2 lente: formula del PP nella variabile y inverte la mappa
+OK   L3 lente: W(t) isometrica (gaussiana, t = 1/3)
+OK   BG1 V = beta x + gamma: u = e^{-iBx - iPhi - i int gamma} v(t, x - Xi)
+OK   BG2 Avron-Herbst come caso beta = F (theta = id)
+OK   DIC1 sistema T' = 1/rho^2, rho' = 4 a rho, a' + 4a^2 = -alpha annulla il residuo
+OK   DIC2 theta = id => rho = 1 (rho(0) = 1) => a = 0 => alpha = 0
+OK   DIC3 V = 0 (alpha = 0) ha un rappresentante con theta(t) = t/(1+4a0 t) != id (pseudo-conforme)
+OK   POLE1 W L_V = L_0 W istantaneo con polo mobile
+OK   POLE2 residuo parabolico = -i (d_t W) g, non nullo se z' != 0
+OK   POLE3 U libero da poli ai due tempi ma non sul segmento [0,2] x U
+OK   T2c'1 q = sin x + e^{x/3}, d = 3: ordine minimo M - 2d, coeff p_d(-1)^d M!/(M-2d)!  ordine 3, coeff -30240
+OK   T2c'2 caso d = 0: P_* = p_0, P_*(alpha, L_q)(x-x1)^M = p_0 (x-x1)^M
+OK   T2c'3 caso limite M = 2d: termine costante p_d (-1)^d M! != 0
+OK   T2c'4 j^N h = 0 in (t1, x1) per M = N + 1
+
+TOTALE: 15/15 OK

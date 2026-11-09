@@ -1,0 +1,14 @@
+# open_questions — S8-SYS
+27/10/2026.
+
+- **Q-S8SYS-1 (SYS-E).** Esiste una parola finita in {X, Y} (Dirac 1+1) con tempi g_i(t, ξ, m) polinomiali in ξ (per esempio g_i ∈ ℂ[ξ][[t]]) tale che e^{t(X+mY)} = ∏ e^{g_i Z_i}? P1-T5 esclude solo i tempi indipendenti da ξ. SYS-E3 dà tempi analitici ma non polinomiali per la parola ZXZ. Idea: per t fissato gli elementi del prodotto sarebbero somme finite di e^{iP_j(ξ)} con P_j polinomi, mentre cos(t√(ξ²+m²)) − cos(tξ) → 0 per ξ → ∞ senza essere nullo; un argomento di quasi-periodicità chiuderebbe il caso di grado ≤ 1, quello di grado ≥ 2 richiede una stima d'ordine delle somme di esponenziali di polinomi.
+- **Q-S8SYS-2 (SYS-S1-C in 𝒟′).** Sul dominio a U del §3.3, ∂_x è suriettivo su 𝒟′(Ω)? Se no, SYS-S1(⇐) è falso anche in 𝒟′. Serve la caratterizzazione della P-convessità per supporti singolari di ∂_x (Hörmander II, cap. 10; numerazione da verificare).
+- **Q-S8SYS-3 (SYS-S1, caratterizzazione).** Per Ω fissato, (⇐) vale per ogni coppia (Q_1, Q_2) ⟺ Ext¹(N, C^∞(Ω)) = 0 per ogni N che compare? È plausibile che la condizione giusta sia "Ω P-convesso per tutti i P", cioè C^∞(Ω) iniettivo; in dimensione 2 per Ω semplicemente connesso questo è legato alla convessità lungo le direzioni caratteristiche reali.
+- **Q-S8SYS-4 (II-T2(b′) derogatoria).** Enunciato candidato: "il proiettore Π_j = e_j(A(ξ)) ha un polo in ξ_0 ⟺ A(ξ_0) ha un blocco di Jordan non banale che mescola autovalori di Q_j e di B_j (fattori coprimi del polinomio minimo su ℂ(ξ))". Non provato; costo alto.
+- **Q-S8SYS-5 (novità di SYS-EX).** Leggere Oberst 1990 §2–4 (pp. 24–36), Oberst 1995 (*Variations on the fundamental principle*, AAECC 6) e Pillai–Shankar 1998 (SIAM J. Control Optim.) per stabilire se SYS-EX su ℝ^n (o il calcolo dei numeri di Bass di C^∞(ℝ^n)) è già enunciato. Compito di CIT-AUDIT-8.
+- **Q-S8SYS-6 (Maxwell).** Calcolare soc_m(M_P) per Maxwell nel vuoto in (E, B), un sistema sovradeterminato 8×6: esiste un campo elettromagnetico identificante? SYS-C1 non si applica perché P non è quadrata.
+- **Q-S8SYS-7 (SYS-N2).** La riduzione determinantale per Weyl a massa nulla: il calcolo del gruppo delle classi del cono di luce (Knörrer/Eisenbud) resta da verificare. Non è stato toccato in F8.
+
+## Aggiornamento 27/10/2026 (recepimento audit S-CHECK-F8-SYS)
+- **Q-S8SYS-2: CHIUSA.** ∂_x non è suriettivo su 𝒟′(Ω) per il dominio a U: con f = β(t)ρ(x)e^{1/(1−t)} si ha SYS-S1(⇐) falso anche in 𝒟′(Ω). La prova è del revisore (fix SYS-5), integrata in PROOF_PACKAGE §3.3; l'f originale βρ/(1−t) invece è risolubile in 𝒟′. Resta da far rivedere a DEVIL-8.
+- **Q-S8SYS-5: aggiornata.** L'audit segnala come prior art probabile U. Oberst, *Math. Control Signals Systems* 6 (1993) 264–288 (numero minimo μ(S) di traiettorie; caso μ(S) ≤ 1), letto solo nell'abstract. CIT-AUDIT-8 deve leggere l'enunciato principale e la definizione di μ(S), poi Oberst 1990 e 1995.

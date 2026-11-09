@@ -1,0 +1,37 @@
+PASS C2.12 nucleo: G(x - ct, t) = S_tr(t) S_heat(t) delta
+PASS C2.12 e^{t(A1+A2)} = S1 S2 (commutano)
+PASS G3 E_int = (S1-I)(S2-I)u0 (bilineare)
+PASS G3 E_int != 0 per k != 0, t > 0
+PASS G3 prodotto di 3 semigruppi = somma su 2^3 sottoinsiemi
+PASS G3 d_t log u_hat = somma dei simboli
+PASS G4 det = i k1 k2 (k2 - k1)  != 0 sse k1 != k2 (k_i != 0)
+PASS C2.12 telegrafo: e^{-at} I0((a/c) sqrt(c^2t^2-x^2))
+PASS C2.12 u = e^{-at} w  =>  Tg(u) = e^{-at}(w_tt - c^2 w_xx - a^2 w) (KG a massa immaginaria)
+PASS II(b) [A_w, A_d] != 0 anche a coeff. costanti (riduzione compagna)   Matrix([[0, -2*a], [-2*a*c**2*k**2, 0]])
+PASS II(b) e^{A_w+A_d} != e^{A_w}e^{A_d} (controllo numerico)   ||diff||=0.427
+PASS C2.12/C2.37 tau = khat(tau) xi^2 con khat = 1/(1+theta tau) <=> theta tau^2 + tau - xi^2 = 0
+PASS C2.19 tau^2+xi^4 = (tau - i xi^2)(tau + i xi^2)
+PASS C2.19 dim C[tau,xi]/(tau - i xi^2, tau + i xi^2) = 2
+PASS C2.19 1 in ker(S+) ∩ ker(S-)
+PASS C2.19 x in ker(S+) ∩ ker(S-)
+PASS C2.19 beam = S+ S-
+PASS C2.19 modo e^{i k x - i k^2 t} in ker S+ e quindi in ker beam
+PASS C2.19 ... e in ker beam
+PASS C2.19 iperdiffusione e^{ikx - k^4 t}
+PASS C2.19 Delta^2 (r^2 log r) = 0 (r>0)
+PASS C2.19 Almansi: h1 + r^2 h2 biarmonica
+PASS C2.19 (tau^2+xi^2)^2 non ridotto: ker(Delta) ∩ ker(Delta) = ker Delta (infinito) -> serve Noether op. (r^2)
+TABELLA dim C[tau,xi]/(P_i,P_j)  (None = infinita):
+  trasporto: calore=2, Airy=3, Schrod=2, onda=None, trave=4, KG=2, Laplace=2, reazione=1
+  calore: Airy=3, Schrod=2, onda=4, trave=4, KG=4, Laplace=4, reazione=2
+  Airy: Schrod=3, onda=6, trave=6, KG=6, Laplace=6, reazione=3
+  Schrod: onda=4, trave=None, KG=4, Laplace=4, reazione=2
+  onda: trave=8, KG=4, Laplace=4, reazione=2
+  trave: KG=8, Laplace=8, reazione=4
+  KG: Laplace=4, reazione=2
+  Laplace: reazione=2
+  reazione: 
+PASS G1 dim finita  <=>  gcd(P_i,P_j)=1 (infinita solo per trasporto|onda, Schrod|trave: fattorizzazione)
+PASS C2.23 Tricomi y u_xx + u_yy = 0: cos(kx) Ai(k^{2/3} y)
+PASS C2.23 Keldysh u_xx + y u_yy = 0: cos(kx) sqrt(y) I1(2k sqrt y)
+== t8_composite: 26/26 PASS

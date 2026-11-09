@@ -1,0 +1,22 @@
+[OK]   (D + a(x)) exp(-int a) = 0
+[OK]   fattore integrante: mu(y'+ay) = (mu y)'
+[OK]   (D+a) [mu^{-1}(int mu q + C)] = q
+[OK]   (D + 2x) e^{-x^2} = 0  (nucleo gaussiano: termine x*u)
+[OK]   (D + k/x) x^{-k} = 0  (termine u/x)
+[OK]   (xD - k) x^{k} = 0  (Euler del 1o ordine)
+[OK]   Bernoulli: v = y^{1-n} soddisfa v1 + (1-n)p v = (1-n)q (lineare)
+[OK]   Bernoulli n=3: y = v^(1/(1-n)) risolve y1+py=qy^n (y1=dy/dx)
+[OK]   Bernoulli n=1/2: y = v^(1/(1-n)) risolve y1+py=qy^n (y1=dy/dx)
+[OK]   Riccati: y=-w'/(q2 w) => y'-q0-q1y-q2y^2 = -[w''-(q1+q2'/q2)w'+q0q2w]/(q2 w)
+[OK]   Riccati y'=1+y^2: y = tan(x+C)
+[OK]   Clairaut: y = Cx + f(C) risolve y = x y' + f(y')
+[OK]   Clairaut: inviluppo y = x^2 (soluzione singolare)
+   Lagrange: x(p) = C1/P**2 - 2*P/3
+[OK]   Lagrange: (dy/dp)/(dx/dp) = p sulla curva parametrica
+[OK]   Esatta: M_y = N_x
+[OK]   Esatta: grad F = (M,N)
+[OK]   Omogenea: y = x(log x + C) risolve y' = 1 + y/x
+[OK]   Logistica: y = 1/(1+Ce^{-x})
+   F'(0) = 1  F'(1) = -1 (segno -> stabilita' linearizzata)
+
+TOTALE: 18/18 OK

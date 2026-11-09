@@ -1,0 +1,10 @@
+import sympy as sp
+x=sp.symbols('x'); f=sp.Function('f')(x)
+D=lambda k: (lambda g: sp.diff(g,x,k)); M=lambda h: (lambda g: h*g)
+br=lambda A,B: (lambda g: sp.expand(A(B(g))-B(A(g))))
+D4=br(D(3),br(D(3),M(x**2))); print("S3d [D3,[D3,x2]] f =", D4(f))
+X5=br(D(3),br(M(x**2),D(4))); print("S3d [D3,[x2,D4]] f =", X5(f))
+X6=br(D(3),br(M(x**2),D(5))); print("S3d [D3,[x2,D5]] f =", X6(f), " => ordini illimitati: algebra generata da {D^3,x^2} infinito-dimensionale")
+a0,a1,a2=sp.symbols('a0 a1 a2',real=True)
+C=sp.Matrix([[0,1,0],[0,0,1],[-a0,-a1,-a2]])
+print("S3g normalita' compagna m=3:", sp.solve(list(C*C.T-C.T*C),[a0,a1,a2],dict=True))

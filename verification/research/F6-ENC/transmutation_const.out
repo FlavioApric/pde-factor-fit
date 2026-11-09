@@ -1,0 +1,6 @@
+OK   Goursat K_xx-K_ss=cK (max res 4.9304e-32)
+OK   K(x,x)=cx/2
+OK   K(x,-x)=0
+OK   T e^{iks} = sol. con q=c, stessi dati in 0 (max err 1.9722e-31)
+OK   L_q T f = T L_0 f per f generica (max err 0)
+TOTALE 5 / 5

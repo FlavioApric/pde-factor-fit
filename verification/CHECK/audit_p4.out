@@ -1,0 +1,36 @@
+OK   C2a Ann(t+e^{x^2}) ∩ R_<=3 ha dimensione 5 = dim (tau^2, tau xi)_<=3
+OK   C2b d_t u = 1 e d_t(1) = 0: 1 ∈ R·d_t u, u - c ha d_t = 1 ≠ 0 per ogni c
+OK   KA-A Ann(e^{x^2}) ∩ R_<=3 = tau·R_<=2 (dim 6): Ann = (tau) principale, tau^2 ∈ Ann ma Ann ≠ (tau^2)
+OK   T2a Ann(u) ∩ R_<=2 ha dimensione 3 (come in S-P4 C3h)
+OK   T2b C3-T2(a) su 8 polinomi: Q(d)u = 0 ⟺ Q(z_k+d)q_k = 0 ∀k
+OK   T2c Q = (xi-1)(tau-4) ∈ m_z1 ∩ m_z2 ma Q(d)u ≠ 0: I non radicale
+OK   T2d [fix T2-3] con la lettura letterale l(d)q_k la scelta l = tau-1 è ammessa ma Q = (tau-1)(tau-4) ∈ I
+OK   T2e u a coefficienti costanti: Ann ⊇ m_z1 ∩ m_z2 (generatori (tau-1)(tau-4), (xi-1)(xi-2), tau-3xi+2)
+OK   T2f w = ((xi-1)(tau-4))(d)u è autovettore congiunto per z1 = (1,1)
+OK   LS1 J + m_0^2 = (tau^2, xi), J + m_1^2 = (tau^2, xi-1)
+OK   LS2 socle: v = tau ≠ 0 in R/(J+m_0^2) e m_0·v = 0
+OK   LS3 v1 = tau(1-xi) ∉ J e tau·v1, xi·v1 ∈ J (autovettore congiunto per z = 0 in R/J)
+OK   T3a S_u = 1/((z1-1)(z2-1)^2) + 1/((z1-4)(z2-2)) riproduce s_ab (a,b ≤ 3)
+OK   T3b mu_A mu_B S_u polinomio; con b = (z2-1)(z2-2) no
+OK   T3c (tau-1)(xi-2) ∈ Ann(u) ma ∉ ((tau-1)(tau-4), (xi-1)^2(xi-2))
+OK   C3a s_ab = delta_ab per a,b ≤ 6
+OK   C3b (d_t d_x - 1)u = O((tx)^N) (serie troncata)
+OK   C3c a(tau) ∈ Ann ⇒ a = 0 (deg ≤ 6): matrice (s_{k,b}) invertibile
+OK   T5a dim V_K = dim R_<=K - dim (P)∩R_<=K = 21 - 3 = 18
+OK   T5b P·{1,tau,xi} ⊥ V_K
+OK   T5c (nota) con i soli generatori j = e_i - 1 lo span ha rango 9 (≤ 13 punti): i j < e_i servono
+OK   T5d jet di G = t^{-1/2}e^{-x^2/4t} in (1,0) razionali (u ammissibile in P4-T5, C8)
+OK   L3a x d - 5: x^5 soluzione, iota(n) = n - 5, B = 6
+OK   L4a x^5 ha h^(k)(0) = 0 per k ≤ 4 = K0 - 1 e non è zero: la soglia K0 è necessaria
+OK   L3b fattoriali decrescenti n^(j), j ≤ 4, linearmente indipendenti
+OK   L6a E(0,x) = x e^x, d_t E(0,x) = e^{2x} (costruzione con exp((t-t0)M_k))
+OK   L6b P(d)E = 0 fino all ordine t^9 (troncamento)
+OK   L6c forma chiusa (d Alembert) EP: P(d)Ecl = 0 e stessi dati
+OK   II-L1(b) d_t U_3 + sum p_j(d_x) U_{j+1} = P(d) U_1 (m = 3, p_j generici)
+OK   L1a [d, x^i d^j] = i x^{i-1} d^j, [x^i d^j, x] = j x^i d^{j-1} (i,j ≤ 3)
+OK   C1b (c0 + c1 d) su x e^x: c0 x + c1 (1+x) = 0 ⇒ c0 = c1 = 0
+OK   T2g P = tau identificato da e^{x^2}: d_t ≡ 0 su W, quindi risolvente di d_t = C \ {0} (il LEDGER omette la qualifica di (vi))
+OK   C4b P(d)e^{t^2} = 0, (tau-1)(d)u = (2t-1)e^{t^2}
+OK   T5e P = tau^2, Q = P/P_1 = tau: c^Q_{l0} = 0 per l = 0,1 (con f_0 sola i dati di Cauchy di Q(d)u sono nulli): serve una scelta generica dei dati
+
+TOTALE: 34 / 34 OK

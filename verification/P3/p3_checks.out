@@ -1,0 +1,45 @@
+PASS C1 Beta recursion beta=1/2 n=0
+PASS C1 Beta recursion beta=1/2 n=1
+PASS C1 Beta recursion beta=1/2 n=2
+PASS C1 Beta recursion beta=1/2 n=3
+PASS C1 Beta recursion beta=1/3 n=0
+PASS C1 Beta recursion beta=1/3 n=1
+PASS C1 Beta recursion beta=1/3 n=2
+PASS C1 Beta recursion beta=1/3 n=3
+PASS C1 Beta recursion beta=2/3 n=0
+PASS C1 Beta recursion beta=2/3 n=1
+PASS C1 Beta recursion beta=2/3 n=2
+PASS C1 Beta recursion beta=2/3 n=3
+PASS C1 sup y^k e^(-s d y^q) k=1 q=2
+PASS C1 sup y^k e^(-s d y^q) k=1 q=4
+PASS C1 sup y^k e^(-s d y^q) k=3 q=4
+PASS C1 sup y^k e^(-s d y^q) k=2 q=6
+PASS C2 primo ordine = V_mn e^{t.}[l_n,l_m] (PR-C2d P3.2)
+PASS C2 secondo ordine = somma sui cammini n->k->m
+PASS C2 V nilpotente (abbassa il grado) => polinomio in eps di grado <= 2
+PASS C2 punti coincidenti: e^{t.}[l,l,l] = t^2 e^{tl}/2
+PASS C3 V_mn = -4cmn/(L(m^2-n^2)) per m+n dispari, 0 altrimenti (m,n<=6)
+PASS C3 g = int_a^b e^{-y}(y-a)dy
+PASS C3 coefficiente modale = g(kt, km^2 t)/(k(m^2-1))
+   [controllo numerico] pendenze log-log: [1.2498359921836837, 1.2499835977823315]
+PASS C3 [controllo] pendenza ~ 5/4
+PASS C4 u = exp((zeta+eps t)x + int a) risolve u_t = a(d)u + eps x u
+PASS C4 B_t - t a = sum_{k>=1} a^(k) eps^k t^{k+1}/(k+1)!
+PASS C4 grado in eps di B_t - t a = deg a = 3
+PASS C4 (x-x0)v_n = v_{n+1} - t sum C(n,j) a^(j+1)(0) v_{n-j} (n<=5)
+PASS C5 w_a^T C1 v_a = -T(l_a)/P'(l_a)
+PASS C5 derivata implicita della radice
+PASS C5 (w_a)_k = 1/P'(l_a)
+PASS C6 E^add = sum_i E^(i)
+PASS C6 E^(i) = (s^2/2) a_i sum_{j!=i} a_j + O(s^3) (attribuzione simmetrica)
+PASS C6 equazioni di Faddeev accoppiate (N=3) sui modi
+PASS C6 risonanza: G_c A_c g = i k t e^{ik(x+t)} (norma ~ k t, illimitata)
+PASS C7 (d^m e^{s a(d)} v_n(-s))(x0) = n! delta (a cubico, n,m<=3)
+PASS C7 AD: int v_n(-s,y) K_s^(m)(x0-y) dy = n! delta (n,m<=2)
+PASS C7 KdV-Burgers: Re a(ik) = -D k^2
+PASS C7 Airy: Re a(ik) = 0 (nessun nucleo di Schwartz)
+PASS C8 mult: lambda_n -> lambda_m da' 0 (commutante)
+PASS C8 add: lambda_n -> lambda_m da' t(e^{t l}-1) = R5-T2 al 1� ordine
+PASS C8 mult = t e^{t l_m} phi(t(l_n-l_m)), phi(w)=(e^w-1-w)/w
+
+TOTALE: 42/42 PASS

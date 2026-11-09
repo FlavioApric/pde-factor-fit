@@ -1,0 +1,23 @@
+OK   K0 libero 0
+OK   lineare: K_F risolve i K_t = (-d2 + F x) K 0
+OK   lineare: simmetria x<->y 
+OK   lineare: U = exp(-i F^2 t^3/12) * Strang (esatto) exp(-I*F**2*t**3/12)
+OK   lineare: nucleo di E^mult_{0V} 
+OK   lineare: forma di Avron-Herbst del nucleo 1
+OK   Mehler risolve i K_t = (-d2 + x^2) K 0
+OK   chirp(tan t/2) . U0(sin 2t/2) . chirp: esponente = Mehler 0
+OK   chirp-libero-chirp = Mehler a t=pi/4 [(1+5.551115123125783e-17j), (1+0j)]
+OK   chirp-libero-chirp = Mehler a t=13/10 [(1+5.3840802259272347e-17j), (1+1.0767482825496666e-16j)]
+OK   G: i G_t = -G_zz ['2.24e-16', '6.28e-17', '7.9e-17', '1.11e-16']
+OK   G: (-d2+1) G = K0 ['1.24e-16', '2.78e-17', '5.9e-17', '2.48e-16']
+OK   G(0+) = e^{-|z|}/2 ['3.04e-9', '1.51e-9', '6.77e-10']
+OK   G = integrale di Fourier (tolleranza coda 0.04) ['9.73e-7', '4.68e-7']
+OK   PT: K_q risolve i K_t = (-d2 - 2 sech^2) K ['5.55e-16', '3.08e-16', '2.78e-16']
+OK   PT: simmetria K_q(x,y) = K_q(y,x) ['1.48e-16', '3.1e-17']
+OK   PT: A(L0+1)^{-1}A^dag + P_b = I (su f test) ['1.56e-13', '2.41e-13', '2.23e-13', '8.52e-14']
+OK   PT: L_q sech = -sech 
+OK   PT: A^dag L_q = L_0 A^dag 0
+OK   A9: coeff t^2 di E^mult = (1/2)[L0,V] L0*V/2 - V*L0/2
+OK   A9: coeff t^2 di E^add = -(1/2){L0,V} -L0*V/2 - V*L0/2
+
+TOTALE: 21/21 OK

@@ -1,0 +1,13 @@
+PASS T4(a): sin <= 2 delta/sigma_2 (r=1), max rapporto 0.250
+PASS T5(1): dist <= 2 delta/sigma_{r+1} (r=2), max rapporto 0.269
+PASS T4(a) ottimalita: sin = delta/sqrt(rho^2+delta^2)
+PASS calore: sigma_1(Phi_2(u)) ~ 0 (1.95e-17), sigma_2 = 4.760e-03 > 0
+PASS calore: s_0 = 7.864e-01, s_1 = 4.811e-02 > 0
+PASS T5(1) rumore H^2 delta=0.001: m(delta) = 2, sin = 1.65e-02 <= 2delta/rho = 4.20e-01
+PASS T5(1) rumore H^2 delta=0.0001: m(delta) = 2, sin = 1.70e-03 <= 2delta/rho = 4.20e-02
+PASS T5(3) eps=0.01: sigma_1(Phi_2(u+eps p)) = 1.39e-03 <= eps ||Pp||/|P| = 4.47e-03
+PASS T5(3) eps=0.01: sigma_1(Phi_2(u+eps p)) > 0 (nessuna legge di grado <= 2)
+PASS T5(3) eps=0.001: sigma_1(Phi_2(u+eps p)) = 1.18e-04 <= eps ||Pp||/|P| = 4.47e-04
+PASS T5(3) eps=0.001: sigma_1(Phi_2(u+eps p)) > 0 (nessuna legge di grado <= 2)
+PASS Ann(t^2 x^2) cap R_{<=2} = 0
+ESITO: TUTTI PASS

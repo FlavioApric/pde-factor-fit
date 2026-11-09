@@ -1,0 +1,9 @@
+[fibra speciale (1,0..0)] N=6: zero-dim=True, lunghezza=64 (atteso 2^N=64), chi squarefree=False, chi(s_const)=2.383391e-51 (!=0: True), tempo 7.0s
+[STAR_6] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3, -3/2, 5/4, 3/2, -3/2]] N=6: zero-dim=True, lunghezza=64 (atteso 2^N=64), chi squarefree=True, chi(s_const)=1.594353e+93 (!=0: True), tempo 112.6s
+[SQF_6] (lunghezza 2^N, chi squarefree) OK
+[fibra speciale (1,0..0)] N=7: zero-dim=True, lunghezza=128 (atteso 2^N=128), chi squarefree=False, chi(s_const)=4.861730e-107 (!=0: True), tempo 92.5s
+[STAR_7] (lunghezza 2^N, chi(s_const) != 0) OK
+[fibra casuale [-1, -7/3, -3/2, 5/4, 3/2, -3/2, -9/4]] N=7: zero-dim=True, lunghezza=128 (atteso 2^N=128), chi squarefree=True, chi(s_const)=2.670722e+220 (!=0: True), tempo 3055.6s
+[SQF_7] (lunghezza 2^N, chi squarefree) OK
+EXIT 0

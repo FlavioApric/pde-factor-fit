@@ -1,0 +1,86 @@
+== P2-T3: spettro di S*S per due sottospazi ==
+OK   T3a dim kerS = dim I (trial 0) 1 vs 1
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 0) 0.429959 vs 0.429959
+OK   T3a max = 2 (trial 0) 
+OK   T3a sigma(K) = -sigma(K) (trial 0) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 0) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 0) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 0) 
+OK   T3a dim kerS = dim I (trial 1) 2 vs 2
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 1) 0.424259 vs 0.424259
+OK   T3a max = 2 (trial 1) 
+OK   T3a sigma(K) = -sigma(K) (trial 1) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 1) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 1) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 1) 
+OK   T3a dim kerS = dim I (trial 2) 0 vs 0
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 2) 0.000089 vs 0.000089
+OK   T3a max = 1+c_F (trial 2) 
+OK   T3a sigma(K) = -sigma(K) (trial 2) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 2) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 2) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 2) 
+OK   T3a dim kerS = dim I (trial 3) 3 vs 3
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 3) 0.329578 vs 0.329578
+OK   T3a max = 2 (trial 3) 
+OK   T3a sigma(K) = -sigma(K) (trial 3) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 3) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 3) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 3) 
+OK   T3a dim kerS = dim I (trial 4) 0 vs 0
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 4) 0.281830 vs 0.281830
+OK   T3a max = 1+c_F (trial 4) 
+OK   T3a sigma(K) = -sigma(K) (trial 4) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 4) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 4) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 4) 
+OK   T3a dim kerS = dim I (trial 5) 2 vs 2
+OK   T3b min autoval. su (kerS)^perp = 1-c_F (trial 5) 0.071908 vs 0.071908
+OK   T3a max = 2 (trial 5) 
+OK   T3a sigma(K) = -sigma(K) (trial 5) 
+OK   T3c sup_alpha ||R_alpha|| = (1-c_F)^(-1/2) (trial 5) 
+OK   T3d ||w_a - S^+u|| = a/(gamma+a)||S^+u|| su autovettore (trial 5) 
+OK   T3b ||S^+|| = (1-c_F)^(-1/2) (trial 5) 
+== P2-T3 caso c_F = 1 (somma diretta di blocchi 2D con angolo theta_k -> 0) ==
+OK   T3c sup_alpha ||R_alpha|| >= 1/(2 sqrt(lambda_k)) -> inf ultimo 2893.9
+== Red team N >= 3: c_F a coppie non governa la chiusura ==
+OK   N3a tre rette a 120 gradi in R^2: gamma_3 = 1.5 mentre 1 - max c_F = 0.5 
+OK   N3b rette quasi complanari in R^3: c_F a coppie ~0.5, gamma_3 -> 0 (blocchi in somma diretta: somme a coppie chiuse, somma tripla non chiusa) ['3.31e-03', '3.33e-05', '3.33e-07', '3.33e-09']
+== Tabella P2-T3(e): trasporti paralleli c=0 ==
+OK   T3e gamma^2 = tanh(dT/2)/(dT/2) 
+OK   T3e gamma -> 1 per dT -> 0 
+== P2-L1 / P2-T2 ==
+OK   T2a AD: Q(d)u = g(d_x)u sui modi 
+OK   T2b AD: K = deg g = sum deg(a-a_n) K=3
+OK   T2b AD: ogni modo con g(zeta)=0 sta in qualche D_n [0]
+OK   T2a tre termini: Q(d)u = g(d_x)u sui modi 
+OK   T2b tre termini: K = deg g = sum deg(a-a_n) K=5
+OK   T2b tre termini: ogni modo con g(zeta)=0 sta in qualche D_n [-sqrt(lambda/D), sqrt(lambda/D), c/D, -lambda/c, 0]
+OK   T2a AD: Q(d) - g(d_x) = (d_t - a(d_x)) d_t come operatori (quindi = 0 su ker(d_t - a)) 
+OK   T2b AD: base {1, x-ct, (x-ct)^2+2Dt} risolve u_t = a(d_x)u e u_xxx = 0 
+OK   T2b AD: scomposizione esplicita in D_1 + D_2 
+OK   T2b AD: la componente in D_1 NON sta in Sol(J_1)=ker(d_t+c d_x) cap ker d_x^2 (serve F5) 
+OK   T2b AD: xi^2 in J_1 cap J_2 ma non in J (J != J_1 cap J_2) 
+OK   T2c AD: modo generico zeta=1 ha g(1) = -cD != 0 (E^perp != 0) 
+== P2-T5 (MCA) ==
+OK   T5ii stima 2delta/(1-2kappa) su tutte le istanze con kappa<1/2 istanze con kappa<1/2: 48/300
+OK   T5iii NSP sul gauge => unicita'; NSP falsa => controesempio della prova istanze con NSP: 275/300
+OK   T5iv basi adattate: Phi_j^* z concentrato sull'indice di eps 
+OK   T5iv NSP vale iff eps fuori dai grappoli 
+OK   T5iv f(z) = f(0) + 2|z| per u_j ortogonali a I 
+== P2-P7: ortogonalita' in H^1 su (0,1)x(0,2) ==
+OK   P7 <A(t)x1, 1xB(x)>_{H^1} = int A * int B (=0 se una media e' nulla) 
+== P2-P2: esempio R1 ==
+OK   P2 ||P^perp e^x||^2_{L2(0,1)} = 20e - 7e^2/2 - 57/2 3.940223e-03
+== P2-P4(b) ==
+OK   P4b dist(Ew, EM) ~ N^{-1/2} (troncamento N=10^4) 0.0128
+== P2-P5(b): AD ==
+OK   P5b AD: |e_{>=2}(z)| = |z1 z2| <= 2 max 2.0000
+OK   P5 e_{>=2} ha coefficienti >= 0 (N=3) 
+== P2-P6: Vandermonde ==
+OK   P6 (a),(b),(c) su nodi razionali casuali ed equispaziati, d=2..5 
+== P2-T4: illustrazione (Tikhonov, c_F = 1): L_alpha = ||R_alpha|| -> inf ==
+OK   T4 costanti di Lipschitz crescenti al decrescere di alpha ['1.6', '5.0', '15.0', '49.8', '156.7']
+OK   T4-1 ogni rappresentazione esatta ha norma >= ||S^+ u|| 
+
+ESITO: 72/72 OK

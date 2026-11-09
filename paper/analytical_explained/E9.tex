@@ -1,0 +1,30 @@
+%--- E9: Section 5.5, just before the final Takeaway of Section 5 -----------
+\begin{explained}{regularity, the sum map $S$, $\gamma_N$ and the Friedrichs angle}
+\textbf{The guiding idea.} $\gamma_N$ measures \emph{how reliably a solution can be separated into components belonging to different kernel spaces, and how much errors can be amplified when this is done}. Being able to decompose algebraically does not guarantee that the pieces have the regularity of the original solution; the obstruction is geometric: the component spaces may be too close to one another, which makes the decomposition unstable.
+
+\medskip\textbf{Step 1: why a component can lose a derivative.} $Pu=0$, $u=\sum_ju_j$, $Q_ju_j=0$. The pieces exist, but $u\in H^m$ does not imply $u_j\in H^m$, because the formulas that extract $u_j$ may involve inverse differential operators, which can lose regularity. In the wave example $u_1=\tfrac12\partial_x^{-1}(\partial_t+\partial_x)u$: even if $u$ has $m$ Sobolev derivatives the formula alone does not guarantee that $u_1$ has $m$, because of the inverse and its behaviour at problematic frequencies. This is the content of Proposition~\ref{prop:loss}.
+
+\medskip\textbf{Step 2: the component spaces and the sum operator.} $M_j=\ker_{H^m}Q_j$ (admissible components); for two components $M=\ker_{H^m}Q_1$, $N=\ker_{H^m}Q_2$. The decomposition question is packaged in
+\[
+S:M_1\times\cdots\times M_N\to H^m(\Omega),\qquad S(u_1,\dots,u_N)=\sum_ju_j,\qquad \|(u_1,\dots,u_N)\|^2=\sum_j\|u_j\|_{H^m}^2 .
+\]
+Recovering the components means inverting $S$ on the relevant solution space. Two things can go wrong: \emph{non-uniqueness} (different tuples with the same sum: $\ker S=\{(u_j):\sum u_j=0\}$; if $v\in M\cap N$ then $(v,-v)\in\ker S$, so overlapping spaces give non-uniqueness) and \emph{instability} (even if unique, a tiny change in the sum may require a large change in the pieces).
+
+\medskip\textbf{Step 3: what $\gamma_N$ is.}
+\[
+\gamma_N=\inf\sigma\big(S^*S|_{(\ker S)^\perp}\big)=\inf_{\substack{v\in(\ker S)^\perp\\v\ne0}}\frac{\|Sv\|_{H^m}^2}{\|v\|^2}.
+\]
+$S^*$ is the adjoint, $S^*S$ is positive self-adjoint, and $(\ker S)^\perp$ removes the directions that change the pieces without changing the sum (without this removal the ratio would be $0$ regardless of the stability of the genuinely recoverable part). If $\gamma_N>0$ then $\|Sv\|^2\ge\gamma_N\|v\|^2$ on $(\ker S)^\perp$, i.e.
+\[
+\|v\|\le\gamma_N^{-1/2}\|Sv\|:
+\]
+this is the stability estimate; the smaller $\gamma_N$, the larger the possible amplification. \emph{Technical caveat:} if the restriction has continuous spectrum accumulating at $0$, ``smallest nonzero eigenvalue'' (used loosely in the text after Figure~\ref{fig:friedrichs}) is not literally correct; the robust quantity is the \emph{infimum of the spectrum} on $(\ker S)^\perp$, as in the theorem.
+
+\medskip\textbf{Step 4: two components and the Friedrichs angle.} Let $I=M\cap N$. The Friedrichs cosine is $c_F=\sup\{|\langle x,y\rangle|:x\in M\cap I^\perp,\ y\in N\cap I^\perp,\ \|x\|=\|y\|=1\}$, and $\theta\in[0,\pi/2]$ is defined by $c_F=\cos\theta$. If $c_F$ is close to $1$ the spaces have almost parallel directions; if it is clearly below $1$ they are well separated; $c_F<1$ means the sum $M+N$ is closed. A finite-dimensional analogy: decomposing a vector along two nearly parallel directions gives large components that nearly cancel, leaving a small sum; recovering them from the small sum is numerically unstable. The paper proves $\gamma_2=1-c_F$, so $c_F<1\iff\gamma_2>0$.
+
+\medskip\textbf{Step 5: why pairwise angles do not suffice for $N\ge3$.} Three vectors in a plane pointing in three different directions can satisfy $v_1+v_2+v_3=0$: the instability depends on combinations of all components, not only on pairs. $S$ captures these collective effects; its smallest nonzero singular value is $\sqrt{\gamma_N}$, so $1/\sqrt{\gamma_N}$ is the natural condition-number-like factor for recovering components from their sum, as in a least-squares problem where a small singular value makes inversion sensitive to errors.
+
+\medskip\textbf{Step 6: density.} The theorem needs $M_1+\dots+M_N$ to be both closed and dense in $\ker_{H^m}P$. Dense plus closed gives $M_1+\dots+M_N=\ker_{H^m}P$, i.e.\ a decomposition for every solution, with stability from the positive-angle condition. The text states density on bounded convex domains for every $P$ and $m$ (H\"ormander, Stein; see its status label), so closedness is the decisive remaining condition there.
+
+\medskip\textbf{The chain in six lines.} (1) Algebra produces components attached to the factors. (2) Sobolev asks whether they remain in $H^m$. (3) This is controlled by $S$. (4) $\gamma_N>0$ makes $S$ bounded below after removing its kernel: stable recovery. (5) For $N=2$ this is $c_F<1$. (6) For $N\ge3$ the collective $\gamma_N$, not the pairwise angles, controls the conditioning. One distinction: $\gamma_N>0$ is about the stability of the decomposition map; it is not an algebraic statement about factorization. The factorization says which spaces to consider, their geometry in $H^m$ says whether the components can be recovered with the desired regularity.
+\end{explained}

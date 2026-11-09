@@ -1,0 +1,8 @@
+[OK] (a) identita' P = S + A, ||Pz||^2 = ||Sz||^2+||Az||^2+q(z) lhs=354.453522989 rhs=354.453522989
+[OK] (a') col segno opposto del termine incrociato l'identita' fallisce 
+[OK] (a'') e^{lam phi} P0 e^{-lam phi} = S + A (simbolico) 
+    rapporti (lam=5,10,20,40,80): ['75.189', '103.393', '161.396', '275.202', '496.860']  lam0 della prova = 3.16
+[OK] (b) Carleman: rapporto >= mu = 1/4 per lam >= lam0 
+[OK] (c) residuo della serie troncata = solo il termine di coda 
+[OK] (c') u(1/2,1/2) != 0 (u non identicamente nulla per t>0) u=0.0106614-0.0365297j
+RISULTATO: TUTTO OK

@@ -1,0 +1,16 @@
+[OK]   1. sup_B |delta| = lim_{k->oo} c k = oo: stima letterale di TROP-3 vacua sulla banda diffusiva di AD
+[OK]   2a. rho(k) = |delta|/(e*(-Re tau_F)) = k*/(e k)
+     k=1: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.353854  bound k*/(e k) = 0.367879  rapporto 0.9619
+     k=1.5: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.240894  bound k*/(e k) = 0.245253  rapporto 0.9822
+     k=2: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.182068  bound k*/(e k) = 0.183940  rapporto 0.9898
+     k=5: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.073454  bound k*/(e k) = 0.073576  rapporto 0.9983
+     k=10: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.036773  bound k*/(e k) = 0.036788  rapporto 0.9996
+     k=50: sup_t |e^(t tau)-e^(t tau_F)| ≈ 0.007357  bound k*/(e k) = 0.007358  rapporto 1.0000
+[OK]   2b. bound puntuale rispettato su griglia (k in [1,50])
+[OK]   2c. su B = {|k|>k*} il fattore uniforme è sup_B rho = 1/e (al bordo k = k*): non piccolo
+[OK]   3a. (1/T)∫_0^T |e^{itφ}-1|^2 dt = 2 - 2 sin(Tφ)/(Tφ)
+[OK]   3b. limite T→∞ = 2 (φ ≠ 0)
+[OK]   3c. dominazione: 0 <= 2-2cos <= 4 (convergenza dominata applicabile)
+[OK]   4. Cesàro → 2 ⇒ limsup_t ||E_B(t)||^2 ≥ 2||1_B û0||^2 (nessuna stima con ε < √2)
+
+ESITO GLOBALE: OK

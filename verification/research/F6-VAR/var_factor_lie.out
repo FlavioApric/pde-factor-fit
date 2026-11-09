@@ -1,0 +1,13 @@
+OK   Landau: Q Q P = S Q (3 fattori irriducibili contro 2)
+   L f = x*Derivative(f(x, y), y) + 2*x*Derivative(f(x, y), x, y) + x*Derivative(f(x, y), (x, 2), y) + Derivative(f(x, y), x) + 2*Derivative(f(x, y), (x, 2)) + Derivative(f(x, y), (x, 3)) + 2*Derivative(f(x, y), y) + 2*Derivative(f(x, y), x, y)
+OK   S non fattorizza in due fattori del 1o ordine con coeff. polinomiali di grado<=1 (controllo PARZIALE; irriducibilita generale: Landau 1902)
+   V=x^2: dim 3 ordine max 2
+OK   V = x^2: algebra di dimensione finita (sl2 + centro: <= 4), ordine <= 2
+   V=x: dim 4 ordine max 2
+OK   V = x: algebra di dimensione 4 {d^2, x, d, 1}
+   V=x^3: dim 5 (prof. 2), 10 (prof. 3); ordine max 3
+OK   V = x^3: crescita con la profondita (dim prof.2 > 4 e prof.3 > prof.2)
+OK   [V,[d^2,V]] = -2 (V')^2 g = -18 x^4 g per V = x^3
+OK   {d^2, x}: tutti i commutatori annidati di lunghezza 4 sono nulli (nilpotente, Magnus termina)
+OK   {d^2, x}: esiste un commutatore di lunghezza 3 non nullo (passo esattamente 3)
+8/8 OK

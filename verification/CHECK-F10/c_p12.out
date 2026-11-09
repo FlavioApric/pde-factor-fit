@@ -1,0 +1,15 @@
+OK   Heisenberg: i[H,x] = 2p
+OK   Heisenberg: i[H,p] = −2ω²x
+    M = [[-1/5, 0], [0, -5]]
+OK   §5 M = M_2M_1 = diag(−1/5, −5)
+OK   §5 tr M = −26/5 < −2, det M = 1
+OK   §5 l'ordine non conta per la traccia
+OK   §5 300 Ξ casuali in sl_2: tr e^Ξ > −2 (o e^Ξ = −I)
+OK   §5 Ξ ellittico: e^Ξ = cos θ I + (sin θ/θ)Ξ, quindi tr = −2 ⇒ θ = π ⇒ e^Ξ = −I
+OK   §5 al periodo 2T: M² = e^Ξ con Ξ = diag(−log 25, log 25) ∈ sl_2
+    ε = 0.05  tr M_ε = -4.8147258
+OK   §5 regolarizzazione tanh, ε = 0.05: tr < −2
+    ε = 0.02  tr M_ε = -5.1269167
+OK   §5 regolarizzazione tanh, ε = 0.02: tr < −2
+
+[c_p12] 10/10 OK

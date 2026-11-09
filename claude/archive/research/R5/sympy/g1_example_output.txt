@@ -1,0 +1,2 @@
+Groebner (P1+P2, P1P2): [xi**2, tau - xi]
+monomi standard: [(0, 0), (0, 1)] dim = 2

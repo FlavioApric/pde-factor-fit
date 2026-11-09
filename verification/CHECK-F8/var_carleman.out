@@ -1,0 +1,6 @@
+(1) P - S - A = 0
+(2) Eulero-Lagrange di D rispetto ad a, b: [0, 0]
+(3) segno opposto: E-L non nullo? True
+(4) phi_xx = 2*mu  phi_xxxx = 0  phi_x(s=+-b, mu=1/(4b)) = [-1/2, -3/2]
+(5) 8mu p^2 + q^2/(2mu) - 4pq = (4*mu*p - q)**2/(2*mu)
+TUTTO OK

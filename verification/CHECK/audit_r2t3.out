@@ -1,0 +1,46 @@
+[OK]   dim R/(L,L1^2) = 4 = 2*dim R/(L1,L2) = 2*2  [calore: L1=xi^2, L2=-tau]
+[OK]   dim R/(L,L1^2) = 2 = 2*dim R/(L1,L2) = 2*1  [avv-diff R2: L1=tau-xi^2, L2=xi]
+[OK]   dim R/(L,L1^2) = 2 = 2*dim R/(L1,L2) = 2*1  [avv-diff R5: L1=tau-xi^2, L2=-xi]
+[OK]   dim R/(L,L1^2) = 4 = 2*dim R/(L1,L2) = 2*2  [avv-diff trasporto/diffusione: L1=tau+xi, L2=-xi^2]
+[OK]   dim R/(L,L1^2) = 4 = 2*dim R/(L1,L2) = 2*2  [collisione non nulla: L1=tau-xi^2, L2=tau+xi]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 0]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 1]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 2]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 3]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 4]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 5]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 6]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 7]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 8]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 9]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 10]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 11]
+[OK]   dim R/(L,L1^2) = 6 = 2*dim R/(L1,L2) = 2*3  [casuale 12]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 13]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 14]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 15]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 16]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 17]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 18]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 19]
+[OK]   dim R/(L,L1^2) = 6 = 2*dim R/(L1,L2) = 2*3  [casuale 20]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 21]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 22]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 23]
+[OK]   dim R/(L,L1^2) = 8 = 2*dim R/(L1,L2) = 2*4  [casuale 24]
+[OK]   dim Sol(R/(L,L1^2)) (ansatz grado<=4) = 4 = 2*dim R/(L1,L2) = 4
+     u = (1)e^(0t+0x)  -> u1 =  , u2 = (1)e^(0t+0x)
+[OK]   scomposizione esplicita u = u1+u2, u1 in ker L1 ∩ ker L2^2 (esp-pol), u2 in ker L2
+     u = (t - 2*x)e^(0t+0x)  -> u1 = (-x)e^(0t+0x) , u2 = (t - x)e^(0t+0x)
+[OK]   scomposizione esplicita u = u1+u2, u1 in ker L1 ∩ ker L2^2 (esp-pol), u2 in ker L2
+     u = (1)e^(1t+-1x)  -> u1 =  , u2 = (1)e^(1t+-1x)
+[OK]   scomposizione esplicita u = u1+u2, u1 in ker L1 ∩ ker L2^2 (esp-pol), u2 in ker L2
+     u = (t - 2*x/3)e^(1t+-1x)  -> u1 = (2*t/3 - x/3)e^(1t+-1x) , u2 = (t/3 - x/3)e^(1t+-1x)
+[OK]   scomposizione esplicita u = u1+u2, u1 in ker L1 ∩ ker L2^2 (esp-pol), u2 in ker L2
+[OK]   u=t: L u = 0
+[OK]   u=t: L1^2 u = 0
+[OK]   su R: t = (t-x) + x con t-x in ker L1, x in ker L2
+[OK]   su T, modo 0: L1_0 = tau, L2_0 = -tau => ker L1_0 + ker L2_0 = costanti, t escluso
+[OK]   fattore comune xi: R/(L, L1^2) non 0-dimensionale (dim infinita)
+
+ESITO GLOBALE: OK

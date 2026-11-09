@@ -1,0 +1,12 @@
+OK   §12(i) in generale: L_0(Λφ) − V_1Λφ = 0 per u, φ libere
+OK   §12(i) il segno opposto è falso in generale
+OK   §12(i) Λu = 0
+OK   §12(ii) d/dt(φ/u) = i(χ_x + (u_x/u)χ)/u  (D29 a mano: Wronskiano W = uχ)
+OK   §12(ii) L_0(a(t)u) = i a'(t) u per u libera
+OK   §12 oss.: L_0(1/u) − V_1/u = 2u_xx/u²
+OK   §12(c) u_G = (x − 2kt + a)e^{i(kx − k²t)} è libera
+    V_1 per u_G: 2/(a0**2 - 4*a0*k*t + 2*a0*x + 4*k**2*t**2 - 4*k*t*x + x**2)
+OK   §12(c) V_1 = 2/(x − 2kt + a)²: reale, dipende da t, regolare dove x > 2kt − a
+OK   §12(c) Λ_G manda una soluzione libera in una soluzione del modello reale V_1
+
+[c_darboux] 9/9 OK

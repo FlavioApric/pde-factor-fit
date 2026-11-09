@@ -1,0 +1,18 @@
+[OK]   T1a u^nu (N=3) solves Burgers_nu
+[OK]   T1b each S_i solves psi_t + psi_x^2/2 = 0
+[OK]   T2 softmax mixture u^nu = sum w_i c_i
+[OK]   T3a LSE bound N=3 (nu=0.1)
+[OK]   T3b LSE bound N=5 (nu=0.01)
+[OK]   T4 L1 defect of one viscous shock = 4 nu ln 2
+[OK]   T5 L2^2 defect = 4 nu Delta (ln2 - 1/2)
+[OK]   T4b two-wave LSE = viscous shock profile ((c1+c2)/2 - (c1-c2)/2 tanh((c1-c2)(x-x_s)/4nu))
+     int sech^4 = 4/3
+     |u^nu_x|_{L2}^2 (smooth part) = Delta**3/(12*nu)
+[OK]   T6 H^1 seminorm of E grows like nu^{-1/2} (squared ~ Delta^3/(nu))
+     nu=0.02  L1 defect=0.1109035486  ratio to 2*4nu ln2 = 0.999999997
+     nu=0.005  L1 defect=0.02772588722  ratio to 2*4nu ln2 = 1.0
+[OK]   T7 N=3, two isolated shocks: L1 defect / (8 nu ln2) -> 1 (nu=0.005 within 1e-6)
+[OK]   T8 tropical corner S_i=S_j moves at (c_i+c_j)/2 (Rankine-Hugoniot)
+[OK]   T9 additive E = u - (u1+u2) -> -c2 (resp. -c1) far from the shock: O(1)
+
+SUMMARY: 12/12 OK

@@ -1,0 +1,9 @@
+OK   (a) E^mult = int int_{s1>s2}[A2(s1),A1(s2)] + O(t^3)
+OK   (a) coefficiente t^2 = (1/2)[A2(0),A1(0)]
+OK   (b) commutano a tempi uguali ma E^mult(1) != 0
+OK   (c) exp(t(X-Y)) = rotazione
+OK   (c) LDU esplicita con d = cos t, a = -tan t, b = tan t (valida sse cos t != 0)
+OK   (c) (LDU)_11 = d (d = cos t forzato)
+OK   (c) a t = pi/2 nessuna LDU
+OK   (d) Magnus Om1+Om2+Om3 riproduce il propagatore di Airy fino a O(t^5)
+8/8 OK

@@ -1,0 +1,30 @@
+PASS forma chiusa Lie (valore razionale)
+PASS forma chiusa Strang (valore razionale)
+PASS somma geometrica q
+PASS phi_L(0+) = 1/2
+PASS phi_S ~ -X/12 (serie)
+PASS phi_S(inf) = -1/2
+PASS 0 < phi_L <= 1/2 e phi_L >= min(1,1/X)/4 (griglia)
+PASS -min(X/12,1/2) <= phi_S <= 0 (griglia)
+PASS |phi_S| crescente (griglia)
+PASS |phi_S(1)| = 0.0819...
+PASS forma chiusa = somma diretta (L, n=20)
+PASS forma chiusa = somma diretta (S, n=20)
+pendenze log-log (h -> h/4):
+  L  h=4^-3  ||G||_L2=1.038943e-6  pendenza=0.782924
+  L  h=4^-4  ||G||_L2=2.8967976e-7  pendenza=0.921293
+  L  h=4^-5  ||G||_L2=7.5950859e-8  pendenza=0.96566
+  L  h=4^-6  ||G||_L2=1.9416002e-8  pendenza=0.98391
+  S  h=4^-3  ||G||_L2=4.6436684e-7  pendenza=1.26545
+  S  h=4^-4  ||G||_L2=8.1625891e-8  pendenza=1.25408
+  S  h=4^-5  ||G||_L2=1.4406411e-8  pendenza=1.25116
+  S  h=4^-6  ||G||_L2=2.5454527e-9  pendenza=1.25036
+PASS Lie: pendenza L2 -> 1
+PASS Strang: pendenza L2 -> 5/4
+  Lie: ||G||/h = 7.9527943e-5, C_L = 8.1246426e-5
+  errore relativo h=4^-5: 0.04274, h=4^-6: 0.02115, rapporto 2.021 (atteso ~ 4^(1/2) = 2: coda dei modi m > h^(-1/2))
+PASS Lie: ||G||/h -> C_L con correzione relativa O(h^(1/2))
+  Strang L^inf h=4^-4  pendenza=1.0038
+  Strang L^inf h=4^-5  pendenza=1.0009
+PASS [V-ex] Strang: pendenza L^inf vicino a 1
+ESITO: TUTTI PASS

@@ -1,0 +1,5 @@
+[OK] VAR-P9 E^mult - int int_{s1>s2}[A2(s1),A1(s2)] = O(t^3) ordini osservati ['3.00', '3.00']
+[OK] commutare a tempi uguali non basta: E^mult = e^{Y/2}e^{X/2} - e^{X/2}e^{Y/2} != 0 |E^mult| = 0.250
+[OK] [A1(s),A2(r)] = 0 per ogni s,r => E^mult = 0 
+[OK] VAR-P12: simbolo del K limitato = k^2 mod 2pi/T, non polinomiale 
+RISULTATO: TUTTO OK

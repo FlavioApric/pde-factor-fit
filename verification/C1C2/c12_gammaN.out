@@ -1,0 +1,7 @@
+OK   det G = 3e^2/(4(1+e^2))
+OK   c_F a coppie: 1/(2 sqrt(1+e^2)), 1/(2 sqrt(1+e^2)), 1/2 (tutte <= 1/2)
+OK   e=1/10: gamma_3 = 0.00330762 ~ e^2/3 = 0.00333333
+OK   e=1/100: gamma_3 = 0.0000333307 ~ e^2/3 = 0.0000333333
+OK   e=1/1000: gamma_3 = 3.33333E-7 ~ e^2/3 = 3.33333E-7
+OK   traccia G = 3 e per e=0 autovalori {0,3/2,3/2}
+ESITO: 6/6

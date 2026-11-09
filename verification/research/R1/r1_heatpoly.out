@@ -1,0 +1,4 @@
+heat eq residuals n<=6: [0, 0, 0, 0, 0, 0, 0]
+orthogonality int v_n(x,-s)v_m(x,-s)G_s dx = (2s)^n n! delta_nm  (n,m<6): True
+v_n(x,-1/2)=He_n(x/?)... compare v_4(x,-1/2) with hermite_prob He_4(x)?  x**4 - 6*x**2 + 3 | x**4 - 6*x**2 + 3
+v_4(x,-1/4)*2^4 vs physicists' H_4: 16*x**4 - 48*x**2 + 12 | 16*x**4 - 48*x**2 + 12

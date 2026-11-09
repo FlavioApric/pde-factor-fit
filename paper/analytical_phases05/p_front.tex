@@ -1,0 +1,41 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+We are given one exact solution $u(t,x)$ of a differential equation that we do not know. What does $u$ remember about its equation? This edition answers the question completely for the results of Phases~0--5 of the project. The answer has four parts.
+
+\textbf{Identification.} For constant coefficients, $u$ determines its operator $P$ exactly when no partial quotient
+\[
+w_i=\Big(\frac{P}{P_i}\Big)(\partial)\,u
+\]
+is an exponential-polynomial. No finite amount of data can certify this, and a black-box test is impossible. One extra integer, a bound on the exponential-polynomial part of $u$, makes it a finite computation.
+
+\textbf{Decomposition.} On a simply connected region, $u$ splits into one component per irreducible \emph{factor} of the symbol. The ambiguity has the exact finite dimension $\delta(P)$. The split per additive \emph{term} of the operator is false. The components keep the Sobolev regularity of $u$ exactly when a conditioning number $\gamma_N$ is positive.
+
+\textbf{Interaction.} For an evolution equation whose $N$ terms commute, the part of the solution due to the interplay of the terms is
+\[
+\Eint=\Big[\prod_{n=1}^N(\Id+\Delta_n)-\Id-\sum_{n=1}^N\Delta_n\Big]u_0 .
+\]
+One value costs $O(N)$ operations, while the full table of cross terms costs $\Theta(2^N)$. The map $u_0\mapsto\Eint$ is not continuous in Sobolev norms and cannot be regularised.
+
+\textbf{Nonlinear equations.} For Burgers, KdV--Burgers and KdV the same questions have sharp answers. The interaction has a $t^2$ jet and a closed form before the shock, and size $\Theta(\nu)$ and $\nu|\log\nu|$ after it. Identification holds relative to a dictionary, modulo the differential consequences of the equation. For the $N$-soliton of KdV the identifying polynomial has degree $(N+2)2^{N-1}$.
+
+\section*{How to read this edition}
+
+\textbf{Layout.} Every chapter opens with a box with three entries. \emph{Starting from} lists the assumptions in force. \emph{Why} says what problem the chapter solves. \emph{Role} says where its output is used. Inside a chapter the order is always the same: motivation, then intuition, then statement, then a worked example, then consequences.
+
+\textbf{Boxes.} The colours are fixed:
+\begin{itemize}
+\item blue boxes are theorems, propositions and lemmas;
+\item green boxes are definitions;
+\item violet bars are worked examples;
+\item amber boxes give the intuition;
+\item red boxes are warnings and counterexamples.
+\end{itemize}
+
+\textbf{Proofs.} Proofs are not in this volume. Each statement names its proof in the companion \emph{Catalogue of proofs}, for example \textsf{\footnotesize\color{cA}Dim.~A3}. Part~I of the catalogue contains the 31 load-bearing proofs; Part~II contains all the others.
+
+\textbf{Trust labels.} Every statement carries one label. \proved{} means a complete proof that passed an independent review. \modulo{X} means complete except for a cited published theorem~X whose source was checked. \pw{} means a full proof exists but no independent audit has been done. \cf{} means a published theorem we rely on. \condl{} means the result depends on an unverified lemma. \vex{} means it was only checked on examples. \openq{} means unsolved. \falsest{} means a counterexample is proved. The reviewers were independent AI agents, not human referees. Grey tags such as \led{C3-T1} are the identifiers in the project ledger \texttt{claims/LEDGER.md}.
+
+\textbf{Prerequisites.} Linear algebra (eigenvalues, Jordan form), calculus in two variables, the Fourier transform, and linear ODEs with constant coefficients. Chapter~\ref{ch:primer} introduces every algebraic notion from scratch: ideals, annihilators, exponential-polynomials and the Chinese remainder theorem.
+
+\textbf{Scope.} This edition covers Phases~0--5. Phases~6--11 (systems, variable coefficients, the analytic encoder, the universal dictionary, convergence, the extended algorithm) are summarised in the separate document \emph{Punto di partenza}. They will be included in the complete edition once Phase~11 is finished.

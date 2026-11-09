@@ -1,0 +1,12 @@
+OK   A9(b2) fase dopo traslazione = F t^2 p' - 2F^2t^3/3
+OK   A9(b2) stima vecchia violata (F=t=1, larghezza 25)  0.6549 > 0.1950
+OK   A9(b2) stima corretta vale  0.6549 <= 0.6950
+OK   A9(a) costante 2/3 ottimale: rapporto -> 1  [np.float64(0.9937), np.float64(0.9979), np.float64(0.9994)]
+OK   V = beta(t)x: u = e^{-iBx-iPhi} v(t, x-Xi), B'=beta, Xi'=-2B, Phi'=B^2
+OK   U1: L_0 T f - T L_0 f = A f(x) + B f(-x) + int C f con B = -2 d/dx K(x,-x)
+OK   T2(c') termine di ordine minimo (x-x1)^{M-2d} con coeff. p_d (-1)^d M!/(M-2d)!  ordine 3, coeff 2520
+OK   NS2: Phi^{-1} d_t Phi = d_t - 2Ft d_x + iFx - iF^2t^2
+OK   Phi^{-1} d_y Phi = d_x + iFt
+OK   N1'(v): famiglia stretta, uscite non equivalenti per gauge (cos sqrt(lam) vs cos sqrt(lam+c))
+
+TOTALE: 10/10 OK

@@ -1,0 +1,36 @@
+== E1: Koszul torto = de Rham coniugato (indipendente da Omega) ==
+PASS E1 e^-1 beta*(e w) = (w_t, w_x)
+PASS E1 e^-1 alpha*(e phi, e psi) = d(phi dt + psi dx) = psi_t - phi_x
+PASS E1 alpha* o beta* = 0
+== E2: Laplaciano su corona / disco bucato: ostruzione = periodo non nullo ==
+PASS E2 P = Q1 Q2
+PASS E2 dim R/(Q1,Q2) = 1 (V = {0})
+PASS E2 u = log r^2 in ker P
+PASS E2 F := Q2 u = 2/(t - i x)
+PASS E2 F in ker Q1
+PASS E2 forma (F/2)dt + (F/2i)dx chiusa
+   periodo sul cerchio unitario = -2*I*pi
+PASS E2 periodo = -2 pi i != 0 => nessuna h su Omega che contiene il cerchio e non 0
+== E3: disco tagliato (semplicemente connesso, NON convesso, NON rettangolo): la scomposizione esiste ==
+PASS E3 Q1 h = 0
+PASS E3 Q2 k = 0
+PASS E3 Log(t-ix)+Log(t+ix) = log r^2 sul disco tagliato (6 punti, anche vicino al taglio)
+== E4: disco bucato, P = tau xi, u = H(x)H(t) in D': sistema delle costanti incompatibile ==
+PASS E4 sistema dei quadranti senza soluzione
+== E5: disco bucato, P = tau xi in C^infty: la scomposizione ESISTE (dipende da P e da A) ==
+   (nota, nessun controllo automatico: il caso C^infty e' dimostrato in PROOF_PACKAGE C12-P10(c))
+== E6: versione torta del controesempio Laplaciano ==
+PASS E6 e^{pt+qx} log r^2 in ker P_(p,q)
+PASS E6 dim R/(Q1,Q2) = 1 nel punto (2,-1)
+== E7: corrente di Heaviside: periodo della forma mollificata = +-1 (prova di C12-P10, caso tau xi) ==
+   periodo = -1.0
+PASS E7 periodo = -1 (|err| < 1e-8)
+== E8: fix II-T2-F1 su C12-T2(iv): a = (2, xi, -xi), punto rho = 0 dove collidono i rami 2,3 ==
+PASS E8 colonne di V autovettori destri della compagna (1 sopradiag., ultima riga -c_j) [T2-2]
+PASS E8 Pi_1 regolare in 0 (il suo ramo non collide)
+PASS E8 Pi_2, Pi_3 hanno un polo in 0
+PASS E8 dim ker B_1(0,C0) = 2, dim ker(C0 - a_2(0)) = 1 (blocco di Jordan)
+PASS E8 Pi_1(0) annulla ker B_1(0,C0) (proietta LUNGO ker B_j, fix F1)
+PASS E8 Pi_1(0) di rango 1, idempotente, immagine = v_1(0)
+
+RISULTATO: 23 PASS, 0 FAIL

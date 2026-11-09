@@ -1,0 +1,9 @@
+[OK] (a) Avron-Herbst: p'=F, b'=-2p, theta'=-p^2 => psi risolve i psi_t = -psi_xx + F(t) x psi 0
+[OK] (b1) oscillatore: alpha' = 2i(1 - alpha^2) 
+[OK] (b2) libero: alpha' = -2i alpha^2 
+[OK] (b3) exp(tG) = M_osc(t) 
+[OK] (b4) M_osc = C(gam) F(s) C(gam), gam = (cos2t-1)/(2 sin2t), s = sin(2t)/2 
+[OK] (b5) (C F C)_{21} = 2 i s: a t = pi/2 serve s = 0, e allora CFC e' triangolare != M(pi/2) = -I? (M(pi/2) = -I: s=0 e gam=0 la danno) 
+    nota: a t = pi/2, M = -I e' proiettivamente l'identita' (U(pi/2) = parita' a meno di fase): la parola degenera, ma U e' banale; il primo vero ostacolo della parola fissa e' sin 2t = 0.
+[OK] (c) chirp(gam).libero(s).chirp(gam) = c(t) U(t), stesso c su due f (t = 0.3, pi/4, 1.3) t=0.300: |c|=1.0000000000, err=1.2e-13; t=0.785: |c|=1.0000000000, err=3.8e-13; t=1.300: |c|=1.0000000000, err=6.5e-13
+RISULTATO: TUTTO OK

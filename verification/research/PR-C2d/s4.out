@@ -1,0 +1,9 @@
+PASS a1 similarity ODE solved by exp(-z^2/4)
+PASS a2 => t^{-1/2} exp(-x^2/4t) solves heat
+PASS b1 Galilean boost preserves heat solution exp(kx+k^2t)
+PASS b1 Galilean boost preserves heat solution x^2+2t
+PASS b2 scaling u(lam x, lam^2 t) of exp(kx+k^2t) solves heat
+PASS c1 two modes: dim ker Gram = 1 and kernel ~ (1,0,-1,0) (u_t-u_xx=0 identified)
+PASS c2 one mode: dim ker Gram = 2 (non-identifiable: u_t+u=0 and u_xx+u=0 also annihilate)
+PASS d1 WKB residual (eps^2 y'' - Q y)/y = O(eps^2) (no O(1), O(eps) terms)
+ALL PASS

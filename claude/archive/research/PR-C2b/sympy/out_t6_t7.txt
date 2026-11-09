@@ -1,0 +1,32 @@
+PASS C2.10 e^{xi x - xi^3 t}
+PASS C2.10 soluzione fondamentale (3t)^{-1/3} Ai(x/(3t)^{1/3})
+PASS C2.10 polinomio di Airy p_0
+PASS C2.10 polinomio di Airy p_1
+PASS C2.10 polinomio di Airy p_2
+PASS C2.10 polinomio di Airy p_3
+PASS C2.10 polinomio di Airy p_4
+PASS C2.10 polinomio di Airy p_5
+PASS C2.10 omega(k) = -k^3
+PASS C2.30 propagatore (4 pi i t)^{-1/2} e^{i x^2/4t}
+PASS C2.30 modi e^{i k x - i k^2 t}
+PASS C2.30 polinomio 'di Schroedinger' q_0 (calore a tempo immaginario)
+PASS C2.30 polinomio 'di Schroedinger' q_1 (calore a tempo immaginario)
+PASS C2.30 polinomio 'di Schroedinger' q_2 (calore a tempo immaginario)
+PASS C2.30 polinomio 'di Schroedinger' q_3 (calore a tempo immaginario)
+PASS C2.30 polinomio 'di Schroedinger' q_4 (calore a tempo immaginario)
+PASS C2.30 invarianza di Galileo su propagatore
+PASS C2.30 invarianza di Galileo su q_3
+PASS C2.46 solitone KdV u_t+6uu_x+u_xxx=0
+PASS T6 dim (tau+xi^3, tau-D xi^2) = 3 (Bezout 1*3)
+PASS T6 dim (tau+xi^3, tau-i xi^2) = 3
+PASS C2.11 e^{rt} g(x) in ker(d_t - r)
+PASS C2.11 ker(d_t - r) non e' finito-dimensionale in x: (tau - r) non dipende da xi, quoziente infinito
+PASS C2.11 reazione-diffusione: e^{rt} G (prodotto dei semigruppi commutanti)
+PASS C2.11 modi e^{ikx + (r - D k^2) t}
+PASS C2.11 onda viaggiante: residuo = -(D xi^2 + s xi + r)
+PASS C2.11 discriminante s^2 - 4 r D (velocita' minima 2 sqrt(rD))
+PASS C2.11/C2.42 Ablowitz-Zeppetella (Fisher-KPP)
+PASS C2.42 h(q) = d q^2 - (d-2) q + 1
+PASS C2.42 traccia J<0, det J>0 (stabile senza diffusione)
+PASS C2.42 d=10, q=2/5: h<0 -> instabilita' di Turing   -3/5
+== t6_t7: 31/31 PASS

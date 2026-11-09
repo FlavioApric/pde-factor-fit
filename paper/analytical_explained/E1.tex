@@ -1,0 +1,51 @@
+%--- E1: after Figure 1 (Section 2.1) ---------------------------------------
+\begin{explained}{rings, the operator ring, symbol and characteristic variety}
+\textbf{Step 0: what is a ring?} A \emph{ring} is the analogue of a group in which there are two operations, addition and multiplication. A set $R$ with $+$ and $\cdot$ is a ring if:
+\begin{enumerate}[nosep]
+\item $(R,+)$ is an abelian group: addition is associative and commutative, there is an additive identity $0$, and every element $a$ has an additive inverse $-a$;
+\item multiplication is associative, $(ab)c=a(bc)$;
+\item multiplication distributes over addition, $a(b+c)=ab+ac$ and $(a+b)c=ac+bc$.
+\end{enumerate}
+Unlike in a group, a ring does \emph{not} require every nonzero element to have a multiplicative inverse, and multiplication need not be commutative. The hierarchy is:
+\begin{itemize}[nosep]
+\item \emph{group}: one operation;
+\item \emph{ring}: an additive abelian group together with a multiplication compatible with the addition;
+\item \emph{field}: a commutative ring with $1\ne0$ in which every nonzero element has a multiplicative inverse.
+\end{itemize}
+Examples: $(\Z,+)$ is a group; $(\Z,+,\cdot)$ is a ring but not a field (2 has no inverse in $\Z$); $(\mathbb Q,+,\cdot)$ is a field. A ring is therefore \emph{not} simply a group under multiplication: it is an additive abelian group on which one can also multiply, with multiplication obeying the distributive law.
+
+\medskip\textbf{Step 1: what is $\ring=\C[\partial_t,\partial_x]$?} It is the ring of polynomials in the two formal variables $\partial_t,\partial_x$ with complex coefficients. Elements of $\ring$ are, for instance,
+\[
+P(\partial)=\partial_t^2+\partial_x^2,\qquad Q(\partial)=3\partial_t\partial_x+2,\qquad S(\partial)=i\partial_t^3-5\partial_x .
+\]
+Why is it a ring? One can add operators ($P+Q$), multiply them by composing them ($PQ$), there is a zero operator and every operator has an additive inverse, and composition is associative and distributes over addition. The crucial point is that these are \emph{constant-coefficient} operators: the coefficients are complex numbers, not functions of $t$ or $x$. So $2\partial_t^2+3\partial_x+1$ is in $\ring$, whereas $t\,\partial_t$ is not (its coefficient $t$ is not constant).
+
+\medskip\textbf{Step 2: why $\ring\cong\C[\tau,\xi]$?} The symbol $\cong$ means \emph{isomorphic}: the two rings have exactly the same algebraic structure. Here $\tau,\xi$ are ordinary formal polynomial variables and we simply replace
+\[
+\partial_t\longleftrightarrow\tau,\qquad\partial_x\longleftrightarrow\xi,
+\qquad\text{e.g.}\qquad
+\underbrace{\partial_t^2+3\partial_t\partial_x+2\partial_x^2}_{\text{differential operator}}\ \longleftrightarrow\ \underbrace{\tau^2+3\tau\xi+2\xi^2}_{\text{polynomial}} .
+\]
+This is legitimate because constant-coefficient partial derivatives commute, $\partial_t\partial_x=\partial_x\partial_t$, so the operator ring is commutative, exactly like the polynomial ring. At this stage $\tau$ and $\xi$ are \emph{not} numbers: they are formal variables that encode the operators.
+
+\medskip\textbf{Step 3: the symbol.} For $P(\partial)=\partial_t^2-\partial_x^2+1$ the symbol is obtained by replacing each derivative with its variable,
+\[
+P(\tau,\xi)=\tau^2-\xi^2+1 .
+\]
+The symbol translates a differential operator into an algebraic object, and polynomial algebra is often easier to study than differential operators directly. \emph{Convention.} Other texts replace $\partial$ by $i\tau,i\xi$ (Fourier convention). In this paper the substitution is the \emph{direct} one, $\partial\mapsto(\tau,\xi)$; the Fourier convention $\partial_x\mapsto i\kappa$ appears only later, in Sections~\ref{sec:fact} and~\ref{sec:terms}, and is stated there.
+
+\medskip\textbf{Step 4: the characteristic variety.} Given the symbol, $\Var(P)=\{(\tau,\xi)\in\C^2:P(\tau,\xi)=0\}$: the set of all pairs of complex numbers at which the symbol vanishes. For $P=\tau^2-\xi^2+1$ it is $\tau^2=\xi^2-1$, a subset of $\C^2$; a pair belongs to $\Var(P)$ exactly when it satisfies this equation. For $P=\tau-\xi$ it is the line $\tau=\xi$ of $\C^2$.
+
+\medskip\textbf{Example: the wave operator.} $P(\partial)=\partial_t^2-c^2\partial_x^2$ has symbol $\tau^2-c^2\xi^2=(\tau-c\xi)(\tau+c\xi)$, so
+\[
+\Var(P)=\{\tau=c\xi\}\cup\{\tau=-c\xi\},
+\]
+two lines (Figure~\ref{fig:varieties}, left). They encode the characteristic directions of wave propagation; their precise interpretation depends on the PDE and on whether the covectors are taken real or complex.
+
+\medskip\textbf{The whole passage in one picture.}
+\[
+\underbrace{P(\partial_t,\partial_x)}_{\text{operator on functions}}\ \xrightarrow{\ \partial\mapsto(\tau,\xi)\ }\ \underbrace{P(\tau,\xi)}_{\text{polynomial}}\ \xrightarrow{\ \text{zeros}\ }\ \underbrace{\Var(P)\subset\C^2}_{\text{set of points}}
+\]
+Three related but \emph{different} objects: an operator acting on functions, a polynomial, and a set of points of complex space.
+\end{explained}
+

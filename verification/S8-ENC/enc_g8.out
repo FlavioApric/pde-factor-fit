@@ -1,0 +1,6 @@
+OK   DIC3: pseudo-conforme risolve il sistema con alpha = 0 e theta != id
+OK   gaussiana libera: v soluzione di i v_tau = -v_yy
+OK   mappa u = rho^(-1/2) e^(+-i a x^2) v(T, x/rho) libera -> libera (segno 1)
+OK   theta affine => rho costante => a = 0 => alpha = 0
+OK   POLE3: U libero ai tempi 0 e 2, il polo lo attraversa a t = 1
+5/5 OK

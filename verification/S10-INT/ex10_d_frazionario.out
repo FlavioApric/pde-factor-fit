@@ -1,0 +1,16 @@
+    coefficienti della legge locale (deg 2): [-3 - sqrt(3) + 3*sqrt(2), -3*sqrt(3)*I/2 - 5*I/2 + 4*sqrt(2)*I, -sqrt(2) + 1/2 + sqrt(3)/2]
+    errore |u_hat - pi e^{-T|k|}|: ['2.0e-31', '9.9e-32', '3.1e-32', '0.0e+00']
+PASS (1) livello deg a = 1: sistema incompatibile (MISFIT esatto)
+PASS (1) livello deg a = 2: soluzione unica
+PASS (1) la legge locale u_t = a(d_x)u annulla il dato
+PASS (1) ... ma non il modo k = 4 della legge frazionaria: non e' (-D^2)^s
+PASS (2) FRAC: (c, sigma) = (1, 1/4) unica
+PASS (2) FRAC: il terzo modo e' coerente (H-ex nella classe FRAC)
+PASS (2) unione LIN_2 u FRAC: due leggi distinte entrambe esatte (nessuna unicita')
+PASS (3) d_t^4 u + d_x^2 u = 0 su ogni modo, k = -3, -1, 1, 2, 5, 7
+PASS (3) tau^4 + xi^2 = (tau^2 + i xi)(tau^2 - i xi): due fattori
+PASS (4) Delta u = u_tt + u_xx = 0
+PASS (4) u_hat(t, kappa) = pi e^{-(t+1)|kappa|} (quadratura, < 1e-15): u_t = -|D| u
+PASS (4) (d_t -+ i d_x) u = cost./(x -+ iT)^2 (poli: non EP) => test C3-T1 superato
+PASS (4) nessuna legge u_t = a(d_x)u con deg a <= 4 (MISFIT al primo ordine in tau)
+13/13 PASS

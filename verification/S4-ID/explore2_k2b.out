@@ -1,0 +1,4 @@
+KdV N=2 k=(1,2) d=7 ord<=2: dim J cap A = 0 (monomi 120) [17.1s]
+KdV N=2 k=(1,2) d=8 ord<=2: dim J cap A = 1 (monomi 165) [45.0s]
+KdV N=2 k=(1,2) d=4 ord<=3: dim J cap A = 2 (monomi 70) [2.6s]
+KdV N=2 k=(1,2) d=5 ord<=3: dim J cap A = 12 (monomi 126) [14.1s]

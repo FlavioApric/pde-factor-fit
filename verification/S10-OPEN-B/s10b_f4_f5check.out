@@ -1,0 +1,4 @@
+dps=40  max |res|/|psi| = 2.08e-15
+dps=80  max |res|/|psi| = 2.08e-15
+dps=120  max |res|/|psi| = 2.08e-15
+evalf esatto: max |res|/|psi| = 8.53e-198

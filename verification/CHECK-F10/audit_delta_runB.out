@@ -1,0 +1,2 @@
+S N=6 K=12 d<=6 p=1000000007: classi=83 max=901 punti=921; nessuna relazione omogenea pesata di grado <= 6 [gen 0.9s, tot 213.8s]
+S N=5 K=8 d<=8 p=1000000007: classi=79 max=872 punti=892; nessuna relazione omogenea pesata di grado <= 8 [gen 0.6s, tot 173.3s]

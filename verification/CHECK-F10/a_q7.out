@@ -1,0 +1,17 @@
+OK   Hankel destro n=1: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel destro n=2: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel destro n=3: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel destro n=4: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel destro n=5: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel destro n=6: det = e0^n s^(n^2) det Hilb_n, non nullo
+OK   Hankel sinistro p=1: det identicamente nullo
+OK   Hankel sinistro p=2: det identicamente nullo
+OK   Hankel sinistro p=3: det identicamente nullo
+OK   Gauss p=1: momenti k<2p esatti, k=2p no (residuo -0.08333)
+OK   Gauss p=2: momenti k<2p esatti, k=2p no (residuo -0.005556)
+OK   Gauss p=3: momenti k<2p esatti, k=2p no (residuo -0.0003571)
+OK   Weyl a=3: sigma X = mu^(a-1) X, sigma Y = mu^-1 Y, [d,x]=1 preservato
+OK   Weyl a=4: sigma X = mu^(a-1) X, sigma Y = mu^-1 Y, [d,x]=1 preservato
+OK   valutazioni in nu: X >= 0, Y >= a
+OK   Passo 3: coeff. di nu^a = [e^{HX}]_a + sum_i q_i e^{G_iX} Y e^{(H0-G_i)X} (nessun termine misto)
+16/16 OK

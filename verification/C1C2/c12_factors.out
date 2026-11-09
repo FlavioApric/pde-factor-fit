@@ -1,0 +1,64 @@
+PASS L3 Res_tau(calore,trasporto) in C[xi], !=0
+PASS L3 Res in (f,g)
+PASS L3 dim R/(calore,trasporto) = 2
+PASS L3 additivita dim
+  onda: fattori [(tau - xi, 1), (tau + xi, 1)]  delta(P) = 1
+PASS T1 onda delta=1
+  trave: fattori [(tau - I*xi**2, 1), (tau + I*xi**2, 1)]  delta(P) = 2
+PASS T1 trave delta=2
+  calore: fattori [(tau - xi**2, 1)]  delta(P) = 0
+PASS P3 calore: 1 solo fattore (G8)
+  AD: fattori [(tau - 3*xi**2 + 2*xi, 1)]  delta(P) = 0
+PASS P3 AD: 1 solo fattore (G8)
+  Airy: fattori [(tau + xi**3, 1)]  delta(P) = 0
+PASS P3 Airy: 1 solo fattore (G8)
+  KG: fattori [(tau**2 - xi**2 + 1, 1)]  delta(P) = 0
+PASS P2 KG: irriducibile anche su Q(i)
+  telegrafo: fattori [(tau**2 + 2*tau - xi**2, 1)]  delta(P) = 0
+PASS P2 telegrafo: irriducibile anche su Q(i)
+  caloreXtrasporto: fattori [(tau - xi**2, 1), (tau + xi, 1)]  delta(P) = 2
+PASS T1 caloreXtrasporto delta=2
+  dtdx: fattori [(xi, 1), (tau, 1)]  delta(P) = 1
+PASS T1 dtdx delta=1
+  trasportiParalleli: fattori [(tau - xi, 1), (tau - xi - 1, 1)]  delta(P) = 0
+PASS T1 trasporti paralleli delta=0 (comassimale)
+PASS P2 onda disc quadrato
+PASS P2 trave disc quadrato
+PASS P2 KG disc non quadrato
+PASS P2 telegrafo disc non quadrato
+PASS T2 onda: u_0 in ker(tau-a_0)
+PASS T2 onda: u_1 in ker(tau-a_1)
+PASS T2 onda: Delta(dx)u_0 = sum_l adj_jl d_t^l u
+PASS T2 onda: Delta(dx)u_1 = sum_l adj_jl d_t^l u
+PASS T2 onda: deg Delta = sum deg(a_i-a_j) = 1
+  Delta onda = -2*xi
+PASS T2 trave: u_0 in ker(tau-a_0)
+PASS T2 trave: u_1 in ker(tau-a_1)
+PASS T2 trave: Delta(dx)u_0 = sum_l adj_jl d_t^l u
+PASS T2 trave: Delta(dx)u_1 = sum_l adj_jl d_t^l u
+PASS T2 trave: deg Delta = sum deg(a_i-a_j) = 2
+  Delta trave = -2*I*xi**2
+PASS T2 caloreXtrasporto: u_0 in ker(tau-a_0)
+PASS T2 caloreXtrasporto: u_1 in ker(tau-a_1)
+PASS T2 caloreXtrasporto: Delta(dx)u_0 = sum_l adj_jl d_t^l u
+PASS T2 caloreXtrasporto: Delta(dx)u_1 = sum_l adj_jl d_t^l u
+PASS T2 caloreXtrasporto: deg Delta = sum deg(a_i-a_j) = 2
+  Delta caloreXtrasporto = -xi*(xi + 1)
+PASS T2 tre fattori: u_0 in ker(tau-a_0)
+PASS T2 tre fattori: u_1 in ker(tau-a_1)
+PASS T2 tre fattori: u_2 in ker(tau-a_2)
+PASS T2 tre fattori: Delta(dx)u_0 = sum_l adj_jl d_t^l u
+PASS T2 tre fattori: Delta(dx)u_1 = sum_l adj_jl d_t^l u
+PASS T2 tre fattori: Delta(dx)u_2 = sum_l adj_jl d_t^l u
+PASS T2 tre fattori: deg Delta = sum deg(a_i-a_j) = 5
+  Delta tre fattori = xi**4*(xi + 1)
+PASS T1 trave: 1 in ker(tau - i xi^2) cap ker(tau + i xi^2)
+PASS T1 trave: x in ker(tau - i xi^2) cap ker(tau + i xi^2)
+PASS T1 caloreXtrasporto: 1 nei due nuclei
+PASS T1 caloreXtrasporto: exp(t - x) nei due nuclei
+PASS P1 E1 u in ker f
+PASS P1 E2 u in ker g
+PASS P1 E1 u + E2 u = u
+PASS P1 E2 u = e^t G(x+t) (componente)
+
+RISULTATO: 48 PASS, 0 FAIL

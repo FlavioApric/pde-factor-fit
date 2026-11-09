@@ -1,0 +1,2 @@
+AM N=6 K=12 d<=6: max classe=901; nessuna relazione omogenea di grado <= 6 [194.7s]
+EXIT 0

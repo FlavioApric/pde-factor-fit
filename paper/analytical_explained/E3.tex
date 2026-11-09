@@ -1,0 +1,25 @@
+%--- E3: after Lemma 2.7 (EP), before the Takeaway of Section 2.3 -----------
+\begin{explained}{the finite dimension criterion for exponential-polynomials}
+The lemma says: \emph{a function is a finite sum of polynomial-times-exponential terms if and only if all its derivatives span a finite-dimensional vector space.}
+
+\medskip\textbf{Step 1: what is $\EP$?} The set of functions $w(t,x)=\sum_{j=1}^Np_j(t,x)e^{\tau_jt+\xi_jx}$, with $p_j$ polynomials and $\tau_j,\xi_j\in\C$. Examples: $e^{2t+x}+3e^{-t+4x}$ and $t^2e^x+(t+x)e^{t-x}$. The second has polynomial prefactors, so $\EP$ is more general than sums of pure exponentials. Polynomial prefactors appear because differentiating such a function gives another function of the same form: $\partial_x(te^{2t+x})=te^{2t+x}$ and $\partial_t(te^{2t+x})=(1+2t)e^{2t+x}$. The polynomial factor changes, the exponent stays the same.
+
+\medskip\textbf{Step 2: what is $\ring w$?} $\ring w=\spn_\C\{\partial_t^j\partial_x^kw:j,k\ge0\}$, the vector space spanned by \emph{all} partial derivatives of $w$ (including $w$ itself): all finite complex linear combinations of them.
+\begin{itemize}[nosep]
+\item \emph{Pure exponential.} $w=e^{2t+3x}$: $\partial_t^j\partial_x^kw=2^j3^kw$, so $\ring w=\spn\{w\}$ and $\dim_\C\ring w=1$.
+\item \emph{Polynomial times exponential.} $w=te^x$: $\partial_tw=e^x$, $\partial_t^2w=0$, $\partial_xw=te^x$; every higher derivative is a combination of $te^x$ and $e^x$, so $\ring w=\spn\{te^x,e^x\}$ and $\dim_\C\ring w=2$. Although $w$ has infinitely many derivatives, two independent functions span them all.
+\end{itemize}
+
+\medskip\textbf{Step 3 ($\Rightarrow$).} Let $f=p\,e^{\tau t+\xi x}$. Then $\partial_tf=(\partial_tp+\tau p)e^{\tau t+\xi x}$ and $\partial_xf=(\partial_xp+\xi p)e^{\tau t+\xi x}$. Differentiating a polynomial never raises its degree, so every derivative of $f$ is $q\,e^{\tau t+\xi x}$ with $\deg q\le\deg p$. The polynomials of degree $\le d$ in two variables form a space of dimension $(d+1)(d+2)/2$, so the derivatives of each term span a finite-dimensional space; $w$ has finitely many terms, so the same holds for $w$.
+
+\medskip\textbf{Step 4 ($\Leftarrow$).} Suppose $W=\ring w$ is finite-dimensional. Differentiation maps derivatives to derivatives, so $\partial_tW\subseteq W$ and $\partial_xW\subseteq W$: they define linear operators $T=\partial_t|_W$ and $X=\partial_x|_W$. They commute ($TX=XT$, mixed partials commute). Commuting complex matrices are simultaneously triangularizable, so in a suitable basis both are upper triangular. Their diagonal entries give pairs of joint eigenvalues $(\tau_j,\xi_j)$; the joint generalized eigenspaces produce functions $p_j(t,x)e^{\tau_jt+\xi_jx}$: the diagonal part of differentiation produces the exponential, the nilpotent parts produce the polynomial factors (they vanish when raised to a high enough power, since the space is finite-dimensional). There are finitely many pairs, hence $w\in\EP$.
+
+\medskip\textbf{Step 5: $\ring w\cong\ring/\Ann(w)$.} Define $\Phi:\ring\to\ring w$, $Q\mapsto Qw$. It is surjective (by definition of $\ring w$) and its kernel is exactly $\Ann(w)$ (since $\Phi(Q)=0$ means $Qw=0$). By the first isomorphism theorem $\ring w\cong\ring/\Ann(w)$. The quotient identifies two operators exactly when they act identically on $w$: $P\sim Q\iff(P-Q)w=0$. Hence
+\[
+w\in\EP\iff\dim_\C\ring/\Ann(w)<\infty .
+\]
+
+\medskip\textbf{Step 6: $\Var(\Ann w)$ is the set of exponents.} For $w=te^x$, $\Ann(w)=(\partial_t^2,\partial_x-1)$, with symbol ideal $(\tau^2,\xi-1)$. Its zero set is $\{\tau^2=0,\ \xi=1\}=\{(0,1)\}$ (over $\C$, $\tau^2=0$ forces $\tau=0$), exactly the exponent pair of $te^{0t+1x}$. For a general exponential-polynomial the variety gives the \emph{distinct} exponent pairs that occur. It does \emph{not} record multiplicities or the full polynomial prefactors: those affect the structure of the annihilator but introduce no new exponent pairs.
+
+\medskip\textbf{Step 7: why it is computationally important.} The criterion converts a question about the \emph{form} of a function into finite-dimensional linear algebra. If one can establish relations such as $\partial_t^2w=2\partial_tw+w$ and $\partial_xw=3w$, then every mixed derivative reduces to a combination of $w$ and $\partial_tw$, so $\dim\ring w\le2$ and $w\in\EP$. The big picture: the annihilator encodes all differential equations satisfied by $w$; the quotient $\ring/\Ann(w)$ counts the independent derivatives; the joint eigenvalues of differentiation identify the exponential modes.
+\end{explained}

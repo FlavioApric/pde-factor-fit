@@ -1,0 +1,22 @@
+[OK]   S1a c_k = sinh(pi)(-1)^k/(pi(1-ik)), mai nullo
+[OK]   S1b controllo: somma parziale (N=4000) ~ e^{0.5} (errore < 1e-3)
+[OK]   S1c (tau+1),(xi-1) annullano e^{x-t}: Ann 0-dimensionale, contiene tau+xi
+[OK]   S2a G risolve il calore
+[OK]   S2b d_x^k G / G polinomio in x di grado esatto k (k<=10) => {d_x^k G} lin. indip., G non EP
+[OK]   S3a (d_t-d_x^2)(tG) = G != 0 e (d_t-d_x^2)^2 (tG) = 0
+[OK]   S4a u risolve l onda
+[OK]   S4b w_+ = (d_t+d_x)u = 2 g'(x+t) non nullo; w_- = (d_t-d_x)u = -2e^{x-t} EP
+[OK]   S4c Q=(xi-1)(tau-xi) annulla u e P non divide Q
+[OK]   S4d relazione C[d_x]-lineare tra u e u_t (vettore ciclico = t-jet)
+[OK]   S5a |Z| = n deg P: Q = prod(tau-j^2) annulla, P non divide Q (n=2,3,4): soglia ottimale
+[OK]   S5b |Z| = 2n+1 > n deg P: dim Ann_{<=n} = dim R_{<=n-2} (= multipli di P) per n=2,3,4
+[OK]   S6a 2D: Ann_{<=n} esatto = Ann_{<=n} dal jet d'ordine n+d-1 (d=4, n=1,2,3)
+[OK]   S6b 1D (Prony): ordine 2d-1 identifica p_u, ordine 2d-2 no (d=2,3,4): soglia n+d-1 ottimale
+[OK]   S7 classe {tau-b(xi), deg b<=2}: dim soluzioni = max(0, 3 - #xi distinti)
+[OK]   S8 Gram (0,1)^2: dim ker = 2 = dim (Ann cap span{tau,xi,xi^2,1})
+[OK]   S9 KG su f(x-ct): (c^2-1) f'' + mu^2 f = 0 (ODE a coeff. costanti => f EP)
+[OK]   S10 Hermite: dim {b, deg<=n : tau-b in Ann} = max(0, n+1-D), D = sum(delta_k+1) = 4
+[OK]   S11 (2t d_t + x d_x + 1) G = 0
+[OK]   S12 phi(2.5) != 0 e phi = 0 su (-1,1): u|Omega' = e^{x-t}, u|Omega != e^{x-t} su (2,3)
+
+TOTALE: 20/20 OK

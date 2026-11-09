@@ -1,0 +1,36 @@
+[OK]   (D-lam)^1 [x^0 e^(lam x)] = 0
+[OK]   (D-lam)^2 [x^0 e^(lam x)] = 0
+[OK]   (D-lam)^2 [x^1 e^(lam x)] = 0
+[OK]   (D-lam)^3 [x^0 e^(lam x)] = 0
+[OK]   (D-lam)^3 [x^1 e^(lam x)] = 0
+[OK]   (D-lam)^3 [x^2 e^(lam x)] = 0
+[OK]   (D-lam)^4 [x^0 e^(lam x)] = 0
+[OK]   (D-lam)^4 [x^1 e^(lam x)] = 0
+[OK]   (D-lam)^4 [x^2 e^(lam x)] = 0
+[OK]   (D-lam)^4 [x^3 e^(lam x)] = 0
+[OK]   (D-lam)^5 [x^0 e^(lam x)] = 0
+[OK]   (D-lam)^5 [x^1 e^(lam x)] = 0
+[OK]   (D-lam)^5 [x^2 e^(lam x)] = 0
+[OK]   (D-lam)^5 [x^3 e^(lam x)] = 0
+[OK]   (D-lam)^5 [x^4 e^(lam x)] = 0
+[OK]   (D-lam)^3 x^3 e^(lam x) = 3! e^(lam x)  (fuori dal nucleo)
+[OK]   ((D-a)^2+b^2) exp(a*x)*cos(b*x) = 0
+[OK]   ((D-a)^2+b^2) exp(a*x)*sin(b*x) = 0
+[OK]   ((D-a)^2+b^2)^2 x*exp(a*x)*cos(b*x) = 0
+[OK]   ((D-a)^2+b^2)^2 x*exp(a*x)*sin(b*x) = 0
+[OK]   ERF: p(D)e^{rx} = p(r) e^{rx}
+[OK]   Exponential shift: p(D)(e^{rx}g) = e^{rx} p(D+r) g
+[OK]   Risonanza semplice: p(D)[x e^x / p'(1)] = e^x
+[OK]   Risonanza ordine 3: p(D)[x^3 e^x / p'''(1)] = e^x
+[OK]   ker(P1 P2) contiene ker P1 + ker P2
+[OK]   Proiettore di Bezout: (beta P2)(D) u = A e^x
+[OK]   Proiettore di Bezout: (alpha P1)(D) u = (B+Cx)e^{-2x}
+[OK]   sin x in ker(D^2+1)
+   ker(D^2+1) ∩ ker(D^2) = [{al: 0, be: 0}]  (solo 0: A8 additivo falso per somme)
+   coeff. ricostruiti (c0..c3) = [-4, 0, 3, 1]  atteso [-4, 0, 3, 1]
+   W(u,u',u'')(0) = -81 (!=0 => ordine minimo = 3)
+[OK]   Gram exp-poly j=0,k=0: (j+k)!/(s1+s2)^(j+k+1)
+[OK]   Gram exp-poly j=1,k=2: (j+k)!/(s1+s2)^(j+k+1)
+[OK]   Gram exp-poly j=3,k=1: (j+k)!/(s1+s2)^(j+k+1)
+
+TOTALE: 34/34 OK

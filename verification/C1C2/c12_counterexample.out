@@ -1,0 +1,26 @@
+PASS C1 u in ker fg (G generica)
+PASS C1 f u = e^t G(x+t) = u_2
+PASS C1 u_1 in ker f
+PASS C1 u_2 in ker g
+PASS C1 u = u_1 + u_2
+PASS C1 peso corda (e^t-1)^2 ~ s^3/3
+PASS C1 peso corda e^{2t} ~ s
+PASS C1 m=0: u in H^m (integrali finiti)
+PASS C1 m=0: u_2 = e^t G notin H^m (int |G^(m)|^2 s ds = oo)
+PASS C1 m=1: u in H^m (integrali finiti)
+PASS C1 m=1: u_2 = e^t G notin H^m (int |G^(m)|^2 s ds = oo)
+PASS C1 m=1: G^(m) = (m-1)!/s
+PASS C1 m=2: u in H^m (integrali finiti)
+PASS C1 m=2: u_2 = e^t G notin H^m (int |G^(m)|^2 s ds = oo)
+PASS C1 m=2: G^(m) = (m-1)!/s
+PASS C1 m=3: u in H^m (integrali finiti)
+PASS C1 m=3: u_2 = e^t G notin H^m (int |G^(m)|^2 s ds = oo)
+PASS C1 m=3: G^(m) = (m-1)!/s
+PASS C1 m=4: u in H^m (integrali finiti)
+PASS C1 m=4: u_2 = e^t G notin H^m (int |G^(m)|^2 s ds = oo)
+PASS C1 m=4: G^(m) = (m-1)!/s
+PASS T3 det Gram ~ l^4/12
+PASS T3 lambda_min ~ det/tr ~ l^3/24
+PASS T3/C2 resto di troncamento -> 0
+
+RISULTATO: 24 PASS, 0 FAIL

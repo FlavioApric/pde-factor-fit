@@ -1,0 +1,19 @@
+[OK] A1 (H) di P1-T5 per Dirac: X, ad_X^k Y (k=0..7) lin. indip. su C rank=9/9
+    ad_X^2 Y = Matrix([[0, 4*I*m*xi**2], [4*I*m*xi**2, 0]])  ad_X^4 Y = Matrix([[0, -16*I*m*xi**4], [-16*I*m*xi**4, 0]])
+[OK] B1 rotazione R(s) = L(-tan s/2) U(sin s) L(-tan s/2) per |s|<pi (2x2 simplettico) 
+[OK] B2 chirp.libero.chirp = propagatore oscillatore a meno di fase in t, t=0.7000 spread=2.8e-16
+[OK] B2 chirp.libero.chirp = propagatore oscillatore a meno di fase in t, t=1.5708 spread=5.1e-16
+[OK] B2 chirp.libero.chirp = propagatore oscillatore a meno di fase in t, t=2.5000 spread=5.7e-16
+[OK] C1 Schroedinger con V(t,x) arbitrario: ogni u senza zeri ha legge E V e' unico (V1 u = V2 u => V1 = V2) 
+[OK] C2 (H1) vale per u_t = a(t,x) u_x (contro 'fallisce sempre' di DICT �6) 
+[OK] C3 N1(vi)(a) usa operatori degeneri: u=t-x^2 non ha legge d_t + a d_x + b con a,b lisci vicino a 0 
+[OK] D1 w(t,theta)=u(t-theta): w_t + w_theta = 0, w(t,0)=u(t), w(t,tau)=u(t-tau) 
+[OK] E1 condizione HOR-P1 invariante per L0 -> L0 + c 
+[OK] F1 q = lam + phi''/phi letto da u(t,x): la coppia (q+c, lam+c) da' un DATO diverso (e^{-ict}u) 
+[OK] G1 q=1: nessun W differenziale (ansatz polinomiale) di ordine 1 
+[OK] G2 q=1: nessun W differenziale (ansatz polinomiale) di ordine 2 
+[OK] G3 q=1: nessun W differenziale (ansatz polinomiale) di ordine 3 
+[OK] H CONV-T2(ii) L=1, m=1, K=12: rango sottomatrice = dim R_<=m rank=3/3
+[OK] H CONV-T2(ii) L=1, m=2, K=14: rango sottomatrice = dim R_<=m rank=6/6
+
+TOTALE: 16 / 16 OK

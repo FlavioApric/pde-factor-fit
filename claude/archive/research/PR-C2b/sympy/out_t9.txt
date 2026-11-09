@@ -1,0 +1,19 @@
+PASS C2.38 Caputo: D^a E_N + lam E_N = coda lam(-lam)^N t^{aN}/Gamma(aN+1)
+PASS C2.38 Riemann-Liouville: t^{a-1} in ker D_RL^a
+PASS C2.38 alpha=1: E(x+y)=E(x)E(y) (coefficiente xy coincide)
+PASS C2.38 alpha=1/2: E(x+y) != E(x)E(y)  => split moltiplicativo G3 FALLISCE   2 - 4/pi
+PASS C2.38 subordinazione: int M_{1/2}(s) e^{-zs} ds = e^{z^2} erfc(z) = E_{1/2}(-z)
+PASS C2.38 serie E_{1/2}(-z) = e^{z^2}erfc(z) fino a z^11
+PASS C2.38 dentro la subordinazione lo split e' esatto: e^{-(a+b)s t^al} = e^{-a s t^al} e^{-b s t^al}
+PASS C2.38 Poisson P_t armonica (Caffarelli-Silvestre s=1/2)
+PASS C2.38 (1/2pi) int e^{-t|k|} e^{ikx} dk = P_t (x>0, pari)
+PASS C2.38 frazionario in spazio: modi e^{ikx - |k|^{2s} t} (Fourier multiplier) e split commutante
+PASS C2.37 Jhat(k) = e^{-sigma^2 k^2/2}
+PASS C2.37 J*e^{iky} = Jhat(k) e^{ikx} (esponenziali = autofunzioni della convoluzione)
+PASS Gram: int_0^T e^{s t} dt = (e^{sT}-1)/s
+PASS Gram: mu_k^2 k^2 -> 2/(D T) (coerenza calore-trasporto ~ sqrt(2/(DT))/k)
+PASS Gram: coerenza Schrod-Airy <= 2/(T|k^3-k^2|) -> 0
+PASS Gram: onda destra/sinistra mu_k = |sin(ckT)|/(ckT)
+== t9_nonlocal_gram: 16/16 PASS
+PASS Gram: nonlocale(J*u-u)/calore mu_k^2 k^2 -> 4/(D(1-e^{-2T}))
+== t9_nonlocal_gram (con aggiunta): 17/17 PASS

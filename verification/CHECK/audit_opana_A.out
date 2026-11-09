@@ -1,0 +1,21 @@
+[sin] t=2.0 x_s=3.141593 a-=1.246098 a+=5.037087 J-=1.63805 J+=1.63805 rho=0.00000 D=1.89549
+[sin] predetto: smooth_uv=1.21022 smooth_add=7.13150 layer=2.77259 Lambda_uv=3.98281 Lambda_add=9.90409
+[sin] nu=2.0e-03: ||u-v||_1/nu=3.98839  ||Eadd||_1/nu=9.88773
+[sin] nu=1.0e-03: ||u-v||_1/nu=3.98561  ||Eadd||_1/nu=9.89592
+[sin] nu=5.0e-04: ||u-v||_1/nu=3.98431  ||Eadd||_1/nu=9.90011
+[sin] estrapolato (Richardson, resto ~nu): uv=3.98301 add=9.90430
+OK   | OPA-T1 sin: Lambda_uv (estrapolato entro 1e-3 rel., misura entro 1%) | mis 3.98431 / estr 3.98301 vs pred 3.98281
+OK   | OPA-T1 sin: Lambda_add (estrapolato entro 1e-3 rel., misura entro 1%) | mis 9.90011 / estr 9.90430 vs pred 9.90409
+[asym] salti del minimizzante sulla griglia in x: [3.1667]
+OK   | OPA-T1 asym: un solo shock per periodo
+[asym] t=1.5 x_s=3.167547 a-=2.093535 a+=4.991335 J-=1.02977 J+=1.88947 rho=-0.30348 D=1.93187
+[asym] predetto: smooth_uv=1.84823 smooth_add=8.92892 layer=2.81846 Lambda_uv=4.66669 Lambda_add=11.74738
+[asym] nu=2.0e-03: ||u-v||_1/nu=4.66284  ||Eadd||_1/nu=11.65426
+[asym] nu=1.0e-03: ||u-v||_1/nu=4.66474  ||Eadd||_1/nu=11.69880
+[asym] nu=5.0e-04: ||u-v||_1/nu=4.66581  ||Eadd||_1/nu=11.72220
+[asym] estrapolato (Richardson, resto ~nu): uv=4.66687 add=11.74559
+OK   | OPA-T1 asym: Lambda_uv (estrapolato entro 1e-3 rel., misura entro 1%) | mis 4.66581 / estr 4.66687 vs pred 4.66669
+OK   | OPA-T1 asym: Lambda_add (estrapolato entro 1e-3 rel., misura entro 1%) | mis 11.72220 / estr 11.74559 vs pred 11.74738
+[A] tempo 45s
+
+TOTALE: 5/5 OK

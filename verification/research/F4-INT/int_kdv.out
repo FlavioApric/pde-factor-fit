@@ -1,0 +1,25 @@
+OK   1-sol: u_t = K1 (KdV)
+OK   1-sol: K1 - k^2 K0 = 0 (stazionario: traslazione = KdV, RT-R7c)
+OK   1-sol: dim relazioni span{u_t,K0,K1} = 2 (ambiguita' H_1 = 1); trovato 2
+OK   1-sol: dim relazioni span{u_t,K0,K1,K2} = 3 (ambiguita' H_2 = 2); trovato 3
+OK   2-sol k=[1, 2]: u_t = K1
+OK   2-sol k=[1, 2]: Novikov K2 - (k1^2+k2^2)K1 + k1^2k2^2 K0 = 0
+OK   2-sol k=[1, 2]: dim relazioni span{u_t,K0,K1} = 1 (identifica in H_1); trovato 1
+OK   2-sol k=[1, 2]: dim relazioni span{u_t,K0,K1,K2} = 2 (ambiguita' H_2 = 1); trovato 2
+OK   2-sol k=[1, 3]: u_t = K1
+OK   2-sol k=[1, 3]: Novikov K2 - (k1^2+k2^2)K1 + k1^2k2^2 K0 = 0
+OK   2-sol k=[1, 3]: dim relazioni span{u_t,K0,K1} = 1 (identifica in H_1); trovato 1
+OK   2-sol k=[1, 3]: dim relazioni span{u_t,K0,K1,K2} = 2 (ambiguita' H_2 = 1); trovato 2
+OK   2-sol k=[2, 5]: u_t = K1
+OK   2-sol k=[2, 5]: Novikov K2 - (k1^2+k2^2)K1 + k1^2k2^2 K0 = 0
+OK   2-sol k=[2, 5]: dim relazioni span{u_t,K0,K1} = 1 (identifica in H_1); trovato 1
+OK   2-sol k=[2, 5]: dim relazioni span{u_t,K0,K1,K2} = 2 (ambiguita' H_2 = 1); trovato 2
+OK   3-sol k=(1,2,3): u_t = K1
+OK   3-sol: dim relazioni span{u_t,K0,K1,K2} = 1 (identifica in H_2); trovato 1
+OK   Kay-Moses N=2: det(I+C) = f di Hirota (identita' polinomiale)
+OK   Kay-Moses N=3: det(I+C) = f di Hirota (identita' polinomiale)
+OK   tau/prod(1+E_i) = media di Bernoulli di exp(sum_{i<j} mu_i mu_j log A_ij) (N=3)
+OK   N=3: (log f)_x -> sum k_i = 6 per x->+inf
+OK   N=3: (log f)_x -> 0 per x->-inf
+
+TOTALE: 23/23 OK

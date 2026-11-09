@@ -1,0 +1,18 @@
+[OK]   p(D) g = 0 (g = L^{-1}[1/p])
+   condizioni iniziali g, g', g'' in 0 = [0, 0, 1] (atteso [0,0,1])
+[OK]   Funzione di trasferimento: L[g] = 1/p(s)
+[OK]   p(D)(g * f) = f  per f = sin(t)
+[OK]   p(D)(g * f) = f  per f = t**2
+[OK]   p(D)(g * f) = f  per f = exp(-t)
+[OK]   Variazione dei parametri: (D^2+1) y_p = sec x
+[OK]   det(sI - C) = p(s)  (polinomio caratteristico = operatore)
+   forma di Jordan di C: [[-3, 0, 0], [0, 2, 1], [0, 0, 2]] (blocco 2x2 per lambda=2 <-> x e^{2x})
+[OK]   d/dx e^{xC} = C e^{xC}
+[OK]   [e^{xC}]_{0,m-1} = g(x)
+[OK]   Abel-Liouville: det e^{xC} = e^{x tr C}
+[OK]   e^{x J_3(lam)} = e^{lam x} * polinomi in x
+[OK]   Phi' = A Phi (matrice fondamentale)
+[OK]   Variazione delle costanti per sistemi: Y_p' = A Y_p + F
+[OK]   Risposta in frequenza: (D^2+3D+2) Re[e^{iwx}/p(iw)] = cos wx
+
+TOTALE: 16/16 OK

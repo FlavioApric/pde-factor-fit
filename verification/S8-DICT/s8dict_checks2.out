@@ -1,0 +1,14 @@
+OK   F1 Lemma ND: D1=d_x, D2=x d_x, w=x, det[D_i w(y_k)] != 0 det=1
+OK   F2 Lemma ND-NL: det[Q_i(j_k)] != 0 per getti in punti distinti det=-1.000
+OK   F3 Teorema A(iii): stessi dati esatti, u con fit, v con misfit diff dati=1.7e-19, lmin_rel(u)=1.3e-16, lmin_rel(v)=4.5e-02
+OK   F4 N3 su (0,T): ||(S_tau - H)f||/||f|| >= 1 - o(1) per pacchetti ad alta frequenza min ratio=1.0071
+OK   F5 diffusiva esatta per k=1/(1+t) (c.m.) diff=8.5e-21
+OK   F5b L^1 convergenza per nucleo c.m. generico (nessuna velocita' dichiarata) ['1.90e-02', '1.03e-03', '6.22e-05']
+OK   F6 CS: h decrescente, h(0+) = 2^{-s} Gamma(1-s) (convergenza dominata del dato di Neumann) 
+OK   F7 2-kink: residuo sine-Gordon ~ 0, rango 4 => nucleo 1 (identifica nel dizionario a 5 atomi; V-ex) res=2.7e-15 sv=[5.56e+01 4.17e+01 2.16e+01 1.13e+01 1.79e-14]
+OK   F8 interpolazione L^2-Lip -> L^inf (costante esplicita, N=1) 
+OK   F9 NS-L1: polinomializzazione con esponenti commensurabili 
+OK   F10 N1(iii): conteggi per N=3 (cresce) e N=1 (costante) 
+OK   F11 rango: K>=2 => nucleo puntuale non banale (theta = rho x e) 
+
+TOTALE: 12/12 OK

@@ -1,0 +1,8 @@
+N=1 shock (k=[1]), dizionario u^1..u^1, |alpha|<=2: 6 feature, dim relazioni = 3
+N=1 shock (k=[1]), dizionario u^1..u^2, |alpha|<=2: 12 feature, dim relazioni = 8
+N=2 shock (k=[1, 2]), dizionario u^1..u^2, |alpha|<=2: 12 feature, dim relazioni = 1
+N=2 shock (k=[1, 2]), dizionario u^1..u^3, |alpha|<=2: 18 feature, dim relazioni = 4
+N=3 shock (k=[1, 2, 3]), dizionario u^1..u^2, |alpha|<=2: 12 feature, dim relazioni = 1
+N=3 shock (k=[1, 2, 3]), dizionario u^1..u^3, |alpha|<=2: 18 feature, dim relazioni = 1
+N=3 shock (k=[1, 2, 3]), dizionario u^1..u^4, |alpha|<=1: 12 feature, dim relazioni = 0
+Multipli di Burgers di ordine <= K: K=1 -> 0, K=2 -> 1

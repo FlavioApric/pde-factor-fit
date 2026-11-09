@@ -1,0 +1,26 @@
+PASS Poisson: tau=-|k|, xi=ik => tau^2+xi^2=0
+PASS KG ellittico: tau=-sqrt(1+k^2) => tau^2+xi^2-1=0
+PASS memoria esponenziale => telegrafo tau(tau+a)=xi^2
+PASS frazionario alpha=p/q=3/2: tau=-k^(3/2) soddisfa (-tau)^q=(-i xi)^p
+PASS ritardo: tau = W(-sigma k^2)/sigma risolve tau = -k^2 e^{-sigma tau} (numerico in 5 punti)
+PASS ritardo: ramo reale e non costante per k^2 < 1/(sigma e)
+PASS ritardo in L+: w_t + w_theta = 0 per w = u(t-theta,x)
+PASS ritardo in L+: traccia w(t,0,x)=u, w(t,sigma,x)=u(t-sigma,x)
+PASS 1+2: e^{z x2} in ker Q1 cap ker Q2 per ogni z (ambiguita infinito-dimensionale)
+PASS 1+2: f(t+x1) annullata da tau-xi1 e xi2 (classe eccezionale non EP)
+PASS 1+1: dim R/(tau-xi,tau+xi) = 1 (ideale massimale (tau,xi))
+PASS comassimali => ambiguita nulla: (tau-xi1, tau-xi1-1) = (1)
+PASS bordo: (tau+k0, xi^2+mu^2) annulla sia sin (Dirichlet in 0) sia cos (Neumann in 0)
+PASS bordo: dim R.u = 2 per sin e per cos (u, u_x indipendenti) => Ann = (tau+k0, xi^2+mu^2) per entrambi
+PASS bordo: tracce (0, 0, e^{-t}) => nucleo di dimensione 2, margine rho = 0
+PASS R2a: Bezout f - g = r(xi) = -xi(xi+1)
+PASS R2a: unico modo risonante k = 0 per f = tau - xi^2, g = tau + xi
+PASS R2a: codimensione al modo 0 = deg gcd(tau, tau) = 1 (testimone u = t)
+PASS R2a: f = tau - xi^2, g = tau + xi + 1: nessuna risonanza su iZ
+PASS R2a: radici comuni di f,g2: xi^2+xi+1 = 0, fuori da iZ
+PASS R2a: f = xi, g = tau (retta xi=0 in V(f)): ker(tau xi) = A(t) + B(x) = ker xi + ker tau
+PASS MZ: equazione con memoria e "rumore" esatta per la componente u (numerico in 4 tempi)
+PASS MZ: eliminazione locale det(tau - A)(d_t) u = 0
+PASS MZ: [P,A] = 0 <=> a12 = a21 = 0
+PASS MZ: controesempio (FALSO del criterio della strada): a21 = 0, a12 = 1: memoria nulla ma [P,A] != 0
+ESITO: TUTTI PASS

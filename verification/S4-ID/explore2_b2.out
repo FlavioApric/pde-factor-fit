@@ -1,0 +1,8 @@
+Burgers N=2 k=(1,3) d=2 ord<=2: dim J cap A = 0 (monomi 10) [0.0s]
+Burgers N=2 k=(1,3) d=2 ord<=3: dim J cap A = 0 (monomi 15) [0.0s]
+Burgers N=2 k=(1,3) d=2 ord<=4: dim J cap A = 0 (monomi 21) [0.1s]
+Burgers N=2 k=(1,3) d=2 ord<=5: dim J cap A = 0 (monomi 28) [0.2s]
+Burgers N=2 k=(1,3) d=2 ord<=6: dim J cap A = 0 (monomi 36) [0.3s]
+Burgers N=2 k=(1,3) d=3 ord<=2: dim J cap A = 1 (monomi 20) [0.1s]
+Burgers N=2 k=(1,3) d=3 ord<=3: dim J cap A = 4 (monomi 35) [0.2s]
+Burgers N=2 k=(1,3) d=3 ord<=4: dim J cap A = 10 (monomi 56) [0.5s]

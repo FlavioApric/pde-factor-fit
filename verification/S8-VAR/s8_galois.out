@@ -1,0 +1,8 @@
+[OK] (d+w)(d-w) y = y'' - (w'+w^2) y 
+[OK] Airy: nessuna soluzione razionale (ansatz deg <= 3) soluzioni trovate: 0
+[OK] oscillatore, ramo e^{-x^2/2}: equazione di Hermite 
+[OK] oscillatore, ramo e^{+x^2/2} 
+[OK] oscillatore E=2n+1: soluzioni polinomiali = C*H_n (n=0..5) 
+[OK] ramo e^{+x^2/2} impossibile per E = 2n+1 > 0 
+[OK] d^2: (a+bx) d - b uccide a + b x (ordine 1) 
+RISULTATO: TUTTO OK

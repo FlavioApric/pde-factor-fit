@@ -1,0 +1,18 @@
+[OK]   Euler-Cauchy: T x^r = I(r) x^r
+[OK]   Euler-Cauchy radice doppia: T[x^r0 log x] = 0
+[OK]   Euler-Cauchy radici complesse: T[x^al cos(be log x)] = 0
+[OK]   x d/dx [g(log x)] = g'(log x)  (theta = xD <-> d/dt, x = e^t)
+   ordine minimo del residuo di J0 troncata a N=8: 18 (>= 2N+2 = 18)
+[OK]   Frobenius J0: (2k)^2 c_k + c_{k-1} = 0 per k generico
+   ordine minimo del residuo della 2a soluzione (log) troncata: 18 (>= 2N+2)
+[OK]   Equazione indiciale: coeff. di x^0 = r(r-1) + p0 r + q0
+   riduzione d'ordine Legendre n=1: y2 = xs*(log(xs - 1) - log(xs + 1))/2 + 1
+[OK]   Riduzione d'ordine: y2 in ker Legendre(n=1)
+[OK]   Irregolare: x^2 y' + y = 0 ha y = e^{1/x}
+   serie di Eulero troncata a M=10: residuo = -3628800*x**11 (singolo termine O(x^{M+1}), coefficienti n! -> divergente)
+[OK]   WKB: (y''-Qy)/y = 5Q'^2/(16Q^2) - Q''/(4Q)  (errore di ordine 2)
+   WKB per Airy (Q=x): residuo relativo = 5/(16*x**2)
+[OK]   prodotto D-finito: (D^2-2D+2)(e^x sin x) = 0
+[OK]   D-finito a coeff. polinomiali: (x D - 2x^2 - 1) x e^{x^2} = 0
+
+TOTALE: 14/14 OK

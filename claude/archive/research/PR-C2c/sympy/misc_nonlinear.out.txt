@@ -1,0 +1,10 @@
+[M1] sine-Gordon kink residuo (numerico, v=0.3): 0.e-125
+[M2] NLS bright soliton: 0
+[M3] Fisher-KPP Ablowitz-Zeppetella: 0
+[M4] U_t + U U_x = 0  ; blow-up di U_x quando 1 + t F' = 0  =>  t* = -1/min F'
+[M5] u_t - u_xx - u^2 = 0
+[M6] OU Fokker-Planck: 0
+[M7] Feynman-Kac (V=bx, f=1): 0
+[M8] trasporto libero cinetico: 0
+[M9] acustica 1D: 0 0
+[M10] Stefan: T_t - T_xx = 0 ; fronte s=2 lam sqrt(t) (lam da eq. trascendente lam e^{lam^2} erf(lam) = St/sqrt(pi))

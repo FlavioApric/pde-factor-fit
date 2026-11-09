@@ -1,0 +1,21 @@
+    grado in alpha di d_x^b u / u, b = 0..5: [0, 1, 2, 3, 4, 5]
+PASS (1) lo stato coerente risolve i u_t = -u_xx + x^2 u
+PASS (1) rho_u = (i u_t + u_xx)/u = x^2  (ID-res; u senza zeri)
+PASS (1) DM-phi: rho = x^2 - phi'(t)  (solo ID-fam, V modulo c(t))
+PASS (1) vacuita' (VAR-N1): (d_x + x - sqrt2 al) u = 0, coefficienti in C(x, e^{2it})
+PASS (1) d_x^b u/u ha grado esatto b in alpha (alpha trascendente su C(t,x) => u non D-finita)
+PASS (2) u_h risolve l'equazione
+PASS (2) rho_u = x^2 su {u != 0}  (ID-res)
+PASS (2) zeri: u_h(0, -1/2) = 0 e u_h(pi/2, 1/2) = 0
+PASS (2) a t = pi/4 nessuno zero reale (fattore 1 - 2 i x)
+PASS (2) (H - 1)(H - 3) u_h = 0: R in B = C[t,x]<d_x>, quindi Ann(u_h) != A_2 L (non ID-ann)
+PASS (3) g = -tan(t)/2
+PASS (3) 1/g -> 0 per t -> pi/2 (la parola si rompe a cos t = 0)
+PASS (3) s(pi/2) = 0 e M(pi/2) = -I
+PASS (3) parola su exp(-b x^2 + c x): coefficiente di x^2 del residuo = 0
+PASS (3) parola su exp(-b x^2 + c x): coefficiente di x del residuo = 0
+PASS (3) parola -> identita' per t -> 0
+PASS (3) ansatz Gaussiano risolve phi_s = i phi_xx
+PASS (3) e^{-i(2n+1)pi/2} h_n(x) = -i h_n(-x), n = 0..5
+PASS (3) h_n autofunzioni di H con autovalore 2n+1
+19/19 PASS

@@ -1,0 +1,45 @@
+    (R) ex_L6_dirac.py -> 7/7 PASS
+    (R) ex_L7_poschl_teller.py -> 11/11 PASS
+    (R) ex_L8_stark.py -> 5/5 PASS
+    (R) ex_L9_L10_dict.py -> 10/10 PASS
+    (A) rango esatto (per modi) = 8
+    (A) valori singolari puntuali: ['3.672e-01', '3.672e-01', '1.975e+00', '1.975e+00', '6.701e+00', '6.701e+00', '2.230e+01', '2.230e+01']
+    (C) N = 2: v_N calore True, getto d'ordine N uguale True, d_x^{2N+1} v = 0 True
+    (C) N = 4: v_N calore True, getto d'ordine N uguale True, d_x^{2N+1} v = 0 True
+    (C) N = 6: v_N calore True, getto d'ordine N uguale True, d_x^{2N+1} v = 0 True
+    (E) legge locale interpolante: u_t = (-2/3) + (0) d_x + (1/3) d_x^2
+    (F) ||u_d - u||_C1 <= delta**2 + delta ;  |V_d(-d pi/2)| = -1/(delta**2 - 1)
+    (G) MF2 (rapporto di Gram) a 15 cifre: non calcolabile (TypeError) ; a 30 cifre: non calcolabile (TypeError)
+    (G) r_2 (equazioni normali + quadratura) a 15 cifre = 3.9131e-23 ; a 30 cifre = 6.4622e-35
+    (G) 9.5(c): 2 delta/rho = 1.43051
+    (H) a sqrt(Q) = 0.5: ||T 1||_inf = cosh = 1.128 <= C_W = 1.412; C_W^2 = 1.99, cosh^2 = 1.27
+    (H) a sqrt(Q) = 1.0: ||T 1||_inf = cosh = 1.543 <= C_W = 3.718; C_W^2 = 13.8, cosh^2 = 2.38
+    (H) a sqrt(Q) = 3.0: ||T 1||_inf = cosh = 10.07 <= C_W = 181.8; C_W^2 = 3.3e+04, cosh^2 = 101
+    (H) a sqrt(Q) = 5.0: ||T 1||_inf = cosh = 74.21 <= C_W = 3711; C_W^2 = 1.38e+07, cosh^2 = 5.51e+03
+PASS (R) ex_L6_dirac.py: tutti PASS
+PASS (R) ex_L7_poschl_teller.py: tutti PASS
+PASS (R) ex_L8_stark.py: tutti PASS
+PASS (R) ex_L9_L10_dict.py: tutti PASS
+PASS (A) v autovettore di H(k) = k sx + m sz con autovalore sqrt(5)/2
+PASS (A) v autovettore di H(k) = k sx + m sz con autovalore -sqrt(2)
+PASS (A) v autovettore di H(k) = k sx + m sz con autovalore sqrt(13)/2
+PASS (A) v autovettore di H(k) = k sx + m sz con autovalore -sqrt(5)
+PASS (A) psi (4 onde piane, EP) risolve Dirac
+PASS (A) dato EP a 4 modi: rango 8 nella classe hamiltoniana (ID-ker con dato EP)
+PASS (A) rango puntuale 8 (sigma_min > 1e-6)
+PASS (A) soluzione unica = (A, B) = (-i sx, m sz)
+PASS (B) e^{-t} cos x risolve il calore
+PASS (B) (d_t + 1) u = 0 e (d_x^2 + 1) u = 0: Ann(u) != (tau - xi^2)
+PASS (B) tau + 1 non e' multiplo di tau - xi^2
+PASS (C) per N = 2, 4, 6 il getto d'ordine N di G(t+1,x) coincide con quello di un polinomio del calore (EP)
+PASS (D) (L_q + 1)(L_q - k^2) u = 0 (annullatore senza d_t)
+PASS (D) (i d_t + 1)(i d_t - k^2) u = 0 (annullatore senza x)
+PASS (E) u_t = -|D| u
+PASS (E) u_t = a(d_x) u con a polinomio di grado 2 (interpolazione)
+PASS (F) d = 1e-3: ||u_d - u||_C1 < 2e-3 ma |V_d| > 0.99 (V = 0)
+PASS (G) a 15 cifre r_2 < 1e-12: il misfit per minimi quadrati � stabile (ipotesi di DEVIL-9 smentita)
+PASS (G) MF2 come rapporto di determinanti di Gram non calcolabile in mpmath a 15 e 30 cifre
+PASS (G) a 30 cifre r_2 < 1e-20
+PASS (G) 9.5(c): 2 delta/rho >= 1, il bound CONV-T4(a) e' vacuo (sin <= 1 sempre)
+PASS (H) cosh(a sqrt Q) <= C_W per a sqrt Q in {0.5, 1, 3, 5} (nessun controesempio al bound)
+26/26 PASS

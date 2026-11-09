@@ -1,0 +1,13 @@
+[OK]   Leibniz P(d)(theta w) per P generico di grado 3
+[OK]   P~ temperato (trave), max rapporto 0.219 <= C=sum 1/b! finito
+[OK]   azione destra su D/xD: f.P_r = T f' - eta f - eta^2 f' (i<=6,k<=2)
+[OK]   P_r u_G = 0
+[OK]   (2t d_x + x) u_G = 0
+[OK]   P_r u_k = 0 e (x d^2 + d + k^2 x) u_k = 0
+[OK]   u_G non di A_1-torsione (ordine<=4, grado<=4: solo b=0)
+[OK]   P1 d_x = d_x P2 (su funzione generica)
+[OK]   P1P2 u* = 0
+[OK]   R_lam u* = (1 + lam d_x) u*_2
+[OK]   P(R_lam u*) = 0
+[OK]   P8 Gram normalizzata: min autovalore su |sigma|<=40 = 0.005431 > 0
+TOTALE 12/12

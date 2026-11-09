@@ -1,0 +1,50 @@
+OK    A1 H(theta w) = theta Hw + (theta_t+theta_xx)w + d_x(-2 theta_x w)
+OK    A2 s(y+tau1) = s(y) - eps(1+c), s(y+tau2) = s(y)+eps(1+c)
+OK    A3a ||K0||_L1 = (1-e^{-L xi^2})/xi^2 <= L
+OK    A3b ||K1||_L1 = (1-e^{-L xi^2})/|xi| <= sqrt(L) (griglia)
+OK    A4 d_t(Duhamel[G]) = Duhamel[d_t G] quando G(-1)=0
+OK    A5 d_t z_hat = -xi^2 z_hat + G
+OK    A6 Passo 3: tau1 manda Omega-bar∩B(C1,3r) in un compatto di Omega; anello: s<=b-delta, s-sigma > a-cT (4 rettangoli, scelte r->delta->eps0)
+OK    B1 dy dy' = |sin| dz da db (cambio di variabili HS)
+OK    B2 delta lungo una corda integrata sull'altra: fattore 1/|sin|
+OK    B3 int_square dz/(l_v l_w) = 2 (w=(1,1) parametrico)   [1.9975]
+OK    B4 Gram {1, e^sigma} definita positiva per l in [0.5,3]   [[0.006454689859831171, 0.05851912112527875, 0.4507537528944877, 1.179033379323115]]
+OK    B5 cuneo: integrale HS ~ log(lam2/lam1) log(1/eps) (diverge)
+OK    C1 [x, d_x^{-1}] = d_x^{-2} (realizzato con I = int_0^x)
+OK    C2 (d_t - x)^2 = (d_t - x + d_x^{-1})(d_t - x - d_x^{-1}) in K[d_t]: secondo divisore destro ⇒ (d_t - x)^2 NON uniseriale (rilievo T3-2)
+OK    C3 d_t(d_t - x) = (d_t - x) d_t in A_1[d_t] (d_t commuta con x)
+OK    C4 a centrale: b^2 = [a,b] = 0 => b = 0 (uniseriale)
+OK    D1 g, g', ..., g^(3) linearmente indipendenti (rango dei coefficienti di Taylor = 4)
+OK    D1 g, g', ..., g^(7) linearmente indipendenti (rango dei coefficienti di Taylor = 8)
+OK    D2 sup_{|z|<=R}|g^(i)| <= e^{2 sqrt R} uniformemente in i
+OK    D3 ricorrenza u_k = -sum p_l(d_x)u_{k-m+l}: P(d)U = 0 (ordini t^0..t^5, x^0..x^24)
+OK    D4 getti in 0 razionali (lambda in Q)
+OK    D5 a_k cresce al piu' geometricamente (rapporti limitati)   [2.033]
+OK    E1 R_1 = y0, R_2 = y2 + 3y0^2, R_3 = y4 + 10 y0 y2 + 5 y1^2 + 10 y0^3
+OK    E2 coefficiente di y0^n in R_n: c_{n+1} = (4n+2)c_n/(n+1) (1,3,10,35) — deg R_n = n   [[1, 3, 10, 35]]
+OK    E3 N=2, k=(1,2): R_3 - 5R_2 + 4R_1 = 0 sul 2-solitone (c_j = (-1)^{N-j} e_{N-j}(k^2))   [0.e-164]
+OK    E4 N=1, k=1: R_2 - k^2 R_1 = 0
+OK    E5 deg p_2 = 3, ordine 4, y4 con coefficiente 1
+OK    F1 OPR2-L5: d/dt(delta_d J) = -u0'''/J^3 + 3t u0''^2/J^4
+OK    F2 OPR2-L5: delta_d(0) = 0
+OK    F3 v_xxx = u0'''/J^4 - 3t u0''^2/J^5
+OK    F4 w_t + (vw)_x - nu w_xx + d w_xxx = f (forma di f del Passo 2)
+OK    F5 int_T e''' e = 0 ; int_T e'' e = -int e'^2
+OK    F6 int v (d^j e)_x d^j e = -1/2 int v_x (d^j e)^2 (per parti su T)
+OK    F7 (domanda 4) Z = (Y+eta)^{1/2}: Z' = Y'/(2Z) <= C Z + g se sqrt Y <= 1; Z(0) = sqrt eta -> 0
+OK    F8 |e^{-y}-1+y| <= y^2/2, |e^{iy}-1-iy| <= y^2/2
+OK    F9 (rilievo T5-1) spettro -nu n^2 + i d n^3: arg -> pi/2 (nessun settore d'angolo < pi/2 attorno al semiasse negativo)   [[1.580796, 1.571796, 1.570896, 1.570806, 1.570797]]
+OK    F10 lisciamento: ||d_x S(t)|| <= (nu t)^{-1/2} (modulo del moltiplicatore e^{-nu t n^2})
+OK    G1 (OPR2-P6) compatibilita': (u_x)_t - (u_t)_x = -c'(u) phi(u)^2
+OK    G2 (OPR2-P6) integrale primo: d/dx(beta g'^2 + alpha/3 g^3 + c g^2) = 2g'(beta g'' + alpha/2 g^2 + c g)
+OK    G3 (OPR2-O8) R ≠ 0 e d'ordine 5
+OK    G4 (OPR2-O8) R si annulla (rel.) sul getto di una soluzione autosimile numerica   [5.117501408049866e-26]
+OK    G5 (RILIEVO O9-1) y1^2 - k^2 y0^2 NON sta in I_PW (Phi*: beta^2 - k^2 alpha^2 ≠ 0)   [-alpha**2*k**2 + beta**2]
+OK    G6 (RILIEVO O9-1) su v = cosh(kx), v''=k^2 v: y1^2 - k^2 y0^2 = -k^2 ≠ 0
+OK    G7 (O9′) p' = y0y3 - y1y2 + 3y0^2y1 si annulla sul solitone (ogni k)
+OK    G8 (O9′) componente omogenea minima y0y3 - y1y2 ∈ I_PW (minore)
+OK    G9 (O9′) p' irriducibile su Q (e su C: lineare in y3, coefficienti coprimi)
+OK    G10 (O9′) p' non ha parte lineare; ordine 3 >= 2 (coerente con OPR2-P6)
+OK    G11 p = Pi1 + y0 D(Pi1) si annulla sul solitone (parte corretta di O9)
+
+ESITO: 48/48 OK

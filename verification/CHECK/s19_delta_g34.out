@@ -1,0 +1,9 @@
+[A] N=3 K=4 k=['1', '2', '4'] d=1 monomi=6 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=2 monomi=21 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=3 monomi=56 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=4 monomi=126 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=5 monomi=252 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=6 monomi=462 nullita=0
+[A] N=3 K=4 k=['1', '2', '4'] d=7 monomi=792 nullita=1
+    => delta >= 7 (certificato), candidato = 7
+   [34.1s]

@@ -1,0 +1,97 @@
+# audit_opana.out — concatenazione dei run per sezione (26/10/2026; run unico interrotto, rieseguito per parti con timeout)
+## sezione A (audit_opana_A.out)
+[sin] t=2.0 x_s=3.141593 a-=1.246098 a+=5.037087 J-=1.63805 J+=1.63805 rho=0.00000 D=1.89549
+[sin] predetto: smooth_uv=1.21022 smooth_add=7.13150 layer=2.77259 Lambda_uv=3.98281 Lambda_add=9.90409
+[sin] nu=2.0e-03: ||u-v||_1/nu=3.98839  ||Eadd||_1/nu=9.88773
+[sin] nu=1.0e-03: ||u-v||_1/nu=3.98561  ||Eadd||_1/nu=9.89592
+[sin] nu=5.0e-04: ||u-v||_1/nu=3.98431  ||Eadd||_1/nu=9.90011
+[sin] estrapolato (Richardson, resto ~nu): uv=3.98301 add=9.90430
+OK   | OPA-T1 sin: Lambda_uv (estrapolato entro 1e-3 rel., misura entro 1%) | mis 3.98431 / estr 3.98301 vs pred 3.98281
+OK   | OPA-T1 sin: Lambda_add (estrapolato entro 1e-3 rel., misura entro 1%) | mis 9.90011 / estr 9.90430 vs pred 9.90409
+[asym] salti del minimizzante sulla griglia in x: [3.1667]
+OK   | OPA-T1 asym: un solo shock per periodo
+[asym] t=1.5 x_s=3.167547 a-=2.093535 a+=4.991335 J-=1.02977 J+=1.88947 rho=-0.30348 D=1.93187
+[asym] predetto: smooth_uv=1.84823 smooth_add=8.92892 layer=2.81846 Lambda_uv=4.66669 Lambda_add=11.74738
+[asym] nu=2.0e-03: ||u-v||_1/nu=4.66284  ||Eadd||_1/nu=11.65426
+[asym] nu=1.0e-03: ||u-v||_1/nu=4.66474  ||Eadd||_1/nu=11.69880
+[asym] nu=5.0e-04: ||u-v||_1/nu=4.66581  ||Eadd||_1/nu=11.72220
+[asym] estrapolato (Richardson, resto ~nu): uv=4.66687 add=11.74559
+OK   | OPA-T1 asym: Lambda_uv (estrapolato entro 1e-3 rel., misura entro 1%) | mis 4.66581 / estr 4.66687 vs pred 4.66669
+OK   | OPA-T1 asym: Lambda_add (estrapolato entro 1e-3 rel., misura entro 1%) | mis 11.72220 / estr 11.74559 vs pred 11.74738
+[A] tempo 45s
+
+TOTALE: 5/5 OK
+## sezione BCDE (audit_opana_BCDE.out)
+OK   | OPA-T1 strato: 2∫|H-L(z+rho)| = 4log(2cosh(rho/2)), rho=0.0 | 2.7725887222 vs 2.7725887222
+OK   | OPA-T1 strato: 2∫|H-L(z+rho)| = 4log(2cosh(rho/2)), rho=-0.3035 | 2.8184691613 vs 2.8184691613
+OK   | OPA-T1 strato: 2∫|H-L(z+rho)| = 4log(2cosh(rho/2)), rho=0.7 | 3.0127441955 vs 3.0127441955
+OK   | OPA-T1 strato: 2∫|H-L(z+rho)| = 4log(2cosh(rho/2)), rho=2.0 | 4.5077120442 vs 4.5077120442
+OK   | OPA-T1 strato indipendente da D (D=0.3) | 2.896307937
+OK   | OPA-T1 strato indipendente da D (D=1.9) | 2.896307937
+OK   | OPA-T1 rho = log(Z+/Z-)... : log(Z+/Z-) = ½log(J-/J+) | -0.303474 vs -0.303474
+OK   | Lemma 2(ii) p=1.0,q=6.0: |<z>+eps q/2p^2| = O(eps^1.5) | err/eps^1.5 = 7.05, 8.19, 4.35, 2.2
+OK   | Lemma 2(ii) p=2.5,q=-1.3: |<z>+eps q/2p^2| = O(eps^1.5) | err/eps^1.5 = 0.00708, 0.000771, 0.000445, 0.000244
+OK   | Lemma 2(ii) p=0.7,q=0.4: |<z>+eps q/2p^2| = O(eps^1.5) | err/eps^1.5 = 1.94, 0.0533, 0.0252, 0.0138
+OK   | OPA-C1 forma chiusa t=1.2 | 3.51806452 vs 3.51806452; 1-t cos b=0.3789>0
+OK   | OPA-C1 forma chiusa t=2.0 | 1.21021760 vs 1.21021760; 1-t cos b=1.6380>0
+OK   | OPA-C1 forma chiusa t=3.7 | 0.42863748 vs 0.42863748; 1-t cos b=3.7933>0
+[D] t=1.1: Lambda_smooth=4.75973  2log(1/(t-1))=4.60517  diff=1.55e-01
+[D] t=1.01: Lambda_smooth=9.22628  2log(1/(t-1))=9.21034  diff=1.59e-02
+[D] t=1.001: Lambda_smooth=13.81711  2log(1/(t-1))=13.81551  diff=1.60e-03
+[D] t=1.0001: Lambda_smooth=18.42084  2log(1/(t-1))=18.42068  diff=1.60e-04
+OK   | OPA-C1 ⇒ Λ_smooth(t) - 2log(1/(t-1)) → 0 (divergenza dimostrabile dalla forma chiusa)
+OK   | OPA-C1 F(a_c) > pi per t>1
+OK   | OPA-L2(a) <f',c_n> = mu_n f_n, <f',c_0> = 0 | max err 4.42e-10
+OK   | OPA-L2(c) nucleo K^N-K^D = 2Σ_j G (s=0.001) | -0.0000000000 vs 0.0000000000
+[E] s=0.001: ∫k_s dy = 1 - S^D1 = 0.0036504344; erfc(x/2√Ds)+erfc((L-x)/2√Ds) = 0.0036504344
+OK   | OPA-L2(c) ∫k_s dy ≤ erfc+erfc (s=0.001) [usato in T2(i)]
+OK   | OPA-L2(c) nucleo K^N-K^D = 2Σ_j G (s=0.05) | 0.0771082135 vs 0.0771082135
+[E] s=0.05: ∫k_s dy = 1 - S^D1 = 0.6865877302; erfc(x/2√Ds)+erfc((L-x)/2√Ds) = 0.6869401447
+OK   | OPA-L2(c) ∫k_s dy ≤ erfc+erfc (s=0.05) [usato in T2(i)]
+OK   | OPA-L2(c) nucleo K^N-K^D = 2Σ_j G (s=0.5) | 0.9873954120 vs 0.9873954120
+[E] s=0.5: ∫k_s dy = 1 - S^D1 = 0.9963633206; erfc(x/2√Ds)+erfc((L-x)/2√Ds) = 1.2808668309
+OK   | OPA-L2(c) ∫k_s dy ≤ erfc+erfc (s=0.5) [usato in T2(i)]
+OK   | OPA-L2(c) uguaglianza ∫k_s dy = erfc+erfc (attesa FALSA per s non piccolo: rilievo L2-1) | differenza 0.2845
+
+TOTALE: 23/23 OK
+## sezione F (audit_opana_F.out)
+[F] J=0.172028 sqrt(J/pi)=0.234005  N0=0.234005 N1=0.162622 N2=0.203448
+OK   | OPA-T2 N0 = sqrt(J/pi) = 0.234005
+OK   | OPA-T2 N1 = 0.162622 | 0.1626220
+OK   | OPA-T2(i) C_* = (8/5)(2(2-√2)/√π)^{1/2} ≈ 1.30 (tabella: 1.31, maggiorante) | 1.30082
+OK   | OPA-T2 e1: ||E||/t^{5/4} → 2πN0 = 1.47030 | 1.46414, 1.46968, 1.47023 vs 1.470294
+OK   | coeff. seno di x²(1-x)² = √2(48-4π²n²)/(nπ)^5 (n dispari) | -5.844e-03 vs -5.844e-03
+OK   | OPA-T2 x²(1-x)²: ||E||/t^{7/4} → N1√8 = 0.45996 (estrapolazione r0+r1√t+r2 t) | 0.37175, 0.40759, 0.43079, 0.44297 → 0.45996 vs 0.45996
+OK   | OPA-T2(iii) k=3: ||E||/t^{9/4} → N2·√2·8π³/2! (D^{5/4}=1) | 34.6443, 35.3678, 35.5784, 35.6525 (estr. 35.6820) vs 35.6844
+OK   | OPA-T2(i) ||E|| ≤ C_*||u0'||_∞ t^{5/4} su x²(1-x)² e su e1
+[F] tempo 7s
+
+TOTALE: 8/8 OK
+## sezione G (audit_opana_G.out)
+OK   | OPA-L5 Θ± non vuoti ⟺ non eccezione (300 casi casuali, campionamento) | discordanze 0
+OK   | OPA-T3(b) AD ξ, ξ², t0=0.0: log R² cresce (m=1, K=d, r=16,32,64) | 19.3, 47.5, 106.3
+OK   | OPA-T3(b) AD ξ, ξ², t0=0.5: log R² cresce (m=1, K=d, r=16,32,64) | 4.0, 16.7, 44.8
+OK   | OPA-T3(b) AD ξ, ξ², t0=1.0: log R² cresce (m=1, K=d, r=16,32,64) | 22.0, 50.8, 110.3
+OK   | OPA-T3(b) iξ³, ξ², −2ξ, t0=0.0: log R² cresce (m=1, K=d, r=16,32,64) | 492.9, 2018.1, 8128.2
+OK   | OPA-T3(b) iξ³, ξ², −2ξ, t0=0.5: log R² cresce (m=1, K=d, r=16,32,64) | 205.3, 933.8, 3922.5
+OK   | OPA-T3(b) iξ³, ξ², −2ξ, t0=1.0: log R² cresce (m=1, K=d, r=16,32,64) | 428.1, 1888.7, 7870.2
+OK   | OPA-P3 θ=(0.5, 0.5), t0=0.0: (TC)=True; rapporto L2/L2 limitato=True | -5.5, -4.3, -9.6, -12.2
+OK   | OPA-P3 θ=(0.5, 0.5), t0=1.0: (TC)=True; rapporto L2/L2 limitato=True | -12.2, -9.6, -4.3, -5.5
+OK   | OPA-P3 θ=(2.0, -1.0), t0=0.5: (TC)=False; rapporto L2/L2 limitato=False | 387.1, 89.7, 89.7, 387.1
+OK   | OPA-P3 θ=(-0.3, 1.3), t0=0.5: (TC)=False; rapporto L2/L2 limitato=False | 107.6, 20.1, 20.1, 107.6
+OK   | OPA-P3 θ=(-0.3, 0.6, 0.7), t0=0.5: (TC)=True; rapporto L2/L2 limitato=True | -12.2, -9.6, -9.6, -12.2
+OK   | OPA-P3 θ=(-0.3, 0.6, 0.7), t0=0.1: (TC)=False; rapporto L2/L2 limitato=False | 125.0, 25.6, -9.6, -12.2
+OK   | OPA-P3 θ=(-0.3, 0.6, 0.7), t0=0.9: (TC)=False; rapporto L2/L2 limitato=False | -12.2, -9.6, 25.6, 125.0
+
+TOTALE: 14/14 OK
+## sezione H (audit_opana_H.out)
+[H] t=3e-02: ||E^mult||/t^1.25=0.24659 ||E^(1)||/t^1.25=0.24566 ||E^mult-E^(1)||/t^1.5=0.0630
+[H] t=1e-02: ||E^mult||/t^1.25=0.28584 ||E^(1)||/t^1.25=0.28530 ||E^mult-E^(1)||/t^1.5=0.0581
+[H] t=3e-03: ||E^mult||/t^1.25=0.30614 ||E^(1)||/t^1.25=0.30593 ||E^mult-E^(1)||/t^1.5=0.0479
+[H] t=1e-03: ||E^mult||/t^1.25=0.31657 ||E^(1)||/t^1.25=0.31649 ||E^mult-E^(1)||/t^1.5=0.0383
+OK   | OPA-P4 ||E^mult - E^(1)|| = O(t^{3/2}) (rapporto limitato) | 0.063, 0.058, 0.048, 0.038
+OK   | OPA-P4 ||E^mult||/t^{5/4} → N0√2 = 0.33093 (correzione O(t^{1/4})) | 0.2466, 0.2858, 0.3061, 0.3166
+OK   | OPA-P4 sup_μ μe^{-Dμ²r} ≤ (2eDr)^{-1/2}
+[H] tempo 24s
+
+TOTALE: 3/3 OK

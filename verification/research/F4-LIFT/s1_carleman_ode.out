@@ -1,0 +1,30 @@
+PASS C1 lam=-1 beta=1 N=1
+PASS C1 lam=-1 beta=1 N=2
+PASS C1 lam=-1 beta=1 N=3
+PASS C1 lam=-1 beta=1 N=4
+PASS C1 lam=-1 beta=1 N=5
+PASS C1 lam=2 beta=-3 N=1
+PASS C1 lam=2 beta=-3 N=2
+PASS C1 lam=2 beta=-3 N=3
+PASS C1 lam=2 beta=-3 N=4
+PASS C1 lam=2 beta=-3 N=5
+PASS C2 N=2
+PASS C2 N=3
+PASS C2 N=4
+PASS C2 N=5
+PASS C3 N=1
+PASS C3 N=2
+PASS C3 N=3
+PASS C3 N=4
+PASS C4 N=1
+PASS C4 N=2
+PASS C4 N=3
+PASS C4 N=4
+PASS C4 N=5
+PASS C5 termina (termine N nullo)
+PASS C5 termine Dyson n=0 = coeff x0^1
+PASS C5 termine Dyson n=1 = coeff x0^2
+PASS C5 termine Dyson n=2 = coeff x0^3
+PASS C5 termine Dyson n=3 = coeff x0^4
+PASS C6 dim g_N=4, rank derivate 3,1,0 (risolubile se ->0)
+totale 29/29

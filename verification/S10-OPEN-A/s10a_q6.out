@@ -1,0 +1,12 @@
+OK   RD: G = (e^{sDz^2}-1)(e^{sr}-1)
+OK   riduzione: E^add(u) = E'(v) + (e^{s kappa}-1)v(t) - sum_j (e^{s k_j}-1)v0
+OK   un solo termine non costante: E' = 0
+   RD  (u_t = u_xx + 2u)        R: ['0.0312796', '0.00842319', '0.00214741', '0.00053952']
+   ADR (u_t = u_xx - u_x + 2u)  R: ['0.790148', '30.8841', '167742.0', '2.01441e+13']
+OK   RD, t0 = 0: R limitato
+OK   ADR, t0 = 0: R cresce esponenzialmente
+   t0=0.5: RD ['0.006132', '0.00039432']  ADR ['0.55506', '1.1286e+5']
+OK   t0 = 0.5: RD limitato, ADR illimitato
+   t0=1.0: RD ['0.063406', '0.0039914']  ADR ['3.1508', '20184.0']
+OK   t0 = 1.0: RD limitato, ADR illimitato
+7/7 OK

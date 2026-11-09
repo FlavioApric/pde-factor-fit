@@ -1,0 +1,32 @@
+PASS TROP-1a nucleo AD risolve u_t + c u_x = D u_xx
+PASS TROP-1b scala parabolica: media = sqrt(c^2 t/D), varianza 2 (W1 al limite gaussiano = sqrt(theta))
+PASS TROP-1c E|Z| = sqrt(2/pi)
+PASS TROP-1d scala iperbolica: W1 = 2/sqrt(pi*theta)
+PASS TROP-3a sup_t t e^{-alpha t} = 1/(e alpha)
+PASS TROP-3b |e^z-1| <= |z| per Re z <= 0 (griglia; prova: e^z-1 = int_0^1 z e^{sz} ds)
+   rapporti sup/bound: ['0.99958373', '0.99999583', '0.99999996']
+PASS TROP-3c costante 1/e asintoticamente ottimale (controllo numerico)
+PASS TROP-4a (1/T) int_0^T |e^{it phi}-1|^2 dt = 2 - 2 sin(T phi)/(T phi)
+PASS TROP-4b limite T->oo = 2
+PASS TROP-4c AD trasporto: |e^{-Dk^2 t}-1| -> 1 per t->oo
+PASS TROP-2a serie alta frequenza: w = k + m^2/(2k) + O(k^-3)
+PASS TROP-2b serie bassa frequenza: w = m + k^2/(2m) - k^4/(8m^3) + O(k^6)
+PASS TROP-2c delta_onda <= m^2/(2k)
+PASS TROP-2d delta_osc <= k^2/(2m)
+PASS TROP-5a punto di rottura ottimo minimax = m (= kappa* del poligono)
+PASS TROP-5b errore di fase al punto di rottura = (sqrt2-1) m
+PASS TROP-5c sola parte principale (onda): sup_k delta_onda = m (in k=0)
+   theta=0.0001  sup_principale=0.00428881  sup_TROP=0.00428881  sqrt(theta/2e)=0.00428882
+   theta=0.01  sup_principale=0.0428793  sup_TROP=0.0428793  sqrt(theta/2e)=0.0428882
+   theta=0.1  sup_principale=0.135343  sup_TROP=0.135343  sqrt(theta/2e)=0.135624
+PASS TROP-6 per theta piccolo il caso peggiore TROP coincide con la sola parte principale
+PASS TROP-7a e^{cx/D} risolve u_t + c u_x = D u_xx
+PASS TROP-7b u_A in ker(d_t + c d_x), u_B in ker(d_t - D d_xx)
+PASS TROP-7c E_rel^2 non dipende da L (quindi non da Pe)
+   E_rel^2(theta_T) = 1 - 3/(2*theta) + 2*exp(-theta)/theta - exp(-2*theta)/(2*theta)
+PASS TROP-7d E_rel(theta_T=1) > 0.25 (O(1))
+PASS TROP-7e -(c^2/D)e^{cx/D} non e' funzione di x-ct (derivata lungo (d_t + c d_x) non nulla)
+PASS TROP-8a vertice medio <=> D^2 > c beta (breakpoint c/D < D/beta)
+PASS TROP-8b min del bound uniforme nella banda media = 2 sqrt(c beta)/(e D) (in k = sqrt(c/beta))
+
+TOTALE: 25/25 PASS

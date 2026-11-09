@@ -1,0 +1,10 @@
+prova segno f = 1 -1*A12*e^(th1+th2): max|residuo| = 5.5e-14
+prova segno f = 1 +1*A12*e^(th1+th2): max|residuo| = 2.7e+00
+sine-Gordon u_xt = sin u [kink]: max|residuo| = 4.4e-16
+  forma polinomiale 2(w w_xt - w_x w_t) = w^3 - w con w=e^(iu): max|residuo| = 1.9e-15
+sine-Gordon u_xt = sin u [2-kink]: max|residuo| = 3.3e-15
+  forma polinomiale 2(w w_xt - w_x w_t) = w^3 - w con w=e^(iu): max|residuo| = 7.0e-14
+Liouville, soluzione generale: residuo = 0
+[kink] valori singolari normalizzati [1.00e+00 5.70e-01 8.45e-17 3.37e-17 1.85e-47] -> dim nucleo = 3
+[2-kink] valori singolari normalizzati [1.00e+00 4.64e-01 3.96e-01 1.14e-01 7.79e-16] -> dim nucleo = 1
+ESITO OK

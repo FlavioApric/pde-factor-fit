@@ -1,0 +1,24 @@
+    A_1: det[e f](0) = 1, P = [[1, 0, 0], [0, 0, 0], [0, 0, 0]]
+OK   §8 A_1: det[e f](0) ≠ 0 e P senza polo (criterio (a))
+OK   §8 A_1: P idempotente, PA = AP
+    A_2: det[e f](0) = 0, P = [[1, 1/(2*xi), 0], [0, 0, 0], [0, 0, 0]]
+OK   §8 A_2: det[e f](0) = 0 e P con polo (criterio (a))
+OK   §8 A_2: P idempotente, PA = AP
+OK   §8 A_2' := S A_2 S^{-1} ha A_2'(0) = A_1(0) letteralmente
+OK   §8 A_2' ha lo stesso polinomio caratteristico di A_1
+OK   §8 A_2' ha ancora il polo (stessa A(ξ_0), stessa fattorizzazione, esito diverso)
+OK   §9 C·v = ξ × v
+OK   §9 det(τ²I + C²) = τ²(τ² − |ξ|²)² (blocchi commutanti)
+OK   §9 rango di P su Frac(R) = 6
+OK   §9 il nucleo sinistro su Frac(R) ha dim 2 ed è generato da S_1, S_2
+OK   §9 I_2(S) contiene τ², ξ_1², ξ_2², ξ_3² (radicale massimale omogeneo)
+OK   §9 gcd delle entrate di S_1 (e di S_2) = 1 (passo 3, nucleo libero)
+OK   §10 P(∂_t, L_q)(e^{αt}f) = e^{αt}P(α, L_q)f
+OK   §10 L_q³ ha ordine 6 e coefficiente di testa costante −1 (unicità di Cauchy applicabile)
+OK   §10 scelta di α: P_*(α, σ) ≢ 0 e gcd(P_*, τ − α) = 1
+OK   §11 D26: il composto di due Volterra simmetrici ha nucleo nullo per |r| > |x|
+OK   §11 ‖𝒱^n‖_∞ ≤ (2‖k‖a)^n/n! (n ≤ 15, discretizzato)
+OK   §11 raggio spettrale numerico ‖𝒱^15‖^{1/15} piccolo (quasinilpotenza)
+OK   §11 passo 2: residuo = (−θ' − (c' − c)) u'
+
+[c_sys_enc] 20/20 OK

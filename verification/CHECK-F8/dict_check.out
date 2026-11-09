@@ -1,0 +1,20 @@
+PASS A1 [contro] A(iii): nessuna coppia di intervalli disgiunti con D_0, D_1 indipendenti  intervalli indipendenti=144
+PASS A2 fix di A(iii): aperti disgiunti non connessi, stessi dati esatti, v con misfit  diff dati=0.0e+00, lmin_rel(v)=3.83e-01, gamma=[ 0.389 -0.822  0.415]
+PASS B1 [contro] U3(d)(ii) con mu({0})>0: errore L^1 = T*mu({0}) indipendente da eta  err scritto=2.0000, T=2.0
+PASS C1 CS-1: -y^{1-2s} d_y phi_s(|xi|y) -> c_s|xi|^{2s}; phi_s(0+)=1, decrescente  err rel=5.9e-19, 3.0e-12, 1.7e-06
+PASS D1 U3(d)(iii): errore relativo <= 2(cos a)^{-beta}/(e^{2 pi a/h}-1) per t in [1e-6,1e6]  max rel/bound=0.069
+PASS E1 sine-Gordon polinomializzato
+PASS E2 Liouville polinomializzato
+PASS E3 u_xt = e^u - e^{2u} polinomializzato
+PASS E4 kink: U'' = sin U = -2 sech tanh
+PASS E5 d_x^2 u razionale in (w, w_x, w_xx)
+PASS F1 [contro] N1(iii) con L=∂_x ∉ Ann(e^{-t}sin x): (L)∩R_≤n non è contenuto in Ann
+PASS G1 [contro] u = x^3: Im V = 0 su {u≠0}, ma V = 6/x^2 non si estende a x=0  V=6/x**2
+PASS G2 B3b ricalcolato: Im V(0.3,0.7) ≈ -0.0249  V=0.6777-0.0249j
+PASS H1 costante di Hölder: 4^{1/(N+2)} <= 2 (la costante scritta maggiora quella della prova)
+PASS I1 N3(a): distanza >= 1 su 40 razionali stabili casuali  min sup=1.3168
+PASS J1 R6-T(b): 1 + 2a(aQ/2)e^{a√Q} = 1 + a^2 Q e^{a√Q}
+PASS J2 R6: W^t g liscia in x_0 (q costante): rami s>0 e s<0 coincidono
+PASS J3 R6-T(b): ||H||_inf <= (aQ/2)e^{a√Q} per q costante (nucleo esatto)
+
+TOTALE: 18/18 PASS

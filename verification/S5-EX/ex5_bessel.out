@@ -1,0 +1,16 @@
+== E6.1 Bessel EDO: B J_0 = 0, J_0 e J_0' indipendenti su C(x) ==
+[OK]   E6.1a B J_0 = x J_0'' + J_0' + x J_0 = 0
+[OK]   E6.1b J_0 ha infiniti zeri reali (2.405, 5.520, 8.654, ...) => J_0'/J_0 = -J_1/J_0 non razionale
+== E6.2 Ann_{A_1}(J_0) ∩ box vs A_1·B (B NON monico: coefficiente direttore x) ==
+[OK]   E6.2a Ann_A1(J_0) ∩ box(3,4) = A_1 B ∩ box (dim 9 = 9, somma 9): nessun elemento "saturato" in più (V-ex)
+[OK]   E6.2b P4-C1(a): rho_{J_0} iniettiva su box(3,4) (nucleo 0) anche se Ann ∩ box ≠ 0
+== E6.3 calore radiale P_r = x d_t - x d_x^2 - d_x in D = A_1[d_t] (non monico in d_t) ==
+[OK]   E6.3a u_k = e^{-k^2 t} J_0(kx): P_r u_k = 0
+[OK]   E6.3b u_k ∈ 𝒯 (B_k = x d^2 + d + k^2 x la annulla): Ann ≠ D·P_r, testimone B_k di grado 0 in d_t (come i modi EP nel caso costante)
+[OK]   E6.3c nucleo radiale u = t^-1 e^{-x^2/4t}: P_r u = 0
+[OK]   E6.3d u ∉ 𝒯: nessun b ∈ A_1 ∩ box(3,3) con b u = 0 (V-ex; in generale: coefficiente di t^-K = p_K(x)(-x/2)^K)
+[OK]   E6.3e osservato: Ann_D(u) ∩ {q1 d_t + q0, q_i ∈ box(3,3)} = D·P_r ∩ stesso spazio (dim 6 = 6): u identifica P_r (V-ex)
+== E6.4 P3-T1(b) su una corona (r0, R), Dirichlet: A_0 = d^2, V = (1/x) d_x con b_1 = 1/x ∈ L^inf ==
+[OK]   E6.4 sup_mu mu e^{-D mu^2 s} = (2eDs)^{-1/2}: (H_{1/2}) con K = ||1/x||_inf (2eD)^{-1/2} = (2eD)^{-1/2}/r0 => Dyson-Phillips converge (solo per r0 > 0)
+
+TOTALE E6: 10/10 OK

@@ -1,0 +1,12 @@
+# open_questions — R5 (E_int)
+
+- **Q1 (R2, attesa risposta)**: G2 su C^∞ / D' / domini non convessi; lclm/gcrd di Ore per ODE a coeff. variabili (ker lclm = ker L_1 ⊕ ker L_2?). Domanda in inbox/R2.md del 2026-10-22.
+- **Q2 (definizione, WP2/central)**: quale quadro di E_int adottare (additivo con −u_0, moltiplicativo, log, nucleo)? Il quadro additivo richiede di conoscere u_0 = u(0,·). Con un solo profilo a t fissato non è definito.
+- **Q3 (G1, uguaglianza)**: per L_1, L_2 commutanti a coeff. costanti vale `ker(L_1+L_2) ∩ (ker L_1 + ker L_2) = ker(L_1+L_2, L_1L_2)`? È vero nell'esempio advezione–diffusione (entrambi span{1, x+t}), aperto in generale. Possibile ostruzione: molteplicità/Ext¹ (lega a RT-S1d).
+- **Q4 (MOB, RT-S1c)**: nel caso non commutante, i coefficienti di Möbius c_S hanno un ordine d'interazione limitato dal passo di nilpotenza dell'algebra di Lie? Ad esempio, per ∂²+x (passo 3) gli ordini ≥ 4 nel quadro moltiplicativo si annullano, ma nel quadro additivo no. Va formulato bene.
+- **Q5 (impossibilità)**: se l'algebra di Lie generata dai termini ha dimensione infinita (es. ∂² + x^k, k≥3), si può dimostrare che E_int^mult NON ammette una fattorizzazione finita Π e^{g_i(t)B_i} con B_i in un sottospazio di dimensione finita? Serve un teorema di tipo "Lie–Wei–Norman inverso" (o la teoria di Galois differenziale/Picard–Vessiot).
+- **Q6 (congettura R5-P7 generalizzata)**: ⟨∂², f(x)⟩ ha dimensione finita ⟺ f è un polinomio di grado ≤ 2, e analogamente ⟨∂², c(x)∂⟩ finita ⟺ c affine? Da controllare contro la classificazione Lie-algebrica di González-López–Kamran–Olver.
+- **Q7 (Jahnke–Lubich)**: ricontrollare gli esponenti α, β e le norme nel Thm 2.1(b) sull'originale (estrazione PDF con simboli persi).
+- **Q8 (Dyson, OU in L²)**: convergenza della serie di Dyson per drift illimitato c(x) = x in spazi pesati (L²(γ), con γ gaussiana). Il generatore OU è autoaggiunto in L²(γ) e la base di Hermite dà i duali. Va formalizzata la serie finita sui polinomi più la densità.
+- **Q9 (riferimenti)**: verificare la numerazione di Engel–Nagel II.2.7 (prodotto di semigruppi commutanti), dei teoremi di Wei–Norman 1964 e del numero di classi di separazione di Miller cap. 2.
+- **Q10 (dati di una sola soluzione)**: gli esempi di separazione chiusa (∂²+x, OU) usano un u_0 noto. Per G★ conviene capire se E_int è *leggibile* da u senza conoscere a priori lo split (lega a C3/P4).

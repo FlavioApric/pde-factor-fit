@@ -1,0 +1,12 @@
+(1) coeff v_yy : -Derivative(T(t), t) + rho(t)**(-2)  => T' = 1/rho^2
+(1) coeff v_y  (poly in x): [I*(4*a(t)*rho(t) - Derivative(rho(t), t))/rho(t)**2, I*((2*b(t) - Derivative(xi(t), t))*rho(t) + xi(t)*Derivative(rho(t), t))/rho(t)**2]
+(1) coeff v    (poly in x): [-4*a(t)**2 - alpha(t) - Derivative(a(t), t), -4*a(t)*b(t) - beta(t) - Derivative(b(t), t), 2*I*a(t) - b(t)**2 - gamma(t) - Derivative(d(t), t) + I*Derivative(r(t), t)/r(t)]
+(1) theta=id, v_y coeffs: [4*I*a(t), I*(2*b(t) - Derivative(xi(t), t))]
+(1) theta=id, v coeffs  : [-4*a(t)**2 - alpha(t) - Derivative(a(t), t), -4*a(t)*b(t) - beta(t) - Derivative(b(t), t), 2*I*a(t) - b(t)**2 - gamma(t) - Derivative(d(t), t) + I*Derivative(r(t), t)/r(t)]
+(1) theta=id, a=0: coefficient of x^2 in v-equation = -alpha(t)  => alpha = 0 forced
+(2) Avron-Herbst residuo (theta=id): I*Subs(Derivative(vf(_xi_1, x - Xi(t)), _xi_1), _xi_1, t) + Subs(Derivative(vf(t, _xi_2), (_xi_2, 2)), _xi_2, x - Xi(t))
+(3) lente, residuo onda piana : 0
+(3) lente, residuo gaussiana : 0
+(4) f in H^2: |f''|^2 integrabile: 27*pi/128
+(4) |(e^{iax^2} f)''| / |x| ->  4*aa**2   (quindi non in L^2)
+(5) fase U_0(t-theta)U_0(theta)/U_0(t) = 1

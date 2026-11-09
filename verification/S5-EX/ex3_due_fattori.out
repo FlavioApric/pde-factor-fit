@@ -1,0 +1,31 @@
+== E3.1 C12-T1'(ii): delta(P) = dim R/(Q1,Q2) e ambiguita' N = ker Q1 ∩ ker Q2 ==
+[OK]   E3.1a delta(P) = dim C[tau,xi]/(tau-xi^2, tau+c xi) = 2 :: 2
+[OK]   E3.1b V(Q1) ∩ V(Q2) = {(0,0), (c^2,-c)} (punti semplici)
+[OK]   E3.1c N = span{1, e^{c^2 t - c x}}: entrambe in ker Q1 ∩ ker Q2
+[OK]   E3.1d dim Sol(R/(Q1,Q2)) = dim R/(Q1,Q2) = 2 = numero di generatori trovati (C12-L2)
+== E3.2 C12-T1'(i): scomposizione di u = G + f(x-ct) (f gaussiana) ==
+[OK]   E3.2a P(d)u = 0
+[OK]   E3.2b u1 = G + alpha + beta e^{c^2t-cx} ∈ ker Q1, u2 ∈ ker Q2, u1+u2 = u, per ogni (alpha,beta): famiglia di dim delta = 2
+[OK]   E3.2c dalla sola u: Q2(d)u1 = Q2(d)u (u1 determinata a meno di ker Q1 ∩ ker Q2)
+== E3.3 C12-T1'(iii): varieta' disgiunte, P = (tau-xi^2)(tau-xi^2-1): delta = 0, proiettori espliciti ==
+[OK]   E3.3a (R1,R2) = R: delta = 0
+[OK]   E3.3b P(d)v = 0
+[OK]   E3.3c componenti uniche: -R2(d)v = G + x^2+2t ∈ ker R1, R1(d)v = e^t(G + x^2+2t) ∈ ker R2
+== E3.4 C3-T1(a): u = G + f(x-ct) identifica P (w_i ∉ EP) ==
+[OK]   E3.4a w_1 = (d_t + c d_x)G: deg_x(d_x^k w_1 / G) = k+2 strettamente crescente => w_1 ∉ EP :: [2, 3, 4, 5, 6, 7]
+[OK]   E3.4b w_2 = (d_t - d_x^2) f(x-ct): deg_x(d_x^k w_2 / f) = k+2 => w_2 ∉ EP :: [2, 3, 4, 5, 6, 7]
+[OK]   E3.4c Ann(u) ∩ R_<=2 = P·R_<=-1 (osservato: identificazione) :: dim 0
+[OK]   E3.4c Ann(u) ∩ R_<=3 = P·R_<=0 (osservato: identificazione) :: dim 1
+[OK]   E3.4c Ann(u) ∩ R_<=4 = P·R_<=1 (osservato: identificazione) :: dim 3
+== E3.5 C3-T1(a,d), C3-T6, P4-T2: u = G + e^{x-ct} non identifica ==
+[OK]   E3.5a P(d)u = 0
+[OK]   E3.5b w_2 = (P/P_2)(d)u = (tau-xi^2)u = (-c-1) e^{x-ct} ∈ EP
+[OK]   E3.5c testimone di C3-T1(a,=>): Q = (xi-1)(tau-xi^2) ∈ Ann(u), P ∤ Q
+[OK]   E3.5d C3-T1(d) (P monico in tau, m=2): relazione non banale b1(d_x)u_t + b0(d_x)u = 0, b1 = xi-1, b0 = -xi^2(xi-1)
+[OK]   E3.5e Ann(u) ∩ R_<=3 = [G_u·J_u]_<=3 con G_u = tau-xi^2 (C3-T6: f_2 = 0), J_u = (tau+c, xi-1) :: dim 2
+[OK]   E3.5e Ann(u) ∩ R_<=4 = [G_u·J_u]_<=4 con G_u = tau-xi^2 (C3-T6: f_2 = 0), J_u = (tau+c, xi-1) :: dim 5
+[OK]   E3.5f P ∈ G_u·J_u (P = G_u·((tau+c) + c(xi-1)))
+[OK]   E3.5g P4-T2(ii): sigma_p(u) = V(J_u) = {(-c,1)}; w_2 autovettore congiunto
+[OK]   E3.5h C3-T6(ii)/P4-T2(v)(a): G_u(d)u = w_2 ≠ 0 => Ann(u) non principale, coerente con sigma_p ≠ ∅
+
+TOTALE E3: 24/24 OK

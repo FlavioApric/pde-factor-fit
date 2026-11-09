@@ -1,0 +1,9 @@
+# Lettura diretta di Kieffer et al., arXiv:2512.12019v1 (coordinatore, browser integrato, versione HTML, 26/10/2026)
+Esito: **KIEFFER-C confermato sul testo originale.**
+- Abstract: "we prove that the series has infinite radius of convergence for arbitrary integrable initial data". §II intro: "the radius of convergence of the Taylor series expansion about δ=0 (10) is infinite for every t>0 and almost every x".
+- Equazione (II.1) (linear homotopy Burgers): ∂_t u + (1−δ)v∂_x u + δu∂_x u − (1/Re)∂_x² u = f. Con v = 0, w = δu risolve Burgers: la serie in δ = serie in ampiezza.
+- Cole–Hopf (21)–(27): u = −(2/(δRe))∂_x ln w, w(0,x) = exp(−(δRe/2)(𝒯g)(x)) — fattore 1/2 confermato.
+- Loro argomento (§II.1, paragrafi dopo (29)): singolarità = zeri del denominatore; **ammettono**: "We have not succeeded in demonstrating this strict inequality for all x ∈ ℝ … it is plausible that evolution … produces a zero". Quindi l'affermazione "raggio infinito" nell'abstract non è dimostrata nel testo.
+- Dato di Dirac: forma integrale (penultima formula prima di (30)) con esponente −(δRe/2)𝟏_(0,∞)(y); formula (30) stampata: u = 2(e^{δRe}−1)e^{−(x−(1−δ)vt)²/(4t/Re)} / (δ√(πRe t)(2 + (e^{δRe}−1) erfc((x−(1−δ)vt)/(2√(t/Re))))). La forma integrale dà invece fattori e^{−δRe/2}: (30) è incoerente con la loro forma integrale (segno e fattore 2).
+- **Raggio finito in ogni x, con entrambe le forme:** il denominatore di (30) si annulla quando e^{δRe} = 1 − 2/erfc(z) (numero reale negativo per erfc(z) ∈ (0,2)), cioè δ = [log|1 − 2/erfc(z)| + iπ(2k+1)]/Re: in z = 0, δ = iπ/Re. Con la forma integrale: zeri a δ = [2 log(Φ/(1−Φ)) + 2πi(2k+1)]/Re, in Φ = 1/2 raggio 2π/Re (= F4L-P3 con massa 1). In ogni caso raggio finito per ogni x, contro la loro tesi (anche "dopo (30): we know … infinite radius of convergence").
+- Stato: KIEFFER-C **DIMOSTRATO** (verificato sul testo); la correzione è pubblicabile come commento, citando la loro ammissione nel §II.1.

@@ -1,0 +1,17 @@
+[OK]   N=2: Π(1+z)-1-Σz = Σ_(k>=2) e_k ; monomi = 1 = 2^N-N-1 = 1
+[OK]   N=3: Π(1+z)-1-Σz = Σ_(k>=2) e_k ; monomi = 4 = 2^N-N-1 = 4
+[OK]   N=4: Π(1+z)-1-Σz = Σ_(k>=2) e_k ; monomi = 11 = 2^N-N-1 = 11
+[OK]   N=5: Π(1+z)-1-Σz = Σ_(k>=2) e_k ; monomi = 26 = 2^N-N-1 = 26
+[OK]   N=6: Π(1+z)-1-Σz = Σ_(k>=2) e_k ; monomi = 57 = 2^N-N-1 = 57
+[OK]   matrici commutanti (N=3): e^{tΣA}u0 = Σ_S Π(e^{tA_n}-I)u0
+[OK]   non commutanti ([A1,A2]≠0, t=1): l'identità fallisce (la commutatività è necessaria)
+[OK]   O(N^2): coefficienti di Π(1+λz_n) = e_k per forza bruta (N=7)
+[OK]   valore O(N) = Σ_(k>=2) e_k
+[OK]   simbolo totale -κ^4+κ^2 limitato superiormente (max 1/4): A genera
+[OK]   |e^{tκ²} e^{-κ}|² → ∞ per κ→∞ (t>0): S2(t)u0 ∉ L², u_2 e E_int^add non definiti
+     N=10: numero di c_S con |S|>=2 = 1013
+     N=20: numero di c_S con |S|>=2 = 1048555
+     N=30: numero di c_S con |S|>=2 = 1073741793
+[OK]   la famiglia {c_S} ha 2^N-N-1 elementi (output esponenziale)
+
+ESITO GLOBALE: OK

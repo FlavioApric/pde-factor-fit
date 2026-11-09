@@ -1,0 +1,20 @@
+L3 dizionario di 13 funzioni: dim nucleo 1 fronte = 8, 2 fronti = 1
+L5 [u^2, u_xx] = -2*u1**2 ; [[u^2,u_xx],u_xx] = 4*u2**2
+L5 Burgers [ -u u_x, u_xx ] = 2*u1*u2
+PASS L1 k=2
+PASS L1 k=3
+PASS L1 k=4
+PASS L1 k=5
+PASS L1 y2 chiude: resto = -(w w_x)(x1) w(x2) - w(x1)(w w_x)(x2) (traccia di y3)
+PASS L2 N=0 resto = (N+1) F(x*) (X-x*)^N
+PASS L2 N=1 resto = (N+1) F(x*) (X-x*)^N
+PASS L2 N=2 resto = (N+1) F(x*) (X-x*)^N
+PASS L2 N=3 resto = (N+1) F(x*) (X-x*)^N
+PASS L3 2 fronti: solo la relazione di Burgers (dim 1)
+PASS L3 1 fronte: relazioni in piu' (simmetria + Riccati), dim > 1
+PASS L4 calore: defetto di risonanza = -2 z1 z2
+PASS L4 trasporto: additivo (ker chiuso per prodotti)
+PASS L5 [u^2,u_xx] ~ u_x^2
+PASS L5 [[u^2,u_xx],u_xx] ~ u_xx^2
+PASS L5 Burgers bracket = +-2 u_x u_xx
+totale 16/16

@@ -1,0 +1,19 @@
+PASS C2.6 T g(x-ct)=0
+PASS C2.6 T e^{xi(x-ct)}=0
+PASS C2.6 T (x-ct)^0=0 (= d^n/dxi^n e^(xi(x-ct)) a xi=0)
+PASS C2.6 T (x-ct)^1=0 (= d^n/dxi^n e^(xi(x-ct)) a xi=0)
+PASS C2.6 T (x-ct)^2=0 (= d^n/dxi^n e^(xi(x-ct)) a xi=0)
+PASS C2.6 T (x-ct)^3=0 (= d^n/dxi^n e^(xi(x-ct)) a xi=0)
+PASS C2.6 T (x-ct)^4=0 (= d^n/dxi^n e^(xi(x-ct)) a xi=0)
+PASS C2.6 simbolo: T e^{tau t+xi x} = (tau+c xi) e
+PASS C2.6 velocita' variabile: u=g(Phi(x)-t), Phi'=1/c
+PASS C2.6 trasporto+reazione: e^{-rt}g(x-ct)
+PASS C2.6 commutatore [A,B] = c r'(x)
+PASS C2.6 r(x)=x^3+2x: u=exp(-int_0^t r(x-cs)ds) u0(x-ct) risolve u_t+cu_x+r u=0
+PASS C2.6 Lie split: errore O(t^2) non nullo   (Eexact-Esplit1 fino a t^2 = -c*t**2*(3*x**2 + 2)/2)
+PASS C2.6 Zassenhaus con -t^2/2[A,B]: errore O(t^3)
+PASS C2.18 Lagrange: e^{kt/b} g(at-bx)
+PASS C2.18 Lagrange x u_x + t u_t = 0: g(x/t)
+PASS C2.25 Cole-Hopf: (u_t-u_xx)/u = S_t - S_xx - S_x^2
+PASS C2.25 S lineare: S_t - S_x^2 = 0 sse tau = xi^2
+== t2_first_order: 18/18 PASS

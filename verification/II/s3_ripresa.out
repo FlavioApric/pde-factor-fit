@@ -1,0 +1,32 @@
+== A. II-T2-F1/F2: nucleo di Π_j(ξ0) = ker B_j(ξ0,C0)
+[OK]   r_1 = 1 - xi^2 (a meno del segno), r_1(0) != 0
+[OK]   Π_1(0) idempotente
+[OK]   dim ker Π_1(0) = dim ker B_1(0,C0) = 2
+[OK]   ker Π_1(0) = ker B_1(0,C0) (stesso sottospazio)
+[OK]   dim(ker Q_2(C0) + ker Q_3(C0)) = 1 < 2 (frase originale falsa)
+[OK]   Im Π_1(0) = ker Q_1(0,C0)
+[OK]   F2: N_i N_l ≡ 0 per i != l (polinomiale in ξ)
+[OK]   F2: in ξ0 = 0, r_2(0) = 0 (Π_2 ha un polo: ΣΠ_i(0) non definita)
+== B. II-T3-F2: u = (bP2)u + (aP1)u
+[OK]   a P1 + b P2 = 1
+[OK]   w1 ∈ ker P1, w2 ∈ ker P2
+[OK]   (bP2)u = w1, (aP1)u = w2
+== C. II-T7-F1: k = 2, p complesso
+[OK]   φ1(0) = 1, φ1'(0) = 0
+[OK]   φ1 = 0 ⟺ e^{(λ1−λ2)t} = λ1/λ2 (identità φ1·(λ2−λ1)e^{−λ2 t} = λ2 e^{(λ1−λ2)t} − λ1)
+[OK]   controesempio audit: radici 1+i, 2+i, min_[0,30] |φ1| ≈ 0.988 > 0 (globale, radici non reali)
+[OK]   radice doppia r = 1+i: φ1 = e^{rt}(1−rt) mai nulla per t>0 (min_[0,20] > 0)
+[OK]   radice doppia r = 2 (in (0,∞)): φ1(1/2) = 0
+== D. Conseguenze di II-T7(e) corretta (ξ = iκ ⇒ p(s;κ) = P(s, iκ))
+[OK]   D1 onda ξ=iκ (κ=3): φ1 = cos(3t) si annulla in π/6 (locale)
+[OK]   D2 onda+trasporto v≠0, ξ=iκ: globale, |φ1| ≥ min(|v|,c)/c uniforme in κ
+[OK]   D2' onda+trasporto |v|>c, ξ reale = −1: radici reali entrambe > 0 ⇒ locale
+[OK]   D3 KG κ=0: φ1 = cos(mt), locale t < π/(2m)
+[OK]   D3 KG ξ reale, |cξ|<m: radici ±i√(m²−c²ξ²), locale (modi esponenziali reali NON globali)
+[OK]   D3 KG ξ reale, |cξ|>m: radici reali di segno opposto, globale
+[OK]   D4 telegrafo ξ=iκ: c|κ|≤γ globale; c|κ|>γ locale con t* = (π − arctan(β/γ))/β, β = √(c²κ²−γ²)
+[OK]   D4 telegrafo ξ reale: radici reali di segno opposto, globale
+[OK]   D5 τ²−c²ξ²+bξ, ξ=iκ: globale (min|φ1|>0) per κ=1,10,100
+[OK]   D5 ... ma min|φ1| decresce come ~ bπ/(4c²κ) (nessuna stima uniforme in κ): 0.625, 0.0783, 0.00785
+[OK]   D6 telegrafo+trasporto (γ=1,v=0.5), ξ=iκ: globale per κ=1,5,50: 0.0241, 0.0031, 0.00288
+ESITO GLOBALE: OK

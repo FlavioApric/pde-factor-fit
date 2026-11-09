@@ -1,0 +1,27 @@
+%--- E7a: Section 5.1 (after the heat example, before 5.2) ------------------
+\begin{explained}{the d'Alembert function does \emph{not} split by terms (Proposition~\ref{prop:terms})}
+\textbf{Enunciation.} If $L=L_1+L_2$ (constant coefficients), then
+\[
+\ker L\cap(\ker L_1+\ker L_2)\ \subseteq\ \ker(L,\ L_1L_2),
+\]
+and this space is finite-dimensional as soon as $\Var(L_1)\cap\Var(L_2)$ is finite, because $\Var(L,L_1L_2)=\Var(L_1)\cap\Var(L_2)$. In words: only a finite-dimensional family of solutions of $L$ can be written as (solution of the first term) $+$ (solution of the second term).
+
+\medskip\textbf{Applying it to the wave equation.} Write the wave operator as a sum of its two \emph{terms}, $L=\partial_t^2-c^2\partial_x^2=L_1+L_2$ with $L_1=\partial_t^2$ and $L_2=-c^2\partial_x^2$. Then
+\[
+\ker L_1=\{a(x)+t\,b(x)\},\qquad \ker L_2=\{\alpha(t)+x\,\beta(t)\},
+\]
+so every element of $\ker L_1+\ker L_2$ is killed by $L_1L_2=-c^2\partial_t^2\partial_x^2$ (the operators commute: $L_1L_2u=L_2L_1a+L_1L_2b=0$).
+
+\medskip\textbf{Step 1: a d'Alembert solution.} Take $u=f(x+ct)+g(x-ct)$, which solves $Lu=0$. Computing,
+\[
+\partial_t^2\partial_x^2f(x+ct)=c^2f''''(x+ct),\qquad \partial_t^2\partial_x^2g(x-ct)=c^2g''''(x-ct),
+\]
+so $L_1L_2u=-c^4\big(f''''(x+ct)+g''''(x-ct)\big)$.
+
+\medskip\textbf{Step 2: when is it zero?} $f''''(s)+g''''(r)=0$ for all independent $s=x+ct$, $r=x-ct$ forces $f''''\equiv k$ and $g''''\equiv-k$ for a constant $k$. So $f$ and $g$ must be polynomials (of degree $\le4$, with matching quartic coefficients). The d'Alembert solutions that lie in $\ker L_1+\ker L_2$ are polynomials only; a generic one, such as $f(s)=e^s$ ($u=e^{x+ct}$ for $g=0$), gives $L_1L_2u=-c^4u\ne0$, so it is \emph{not} a sum of a solution of $\partial_t^2u=0$ and one of $\partial_x^2u=0$.
+
+\medskip\textbf{Step 3: the finite dimension.} Here $\Var(L_1)\cap\Var(L_2)=\{\tau^2=0\}\cap\{\xi^2=0\}=\{(0,0)\}$, a point, so the space $\ker(L,L_1L_2)$ is finite-dimensional. It is the polynomial family above: $f,g$ cubic polynomials plus the shared quartic term $\pm k\,s^4/24$, modulo the constant overlap $(f+\kappa,g-\kappa)$; this gives $4+4-1+1=8$ parameters, which agrees with the intersection multiplicity $\dim\ring/(\tau^2-c^2\xi^2,\tau^2\xi^2)=4+4=8$.
+
+\medskip\textbf{Conclusion.} The wave solution $u=f(x+ct)+g(x-ct)$ is the sum of \emph{factor} components (next subsection) but, in general, not of \emph{term} components. This is the structural reason why any attempt to split by terms leaves a remainder (Section~\ref{sec:terms}).
+\end{explained}
+

@@ -1,0 +1,79 @@
+\chapter{Limits, open problems and status}\label{ch:status}
+\chapterbrief
+{no new assumptions.}
+{to state what is impossible, which statements turned out false, what remains open, and how reliable each result is, for the whole project (Phases~0--10).}
+{delimits every claim of this edition. The analytic part of the project is \emph{closed} by decision of the user (28 October 2026); the unresolved items are collected in the project file \texttt{PROBLEMI\_APERTI.md}, none of them bearing a central result.}
+
+\section{What is impossible}
+
+Each item below is a proved negative theorem, not a gap.
+\begin{itemize}
+\item a finite certificate of identification, and identification from a black box (Theorems~\ref{thm:nocert} and~\ref{thm:blackbox}); in the limit, no learner decides whether a law exists (Theorem~\ref{thm:convt2});
+\item identification by restricting variable-coefficient operators to one solution (Proposition~\ref{prop:weyl}); a huge class of coefficients identifies nothing (Theorem~\ref{thm:varn1});
+\item decomposition of a solution by additive terms (Proposition~\ref{prop:terms}); factor decomposition on regions with holes (Proposition~\ref{prop:holes});
+\item components in $H^m$ in general: one derivative can be lost (Counterexample~\ref{cex:loss}); density of the sum of kernels on regions with holes (Proposition~\ref{prop:s10ap1});
+\item a continuous or stably regularised interaction term in $H^m$ \emph{when at least two terms have degree $\ge1$} (Theorems~\ref{thm:nocont}, \ref{thm:noreg}, \ref{thm:s10at1});
+\item a finite product of single-term flows reproducing non-commuting dynamics when the adjoint orbit is infinite (Theorem~\ref{thm:lie}(c)); a uniform finite product for Dirac $1+1$ with transport and mass times independent of the frequency (Proposition~\ref{prop:syse});
+\item an identifying solution when a module has a socle of dimension $\ge2$ (Theorem~\ref{thm:sysex}); one field identifying $(A,V)$ in the magnetic Schr\"odinger equation (Proposition~\ref{prop:sysn3});
+\item a time-independent encoder for a genuinely time-dependent potential (Theorem~\ref{thm:encp0});
+\item exact identification of every operator by a countable dictionary (Theorem~\ref{thm:dictn1}), and any finite certificate of a fit (Theorem~\ref{thm:dicta}).
+\end{itemize}
+
+\section{Statements that turned out false}
+
+\begin{center}\small
+\begin{tabular}{@{}L{5.2cm}L{6.0cm}L{2.6cm}@{}}
+\toprule
+Statement & Counterexample or correction & Ledger\\\midrule
+the spectrum of an expansion decides identification on a bounded domain & $e^{x-t}$ on the unit square & C3-C1\\
+components keep the regularity of $u$ & parallel transports on the square & C12-C1\\
+$u\mapsto\Eint$ is continuous in $H^m$ & real exponentials in advection--diffusion & P1-P1(e)\\
+the companion matrix is normal iff $p=s^m-c$ & $s^2+s-1$ & R6-T3\\
+splitting by terms lies in $\ker(L_1,L_2)$ & $\tfrac12x^2+Dt$ for the heat equation & R2-T3 (corrected)\\
+exact interaction impossible for infinite Lie algebras & $e^{-tT_2}e^{-tT_1}e^{t(T_1+T_2)}$ & R5-Q5, P1-C1\\
+NLS identification by scattering data without multiplicity & explicit counterexample & OPF5D\\
+no continuity for \emph{any} operator with two non-proportional terms & reaction--diffusion $u_t=Du_{xx}+ru$ (Theorem~\ref{thm:s10at1}) & P1-Q6\\
+density of the sum of kernels on every Lipschitz region & the Laplacian on the annulus (Proposition~\ref{prop:s10ap1}) & P2-Q1, S10B-C1\\
+$\Phi(V,v)=W_V^{-1}v$ injective $\iff$ a blind encoder exists & the phase-only data model & ENC-N1\\
+an eigenvalue crossing implies a pole of the projector (derogatory $A$) & $A=\mathrm{diag}(\xi,-\xi)$ has constant projectors & SYS-II-T2-C\\
+every $u\not\equiv0$ identifies $V(t,x)$ & Tychonoff silent strips & VAR-T1(c)-F\\
+the chirp--free--chirp word breaks at the lens time & explicit continuation & VAR-T10-F\\
+Dyson--Phillips with $B$ merely continuous & a rank-$2$ counterexample & VAR-Q18-CE\\\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Open or conditional}
+
+These are not closed and are not declared closed. For each the ledger records what is proved.
+
+\textbf{With a proved reduction or condition.}
+\begin{itemize}
+\item the Lie-flow question for algebras with (H) but without a weighted dilation \openq{} \led{P1-Q7} (candidate $(x^3+x)\partial,\partial$ proved);
+\item the closedness of the sum of kernels for $N\ge3$ differential factors, reduced to triples with at least two non-compact pairs, outside real transports \openq{} \led{C12-Q2};
+\item the graded case of the syzygy degrees \openq{} \led{OPF5C-Q1}; the realisability of atoms \openq{} \led{OPR2-Q3}; the sufficient condition (L-v) at every vertex \openq{} \led{OPR2-Q2$'$};
+\item identification for analytic KdV data with nonzero reflection, equivalent to (R), modulo [GT-u$_m$] and (WP) \openq{} \led{INT-Q1};
+\item boundedness of the H\"older constants in the Gelfand--Levitan analysis \openq{} \led{[GT-u$_0$]}; the justification of a differentiation in a cited analysis \openq{} \led{[GT-u$_m$]}.
+\end{itemize}
+
+\textbf{Without a known route.} Non-Lipschitz domains (P2-Q1-NL: only a model case is proved); the exact codimension for a general $P$ (P2-Q1-COD); closedness of the sum for $(\tau-\xi^2)(\tau+c\xi)$ (C12-Q1); multiplications and a general Floquet logarithm (VAR-Q18, VAR-P12(d)); the non-monic case in the Weyl algebra (VAR-C3Q2-open, VAR-Q13); complex-time Dirac with polynomial times (SYS-DIRAC-POL); the DM3 reading of ENC-Q4 and the real residue ENC-Q10; the optimality of the $L^1$ rate for general kernels (DICT-U3d-v); the $C^\infty$ division reformulation of DICT-Q3(c).
+
+\textbf{Conditional on sources not read in full.} Oberst 1993 (read only as an abstract; it concerns novelty, not a load-bearing step); the equivalence Oleinik $\Leftrightarrow$ Kru\v zkov [F1] (a plan exists: vanishing viscosity on Cole--Hopf, no audited proof); Malgrange 1966; the existence of global solutions in $\mathcal S$ (WP); Bj\"ork. The project forbids downloading files, so these items are \emph{blocked on sources unavailable offline}.
+
+\section{How reliable the results are}
+
+\textbf{Proofs and audits.} Every statement labelled \proved{} has a complete proof that passed an independent review. The reviewers were AI agents with no access to the author's reasoning, not human referees. Statements labelled \pw{} have complete proofs that were not audited. For Phases~6--10 the labels follow the ledger: a result is \proved{} if the ledger records it as proved after the audits of Gate~8 and of Phase~10 (S-CHECK-F8, S-CHECK-F10). \textbf{The proofs in this edition, however, were rewritten from the research packages for this volume (cards A32--A53 and B73--B79) and were not themselves re-audited}; the label refers to the result, not to the rewriting. Several packages cite theorems (Peetre, Malgrange, Oberst, Marchenko) whose exact statements were verified only on abstracts or secondary sources.
+
+\textbf{Formal verification.} Fifteen theorems of the algebraic core of Phases~0--5 and, in Phase~10, $37$ entries ($27$ faithful, $7$ weaker, $3$ different, none vacuous, $85$ \texttt{\#print axioms} with standard axioms only) are formalised in Lean~4 with Mathlib. The analytic parts are not.
+
+\textbf{Citations.} Many ingredients are classical. The primary sources of the load-bearing citations of Phases~0--5 were checked; for Phases~6--10 a number of citations were checked only on abstracts or secondary sources (Oberst, the transformation-operator theorem numbers, Casas for Magnus). A result relied upon should be traced to its primary source.
+
+\textbf{Novelty.} The contribution is the package: sharp characterisations, negative theorems and counterexamples, each with a verified status. Parts of the identification theory are folklore in commutative algebra (Oberst duality, socle criteria, Peetre's theorem, Volterra transformation operators); parts of the finite-data theory are known in substance (Prony, Mourrain).
+
+\section{What this edition does not contain}
+
+\begin{itemize}
+\item The proofs of every result of Phases~6--10: the catalogue contains proofs of $22$ results in Part~II and of $25$ more in Part~IV; the other $86$ results appear as list cards with their trust label and the research file (Chapter~\ref{CAT-ch:cIV1} of the catalogue onwards).
+\item The catalogue of about $60$ equation types and the tropical reading of scaling limits.
+\item The Lean sources.
+\item Phase~11 as a research phase: this edition \emph{is} its deliverable. The text written for it (the rewritten proofs of Parts~II and~IV, the corrections added to Chapters~\ref{ch:regular} and~\ref{ch:interaction}, and the reorganisation of the extended algorithm in Chapter~\ref{ch:extalgo}) has not had the proof-checker audit, citation audit and kill-argument review that the plan required before closing.
+\end{itemize}

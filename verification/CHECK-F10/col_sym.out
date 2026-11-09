@@ -1,0 +1,13 @@
+[OK] L1(iii) rho(2+|w1|) - [rho + rho(|w1|+rho/2)] = rho(1-rho/2) >= 0 per rho<=1
+[OK] L1(ii) lam*rho <= r e rho/lam <= r (campioni razionali)
+[OK] L2 r(2+|z|) - [r + r(|z|+r)] = r(1-r)
+[OK] TB P3 differenza = delta(1+|W(p)|-|u'|)/((1+|u'|)(2+|W(p)|))
+[OK] TB P2 delta + delta|w'|/(1+|w'|) - 2delta = -delta/(1+|w'|) <= 0
+[OK] TB P1 (kappa-e)sqrt(1+G^2) >= kappa/2 per 0<=e<=kappa/2 (minimo in G=0, e=kappa/2)
+[OK] TB P3 b0 + t u_n - t(u_n-kappa/2) - t kappa/2 = b0
+[OK] TC(a) sigma1 - M t - c t = 0 in t = sigma1/(M+c)
+[OK] Oss 3.3 e_n.(-nu) = 1/sqrt(1+g'^2)
+[OK] K1 g'(x) = sin(log x) + cos(log x) (x>0)
+[OK] K1 g'(x) = sin(log|x|) + cos(log|x|) (x<0)
+[OK] K1 sin+cos = sqrt2 sin(th+pi/4): range [-sqrt2, sqrt2]
+ESITO: TUTTO OK

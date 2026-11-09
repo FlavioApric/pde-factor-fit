@@ -1,0 +1,7 @@
+[A] N=4 K=8 k=['1', '2', '4', '7'] d=1 monomi=10 nullita=0
+[A] N=4 K=8 k=['1', '2', '4', '7'] d=2 monomi=55 nullita=0
+[A] N=4 K=8 k=['1', '2', '4', '7'] d=3 monomi=220 nullita=0
+[A] N=4 K=8 k=['1', '2', '4', '7'] d=4 monomi=715 nullita=0
+[A] N=4 K=8 k=['1', '2', '4', '7'] d=5 monomi=2002 nullita=5
+    => delta >= 5 (certificato), candidato = 5
+   [406.8s]

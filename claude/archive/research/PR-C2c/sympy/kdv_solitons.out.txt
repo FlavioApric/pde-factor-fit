@@ -1,0 +1,17 @@
+[K1] KdV[1-solitone] = 0
+[K2a] (D_xD_t + D_x^4) f.f /2 = 0
+[K2b] max |KdV[u_2sol]| su 15 punti = 0.e-164
+[K2c] A che annulla il bilineare in (0,0): [(k1 - k2)**2/(k1 + k2)**2]  atteso (k1 - k2)**2/(k1 + k2)**2
+[K3a] t = -15  picco solitone veloce a xi = 1.59028810031e-21
+[K3a] t = 15  picco solitone veloce a xi = 1.09861228867
+[K3b] salto previsto Delta xi_1 = (2/k1) ln((k1+k2)/(k1-k2)) = 1.09861228867 (in avanti)
+      [con eta1 = k1 x - k1^3 t il picco isolato e a xi=0 per t->-inf e a xi=-ln(A12)/k1 per t->+inf]
+      -ln(A12)/k1 = 1.09861228867
+[K4] t=0: ||u-u1-u2||_L1 = 2.7178558 ;  ||u-u1(shift)-u2||_L1 = 2.7810627
+[K4] t=10: ||u-u1-u2||_L1 = 3.995664 ;  ||u-u1(shift)-u2||_L1 = 4.9917684e-13
+[K4] t=20: ||u-u1-u2||_L1 = 3.9827495 ;  ||u-u1(shift)-u2||_L1 = 4.6866437e-26
+[K4b] massa int u dx (t=0) = 6.0  somma masse singole 2(k1+k2) = 6
+[K5] KdV[-(v^2+v_x)] + (2v + d_x) mKdV[v] = 0
+[K6] ([B,L] - L_t) psi - KdV[u] psi = 0  ; ([B,L]-L_t) psi + KdV[u] psi = 2*(6*u(x, t)*Derivative(u(x, t), x) + Derivative(u(x, t), t) + Derivative(u(x, t), (x, 3)))*psi(x)
+[K7] residuo Schrodinger sech^2: 0
+     stato legato sech x con E=-1: 0

@@ -1,0 +1,10 @@
+OK   R1 errore L1 decrescente con nodo in 0  errori = 0.517, 0.087, 0.0151
+OK   R1 errore finale < errore iniziale / 20  0.0151
+OK   R1 senza nodo in 0 l'errore e' circa T  5.015
+OK   R2 legge a = 1 risolve u_t = a u_x  a = 1
+OK   R2 A_u = -u_x mai nulla (ker Phi_u = 0)
+OK   R3 div(|u|^2 B) = 0
+OK   R3 Im(delta V) = 0 nei punti di prova  max |Im| = 3.7e-32
+OK   R3 H(A+B,V+dV)u = H(A,V)u  max = 1.9186130184358262e-166
+OK   R3 B non nullo
+9/9 OK

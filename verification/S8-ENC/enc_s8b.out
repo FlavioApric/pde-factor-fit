@@ -1,0 +1,25 @@
+OK   ENC-T2(c) getti: (Tf)(0)=f(0), (Tf)'(0)=f'(0), (Tf)''(0)=f''(0)+q(0)f(0) 3*f0/2 + f2
+OK   ENC-T2(c) mappa dei getti triangolare unipotente (ordini <= 4), salto di 2 [-f0/3 + 3*f1/2 + f3, 103*f0/28 - 2*f1/3 + 3*f2 + f4]
+OK   ENC-K0 ricorsione: deg w_{n-k} = k, LC(w_0) = (-c/2)^n/n!, w_0''+c w_0 di grado n (n<=6) 
+OK   ENC-K0 W L_c - L_0 W = sum(w_j'' d^j + 2 w_j' d^{j+1}) + c W 
+OK   ENC-K1' A_1 L_q = L_{q_1} A_1, A_1 = d - psi'/psi, q_1 = q - 2(psi'/psi)' 0
+OK   ENC-K1' L_q - lam = A_1^# A_1 0
+OK   A9 lineare: e^{-itV/2}e^{-itp^2}e^{iFt^2p - iF^2t^3/4}e^{-itV/2} = U0(t)e^{-itV} 
+OK   A9 lineare: ||E^mult(t)||_{L2->L2} = 2 (sup del moltiplicatore) 1.9999999999450901
+OK   A9 stima ||E^mult f|| <= t^2/2(|V''| |f| + 2|V'| |f'|) + 2t^3/3 |V'|^2 |f| (toro) [(0.002, np.float64(2.42e-05), np.float64(4.21e-05)), (0.01, np.float64(0.0006055), np.float64(0.0010612)), (0.05, np.float64(0.0150757), np.float64(0.0275612)), (0.2, np.float64(0.226996), np.float64(0.5028794)), (0.5, np.float64(1.1870367), np.float64(3.9167443)), (1.0, np.float64(3.7956753), np.float64(20.8252958))]
+OK   A9 limite: E^mult(t) f / t^2 -> (1/2)[H0,V] f, scarto relativo O(t) (t = 1e-2, 1e-3, 1e-4) [np.float64(0.08925890340382578), np.float64(0.008939833351596154), np.float64(0.0008939958026700157)]
+OK   NS-EQ lente: u_x = pref*(-i x tan t v + v_y / cos t) (Neumann -> Robin) 
+OK   NS-EQ Avron-Herbst: u_x = e^{...}(-iFt v + v_y) (Neumann -> Robin v_y = iFt v) 
+OK   NS-EQ Avron-Herbst: onda piana libera -> soluzione con V = F x 0
+OK   NS-EQ lente: e^{-i pi (n+1/2)} = -i (-1)^n per n = 0..20 (quindi U(pi) = -i P) 
+OK   NS-EQ lente: immagine di un rettangolo non convessa ma stellata (test a campione) 
+OK   FW: U H U^dag = beta sqrt(p^2+m^2), U = exp(beta alpha theta), tan 2theta = p/m Matrix([[sqrt(m**2 + p**2), 0], [0, -sqrt(m**2 + p**2)]])
+OK   FW: U unitario 
+OK   FW: entrate di U non razionali in p (moltiplicatore non locale) sin(atan(p/m)/2)**2
+OK   FAD: Lippmann-Schwinger di Volterra converge senza piccolezza (vs ODE) 4.3289035806028604e-08
+OK   FAD: u = u0 + u^(1) + u^(2) (componenti di Faddeev) 
+OK   FAD: E^add/eps^2 -> G0V1G0V2u0 + G0V2G0V1u0 (errore O(eps)) [np.float64(4.981080930302192e-05), np.float64(2.4914283702123137e-05), np.float64(1.2459372137199291e-05)]
+OK   PT simbolico: (1 - d_z^2) G = K0 (nucleo libero) sqrt(I)*exp(-I*pi/4)
+OK   PT simbolico: i G_t + G_zz = 0 0
+
+TOTALE: 23/23 OK

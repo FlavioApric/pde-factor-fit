@@ -1,0 +1,193 @@
+\chapter[Variable coefficients]{Variable coefficients}\label{ch:cIII2}
+\chapterbrief
+{a rectangle $\Omega=I\times J\subset\R^2$; the free Schr\"odinger operator $L_0=i\partial_t+\partial_x^2$; potentials $V(x)$ or $V(t,x)$; solutions $u$ in the class (SF): $u\in C^{1,2}(\Omega)$ and $L_0u=Vu$ almost everywhere. $\mathcal K$ is an algebra of functions closed under $\partial_t,\partial_x$.}
+{to prove what a single solution reveals about a variable coefficient: that for a huge coefficient class nothing is revealed, that for the class $V(x)$ every non-zero solution reveals $V$, that for $V(t,x)$ the data can fall silent, and how stable the reconstruction is.}
+{Dim.~A36--A40. They prove Chapter~\ref{PAP-ch:varcoef} of the paper.}
+
+\section{Structured identification}
+
+\begin{dimcard}{A36}{VAR-N1}{Rank-one annihilator for large classes (VAR-N1); identification is injectivity of $\Phi_u$ (VAR-T1(a))}{\proved}{thm:varn1}
+\textbf{(VAR-N1)} Let $\Omega\subset\R^2$ be open, $\mathcal K$ a unital commutative algebra of complex functions on $\Omega$ closed under $\partial_t,\partial_x$, and $\mathcal K[\partial]=\mathcal K\langle\partial_t,\partial_x\rangle$. Let $u\in C^\infty(\Omega)$ have no zeros, with $a=u_t/u$ and $b=u_x/u$ in $\mathcal K$. Then
+\[
+\Ann_{\mathcal K[\partial]}(u)=\mathcal K[\partial](\partial_t-a)+\mathcal K[\partial](\partial_x-b),\qquad \mathcal K[\partial]/J\cong\mathcal K\cdot u ,
+\]
+the isomorphism being the residue map $\rho_u(Q)=(Qu)/u$.
+
+\textbf{(VAR-T1(a))} Let $L_\theta=L_0+\sum_k\theta_kT_k$ be an affine family and $\Phi_u(\theta)=\sum_k\theta_k(T_ku)$. The set $\{\theta:L_\theta u=0\}$ is empty or equal to $\theta_0+\ker\Phi_u$; so $\theta$ is identified by $u$ iff $\ker\Phi_u=0$.
+\end{dimcard}
+
+\begin{proofidea}
+Every derivative of $u$ is $u$ times an element of $\mathcal K$, and the elements $\partial_t-a,\partial_x-b$ already reduce each derivative to its coefficient. So nothing but $u$ itself is contained in the module $\mathcal K[\partial]u$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{The coefficients $r_\alpha=\partial^\alpha u/u$ lie in $\mathcal K$}
+By induction on $|\alpha|$: $r_0=1$ and $r_{\alpha+e_x}=\partial_x(r_\alpha u)/u=(r_\alpha)_x+r_\alpha b$, similarly in $t$ with $a$; $\mathcal K$ is closed under derivation and product.
+
+\step{2}{$\partial^\alpha-r_\alpha\in J$}
+True for $\alpha=0$. If $\partial^\beta-r_\beta\in J$ and $\alpha=\beta+e_x$, then
+\[
+\partial^\alpha=\partial_x(\partial^\beta-r_\beta)+\partial_xr_\beta,\qquad \partial_xr_\beta=r_\beta(\partial_x-b)+r_\beta b+(r_\beta)_x\equiv r_\alpha\pmod J .
+\]
+So $Q=\sum q_\alpha\partial^\alpha\equiv\sum q_\alpha r_\alpha=\rho_u(Q)\pmod J$. If $Qu=0$ then $\rho_u(Q)=0$, so $Q\in J$; conversely $J\subseteq\Ann(u)$ since $(\partial_t-a)u=(\partial_x-b)u=0$.
+
+\step{3}{The isomorphism and part (a)}
+$Q\mapsto Qu=\rho_u(Q)u$ is onto $\mathcal K u$ (because $\rho_u(f)=f$) with kernel $J$. For (a): $L_\theta u-L_{\theta_0}u=\Phi_u(\theta-\theta_0)$ and $\Phi_u$ is linear; on $\{u\ne0\}$, $\Phi_u(\theta)=u\sum_k\theta_k\rho_u(T_k)$.
+
+\whyworks{if the class of coefficients is closed under differentiation, a zero-free $u$ can absorb any coefficient into $a$ and $b$: the pair $(\mathcal D u,u)$ is isomorphic to $(\mathcal K,1)$.}
+\end{proof}
+\uses{none beyond the definitions.}
+
+\begin{caution}[title=The hypothesis ``no zeros'' cannot be dropped]
+With zeros the statement fails: $u=t-x^2$ near $0$ satisfies no law $\partial_t+\alpha\partial_x+\beta$ with smooth $\alpha,\beta$ (at $0$ it would give $1=0$).
+\end{caution}
+
+\section{The potential $V(x)$ is read from any non-zero solution}
+
+\begin{dimcard}{A37}{VAR-T1b}{Every non-zero solution identifies $V(x)$}{\proved}{thm:vart1b}
+Let $\Omega=I\times J$, $V\in L^\infty_{\rm loc}(J)$ complex, $u$ in (SF) with $L_0u=V(x)u$ a.e., $u\not\equiv0$, and $X_0=\{x\in J:u(t,x)=0\ \forall t\in I\}$. Then:
+\begin{enumerate}[label=(\roman*)]
+\item $X_0$ is closed and discrete in $J$; in particular $\mathrm{int}\,X_0=\emptyset$ and $|X_0|=0$;
+\item if $W\in L^\infty_{\rm loc}(J)$ and $L_0u=W(x)u$ a.e., then $W=V$ a.e. (everywhere if both are continuous);
+\item $V(x)=(iu_t+u_{xx})/u$ at every $(t,x)$ with $u(t,x)\ne0$ (a.e., or everywhere if $u\in C^{1,2}$ and $V$ is continuous).
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+If $u$ vanished on infinitely many lines $x=x_n\to x_0$, cutting $u$ at $x_0$ would give a new solution vanishing on a half-strip; then unique continuation across a graph $x=g(t)$, proved with a Carleman weight, forces $u\equiv0$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{A Carleman estimate (VAR-L0)}
+Fix $g\in C^\infty(\R)$, $t_0\in\R$, $a,b>0$; put $s=x-g(t)$, $B=\{|t-t_0|\le a,|s|\le b\}$, $\mu=1/(4b)$ and the weight
+\[
+\varphi(t,x)=-s+\mu s^2-(t-t_0)^2 .
+\]
+There is $\lambda_0$ such that for $\lambda\ge\lambda_0$ and every $w$ with compact support in $\mathrm{int}\,B$ (with $w,w_t,w_{xx}\in L^2$)
+\[
+\mu\lambda^3\int e^{2\lambda\varphi}|w|^2\le\int e^{2\lambda\varphi}|L_0w|^2 .
+\]
+For $z\in C_c^\infty$ one conjugates, $e^{\lambda\varphi}L_0e^{-\lambda\varphi}=S+A$ with $S=\partial_x^2+\lambda^2\varphi_x^2+i\partial_t$ symmetric and $A=-2\lambda\varphi_x\partial_x-\lambda\varphi_{xx}-i\lambda\varphi_t$ antisymmetric, and
+\[
+\|(S+A)z\|^2=\|Sz\|^2+\|Az\|^2+([S,A]z,z),\qquad ([S,A]z,z)=\int\!\big[4\lambda\varphi_{xx}|z_x|^2+4\lambda\varphi_{xt}\,\mathrm{Im}(z_x\bar z)+(4\lambda^3\varphi_x^2\varphi_{xx}-\lambda\varphi_{xxxx}+\lambda\varphi_{tt})|z|^2\big].
+\]
+On $B$, $\varphi_x\in[-\tfrac32,-\tfrac12]$, $\varphi_{xx}=2\mu$, $\varphi_{xxxx}=0$; absorbing the cross term in $4\lambda\varphi_{xx}|z_x|^2=8\lambda\mu|z_x|^2$ gives $([S,A]z,z)\ge(2\mu\lambda^3-\lambda C_1)\|z\|^2\ge\mu\lambda^3\|z\|^2$ for $\lambda\ge(C_1/\mu)^{1/2}$. Mollifying extends the estimate to $w$ as stated.
+
+\step{2}{Unique continuation across a graph (VAR-L1)}
+Let $u$ vanish on $\{x<g(t)\}$ near $p_0=(t_0,g(t_0))$. Choose $\varepsilon$ small and $\chi\in C^\infty$ with $\chi=1$ on $[-\varepsilon,\infty)$, $\chi=0$ on $(-\infty,-2\varepsilon]$; set $w=\chi(\varphi)u$. Then $\mathrm{supp}\,w\subset\{\varphi\ge-2\varepsilon,\ s\ge0\}\subset\mathrm{int}\,B$ and $L_0w=\chi(\varphi)Vu+R$ with $R$ supported in $\{-2\varepsilon\le\varphi\le-\varepsilon\}$. The Carleman estimate gives, for $\lambda$ large,
+\[
+\tfrac12(\mu\lambda^3)^{1/2}\|e^{\lambda\varphi}w\|\le\|e^{\lambda\varphi}R\|\le e^{-\lambda\varepsilon}\|R\|_{L^2}.
+\]
+On $\Lambda=\{\varphi\ge-\varepsilon/2\}$, $w=u$ and $\|e^{\lambda\varphi}w\|\ge e^{-\lambda\varepsilon/2}\|u\|_{L^2(\Lambda)}$, so $\|u\|_{L^2(\Lambda)}\le2(\mu\lambda^3)^{-1/2}e^{-\lambda\varepsilon/2}\|R\|\to0$: $u=0$ near $p_0$.
+
+\step{3}{Globalisation (VAR-L2)}
+If $u=0$ on $I\times(\alpha,\beta)$ then $u\equiv0$ on $\Omega$: the set $W$ of points near which $u=0$ is open; Step~2 with $g\equiv\beta$ puts $I\times(\alpha,\beta]$ in $W$, and a continuation argument along the graphs $\varphi_s(t)=\beta+(s-\beta)\psi(t)$ (with $\psi$ a bump on a time interval) pushes the zero region to the right until it fills $\Omega$; the left side is symmetric under $x\mapsto-x$.
+
+\step{4}{(i) $X_0$ is discrete}
+Let $x_n\to x_0$ in $X_0$, $x_n\ne x_0$. $X_0$ is closed, so $u(\cdot,x_0)\equiv0$, and $u_x(\cdot,x_0)=\lim(u(\cdot,x_n)-u(\cdot,x_0))/(x_n-x_0)=0$. Put $\tilde u=1_{x\ge x_0}u$: it is continuous, $\tilde u_x=1_{x\ge x_0}u_x$ is continuous (no jump), so $\tilde u_{xx}=1_{x\ge x_0}u_{xx}$ and $\tilde u$ is in (SF) with potential $V1_{x\ge x_0}\in L^\infty_{\rm loc}$. $\tilde u$ vanishes on the strip $I\times(\alpha,x_0)$, hence by Step~3 $\tilde u\equiv0$, i.e.\ $u=0$ on $I\times[x_0,\sup J)$; this contains a non-empty strip, so Step~3 applied to $u$ itself gives $u\equiv0$, a contradiction. (The accumulation of the zero lines is used only to get $u_x(\cdot,x_0)=0$, which makes $\tilde u$ a strong solution.)
+
+\step{5}{(ii) and (iii)}
+By A36(a) with $T_1=-1$: $(V-W)u=0$ a.e. For $x\notin X_0$ there is $t$ with $u(t,x)\ne0$, hence $u\ne0$ on a rectangle around $(t,x)$, and by Fubini $V=W$ a.e. there. By (i), $J\setminus X_0$ has full measure; if $V,W$ are continuous they agree on a dense set, so everywhere. (iii) is the equation itself where $u\ne0$.
+
+\whyworks{a Schr\"odinger solution cannot hide: it has infinite propagation speed, and unique continuation from a strip is strong enough to forbid isolated vertical zero lines from accumulating.}
+\end{proof}
+\uses{A36.}
+
+\begin{example}{The harmonic oscillator and Airy}
+For $V=x^2$ and the Hermite functions $h_0,\dots,h_3$ (and $h_0+h_1$), $X_0$ is empty or $\{0\}$ and $V=(iu_t+u_{xx})/u$ recovers $x^2$ exactly. The same formula recovers the P\"oschl--Teller and Airy potentials (SymPy checks).
+\end{example}
+
+\section{Time-dependent potentials: silent strips}
+
+\begin{dimcard}{A38}{VAR-T1c}{Time-dependent potentials: identification outside silent strips}{\proved}{thm:vart1c}
+Let $\Omega=I\times J$, $u$ in (SF), $Z(u)=\{u=0\}$.
+\begin{enumerate}[label=(\roman*)]
+\item In the class $V\in C(\Omega)$ the potentials compatible with $u$ are $V+\{W:W=0\text{ on }\Omega\setminus Z(u)\}$; so $V$ is identified iff $\mathrm{int}\,Z(u)=\emptyset$ (a.e.\ version: iff $|Z(u)|=0$).
+\item If $L_0u=Vu$ with $V\in L^\infty_{\rm loc}$ and $\mathrm{int}\,Z(u)\ne\emptyset$, there is an open interval $T'\subset I$ with $u=0$ on $T'\times J$ (a \emph{silent strip}).
+\item Silent strips exist for $u\not\equiv0$: Tychonoff's series gives a solution vanishing for $t\le0$ and non-zero for $t>0$.
+\end{enumerate}
+The claim ``every $u\not\equiv0$ identifies $V(t,x)$'' is \textbf{false}.
+\end{dimcard}
+
+\begin{proofidea}
+Apply A36(a) to the difference of two compatible potentials; for the strips use A37 Step~3; for the counterexample use the classical Tychonoff solution of the heat equation, adapted to Schr\"odinger.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(i) The difference has to vanish where $u\ne0$}
+Two compatible potentials differ by $W$ with $Wu=0$, i.e.\ $W=0$ on $\Omega\setminus Z(u)$. If $\mathrm{int}\,Z(u)\ne\emptyset$ take $W\in C_c(\mathrm{int}\,Z(u))\ne0$; if $\mathrm{int}\,Z(u)=\emptyset$, a continuous $W$ vanishing on the dense set $\Omega\setminus Z(u)$ is zero.
+
+\step{2}{(ii) Silent strips}
+A ball $B((t_0,x_0),r)\subset Z(u)$ gives $u=0$ on $T'\times(x_0-\tfrac r2,x_0+\tfrac r2)$ with $T'=(t_0-\tfrac r2,t_0+\tfrac r2)$; A37 Step~3 on $T'\times J$ gives $u=0$ on $T'\times J$.
+
+\step{3}{(iii) Tychonoff's series}
+Let $g(t)=e^{-t^{-2}}$ for $t>0$, $g=0$ for $t\le0$, and
+\[
+u(t,x)=\sum_{k\ge0}(-i)^k\frac{g^{(k)}(t)}{(2k)!}x^{2k}\quad\text{on }(-1,1)^2 .
+\]
+Termwise, $u_{xx}=\sum_k(-i)^{k+1}g^{(k+1)}x^{2k}/(2k)!=-iu_t$, so $L_0u=0$. The Cauchy estimate $|g^{(k)}(t)|\le k!(\theta t)^{-k}e^{-1/(2t^2)}$ ($\theta=1/10$) bounds the $k$th term by $(x^2/(\theta t))^k e^{-1/(2t^2)}/k!$ (since $k!/(2k)!\le1/k!$), a locally uniformly convergent majorant with sum tending to $0$ as $t\to0^+$. So $u\in C^\infty$, $u\equiv0$ for $t\le0$ and $u(t,0)=g(t)\ne0$ for $t>0$. Every $V(t,x)=W(t,x)1_{t<0}$ is then compatible with $u$.
+
+\whyworks{unique continuation holds in $x$ but not in $t$: a bounded domain without boundary conditions can let data switch on from the boundary, and while the data is silent the potential is not seen.}
+\end{proof}
+\uses{A36, A37.}
+
+\begin{caution}[title=Open]
+For $V\in L^\infty$ it is not known whether $|Z(u)|>0$ with $\mathrm{int}\,Z(u)=\emptyset$ can occur (VAR-Q10); the case $V\in L^\infty$, $|Z|>0$, $\mathrm{int}\,Z=\emptyset$ was settled in Phase~10 with an explicit example (Chapter~\ref{ch:cIII5}).
+\end{caution}
+
+\section{Stability}
+
+\begin{dimcard}{A39}{VAR-P3}{Stability of the reconstruction of $V$}{\proved}{thm:varp3}
+Let $K=[t_1,t_2]\times[x_1,x_2]$, $u_i\in C^{1,2}(K)$ with $L_0u_i=V_iu_i$, $|u_1|\ge\delta>0$ on $K$, $e=u_1-u_2$.
+\begin{enumerate}[label=(\alph*)]
+\item (Lipschitz) $\|V_1-V_2\|_{L^\infty(K)}\le\delta^{-1}(1+\|V_2\|_{L^\infty})\|e\|_{C^{1,2}(K)}$.
+\item (No continuity from $C^1$) with $u_1=e^{-iEt}$, $u_2=e^{-iEt}\varphi_2$, $\varphi_2=1+\varepsilon k^{-1}\sin kx$, $\varepsilon=k^{-1/2}$: $\|e\|_{C^1}\le2k^{-1/2}\to0$ but $\|V_1-V_2\|_\infty\ge k^{1/2}/2\to\infty$.
+\item (H\"older under an a priori bound) if $M\ge\|e_{tt}\|_\infty,\|e_{xxx}\|_\infty$, then
+\[
+\|V_1-V_2\|_\infty\le C\delta^{-1}(1+\|V_2\|_\infty)\big(\|e\|^{1/3}M^{2/3}+\|e\|^{1/2}M^{1/2}+\|e\|\big),
+\]
+and the exponent $1/3$ is sharp.
+\end{enumerate}
+It is a \emph{modulus of continuity}, not a certificate: it gives no algorithm that certifies an error from noisy data without a priori bounds.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a) A direct identity}
+From $L_0u_i=V_iu_i$: $L_0e=(V_1-V_2)u_1+V_2e$, so $V_1-V_2=(L_0e-V_2e)/u_1$ on $K$; take sup norms.
+
+\step{2}{(b) An explicit oscillation}
+$V_2=E+\varphi_2''/\varphi_2$ with $\varphi_2''=-\varepsilon k\sin kx$, so $\|V_1-V_2\|_\infty=\sup|\varepsilon k\sin kx/(1+\varepsilon k^{-1}\sin kx)|\ge k^{1/2}/2$ for $\varepsilon=k^{-1/2}$.
+
+\step{3}{(c) Interpolation}
+Two Taylor inequalities on an interval of length $\ell$: for $f\in C^2$, $\|f'\|\le2(\|f\|\|f''\|)^{1/2}+4\|f\|/\ell$ (one-sided Taylor with $h=\min(\ell/2,2(\|f\|/\|f''\|)^{1/2})$); for $f\in C^3$, $\|f''\|\lesssim\|f\|^{1/3}\|f'''\|^{2/3}+\cdots$ (second difference with $h\le\ell/4$). Applied to $e_t$ and $e_{xx}$ in the formula of (a) they give the stated H\"older bound.
+
+\whyworks{the reconstruction $V=(iu_t+u_{xx})/u$ divides by $u$ and uses two derivatives: the loss is of order two and the division amplifies near zeros, hence a modulus rather than a stability constant.}
+\end{proof}
+\uses{A36.}
+
+\begin{dimcard}{A40}{VAR-P4}{When the phase is unobserved only $V$ modulo constants is read}{\proved}{thm:varp4}
+Under the hypotheses of A37, observe $[u]=\{e^{i\theta(t)}u:\theta\in C^1(I;\R)\}$ (model DM-$\varphi$).
+\begin{enumerate}[label=(\alph*)]
+\item The potentials $W\in L^\infty_{\rm loc}(J)$ such that some element of $[u]$ solves $L_0v=W(x)v$ are exactly $\{V+c:c\in\R\}$.
+\item With the phase observed, $V$ is unique (A37).
+\item For $u=e^{-iEt}\phi(x)$, $\phi$ alone determines $V-E=\phi''/\phi$ and nothing else: $(V,E)\mapsto(V+c,E+c)$.
+\item For $P(\partial_t,L_q)u=0$ with $L_q=-\partial_x^2+q$ and $P$ unknown, $(P,q)$ is defined only up to $q\to q+c$, $P(\tau,\ell)\to P(\tau,\ell-c)$: a redundancy of the parametrisation (present with DM3 too), removed by a normalisation such as $q(x_0)=0$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a) The phase changes the potential by $\theta'(t)$}
+If $v=e^{i\theta}u$, $L_0v=e^{i\theta}(-\theta'u+L_0u)=(V(x)-\theta'(t))v$. If also $L_0v=W(x)v$, then $V(x)-W(x)=\theta'(t)$ a.e.\ on $\{u\ne0\}$ \emph{only}: $u$ may be silent on strips (A38), where $\theta'$ is free.
+
+\step{2}{$\theta'$ is constant on each component of $\{t:u(t,\cdot)\not\equiv0\}$}
+Let $S_+=\{t\in I:u(t,\cdot)\not\equiv0\}$, open and non-empty. Around each point with $u\ne0$ there is a rectangle on which $V(x)-W(x)=\theta'(t)$; by Fubini $\theta'$ is locally constant on $S_+$, so equal to $c_i$ on each component $I_i$.
+
+\step{3}{The constants agree}
+On $I_i\times J$, $u$ is a non-zero (SF) solution, so by A37(i) the set $X_i=\{x:u(t,x)\ne0\text{ for some }t\in I_i\}$ is open with discrete complement, and $V-W=c_i$ a.e.\ on $X_i$. Two such sets are co-discrete, so they intersect in positive measure and $c_i=c_j$. Hence $W=V-c$ a.e.; conversely $\theta(t)=-ct$ gives $W=V+c$.
+
+\step{4}{(c) and (d)}
+(c) is the stationary case of (a). (d): $L_{q+c}=L_q+c$ and $P(\partial_t,L_{q+c}-c)=P(\partial_t,L_q)$ as operators.
+
+\whyworks{a global phase costs a function of $t$ only, and a potential depending on $x$ alone can absorb only constants; the silent strips cannot interfere because the phase is free there but the data say nothing.}
+\end{proof}
+\uses{A37, A38.}

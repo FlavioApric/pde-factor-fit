@@ -1,0 +1,65 @@
+OK   L2 t*d_t-3: K0=3
+OK   L2 (x+1)(t d_t-2): K0=2
+OK   L2 t d_t - x: Z vuoto (K0=-1)
+OK   L2 x t^2 d_t - 2xt: delta=1, K0=2
+OK   L2 soluzione esatta annullata
+OK   L2 soluzione esatta annullata
+OK   L2 soluzione esatta annullata
+OK   L2 ricorrenza su L casuale #0 (delta=-2)
+OK   L2 ricorrenza su L casuale #1 (delta=-2)
+OK   L2 ricorrenza su L casuale #2 (delta=-2)
+OK   L2 ricorrenza su L casuale #3 (delta=-2)
+OK   L2 ricorrenza su L casuale #4 (delta=-2)
+OK   L2 ricorrenza su L casuale #5 (delta=-2)
+OK   L4 eliminante sporca #0 annulla w1
+OK   L4 esponenti/gradi di w1 contenuti in (T_t,N_t) #0
+OK   P2 a*(d_t) w1 = 0 #0
+OK   L4 eliminante sporca #1 annulla w1
+OK   L4 esponenti/gradi di w1 contenuti in (T_t,N_t) #1
+OK   P2 a*(d_t) w1 = 0 #1
+OK   L4 eliminante sporca #2 annulla w1
+OK   L4 esponenti/gradi di w1 contenuti in (T_t,N_t) #2
+OK   P2 a*(d_t) w1 = 0 #2
+OK   L4 eliminante sporca #3 annulla w1
+OK   L4 esponenti/gradi di w1 contenuti in (T_t,N_t) #3
+OK   P2 a*(d_t) w1 = 0 #3
+OK   P4-C4(b): L_w annulla w
+OK   P4-C4(b): M_D costante => T_t vuoto
+OK   P4-C4(b): a* = 1 e w != 0 => non EP
+OK   calore: 4t^2 d_t + 2t - x^2 annulla G
+OK   calore: T_t = {0}, N_t(0) = -1 => a* = 1
+OK   e^{tx}: T_t = vuoto (M_D = tau - x non identicamente nullo per nessun tau)
+OK   A1: I = (d_t^2, d_t(d_x-1), (d_x-1)^2) annulla u = e^x(t+p x)
+OK   A1: (p d_t - d_x + 1) u = 0
+OK   A1: dim Ann(u) cap 𝓛 = 4 (gradi <= 2, 5 generatori)
+OK   A1: p*tau - (xi-1) in Ann(u)
+OK   A1: il sottospazio dipende da p (non definito su ℚ̄)
+OK   A1 fix: d_t^2 annulla tutte le Q_k u (Q_k in {1, d_t, d_x})
+OK   T3f: P(d) u = 0
+OK   T3f: (P/P1) u = 2 e^{t+x} (chi = 0)
+OK   T3f: J_2(v1) = J_2(u~)
+OK   T3f: nucleo dei getti per e_Q non nullo
+OK   T3f: J_2(e_Q) = 0
+OK   T3f: dim S_F >= |F| - N0
+OK   T3f: J_2(u') = J_2(u)
+OK   T3f: stesse risposte di zero sui 6 operatori campione
+OK   T3f: modi nuovi con c_z != 0 > B (dim R.u' >= #esponenti > B)
+OK   T3f: P(d) u' = 0
+OK   C1 P1P2 = P2P1
+OK   C1 P1 d_x = d_x P2
+OK   C1 (1+lam d_x)P = P1 Q_lam
+OK   C1 P2 u2 = 0
+OK   C1 P u^(lam) = 0
+OK   C1 P1 u^(lam) = -u2
+OK   C1 P2 u^(lam) = lam d_x u2
+OK   C1 Q_lam u^(lam) = 0
+OK   C1 Q_lam u^(mu) = (mu-lam) d_x u2
+OK   C1 u*: P u* = 0
+OK   Lemma NT (V-ex): nessun b di ordine <=2, grado <=2 annulla u2
+OK   C1(v) (V-ex): nessuna relazione a coefficienti A_1 di grado basso per u*
+OK   C1(ii) relazione esplicita Q_lam (t-getto non libero)
+OK   P5: (2t d_x + x) G = 0 => G di torsione su 𝒜
+OK   INT-18 (tau-xi^2)(tG) = G
+OK   INT-18 P u3 = 0 e (tau-xi^2)u3 = e^{(t-1)+x}
+OK   INT-18 (1,1) in V(tau - xi^2) (punto assorbito)
+TOTALE 64/64 OK

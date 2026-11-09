@@ -1,0 +1,78 @@
+\chapter*{How to read this catalogue}
+\addcontentsline{toc}{chapter}{How to read this catalogue}
+
+This volume contains the proofs of the results stated in the paper \emph{Exact Recovery of a Linear Differential Operator from a Single Solution} (complete edition, Phases~0--5). It is a catalogue: every result has one card, and every card has the same shape.
+
+\section*{The shape of a card}
+
+\begin{dimcard}{A0}{ID-T0}{Name of the result}{\proved}{}
+The full statement, with every hypothesis.
+\end{dimcard}
+\begin{proofidea}
+One paragraph that says why the result is true, before any computation.
+\end{proofidea}
+\begin{proof}
+\step{1}{First claim}
+One claim per step, with its computation displayed on its own line.
+\step{2}{Second claim}
+\dots
+\whyworks{one sentence that names the mechanism of the proof.}
+\end{proof}
+\uses{the results this proof relies on, by catalogue number.}
+
+\section*{The two parts}
+
+\textbf{Part~I} contains the 31 results on which everything else rests. They were selected from the project's dependency graph: a result is in Part~I if many other results depend on it, or if it is a headline theorem of the paper. Their proofs are given in full, step by step.
+
+\textbf{Part~II} contains all the other results of Phases~0--5, grouped by phase and ordered by identifier. Short and medium proofs are given in full. Proofs that take many pages in the research files (the Burgers asymptotics, the scattering identification, the Hirota computations) are given as a complete chain of steps with every key estimate displayed; routine computations are referred to the research file and marked \emph{condensed}. Results that are cited, conditional, or only checked on examples are listed with their label and no proof.
+
+\section*{Trust labels}
+
+\begin{center}\small
+\begin{tabular}{@{}L{4.4cm}L{10.0cm}@{}}
+\toprule
+Label & Meaning\\\midrule
+\proved & complete proof, passed an independent review\\
+\modulo{X} & complete except for a cited published theorem X, whose source was checked\\
+\pw & complete proof, not independently reviewed\\
+\cf & a published theorem, used as a black box\\
+\condl & depends on a lemma that is not proved\\
+\vex & checked on examples only\\
+\falsest & a counterexample is proved (the card proves the counterexample)\\
+\openq & unsolved\\\bottomrule
+\end{tabular}
+\end{center}
+
+The reviewers were independent AI agents, not human referees. Identifiers such as C3-T1 are those of the project ledger \texttt{claims/LEDGER.md}; the research file that holds each original proof is named in the index at the end.
+
+\section*{The backbone of Part~I}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,
+  n/.style={draw=cA,fill=cA!8,rounded corners=2pt,font=\scriptsize\sffamily,align=center,minimum height=8mm,text width=2.0cm},
+  m/.style={draw=cB,fill=cB!8,rounded corners=2pt,font=\scriptsize\sffamily,align=center,minimum height=8mm,text width=2.0cm},
+  a/.style={-{Stealth[length=1.6mm]},cG,thick}]
+\node[n] (L2) at (0,0) {A1 gcd split\\C3-L2};
+\node[n] (L3) at (0,-1.4) {A2 EP test\\C3-L3};
+\node[n] (T1) at (3,-0.7) {A3 criterion\\C3-T1};
+\node[n] (T6) at (6,0) {A4 $G_u$\\C3-T6};
+\node[n] (P4) at (6,-1.4) {A5 spectral\\P4-T2};
+\node[n] (T3) at (3,-2.8) {A6 thresholds\\C3-T2/T3};
+\node[n] (P1) at (6,-2.8) {A7 no certificate\\C3-P1};
+\node[n] (T4) at (9,-1.4) {A8 decidable\\P4-T4};
+\node[m] (T5) at (9,-2.8) {A9 black box\\P4-T5};
+\node[n] (CL3) at (0,-4.4) {A11 quotient\\C12-L3};
+\node[n] (L1p) at (0,-5.8) {A12 twisted\\Poincar\'e};
+\node[n] (T1p) at (3,-5.1) {A13 factors\\C12-T1$'$};
+\node[n] (P7) at (6,-5.1) {A17 $\gamma_N$\\C12-P7};
+\node[n] (P1T2) at (9,-5.1) {A19 $\Eint$\\P1-T2};
+\node[n] (S4) at (9,-6.5) {A29 dictionary\\S4ID-T1};
+\node[n] (J) at (6,-6.5) {A25 jet\\S4T-T1};
+\draw[a] (L2)--(T1); \draw[a] (L3)--(T1); \draw[a] (T1)--(T6); \draw[a] (T1)--(P4);
+\draw[a] (L3)--(T3); \draw[a] (T3)--(T4); \draw[a] (P4)--(T4); \draw[a] (T1)--(P1); \draw[a] (P1)--(T5);
+\draw[a] (CL3)--(T1p); \draw[a] (L1p)--(T1p); \draw[a] (T1p)--(P7); \draw[a] (T1p)--(P1T2);
+\draw[a] (P1T2)--(J); \draw[a] (L3)--(CL3);
+\draw[a] (J)--(S4);
+\end{tikzpicture}
+\end{center}
+{\small The arrows mean ``is used in the proof of''. Blue: positive results; red: a negative (impossibility) result. The arrows come from the \texttt{depends\_on} edges of the project graph.}

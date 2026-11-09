@@ -1,0 +1,7 @@
+Clifford (1,1): [True, True, True]
+det simbolo Dirac 2x2 = m**2 - tau**2 + xi**2
+(Dirac+)(Dirac-) = Matrix([[-m**2 + tau**2 - xi**2, 0], [0, -m**2 + tau**2 - xi**2]])
+covarianza di gauge: residuo = Matrix([[0, 0]])
+H^2 = Matrix([[m**2 + xi**2, 0], [0, m**2 + xi**2]])
+Lambda+ idempotente: True  entrate non razionali in xi: [m/(2*sqrt(m**2 + xi**2)) + 1/2, xi/(2*sqrt(m**2 + xi**2)), xi/(2*sqrt(m**2 + xi**2)), -m/(2*sqrt(m**2 + xi**2)) + 1/2]
+ESITO OK

@@ -1,0 +1,17 @@
+   PT l=1, t=0.5: errore relativo formula vs Strang = 1.07e-08
+OK   P8(c): l=1, t=0.5
+   PT l=1, t=1.5: errore relativo formula vs Strang = 4.95e-08
+OK   P8(c): l=1, t=1.5
+   PT l=2, t=0.5: errore relativo formula vs Strang = 3.62e-08
+OK   P8(c): l=2, t=0.5
+   PT l=2, t=1.5: errore relativo formula vs Strang = 7.49e-08
+OK   P8(c): l=2, t=1.5
+   osc t=0.3000: |c|=1.000000000000, |c_a-c_b|=4.5e-16, err=1.1e-15
+OK   T10(3): t=0.3000
+   osc t=0.7854: |c|=1.000000000000, |c_a-c_b|=4.5e-16, err=1.5e-15
+OK   T10(3): t=0.7854
+   osc t=1.3000: |c|=1.000000000000, |c_a-c_b|=5.1e-16, err=1.2e-15
+OK   T10(3): t=1.3000
+OK   T10: U(pi/2) f = -i f(-x) (parita')
+OK   T10: U(pi) f = -f (parola banale)
+TUTTO OK

@@ -1,0 +1,10 @@
+# Domande aperte — F6-VAR
+- **VAR-Q1 (= C3-Q2).** Analogo di C3-T1 in A_2 (PDE a coefficienti polinomiali): criterio per Ann_{A_2}(u) = A_2·L. Candidato VAR-Q2′ (NOTE §2.5): nessun fattore destro generalizzato (ideale di Grigoriev–Schwarz) annulla u e 𝒟·u senza quozienti olonomi accidentali. Ostruzioni: niente gcd, Landau, Stafford.
+- **VAR-Q2 (= C12-Q5).** Scomposizione per fattori per PDE a coefficienti polinomiali: forma per moduli (serie di composizione / Loewy di ideali) che sostituisca la forma per elementi falsificata da Landau (VAR-C7). Lunghezza finita di 𝒟/𝒟L non garantita (non olonomo).
+- **VAR-Q3.** VAR-P8 per V liscia non polinomiale: l'algebra generata da ∂² e V è di dimensione infinita? (Congettura: sì salvo V ∈ span{1, x, x²}.) Fonte classica da trovare.
+- **VAR-Q4.** Unicità per gli zeri: per V ∈ L^∞ (non analitica), u ≡ 0 su I × J′ ⇒ u ≡ 0? (Unicità del Cauchy laterale per Schrödinger via Carleman; fonte precisa da verificare.)
+- **VAR-Q5.** Identificazione congiunta di (P, q) da P(∂_t, L_q)u = 0 con P incognito, modulo lo spostamento q → q + c (VAR-P4): condizioni sufficienti (es. u con almeno deg P + 1 punti spettrali distinti?). Collegato all'encoder cieco di F6-ENC.
+- **VAR-Q6.** Oscillatore armonico: gruppo di Galois di −∂² + x² − E per E ∉ 2ℕ+1 (SL_2?) e per E = 2n+1 (Borel non ridotto?): verificare con Kovacic, completa gli esempi di VAR-T2.
+- **VAR-Q7.** Dato in un punto nel tempo, u(t, x_0) su I limitato: unicità delle frequenze E_n (somme esponenziali con E_n ~ n²) — teorema di tipo Beurling/Ingham applicabile? Collega la via spettrale al modello M2/M3.
+- **VAR-Q8.** C3 per V(t,x) illimitato non quadratico: esiste una norma (scala di Sobolev pesata) in cui Magnus troncato abbia un maggiorante a posteriori, cioè passi da (C) a (B)? (Hochbruck–Lubich danno stime d'ordine, non di convergenza della serie.)
+- **VAR-Q9.** Floquet: E_int per periodo e lettura per termini della quasi-energia K; quando K è un operatore differenziale (casi di Lie: oscillatore con frequenza periodica → equazione di Hill/Mathieu per la parte classica).

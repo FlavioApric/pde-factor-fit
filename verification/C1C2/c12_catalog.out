@@ -1,0 +1,56 @@
+PASS TR v_0 = (x-x0-ct)^0 in ker(d_t + c d_x)
+PASS TR v_1 = (x-x0-ct)^1 in ker(d_t + c d_x)
+PASS TR v_2 = (x-x0-ct)^2 in ker(d_t + c d_x)
+PASS TR v_3 = (x-x0-ct)^3 in ker(d_t + c d_x)
+PASS TR v_4 = (x-x0-ct)^4 in ker(d_t + c d_x)
+PASS TR v_5 = (x-x0-ct)^5 in ker(d_t + c d_x)
+PASS TR v_6 = (x-x0-ct)^6 in ker(d_t + c d_x)
+PASS TR nucleo di Fock (q=1): sum (s sbar')^n/rho^{2n} = rho^2/(rho^2 - s sbar') per |s s'|<rho^2
+PASS TR irriducibile
+PASS CA e^{zeta x + zeta^2 t} in ker, zeta reale
+PASS CA irriducibile
+PASS CA v_0 (Rosenbloom-Widder) in ker
+PASS CA v_1 (Rosenbloom-Widder) in ker
+PASS CA v_2 (Rosenbloom-Widder) in ker
+PASS CA v_3 (Rosenbloom-Widder) in ker
+PASS CA v_4 (Rosenbloom-Widder) in ker
+PASS CA v_5 (Rosenbloom-Widder) in ker
+PASS ON fattori: tau - xi, tau + xi (molteplicita 1)
+PASS ON v_0^+ = (x-x0+t)^n in ker(tau-xi), v_0^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON v_1^+ = (x-x0+t)^n in ker(tau-xi), v_1^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON v_2^+ = (x-x0+t)^n in ker(tau-xi), v_2^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON v_3^+ = (x-x0+t)^n in ker(tau-xi), v_3^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON v_4^+ = (x-x0+t)^n in ker(tau-xi), v_4^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON v_5^+ = (x-x0+t)^n in ker(tau-xi), v_5^- = (x-x0-t)^n in ker(tau+xi)
+PASS ON dim R/(tau-xi, tau+xi) = 1 (ambiguita = costanti)
+PASS TV fattorizzazione (tau - i xi^2)(tau + i xi^2)
+PASS TV v_0^+ in ker(tau - i xi^2), v_0^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV v_1^+ in ker(tau - i xi^2), v_1^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV v_2^+ in ker(tau - i xi^2), v_2^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV v_3^+ in ker(tau - i xi^2), v_3^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV v_4^+ in ker(tau - i xi^2), v_4^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV v_5^+ in ker(tau - i xi^2), v_5^- in ker(tau + i xi^2), entrambi in ker P
+PASS TV dim R/(tau - i xi^2, tau + i xi^2) = 2
+PASS TV ambiguita span{1, x}: 1 e x in entrambi i nuclei
+PASS AD irriducibile (strato fattori banale, C12-P3)
+PASS AD strato limite e^{cx/D} in ker P
+PASS AD e^{cx/D} in ker d_t e in ker(c d_x - D d_x^2) (sotto-equazione stazionaria)
+PASS AD dim R/(P, tau) = 2: Sol = ker P cap ker d_t = span{1, e^{cx/D}}
+PASS AD Groebner (P, tau) = (tau, D xi^2 - c xi) a meno di normalizzazione
+PASS AD a(c/D) = 0: e^{cx/D} = e_zeta con zeta = c/D reale, a(zeta) = 0 (punto (0,c/D) di V(P))
+PASS AD v_0 (Appell, q=2) in ker P
+PASS AD v_1 (Appell, q=2) in ker P
+PASS AD v_2 (Appell, q=2) in ker P
+PASS AD v_3 (Appell, q=2) in ker P
+PASS AD v_4 (Appell, q=2) in ker P
+PASS AD Gram {1, e^{cx/D}} in L^2(0,L): cos^2 = tanh(Pe/2)/(Pe/2), Pe = cL/D
+PASS AD cos^2 -> 1 per Pe -> 0, -> 0 per Pe -> oo
+PASS AD split per termini impossibile: (d_t + c d_x) annulla il membro di destra ma non quello di sinistra
+PASS GR <e_(I,1 + I), e_(-1,2)>_L2 = E(tau1+conj tau2) E(xi1+conj xi2)
+PASS GR <.,.>_H1 = (1 + tau1 conj tau2 + xi1 conj xi2) <.,.>_L2
+PASS GR <e_(1/2,-I), e_(2*I,3)>_L2 = E(tau1+conj tau2) E(xi1+conj xi2)
+PASS GR <.,.>_H1 = (1 + tau1 conj tau2 + xi1 conj xi2) <.,.>_L2
+PASS GR <e_(0,1), e_(0,-1)>_L2 = E(tau1+conj tau2) E(xi1+conj xi2)
+PASS GR <.,.>_H1 = (1 + tau1 conj tau2 + xi1 conj xi2) <.,.>_L2
+
+RISULTATO: 54 PASS, 0 FAIL

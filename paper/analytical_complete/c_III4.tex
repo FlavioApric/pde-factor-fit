@@ -1,0 +1,153 @@
+\chapter[The analytic encoder]{The analytic encoder}\label{ch:cIII4}
+\chapterbrief
+{a symmetric interval $J=[x_0-a,x_0+a]$ (translated so that $x_0=0$), $q\in C^1(J;\C)$, the operators $L_q=-\partial_x^2+q$ and $L_0=-\partial_x^2$; an \emph{encoder} is a linear map $W$ acting in $x$ only, with $\dim\ker W<\infty$ on its domain, intertwining $L_q$ with $L_0+c$ for a constant $c$, and explicit.}
+{to prove that a variable potential $q$ can be removed by an explicit change of variables (a Volterra transformation operator), which reduces every equation $P(\partial_t,L_q)u=0$ to the constant-coefficient one; that this encoder is unique and stable; and that no time-independent encoder exists for a genuinely time-dependent potential.}
+{Dim.~A44--A47. They prove Chapter~\ref{PAP-ch:encoder} of the paper.}
+
+\begin{notebox}{Notation for the whole chapter}
+$\Delta=\{(x,s):|s|\le|x|\le a\}=\Delta_+\cup\Delta_-$ is the union of two triangles meeting at the origin. The Goursat problem is
+\[
+K_{xx}-K_{ss}=q(x)K\ \text{ on }\Delta,\qquad K(x,x)=\tfrac12\int_0^xq,\qquad K(x,-x)=0 .\tag{G}
+\]
+The operator $Tf(x)=f(x)+\int_{-x}^{x}K(x,s)f(s)\dd s$ is the \emph{Volterra transformation operator}, and $W=T^{-1}$.
+\end{notebox}
+
+\section{The Volterra encoder}
+
+\begin{dimcard}{A44}{ENC-1}{The symmetric Volterra transformation operator (ENC-1, ENC-U1)}{\proved}{thm:enc1}
+Let $q\in C^1(J;\C)$ ($q$ complex is allowed).
+\begin{enumerate}[label=(\arabic*)]
+\item There is a unique $K\in C(\Delta)$, of class $C^2$ on each $\Delta_\pm$, solving (G).
+\item For every $f\in C^2(J)$, without boundary conditions, $Tf\in C^2(J)$ and
+\[
+L_qTf=TL_0f,\qquad (Tf)(0)=f(0),\qquad (Tf)'(0)=f'(0).
+\]
+\item $T$ is a bijection of $C(J)$ and of $C^2(J)$; its inverse is $W=I+\int_{-x}^xH(x,s)\cdot\dd s$ with $H_{xx}-H_{ss}=-q(s)H$, $H(x,x)=-\tfrac12\int_0^xq$, $H(x,-x)=0$; and $WL_q=L_0W$ on $C^2(J)$.
+\item If $q\in C^\infty(J)$, $T$ and $W$ are bijections of $C^\infty(J)$.
+\item With $Q=\|q\|_\infty$: $\|K\|_\infty\le\frac{aQ}2e^{a\sqrt Q}$; $\|K_q-K_{q'}\|_\infty\le C(a,Q,Q')\|q-q'\|_\infty$; $\|T\|,\|W\|\le1+2a\|K\|_\infty$ on $C(J)$ and on $L^2(J)$.
+\item $T$ depends on the base point $x_0$ already for constant $q$.
+\end{enumerate}
+\textbf{(ENC-U1)} Among operators $T=I+\int_{-x}^xK(x,s)\cdot\dd s$ with $K\in C(\Delta)\cap C^2(\Delta_\pm)$ and $L_qT=TL_0$, the set is the line $\{T_{k_0}:k_0\in\C\}$ with $K(x,-x)\equiv k_0$, $K(x,x)=k_0+\frac12\int_0^xq$, and $(T_{k_0}f)'(0)=f'(0)+2k_0f(0)$. So $T=T_0$ is the unique one preserving Cauchy data at $x_0$.
+\end{dimcard}
+
+\begin{proofidea}
+Pass to characteristic coordinates, where the Goursat problem becomes a Volterra integral equation solved by successive approximations; the intertwining is a Leibniz computation in which every boundary and interior term cancels; the inverse is the same construction with the opposite sign of $q$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(1) Goursat problem}
+Put $\xi=x+s$, $\eta=x-s$, $K(x,s)=\Phi(\xi,\eta)$; then $K_{xx}-K_{ss}=4\Phi_{\xi\eta}$ and (G) is equivalent to
+\[
+\Phi(\xi,\eta)=\tfrac12\int_0^{\xi/2}q+\tfrac14\int_0^\xi\!\!\int_0^\eta q\big(\tfrac{\alpha+\beta}2\big)\Phi(\alpha,\beta)\dd\beta\dd\alpha .\tag{G$'$}
+\]
+Successive approximations $\Phi_0=\frac12\int_0^{\xi/2}q$, $\delta_n=\Phi_n-\Phi_{n-1}$ satisfy $|\delta_n|\le\frac{aQ}2\frac{(Q|\xi\eta|/4)^n}{(n!)^2}$ (using $\int_0^{|\xi|}\!\int_0^{|\eta|}(\alpha\beta)^n=\frac{|\xi\eta|^{n+1}}{(n+1)^2}$), and $|\xi\eta|\le a^2$ on $\Delta$; the series converges uniformly with the bound of (5), and the same bound on a difference gives uniqueness. Differentiating (G$'$) gives $\Phi_\xi,\Phi_\eta,\Phi_{\xi\eta}=\frac14q(\frac{\xi+\eta}2)\Phi$ and $\Phi_{\xi\xi},\Phi_{\eta\eta}$ continuous because $q\in C^1$.
+
+\step{2}{(2) Intertwining}
+Fix $x\ne0$, $g=Tf$. By Leibniz with $K(x,-x)\equiv0$,
+\[
+g'=f'+K(x,x)f(x)+\int_{-x}^xK_xf\dd s,
+\]
+\[
+g''=f''+\tfrac{\mathrm d}{\mathrm dx}K(x,x)f(x)+K(x,x)f'(x)+K_x(x,x)f(x)+K_x(x,-x)f(-x)+\int K_{xx}f .
+\]
+Two integrations by parts give $\int_{-x}^xKf''=K(x,x)f'(x)-K_s(x,x)f(x)+K_s(x,-x)f(-x)+\int K_{ss}f$. In $L_qg-TL_0f$ the coefficient of $f(x)$ is $q-\frac{\mathrm d}{\mathrm dx}K(x,x)-K_x(x,x)-K_s(x,x)=q-2\frac{\mathrm d}{\mathrm dx}K(x,x)=0$; that of $f(-x)$ is $-K_x(x,-x)+K_s(x,-x)=-\frac{\mathrm d}{\mathrm dx}K(x,-x)=0$; those of $f'(x),f'(-x)$ cancel; and under the integral $-K_{xx}+K_{ss}+qK=0$. At $x=0$: $g'$ is continuous with value $f'(0)$ from both sides, $g''=qg+T(f'')$ has equal limits, hence $g\in C^2(J)$; and $g(0)=f(0)$, $g'(0)=f'(0)+2K(0,0)f(0)=f'(0)$.
+
+\step{3}{(3) The inverse}
+Let $T'=I+\int H$ with $H$ the kernel of the same type and $-q$; the computation of Step~2 with roles exchanged gives $L_0T'=T'L_q$ and $T'$ preserves Cauchy data. Put $S=T'T$: it commutes with $L_0$, preserves Cauchy data and has the form $I+\int_{-x}^xR(x,s)\dd s$ with $R$ continuous. For each $k\in\C$, $Se^{k\cdot}$ solves $y''=k^2y$ with data $(1,k)$, so $Se^{k\cdot}=e^{k\cdot}$, i.e.\ $\int_{-x}^xR(x,s)e^{ks}\dd s=0$ for all $k$; by uniqueness of the Fourier--Laplace transform of a compactly supported continuous function, $R\equiv0$ and $S=I$. The operator $V:f\mapsto\int_{-x}^xK(x,s)f(s)\dd s$ is quasi-nilpotent ($|V^nf(x)|\le\|K\|^n(2|x|)^n\|f\|/n!$), so $T$ is invertible on $C(J)$ by a Neumann series; hence $T'=T^{-1}$ and $T$ is bijective on $C^2(J)$.
+
+\step{4}{(4) and (5)}
+(4) The identity $g''=qg+T(f'')$ and induction give $f\in C^{2m},q\in C^{2m-2}\Rightarrow Tf\in C^{2m}$. (5) The difference $\delta\Phi$ of two solutions satisfies $\delta\Phi=\delta\Phi_0+\frac14\iint[q\,\delta\Phi+(q-q')\Phi_{q'}]$ with $|\delta\Phi_0|\le a\|q-q'\|/2$; the same iteration gives $\|\delta\Phi\|\le(\frac a2+\frac{a^2\|\Phi_{q'}\|}4)e^{a\sqrt Q}\|q-q'\|$. On $L^2$ the integral part is Hilbert--Schmidt with norm $\le\sqrt2\,a\|K\|_\infty$.
+
+\step{5}{(6) Dependence on the base point}
+For $q\equiv c$, $T^{(x_0)}e^{ik\cdot}(x)=e^{ikx_0}\big[\cos\mu(x-x_0)+ik\frac{\sin\mu(x-x_0)}\mu\big]$ with $\mu^2=k^2-c$, which differs from $e^{ikx}=T^{(x_1)}e^{ik\cdot}(x)$ at $x=x_1$ when $\mu\ne k$.
+
+\step{6}{(ENC-U1) Classification}
+For any $K$ of this regularity, $L_qTf-TL_0f=A(x)f(x)+B(x)f(-x)+\int_{-x}^xC(x,s)f(s)\dd s$ with $A=q-2\frac{\mathrm d}{\mathrm dx}K(x,x)$, $B=-2\frac{\mathrm d}{\mathrm dx}K(x,-x)$, $C=K_{ss}-K_{xx}+qK$. If this vanishes for all $f\in C^2$, taking $f$ supported inside $(-|x|,|x|)$ gives $C\equiv0$; then $f(x)=1$, $f(-x)=0$ gives $A=0$, and similarly $B=0$. So $K(x,-x)=k_0$ is constant and $K(x,x)=k_0+\frac12\int_0^xq$; Goursat has a unique solution with $\Phi_0=k_0+\frac12\int_0^{\xi/2}q$. Conversely each $T_{k_0}$ works.
+
+\whyworks{a Volterra operator with a triangular kernel has no spectrum, so it is invertible; and the Goursat conditions are exactly those that make the interior and boundary terms of the Leibniz expansion cancel.}
+\end{proof}
+\uses{none beyond Fourier--Laplace uniqueness. The status is \pw: the statement is classical (Marchenko, Povzner, Levitan) but the exact theorem numbers and constants were not checked against the sources.}
+
+\begin{example}{$q$ constant}
+For $q\equiv c\ne0$ no differential intertwiner of any order satisfies $WL_c=L_0W$ (ENC-K0: the recursion on the coefficients $w_j$ forces $w_0$ to be a polynomial of degree $n$ with non-zero leading coefficient, contradicting $w_0''+cw_0=0$). With the relaxed requirement $WL_c=(L_0+c)W$ the identity $W=I$ works. The Volterra operator with $T_0e^{ik\cdot}=e^{ikx_0}[\cos\mu(x-x_0)+ik\sin\mu(x-x_0)/\mu]$ is the genuinely non-trivial one.
+\end{example}
+
+\begin{dimcard}{A45}{ENC-C1}{One encoder for every equation in $(\partial_t,L_q)$}{\proved}{cor:encc1}
+Let $q\in C^\infty(J^\circ)$, $\Omega=I\times J^\circ$ and $u\in C^\infty(\Omega)$. For every polynomial $P$,
+\[
+P(\partial_t,L_q)u=0\iff P(\partial_t,L_0)(Wu)=0 .
+\]
+The same $W$ serves Schr\"odinger, heat, wave, Klein--Gordon and every polynomial in $(\partial_t,L_q)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{The kernel does not depend on $t$}
+$W$ acts in $x$ and commutes with $\partial_t$; differentiation under the integral is legitimate because $u$ is smooth on compacts. Exhaust $J^\circ$ by intervals $J_{a'}$, $a'<a$; the kernels agree by uniqueness of (G).
+
+\step{2}{Powers of $L_q$}
+From $WL_q=L_0W$ on $C^\infty$, induction gives $WL_q^j=L_0^jW$, hence $W\,P(\partial_t,L_q)=P(\partial_t,L_0)\,W$. Since $W$ is bijective on $C^\infty(J^\circ)$ (A44(4)), $P(\partial_t,L_q)u=0\iff P(\partial_t,L_0)Wu=0$.
+
+\whyworks{the encoder is a function of $x$ only, so it commutes with everything in $t$, and an intertwiner of $L_q$ with $L_0$ is automatically an intertwiner of every polynomial in $L_q$.}
+\end{proof}
+\uses{A44.}
+
+\section{What an encoder cannot do}
+
+\begin{dimcard}{A46}{ENC-P0b}{No time-independent encoder for a time-dependent potential}{\pw}{thm:encp0}
+\textbf{(classical version, ENC-P0(b)$^{\rm cl}$)} Let $J$ be an open interval, $V\in C(I\times J)$, $c\in C(I)$, and let $W:C^\infty(J)\to C^\infty(J)$ be linear with $\dim\ker W<\infty$ and
+\[
+W\big(-\partial_x^2+V(t,\cdot)\big)f=\big(-\partial_x^2+c(t)\big)Wf\qquad\forall t\in I,\ f\in C_c^\infty(J).
+\]
+Then $V(t,x)-V(s,x)=c(t)-c(s)$ for all $t,s,x$.
+
+\textbf{($L^2$ version, ENC-P0(b))} The same conclusion holds a.e.\ for $W\in B(L^2(J))$ independent of $t$ with $\dim\ker W<\infty$ on $L^2(J)$, $WD\subset D$, and $V(t)\in L^\infty$.
+\end{dimcard}
+
+\begin{proofidea}
+Subtracting the intertwining identities at two times gives $W(mf)=0$ for a function $m$ built from the difference of potentials; if $m\ne0$ somewhere, the infinitely many independent functions $m\varphi_k$ with disjoint supports lie in $\ker W$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Subtract at two times}
+Subtracting the identities at $t$ and $s$ gives $W(mf)=0$ for all $f\in C_c^\infty(J)$, with
+\[
+m=V(t,\cdot)-V(s,\cdot)-\big(c(t)-c(s)\big),
+\]
+a continuous function.
+
+\step{2}{Contradiction with the finite kernel}
+If $m(x^*)\ne0$ then $m\ne0$ on an interval $U\ni x^*$. Choose non-zero $\varphi_1,\varphi_2,\dots\in C_c^\infty(U)$ with disjoint supports: the functions $m\varphi_k$ are linearly independent and all lie in $\ker W$, contradicting $\dim\ker W<\infty$. For the $L^2$ version use measurable sets $E_k\subset\{|m|>\varepsilon\}$ of finite positive measure.
+
+\whyworks{finiteness of the kernel is the whole content of ``structured''; without it the zero map or the interaction picture $W(t)=U_0(t)U_V(t)^{-1}$ would be an encoder.}
+\end{proof}
+\uses{none.}
+
+\begin{caution}[title=Scope]
+The classical version covers the Volterra encoder of A44 (injective on $C^0$). Time-dependent encoders do exist: they are interaction pictures $W(t)=U_0(\theta(t))W(0)U_V(t)^{-1}$, and a pointwise representative plus gauge with $\theta=\mathrm{id}$ exists exactly for $V=\alpha(t)x^2+\beta(t)x+\gamma(t)$ with $\alpha\equiv0$ (ENC-P0$'$). The first version's synthesis ``exceptions change the time'' was false as written (Avron--Herbst).
+\end{caution}
+
+\begin{dimcard}{A47}{ENC-N1p}{Blind encoders and identifiability: a reduction lemma (ENC-N1$'$)}{\proved}{lem:encn1}
+Fix a family $\mathcal W=\{W_V\}$ of encoders. A \emph{blind encoder} is a map $E$ from classes of solutions to outputs with $E([u])=[N_VW_Vu']$ for all $V$ and $u'\in\mathcal S_V$, $u'\sim u$. Let (C) be coherence: $u\in\mathcal S_V$, $u'\in\mathcal S_{V'}$, $u\sim u'$ implies $[N_VW_Vu]=[N_{V'}W_{V'}u']$, and (S) separation. Then:
+\begin{enumerate}[label=(\roman*)]
+\item a blind encoder exists iff (C) holds;
+\item identifiability modulo $\sim$ implies (C), hence existence;
+\item (C)$\wedge$(S) $\iff$ identifiability, by definition;
+\item (witness: blind without identifiability) in model DM-$\varphi$ with $\mathcal V=\{q_0+c\}$ and $W_{q_0+c}$ the Volterra encoder of $q_0-q_0(x_0)$, (C) holds but $V$ is identified only modulo constants;
+\item existence depends on the family: for the strict Volterra family normalised at $x_0$, (C) fails.
+\end{enumerate}
+The correct formulation is: \emph{blind encoder $\iff$ identifiability modulo the gauge group of the data model}, for a family that respects the gauge.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i)--(iii)}
+(i) $E$ exists iff $[N_VW_Vu']$ does not depend on the choice of $(V,u')$, which is (C). (ii) If $u\sim u'\ne0$ then $V=V'$ and by the single-$V$ remark $u'=e^{i\theta_0}u$ with $\theta_0$ constant; $W_V$ commutes with constant phases. (iii) $\Leftarrow$ is (ii); $\Rightarrow$: if $V\ne V'$ with $u\sim u'\ne0$, (S) contradicts (C).
+
+\step{2}{(iv) The witness}
+$W_{\hat q}L_{q_0+c}=(L_0+q_0(x_0)+c)W_{\hat q}$ with $\hat q=q_0-q_0(x_0)$, and $W_{\hat q}$ commutes with phases in $t$. For $u\in\mathcal S_{q_0}$, $u'=e^{-ict}u\in\mathcal S_{q_0+c}$ is equivalent to $u$, and $N_{V'}W_{\hat q}u'=e^{i(q_0(x_0)+c)t}e^{-ict}W_{\hat q}u\approx N_VW_{\hat q}u$.
+
+\step{3}{(v) Dependence on the family}
+For $q_0=0$ and $u=e^{-i\lambda t}\cos\sqrt\lambda(x-x_0)\in\mathcal S_0$, $u'=e^{-ict}u\in\mathcal S_c$: $W_0u=u$ but $W_cu'=e^{-i(\lambda+c)t}\cos\sqrt{\lambda+c}\,(x-x_0)$, not equivalent modulo phases.
+
+\whyworks{``blind'' just says the output does not remember which potential produced the data; that is coherence, and coherence is implied by, but strictly weaker than, identifiability.}
+\end{proof}
+\uses{A36, A37, A40, A44.}

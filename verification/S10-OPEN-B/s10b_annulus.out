@@ -1,0 +1,4 @@
+OK   A1 u_xy = 0 su Omega (griglia 59x59), max = 0
+OK   A2 Lambda(A(y) + B(x)) = 0
+OK   A3 Lambda_avg(u) = 1.0
+TOTALE: 3/3 OK

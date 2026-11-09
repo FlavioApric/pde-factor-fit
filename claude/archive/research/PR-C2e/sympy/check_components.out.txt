@@ -1,0 +1,24 @@
+transport g(x-ct)                        residual = 0
+heat Gaussian                            residual = 0
+Airy kernel                              residual = 0
+Fresnel kernel                           residual = 0
+wave dAlembert                           residual = 0
+reaction                                 residual = 0
+mixed dtdx                               residual = 0
+telegraph -> KG (residual/e^{-at})       residual = 0
+beam mode                                residual = 0
+[d_x, x]h - h                            residual = 0
+[d_x^2, x]h - 2h_x                       residual = 0
+oscillator ground mode                   residual = 0
+phi heat                                 residual = 0
+Burgers via Cole-Hopf                    residual = 0
+KdV soliton                              residual = 0
+beam   tau^2+xi^4 = (tau - I*xi**2)*(tau + I*xi**2)
+Laplace tau^2+xi^2 = (tau - I*xi)*(tau + I*xi)
+wave   tau^2-c^2 xi^2 = -(c*xi - tau)*(c*xi + tau)
+telegraph tau^2+2a tau-c^2xi^2 irreducible over Q(a,c): 2*a*tau - c**2*xi**2 + tau**2
+KG tau^2-xi^2+m^2: k**2 + tau**2 - xi**2
+Fresnel kernel in ker(beam): 0
+[A,B]-4C = 0
+[C,A]+2A = 0
+[C,B]-2B = 0

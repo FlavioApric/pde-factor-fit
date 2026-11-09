@@ -1,0 +1,38 @@
+[OK]   C1a Weyl: (c0+c1 d)|_{C[x]e^x}=0 => c0=c1=0 :: [{c0: 0, c1: 0}]
+[OK]   C1b Weyl: (d-1) e^x = 0 (Ann ∩ span{1,d} != 0)
+[OK]   C1c commutatori ad_d, ad_x su x^2 d^3
+[OK]   C1c commutatori ad_d, ad_x su x^3 d^1
+[OK]   C1c commutatori ad_d, ad_x su x^1 d^2
+[OK]   C2a Ann(t+e^{x^2}) ∩ R_{<=3} = (tau^2, tau xi)_{<=3} :: dim=5
+[OK]   C2b tau.u = 1 (parte EP = C), xi.1 = 0
+[OK]   C3a A,B commutano
+[OK]   C3b dim R.u = 3
+[OK]   C3c spettro puntuale = {(1,1),(4,2)}, molteplicita geometrica 1 :: [1, 1, 0, 0]
+[OK]   C3d B non diagonalizzabile (Jordan per xi=1)
+[OK]   C3e denominatore di S separabile = (z1-1)(z1-4)(z2-1)^2(z2-2) (a meno di costanti) :: (z1 - 4)*(z1 - 1)*(z2 - 2)*(z2 - 1)**2
+[OK]   C3f coefficienti di S = jet s_ab (a,b<=2)
+[OK]   C3g a(z1)b(z2)S polinomio con le eliminanti minime
+[OK]   C3h eliminanti di Ann(u)
+[OK]   C3i Ann ∩ R_<=2: contrazione (jet ordine 6) = diretto :: (3, 3)
+[OK]   C4a s_ab = delta_ab (a,b<=5)
+[OK]   C4b (d_t d_x - 1)u = O((tx)^N) (serie troncata)
+[OK]   C4c S = 1/(z1 z2 - 1): coefficienti delta_ab
+[OK]   C4d nessuna eliminante in tau di grado <=6
+[OK]   C4e su W: d_x inverte d_t (tau xi = 1 nel modulo)
+[OK]   C5a (tau-xi^2)(G+e^{x-t}) = -2 e^{x-t} in EP
+[OK]   C5b (tau+xi)G: d_x^k w/G ha grado k+2 (non EP, coerente con P4-L5)
+[OK]   C6a B(x d - 5) = 6 e x^5 soluzione
+[OK]   C6b B(d + 2x) = 0 (nessuna soluzione EP non nulla)
+[OK]   C6c B((d-2)^2(d-1)) = 3
+[OK]   C6d fetta del calore: B = 0 => G identifica (P4-T5)
+[OK]   C6e polinomio indiciale di x d - 5 in 0: n - 5
+[OK]   C6f Hankel 3x4: nucleo = (xi-2)^2(xi-1) :: (xi - 2)**2*(xi - 1)
+[OK]   C6g annullatore costruito per span formale: L_f f = 0 :: [-x**2 - 2*x + 2, x**2 - 6, 2*(x + 2)]
+[OK]   C6h B(L_f) >= 1 (modo e^x ammesso) :: 1
+[OK]   C6i algoritmo: fetta di G + e^{t+x} non EP => Ann(u)=(tau-xi^2) :: non EP
+[OK]   C6j algoritmo: fetta EP riconosciuta
+[OK]   C7 E EP costruita da dati di Cauchy EP risolve l onda con quei dati
+[OK]   C8 v EP in ker P con lo stesso 2-jet di G e risposte di zero-test uguali (xi, tau+1)
+[OK]   C9 spettro di A = proiezione tau di V(Ann u)
+
+TOTALE: 36 / 36 OK

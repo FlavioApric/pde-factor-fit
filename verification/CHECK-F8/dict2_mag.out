@@ -1,0 +1,17 @@
+PASS M1 (nabla-i(A+B))^2u - (nabla-iA)^2u = dV*u
+PASS M2 Im(dV)|u|^2 = -div(|u|^2 B)
+PASS M3 legge vecchia risolve  [max = 0.0e+00]
+PASS M3 legge nuova (A+B, V+dV) risolve  [max = 7.9e-177]
+PASS M3 dV reale  [max |Im dV| = 6.5e-173]
+PASS M3 B non nullo  [|B1| = 4.556e-01]
+PASS M3 u ha zeri (x = 0)
+PASS M4 legge vecchia risolve  [max = 5.1e-178]
+PASS M4 legge nuova (A+B, V+dV) risolve  [max = 3.1e-179]
+PASS M4 dV reale  [max |Im dV| = 1.6e-173]
+PASS M4 B non nullo  [|B1| = 1.053e-01]
+PASS M4 u ha zeri (t=0, x=pi, y=0)
+PASS M4 supporto di chi lontano dagli zeri  [|x - 2y + 3t| <= 3 < pi sul cubo che contiene la palla]
+PASS M5 n = 3: div(|u|^2 B) = 0
+PASS M6 rot B != 0 in M3  [max |rot B| = 9.231e+00]
+PASS M7 [nota] in M4 dB/dt != 0: serve A = A(t,x) nella classe  [|d_t B1| = 1.911e-01]
+16/16 PASS

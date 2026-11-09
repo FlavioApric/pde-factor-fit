@@ -1,0 +1,2 @@
+AM N=5 K=8 d<=8: max classe=872; nessuna relazione omogenea di grado <= 8 [160.7s]
+EXIT 0

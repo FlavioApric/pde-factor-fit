@@ -1,0 +1,29 @@
+%--- E7b: Section 5.2, after the Takeaway of Theorem 5.3 ---------------------
+\begin{explained}{the d'Alembert function proves Theorem~\ref{thm:factor}, step by step}
+\textbf{Enunciation (Factor decomposition).} Let $\Omega\subset\R^2$ be bounded, connected and simply connected, and $P=P_1^{m_1}\cdots P_N^{m_N}$ with $Q_j=P_j^{m_j}$ pairwise coprime. Then every $u\in\ker P$ can be written $u=\sum_{j=1}^Nu_j$ with $u_j\in\ker Q_j(\partial)$, and the ambiguity of the decomposition is an exponential-polynomial space of dimension exactly $\delta(P)=\sum_{i<j}\dim\ring/(Q_i,Q_j)$.
+
+\medskip\textbf{The case.} Wave equation, $N=2$, $m_1=m_2=1$:
+\[
+P=\tau^2-c^2\xi^2=Q_1Q_2,\qquad Q_1=\partial_t-c\partial_x,\quad Q_2=\partial_t+c\partial_x,
+\]
+and the d'Alembert solution $u=f(x+ct)+g(x-ct)$. We check each claim of the theorem.
+
+\medskip\textbf{Step 1: the hypotheses.} $Q_1,Q_2$ are distinct linear polynomials, hence coprime (no common factor). $\Omega$ is any bounded simply connected region, e.g.\ a disc.
+
+\medskip\textbf{Step 2: the kernels.} $Q_1f(x+ct)=cf'-cf'=0$ and $Q_2g(x-ct)=-cg'+cg'=0$, so $\ker Q_1=\{f(x+ct)\}$ (a profile moving left) and $\ker Q_2=\{g(x-ct)\}$ (a profile moving right).
+
+\medskip\textbf{Step 3: existence of the splitting.} Take any $u\in\ker P$. Then $w_2=Q_2u\in\ker Q_1$ and $w_1=Q_1u\in\ker Q_2$ (because $Q_1Q_2u=0$). Since $Q_2-Q_1=2c\,\partial_x$,
+\[
+\partial_xu=\tfrac1{2c}\big(Q_2u-Q_1u\big).
+\]
+Integrating in $x$ at fixed $t$, define $u_1=\tfrac1{2c}\int^xQ_2u\,\dd x'$ and $u_2=-\tfrac1{2c}\int^xQ_1u\,\dd x'$. If $Q_2u=h(x+ct)$, then $u_1=\tfrac1{2c}H(x+ct)$ with $H'=h$, and $Q_1u_1=0$; likewise $u_2\in\ker Q_2$. By construction $\partial_x(u-u_1-u_2)=0$, so $u-u_1-u_2=k(t)$. Applying $P$ gives $k''(t)=0$, so $k(t)=a+bt$; and $t=\tfrac1{2c}\big((x+ct)-(x-ct)\big)$ is itself a sum of an element of $\ker Q_1$ and one of $\ker Q_2$. Hence $u=u_1+u_2$ with $u_j\in\ker Q_j$ after absorbing $k$: the splitting exists.
+
+\medskip\textbf{Step 4: the explicit example.} With $c=1$, $u=\dfrac1{1+(x+t)^2}+e^{-(x-t)^2}$: $Q_2u=2f'(x+t)$ and $Q_1u=-2g'(x-t)$, so $u_1=\tfrac12\int^x2f'(x'+t)\dd x'=f(x+t)$ and $u_2=-\tfrac12\int^x(-2g')\dd x'=g(x-t)$, with $k=0$: the recovered components are exactly the two moving profiles.
+
+\medskip\textbf{Step 5: the ambiguity has dimension $\delta(P)=1$.} $Q_2-Q_1=2c\,\xi$ and $Q_1+Q_2=2\tau$, so $(Q_1,Q_2)=(\tau,\xi)$, which is not the unit ideal (the two lines meet at the origin), and $\ring/(\tau,\xi)\cong\C$. So $\delta(P)=\dim\ring/(Q_1,Q_2)=1$. Directly: $f(x+ct)+g(x-ct)=0$ for all $(t,x)$ forces $f\equiv\kappa$, $g\equiv-\kappa$ for a constant $\kappa$. The only freedom is $(f,g)\mapsto(f+\kappa,g-\kappa)$: a one-dimensional space of constants, which are exponential-polynomials -- exactly the dimension the theorem predicts.
+
+\medskip\textbf{Step 6: where the theorem's tools appear.} The finite quotient $\ring/(Q_1,Q_2)$ measures the failure of the one-variable picture. In one variable coprime polynomials satisfy a B\'ezout identity $aQ_1+bQ_2=1$ and $u=bQ_2u+aQ_1u$ splits explicitly with a direct sum; in two variables only $(Q_1,Q_2)\supseteq(\tau,\xi)$ holds, and that is what produces the constant ambiguity. The wave case is the simplest example where the proof by exact sequence $0\to\ring/(Q_1Q_2)\to\ring/(Q_1)\oplus\ring/(Q_2)\to\ring/(Q_1,Q_2)\to0$ can be followed by hand.
+
+\medskip\textbf{Contrast with 5.1.} The same function is a sum of \emph{factor} components for every datum $(f,g)$, but a sum of \emph{term} components only when $f,g$ are polynomials. This is the difference between a factor and a term.
+\end{explained}
+

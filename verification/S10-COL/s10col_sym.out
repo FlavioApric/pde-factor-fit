@@ -1,0 +1,7 @@
+[OK] (S1) W.(-nu)*sqrt(1+|Dg|^2) = W_n - W'.Dg
+[OK] (S1b) |nu| = 1
+[OK] (S1c) nu ortogonale al piano tangente
+[OK] (S2) (1+L^2)(a^2+b^2) - (a+Lb)^2 = (La-b)^2
+[OK] (S3) identita' di Lagrange per Cauchy-Schwarz
+[OK] (S4) u1 + u2 = u, u1 - w1 = u2 - w2 = (u - w1 - w2)/2
+ESITO: TUTTO OK

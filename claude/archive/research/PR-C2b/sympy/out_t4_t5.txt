@@ -1,0 +1,35 @@
+PASS C2.8 fattorizzazione tau^2-c^2xi^2 = (tau-c xi)(tau+c xi)
+PASS C2.8 d'Alembert f(x-ct)+g(x+ct)
+PASS C2.8 estrazione componente: (d_t + c d_x)u = 2c g'(x+ct)
+PASS C2.8 dim ker(d_t-c d_x, d_t+c d_x) = 1 (costanti)
+PASS C2.8 onda stazionaria sin(kx)cos(ckt)
+PASS C2.8 sin(kx)cos(ckt) = (sin k(x-ct) + sin k(x+ct))/2
+PASS C2.8 <e^{ik(x-ct)}, e^{ik(x+ct)}> su [0,pi/c] = 0 (k!=0)
+PASS C2.22 autovalori reali distinti +-c
+PASS C2.22 U = sum r_j g_j(x - lambda_j t)
+PASS C2.22 duale: L R = I (autovettori sinistri biortogonali)
+PASS C2.22 det(tau I + A xi) = tau^2 - c^2 xi^2
+PASS C2.31 funzione di Riemann J0(m sqrt(t^2-x^2))
+PASS C2.31 onda piana e^{i kappa x - i omega t}
+PASS C2.31 tau^2-xi^2+m^2 irriducibile (det forma 3x3 = -m^2 != 0)
+PASS C2.9 tau^2+xi^2 = (tau+i xi)(tau-i xi)
+PASS C2.9 f(x+iy)+g(x-iy) armonica
+PASS C2.9 dim ker(d_y+i d_x, d_y-i d_x) = 1
+PASS C2.9 log r armonica (x!=0)
+PASS C2.34 nucleo di Poisson del disco armonico
+PASS C2.9 r^0 cos(0 theta) armonica
+PASS C2.9 r^1 cos(1 theta) armonica
+PASS C2.9 r^2 cos(2 theta) armonica
+PASS C2.9 r^3 cos(3 theta) armonica
+PASS C2.9 Bergman: <z^a,z^b> = pi/(a+1) delta (a,b<=2)
+PASS C2.9 kernel di Bergman: sum_{n<=20} (n+1) q^n = serie di 1/(1-q)^2
+PASS C2.35 J_0(kr) cos(0 theta)
+PASS C2.35 J_1(kr) cos(1 theta)
+PASS C2.35 J_2(kr) cos(2 theta)
+PASS C2.35 J_3(kr) cos(3 theta)
+PASS C2.35 Y_0(kr) (radiale, r>0)
+PASS C2.35 onda piana e^{ik(x cos d + y sin d)}
+PASS C2.35 Helmholtz modificato K_0(kr)
+PASS C2.35 Jacobi-Anger (controllo numerico)   err=2.8e-17
+PASS C2.20 Dirichlet: sin(n x) autofunzione, sin(n pi)=0
+== t4_t5: 34/34 PASS

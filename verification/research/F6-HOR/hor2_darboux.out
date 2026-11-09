@@ -1,0 +1,6 @@
+intertwining [Poschl-Teller -2sech^2]: residuo = 0
+intertwining [centrifugo 2/x^2]: residuo = 0
+Schrodinger dipendente dal tempo, u = W v: residuo = 0
+[u = W(due modi), V = -2sech^2] valori singolari del sistema lineare in (c1,c2,c3): [70.81930608  7.06030812  3.57211824]  soluzione: [-1.-0.j  0.-0.j  0.+0.j]
+[stato stazionario (un modo)] valori singolari del sistema lineare in (c1,c2,c3): [0. 0. 0.]  soluzione: [0.        +0.j        0.        +0.j        0.03278689-0.1147541j]
+ESITO OK

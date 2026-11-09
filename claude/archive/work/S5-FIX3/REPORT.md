@@ -1,0 +1,15 @@
+# REPORT — S5-FIX3 · Fase 5 (recepimento dei fix d'audit OP-FUN, OP-NL) · 26/10/2026
+(Salvato dal coordinatore: scrittura del subagente bloccata dall'ambiente; testo fedele alla sua risposta finale.)
+Fix marcati [fix <id>, S5-FIX3]; nessuno stato oltre il LEDGER; grep preventivo: nessun marcatore preesistente. Controllo fix3_check.py (scratchpad): simmetrie affini pesate di (τ−ξ²)(τ+ξ) = identità e involuzione; P(∂)v = e^{t−x}(P(∂)w)(t,2t−x) su 3 w esplicite; ‖C′‖ = 1/√3 nel controesempio in ℝ³ — tutto OK.
+## (1) work/OP-FUN/PROOF_PACKAGE.md ← AUDIT_OP-FUN (S-CHECK-14)
+Tabella §1 riscritta con gli stati del LEDGER (e testo guasto della riga OPF-P5 corretto); T2-1 (E^add nel quadro di Jordan, definizione nuova); P3-1 ("monomi distinti" essenziale), P3-2, C1-1 (estensione a Q monico deg_τ ≥ 2, τ ∤ Q, quindi alle potenze); P4-1 ("non rimovibilità"), P4-2; T5-1 (domini nell'Esito P2-Q1), T5-2 (rettangoli a lati paralleli agli assi), T5-3; nuovo APERTO OPF-Q3; O1-1: nuovo lemma OPF-O1′ (solo traslazioni e l'involuzione v = e^{t−x}w(t,2t−x), det −1); T4-1 (costruzione per tensori non decomponibili), T4-2 (CON-FONTE dichiarate); P6-1 (C12-T1′(iii)); S5L2-1 ((v) riscritta con l'ipotesi "parti nelle H′_j che sommano a zero", controesempio in ℝ³, prova corretta; originale come storico).
+## (2) work/S5-INT/INTEGRAZIONE_LINEARE.md
+S5-L2 in §3.4 non ha una clausola (v): aggiunto un paragrafo [fix S5L2-1, S5-FIX3] con la forma corretta, il controesempio e lo stato; testo esistente invariato.
+## (3) work/OP-NL/PROOF_PACKAGE.md ← AUDIT_OP-NL (S-CHECK-13)
+Tabella stati §0′ = LEDGER; NL-1 (certificato esatto del revisore per OP-P14: W_2 = 16, deg Π_2(k) ≤ 8 su U_0, = 8 su un aperto di Zariski); NL-2 ("criterio completo" solo per OP-C11(a); (b) riscritta); NL-3 (u reale in OP-T1(c), variante complessa); NL-4 (portata temporale di OP-C3′, corollario di reversibilità mod (WP), "dati analitici", Osservazione (2) corretta, "tutti gli ε tranne un insieme numerabile"); NL-5 (fase cos(Θ − jπ/2), meta-teorema "(𝒫) ∧ 𝒮 ∧ supporto pieno ⇏ J_u = 0"); NL-6; NL-7 (δ_N(K) ≤ N+1 per K ≥ 2N+1 CONDIZIONALE[F-MS]; autovalori dell'N-solitone CON-FONTE); NL-8; NL-9; NL-10 (Jost di ZS CON-FONTE: AKNS 1974, Beals–Coifman).
+## (4) work/S4-ID/PROOF_PACKAGE.md
+S4ID-K1 DIMOSTRATO tramite OP-T7; T2(e) e §10 aggiornati; riga INT-Q1 ("no" per Schwartz mai analitici, APERTO per analitici); S4ID-T3(c) lasciato V-ex con rinvio a OP-P14.
+## (5) work/C1C2/gram.md
+r. 3: densità DIMOSTRATO (S-CHECK-14) via OPF-P5, OPF-T5 nei domini indicati; APERTI OPF-Q1, OPF-Q3.
+## Segnalazioni (risolte dal coordinatore subito dopo)
+1. LEDGER: riga "S4ID-K1 … APERTO" in conflitto con OP-T7 → aggiornata. 2. S4ID-T3(c) V-ex vs OP-P14 DIMOSTRATO → allineata (N = 2 generico DIMOSTRATO). 3. gram.md r. 23 "audit S-CHECK-14 in corso" → DIMOSTRATO. 4. S5-INT §3.4 senza (v): paragrafo aggiunto. 5. CON-FONTE per un futuro CIT-AUDIT: AKNS 1974, Beals–Coifman, Kay–Moses, Rudin RCA cap. 13, Hörmander ALPDO II §10.6–10.7, SCV 1.4.4, Warner/Bredon, Adams–Fournier.

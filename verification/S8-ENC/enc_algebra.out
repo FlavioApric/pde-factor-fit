@@ -1,0 +1,24 @@
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = tau + xi**2 + xi ([s**2 + 2*s*tau - s + tau**2], s**2 + 2*s*tau - s + tau**2)
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = xi ([s], s)
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = xi*(tau + xi) ([-s**2 + s*tau**2], s**2 - s*tau**2)
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = tau + I*xi ([s + tau**2], s + tau**2)
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = tau*xi + xi**3 + 1 ([s**3 + 2*s**2*tau + s*tau**2 - 1], -s**3 - 2*s**2*tau - s*tau**2 + 1)
+OK   ENC-T2 (Q)∩C[tau,xi^2] = generatore previsto, Q = (tau - xi)*(xi - 1)**2 ([-s**3 + s**2*tau**2 + 2*s**2 - 2*s*tau**2 - s + tau**2], -s**3 + s**2*tau**2 + 2*s**2 - 2*s*tau**2 - s + tau**2)
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 0 (grado <= 3) con W L_c = L_0 W 
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 1 (grado <= 4) con W L_c = L_0 W 
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 2 (grado <= 5) con W L_c = L_0 W 
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 3 (grado <= 6) con W L_c = L_0 W 
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 4 (grado <= 7) con W L_c = L_0 W 
+OK   ENC-K0 q=c: nessun W polinomiale di ordine 5 (grado <= 8) con W L_c = L_0 W 
+OK   (E2') q = c - 2 sech^2: A^dag L_q = (L_0 + c) A^dag 0
+OK   K1': L_q sech^2 = -4 sech^2 
+OK   K1': L_q tanh sech = -1 tanh sech 
+OK   K1': W (nucleo {sech^2, tanh sech}) intreccia L_q e L_0 0
+OK   K1': q_1 = q - 2(log sech^2)'' = -2 sech^2 -2/cosh(x)**2
+OK   K1': W = A_2 A_1 (catena di Darboux) 0
+OK   P0': v soluzione libera 
+OK   P0': la lente manda la soluzione libera in una dell'oscillatore 0
+OK   P0': a t = 0 la lente e' l'identita' (M = I) 
+OK   stima E^mult <= bound (V = 2cos x, toro) [(0.01, np.float64(0.000606), np.float64(0.001066), np.float64(0.000606)), (0.05, np.float64(0.015076), np.float64(0.028206), np.float64(0.015141)), (0.2, np.float64(0.226996), np.float64(0.544146), np.float64(0.242258)), (0.5, np.float64(1.187037), np.float64(4.561534), np.float64(1.514113))]
+
+TOTALE: 22/22 OK

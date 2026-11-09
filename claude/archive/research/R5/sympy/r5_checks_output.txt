@@ -1,0 +1,26 @@
+[OK] C1a u=e^{tA1}e^{tA2}e^{kx} risolve u_t = D u_xx - c u_x
+[OK] C1b G(t,x-ct) risolve advezione-diffusione
+[OK] C1c E_int^add = (S1-I)(S2-I)u0 (G3, bilineare)
+[OK] C2 Prod(1+z_n)-1-Sum z_n = Sum_{k>=2} e_k(z)  (2^N-N-1 monomi, valutabile in O(N))
+     numero monomi: 26 = 2^N-N-1 = 26
+[OK] C3 Zassenhaus e^{t(X+Y)} = e^{tX}e^{tY}e^{t^2 C2}e^{t^3 C3} + O(t^4)
+[OK] C3b BCH: e^{tX}e^{tY} = e^{t(X+Y)+t^2/2[X,Y]} + O(t^3)
+[OK] C4a formula Zassenhaus finita risolve u_t = u_xx + x u
+[OK] C4b coincide con exp(tx+t^3/3+k^2 t+k(x+t^2))
+[OK] C4c [d^2,x] = 2d
+[OK] C4d [x,[d^2,x]] = -2 (scalare) e [d^2,[d^2,x]] = 0
+[OK] C5a [d^2, x d] = 2 d^2
+[OK] C5b Wei-Norman e^{t(d^2-xd)} = e^{h(t)d^2}e^{-t x d}, h=(e^{2t}-1)/2, risolve OU
+[OK] C5c Dyson 1o ordine <x^{n-2}|u(t)> = n(n-1)e^{-(n-2)t}(1-e^{-2t})/2 = esatto
+[OK] C5d e^{t(d^2-xd)}x^4 risolve OU
+     E_int^add (OU, u0=x^4) = -3*(4*t**2*exp(4*t) + 4*t*x**2*exp(4*t) - 2*x**2*exp(2*t) + 2*x**2 - exp(4*t) + 2*exp(2*t) - 1)*exp(-4*t)
+     serie in t fino a t^2: -36*t**2*x**2
+[OK] C5e coeff. t^2 di E_int^add = (t^2/2)(A1A2+A2A1)u0
+     sl2 E+F (iperbolico): e^tM = [[cosh(t), sinh(t)], [sinh(t), cosh(t)]] ; a(t) atteso = tanh(t)
+[OK] C6 E+F (iperbolico): a(t)=M01/M11 = tanh(t)
+     sl2 E-F (rotazione): e^tM = [[cos(t), sin(t)], [-sin(t), cos(t)]] ; a(t) atteso = tan(t)
+[OK] C6 E-F (rotazione): a(t)=M01/M11 = tan(t)
+[OK] C7 Duhamel: e^{tA}e^{tB}-e^{t(A+B)} = int_0^t e^{sA}e^{sB}(e^{-sB}Ae^{sB}-A)e^{(t-s)(A+B)}ds
+     C8 V(P1+P2) cap V(P1 P2) = [{tau: 0, xi: 0}] (= V(P1,P2): finita)
+     [x^3, d^2] g = -6*x**2*Derivative(g(x), x) - 6*x*g(x)
+[OK] C9 [x^k, x^{k-1}d] = -k x^{2k-2} per k=3

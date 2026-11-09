@@ -1,0 +1,16 @@
+== 1-shock (k=1), |alpha| <= 2: 13 feature, dim spazio relazioni = 8
+    (1)*dt^0dx^1(u^1) + (-1)*dt^1dx^0(u^1)
+    (1)*dt^0dx^2(u^1) + (-1)*dt^1dx^1(u^1)
+    (1)*dt^0dx^2(u^1) + (-1)*dt^2dx^0(u^1)
+    (1)*dt^0dx^0(u^1) + (-1)*dt^0dx^1(u^1) + (1/2)*dt^0dx^0(u^2)
+    (1)*dt^0dx^1(u^1) + (-1)*dt^0dx^2(u^1) + (1/2)*dt^0dx^1(u^2)
+    (1)*dt^0dx^1(u^1) + (-1)*dt^0dx^2(u^1) + (1/2)*dt^1dx^0(u^2)
+    (1)*dt^0dx^2(u^2) + (-1)*dt^1dx^1(u^2)
+    (1)*dt^0dx^2(u^2) + (-1)*dt^2dx^0(u^2)
+== 2-shock (k=1,2), |alpha| <= 2: 13 feature, dim spazio relazioni = 1
+    (1)*dt^0dx^2(u^1) + (-1)*dt^1dx^0(u^1) + (-1/2)*dt^0dx^1(u^2)
+== 2-shock (k=1,2), |alpha| <= 3: 21 feature, dim spazio relazioni = 3
+    (1)*dt^0dx^2(u^1) + (-1)*dt^1dx^0(u^1) + (-1/2)*dt^0dx^1(u^2)
+    (1)*dt^0dx^3(u^1) + (-1)*dt^1dx^1(u^1) + (-1/2)*dt^0dx^2(u^2)
+    (1)*dt^1dx^2(u^1) + (-1)*dt^2dx^0(u^1) + (-1/2)*dt^1dx^1(u^2)
+Atteso per 2-shock: solo i multipli R.(Burgers) di ordine <= K: K=2 -> 1, K=3 -> 3

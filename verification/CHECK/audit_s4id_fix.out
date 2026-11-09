@@ -1,0 +1,6 @@
+INFO u_xx/u_x - (-2*E*k/(E + 1) + k) = 0
+INFO u_xx/u_x - (2*E*k/(E + 1) - k) = 2*k*(1 - E)/(E + 1)
+OK   P7(iii) 1-shock: u_xx = H(u) u_x con H affine (globale) e u risolve Burgers  | H = k*(1 - E)/(E + 1), Burgers residuo = 0
+OK   T2(c) N=1: dim (R_N, D R_N)∩A_{<=N+1,<=N+1} (moltiplicatori di grado <= 3) = 3 = dim J_u∩A_{<=N+1,<=N+1} misurato 3
+OK   T2(c) N=2: dim (R_N, D R_N)∩A_{<=N+1,<=N+1} (moltiplicatori di grado <= 3) = 4 = dim J_u∩A_{<=N+1,<=N+1} misurato 4
+== Totale fix: 3/3 OK

@@ -1,0 +1,308 @@
+\chapter[Dictionary]{Phase 8: the dictionary (other results)}\label{ch:cIV3}
+\chapterbrief
+{the notation of Chapter~\ref{ch:cIII5}: levels $\mathrm{span}\,\mathcal D_n$, atoms $D_i$, the Gram matrix $G_n(u)$ and the residual $r_n$.}
+{to give the proofs of the remaining universality, negative, rank, misfit and exponential-family results of the dictionary package. The few statements that are heuristic, from a cited source or only checked on examples stay as list cards at the end.}
+{Dim.~B98--B109. They prove the corresponding parts of Chapter~\ref{PAP-ch:dictionary} of the paper.}
+
+\section{Universality by class}
+
+\begin{dimcard}{B98}{DICT-U1b, U4}{Singular coefficients and systems}{\pw}{ch:dictionary}
+Let $K\subset\R^N$ be compact and $T=\sum_{|\alpha|\le m}a_\alpha\partial^\alpha$ with $a_\alpha\in L^p(K)$, $1\le p<\infty$. If $q_n$ are polynomials with $\|a_\alpha-q_{n,\alpha}\|_{L^p(K)}\to0$, then $\|(T-T_n)u\|_{L^p(K)}\le\sum_\alpha\|a_\alpha-q_{n,\alpha}\|_{L^p}\|u\|_{C^m(K)}\to0$ for every $u\in C^m(K)$, with no uniform rate. For systems, $\mathcal D^{(k)}_n=\{E_{ij}\otimes D:D\in\mathcal D_n\}$ and every density statement holds componentwise.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{Singular coefficients}
+Polynomials are dense in $L^p(K)$ for $p<\infty$. Hölder with the bounded factor $\partial^\alpha u$ gives $\|(a_\alpha-q_{n,\alpha})\partial^\alpha u\|_{L^p}\le\|a_\alpha-q_{n,\alpha}\|_{L^p}\|\partial^\alpha u\|_{\infty}$. Such a $T$ maps $C^\infty(\Omega)$ into $C^\infty(\Omega)$ only outside the singular set, so it is outside Peetre's framework on $\Omega$; exactness needs atoms $|x-x_0|^{-j}$, $\log|x-x_0|$ with a continuous parameter $x_0$ (with $x_0\in\Q^d$ exact only in the limit).
+
+\step{2}{Systems}
+The topology on $k\times k$ matrix operators is the finite product; convergence is convergence of each entry. The relative annihilator $\{Q\in\mathrm{span}\,\mathcal D^{(1\times k)}_n:Qu=0\}$ is the kernel of the block Gram matrix of $(De_c\otimes u_c)_{D,c}$, because $Qu=\sum q_{D,c}Du_c=0$ iff $q$ annihilates the quadratic form $\|\sum q_{D,c}Du_c\|^2$. Rational symbols and sums of exponential memory are augmented local systems ($Q(D)v=P(D)u$; $w_j'=-\lambda_jw_j+f$).
+
+\whyworks{density in $L^p$ costs nothing against a bounded factor; systems are finite products.}
+\end{proof}
+\uses{A48.}
+
+\begin{dimcard}{B99}{DICT-U2}{Non-linear local operators: the function $F$ is smooth}{\pw}{ch:dictionary}
+Let $D:C^\infty(\Omega,\R^q)\to C^\infty(\Omega,\R^p)$ be local ($Dg(y)$ depends on the germ of $g$ at $y$) and regular (smooth families go to smooth families). For $f\in C^\infty$ and compact $K$ there are an order $r$, a neighbourhood $\Omega_1\supset K$, $\varepsilon_0>0$ and $F\in C^\infty(\mathcal W,\R^p)$, $\mathcal W=\{(y,j)\in\Omega_1\times J^r:|j-j^r_yf|<\varepsilon_0\}$, with $Dg(y)=F(y,j^r_yg)$ for $g$ in a $C^\infty$-neighbourhood $\mathcal V$ of $f$ and $(y,j^r_yg)\in\mathcal W$. Hence for every compact $\mathcal C\subset\mathcal W$, $\ell$, $M$, $\varepsilon$ there is a differential polynomial $P$ in the dictionary $\mathcal D^{NL}_n$ with $\|Dg-P[g]\|_{C^\ell(K)}\le\varepsilon$ for all $g\in\mathcal V$ with jets in $\mathcal C$ and $\|g\|_{C^{r+\ell}(K)}\le M$.
+\end{dimcard}
+
+\begin{proofidea}
+A non-linear Peetre theorem says $Dg(y)$ depends only on a finite jet, uniformly near $f$. Realise each jet by an explicit smooth family of functions; regularity of $D$ then makes the jet-to-value map smooth. Smooth functions are approximated by polynomials.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Finite jet dependence (cited)}
+By the regular version of the non-linear Peetre theorem (Slov\'ak 1986/1988; Kol\'a\v r--Michor--Slov\'ak \S19.10; \cf) there are $r$ and a neighbourhood $\mathcal V\ni f$ in the compact-open $C^\infty$ topology such that $j^r_yg_1=j^r_yg_2\Rightarrow Dg_1(y)=Dg_2(y)$ for $g_1,g_2\in\mathcal V$ and $y\in K_1\Supset K$.
+
+\step{2}{Smooth realisation of jets}
+Take $\chi\in C^\infty_c(B_\rho(0))$, $\chi\equiv1$ near $0$, and $g_{y,j}(z)=f(z)+\chi(z-y)\sum_{|\alpha|\le r}(j_\alpha-\partial^\alpha f(y))\frac{(z-y)^\alpha}{\alpha!}$. Then $j^r_yg_{y,j}=j$, the perturbation has $C^k$ norm $\le C_1|j-j^r_yf|$, so $g_{y,j}\in\mathcal V$ for $|j-j^r_yf|<\varepsilon_0=\eta/(2C_1)$, and $(y,j,z)\mapsto g_{y,j}(z)$ is $C^\infty$.
+
+\step{3}{$F$ is well defined and smooth}
+Put $F(y,j)=D(g_{y,j})(y)$. If $g\in\mathcal V$ and $(y,j^r_yg)\in\mathcal W$, then $g$ and $g_{y,j^r_yg}$ both lie in $\mathcal V$ and share the $r$-jet at $y$, so $Dg(y)=F(y,j^r_yg)$. Smoothness: along a smooth curve $c(s)=(y(s),j(s))$ the family $G(s,z)=g_{c(s)}(z)$ is smooth, so by regularity $s\mapsto D(G(s,\cdot))(y(s))=F(c(s))$ is smooth; Boman's theorem makes $F$ smooth.
+
+\step{4}{Approximation}
+Take $\psi\in C^\infty_c(\mathcal W)$, $\psi\equiv1$ near $\mathcal C$. As in B98 there is a polynomial $P_0$ with coefficients in $\Q(i)$ and $\|F-P_0\|_{C^\ell(\mathcal C)}\le\varepsilon'$. By the chain rule (Fa\`a di Bruno) $\partial^\gamma_y[(F-P_0)(y,j^r_yg)]$, $|\gamma|\le\ell$, is a sum of derivatives of $F-P_0$ of order $\le|\gamma|$ times products of derivatives of $g$ of order $\le r+|\gamma|$, bounded by $M$. Hence the claim with $\varepsilon=C(\ell,r,M)\varepsilon'$.
+
+\whyworks{locality gives finite order, regularity gives a smooth dependence on the jet, and a smooth function of finitely many variables is a limit of polynomials.}
+\end{proof}
+\uses{A48.}
+
+\begin{caution}[title=Where it stops]
+(a) If the order is only locally finite in the jet, $D(u)=\sum_k\psi_k(u)\partial^k_xu$ with $\psi_k\in C^\infty_c((k,k+1))$, no fixed level approximates $D$ uniformly on all bounded $g$. (b) $\sin u$ is not in the global uniform closure: for $g\equiv c$ every polynomial $P$ has $\sup_c|P(y_0,c,0,\dots)-\sin c|\ge1$. It becomes exact with the atoms $e^{iku}$, $e^{\lambda u}$ (B109).
+\end{caution}
+
+\begin{dimcard}{B100}{DICT-N2}{The space of symbols is not separable}{\pw}{ch:dictionary}
+Let $S^m=S^m_{1,0}(\R^d\times\R^d)$. There is a family $\{m_\varepsilon\}_{\varepsilon\subset\N_{\ge1}}$, bounded in $S^m$ uniformly in $\varepsilon$, with $\|m_\varepsilon(D)-m_{\varepsilon'}(D)\|_{H^s\to H^{s-m}}\ge1$ for $\varepsilon\neq\varepsilon'$. Hence no countable set is norm-dense in a bounded set of $\mathrm{Op}(S^m)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{A dyadic family}
+Let $\varphi$ be smooth, non-increasing, $=1$ on $[0,1]$, $=0$ on $[2,\infty)$; $\psi(r)=\varphi(r)-\varphi(2r)\ge0$ is supported in $[\frac12,2]$; $\psi_k(\xi)=\psi(2^{-k}|\xi|)$ and $m_\varepsilon(\xi)=\langle\xi\rangle^m\sum_{k\in\varepsilon}\psi_k(\xi)$.
+
+\step{2}{Bounded in $S^m$}
+On $\mathrm{supp}\,\psi_k$ one has $|\xi|\asymp2^k$, each $\xi$-derivative of $\psi_k$ brings a factor $2^{-k}\asymp\langle\xi\rangle^{-1}$, and at most two $\psi_k$ are non-zero at a point. So all seminorms are bounded independently of $\varepsilon$.
+
+\step{3}{Separation}
+For a multiplier, $\|p(D)\|_{H^s\to H^{s-m}}=\sup|p|\langle\xi\rangle^{-m}$ (Plancherel). If $k\in\varepsilon\setminus\varepsilon'$, at $|\xi|=2^k$ one has $\psi_k=1$ and all other $\psi_j=0$ (since $\psi\ge0$, $\sum\psi_j\le1$), so $|m_\varepsilon-m_{\varepsilon'}|\langle\xi\rangle^{-m}=1$ there.
+
+\whyworks{the continuum of subsets of dyadic shells gives a continuum of $1$-separated symbols of the same size.}
+\end{proof}
+\uses{B98.}
+
+\begin{dimcard}{B101}{DICT-U3c, U3d}{Symbols with loss, completely monotone memory}{\pw}{ch:dictionary}
+\textbf{(c)} Let $m<m'$. Every $x$-independent $p\in S^m$ is a limit of $p_n$ in the explicit dictionary $\mathcal S_n=\{\xi^\gamma\chi(2^{-j}\xi):|\gamma|,j\le n\}$ in $\|\cdot\|_{H^s\to H^{s-m'}}$; the same holds for symbols with compact $x$-support (continuity of $\mathrm{Op}:S^{m'}\to\mathcal L(H^s,H^{s-m'})$ cited).
+
+\textbf{(d)} Let $k$ be completely monotone and locally integrable, $k(t)=\int e^{-\lambda t}d\mu(\lambda)$. (i) $(k*f)(t)=\int w(t,\lambda)d\mu(\lambda)$ with $w_t=-\lambda w+f$, $w(0)=0$: an exact local system with a continuous parameter $\lambda$. (ii) There are finite sums $k_J=\sum_{i\le J}\mu_ie^{-\lambda_it}$ with $\|k-k_J\|_{L^1(0,T)}\to0$, hence $\|(k-k_J)*f\|_\infty\to0$. (iii) For $k=t^{-\beta}$, $0<\beta<1$, nodes $\lambda_j=e^{jh}$ give a relative error $\le2(\cos a)^{-\beta}/(e^{2\pi a/h}-1)$ uniformly in $t>0$, $a\in(0,\frac\pi2)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(c) Tail and head}
+Tail: $(1-\chi(\xi/R))p$ has $S^{m'}$ seminorms $\le C_jR^{m-m'}|p|_{m,j}$ since $\langle\xi\rangle\gtrsim R$ on its support. Head: $\chi(\xi/R)p$ has compact support; choose $2^j\ge2R$ and approximate by a polynomial in $C^J$ (Weierstrass). For multipliers the operator norm is $\sup|\cdot|\langle\xi\rangle^{-m'}$.
+
+\step{2}{(d)(i) Exact representation}
+$w(t,\lambda)=\int_0^te^{-\lambda(t-s)}f(s)ds$ with $|w|\le\|f\|_\infty\min(t,1/\lambda)$, integrable in $d\mu$ because $k\in L^1(0,T)$; Fubini gives $\int w\,d\mu=(k*f)(t)$.
+
+\step{3}{(d)(ii) Convergence}
+Write $\mu=\mu(\{0\})\delta_0+\mu'$. The atom at $0$ is kept exactly (the constant $\mu(\{0\})$). For $\mu'$ choose $\Lambda$ with $\int_{\lambda>\Lambda}d\mu'/\lambda<\eta$ and $\varepsilon_0$ with $T\mu'((0,\varepsilon_0))<\eta$, and split $[\varepsilon_0,\Lambda]$ into cells $I_i$ with $|e^{-\lambda t}-e^{-\lambda_it}|\le T\,\mathrm{diam}\,I_i$. The three errors are $<\eta$ each.
+
+\step{4}{(d)(iii) Rate for $t^{-\beta}$}
+$\Gamma(\beta)t^{-\beta}=\int_{\R}\exp(-e^st+\beta s)ds=t^{-\beta}\int G(\sigma)d\sigma$ with $G(\sigma)=\exp(-e^\sigma+\beta\sigma)$, analytic in $|\mathrm{Im}\,\sigma|<\frac\pi2$ with $\int|G(x+iy)|dx=\Gamma(\beta)(\cos y)^{-\beta}$. The trapezoid rule on $h\Z+\log t$ has error $\le2M(a)/(e^{2\pi a/h}-1)$ uniformly in the shift (cited: Trefethen--Weideman 2014, theorem number to be checked). Truncation costs a geometric tail on each side.
+
+\whyworks{a completely monotone kernel is a mixture of exponentials, so memory becomes a continuum of ordinary equations; a quadrature in $\log\lambda$ converges geometrically for $t^{-\beta}$.}
+\end{proof}
+\uses{B98.}
+
+\begin{dimcard}{B102}{DICT-RIT1, N3}{A delay is a transport, and not a finite ODE system}{\pw}{ch:dictionary}
+\textbf{(RIT-1)} For $u\in C^1([-\tau,T])$ the function $w(t,\theta)=u(t-\theta)$ is the unique $C^1$ solution of $w_t+w_\theta=0$, $w(t,0)=u(t)$, $w(0,\theta)=u(-\theta)$, and $u(t-\tau)=w(t,\tau)$. So $F(u,u',u(\cdot-\tau))=0$ is a local system in $(u,w)$ with the history as datum.
+
+\textbf{(N3)} Let $\mathcal R$ be the input--output maps $H=D\delta+h*$, $h(t)=Ce^{At}B$, of finite-dimensional constant-coefficient systems. (a) On $L^2(\R)$: $\mathrm{dist}(S_\tau,\mathcal R)=1$. (b) On $L^2(0,T)$, $T>\tau$: $\mathrm{dist}(S_\tau,\mathcal R)\ge1$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{RIT-1}
+$w(t,\theta)=u(t-\theta)$ satisfies the three conditions. If $\tilde w$ does too, $z=w-\tilde w$ has $z_t+z_\theta=0$, vanishes on $\{\theta=0\}\cup\{t=0\}$, and each characteristic $s\mapsto(t_0+s,\theta_0+s)$ run backwards meets that set; so $z\equiv0$.
+
+\step{2}{N3(a) on the line}
+The symbol of $H\in\mathcal R$ is a proper rational $R(i\omega)$, with $R(i\omega)\to c$ as $|\omega|\to\infty$. The norm is $\sup_\omega|e^{-i\tau\omega}-R(i\omega)|$. For $\omega\ge\omega_0$, $|R-c|<\eta$, and on $[\omega_0,\omega_0+2\pi/\tau]$ the phase $e^{-i\tau\omega}$ takes every value of the unit circle, in particular $-c/|c|$ where $|e^{-i\tau\omega}-c|=1+|c|$. So the sup is $\ge1-\eta$ for every $\eta$. Equality holds for $H=0$.
+
+\step{3}{N3(b) on an interval}
+Take $\varphi\in C^\infty_c((0,T-\tau))$ with support of diameter $<\tau$ and $f_\omega=\varphi e^{i\omega t}$. Then $S_\tau f_\omega$ has support disjoint from that of $f_\omega$, and $\|h*f_\omega\|_{L^2}\le C/\omega\to0$ by integration by parts. So $\|(S_\tau-H)f_\omega\|^2\to\|\varphi\|^2(1+|D|^2)\ge\|f_\omega\|^2$.
+
+\whyworks{a delay is a pure phase of modulus $1$ at every frequency, while a finite-dimensional system tends to a constant at infinity.}
+\end{proof}
+\uses{none.}
+
+\begin{dimcard}{B103}{DICT-CS1}{The fractional Laplacian as a local degenerate system}{\pw}{ch:dictionary}
+Let $0<s<1$, $f\in H^s(\R^d)$, $\varphi_s(r)=\frac{2^{1-s}}{\Gamma(s)}r^sK_s(r)$ ($K_s$ the modified Bessel function) and $\hat U(\xi,y)=\hat f(\xi)\varphi_s(|\xi|y)$. Then $\mathrm{div}(y^{1-2s}\nabla U)=0$ in $\R^d\times(0,\infty)$, $U(\cdot,y)\to f$ in $H^s$, and $-y^{1-2s}\partial_yU(\cdot,y)\to c_s(-\Delta)^sf$ in $H^{-s}$ with $c_s=2^{1-2s}\Gamma(1-s)/\Gamma(s)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{The ODE in $y$}
+In Fourier, $-|\xi|^2\hat U+\hat U_{yy}+(1-2s)y^{-1}\hat U_y=0$; with $r=|\xi|y$, $\phi''+(1-2s)r^{-1}\phi'-\phi=0$. Putting $\phi=r^sg$ gives the modified Bessel equation of order $s$, whose bounded decaying solution is $r^sK_s$. Since $K_s(r)\sim\frac{\Gamma(s)}2(r/2)^{-s}$ as $r\to0$, $\varphi_s(0^+)=1$.
+
+\step{2}{Trace}
+$\varphi_s'=-\frac{2^{1-s}}{\Gamma(s)}r^sK_{1-s}<0$, so $0\le\varphi_s\le1$ decreases to $1$ at $0$; dominated convergence gives $U(\cdot,y)\to f$ in $H^s$.
+
+\step{3}{Neumann data}
+$-y^{1-2s}\partial_y\hat U=\frac{2^{1-s}}{\Gamma(s)}|\xi|^{2s}h(|\xi|y)\hat f$ with $h(r)=r^{1-s}K_{1-s}(r)$, decreasing, $h(0^+)=2^{-s}\Gamma(1-s)$. Hence the limit is $\frac{2^{1-s}}{\Gamma(s)}h(0^+)|\xi|^{2s}\hat f=c_s|\xi|^{2s}\hat f$; dominated convergence in $H^{-s}$.
+
+\whyworks{the non-local symbol $|\xi|^{2s}$ is the Dirichlet-to-Neumann map of a local, degenerate, elliptic equation in one more variable.}
+\end{proof}
+\uses{none.}
+
+\section{The negative theorem and the rank theorem}
+
+\begin{dimcard}{B104}{DICT-N1(iv)(a), N1(v)}{Finite outputs cannot reach every operator, and the generic function has no law}{\pw}{ch:dictionary}
+\textbf{(iv)(a)} A procedure whose outputs are finite strings over a finite alphabet, even as a stabilised limit, emits a countable set of operators; so for all but countably many $c$ it never emits $\partial_t-c\partial_x$ (each identified by suitable solutions, C3-T4).
+
+\textbf{(v)} Let $V_0\subset V_1\subset\cdots$ be finite-dimensional spaces of differential polynomials in $u$ with smooth coefficients, and $B_n=\{u:\exists P\in V_n\setminus0,\ P[u]=0\}$. Then $B_n$ is closed and nowhere dense, $\bigcup B_n$ is meagre, and each $B_n$ (so the union) is Haar-null in the sense of prevalence (shy). Taking $V_n$ = all differential polynomials of order, degree and coefficient degree $\le n$, the set of differentially algebraic functions over $\C(y)$ is meagre and shy: the generic $u$ is differentially transcendental.
+\end{dimcard}
+
+\begin{proofidea}
+The linear case needs a function $w$ for which the atoms become independent. For the non-linear case, add $sw$ with $s$ large: the highest-degree parts dominate and a determinant becomes a non-zero polynomial in $s$, so only finitely many $s$ can give a law.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(iv)(a)}
+Finite strings are countable, a stabilised sequence has a limit string, and the image of a countable set is countable.
+
+\step{2}{Lemma ND}
+Let $D_1,\dots,D_M$ be linear differential operators, independent over $\C$ on an open set $U$. Then there is $w\in C^\infty_c(U)$ with $D_1w,\dots,D_Mw$ independent. Indeed, let $L_i(y):J^r_y\to\C$ be the jet form of $D_i$ at $y$ and $S=\{(L_i(y)(j))_i\}\subset\C^M$. If $\mathrm{span}\,S\ne\C^M$ some $c\ne0$ has $\sum c_iD_i=0$ on $U$. So there are distinct $y_k$ and polynomial jets with an invertible evaluation matrix; $w=\sum_k\chi(\cdot-y_k)p_k$ with disjoint supports works. The same proof gives Lemma ND-NL for differential polynomials independent on $U\times J^r$.
+
+\step{3}{Closed and nowhere dense}
+Take a degree-adapted basis $P_1,\dots,P_M$ of $V_n$ (top-degree parts $P_i^{\rm top}$ independent), $e_i=\deg P_i$. Closedness: if $u_k\to u$ with $\sum c^{(k)}_iP_i[u_k]=0$, $|c^{(k)}|=1$, pass to a convergent subsequence of $c^{(k)}$. By ND-NL choose $w$ with $P_i^{\rm top}[w]$ independent and functionals $\ell_j$ with $\det(\ell_j(P_i^{\rm top}[w]))\ne0$. For any $u$, $p_u(s)=\det(\ell_j(P_i[u+sw]))$ is a polynomial in $s$ of degree $\sum e_i$ with non-zero leading coefficient. If $u+sw\in B_n$ then $p_u(s)=0$: at most $\sum e_i$ values of $s$.
+
+\step{4}{Meagre and shy}
+So $u+sw\notin B_n$ for small $s\ne0$: $B_n$ is nowhere dense, and Baire gives meagre. The probability measure of $sw$, $s$ uniform in $[0,1]$, has $\mu(B_n-u)=0$ for every $u$, so $B_n$ is shy; countable unions of shy sets are shy (Christensen 1972).
+
+\step{5}{The algebraic corollary}
+The differentially algebraic functions are the union over $n$ of the $B_n$ above. They are dense (they contain polynomials) but meagre and shy. Combined with ALG-T1 this is the non-linear form of the trichotomy: a non-linear law exists only for exceptional $u$, and for those exact identification of the equation needs transcendence degree $\infty$.
+
+\whyworks{one direction $w$ makes the dependence between atoms a polynomial identity in $s$, which can vanish only finitely often.}
+\end{proof}
+\uses{A49.}
+
+\begin{dimcard}{B105}{DICT-RANGO}{The rank theorem and its corollaries}{\pw}{ch:dictionary}
+Let $L_\theta=L_0+\sum_{k=1}^K\theta_kT_k$, $\theta\in C^\infty(\Omega,\mathbb F^K)$, $A_u(y)\vartheta=\sum\vartheta_kT_ku(y)$ and $\Phi_u(\theta)=\sum\theta_kT_ku$. A \emph{law} is a $\theta$ with $L_\theta u=0$; the class is \emph{identifiable} (ID-ker) if $\ker\Phi_u=0$.
+(I) The set of laws is empty or $\theta^0+\ker\Phi_u$. (II) $\ker\Phi_u=0$ iff $A_u(y)$ is injective on a dense set. (III) If $A_u(y)$ is surjective at every $y$, a smooth law exists; if $-L_0u(y_0)\notin\mathrm{im}\,A_u(y_0)$, none exists. (IV) If $K\dim_\R\mathbb F>\dim_\R(\text{values})$ the class is never identifiable.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(I)}
+Two laws differ by an element of $\ker\Phi_u$, and conversely.
+
+\step{2}{(II)}
+($\Leftarrow$) $\Phi_u(\theta)=0$ gives $\theta(y)\in\ker A_u(y)=0$ on a dense set, so $\theta=0$. ($\Rightarrow$) The set where $A_u(y)$ has full rank is open (lower semicontinuity of rank). If it is not dense, on some open $U$ the rank is $\le K\dim\mathbb F-1$; where the rank is maximal and constant on an open $U'$, $\ker A_u$ is a smooth vector bundle of rank $\ge1$, with a non-zero local section; a cut-off times it lies in $\ker\Phi_u$.
+
+\step{3}{(III) and (IV)}
+If $A_u(y)$ is onto, $\theta(y)=-A_u^T(A_uA_u^T)^{-1}L_0u$ is smooth and solves $L_\theta u=0$. If $-L_0u(y_0)\notin\mathrm{im}\,A_u(y_0)$ no value of $\theta(y_0)$ works. (IV) is linear algebra on the dimension of the target.
+
+\step{4}{Corollaries}
+(a$'$) All operators of order $\le m$ ($d\ge1$ or $m\ge2$, so $K\ge2$): $K\cdot2>2$, never identifiable; if $u$ has no zeros the coefficient of the term $\alpha=0$ is $u(y)\neq0$, $A_u$ is onto, so every such $u$ has a law: neither identifiable nor falsifiable. (b$'$) Schrödinger with complex $V$: $A_u\vartheta=-\vartheta u$ is injective iff $u(y)\ne0$, so identifiable iff $\mathrm{int}\,Z(u)=\emptyset$. With real $V$ one has $\mathbb F=\R$, values in $\C=\R^2$, identifiable and falsifiable: for $u$ without zeros a law exists iff $\mathrm{Im}((iu_t+u_{xx})/u)\equiv0$; in general only ($\Rightarrow$) holds ($u=x^3$ gives $6/x^2$, real but singular). Transport $u_t=a(t,x)u_x$: identifiable iff $\{u_x\ne0\}$ is dense, $a=u_t/u_x$.
+
+\step{5}{The retracted claim}
+The original N1(vi) (``with $C^\infty(t,x)$ coefficients no operator is identified'') is false: $u=t+x$ in the class $u_t=a(t,x)u_x$ has $A_u=-u_x=-1$, so $a\equiv1$ is the unique law. In the normalised class $(\partial_x,1)$, $u=t-x^2$ has $A_u(0,0)=(0,0)$ and $L_0u(0,0)=1$: no law, so ``every $u$ has a law'' fails too.
+
+\whyworks{identifiability is injectivity of a pointwise linear map; the right axis is the count of unknowns against the dimension of the values, not the size of the class.}
+\end{proof}
+\uses{B77.}
+
+\begin{dimcard}{B106}{DICT-MAG, MAG-NU}{Magnetic case: outside the rank theorem}{\pw}{ch:dictionary}
+The magnetic Schr\"odinger operator $(\nabla-iA)^2$ is not affine in $A$ ($\mathrm{div}\,A$ contains derivatives of the unknown and $|A|^2$ is quadratic). Let $(A,V)$ be a real law for $u$, and $B$ real with $\mathrm{supp}\,B\subset\{u\ne0\}$. Then $(A+B,V+\delta V)$ with $\delta V=-2iB\cdot\nabla u/u-i\,\mathrm{div}B-2A\cdot B-|B|^2$ is a real law iff $\mathrm{div}_x(|u|^2B)=0$. Given $\chi\in C^\infty_c(U)$, $U\subset\{u\ne0\}$, $B=|u|^{-2}(\partial_{x_2}\chi,-\partial_{x_1}\chi,0,\dots)$ gives a second law with $dB\not\equiv0$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{The difference identity}
+Substituting $A+B$ in $(\nabla-iA)^2u$ and subtracting gives $\mathrm{Im}(\delta V)|u|^2=-\mathrm{div}_x(|u|^2B)$. So $\delta V$ is real iff $\mathrm{div}_x(|u|^2B)=0$.
+
+\step{2}{The construction}
+With $k=-|u|^2B=-\nabla^\perp\chi$, $\mathrm{div}\,k=0$: this is B77(a)(b) on $U$. Outside $\mathrm{supp}\,\chi$ one has $B=0$ and $\delta V=0$, so the pair is smooth on all of $J\times\Omega$ even if $u$ has zeros elsewhere.
+
+\step{3}{Different magnetic field}
+The $(1,2)$ component of $dB$ is $-\mathrm{div}_{12}(|u|^{-2}\nabla_{12}\chi)$, not identically zero by the maximum principle for a compactly supported $\chi\ne0$; so the two laws are not gauge-equivalent (B76).
+
+\whyworks{the counterexample to rank-type uniqueness is the current: only $\mathrm{div}(\rho^2B)=0$ is needed, not $\mathrm{div}\,B=0$.}
+\end{proof}
+\uses{B76, B77.}
+
+\section{Misfit, rank of an atom, change of frame}
+
+\begin{dimcard}{B107}{DICT-MF, B2, R3}{Weak-form certificates, coefficient estimate, exact gain of an atom}{\pw}{ch:dictionary}
+\textbf{(MF3)} (a) $f_0,\dots,f_N\in\mathcal D'(\Omega)$ are independent iff some $\det(\langle f_i,\psi_j\rangle)\ne0$ with $\psi_j$ in a fixed countable dense set $\Psi\subset C^\infty_c$. (b) $\langle D_iu,\psi\rangle=\langle u,D_i^t\psi\rangle$ uses no derivative of $u$. (c) If $|\langle\tilde u-u,D_i^t\psi_j\rangle|\le\delta_{ij}$, then $\sigma_{N+1}(A(u))\ge\sigma_{N+1}(A(\tilde u))-\|\delta\|_F$. (d) With an oracle for the integrals, the search over $\Psi$ terminates iff there is homogeneous misfit.
+
+\textbf{(MF-C)} For a compact convex $B\subset\C^N$: $\min_{c\in B}\|D_0u+\sum c_iD_iu\|=\max_{\|\phi\|\le1}\min_{c\in B}\mathrm{Re}\,\phi(\cdot)$; a cone constraint $Ac=b$, $c\ge0$ is infeasible iff $A^Tz\ge0$, $b^Tz<0$ for some $z$.
+
+\textbf{(B2)} If $\lambda_{\min}(G_n')>0$, every $\tilde L_n=D_0+\sum\tilde c_iD_i$ with $\eta=\|\tilde L_nu\|$ has $|c_n-\tilde c_n|\le2\eta/\sqrt{\lambda_{\min}}$.
+
+\textbf{(R3)} $r_{n+1}^2=r_n^2-|\langle\mathrm{res}_n,Du\rangle|^2/\|P_W^\perp Du\|^2$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{MF3}
+(a) ($\Leftarrow$) a relation makes the columns dependent. ($\Rightarrow$) otherwise the image of $\psi\mapsto(\langle f_i,\psi\rangle)_i$ is a proper subspace, orthogonal to some $c\ne0$, and $\sum\bar c_if_i=0$. Continuity of $\det$ in $\psi$ allows $\psi_j\in\Psi$. (b) is the definition of distributional derivative. (c) is Weyl's inequality $|\sigma_k(A)-\sigma_k(B)|\le\|A-B\|_2\le\|A-B\|_F$. (d) With misfit some determinant is non-zero and interval arithmetic excludes $0$ at finite precision; without misfit all vanish and no interval excludes $0$.
+
+\step{2}{MF-C}
+The functional is affine real in $c$ and in $\phi$, $B$ is compact convex and the dual ball is weak-$*$ compact convex: Sion's minimax theorem gives the equality. The cone case is Farkas' lemma.
+
+\step{3}{B2}
+$\sum(c_n-\tilde c_n)_iD_iu=L_nu-\tilde L_nu$ has norm $\le r_n+\eta\le2\eta$, and $\|\sum\delta c_iD_iu\|^2\ge\lambda_{\min}|\delta c|^2$.
+
+\step{4}{R3}
+Put $e=P_W^\perp Du/\|P_W^\perp Du\|$. The projector onto $W'=W\oplus\C e$ is $P_W+e\,e^*$, so the new residual is $\mathrm{res}_n-\langle\mathrm{res}_n,e\rangle e$, and $\langle\mathrm{res}_n,P_W^\perp Du\rangle=\langle\mathrm{res}_n,Du\rangle$ because $\mathrm{res}_n\perp W$.
+
+\whyworks{each statement is a finite-dimensional linear-algebra identity applied to the vectors $D_iu$.}
+\end{proof}
+\uses{A50.}
+
+\begin{dimcard}{B108}{DICT-R6}{Changing frame with the Volterra encoder}{\pw}{ch:dictionary}
+Let $\Omega=I\times J^\circ$, $J=[x_0-a,x_0+a]$, $q\in C^1(J)$ given, $Q=\|q\|_\infty$, $W=T^{-1}$ the Volterra encoder of ENC-1, $C_W=1+a^2Qe^{a\sqrt Q}$. On the even subring: (a) $W(Lu)=\hat L(Wu)$ for $L=P(\partial_t,L_q)$, $\hat L=P(\partial_t,L_0)$; so $Lu=0\iff\hat L(Wu)=0$. (b) $\|W\|,\|W^{-1}\|\le C_W$ on $C(\bar\Omega)$ and $L^2(\Omega)$. (c) $r^{\rm even}_n(Wu)/\|W\|\le r^q_n(u)\le\|W^{-1}\|r^{\rm even}_n(Wu)$, and the same for $\lambda_{\min}$ with squared constants. (d) A misfit certificate $\psi$ for $Wu$ becomes $\psi\circ W$ for $u$ with $\|\psi\circ W\|\le\|W\|\|\psi\|$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a) Exact intertwining}
+This is ENC-C1 applied to each monomial $\partial_t^jL_q^k$; $W$ commutes with $\partial_t$.
+
+\step{2}{(b) Norms}
+$W=I+V$ with $Vf(x)=\int_{2x_0-x}^xH(x,s)f(s)ds$ and $\|H\|_\infty\le\frac{aQ}2e^{a\sqrt Q}$ (ENC-1). On $C(J)$, $|Vf|\le2a\|H\|_\infty\|f\|_\infty$; on $L^2(J)$, Cauchy--Schwarz gives $|Vf(x)|\le\|H\|_\infty\sqrt{2a}\|f\|_{L^2}$ and integrating over $J$ (length $2a$) $\|Vf\|_{L^2}\le2a\|H\|_\infty\|f\|_{L^2}$. The same for the kernel of $T$. In $t$ take the sup or integrate (Fubini).
+
+\step{3}{(c) Distances}
+From (a), $\|\hat LWu\|=\|WLu\|\le\|W\|\|Lu\|$ and $\|Lu\|=\|W^{-1}\hat LWu\|\le\|W^{-1}\|\|\hat LWu\|$. Take the infimum over $L$; $L\mapsto\hat L$ is a bijection of the affine levels. For Gram matrices compare $\|\sum c_iL_iu\|$ and $\|W\sum c_iL_iu\|$ and take $\min_{|c|=1}$.
+
+\step{4}{(d) Certificates}
+$(\psi\circ W)(L_iu)=\psi(WL_iu)=\psi(\hat L_iWu)$ by (a).
+
+\whyworks{the encoder intertwines the true and the free operator exactly on the even subring, with a controlled distortion of distances.}
+\end{proof}
+\uses{B88, B107.}
+
+\begin{caution}[title=What R6 does not give]
+Odd atoms in $\xi$ have no counterpart at level $q$; a free odd law such as $\xi-ik$ transports only through its minimal even multiple. Finite jets never certify a fit, in any frame: for every $n$ and every finite datum there is $v$ with the same data and no law at level $n$ (B107 together with Theorem~A, and a Baire step for no level at all).
+\end{caution}
+
+\section{Limits, exponential families}
+
+\begin{dimcard}{B109}{DICT-ILIM-H0, NS}{I-LIM with a H\"older modulus; polynomialisation of exponential families}{\pw}{ch:dictionary}
+\textbf{(I-LIM)} Let $\mathcal K_R=\{D_0+\sum_{\alpha\in A}c_\alpha\partial^\alpha:\|c_\alpha\|_{C^{s,1}}\le R\}$ (compact in $C^s$), with (H-ID): there is $L\in\mathcal K_R$, $Lu=0$, unique in $\mathcal K_{R'}$; (H2): approximants $\tilde L_n\in\mathrm{span}\,\mathcal D_n\cap\mathcal K_{R'}$ with $\|\tilde L_n-L\|_{C^s}\le\varepsilon_n\to0$. Then $\omega(\eta)=\sup\{\|L'-L\|_{C^s}:\|L'u\|\le\eta\}\to0$ and every minimiser $L_n$ has $\|L_n-L\|\le\omega(C_u\varepsilon_n)$; with data $\|\tilde u-u\|_{H^m}\le\delta$ the bound is $\omega(C_u\varepsilon_n+2C_{R'}\delta)$. For one coefficient with $|\partial^{\alpha_1}u|\ge\gamma$ and a cone condition, $s=0$: $\omega(\eta)=O(\eta^{2/(N+2)})$.
+
+\textbf{(NS-L1)} If $E[u]$ is a polynomial in the derivatives $\partial^\alpha u$ ($|\alpha|\ge1$) and in $e^{n_j\lambda u}$, then $E[u]=w^{-k}\tilde E[w]$ with $w=e^{\lambda u}$; on a simply connected $\Omega$, $u$ solves $E=0$ iff $w$ solves $\tilde E=0$. \textbf{(NS-T1)} $\mathrm{trdeg}\,\C\langle w\rangle=\infty\iff\mathrm{trdeg}\,\C\langle u\rangle=\infty$. \textbf{(Kink)} For $u=4\arctan e^\theta$, $\theta=ax+t/a$, the dictionary $\{u_{xt},\sin u,u_{xx},u_{tt},u\}$ has kernel of dimension $3$ and the affine kernel has dimension $2$: the kink does not identify sine-Gordon.
+\end{dimcard}
+
+\begin{proofidea}
+I-LIM is a compactness argument: if the modulus did not tend to zero, a limit of near-solutions would be a second solution. The Hölder rate comes from a ball argument for a Lipschitz coefficient. Exponential families become polynomial after substituting $w=e^{\lambda u}$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) The modulus tends to $0$}
+Otherwise there are $\varepsilon_0$ and $L'_j\in\mathcal K_{R'}$ with $\|L'_ju\|\to0$, $\|L'_j-L\|\ge\varepsilon_0$. By compactness $L'_j\to L^*$ in $C^s$; since $(c)\mapsto L'u$ is continuous $C^0\to L^2$, $L^*u=0$ and $\|L^*-L\|\ge\varepsilon_0$, against (H-ID).
+
+\step{2}{(b), (c) Stability}
+$\|L_nu\|\le\|\tilde L_nu\|=\|(\tilde L_n-L)u\|\le C_u\varepsilon_n$, then (a). With noise, $\|L'\tilde u-L'u\|\le C_{R'}\delta$ gives $\|L^\delta_nu\|\le\|\tilde L_n u\|+2C_{R'}\delta$.
+
+\step{3}{H\"older rate}
+For $L'u-Lu=(c'-c)\partial^{\alpha_1}u$, $\|c'-c\|_{L^2}\le\eta/\gamma$. With $f=c'-c$, $\mathrm{Lip}\,f\le2R'$, $M=|f(y_0)|$, on $B_\rho(y_0)\cap\Omega$ with $\rho=\min(M/(4R'),r_0)$ one has $|f|\ge M/2$ so $(\eta/\gamma)^2\ge(M/2)^2\kappa\rho^N$, which gives $M^{N+2}\lesssim(\eta/\gamma)^2$ or $M\lesssim\eta/(\gamma\sqrt{\kappa r_0^N})$. For $s\ge1$ the interpolation inequality is cited (case closed in Phase~10 by an elementary cone lemma).
+
+\step{4}{NS-L1}
+$\partial_iu=\lambda^{-1}\partial_iw/w$; by induction $\partial^\alpha u=\lambda^{-1}P_\alpha[w]/w^{|\alpha|}$ with $P_\alpha$ polynomial, and $e^{n_j\lambda u}=w^{n_j}$. Multiplying by a power of $w$ clears the denominators. Examples: sine-Gordon $u_{xt}=\sin u$ ($\lambda=i$) gives $2(ww_{xt}-w_xw_t)-(w^3-w)=2iw^2(u_{xt}-\sin u)$; Liouville $u_{xt}=e^u$ gives $vv_{xt}-v_xv_t-v^3=v^2(u_{xt}-e^u)$. A bare $u$ cannot occur, since $u=\lambda^{-1}\log w$.
+
+\step{5}{NS-T1}
+With $F_1=\C(\partial^\alpha u:|\alpha|\ge1)$, NS-L1 gives $\C\langle w\rangle=F_1(w)$ and $\C\langle u\rangle=F_1(u)$; adjoining one element changes the transcendence degree by at most $1$.
+
+\step{6}{Kink}
+Writing $U''=\sin U$, the five atoms equal $U'',U'',a^2U'',a^{-2}U'',U$. $U''$ and $U$ are independent (if $\alpha U''+\beta U=0$, then $\theta\to+\infty$ gives $U''\to0$, $U\to2\pi$, so $\beta=0$, then $\alpha=0$). So the span has dimension $2$, the kernel $3$: $u_{xt}-\sin u$, $u_{xx}-a^2u_{xt}$, $u_{tt}-a^{-2}u_{xt}$. With $D_0=u_{xt}$ the affine kernel has dimension $2$.
+
+\whyworks{stability from compactness plus uniqueness; exact polynomialisation because the exponential is a unit of the differential ring.}
+\end{proof}
+\uses{B107, A51.}
+
+\begin{caution}[title=Form of the equation]
+The transfer of ALG-T1 through NS-T1 is valid for \emph{evolutionary} forms (for example sine-Gordon in laboratory coordinates $u_{tt}=u_{xx}+\sin u$); it does not apply to the light-cone form $u_{xt}=\sin u$. The logarithm in the direction $w\mapsto u$ needs $\Omega$ simply connected, or $u$ read modulo $2\pi i/\lambda$.
+\end{caution}
+
+\section{Statements without a written proof}
+
+\listcard{DICT-N1(iv)(b,c)}{(b) exact stabilisation in the BSS model (CONV-T1); (c) ``$\Ann\ne0$'' is verifiable but not decidable in the limit.}{\pw}{Imported from S8-CONV (Chapter~\ref{ch:cIII3}, CONV-T1/T2), \S2.4.}
+\listcard{DICT-2KINK}{The $2$-kink has kernel $1$.}{checked on examples}{numerical rank $4$ for $a_1=\frac12$, $a_2=2$; a proof needs exact independence of $u_{xt},u_{xx},u_{tt},u$ (open question Q6).}
+\listcard{DICT-AX}{Differential Ax--Schanuel.}{from cited source, to be read}{used only in a tool, and only to treat $e^u$ as an independent variable next to the jet.}
+\listcard{DICT-R4, DICT-PAINLEVE}{Heuristic family-change signatures (power law in the residual spectrum $\Rightarrow|D|^s$; exponential correlation in time $\Rightarrow$ memory; phase $e^{-i\tau\omega}\Rightarrow$ delay; concentration near $x_0\Rightarrow$ singular atoms); Painlev\'e as a diagnostic.}{tool}{no theorem, no guarantee depends on it.}
+\listcard{DICT-Q3 (c), (a)}{Test of formal non-membership is insufficient (b, proved); (a) from Malgrange; (c) reformulated as $C^\infty$ division, open.}{(b) \pw; (a) from cited source; (c) \openq}{F10-C.}
+\listcard{DICT-Q4-C}{(1)$\iff$(2) for finite rank \pw; infinite rank implies A(iii) from Amitsur 1965 / Bre\v sar--\v Semrl 1999, then replaced by DICT-LOCDEP in the triage.}{\pw; replaced}{F10-C, F10-TRIAGE.}
+\listcard{DM-$\delta$-MINIMAX = VAR-Q19}{Under $M>\delta_0$ the minimax rate is $\Theta(\varepsilon^{1/3})$ (matching the sharp exponent $1/3$ of A39).}{\pw}{F10-C.}

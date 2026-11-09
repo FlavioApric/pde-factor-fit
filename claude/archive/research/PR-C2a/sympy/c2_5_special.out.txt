@@ -1,0 +1,39 @@
+[OK]   2F1: H[z^k] = k(k-1+c) z^{k-1} - (k+a)(k+b) z^k
+[OK]   2F1: (k+1)(k+c) t_{k+1} = (k+a)(k+b) t_k  per k generico
+[OK]   1F1: K[z^k] = k(k-1+b) z^{k-1} - (k+a) z^k
+[OK]   1F1: (k+1)(k+b) t_{k+1} = (k+a) t_k
+[OK]   0F1: Z[z^k] = k(k-1+b) z^{k-1} - z^k
+[OK]   0F1: (k+1)(k+b) t_{k+1} = t_k
+[OK]   2F1: H_{a,b,c}[z^{1-c} v] = z^{1-c} H_{a-c+1,b-c+1,2-c}[v]
+[OK]   1F1: K_{a,b}[z^{1-b} v] = z^{1-b} K_{a-b+1,2-b}[v]
+[OK]   Jacobi(x=1-2z) = H(a=-n, b=n+alpha+beta+1, c=alpha+1)
+[OK]   Gegenbauer = Jacobi(alpha=beta=lam-1/2)
+[OK]   Legendre associate: gauge (1-x^2)^{m/2} -> Gegenbauer(m+1/2, n-m)
+[OK]   Hermite pari: He[w(x^2)] = 4 Kummer(a=-n/2, b=1/2)[w](x^2)
+[OK]   Laguerre = Kummer(a=-n, b=alpha+1)
+[OK]   Bessel: x^nu 0F1(;nu+1;-x^2/4) e' in ker Bessel (via ODE 0F1)
+[OK]   Airy: sqrt(x) I/K_{1/3}(2/3 x^{3/2}) risolve y'' = x y
+[OK]   Bessel: J_nu in ker x^2D^2+xD+(x^2-nu^2)
+[OK]   Bessel: Y_nu in ker x^2D^2+xD+(x^2-nu^2)
+[OK]   Bessel modificata: x^2 y2+x y1-(x^2+nu^2)y = Bessel[Z](ix) per y=Z(ix)  (I_nu, K_nu)
+[OK]   controllo numerico besseli(1/3, X): residuo = -5.43E-166
+[OK]   controllo numerico besselk(1/3, X): residuo = -1.09E-165
+[OK]   Airy: airyai(X) in ker D^2 - x
+[OK]   Airy: airybi(X) in ker D^2 - x
+[OK]   Legendre P_n, n=0..6
+[OK]   Legendre associate P_n^m, n<=4
+[OK]   Hermite H_n, n=0..6
+[OK]   Laguerre L_n^alpha (alpha simbolico), n=0..5
+[OK]   Chebyshev T_n, U_n, n=0..6
+[OK]   Gegenbauer C_n^lam (n<=4), Jacobi P_n^(a,b) (n<=3), parametri simbolici
+[OK]   T_n(cos th) = cos(n th): Chebyshev = Fourier in theta
+[OK]   Gram Legendre = diag(2/(2n+1))
+[OK]   Gram Hermite (peso e^{-x^2}) = diag(sqrt(pi) 2^n n!)
+[OK]   Gram Laguerre alpha=2 (peso x^2 e^{-x}) = diag(Gamma(n+3)/n!)
+[OK]   Gram Chebyshev T (peso (1-x^2)^{-1/2}) = diag(pi, pi/2, pi/2)
+[OK]   Hermite functions: (-D^2 + x^2) psi_n = (2n+1) psi_n, n=0..5
+[OK]   Sferoidale: S[x^k] = k(k-1)x^{k-2} - (k(k+1)-lambda) x^k - c^2 x^{k+2}  (ricorrenza a 3 termini)
+[OK]   Sferoidale con c=0, lambda=n(n+1): coincide con Legendre
+   sferoidale: serie pari troncata a grado 10, ordine minimo del residuo = 10 (>= 10)
+
+TOTALE: 39/39 OK

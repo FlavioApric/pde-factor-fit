@@ -1,0 +1,8 @@
+N=4 K=7 k=[1, 2, 4, 7] d=1: monomi=9 rango=9 nullita(mod p)=0  [0.0s]
+N=4 K=7 k=[1, 2, 4, 7] d=2: monomi=45 rango=45 nullita(mod p)=0  [0.0s]
+N=4 K=7 k=[1, 2, 4, 7] d=3: monomi=165 rango=165 nullita(mod p)=0  [0.3s]
+N=4 K=7 k=[1, 2, 4, 7] d=4: monomi=495 rango=495 nullita(mod p)=0  [5.5s]
+N=4 K=7 k=[1, 2, 4, 7] d=5: monomi=1287 rango=1287 nullita(mod p)=0  [96.5s]
+N=4 K=7 k=[1, 2, 4, 7] d=6: monomi=3003 rango=2999 nullita(mod p)=4  [1333.2s]
+  => nessuna relazione di grado <= 5 su Q; candidato delta = 6
+EXIT 0

@@ -1,0 +1,6 @@
+(x^3+x)d gradi Y_k: [0, 2, 4, 6, 8, 10, 12, 14] coeff. direttori: [1, -3, 3, 3, 9, 45, 315, 2835] rango 9 su 9
+x^3 d gradi Y_k: [0, 2, 4, 6, 8, 10, 12, 14] coeff. direttori: [1, -3, 3, 3, 9, 45, 315, 2835] rango 9 su 9
+coeff. direttori uguali a quelli di (x^3 d, d): True
+sigma_mu(X) = mu**2*x**3 + x (d)
+t sigma(X) = nu**2*s*x + s*x**3  ; t eps sigma(Y) = eps*nu**3*s
+TUTTO OK

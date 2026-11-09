@@ -1,0 +1,29 @@
+[OK] E1a K: K_xx-K_ss=qK (fino al grado troncato), K(x,-x)=0, K(x,x)=(1/2)int_0^x q  [q complesso]
+[OK] E1b H: H_xx-H_ss=-q(s)H, H(x,-x)=0, H(x,x)=-(1/2)int_0^x q
+[OK] E1c T e^(k.) = soluzione con dati (1,k) in 0, coefficienti di Taylor uguali fino all'ordine 13: L_q T = T L_0 e dati di Cauchy
+[OK] E1d W y = e^(k.) fino all'ordine 13: W = T^(-1) con il nucleo H di ENC-1(3)
+[OK] U1a B = -2 d/dx K(x,-x) (il pacchetto scrive -d/dx K(x,-x): refuso di un fattore 2, conclusione invariata)
+[OK] U1b q=0: I + k0 int_{-x}^{x} commuta con L_0 e (T f)'(0) = f'(0) + 2 k0 f(0)
+[OK] E6 T^(0) e^(ik.)(1/3) - T^(1/5) e^(ik.)(1/3) = 0.0920+0.0119j
+[OK] T2c1 getti in x_0 di T f: unipotenti e con banda j <= n-2, ordini 0..7 (induzione del pacchetto confermata oltre l'ordine 3)
+[OK] T2c2 in x_1 = 1/5 != x_0: j^2 h0 = 0 ma j^2(T h0) = [(5.117810560092859e-05+9.995277327951976e-07j), (0.0007694329030269504+1.7759347988755122e-05j), (0.009657722926116727+0.0002731536373338658j)] != 0 (la prova di (c) vale solo in x_0)
+[OK] T2c3 P(alpha,L_q)(x-x1)^8 = (8!/4!)(x-x1)^4 + ordini superiori: non certificabilita' in ogni punto, senza W
+[OK] T2b generatore: lcm(Q,Q~) se pari, xi*lcm se dispari (Q = xi -> xi^2)
+[OK] A9b2a V=Fx, f gaussiana larga: ||E^mult f|| = 0.6549 > 0.1950 (stima di (b2) FALSA)
+[OK] A9b2b ||E^mult f|| = ||(1 - e^(i(Ft^2 p - 2F^2t^3/3))) f|| = 0.6549 <= Ft^2||f'|| + (2/3)F^2t^3||f|| = 0.6950
+[OK] A9a ||E^mult f|| / (F t^2||f'|| + (2/3)F^2 t^3||f||) = [np.float64(0.96644), np.float64(0.98956), np.float64(0.99965)] -> 1: la costante 2/3 di ENC-A9(a) e' ottimale (V = Fx)
+[OK] AH1 u = e^(-iFtx - iF^2t^3/3) v(t, x+Ft^2) risolve i u_t = -u_xx + Fxu
+[OK] AH2 la formula di F6-ENC NOTE §5 (Ft^2/2, F^2t^3/6) vale per H = -½d² + Fx e non per H = -d² + Fx: errata confermata
+[OK] AH3 fase esatta p^2t + pFt^2 + F^2t^3/3 e differenza con Strang = F^2t^3/12
+[OK] NS1 Avron-Herbst: Phi^-1 d_y Phi = d_x + iFt, Neumann u_x = 0 <=> v_y = iFt v
+[OK] NS2 Avron-Herbst: Phi^-1 d_t Phi = d_t - 2Ft d_x + iFx - iF^2t^2 (coefficienti polinomiali in (t,x), non solo in t)
+[OK] NS3-gauss lente: u risolve i u_t = -½u_xx + ½x²u
+[OK] NS3-onda lente: u risolve i u_t = -½u_xx + ½x²u
+[OK] NS4 lente: u_x = 0 <=> v_y = i x sin t v = i y sin t cos t v
+[OK] NS5 s sqrt(1+tau^2) <= sqrt(1+s^2 tau^2) per s in [0,1]
+[OK] NS6 U_(½)(pi) = U_VAR(pi/2) = -iP: coerente con VAR-T10 (H = -d² + x², periodo pi/2)
+[OK] B4a G(t,z) = trasformata inversa di e^(-itk^2)/(1+k^2) in 4 punti, errore max 5.0e-09
+[OK] B4b G(0+,z) = ½e^(-|z|); |G(t,z)| -> 0 per |z| grande (temperata, decadimento ~1/|z|)
+[OK] FW U = cos th + beta alpha sin th unitario, U H U^+ = beta E con tan 2th = p/m
+
+Totale: 27/27 OK

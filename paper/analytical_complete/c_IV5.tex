@@ -1,0 +1,179 @@
+\chapter[Variable coefficients: more proofs]{Phases 6--8: variable coefficients, the remaining proofs}\label{ch:cIV5}
+\chapterbrief
+{the notation of Chapter~\ref{ch:cIII2}; $K=\C(x)$ with $\partial=d/dx$ and $\mathcal D=K[\partial]$ (a left and right Euclidean ring) for the ODE part; $A_2=\C[t,x]\langle\partial_t,\partial_x\rangle$ (the Weyl algebra) for the last section.}
+{to give the proofs of the results of the variable-coefficient package that were only listed in Chapter~\ref{ch:cIV1}: identification for linear ODEs, dynamical Lie algebras and the P\"oschl--Teller propagator, non-autonomous splitting and Dyson--Phillips, Floquet, and identification in the Weyl algebra.}
+{Dim.~B80--B87. They prove the corresponding statements of Chapter~\ref{PAP-ch:varcoef} of the paper.}
+
+\section{Linear ODEs over $\C(x)$}
+
+\begin{dimcard}{B80}{VAR-T2a}{Elementary identification for ODEs with rational coefficients}{\proved}{}
+Let $u\ne0$ lie in a differential extension of $K$ with constant field $\C$, and $\Ann(u)=\{Q\in\mathcal D:Qu=0\}$.
+\begin{enumerate}[label=(\roman*)]
+\item $\Ann(u)\ne0$ iff $u$ is $D$-finite over $K$; then $\Ann(u)=\mathcal DL_u$ with $L_u$ monic of minimal order (unique).
+\item If $Lu=0$, $u$ identifies $L$ ($\Ann(u)=\mathcal DL$) iff $\mathrm{ord}\,L_u=\mathrm{ord}\,L$ iff $u,u',\dots,u^{(n-1)}$ are linearly independent over $K$ ($n=\mathrm{ord}\,L$).
+\item If $L$ is irreducible in $\mathcal D$, every solution $u\ne0$ identifies $L$.
+\item If $u$ is hyperexponential ($u'/u\in K$), $L_u=\partial-u'/u$ has order $1$: for $\mathrm{ord}\,L\ge2$ no hyperexponential $u$ identifies $L$.
+\item For $\mathrm{ord}\,L=2$: $u$ identifies $L$ iff $u'/u\notin K$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i) A principal left ideal}
+$\mathcal D$ is right Euclidean ($Q=Q'L+R$ with $\mathrm{ord}\,R<\mathrm{ord}\,L$), so every left ideal is principal. $\Ann(u)\ne0$ iff $u$ satisfies an ODE with coefficients in $K$, i.e.\ $u$ is $D$-finite.
+
+\step{2}{(ii)--(iii)}
+$L\in\Ann(u)=\mathcal DL_u$ gives $L=QL_u$, so $\mathrm{ord}\,L_u\le\mathrm{ord}\,L$ with equality iff $Q\in K^\times$ iff $\mathcal DL=\mathcal DL_u$; and $\mathrm{ord}\,L_u$ is the least $m$ with $u^{(m)}\in\mathrm{span}_K(u,\dots,u^{(m-1)})$. If $L=QL_u$ with $\mathrm{ord}\,L_u<\mathrm{ord}\,L$ (and $\mathrm{ord}\,L_u\ge1$ since $u\ne0$), $L$ is reducible: this is (iii).
+
+\step{3}{(iv)--(v)}
+(iv) is direct. (v) By (ii) with $n=2$: $u$ identifies iff $u,u'$ are independent over $K$, i.e.\ $u'/u\notin K$.
+
+\whyworks{the annihilator is the left ideal of the minimal ODE, and a solution identifies a law exactly when it satisfies no equation of lower order.}
+\end{proof}
+\uses{none.}
+
+\begin{example}{$\partial^2$ is not identified}
+For $L=\partial^2$ the solutions are $a+bx$, and $(a+bx)\partial-b$ kills $a+bx$ for each such $u$: the minimal operator has order $1$, so no solution identifies $\partial^2$ (case (iv)).
+\end{example}
+
+\begin{dimcard}{B81}{VAR-E1}{Airy and the oscillator: when every solution identifies}{\proved}{}
+(E1) $L=\partial^2-x$ is irreducible in $\C(x)[\partial]$, so every non-zero solution identifies it. (E2) For $L_E=-\partial^2+x^2-E$, $E\in\C$: $L_E$ is reducible iff $E\in\pm(2\N+1)$; for $E=2n+1$ a solution $u$ identifies $L_E$ iff $u\notin\C h_n$ (the Hermite function).
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(E1) A Riccati equation without rational solution}
+A right factor of order $1$ is $\partial-w$ with $w\in\C(x)$ and $w'+w^2=x$ (Riccati). Since $w'+w^2=x$ has no poles at finite distance, at a pole $a$ of order $r\ge1$ the dominant terms $-rc(x-a)^{-r-1}$ and $c^2(x-a)^{-2r}$ must cancel, which happens only for $r=1$, $c=1$; the exclusion of this case and of polynomial $w$ is carried out in the package \S2.3 (\emph{condensed}). The first draft's argument ``at the poles $w'+w^2$ has a pole, so $w$ is a polynomial'' was false ($w=1/x$ gives $w'+w^2=0$) and was replaced. So $L$ is irreducible; apply B80(iii).
+
+\step{2}{(E2) Rational solutions of the Riccati equation}
+A right factor $\partial-w$ needs $w'+w^2=x^2-E$. Since the right side has no poles, $w=\varepsilon x+\sum_j1/(x-a_j)$ with $\varepsilon=\pm1$ (simple poles of residue $1$; at infinity $w\sim\varepsilon x$), so $u=p(x)e^{\varepsilon x^2/2}$ with $p$ a polynomial. For $\varepsilon=-1$: $p''-2xp'+(E-1)p=0$, which has a non-zero polynomial solution iff $E-1=2n$ (Hermite equation, $p=H_n$ unique up to a scalar); the case $\varepsilon=+1$ gives $E=-(2n+1)$ in the same way.
+
+\step{3}{Which solutions identify}
+For $E\in\pm(2\N+1)$ the only right factor of order $1$ is the one with solution $h_n$; a solution $u$ identifies $L_E$ iff it lies in no proper $G$-stable subspace, i.e.\ iff $u\notin\C h_n$ (B82 with $V$ of dimension $2$).
+
+\whyworks{identification fails exactly when $u$ lies in the solution space of a proper right factor; for Airy there is none, and for the oscillator there is one for the Hermite energies.}
+\end{proof}
+\uses{B80.}
+
+\section{Dynamical Lie algebras and the P\"oschl--Teller propagator}
+
+\begin{dimcard}{B82}{VAR-P8(a,b)}{The Lie algebra generated by $\partial^2$ and $V$ is finite-dimensional only for quadratic $V$}{\pw}{}
+Let $V\in C^\infty(J)$ and $\mathfrak g_V$ the complex Lie algebra generated by $\partial^2$ and $V$ (multiplication) inside the differential operators with $C^\infty$ coefficients. Then $\dim\mathfrak g_V<\infty$ iff $V$ is a polynomial of degree $\le2$. For quadratic $V$, $\mathfrak g_V\subset\mathrm{span}\{\partial^2,x^2,x\partial+\tfrac12,\partial,x,1\}$ (for $V=x^2$, $\mathfrak g_V=\mathrm{span}\{\partial^2,x^2,x\partial+\tfrac12\}\cong\mathfrak{sl}_2$; for affine non-constant $V$ the algebra is solvable, the Stark case). Consequently the Wei--Norman method applies to $i\partial_t=-\partial^2+V$ iff $V\in\mathrm{span}\{1,x,x^2\}$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{($\Leftarrow$) Direct closure}
+$[\partial^2,x^2]=4x\partial+2$, $[\partial^2,x]=2\partial$, $[x\partial,\partial^2]=-2\partial^2$, $[x\partial,x^2]=2x^2$, $[\partial,x]=1$, $[\partial,x^2]=2x$, $[x,\partial^2]=-2\partial$: the span of $\{\partial^2,x^2,x\partial+\tfrac12,\partial,x,1\}$ is closed.
+
+\step{2}{($\Rightarrow$) Growth of the order}
+In finite dimension the order of the elements is bounded by some $m$. Put $c_0=V$, $c_{j+1}=[\partial^2,c_j]$. For a function $c$, $\mathrm{ad}^j_{\partial^2}(c)$ has order $j$ with leading coefficient $2^jc^{(j)}$ (induction on $[\partial^2,a\partial^k]=2a'\partial^{k+1}+\cdots$). So the order $m+1$ would be reached unless $V^{(m+1)}\equiv0$: $V$ is a polynomial of degree $\le m$; then repeated brackets with $V$ and $\partial^2$ raise the degree of the coefficients unless $\deg V\le2$ (growth of degrees $4,5,6,7$ checked for $V=x^3$; $V=e^x$ generates all $e^{kx}$).
+
+\step{3}{Wei--Norman}
+The method needs a finite-dimensional subalgebra containing $\partial^2$ and $V$, hence containing $\mathfrak g_V$; by Step~2 it exists iff $V$ is quadratic. The converse is the classical Wei--Norman method for solvable algebras and $\mathfrak{sl}_2\ltimes\mathfrak{heis}$ (\cf; valid locally in $t$).
+
+\whyworks{every bracket with $\partial^2$ differentiates the coefficient and raises the order by one; a finite-dimensional algebra stops this only for a polynomial of degree at most two.}
+\end{proof}
+\uses{none.}
+
+\begin{dimcard}{B83}{VAR-P8(c,d)}{An explicit propagator for the modified P\"oschl--Teller potential}{\pw}{}
+Let $H_\ell=-\partial^2-\ell(\ell+1)\mathrm{sech}^2x$ on $L^2(\R)$, $U_\ell(t)=e^{-itH_\ell}$, $A_j=\partial+j\tanh x$, $A_j^\dagger=-\partial+j\tanh x$.
+\begin{enumerate}[label=(\roman*)]
+\item $H_j=A_j^\dagger A_j-j^2$ and $A_jA_j^\dagger-j^2=H_{j-1}$; $\ker A_j=\C\,\mathrm{sech}^j$ in $L^2$; $\ker A_j^\dagger\cap L^2=0$.
+\item For $j\ge1$ and $t\in\R$: $U_j(t)=A_j^\dagger U_{j-1}(t)(H_{j-1}+j^2)^{-1}A_j+e^{ij^2t}P_j$, with $P_j$ the orthogonal projector on $\C\,\mathrm{sech}^j$. In particular $U_1(t)=A_1^\dagger e^{it\partial^2}(1-\partial^2)^{-1}A_1+e^{it}\langle\mathrm{sech},\cdot\rangle\mathrm{sech}/2$.
+\item The Jost functions of $H_1$ are $A_1^\dagger e^{ikx}=(\tanh x-ik)e^{ikx}$ (eigenvalue $k^2$), and $-1$ is the only eigenvalue (bound state $\mathrm{sech}$).
+\end{enumerate}
+Moreover (VAR-P8(d)) with $A_1=-i(-\partial^2)$, $A_2=-iV$, $V=-2\mathrm{sech}^2$: $E^{\rm add}(t)=U_1(t)-e^{it\partial^2}-e^{2it\,\mathrm{sech}^2}+I$ in closed form with free ingredients, and for $f\in H^6$, $E^{\rm add}(t)f=\frac{t^2}2(A_1A_2+A_2A_1)f+O(t^3)$ (checked numerically; not proved as an operator identity).
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(i) A computation}
+$A_j^\dagger A_j=-\partial^2-j(\tanh)'+j^2\tanh^2=-\partial^2-j\,\mathrm{sech}^2+j^2(1-\mathrm{sech}^2)=H_j+j^2$, and $A_jA_j^\dagger=-\partial^2+j\,\mathrm{sech}^2+j^2-j^2\mathrm{sech}^2=H_{j-1}+j^2$. Also $A_j\mathrm{sech}^j=-j\,\mathrm{sech}^j\tanh+j\tanh\,\mathrm{sech}^j=0$, while $\ker A_j^\dagger=\C\cosh^j\notin L^2$.
+
+\step{2}{(ii) Intertwining and the bound state}
+Since $H_{j-1}\ge-(j-1)^2$ as quadratic forms, $A_jA_j^\dagger=H_{j-1}+j^2\ge2j-1>0$: $(H_{j-1}+j^2)^{-1}$ is bounded with norm $\le1/(2j-1)$, $\mathrm{Ran}\,A_j^\dagger$ is closed, and $Q=A_j^\dagger(A_jA_j^\dagger)^{-1}A_j$ is the orthogonal projector onto it. From (i), $H_jA_j^\dagger=A_j^\dagger(A_jA_j^\dagger-j^2)=A_j^\dagger H_{j-1}$, so $A_j^\dagger$ intertwines $H_{j-1}$ with $H_j$ on $\mathrm{Ran}\,A_j^\dagger$, giving the first term (\emph{condensed}: the complete argument with domains is in the package \S3.3); on $\ker A_j=\C\,\mathrm{sech}^j$, $H_j=-j^2$, giving $e^{ij^2t}P_j$. Iterating, $U_\ell$ is expressed with the free propagator, free resolvents and multiplications only (Darboux chain; Crum 1955, \cf).
+
+\step{3}{(iii)}
+Direct computation; by (ii), the spectrum of $H_1$ is that of $H_0$ (absolutely continuous $[0,\infty)$) together with $\{-1\}$. Numerically ($N=2048$, periodic box of side $120$) the formula for $U_1$ matches the dense diagonalisation of $e^{-itH_1}$ to $<10^{-8}$ at $t=0.3,1,2.5$, and the iterated formula for $\ell=2$ to $<10^{-7}$.
+
+\whyworks{$A_j$ and $A_j^\dagger$ intertwine $H_j$ and $H_{j-1}$ except for one bound state; each Darboux step removes a bound state and a $\mathrm{sech}^2$ term, so the propagator reduces to the free one.}
+\end{proof}
+\uses{B82.}
+
+\section{Non-autonomous evolution}
+
+\begin{dimcard}{B84}{VAR-P9, VAR-P11}{Non-autonomous interaction at second order, and Dyson--Phillips}{\proved}{}
+Let $A_1,A_2\in C([0,T];\mathcal L(X))$, $U_A$ the solution of $U'=AU$, $U(0)=I$, $E^{\rm mult}=U_{A_1+A_2}-U_{A_1}U_{A_2}$, $a(t)=\int_0^t(\|A_1\|+\|A_2\|)$.
+\begin{enumerate}[label=(\alph*)]
+\item $E^{\rm mult}(t)=\iint_{t>s_1>s_2>0}[A_2(s_1),A_1(s_2)]\dd s_2\dd s_1+R(t)$, $\|R(t)\|\le2\sum_{n\ge3}a(t)^n/n!$.
+\item $E^{\rm add}(t)=\frac{t^2}2(A_1A_2+A_2A_1)(0)+o(t^2)$.
+\item If $[A_1(s),A_2(r)]=0$ for all $s,r$ then $E^{\rm mult}\equiv0$; commuting at equal times is \emph{not} enough: for non-commuting $X,Y$ and bumps $f,g$ with disjoint supports in $[0,\tfrac12)$, $(\tfrac12,1]$ of integral $\tfrac12$, $A_1=fX$, $A_2=gY$ have $[A_1(s),A_2(s)]=0$ but $E^{\rm mult}(1)=e^{Y/2}e^{X/2}-e^{X/2}e^{Y/2}\ne0$.
+\end{enumerate}
+\textbf{(Dyson--Phillips)} Let $A_0$ generate a $C_0$-semigroup $T(t)$, $\|T(t)\|\le Me^{\omega t}$, and $B$ piecewise strongly continuous with $b=\sup\|B\|$. (a$'$) $U=\sum U_n$, $U_0=T(t-s)$, $U_{n+1}(t,s)x=\int_s^tT(t-r)B(r)U_n(r,s)x\dd r$ converges in norm with $\|U_n\|\le Me^{\omega(t-s)}(Mb(t-s))^n/n!$ and solves the mild equation; (b$'$) the strongly continuous mild solution is unique; (c$'$) $U(t,r)U(r,s)=U(t,s)$.
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a)--(b) Compare the Dyson series}
+$U_A(t)=\sum_n\int_{\Delta_n}A(s_1)\cdots A(s_n)$, $\Delta_n=\{t>s_1>\dots>s_n>0\}$, the $n$-th term bounded by $(\int\|A\|)^n/n!$. For $A=A_1+A_2$ the mixed term of degree $2$ is $\iint_{s_1>s_2}(A_1(s_1)A_2(s_2)+A_2(s_1)A_1(s_2))$; in $U_{A_1}U_{A_2}$ it is $(\int A_1)(\int A_2)=\iint_{s_1>s_2}(A_1(s_1)A_2(s_2)+A_1(s_2)A_2(s_1))$. The terms of degree $0,1$ and the pure degree-$2$ terms agree, and the difference of the mixed terms is $\iint_{s_1>s_2}(A_2(s_1)A_1(s_2)-A_1(s_2)A_2(s_1))$, the stated double integral. The remainder is the sum of the terms of degree $\ge3$ of two series, each bounded by $a^n/n!$. (b) is the mixed degree-$2$ term of $U_{A_1+A_2}-U_{A_1}-U_{A_2}+I$.
+
+\step{2}{(c) The counterexample}
+With disjoint supports $A_1(s)A_2(s)=0=A_2(s)A_1(s)$, so $[A_1(s),A_2(s)]=0$, yet $U_{A_1}(1)=e^{X/2}$, $U_{A_2}(1)=e^{Y/2}$ and $U_{A_1+A_2}(1)=e^{Y/2}e^{X/2}$ (first $A_1$ acts, then $A_2$), so $E^{\rm mult}(1)=e^{Y/2}e^{X/2}-e^{X/2}e^{Y/2}\ne0$.
+
+\step{3}{Dyson--Phillips}
+(a$'$) By induction, $\|U_{n+1}(t,s)\|\le\int_s^tMe^{\omega(t-r)}b\,Me^{\omega(r-s)}(Mb(r-s))^n/n!\dd r=Me^{\omega(t-s)}(Mb)^{n+1}(t-s)^{n+1}/(n+1)!$; strong continuity passes by induction, and summing the recursion gives the mild equation. (b$'$) For two solutions $w(t)=(U-\tilde U)(t,s)x$ satisfies $\|w(t)\|\le Mbe^{|\omega|T}\int_s^t\|w\|$, so $w=0$ by Gronwall. (c$'$) is the splitting of the integral at $r$ and uniqueness.
+
+\whyworks{the commutator of the two flows appears first at second order, with its time arguments in the \emph{order} of the time integration; a simultaneous commutator cannot see it.}
+\end{proof}
+\uses{none.}
+
+\begin{dimcard}{B85}{VAR-T10, VAR-P12}{Explicit non-autonomous evolutions; Floquet logarithms}{\pw}{}
+\textbf{(VAR-T10)} (1) For the Stark potential $V=F(t)x$, $F\in C(\R;\R)$: with $p'=F$, $b'=-2p$, $\theta'=-p^2$, $p(0)=b(0)=\theta(0)=0$, the solution is $\psi(t,x)=e^{i\theta(t)}e^{-ip(t)x}\varphi(t,x-b(t))$ with $\varphi=e^{it\partial^2}\psi_0$; hence $U(t)=e^{i\theta}e^{-ipx}T_be^{it\partial^2}$ for every $t$ (class A, global). (3) For $H=-\partial^2+x^2$: $U(t)=c(t)e^{i\gamma x^2}e^{is\partial^2}e^{i\gamma x^2}$ with $\gamma=(\cos2t-1)/(2\sin2t)=-\tfrac12\tan t$, $s=\tfrac12\sin2t$; the chirp--free--chirp word exists iff $M_{12}(t)\ne0$ or $M(t)$ is lower unipotent, i.e.\ iff $\cos t\ne0$ (and at $t\in\pi\Z$, $M=I$); it breaks exactly at odd multiples of $\pi/2$ (where $U=-i\times$parity).
+
+\textbf{(VAR-P12)} Let $H(t)$ be $T$-periodic with evolution $U$. (a) There is a bounded self-adjoint $K$ with $\|K\|\le\pi/T$ and $U(T,0)=e^{-iTK}$, and $P(t)=U(t,0)e^{itK}$ is $T$-periodic. (b) A differential operator with $C^\infty$ coefficients that is bounded on $L^2(J)$ has order $0$. (c) For $V=v(t)$ on $J=\R$: $U(T,0)=e^{-iT\bar v}e^{iT\partial^2}$, the bounded $K$ of (a) is the Fourier multiplier with symbol $\bar v+k^2$ reduced mod $2\pi/T$, which is not differential; the unbounded differential logarithm $K'=-\partial^2+\bar v$ exists. (d) For generic $V(t,x)$ the existence of a differential logarithm is open (general case).
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(T10.1) Direct substitution}
+Insert $\psi$ in $i\psi_t+\psi_{xx}-Fx\psi=0$ and use the free equation for $\varphi$; the terms in $p,b,\theta$ cancel by the three ODEs.
+
+\step{2}{(T10.3) Metaplectic factorisation}
+The Heisenberg equations $x'=2p$, $p'=-2x$ give the symplectic matrix $M(t)=\begin{pmatrix}\cos2t&\sin2t\\-\sin2t&\cos2t\end{pmatrix}$. A matrix $\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2$ factors as lower$\cdot$upper$\cdot$lower unipotent iff $b\ne0$ or it is lower unipotent; here $b=\sin2t$ vanishes iff $t\in\frac\pi2\Z$; at $t\in\pi\Z$, $M=I$ (the trivial word exists), while at odd multiples of $\frac\pi2$, $M=-I$ is not unipotent and the word breaks. Both sides of the stated identity are unitaries implementing the same symplectic transformation, so by Stone--von Neumann and Schur's lemma they differ by a scalar (\cf, Folland).
+
+\step{3}{(P12 a) Spectral theorem}
+$U(T,0)=\int_{(-\pi,\pi]}e^{-i\alpha}\dd E(\alpha)$; put $K=T^{-1}\int\alpha\dd E$, so $\|K\|\le\pi/T$ and $e^{-iTK}=U(T,0)$. By periodicity $U(t+T,0)=U(t,0)U(T,0)$, hence $P(t+T)=U(t,0)e^{-iTK}e^{i(t+T)K}=P(t)$.
+
+\step{4}{(P12 b, c)}
+(b) If $a_m\not\equiv0$ with $m\ge1$, on a compact interval where $|a_m|\ge c>0$ take $f_\xi=\chi e^{i\xi x}$: $\|\sum a_k\partial^kf_\xi\|\ge c|\xi|^m\|\chi\|-O(|\xi|^{m-1})$, unbounded. (c) For $V=v(t)$ the evolution is $e^{i\partial^2t}$ times a scalar phase, so $U(T,0)=e^{-iT\bar v}e^{iT\partial^2}$; in Fourier variables it is multiplication by $e^{-iT(\bar v+k^2)}$, and the principal branch of the logarithm reduces $\bar v+k^2$ modulo $2\pi/T$, a non-polynomial symbol; $K'=-\partial^2+\bar v$ is a differential logarithm.
+
+\whyworks{a bounded logarithm always exists but is non-local; a differential logarithm is unbounded and needs the monodromy to be a function of the free Hamiltonian.}
+\end{proof}
+\uses{B82.}
+
+\section{Identification in the Weyl algebra}
+
+\begin{dimcard}{B86}{VAR-C3Q2}{Identification when the coefficients are polynomials in $t,x$}{\proved}{}
+Let $A_2=\C[t,x]\langle\partial_t,\partial_x\rangle$, $B=\C[t,x]\langle\partial_x\rangle$, $L=\partial_t^m+\sum_{j<m}M_j\partial_t^j$ with $M_j\in B$, $u$ real-analytic with $Lu=0$.
+\begin{enumerate}[label=(\alph*)]
+\item (Division) every $Q\in A_2$ is uniquely $Q=Q'L+\sum_{j<m}R_j\partial_t^j$ with $R_j\in B$.
+\item $\Ann(u)=A_2L$ iff $u,\partial_tu,\dots,\partial_t^{m-1}u$ are $B$-linearly independent.
+\item For $m=1$: $\Ann(u)=A_2L$ iff $u$ is not $D$-finite over $\C(t,x)$.
+\item If $u$ is $D$-finite, $\Ann(u)\ne A_2L$ for every $m$. In particular the heat kernel $(1+4t)^{-1/2}e^{-x^2/(1+4t)}$ identifies $\partial_t-\partial_x^2$ in $\C[\partial_t,\partial_x]$ (it is not exponential-polynomial) but \emph{not} in $A_2$: $(1+4t)\partial_x+2x$ kills it; likewise $(1+4it)\partial_x+2x$ for free Schr\"odinger.
+\item (Existence for free Schr\"odinger) with $\chi\in C_c^\infty((-1,1))\ne0$ and $\hat g(k)=\sum_{n\ge1}e^{-n^2}\chi(2^{n+2}(k-1/n))$, $u=\int\hat g(k)e^{ikx-itk^2}\dd k$ is entire, solves $iu_t+u_{xx}=0$, and $\Ann_{A_2}(u)=A_2(\partial_t-i\partial_x^2)$.
+\item (Non-constant leading coefficient) for $L=x\partial_t$, $\Ann(u)\supsetneq A_2L$ for every $u$: $xu_t=0$ forces $u_t=0$ by continuity, so $\partial_t\in\Ann(u)$, but $\partial_t\notin A_2x\partial_t$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proof}
+\step{1}{(a) Division by a monic operator}
+If $Q=\sum_{k\le K}q_k\partial_t^k$ with $K\ge m$, $q_K\ne0$, subtract $q_K\partial_t^{K-m}L$: since $\partial_t^{K-m}M_j=\sum_i\binom{K-m}i(\partial_t^iM_j)\partial_t^{K-m-i}$ with $\partial_t^iM_j\in B$, it equals $q_K\partial_t^K+$ terms of $\partial_t$-degree $<K$; the degree drops and induction concludes. Uniqueness: $Q'L=\sum R_j\partial_t^j$ with $Q'\ne0$ of $\partial_t$-degree $d$ would have degree $d+m\ge m$ on the left and $<m$ on the right.
+
+\step{2}{(b)--(d)}
+(b) $Q\in\Ann(u)$ iff its remainder $\sum R_j\partial_t^j$ kills $u$; so $\Ann(u)=A_2L$ iff the remainder is zero whenever it kills $u$, i.e.\ iff $B$-independence. (c) For $m=1$ the condition is $Ru=0\Rightarrow R=0$ for $R\in B$, i.e.\ no $R\in\C[t,x]\langle\partial_x\rangle$ kills $u$: since $\partial_tu=-M_0u$ and $M_0\in B$, this says exactly that the $\C(t,x)$-span of all derivatives of $u$ is infinite-dimensional, i.e.\ $u$ is not $D$-finite. (d) is (c) for $m=1$ (\emph{condensed}: the package \S5 gives the full argument), and for general $m$ a $D$-finite $u$ has a non-trivial $B$-relation among its $\partial_t$-derivatives. The heat kernel: $u_x=-2x u/(1+4t)$, so $(1+4t)u_x+2xu=0$.
+
+\step{3}{(e) and (f)}
+(e) The weight $\hat g$ is built to make $u$ not $D$-finite (Fourier support in countably many tiny intervals around $1/n$ with super-exponentially small amplitudes); condensed, see the package \S5. (f) as stated.
+
+\whyworks{in $A_2$ the leading coefficient must be a constant (monic form) and the data must not satisfy any ODE with polynomial coefficients: holonomic data, such as stationary states and Gaussian kernels, never identify in $A_2$.}
+\end{proof}
+\uses{B80.}
+
+\begin{caution}[title=Open]
+For $m\ge2$ the criterion (b) is not reduced to an intrinsic property of $u$ (relation with the holonomy of $A_2u$); for non-constant leading coefficient only a saturated statement can be expected (VAR-C3Q2-open). Phase~10 closed a few cases (Chapter~\ref{ch:cIV4}).
+\end{caution}

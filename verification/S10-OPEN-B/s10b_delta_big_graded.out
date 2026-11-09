@@ -1,0 +1,4 @@
+N=5 K=10 k=0 (graduato), gradi <= 7: grado minimo di una relazione omogenea = 6 (peso 12)  [3231.3s]
+  => delta_N(K)(k) >= 6 per ogni k (limite inferiore)
+N=6 K=12: run fermato manualmente il 27/10/2026 alle 20:55, dopo circa 3 h 28 min (avvio 17:27), senza uscita: NON ESEGUITO. Il timeout 7000 non ha avuto effetto sul processo Windows.
+N=6 K=11: NON ESEGUITO (mai avviato).

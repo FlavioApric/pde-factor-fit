@@ -1,0 +1,5 @@
+OK   H1 identita di Miura-Gardner
+OK   H2 Euler(D_F w_n) = 0, n <= 8
+OK   H3 parte quadratica di w_2n = (-1)^(n+1) y_(n-1)^2 mod derivate totali, n <= 5
+OK   H4 omogeneita di peso 2n+2 dei monomi di w_2n, n <= 5
+TOTALE: 4/4 OK

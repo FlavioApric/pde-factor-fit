@@ -1,0 +1,15 @@
+== u0 = sin x  t = 2.0
+PREDICTED Lambda_uv  = 1.2102 (liscio) + 2.7726 (shock) = 3.9828
+PREDICTED Lambda_add = 7.1315 (liscio) + 2.7726 (shock) = 9.9041
+nu=4.0e-03  ||u-v||_1/nu = 3.9941   ||E^add||_1/nu = 9.8714
+nu=2.0e-03  ||u-v||_1/nu = 3.9884   ||E^add||_1/nu = 9.8877
+nu=1.0e-03  ||u-v||_1/nu = 3.9856   ||E^add||_1/nu = 9.8959
+nu=5.0e-04  ||u-v||_1/nu = 3.9842   ||E^add||_1/nu = 9.9000
+forma chiusa (sin, t=2): parte liscia di Lambda_uv = 2[log3 - log(1-2cos b)] = 1.2102, D = b = 1.89549
+[asimmetrico] t=1.5: shock x_s=3.167547, J-=1.0298, J+=1.8895, rho=-0.3035, costante di shock 4log(2cosh(rho/2))=2.8185 (vs 4ln2=2.7726)
+== u0 = sin x + 0.3 cos 2x  t = 1.5
+PREDICTED Lambda_uv  = 1.8482 (liscio) + 2.8185 (shock) = 4.6666
+PREDICTED Lambda_add = 8.9288 (liscio) + 2.8185 (shock) = 11.7472
+nu=2.0e-03  ||u-v||_1/nu = 4.6628   ||E^add||_1/nu = 11.6542
+nu=1.0e-03  ||u-v||_1/nu = 4.6647   ||E^add||_1/nu = 11.6987
+nu=5.0e-04  ||u-v||_1/nu = 4.6657   ||E^add||_1/nu = 11.7221

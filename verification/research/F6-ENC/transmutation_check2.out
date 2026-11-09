@@ -1,0 +1,6 @@
+x = 0.4  L_q T f = 0.143219069127215   T L_0 f = 0.143219069127216   diff = -5.0167e-16
+x = 0.9  L_q T f = -21.2361495413008   T L_0 f = -21.2361495413008   diff = 4.152e-17
+x = 1.3  L_q T f = -36.764514833827   T L_0 f = -36.764514833827   diff = -2.6057e-16
+controllo negativo (nucleo x2): diff = -0.28814
+OK   intertwining L_q T = T L_0 (max diff 5.0167e-16)
+OK   controllo negativo fallisce come atteso

@@ -1,0 +1,31 @@
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = xi^2, l=0, ordini s^0..s^5
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = xi^2, l=1, ordini s^0..s^5
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = xi^2, l=2, ordini s^0..s^5
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = -c xi + beta xi^3, l=0, ordini s^0..s^5
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = -c xi + beta xi^3, l=1, ordini s^0..s^5
+[PASS] C1 P1-L2 serie = d_zeta^l(e^(s a_n)e^(zeta x)), a_n = -c xi + beta xi^3, l=2, ordini s^0..s^5
+[PASS] C2 P1-T2(v) getto formale: u = sum_S prod(S_n-I)u0 fino a t^4, N=3, u0 = f(x) generica
+[PASS] C3a d_zeta^2(e^{t a + zeta x}) risolve u_t = (D d^2 - c d + beta d^3) u
+[PASS] C3b E_add(x^2 e^{zeta x}) = d_zeta^2[e_{>=2}(z(zeta)) e^{zeta x}]
+[PASS] C4a DP e_k = forza bruta per k = 0..7 (N = 7)
+[PASS] C4b numero di coefficienti di Moebius |S|>=2 = 2^N - N - 1 = 120
+[PASS] C5a e^{cx/D} stazionaria (a(c/D) = 0)
+[PASS] C5b E_add = (2 - 2 cosh theta) e^{cx/D}, theta = c^2 t/D
+[PASS] C6a phi_1 = cosh(zeta t) risolve phi'' = zeta^2 phi, phi(0)=1, phi'(0)=0
+[PASS] C6b zeri di cosh: w in i(pi/2 + pi Z) (quindi |t| >= pi/(2|zeta|))
+[PASS] C6c KG m=2, zeta=0: T*_bound = log2/max(1,gamma) <= t* = pi/(2 sqrt(m^2-zeta^2))
+[PASS] C6c KG m=2, zeta=1: T*_bound = log2/max(1,gamma) <= t* = pi/(2 sqrt(m^2-zeta^2))
+[PASS] C6c KG m=2, zeta=3/2: T*_bound = log2/max(1,gamma) <= t* = pi/(2 sqrt(m^2-zeta^2))
+[PASS] C7a Wei-Norman OU: e^{-t x d} e^{g2 d^2} x^n risolve OU, n = 0..6 (g2 intera)
+[PASS] C7b [x d, d^2] = -2 d^2 (ideale span{d^2}: algebra risolubile)
+[PASS] C8 e^{t(E-F)} = rotazione, coordinata di Gauss L21 = -tan t (singolare in pi/2)
+[PASS] C9a X = x^3 d, Y = d: ad_X^k Y = c_k x^(k(a-1)) d, c_k != 0, k = 0..7 (lin. indip., X fuori dallo span)
+[PASS] C9a X = x^4 d, Y = d: ad_X^k Y = c_k x^(k(a-1)) d, c_k != 0, k = 0..7 (lin. indip., X fuori dallo span)
+[PASS] C9b controllo: X = x^2 d (sl2) ha orbita finita di Y = d
+[PASS] C9c d_eps e^{t(X+eps Y)} = e^{tX} sum (-1)^k t^{k+1}/(k+1)! ad_X^k Y (fino a t^6)
+[PASS] C9d det Hankel[t^{i+j+1}/(i+j+1)]_{n} = t^{n^2} det Hilbert_n != 0, n = 1..7
+[PASS] C9e controllo: Hankel 3x3 di una somma di p = 2 esponenziali ha det = 0
+[PASS] C10a e^{-cx/2D}(D d^2 - c d)(e^{cx/2D} w) = D w'' - c^2/(4D) w
+[PASS] C10b u = (1/c) int_0^x e^{-lam(x-y)/c} f(y) dy risolve lam u + c u' = f, u(0) = 0
+
+ESITO: 29/29 PASS

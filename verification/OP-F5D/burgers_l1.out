@@ -1,0 +1,12 @@
+OK   nu=0.01: eps >= 0 (min eps = 2.23e-05)
+OK   nu=0.01: int eps <= 4 pi nu log(tM) (1.069e-02 <= 1.381e-01)
+OK   nu=0.01: ||u-v||_L1 <= 8 pi sqrt(2 nu log(tM)/t) (L1 = 4.0322e-02, L1/nu = 4.03, bound = 2.634e+00)
+OK   nu=0.0025: eps >= 0 (min eps = 1.39e-06)
+OK   nu=0.0025: int eps <= 4 pi nu log(tM) (2.555e-03 <= 3.451e-02)
+OK   nu=0.0025: ||u-v||_L1 <= 8 pi sqrt(2 nu log(tM)/t) (L1 = 1.0827e-02, L1/nu = 4.33, bound = 1.317e+00)
+OK   nu=0.000625: eps >= 0 (min eps = 8.68e-08)
+OK   nu=0.000625: int eps <= 4 pi nu log(tM) (6.335e-04 <= 8.628e-03)
+OK   nu=0.000625: ||u-v||_L1 <= 8 pi sqrt(2 nu log(tM)/t) (L1 = 5.7246e-03, L1/nu = 9.16, bound = 6.586e-01)
+OK   ZS 1-solitone: B_3 + eta^2 B_1 = 0 (Omega = zeta^2+eta^2, beta_2=1, beta_0=eta^2) 
+OK   ZS 1-solitone: nessuna relazione di grado 1 (B_2 != 0) 
+TOTALE 11/11

@@ -1,0 +1,111 @@
+=== A. II-L1 / II-T1: det(tau I - C(xi)) = P, coker ===
+[OK]   det(tau I - C) = P (m=3, coefficienti generici in xi)
+[OK]   C v(tau) - tau v(tau) = -(P) e_m
+[OK]   minore senza 1a colonna e ultima riga = 1 (Smith diag(1,1,P))
+
+=== B. II-P5: normalita della compagna ===
+C C* - C* C (m=2) = Matrix([[-a0*conjugate(a0) + 1, -a1*conjugate(a0) - conjugate(a1)], [-a0*conjugate(a1) - a1, a0*conjugate(a0) - 1]])
+[OK]   p = s^2+s-1: compagna [[0,1],[1,-1]] simmetrica reale, quindi normale
+   autovalori: [-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2]  prodotto lam1*conj(lam2) = -1
+[OK]      lam1*conj(lam2) = -1 (radice quadrata non banale dell'unita)
+[OK]   m=2: con |a0|=1 e 2phi = theta + pi la compagna e normale (ogni r)
+[OK]   m=3: p = s^m - e^(i theta) normale (unitaria)
+[OK]   m=4: p = s^m - e^(i theta) normale (unitaria)
+[OK]   m=3: p = s^3 + s^2/2 - 1 NON normale
+[OK]   somma geometrica: sum_{k<m} z^k = 0 per z = e^{2 pi i/3}, m = 3
+
+=== C. II-T2: proiettori della compagna per fattore, denominatore = risultante ===
+  onda (tau-xi)(tau+xi): Res_tau = 2*xi, U = -1, V = 1
+[OK]     U Q1 + V Q2 = Res con U,V polinomiali  [onda (tau-xi)(tau+xi)]
+[OK]     Pi1^2 = Pi1, Pi1 C = C Pi1  [onda (tau-xi)(tau+xi)]
+[OK]     Pi1 v(tau_1) = v(tau_1), Pi1 v(tau_2) = 0  [onda (tau-xi)(tau+xi)]
+     Pi1 = [[1/2, 1/(2*xi)], [xi/2, 1/2]]; mcm dei denominatori: 2*xi  (atteso: divide Res)
+[OK]     mcm denominatori di Pi1 divide Res  [onda (tau-xi)(tau+xi)]
+  trave (tau - i xi^2)(tau + i xi^2): Res_tau = 2*I*xi**2, U = -1, V = 1
+[OK]     U Q1 + V Q2 = Res con U,V polinomiali  [trave (tau - i xi^2)(tau + i xi^2)]
+[OK]     Pi1^2 = Pi1, Pi1 C = C Pi1  [trave (tau - i xi^2)(tau + i xi^2)]
+[OK]     Pi1 v(tau_1) = v(tau_1), Pi1 v(tau_2) = 0  [trave (tau - i xi^2)(tau + i xi^2)]
+     Pi1 = [[1/2, -I/(2*xi**2)], [I*xi**2/2, 1/2]]; mcm dei denominatori: 2*xi**2  (atteso: divide Res)
+[OK]     mcm denominatori di Pi1 divide Res  [trave (tau - i xi^2)(tau + i xi^2)]
+  calore traslato (tau-xi^2)(tau-xi^2-1): Res_tau = -1, U = -1, V = 1
+[OK]     U Q1 + V Q2 = Res con U,V polinomiali  [calore traslato (tau-xi^2)(tau-xi^2-1)]
+[OK]     Pi1^2 = Pi1, Pi1 C = C Pi1  [calore traslato (tau-xi^2)(tau-xi^2-1)]
+[OK]     Pi1 v(tau_1) = v(tau_1), Pi1 v(tau_2) = 0  [calore traslato (tau-xi^2)(tau-xi^2-1)]
+     Pi1 = [[xi**2 + 1, -1], [xi**4 + xi**2, -xi**2]]; mcm dei denominatori: 1  (atteso: divide Res)
+[OK]     mcm denominatori di Pi1 divide Res  [calore traslato (tau-xi^2)(tau-xi^2-1)]
+  calore/trasporto (tau-xi^2)(tau-xi): Res_tau = xi*(xi - 1), U = -1, V = 1
+[OK]     U Q1 + V Q2 = Res con U,V polinomiali  [calore/trasporto (tau-xi^2)(tau-xi)]
+[OK]     Pi1^2 = Pi1, Pi1 C = C Pi1  [calore/trasporto (tau-xi^2)(tau-xi)]
+[OK]     Pi1 v(tau_1) = v(tau_1), Pi1 v(tau_2) = 0  [calore/trasporto (tau-xi^2)(tau-xi)]
+     Pi1 = [[-1/(xi - 1), 1/(xi*(xi - 1))], [-xi**2/(xi - 1), xi/(xi - 1)]]; mcm dei denominatori: xi*(xi - 1)  (atteso: divide Res)
+[OK]     mcm denominatori di Pi1 divide Res  [calore/trasporto (tau-xi^2)(tau-xi)]
+[OK]   onda: N1(d) u = Res(d_x) u1  (N1 = V Q2)
+[OK]   onda: Q1(d) [N1(d)u] = 0
+[OK]   trave: Q1 w1 = 0, Q2 w2 = 0
+[OK]   trave: N1(d)(w1+w2) = Res(d_x) w1
+[OK]   trave: span{1,x} in ker Q1 ∩ ker Q2 ∩ ker Res(d_x) (ambiguita)
+[OK]   calore traslato: P1 - P2 = 1 (comassimali)
+[OK]   calore traslato: E1 = -P2(d) restituisce esattamente u1 (nessun denominatore)
+
+=== D. II-T4: rami singoli non razionali (monodromia) ===
+[OK]   Pi_+ = (C + sqrt(xi))/(2 sqrt(xi)) idempotente, Pi_+ v(sqrt xi) = v
+   Pi_+ = Matrix([[1/2, 1/(2*sqrt(xi))], [sqrt(xi)/2, 1/2]])  (contiene sqrt(xi): non razionale; polo di ordine 1/2 in xi=0 = Disc)
+   Disc_tau(tau^2 - xi) = 4*xi
+[OK]   Pi_+ + Pi_- = I (proiettore del fattore, razionale)
+
+=== E. II-P6: termini = rango 1, rami non affini, Liouville ===
+[OK]   tau^2 - lambda xi^2: ramo sqrt(lambda) xi non affine in lambda (d^2/dlambda^2 != 0)
+[OK]   C = S - b E21 - a E22 (termini = perturbazioni di rango 1 di S)
+[OK]   det exp(tC) = exp(t tr C) = exp(-a t) (Liouville)
+[OK]   Lie{S, E21, E22} = gl_2 (dim 4)
+[OK]   Lie{S, E21} = sl_2 (dim 3; onda/KG senza smorzamento)
+
+=== F. II-T7: Gauss / Wei-Norman modo per modo, Wronskiani ===
+   exp(tC) onda di Fourier = Matrix([[cos(kappa*t), sin(kappa*t)/kappa], [-kappa*sin(kappa*t), cos(kappa*t)]])
+[OK]   m11 = phi_1(t) = cos(kappa t)
+[OK]   exp(tC) = [[1,0],[l,1]] diag(d1,d2) [[1,u],[0,1]] con l = -kappa tan(kappa t)
+[OK]   il prodotto di Gauss risolve M' = C M (Wei-Norman nella base E21,E11,E22,E12)
+[OK]   m11(exp(tC)) = phi_1 = (r2 e^{r1 t} - r1 e^{r2 t})/(r2 - r1)
+   radici 1,2: phi_1 = 0 a t = [log(2)] (atteso log 2)
+   radici -1,-2: zeri reali di phi_1 in t>0: []
+   radici -1, 2: zeri reali di phi_1 in t>0: []
+[OK]   m=3: minore principale 2x2 di exp(tC) = W(phi_1, phi_2)
+[OK]   m=3: (exp(tC))_{ij} = phi_j^{(i-1)}
+   W(phi1,phi2) per tau^3 - tau = cosh(t) ; phi_1 = 1
+
+=== G. II-P10: star-prodotto di Kohn-Nirenberg = composizione in A_1 ===
+[OK]   sigma(A o B) = sigma(A) * sigma(B)  per A=x**2*xi**3 + xi, B=-3*x**3 + x*xi**2
+[OK]   sigma(A o B) = sigma(A) * sigma(B)  per A=x + xi**2, B=x**2 + xi**2
+[OK]   sigma(A o B) = sigma(A) * sigma(B)  per A=x**3*xi, B=x*xi**4 + 2
+[OK]   star associativo (esempio)
+   [xi^3, x^2]_star = 6*x*xi**2 + 6*xi  ; Poisson {xi^3, x^2} = 6*x*xi**2
+[OK]   parte di grado massimo del commutatore = Poisson (gr A_1 commutativo)
+
+=== H. II-P8: rango del Gram del jet = grado dell'annullatore minimo ===
+[OK]   rank G_4 = 3 = deg p_u
+[OK]   ker G_4 = multipli di p_u di grado <= 4 (dim 2)
+
+=== I. II-T9: vettori ciclici 1 e x su C(x)[d] ===
+[OK]   Ann(1) contiene d; Ann(x) contiene d - 1/x
+[OK]   (d - 1/x) o x = x o d come operatori
+
+=== J. II-T1(i): modulo finito su C[xi] solo se il coefficiente di testa in tau e costante ===
+   calore: forma iniziale sigma_2 = -xi**2 ; sigma_2(1,0) = 0 (t caratteristica) ma C(xi) = (xi^2) 1x1
+[OK]   xi*tau - 1: tau = 1/xi in M, quindi M = C[xi,1/xi] (non finito su C[xi])
+
+TUTTI I CONTROLLI: OK
+
+=== K. complementi: denominatore minimo, Bezout/II-C2, tre fattori ===
+[OK]   Res_tau(tau^2-1, tau^2-1-xi) = xi^2, mentre Q1 - Q2 = xi (generatore di eliminazione)
+   proiettore su V(tau^2-1): mcm denominatori = xi
+[OK]      polo solo in xi = 0 (ascissa di V(Q1) ∩ V(Q2))
+[OK]      Pi1 idempotente e commuta con C
+[OK]   II-C2: (tau-xi^2),(tau-xi^2-xi) stessa forma iniziale ma si incontrano in (0,0)
+   fattore tau - xi: Res = -2*xi**2*(xi - 1), poli di Pi_j: [0, 1]
+   fattore tau + xi: Res = 2*xi**2*(xi + 1), poli di Pi_j: [-1, 0]
+   fattore tau - xi**2: Res = xi**2*(xi - 1)*(xi + 1), poli di Pi_j: [-1, 0, 1]
+[OK]   tre fattori: Pi_1+Pi_2+Pi_3 = I, Pi_i Pi_j = 0
+   radici -1/2 ± 2i: phi_1 = -sin(2*t)*sinh(t/2)/4 + sin(2*t)*cosh(t/2)/4 - cos(2*t)*sinh(t/2) + cos(2*t)*cosh(t/2)
+[OK]   II-T7(e): phi_1 = e^{at}(cos bt - (a/b) sin bt)
+
+TUTTI I CONTROLLI (dopo K): OK

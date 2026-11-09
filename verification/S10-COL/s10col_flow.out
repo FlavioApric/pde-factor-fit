@@ -1,0 +1,29 @@
+[OK] (1) carte: disaccordi Omega vs epigrafico su 24x20000 punti = 0; L max delle carte = 35.32
+[OK] (1b) palle senza lati non adiacenti: min dist vertice-lati non adiacenti = 0.2913 > r = 0.2465
+[OK] (2) ricoprimento: min sum phi_k sul bordo = 1.710e-02
+[OK] (3) kappa: min V.nu = 0.0006; max angolo tra e_k di carte adiacenti = 66.1 gradi
+      t=0.002: min dist(psi_t x, C Omega)/t = 0.0007
+      t=0.005: min dist(psi_t x, C Omega)/t = 0.0007
+      t=0.010: min dist(psi_t x, C Omega)/t = 0.0007
+      t=0.020: min dist(psi_t x, C Omega)/t = 0.0007
+      t=0.030: min dist(psi_t x, C Omega)/t = 0.0007
+      t=0.040: min dist(psi_t x, C Omega)/t = 0.0007
+[OK] (4) inclusione, campo di carta (direzioni al 4%/96% del cono): 9464 punti iniziali, violazioni = 0, c_emp = 0.0007
+      direzioni al 20%/80%: kappa = 0.0031
+      t=0.002: min dist(psi_t x, C Omega)/t = 0.0033
+      t=0.005: min dist(psi_t x, C Omega)/t = 0.0033
+      t=0.010: min dist(psi_t x, C Omega)/t = 0.0033
+      t=0.020: min dist(psi_t x, C Omega)/t = 0.0033
+      t=0.030: min dist(psi_t x, C Omega)/t = 0.0033
+      t=0.040: min dist(psi_t x, C Omega)/t = 0.0034
+[OK] (4b) inclusione, campo di carta (direzioni al 20%/80%): 9464 punti iniziali, violazioni = 0, c_emp = 0.0033
+      campo perturbato: kappa = 0.0020
+      t=0.002: min dist(psi_t x, C Omega)/t = 0.0022
+      t=0.005: min dist(psi_t x, C Omega)/t = 0.0022
+      t=0.010: min dist(psi_t x, C Omega)/t = 0.0022
+      t=0.020: min dist(psi_t x, C Omega)/t = 0.0023
+      t=0.030: min dist(psi_t x, C Omega)/t = 0.0023
+      t=0.040: min dist(psi_t x, C Omega)/t = 0.0023
+[OK] (5) inclusione, campo perturbato con kappa>0: 9464 punti iniziali, violazioni = 0, c_emp = 0.0022
+[OK] (6) controllo negativo: vertice 0 con e_0 invertita: sdist dopo t=0.01 = -9.9945e-03 (<0 atteso)
+ESITO: TUTTO OK

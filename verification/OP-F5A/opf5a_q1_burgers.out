@@ -1,0 +1,24 @@
+(A) t = t* = 1:  (e - nu|log nu|)/nu deve restare limitato
+  nu=1e-03: e/nu=9.4899  |log nu|=6.9078  (e-nu|log nu|)/nu=2.5821
+  nu=3e-04: e/nu=10.6907  |log nu|=8.1117  (e-nu|log nu|)/nu=2.5789
+  nu=1e-04: e/nu=11.7876  |log nu|=9.2103  (e-nu|log nu|)/nu=2.5773
+  nu=3e-05: e/nu=12.9905  |log nu|=10.4143  (e-nu|log nu|)/nu=2.5762
+  nu=1e-05: e/nu=14.0886  |log nu|=11.5129  (e-nu|log nu|)/nu=2.5757
+(B) t < t*: Kato e <= nu TV(log J); e/nu vs min(TV log J, |log nu|)
+  t=0.9, nu=1e-04: e/nu=5.8808  TVlogJ=5.8889  Kato ok=True  min(..)=5.8889
+  t=0.9, nu=1e-05: e/nu=5.8881  TVlogJ=5.8889  Kato ok=True  min(..)=5.8889
+  t=0.99, nu=1e-04: e/nu=10.0472  TVlogJ=10.5866  Kato ok=True  min(..)=9.2103
+  t=0.99, nu=1e-05: e/nu=10.4989  TVlogJ=10.5866  Kato ok=True  min(..)=10.5866
+  t=0.999, nu=1e-04: e/nu=11.5618  TVlogJ=15.2008  Kato ok=True  min(..)=9.2103
+  t=0.999, nu=1e-05: e/nu=13.4219  TVlogJ=15.2008  Kato ok=True  min(..)=11.5129
+(C) t > t*: e/nu - |log nu| (deve restare <= C)
+  nu=1e-04, tau=3.00e-03: e/nu=12.2985  |log nu|=9.2103  diff=3.0881
+  nu=1e-04, tau=1.00e-02: e/nu=12.2921  |log nu|=9.2103  diff=3.0817
+  nu=1e-04, tau=4.00e-02: e/nu=9.3593  |log nu|=9.2103  diff=0.1489
+  nu=1e-04, tau=1.00e-02: e/nu=12.2921  |log nu|=9.2103  diff=3.0817
+  nu=1e-04, tau=5.00e-02: e/nu=8.9099  |log nu|=9.2103  diff=-0.3004
+  nu=1e-05, tau=9.49e-04: e/nu=14.6012  |log nu|=11.5129  diff=3.0883
+  nu=1e-05, tau=3.16e-03: e/nu=14.5913  |log nu|=11.5129  diff=3.0784
+  nu=1e-05, tau=1.26e-02: e/nu=11.6479  |log nu|=11.5129  diff=0.1349
+  nu=1e-05, tau=1.00e-02: e/nu=12.1446  |log nu|=11.5129  diff=0.6317
+  nu=1e-05, tau=5.00e-02: e/nu=8.8891  |log nu|=11.5129  diff=-2.6238

@@ -1,0 +1,2 @@
+[OK] serie troncata di int_{|xi|=1} e^{xi x} dtheta/2pi = 1
+[OK] d/dx 1 = 0: anche xi annulla u, quindi Ann(u)=(tau,xi): supp mu Zariski-denso in V(tau) NON implica Ann(u)=(tau)

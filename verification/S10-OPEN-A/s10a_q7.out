@@ -1,0 +1,19 @@
+OK   Hankel n=1: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=2: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=3: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=4: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=5: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=6: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   Hankel n=7: det = e0^n s^(n^2) det Hilb_n, det Hilb_n != 0
+OK   rango <= p per p=1 (det Hankel (p+1) = 0)
+OK   rango <= p per p=2 (det Hankel (p+1) = 0)
+OK   rango <= p per p=3 (det Hankel (p+1) = 0)
+OK   sigma(d) = d/mu
+OK   sigma(x) = mu x
+OK   sigma(x^3 d) = mu^2 x^3 d (alpha = 2, beta = -1)
+OK   sigma(x^4 d) = mu^3 x^4 d (alpha = 3, beta = -1)
+OK   sigma(x^5 d) = mu^4 x^5 d (alpha = 4, beta = -1)
+OK   tempo X: polinomio in nu
+OK   tempo Y: polinomio in nu con valutazione >= alpha - beta = 3
+OK   alpha = 0: tempo Y = nu * g(s)
+18/18 OK

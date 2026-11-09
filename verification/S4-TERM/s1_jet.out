@@ -1,0 +1,20 @@
+PASS Burgers E^add_2 = -nu(2u'u''+u u''')
+PASS Burgers E^mult_AB_2 = nu u'u''
+PASS Burgers E^mult_BA_2 = -nu u'u''
+PASS E^add_2 = (1/2)(A'B+B'A)
+PASS E^mult_AB_2 = (1/2)(B'A - A'B)
+PASS E^add_1 = 0
+PASS E^mult_AB_1 = 0
+PASS u0=eps sin x: E^add_2 = (3/2)nu eps^2 sin2x
+E^add_3 monomials (deg_u, deg_nu): [(2, 2), (3, 1)]
+PASS E^add_3 only (deg_u,deg_nu) in {(3,1),(2,2)} (words a+b=3, a,b>=1)
+E^add_4 monomials: [(2, 3), (3, 2), (4, 1)]
+PASS E^add_4 only deg_u=b+1, deg_nu=a, a+b=4, a,b>=1
+E^add_3 = nu*(-3*nu*u(x)*Derivative(u(x), (x, 5)) - 9*nu*Derivative(u(x), x)*Derivative(u(x), (x, 4)) - 16*nu*Derivative(u(x), (x, 2))*Derivative(u(x), (x, 3)) + 3*u(x)**2*Derivative(u(x), (x, 4)) + 18*u(x)*Derivative(u(x), x)*Derivative(u(x), (x, 3)) + 12*u(x)*Derivative(u(x), (x, 2))**2 + 18*Derivative(u(x), x)**2*Derivative(u(x), (x, 2)))/6
+number of monomials in E^add_k (k=2,3,4): [2, 7, 17]
+PASS KdVB E^add_2 formula
+KdVB E^add_2 at eps sin x: -epsilon*(5*d*epsilon*cos(2*x) + 2*d*nu*cos(x) - 3*epsilon*nu*sin(2*x))/2
+PASS Fisher E^add_2 = r nu (u'' - u'^2 - 2 u u'')
+Fisher E^mult_AR_2 = nu*r*Derivative(u(x), x)**2
+PASS Fisher E^mult_AR_2 = r nu u'^2
+SUMMARY: 13/13 PASS

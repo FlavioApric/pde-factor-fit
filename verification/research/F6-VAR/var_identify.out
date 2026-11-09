@@ -1,0 +1,26 @@
+OK   oscillatore n=0: V = x^2 dalla soluzione
+OK   oscillatore n=0: h/h = x^2 - (2n+1)
+OK   oscillatore n=0: h'/h razionale (iperesponenziale)
+OK   oscillatore n=1: V = x^2 dalla soluzione
+OK   oscillatore n=1: h/h = x^2 - (2n+1)
+OK   oscillatore n=1: h'/h razionale (iperesponenziale)
+OK   oscillatore n=2: V = x^2 dalla soluzione
+OK   oscillatore n=2: h/h = x^2 - (2n+1)
+OK   oscillatore n=2: h'/h razionale (iperesponenziale)
+OK   oscillatore n=3: V = x^2 dalla soluzione
+OK   oscillatore n=3: h/h = x^2 - (2n+1)
+OK   oscillatore n=3: h'/h razionale (iperesponenziale)
+OK   oscillatore, sovrapposizione h0+h1: V = x^2
+OK   Poschl-Teller l=1: V dalla soluzione
+OK   Poschl-Teller l=1: (d + l tanh) sech^l = 0
+OK   Poschl-Teller l=2: V dalla soluzione
+OK   Poschl-Teller l=2: (d + l tanh) sech^l = 0
+OK   Poschl-Teller l=3: V dalla soluzione
+OK   Poschl-Teller l=3: (d + l tanh) sech^l = 0
+OK   Airy: Ai''/Ai = x
+OK   Airy: V = x da combinazione Ai+2Bi
+OK   Avron-Herbst: psi risolve i psi_t = -psi_xx + x psi
+OK   Avron-Herbst: V = x dalla soluzione onda piana trasformata
+OK   Riccati oscillatore E=1: w=-x soluzione razionale
+OK   Airy: deg(P^2) = 2k pari != 1 = deg x (nessuna parte polinomiale ammissibile)
+25/25 OK

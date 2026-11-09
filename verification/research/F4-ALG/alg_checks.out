@@ -1,0 +1,27 @@
+[OK] C1a heat kernel solves u_t = u_xx
+[OK] C1b deg(d_x^1G/G) = 1
+[OK] C1b deg(d_x^2G/G) = 2
+[OK] C1b deg(d_x^3G/G) = 3
+[OK] C1b deg(d_x^4G/G) = 4
+[OK] C1b deg(d_x^5G/G) = 5
+[OK] C1c (log G)_xxx = 0 as polynomial relation in x-jet
+[OK] C2 Cole-Hopf identity
+[OK] C3a G_nu solves heat
+[OK] C3b u = x/t
+[OK] C3c u = x/t solves Burgers
+[OK] C4a shock solves Burgers
+[OK] C4b Riccati: u_x = u^2/(2 nu) + k u
+[OK] C4c traveling: u_t - nu k u_x = 0 (char. della simmetria in I(u); E costante su x = -nu k t)
+[OK] C5 [D, D_N] = 0 on test polynomial (Burgers)
+[OK] C5 [D, D_N] = 0 on test polynomial (KdV)
+[OK] C6a 1-soliton solves KdV
+[OK] C6b stationary (Novikov N=1): u_xx + 3u^2 - k^2 u = 0
+[OK] C6c traveling: u_t + k^2 u_x = 0
+[OK] C7a 2-soliton solves KdV
+[OK] C7b Novikov N=2: G2 + c1 G1 + c0 u = 0 with c1=-(k1^2+k2^2), c0=k1^2 k2^2
+[OK] C7c rank Jacobian (u,u_x,u_xx)/(E1,E2) = 2 (<= 2 => u,u_x,u_xx alg. dipendenti su C)
+[OK] C8 Miura: KdV[-(v^2+v_x)] = -(2v + d_x) mKdV[v]
+[OK] C9a linear: (d_t - d_x^2)(d_t + d_x)(w1 + w2) = 0
+[OK] C9b nonlinear product F1(u)F2(u) != 0 for u = w1 + w2 (union, not sum)
+
+TOTALE: 25/25 OK

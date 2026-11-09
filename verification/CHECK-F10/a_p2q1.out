@@ -1,0 +1,9 @@
+OK   flusso di log|z| = 2 pi
+OK   flusso di z^n, zbar^n (n != 0) = 0
+OK   *dz = -i dz
+OK   *d log|z| = d arg z
+OK   flusso(f + gbar + c log|z|) = 2 pi c
+OK   log|z|, z^2 armoniche
+OK   delta(Laplaciano) = 1 (ideale = (tau, xi))
+OK   Passo 2': B(y0 + eps e, r_eps) nel sopra-grafico, margine > eps/2 (violazioni: 0)
+8/8 OK

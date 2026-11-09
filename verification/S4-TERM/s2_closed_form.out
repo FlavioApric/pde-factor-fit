@@ -1,0 +1,20 @@
+PASS inviscid: v_t + v v_x = 0
+PASS v_xx = f2/J^3
+PASS delta_t + (v delta)_x = v_xx
+PASS delta(0) = 0
+PASS zeta_t + (v zeta)_x = 0, zeta(0)=f2
+PASS delta - t v_xx = t^2 f1 f2/J^3
+PASS delta - t zeta = -t^2 f1 f2/J^2
+PASS Lagrange inversion: a + t f(a) = x
+PASS t^2 coeff of nu-coefficient of E^add = -(2 u1 u2 + u u3)
+PASS t^3 coeff of nu-coefficient of E^add = nu^1 part of jet E^add_3 (s1)
+PASS t^2 coeff of nu-coeff of E^mult_AB = u1 u2
+PASS t^2 coeff of nu-coeff of E^mult_BA = -u1 u2
+d/dnu E_int^A9(eps^2) at nu=0 : 3*epsilon**2*t**2*sin(2*x)/2
+closed form, eps^2 coefficient (series to t^4): 3*t**2*sin(2*x)/2
+PASS nu-linear part of exact eps^2 E_int (DEVIL) = eps^2 coeff of closed form, to O(t^5)
+closed form, eps^3 coefficient (to t^4): t**3*(17*sin(x)**2 - 12)*sin(x)/2
+sup z/(1+z^2)^2 = 3*sqrt(3)/16  sup z/(1+z^2)^3 = 25*sqrt(5)/216
+PASS sup z/(1+z^2)^2 = 3*sqrt(3)/16
+PASS sup z/(1+z^2)^3 = 25*sqrt(5)/216
+SUMMARY: 15/15 PASS

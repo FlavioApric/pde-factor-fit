@@ -1,0 +1,7 @@
+# PLAN-B — DEVIL-B (secondo revisore, thread DIFESA/ADJUDICATION) · 22/10/2026
+
+1. **Domande.** Per ciascuna obiezione O1–O11 di `ATTACK.md`: difesa migliore di G★′, poi verdetto RISOLTA / PARZIALMENTE RISOLTA (con modifica minima) / NON RISOLTA. Fatti contesi da verificare: O1 (irriducibilità di τ − a(ξ); equazioni della scala L0–L4 con fattori E split per termini entrambi non banali), O3 (dominio/spazio in cui valgono insieme (i) e (ii)), O4 (novità), O6 (elenco dei "D" da declassare). Valutare G★″ con la stessa severità. Proporre la formulazione finale e le scelte che spettano all'utente.
+2. **Skill** (Regola 2, lettura di SKILL.md con Read, nessuno script _vendor eseguito, Codex escluso): `kill-argument` (thread di difesa + adjudication), `scientific-critical-thinking` (dato vs interpretazione, gravità), `math-skill` modo proof (verifiche delle affermazioni contese). SymPy con `.venv\Scripts\python.exe -I`, script in `research\DEVIL\sympy\`.
+3. **Fonti.** ATTACK.md, SYNTHESIS.md §5, REPORT di R2, R4, R5, R8, PR-C2b (e altri dove servono), ROUTES.md, CIT-AUDIT/AUDIT.md, piano §0B (A5–A9, B1–B4, D1). Nessuna ricerca web.
+4. **Scambi.** Solo `inbox/central.md` (DONE DEVIL-B). Nessuno scambio con DEVIL-A (indipendenza).
+5. **Fatto quando** `research\DEVIL\DEFENSE.md` contiene la tabella O1–O11 × verdetto, le verifiche SymPy, la valutazione di G★″ e la formulazione raccomandata.

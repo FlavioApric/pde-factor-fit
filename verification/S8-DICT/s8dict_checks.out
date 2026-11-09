@@ -1,0 +1,29 @@
+OK   A0 U1-a coefficienti da T(m_beta) (triangolare) 
+OK   A1 U2 getto della realizzazione g_{x,j} 
+OK   A2 N2 psi(1)=1, psi(1/2)=psi(2)=0, psi>=0, somma<=1 max somma=1.000000
+OK   A2b N2 separazione = 1 sup=1.000000000000
+OK   A3 U3(c) coda decresce come R^{m-m'} [np.float64(3.1599646145842706), np.float64(3.1622544852674044)]
+OK   A4 Caffarelli-Silvestre: EDO, phi(0)=1, costante di Neumann 
+OK   A5 w(t,theta)=u(t-theta): w_t + w_theta = 0 
+OK   A6 N3 distanza >= 1 (200 razionali casuali + Pade [3/3]) min=1.0029, Pade sup=2.000, Pade su |w|<1: 9.47e-06
+OK   A7 w' = -lambda w + f 
+OK   A7b Caputo: int e^{-lt} l^{a-1}/(G(a)G(1-a)) = t^{-a}/G(1-a) 
+OK   A8 trapezi t^{-beta}: errore relativo <= bound uniforme in t max rel/bound=0.000
+OK   B1 N1(iii) dim R_{<=n} - dim (L)_{<=n} = d(2n+3-d)/2 
+OK   B2 (a') (P - P(u)/u) u = 0 
+OK   B3 (b') K=2: rho_u(phi T2u, -phi T1u) = 0 
+OK   B3b Schrodinger: V_u ha parte immaginaria != 0 => nessuna legge con V reale (falsificabile) V(0.3,0.7)=(0.6776750568070273-0.02491033170632086j)
+OK   B3c Schrodinger: per u stazionario V_u reale = 1 - cos x/(2+cos x) 2/(cos(x) + 2)
+OK   B3d u_t = a(t,x)u_x: a = u_t/u_x (2*t + x**3)/(3*t*x**2 + 1)
+OK   B4 u=t-x^2: (d_t + a d_x + b)u (0,0) = 1 
+OK   B5 N1(v) NL: coeff. di s^{sum e_i} = det(l_j(P_i^top(w))) det=227/777600
+OK   C1 B2 |c_n - c~| <= 2 eta / sqrt(lambda_min) 
+OK   C2 R3 guadagno esatto = <res,Du>^2/|P^perp Du|^2 
+OK   C3 Weyl |sigma_min(A)-sigma_min(A+E)| <= |E| 
+OK   D1 sine-Gordon: 2(w w_xt - w_x w_t) - (w^3-w) = 2i w^2 (u_xt - sin u) 
+OK   D2 Liouville: v v_xt - v_x v_t - v^3 = v^2 (u_xt - e^u) 
+OK   D3 kink: 3 relazioni, rango 2 => nucleo 3 (non identifica) sv=[5.91e+01 2.28e+01 4.32e-15 1.90e-15 4.92e-16]
+OK   D4 getti di u razionali nei getti di w = e^{iu} 
+OK   E1 esponente di interpolazione per scaling theta = 2/(2s+2+N) 2/(N + 2*s + 2)
+
+TOTALE: 27/27 OK

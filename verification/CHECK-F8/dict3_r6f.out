@@ -1,0 +1,9 @@
+PASS T1 m=1: j^1(Vf)(0) = 0 se j^0f(0) = 0
+PASS T1 m=2: j^2(Vf)(0) = 0 se j^1f(0) = 0
+PASS T1 m=3: j^3(Vf)(0) = 0 se j^2f(0) = 0
+PASS T1 m=4: j^4(Vf)(0) = 0 se j^3f(0) = 0
+PASS T1 m=5: j^5(Vf)(0) = 0 se j^4f(0) = 0
+PASS T1 m=6: j^6(Vf)(0) = 0 se j^5f(0) = 0
+PASS T2 in x_1 = 1/2: (Vf)(x_1) != 0 con f nulla vicino a x_1  [valore = 1.911e-02]
+PASS T3 d_t commuta con W
+8/8 PASS

@@ -1,0 +1,11 @@
+OK   theta: w_i = G_theta (1-theta) a_i u (ODE)
+OK   theta: esattezza S_theta u0 + sum w_i = u
+OK   theta: quadratura int_{theta s}^{s} a_i u
+OK   theta: componenti dipendono da theta
+OK   theta: equivarianza (w_i/a_i indipendente da i)
+OK   bilancio violato: d_s w_i = a_i u(s) - theta a_i u(theta s)
+OK   theta=0: bilancio termine per termine
+OK   T6-1: E^(1) = G_1 a_1 sum_{j!=1} u^(j) (ODE)
+OK   T6-1: E^(2) = G_2 a_2 sum_{j!=2} u^(j) (ODE)
+OK   T6-1: E^(3) = G_3 a_3 sum_{j!=3} u^(j) (ODE)
+TOTALE 10/10 OK

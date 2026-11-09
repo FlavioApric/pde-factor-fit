@@ -1,0 +1,411 @@
+\chapter{Nonlinear equations}\label{ch:cI4}
+\chapterbrief
+{scalar evolutions $u_t=\sum_nT_n(u)$ with $T_n$ differential polynomials (Burgers: $T_1=-uu_x$, $T_2=\nu u_{xx}$); smooth periodic data $u_0$; for shocks, the Hopf--Lax and Cole--Hopf representations.}
+{to prove the nonlinear results of the paper: the $t^2$ jet of the interaction, its closed form before the shock, its sizes $\Theta(\nu)$ and $\nu|\log\nu|$ after the shock, the exact sequence of dictionary identification, and the two identification thresholds (Burgers $N$-shocks, KdV $N$-solitons).}
+{Dim.~A25--A31. They prove Chapter~9 of the paper. Three proofs (A27, A28, A31) are long in the research files; here they are given as a complete chain of steps with every key formula, and marked \emph{condensed}.}
+
+\begin{notebox}{Notation for the whole chapter}
+For a differential polynomial $P$ in the jet variables $y_0=u$, $y_1=u_x$, \dots, the \emph{evolutionary derivation} is
+\[
+D_P=\sum_k\partial_x^k(P)\,\frac{\partial}{\partial y_k},
+\]
+so that $D_P(Q)=Q'[P]$, the derivative of $Q$ in the direction $P$. For Burgers with datum $u_0$ on the circle $\mathbb T$ we use the inviscid flow $v=S_B(t)u_0$ (of $-uu_x$ alone), the heat flow $h=S_A(t)u_0$ (of $\nu u_{xx}$ alone), and the Lagrangian map
+\[
+X(t,a)=a+t\,u_0(a),\qquad J(t,a)=1+t\,u_0'(a),\qquad t^*=-\frac{1}{\min u_0'} .
+\]
+\textbf{[F1]} (Lax--Oleinik = Kru\v zkov entropy solution) and \textbf{[F2]} (Hopf's formula for viscous Burgers) are classical \cf; [F2] is proved in the research files, [F1] is Kru\v zkov 1970, Thm.~1 \S3.
+\end{notebox}
+
+%=====================================================================
+\section{The interaction term}
+
+\begin{dimcard}{A25}{S4T-T1}{Jet of the nonlinear interaction}{\proved}{thm:jet}
+Let $\hat S_n(s)=\sum_k\frac{s^k}{k!}D_{T_n}^k$ be the formal flow of $T_n$, $\hat u(s)$ the Taylor series of $u$ at $t_0$, and
+\[
+\hat E^{\mathrm{add}}(s)=\hat u(s)-u_0-\sum_n\big(\hat S_n(s)u_0-u_0\big).
+\]
+\begin{enumerate}[label=(\roman*)]
+\item The coefficient of $s^k/k!$ in $\hat E^{\mathrm{add}}$ is $\sum_{\mathbf w}D_{\mathbf w}u_0$, over the words $\mathbf w=(n_1,\dots,n_k)$ with at least two distinct letters, $D_{\mathbf w}=D_{T_{n_1}}\cdots D_{T_{n_k}}$. In particular
+\[
+[s^2]\,\hat E^{\mathrm{add}}=\frac12\sum_{m\ne n}T_n'[u_0]\big(T_m(u_0)\big).
+\]
+\item For Burgers ($A=\nu u_{xx}$, $B=-uu_x$):
+\[
+[s^2]\,\hat E^{\mathrm{add}}=-\nu\,\big(2u_0'u_0''+u_0u_0'''\big),
+\]
+and for $u_0=\varepsilon\sin x$ this is $\tfrac32\nu\varepsilon^2\sin2x$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+The full flow is the exponential of the \emph{sum} of the derivations. A power of a sum expands over all words in the letters, while each single-term flow is the exponential of one letter. They agree on the constant words, so the difference is exactly the mixed words.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{The Taylor series of the true solution}
+Since $u_t=F(u)=\sum_nT_n(u)$, by induction
+\[
+\partial_t^ku(t_0)=D_F^k\,u_0,\qquad D_F=\sum_nD_{T_n},
+\]
+using that $P\mapsto D_P$ is linear.
+
+\step{2}{Expanding the power of a sum}
+In the associative algebra of operators on differential polynomials,
+\[
+\Big(\sum_nD_{T_n}\Big)^k=\sum_{\mathbf w\in\{1,\dots,N\}^k}D_{\mathbf w}.
+\]
+The constant words $(n,\dots,n)$ contribute $D_{T_n}^ku_0$, which are exactly the Taylor coefficients of $\hat S_n(s)u_0$. What remains is the sum over the mixed words: this is (i).
+
+\step{3}{Order two}
+For $k=2$ the mixed words are the ordered pairs $(m,n)$ with $m\ne n$, and
+\[
+D_{T_m}D_{T_n}u_0=D_{T_m}(T_n)=T_n'[u_0]\big(T_m(u_0)\big).
+\]
+Dividing by $2!$ gives the formula.
+
+\step{4}{Burgers}
+With $A'[w]=\nu w_{xx}$ and $B'[w]=-(u_0w)_x$:
+\[
+A'[B]+B'[A]=-\nu\,(u_0u_0')''-\nu\,(u_0u_0'')'=-\nu\,\big(4u_0'u_0''+2u_0u_0'''\big).
+\]
+Half of it is $-\nu(2u_0'u_0''+u_0u_0''')$. For $u_0=\varepsilon\sin x$,
+\[
+2u_0'u_0''+u_0u_0'''=-3\varepsilon^2\sin x\cos x=-\tfrac32\varepsilon^2\sin2x .
+\]
+
+\whyworks{the single-term flows reproduce exactly the words with one letter, so the interaction is the sum of the mixed words, which start at order two.}
+\end{proof}
+\uses{none.}
+
+\begin{aside}{Why every coefficient is $O(\nu\varepsilon^2)$}
+A word with $a$ letters $A$ and $b$ letters $B$, applied to $u_0=\varepsilon w_0$, has degree $1+b$ in $\varepsilon$ and a factor $\nu^a$. A mixed word has $a,b\ge1$, so every coefficient is $O(\nu\varepsilon^2)$: there is no term of order $\varepsilon$.
+\end{aside}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A26}{S4T-T2}{Closed form before the shock}{\proved}{thm:preshock}
+Let $u_0$ be smooth and real, $0<T<t^*$, $X=X(t,a)$, $J=J(t,a)$. For $t\in[0,T]$,
+\[
+\Eint^{\mathrm{add}}(t,X)=\nu t\Big[\frac{u_0''(a)}{J^2}-u_0''(X)\Big]+R^{\mathrm{add}},
+\]
+with $\|R^{\mathrm{add}}(t)\|_\infty\le\nu^2C(t)$. In the small-data regime $u_0=\varepsilon w_0$, $\varepsilon T\max(-w_0')\le\theta<1$, the remainder is $\le C(\theta,w_0,T)\,\nu^2\varepsilon^2t^3$.
+\end{dimcard}
+
+\begin{proofidea}
+Expand the viscous solution around the inviscid one, $u=v+\nu\delta+O(\nu^2)$. The first-order coefficient $\delta$ solves a linear transport equation along the characteristics, and in Lagrangian coordinates it integrates exactly. Every remainder is controlled by a maximum principle along characteristics, with constants that do not depend on $\nu$ before the shock.
+\end{proofidea}
+
+\begin{proof}
+Two tools are proved in Part~II: the comparison principle \led{S4T-L0} (for $g_t+bg_x+cg-\nu g_{xx}$ with $|c|\le K$, $\|g(t)\|_\infty\le e^{Kt}(\|g(0)\|_\infty+\int_0^t\|Lg\|_\infty)$) and the pre-shock derivative bounds \led{S4T-L1} ($\|\partial_x^jw\|_\infty\le K_j$ on $[0,T]$, independent of $\nu$, for both the viscous and the inviscid solution).
+
+\step{1}{The difference $e=u-v$ is $O(\nu)$}
+Since $uu_x-vv_x=ue_x+v_xe$,
+\[
+e_t+u\,e_x+v_x\,e=\nu\,u_{xx},\qquad e(0)=0 .
+\]
+The comparison principle with $c=v_x$ gives $\|e(t)\|_\infty\le\nu\,\varepsilon_0(t)$, $\varepsilon_0=K_2te^{K_1t}$. Differentiating once and twice gives in the same way $\|e_x\|\le\nu\varepsilon_1$ and $\|e_{xx}\|\le\nu\varepsilon_2$.
+
+\step{2}{The first-order coefficient in Lagrangian form}
+Let $\delta$ solve the linear transport equation
+\[
+\delta_t+(v\,\delta)_x=v_{xx},\qquad \delta(0)=0 .
+\]
+Along $X(t,a)$ we have $J_t=v_x(t,X)\,J$ and $v_{xx}(t,X)=u_0''(a)/J^3$, so
+\[
+\frac{d}{dt}\big(\delta J\big)=J\,v_{xx}=\frac{u_0''(a)}{J^2},\qquad
+\delta(t,X)=\frac{t\,u_0''(a)}{J^2}.
+\]
+
+\step{3}{The second-order remainder}
+$w=e-\nu\delta$ solves $w_t+(vw)_x=\nu e_{xx}-ee_x$, $w(0)=0$. The comparison principle gives $\|w(t)\|_\infty\le\nu^2\rho(t)$ with $\rho=te^{K_1t}(\varepsilon_2+\varepsilon_0\varepsilon_1)$.
+
+\step{4}{The heat flow}
+By Taylor's formula with integral remainder for $h=S_A(t)u_0$,
+\[
+\big\|h(t)-u_0-\nu t\,u_0''\big\|_\infty\le\frac{\nu^2t^2}{2}\,\|u_0''''\|_\infty .
+\]
+
+\step{5}{Assembling}
+$\Eint^{\mathrm{add}}=(u-u_0)-(v-u_0)-(h-u_0)=e-(h-u_0)$, so
+\[
+\Eint^{\mathrm{add}}=\nu\big(\delta-t\,u_0''\big)+w-\big(h-u_0-\nu tu_0''\big),
+\]
+and at $(t,X)$ the first term is $\nu t\big[u_0''(a)/J^2-u_0''(X)\big]$.
+
+\step{6}{The small-data refinement}
+The crude remainder contains $\tfrac{t^2}2\|u_0''''\|$, which is linear in $\varepsilon$. The remainder $\hat w=w-(h-u_0-\nu tu_0'')$ solves
+\[
+\hat w_t+(v\hat w)_x-\nu\hat w_{xx}=\nu^2\partial_x^2\big(\delta-tu_0''\big)-(v\,r_h)_x-e\,e_x,\qquad \hat w(0)=0,
+\]
+and each source term is $O(\nu^2t^2)$ and quadratic in $\varepsilon$: the first by a mixed Taylor expansion in $(t,\lambda)$ for the datum $\lambda u_0$ (it vanishes to second order in $t$ and in $\lambda$), the other two directly. The comparison principle gives the bound $C\nu^2\varepsilon^2t^3$.
+
+\whyworks{before the shock the characteristics do not cross, so the viscous correction is a linear transport along them that integrates in closed form.}
+\end{proof}
+\uses{S4T-L0, S4T-L1 (Part~II), [F2].}
+
+%=====================================================================
+\section{After the shock \emph{(condensed proofs)}}
+
+\begin{notebox}{The Hopf--Lax picture}
+Put $U_0(y)=\int_0^yu_0$ and, for fixed $t$,
+\[
+\Phi_x(y)=U_0(y)+\frac{(x-y)^2}{2t},\qquad m(x)=\min_y\Phi_x(y).
+\]
+\textbf{[F1]}: the inviscid solution is $v(t,x)=(x-a)/t$ with $a$ a minimiser of $\Phi_x$. \textbf{[F2]}: the viscous solution is
+\[
+u(t,x)=\frac{x-\langle y\rangle_x}{t},\qquad \langle f\rangle_x=\frac{\int f(y)\,e^{-\Phi_x(y)/2\nu}\dd y}{\int e^{-\Phi_x(y)/2\nu}\dd y}.
+\]
+So $u-v=(a-\langle y\rangle_x)/t$: the whole difference is the distance between the minimiser and the Gibbs mean at temperature $2\nu$. Hypothesis $(H_t)$: every minimiser has $J>0$, and only finitely many $x_1,\dots,x_K$ (the shocks) have two minimisers $a_i^-<a_i^+$. Put
+\[
+\rho_i=\tfrac12\log\frac{J(a_i^-)}{J(a_i^+)},\qquad \kappa(y)=\frac{t\,u_0''(y)}{J(y)^2}.
+\]
+\end{notebox}
+
+\begin{dimcard}{A27}{OPA-T1}{The interaction after the shock is $\Theta(\nu)$}{\modulo{[F1] Kru\v zkov}}{thm:shock}
+Under $(H_t)$, for fixed $t>0$ and $\nu\to0$,
+\begin{align*}
+\|\Eint^{\mathrm{add}}(t)\|_{L^1(\mathbb T)}&=\nu\Lambda_{\mathrm{add}}+o(\nu),\\
+\Lambda_{\mathrm{add}}&=\int_0^{2\pi}t\,\Big|\frac{u_0''(a(x))}{J(a(x))^2}-u_0''(x)\Big|\dd x+4\sum_{i=1}^K\log\Big(2\cosh\frac{\rho_i}{2}\Big).
+\end{align*}
+If $t>t^*$ then $K\ge1$ and $\Lambda_{\mathrm{add}}\ge4\log2>0$: the order is exactly $\nu$. The estimate is not uniform in $t$ ($\Lambda\to\infty$ as $t\downarrow t^*$).
+\end{dimcard}
+
+\begin{proofidea}
+Away from the shocks the Gibbs measure concentrates at a single minimiser, and Laplace's method gives $u-v=\nu\kappa+O(\nu^{3/2})$. Near a shock it concentrates on two minimisers, with weights given by a logistic function of $(x-x_i)/\nu$. The difference between that smooth step and the sharp jump integrates to $4\nu\log(2\cosh(\rho_i/2))$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Uniform structure (compactness)}
+Under $(H_t)$ there are $\delta,j_0,\eta,r_0>0$ such that: $J\ge j_0$ near every minimiser; away from the shock intervals $(x_i-r_0,x_i+r_0)$ the minimiser $a(x)$ is unique and $\Phi_x-m(x)\ge\eta$ at distance $\ge\delta$ from it; near $x_i$ there are two $C^3$ branches $a_i^\pm(x)$, and
+\[
+\Delta_i(x)=\Phi_x(a_i^+(x))-\Phi_x(a_i^-(x)),\qquad \Delta_i(x_i)=0,\qquad \Delta_i'(x)=-\frac{a_i^+-a_i^-}{t}\le-\frac{4\delta}{t}.
+\]
+
+\step{2}{Laplace with explicit remainders}
+If $\psi(0)=\psi'(0)=0$ and $\lambda\le\psi''\le\Lambda$ near $0$, then with $\langle\cdot\rangle$ the mean for $e^{-\psi/\varepsilon}$,
+\[
+\langle z\rangle=-\varepsilon\,\frac{\psi'''(0)}{2\psi''(0)^2}+O(\varepsilon^{3/2}),\qquad \langle|z|^k\rangle\le m_k\varepsilon^{k/2}.
+\]
+(Integrate by parts twice against $e^{-\psi/\varepsilon}$.) The tails where $\Phi_x-m\ge\eta$ contribute $O(e^{-\eta/4\nu})$.
+
+\step{3}{Smooth region}
+With $\varepsilon=2\nu$, $\psi(z)=\Phi_x(a+z)-m$, $\psi''=J/t$, $\psi'''=u_0''$:
+\[
+u-v=\frac{a-\langle y\rangle_x}{t}=\nu\,\kappa(a(x))+O(\nu^{3/2})
+\]
+uniformly away from the shocks.
+
+\step{4}{Shock layer: logistic weights}
+Near $x_i$, the Gibbs mass splits between the two wells with weight $\sigma=L(\ell(x))$ on the right one, $L(z)=1/(1+e^{-z})$, and
+\[
+\ell(x)=-\frac{\Delta_i(x)}{2\nu}+\rho_i(x)+O(\nu^{1/2}),
+\]
+the term $\rho_i$ coming from the ratio of the two Gaussian widths $\sqrt{J(a^\mp)}$. With $H=\mathbf 1_{x>x_i}$,
+\[
+u-v=\frac{a^+-a^-}{t}\,(H-\sigma)+\nu\kappa(a(x))+R,\qquad |R|\le C\nu|H-\sigma|+C\nu^{3/2}.
+\]
+Since $|H-\sigma|\le Ce^{-2\delta|x-x_i|/t\nu}$, the two pieces overlap only on a set of size $O(\nu|\log\nu|)$ and can be integrated separately.
+
+\step{5}{The layer integral}
+Put $x=x_i+\nu w$. Then $\ell\to D_iw/2+\rho_i$ with $D_i=(a_i^+-a_i^-)/t$, and by dominated convergence
+\[
+\int\frac{a^+-a^-}{t}|H-\sigma|\dd x=2\nu\Big[\int_{-\infty}^0L(z+\rho_i)\dd z+\int_0^\infty\big(1-L(z+\rho_i)\big)\dd z\Big]+o(\nu).
+\]
+Using $\int_{-\infty}^cL=\log(1+e^c)$ and $\int_c^\infty(1-L)=\log(1+e^{-c})$, this is
+\[
+2\nu\log\big((1+e^{\rho_i})(1+e^{-\rho_i})\big)=4\nu\log\Big(2\cosh\frac{\rho_i}{2}\Big).
+\]
+
+\step{6}{From $u-v$ to $\Eint$}
+Summing Steps~3--5 gives $\|u-v\|_{L^1}=\nu\Lambda_{uv}+o(\nu)$. Since $\Eint^{\mathrm{add}}=(u-v)-(h-u_0)$ and $h-u_0=\nu tu_0''+O(\nu^2)$ uniformly (A26, Step~4), the same computation with $\kappa(a(x))-tu_0''(x)$ in place of $\kappa(a(x))$ gives $\Lambda_{\mathrm{add}}$.
+
+\whyworks{at small viscosity the solution is a Gibbs average over the minimisers of the Hopf--Lax functional; a shock is a tie between two minimisers, smoothed into a logistic step of width $\nu$.}
+\end{proof}
+\uses{[F1], [F2]; research file \texttt{work/OP-ANA}, \S2 (Lemmas 1--3).}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A28}{OPF5A-T2}{Uniform rate $\nu|\log\nu|$ across the shock time}{\modulo{[F1] Kru\v zkov}}{thm:uniform}
+\phantomsection\label{dim:OPF5A-T1}%
+Assume the shock is born at a single generic cusp (condition (G$^*$)): $u_0'$ has a unique global minimum at $a^*$, nondegenerate, so that $\kappa_3=u_0'''(a^*)>0$. Then there are $\tau_0,C,\nu_0$ such that, uniformly for $t\in(0,t^*+\tau_0]$ and $\nu\le\nu_0$,
+\[
+\Big|\,\|S(t)u_0-S_B(t)u_0\|_{L^1}-2\nu\log\frac{1}{\max(|t-t^*|,\sqrt\nu)}\Big|\le C\nu .
+\]
+The same holds for $\|\Eint^{\mathrm{add}}\|_{L^1}$. In particular $\sup_t\|\Eint^{\mathrm{add}}\|_{L^1}=\nu|\log\nu|+O(\nu)$, with coefficient exactly $1$. At $t=t^*$ the next term is $\Gamma\nu$, with $\Gamma=\Gamma_{\mathrm{out}}+\log\frac{\kappa_3}{4}+P$ and the universal constant $P=1.188654\ldots$ \led{OPF5A-T1}.
+\end{dimcard}
+
+\begin{proofidea}
+Near the cusp the Hopf--Lax functional is quartic instead of quadratic. The Laplace expansion of A27 still holds outside a shrinking window, and there it integrates to a logarithm of $J$, which vanishes like $\alpha^2$ at the cusp. Inside the window a rescaling turns the problem into a universal tilted double well, whose contribution is $O(\nu)$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Exact expansion of the Gibbs mean}
+Integration by parts on $\R$ gives $\langle\psi'\rangle=0$ and $\langle z\psi'\rangle=2\nu$. With $\psi'(z)=pz+\tfrac q2z^2+\rho_3(z)$, $p=J_t(a)/t$, $q=u_0''(a)$, $|\rho_3|\le C|z|^3$:
+\[
+\langle z\rangle=-\frac{\nu q}{p^2}+E_1,\qquad E_1=\frac{q^2}{4p^2}\langle z^3\rangle+\frac{q}{2p^2}\langle z\rho_3\rangle-\frac{\langle\rho_3\rangle}{p}.
+\]
+
+\step{2}{Geometry of the cusp}
+Write $a=a^*+\alpha$ and $\eta=1-t/t^*$. For $t\le t^*$,
+\[
+\eta+c\alpha^2\le J_t\le\eta+C\alpha^2,\qquad c(z^4+A^2z^2)\le\psi(z)\le C(z^4+A^2z^2),
+\]
+with $A^2=\eta+\alpha^2$, so the Gibbs width is $w=\min(\nu^{1/4},\sqrt\nu/A)$ and $\langle|z|^k\rangle\le C_kw^k$.
+
+\step{3}{Outer region $A\ge\nu^{1/4}$}
+There $p\ge cA^2$, $|q|\le CA$, $|E_1|\le C\nu^{3/2}/A^5$, and with $\dd x=J_t\dd a$,
+\[
+\int_{\mathcal O}|E_1|\dd x\le C\nu^{3/2}\int_{A\ge\nu^{1/4}}A^{-3}\dd\alpha\le C\nu .
+\]
+The main part is $\nu\int t|u_0''|/J_t\dd a$. Near $a^*$, $tu_0''=\partial_aJ_t$, so the integral is a logarithm of $J_t$ between the inner edge ($J_t\asymp\max(\sqrt\nu,\eta)$) and $J_t\asymp1$:
+\[
+\nu\int_{\mathcal O}|\kappa_t|\dd x=2\nu\log\frac{1}{\max(\sqrt\nu,\eta)}+O(\nu).
+\]
+
+\step{4}{Inner region $A<\nu^{1/4}$}
+Its measure in $x$ is $\le C\nu^{3/4}$ and there $|u-v|\le\langle|z|\rangle/t\le C\nu^{1/4}$: contribution $O(\nu)$. Together with Step~3 this proves the formula for $t\le t^*$ (the result \led{OPF5A-T1}).
+
+\step{5}{After the cusp: the normal form}
+For $t=t^*+\tau$ the outer region $|\alpha|\ge K'\sqrt\tau$ works as before and gives $2\nu\log(1/\tau)+O(\nu)$, which is also the lower bound. In the inner region rescale
+\[
+a=a^*+\sqrt\tau A,\qquad x=X_t(a^*)-t\tau^{3/2}\xi,\qquad \Psi_\tau(\xi,A)=\tau^{-2}\big[\Phi_x(a^*+\sqrt\tau A)-\Phi_x(a^*)\big].
+\]
+Then $\Psi_\tau\to\Psi_0=\xi A+\frac{\kappa_3}{24}A^4-\frac{A^2}{2t^{*2}}$ in $C^4$ on compacts: a tilted double well whose global minimisers are nondegenerate. The effective viscosity is $\hat\nu=\nu/\tau^2$, and the A27 estimate applied uniformly to this compact family (\led{OPF5A-L3$'$}) gives
+\[
+\int_{\mathrm{inner}}|u-v|\dd x=\tau^2\int|A_m-\langle A\rangle_\xi|\dd\xi\le\tau^2C\hat\nu=C\nu .
+\]
+
+\step{6}{From $u-v$ to $\Eint$}
+As in A27, Step~6, with $\|h-u_0\|_{L^1}\le2\pi\nu t\|u_0''\|_\infty+O(\nu^2)$.
+
+\whyworks{at the cusp the Lagrangian Jacobian vanishes quadratically, so integrating $|\partial_aJ|/J$ produces exactly one logarithm of $1/\nu$, with coefficient one.}
+\end{proof}
+\uses{A27, [F1], [F2]; research file \texttt{work/OP-F5A} (L2, L3$'$, Lemma U).}
+
+%=====================================================================
+\section{Identification in a dictionary}
+
+\begin{dimcard}{A29}{S4ID-T1}{Dictionary criterion}{\proved}{thm:dict}
+Let $u$ be smooth on an open $\Omega$ and solve $F(u)=0$ with $F=y_t-N(y,y_x,\dots)$. Let $[F]$ be the differential ideal generated by $F$, $V$ a linear space of differential polynomials, $I(u)=\{G:\ G(u)=0\}$, $\psi$ the normal-form map that eliminates $y_t$ and its derivatives using $F$ (so $\ker\psi=[F]$ and $G-\psi(G)\in[F]$), and $\mathcal J_u$ the relations satisfied by $u$ among the remaining jet variables.
+\begin{enumerate}[label=(\alph*)]
+\item $I(u)\cap V=(\psi|_V)^{-1}(\mathcal J_u)$.
+\item The sequence
+\[
+0\to[F]\cap V\to I(u)\cap V\xrightarrow{\ \psi\ }\mathcal J_u\cap\psi(V)\to0
+\]
+is exact; for finite-dimensional $V$, $\dim(I(u)\cap V)=\dim([F]\cap V)+\dim(\mathcal J_u\cap\psi(V))$.
+\item $I(u)\cap V=[F]\cap V\iff\mathcal J_u\cap\psi(V)=0$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+On a solution, every differential polynomial equals its normal form, because their difference lies in $[F]$. So a relation of $u$ is a polynomial whose normal form is a relation among the free jet variables. The part that the equation explains ($[F]$) is the kernel; the part that only $u$ explains is the image.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{(a) Reduction to normal forms}
+For $G\in V$, $G-\psi(G)\in[F]$ vanishes on the solution $u$, so
+\[
+G(u)=\psi(G)(u).
+\]
+Hence $G\in I(u)$ iff $\psi(G)$ vanishes on $u$, that is, $\psi(G)\in\mathcal J_u$.
+
+\step{2}{(b) Exactness}
+The kernel of $\psi$ on $I(u)\cap V$ is $\ker\psi\cap V=[F]\cap V$. By (a) the image lies in $\mathcal J_u\cap\psi(V)$. Conversely, every element of $\mathcal J_u\cap\psi(V)$ is $\psi(G)$ with $G\in V$, and $G\in I(u)$ by (a). The dimension formula follows from exactness.
+
+\step{3}{(c)}
+Read off from (b): the middle term equals the left one iff the right one is zero.
+
+\whyworks{the normal form splits every relation of $u$ into a part forced by the equation and a part forced only by the particular solution.}
+\end{proof}
+\uses{none.}
+
+\begin{caution}[title={The literal statement is false}]
+In a complete dictionary $\mathcal D_{d,k}$, $[F]\cap V$ already contains $\partial_xF$ and other consequences, so ``$I(u)\cap V=\C F$'' fails for every $u$, except in the special case $(d,k)=(2,n)$ \led{S4ID-P1}. The correct statement is (c).
+\end{caution}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A30}{S4ID-T2}{Burgers with $N$ shocks}{\proved}{thm:burgersN}
+Let $F_B=y_t+y_0y_1-\nu y_2$, distinct nonzero $k_1,\dots,k_N$, $E_i=\exp(k_ix+\nu k_i^2t+c_i)$, $\varphi=1+\sum_iE_i$ (nonvanishing on $\Omega$), non-resonance (NR): $\sum_im_i(\nu k_i^2,k_i)\ne0$ for $m\in\Z^N\setminus\{0\}$, and $u=-2\nu\varphi_x/\varphi$. Let $e_m$ be defined by $z\prod_i(z-k_i)=\sum_{m=1}^{N+1}e_mz^m$, $Y_m$ the complete Bell polynomials, and
+\[
+R_N=\sum_{m=1}^{N+1}e_m\,Y_m\Big(-\frac{y_0}{2\nu},\dots,-\frac{y_{m-1}}{2\nu}\Big).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal J_u\cap\C[y_0,\dots,y_{N-1}]=0$.
+\item $\mathcal J_u\cap\C[y_0,\dots,y_N]=R_N\cdot\C[y_0,\dots,y_N]$, with $\deg R_N=N+1$.
+\item In the evolutionary dictionary of order $K=N$ and degree $d$, $u$ identifies Burgers iff $d\le N$; with the conjecture S4ID-K1, now proved as \led{OP-T7}, the same holds for every $K\ge N$.
+\end{enumerate}
+\end{dimcard}
+
+\begin{proofidea}
+By Cole--Hopf, the jet of $w=u/(-2\nu)$ is the sequence of cumulants of a measure with $N$ atoms at the $k_i$ (plus the atom $0$). $N$ atoms leave $N$ free parameters, so the first $N$ jet variables are independent, and the moments of $N+1$ atoms satisfy exactly one linear relation, which in cumulants is $R_N$.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Reduction to formal variables}
+By (NR) the monomials $E^m$ have distinct exponents, so they are linearly independent (A2). Hence $X_i\mapsto E_i$ embeds $\C(X)$ into the meromorphic functions on $\Omega$, intertwining $D(X_i)=k_iX_i$ with $\partial_x$. So $p\in\mathcal J_u$ iff $p$ vanishes on the formal jet of $u=-2\nu\,D\varphi/\varphi$, $\varphi=1+\sum_iX_i$.
+
+\step{2}{Moments}
+Put $p_i=X_i/\varphi$ and $r_j=D^j\varphi/\varphi=\sum_ik_i^jp_i$. The $p_i$ generate $\C(X)$, so they are algebraically independent. From $Dr_j=r_{j+1}-w\,r_j$ with $w=D\varphi/\varphi$, induction gives
+\[
+r_j=Y_j(w,Dw,\dots),\qquad Y_j=w_{j-1}+(\text{polynomial in }w_0,\dots,w_{j-2}).
+\]
+
+\step{3}{(a) Independence}
+By the triangular form, $\C[w,\dots,D^{N-1}w]=\C[r_1,\dots,r_N]$. And $(r_1,\dots,r_N)^{\mathsf T}=V\,(p_1,\dots,p_N)^{\mathsf T}$ with the Vandermonde matrix $V=(k_i^j)$, invertible. So $r_1,\dots,r_N$, hence $w,\dots,D^{N-1}w$, are algebraically independent.
+
+\step{4}{(b) The relation}
+The moments satisfy
+\[
+\sum_{m=1}^{N+1}e_m\,r_m=\sum_ip_i\sum_me_mk_i^m=\sum_ip_i\,k_i\prod_l(k_i-k_l)=0 .
+\]
+So $R_N\in\mathcal J_u$. Only $Y_{N+1}$ contains $w_N$, with coefficient $1$, and $e_{N+1}=1$: $R_N=-y_N/(2\nu)+\beta(y_0,\dots,y_{N-1})$, of degree $N+1$. For $p\in\mathcal J_u\cap\C[y_0,\dots,y_N]$, divide by $R_N$ as a polynomial of degree one in $y_N$: the remainder lies in $\C[y_0,\dots,y_{N-1}]\cap\mathcal J_u=0$ by (a).
+
+\step{5}{(c) The criterion}
+By A29(c), identification in $V=\C y_t\oplus A_{\le d,\le N}$ holds iff $\mathcal J_u\cap A_{\le d,\le N}=0$. By (b) this is the set of multiples of $R_N$ of degree $\le d$, which is zero iff $d<N+1$.
+
+\whyworks{Cole--Hopf turns the $N$-shock solution into a mixture of $N$ exponentials, and $N$ exponentials satisfy exactly one moment relation of order $N$.}
+\end{proof}
+\uses{A2, A29; \led{OP-T7} for $K>N$ (Part~II).}
+
+%---------------------------------------------------------------------
+\begin{dimcard}{A31}{OPF5C-T2}{KdV $N$-solitons: degree $(N+2)2^{N-1}$}{\modulo{Novikov 1974}}{thm:kdv}
+\phantomsection\label{dim:S4ID-T3}%
+For the $N$-soliton of KdV with generic distinct wave numbers ($k\in U_0$), the relations among the jet variables $y_0,\dots,y_N$ form a principal ideal $(\Pi_N)$. Normalising $\Pi_N$ monic in $y_N$:
+\[
+\deg_{y_N}\Pi_N=2^N,\qquad \deg\Pi_N=(N+2)\,2^{N-1}.
+\]
+($N=1,2,3$: degrees $3$, $8$, $20$.) Consequently the evolutionary dictionary of order $N$ and degree $d$ identifies KdV iff $d<(N+2)2^{N-1}$.
+\end{dimcard}
+
+\begin{proofidea}
+The jets of $N$-solitons lie on a variety cut out by Novikov's stationary equations, written in Mumford coordinates. A weighted B\'ezout argument shows that this variety is a free module of rank $2^N$ over the first $N$ jet variables: $y_N$ takes $2^N$ values over each point, one for each choice of signs $k_i\mapsto\pm k_i$. The minimal polynomial of $y_N$ is therefore of degree $2^N$ in $y_N$, and its total degree is read from the weights.
+\end{proofidea}
+
+\begin{proof}
+\step{1}{Principal ideal}
+As in A30, Step~1, reduce to formal variables. The first $N$ jet variables are independent (Vandermonde in $2k_i^2k_i^j$), and $y_0,\dots,y_N$ are $N+1$ elements of a field of transcendence degree $N$. So the ideal of relations in $\C[y_0,\dots,y_N]$ is a nonzero prime of height one, hence principal, $(\Pi_N)$ \led{S4ID-T3(b)}.
+
+\step{2}{Novikov's variety (Nov$'$)}
+In Mumford coordinates $(U,V)$, with $f_k(\lambda)=\lambda\prod_i(\lambda+\kappa_i)^2$, the jets of the $N$-soliton satisfy
+\[
+U\ \big|\ V^2+f_k
+\]
+(Novikov 1974) \cf. The change of variables from jets $(y_0,\dots,y_{2N-1})$ to Mumford coordinates is a weighted triangular automorphism with weights $\mathrm{wt}\,y_j=j+2$ \led{OPF5C-L1}.
+
+\step{3}{A free module of rank $2^N$}
+The $N$ equations of the variety are weighted homogeneous of weights $4N+2-2m$. Their only common zero with $k=0$ and $y_0=\dots=y_{N-1}=0$ is the origin \led{OPF5C-L3}. By the weighted B\'ezout theorem (Hironaka's criterion) the coordinate ring is free over $\C[k,y_0,\dots,y_{N-1}]$ of rank
+\[
+\frac{\prod_{m=0}^{N-1}(4N+2-2m)}{\prod_{j=N}^{2N-1}(j+2)}=\frac{\prod_{i=N+2}^{2N+1}2i}{\prod_{i=N+2}^{2N+1}i}=2^N .
+\]
+
+\step{4}{The $2^N$ branches are distinct}
+Replacing $k_i$ by $\pm k_i$ does not change $f_k$, so the $2^N$ sign choices give $2^N$ local sections of the variety near the zero potential. Their values of $y_N$ have distinct linear parts (the multisets $\{\pm k_i\}$ differ), so the characteristic polynomial $\chi_k$ of multiplication by $y_N$ is squarefree \led{OPF5C-L5}. Hence $\Pi_N=\chi_k$, of degree $2^N$ in $y_N$.
+
+\step{5}{Total degree from the weights}
+Multiplication by $y_N$ has weight $N+2$, so the coefficient of $z^{2^N-i}$ in the universal $\chi$ has weight $i(N+2)$, and every monomial has weight at most $W=(N+2)2^N$. Since $\mathrm{wt}\,y_j\ge2$, the degree is at most $W/2$. The monomial $y_0^{W/2}$ appears with a nonzero constant coefficient, because no point of the rational fibre has jet $(c,0,\dots,0)$ with $c\ne0$ \led{OPF5C-L4}. So $\deg\Pi_N=W/2=(N+2)2^{N-1}$.
+
+\step{6}{The criterion}
+As in A30, Step~5, using A29(c) and Step~1.
+
+\whyworks{each soliton can be read with either sign of its wave number, which gives $2^N$ branches over the jet of order $N-1$, and the weighted grading turns that count into the total degree.}
+\end{proof}
+\uses{A29, A30 (Step~1), Novikov (Nov$'$), Blum-Smith Cor.~2.4.19 (Hironaka criterion); research file \texttt{work/OP-F5C}, \S1.}

@@ -1,0 +1,20 @@
+%--- E16: Section 9, simple explanation of the last part ---------------------
+\begin{explained}{the last section in plain words}
+This section answers three simple questions: what can we \emph{never} do with this method, what do we \emph{not know yet}, and how much can we trust what is written.
+
+\medskip\textbf{1. What is impossible.} These are proved facts, not gaps:
+\begin{itemize}[nosep]
+\item \emph{No finite proof of identification.} If $u$ is not an exponential-polynomial, no finite list of numbers (derivatives at a point, samples) can prove that $\Ann(u)=(P)$, because every finite list can also come from some exponential-polynomial. Example: you can refute ``$u$ is a sum of exponentials'' by finding a derivative that breaks it, but you can never confirm the opposite from finite data.
+\item \emph{No splitting by terms.} Writing the solution as one piece per term of the operator fails: for the wave equation $\partial_t^2-c^2\partial_x^2$ only polynomial solutions split that way (Section~\ref{sec:fact}).
+\item \emph{No stable removal of the interaction.} The interaction term cannot be switched off by a penalty or a regularization.
+\item \emph{No identification with variable coefficients from one solution.}
+\item \emph{No splitting on domains with a hole} (the logarithm example).
+\item \emph{No finite product of single-term flows} reproduces non-commuting dynamics.
+\end{itemize}
+
+\medskip\textbf{2. What is open or conditional.} These are questions the paper cannot answer: KdV data with nonzero reflection coefficient; shock estimates uniform in time with several shock births; density of the sum of kernels on non-convex domains; exact values of an invariant $\delta_N(K)$; nonlinear asymptotics with derivatives; closedness of the sum of kernels for three or more differential factors. ``Open'' means unknown; ``conditional'' means true if an extra lemma holds.
+
+\medskip\textbf{3. How reliable is it.} The paper is honest about this: many ingredients are classical (Nullstellensatz, Malgrange--Ehrenpreis, Cole--Hopf); the novelty is the \emph{package} of sharp statements, negative theorems and counterexamples, each with a status label. The reviewers were AI agents, not human referees; fifteen algebraic theorems were also machine-checked in Lean~4, while the analytic parts (distributions, Sobolev spaces, semigroups) were not, because the library is missing. Some citations were checked only on secondary sources, so before relying on a result one should trace it to its primary source.
+
+\medskip\textbf{Take-home message.} Read the labels: \emph{proved} can be used, \emph{conditional} needs an extra lemma, \emph{open} is unknown, \emph{false} is a counterexample. The method is exact and has precise limits.
+\end{explained}

@@ -1,0 +1,12 @@
+[OK]   P u = 0
+[OK]   Q = (P/P1)·ξ(ξ²+1)(ξ²+4) annulla u
+[OK]   Q non è multiplo di P (resto della divisione per la base di Gröbner {P} ≠ 0)
+[OK]   testimone ingenuo (P/P1)·(τ-τ_z) = P ∈ (P): la scelta della forma lineare conta
+[OK]   dim{Q: deg Q <= 2, Q|_Z = 0} = 2 > 1 = dim(multipli di P in grado <= 2)
+[OK]   esiste Q di grado 2 con Q u = 0 non multiplo di P (uguaglianza nella soglia non basta)
+     esempi: [tau**2 + 5*tau + 4]
+[OK]   con |Z| = 6 > 4: dim = 1 = 1 (solo multipli di P)
+[OK]   P = ξτ non monico: u = t^3+1 (solo modo 0) risolve P u = 0 ma non un'ODE in t fissata da P
+[OK]   P non ridotto (P2^2): I=(P2^2, ξP2) ha V(I)=V(P2) ma P2 ∉ I (l'ipotesi "ridotto" serve)
+
+ESITO GLOBALE: OK

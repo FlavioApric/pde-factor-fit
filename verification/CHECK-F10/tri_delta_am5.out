@@ -1,0 +1,2 @@
+AM N=5 K=10 d<=6: max classe=467; relazioni trovate, grado minimo 6 (peso 12) [26.3s]
+EXIT 0

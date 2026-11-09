@@ -1,0 +1,23 @@
+PASS K1 Tikhonov l2: residuo -> P^perp u per alpha->0
+PASS K1b P u nello span: esiste w con Sw = Pu
+PASS K2a Pi(a-a_n) = -cD xi^3
+PASS K2b base Sol(R/J) in ker AD
+PASS K2c base Sol(R/J) annullata da d_x^3
+PASS K2d Qu = -cD u_xxx su modi di V(P)
+PASS K2e (x-ct)^2+2Dt = v1 + v2, v1 in ker TR, v2 in ker HE
+PASS K2f dim Sol(R/J) = 5 per D xi^2 - c xi - lam
+PASS K2g modi spettrali di Sol(R/J) nelle classi dei termini
+PASS K3 ||P^perp e^x||^2 = 20e - 7e^2/2 - 57/2 (valore R1)
+     valore numerico: 0.00394022292362891
+PASS K4a inf sigma(S*S|(ker S)^perp) = 1 - c_F, max = 2, dim ker S = dim I (6 prove)
+PASS K4b ||(S*S+a)^-1 S*|| <= (1-c_F)^-1/2, -> uguaglianza per a->0
+PASS K4c Gram normalizzata di due esponenziali in t: autovalori 1 +- gamma
+PASS K5a tau*xi: <e_k,f_l>_{H^m} = delta_k0 delta_l0 (m=0,1; gradi<=3) => kappa = 0 escludendo la costante
+PASS K5b gauge 1-dim, costante in entrambi i cluster: f(z)=|a+z|+|b-z| costante su [-a,b] (non unicita')
+     dist(Ew, EM) per N = 10^4: 0.012825108466785282
+PASS K6 dist(Ew, E M) decresce -> 0 (dist(w,M)=1 fisso)
+PASS K7 sum_{|S|>=2} prod b = prod(1+b) - 1 - sum b (N=3)
+PASS K7b AD su R: |e^{t a_1(ik)}| = 1, |e^{t a_2(ik)}| = e^{-D k^2 t} <= 1
+PASS K8 Vandermonde: coeff. di testa di l_k = 1/prod(z_k-z_j); ||coef l_k||_1 <= prod(1+|z_j|)/|z_k-z_j| (d=2..5)
+
+TOTALE: 19/19 PASS

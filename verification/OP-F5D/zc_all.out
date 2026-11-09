@@ -1,0 +1,33 @@
+OK   A_0x = qC_m - rB_m
+OK   A_1x = qC_m - rB_m
+OK   A_2x = qC_m - rB_m
+OK   A_3x = qC_m - rB_m
+OK   A_4x = qC_m - rB_m
+OK   A_5x = qC_m - rB_m
+OK   A_6x = qC_m - rB_m
+OK   A_7x = qC_m - rB_m
+OK   V_(0, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   V_(1, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   V_(2, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   V_(3, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   V_(4, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   V_(5, x)-[U,V_n] = offdiag(-2iB_(n+1), 2iC_(n+1)) indip. da zeta
+OK   T_0 = +-(-B_1)
+OK   T_1 = -2^n B_(n+1)
+OK   T_2 = -2^n B_(n+1)
+OK   T_3 = -2^n B_(n+1)
+OK   riduzione m=1: C=conj(B), A reale
+OK   riduzione m=2: C=conj(B), A reale
+OK   riduzione m=3: C=conj(B), A reale
+OK   riduzione m=4: C=conj(B), A reale
+OK   riduzione m=5: C=conj(B), A reale
+OK   riduzione m=6: C=conj(B), A reale
+OK   riduzione m=7: C=conj(B), A reale
+OK   W_1 senza termine costante
+OK   W_2 senza termine costante
+OK   W_3 senza termine costante
+OK   W_4 senza termine costante
+OK   W_5 senza termine costante
+OK   W_6 senza termine costante
+OK   W_7 senza termine costante
+TOTALE 32/32

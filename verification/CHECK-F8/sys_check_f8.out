@@ -1,0 +1,15 @@
+[OK] HD1 E D F = diag(-m,-m,(KG-m^2)/m,(KG-m^2)/m), E e F unimodulari: M_D = (R/q)^2 senza perdita di relazioni
+[OK] HD2 e_3 F = e_3, e_4 F = e_4: le classi di e_3, e_4 sono la base
+[OK] HD3 det(tau I + alpha.xi) monico di grado 4 in tau (alpha interi gaussiani casuali; in generale: coefficiente di tau^4 = det I)
+[OK] L1 det P = qP qS^2 (riverificato)
+[OK] L2 con lambda = -2 mu (ammesso da 'rho, mu != 0, lambda+mu != 0'): qP = rho*tau**2 non e' primo
+[OK] L3 con lambda = -2 mu: det P = rho*tau**2*(mu*xi1**2 + mu*xi2**2 + mu*xi3**2 - rho*tau**2)**2; Ass contiene (tau), la tesi mu=(1,2) su qP va riformulata
+[OK] S1 U1 cap U2: a=c, c*xi=0 => c=0 (dominio), b=d: U1 cap U2 = R(0,0,tau) = U_P != 0
+[OK] S2 per t<1: d/dt[-beta log(1-t)] + beta' log(1-t) = beta/(1-t): il salto 1/(1-t) si estende come distribuzione (f del pacchetto NON basta in D')
+[OK] S3 lim_{eps->0+} eps^{N+1} e^{1/(2 eps)} = oo per N = 10, 50: <e^{1/(1-t)}, phi_eps> >= c eps e^{1/(2eps)} batte ogni C eps^-N, nessuna estensione distribuzionale
+[OK] S4 n=3, Q1=z1, Q2=z2 coprimi: N = C[z1,z2,z3]/(z1,z2) = C[z3] ha lunghezza infinita (la riduzione 'k=1 coprimi => lunghezza finita' vale solo per n=2)
+[OK] N1 k = rot(psi e3): div k = 0 e (d(k/rho^2))_{12} = -div_{12}(rho^-2 grad_{12} psi): ellittico 2D fetta per fetta
+[OK] E1 ZXZ con ramo continuo per t fino a 20, xi in {0.05,0.7,3}: err max 8.7e-14
+[OK] E2 g1 = a/xi a xi=200, t=1: 0.5000 (limite t/2 = 0.5)
+
+TOTALE 13/13 OK

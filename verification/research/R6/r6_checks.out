@@ -1,0 +1,67 @@
+== CHECK 1: Smith form di sI-C(p) = diag(1,..,1,p) (via b: invariante completo) ==
+Matrix([[1, 0, 0], [0, 1, 0], [0, 0, s**3 - 2*s**2 - s + 2]])
+det(sI-C_generico) = a0 + a1*s + a2*s**2 + s**3
+esiste minore 2x2 = +-1 (=> fattori invarianti 1,1,p su ogni anello commutativo): True
+
+== CHECK 2: e^{xC}: prima riga = base di ker p(D), radici multiple (Jordan) ==
+dE/dx - C E = 0: True  E(0)=I: True
+prima riga e^{xC}: [2*x*exp(2*x) - 3*exp(2*x) + 4*exp(x), -3*x*exp(2*x) + 4*exp(2*x) - 4*exp(x), x*exp(2*x) - exp(2*x) + exp(x)]
+p(D) su ciascuna: [0, 0, 0]
+Jordan di C: Matrix([[1, 0, 0], [0, 2, 1], [0, 0, 2]]) (non derogatoria: un blocco per autovalore)
+
+== CHECK 3: proiettori spettrali di C (Hermite) e split di u, E_int=0 ==
+P1+P2=I: True  P1P2=0: True  P1^2=P1: True
+u1 = 4*y0*exp(x) - 4*y1*exp(x) + y2*exp(x)
+u2 = 2*x*y0*exp(2*x) - 3*x*y1*exp(2*x) + x*y2*exp(2*x) - 3*y0*exp(2*x) + 4*y1*exp(2*x) - y2*exp(2*x)
+u-u1-u2 = 0
+(D-1)u1 = 0  (D-2)^2u2 = 0
+
+== CHECK 4: Gram del jet: rango = ordine annullatore minimo; ker = multipli di p ==
+controllo ricostruzione jet: True
+rank Gram(jet ord 5) = rank B = 3
+dim ker = 3
+  rem(poly del ker, p) = 0
+  rem(poly del ker, p) = 0
+  rem(poly del ker, p) = 0
+det Hankel-Wronski 3x3 != 0: True
+det Hankel-Wronski 4x4 = 0
+u''' - (5u''-8u'+4u) = 0
+
+== CHECK 5: gauge Y=GZ cambia il pol. caratteristico (coeff. variabili) ==
+A' = Matrix([[x, 1], [-x*(x + a1(x)) - a0(x) - 1, -x - a1(x)]])
+charpoly A : lambda**2 + lambda*a1(x) + a0(x)
+charpoly A': lambda**2 + lambda*a1(x) + a0(x) + 1
+gauge diag(1,e^x): tr A3 - tr A = -1 (= -(log det G)')
+similitudine di Ore: (d-1/x)(x f) - x (d f) = 0
+
+== CHECK 6: Jacobson/ciclicita: sistema y1'=y2, y2'=a y1+b y2 -> diag(1,L) ==
+riga1 = 0  ; riga2 = L y1 = -a(x)*y1(x) - b(x)*Derivative(y1(x), x) + Derivative(y1(x), (x, 2))
+
+== CHECK 7: via (a) autovettori di forma binaria di grado m: m direzioni (C-S, n=2) ==
+ m=3: grado condizione = 3 ; formula ((m-1)^2-1)/(m-2) = 3 ; direzioni reali = 3
+ m=4: grado condizione = 4 ; formula ((m-1)^2-1)/(m-2) = 4 ; direzioni reali = 4
+ m=5: grado condizione = 5 ; formula ((m-1)^2-1)/(m-2) = 5 ; direzioni reali = 2
+
+== CHECK 8: separabilita per direzioni: odeco (rotazione) vs Waring (GL2), cubica binaria ==
+ eq. odeco c0c2+c1c3-c1^2-c2^2 su forma odeco: 0
+ forma X**3 + 3*X**2*Y + Y**3 : eq. odeco = 0
+   catalecticante [[1, 1, 0], [1, 0, 1]] rank 2 ; q(z) = z**2 + z - 1 ; disc = 5 ; k = [-1/2 + sqrt(5)/2, -sqrt(5)/2 - 1/2] ; residuo Waring = 0 ; 1+k1k2 = 0
+ forma 2*X**3 + 9*X**2*Y + 15*X*Y**2 + 9*Y**3 : eq. odeco = 3
+   catalecticante [[2, 3, 5], [3, 5, 9]] rank 2 ; q(z) = z**2 - 3*z + 2 ; disc = 1 ; k = [1, 2] ; residuo Waring = 0 ; 1+k1k2 = 3
+ quartica: catalecticante 3x3 rank = 3 => Waring >= 3
+
+== CHECK 9: compagna normale? ==
+ [C,C^T] per p=s^2-c: Matrix([[1 - c**2, 0], [0, c**2 - 1]])
+ [C,C^T] per p=s^2-3s+2: Matrix([[-3, 9], [9, 3]])
+ C V = V diag(1,2), V Vandermonde: True ; duali = righe di V^-1 = [[2, -1], [-1, 1]]
+ f(C) = sum f(l_a) v_a w_a^T con f=exp(x.): True
+
+== CHECK 10: via (b) PDE: U_t = C(xi)U ; discriminante in tau = punti di Jordan ==
+ charpoly C(xi) = tau**2 + 2*tau*xi + xi**4  ; Disc_tau = -4*xi**2*(xi - 1)*(xi + 1)
+  xi=0: Jordan = [[0, 1], [0, 0]]
+  xi=1: Jordan = [[-1, 1], [0, -1]]
+  xi=2: Jordan = [[-2 - 2*sqrt(3)*I, 0], [0, -2 + 2*sqrt(3)*I]]
+
+== CHECK 11: lemma odeco cubica binaria: c0c2+c1c3-c1^2-c2^2 = al*be*(k1-k2)^2*(1+k1*k2) ==
+ differenza = 0
+ fattorizzazione = al*be*(k1 - k2)**2*(k1*k2 + 1)

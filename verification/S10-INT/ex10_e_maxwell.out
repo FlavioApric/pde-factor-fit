@@ -1,0 +1,20 @@
+    classe generale: equazioni 288 , incognite 144, rango 132
+    classe simmetrica: incognite 99 , rango 99
+PASS (1) sizigie S1 P = 0, S2 P = 0
+PASS (1) minore 6x6 = tau^2 (tau^2 - |xi|^2)^2: rango 6
+PASS (1) box I_3 sulle E: tau(E-righe) + xi x (B-righe) - xi (div E) = box [I 0]
+PASS (2) V, T costanti invertibili
+PASS (2) V P T = diag(P_F, P_G): F = E + iB, G = E - iB
+PASS (2) righe costanti (I, -iI) e (I, iI): rango 6 => U_1 + U_2 = R^{1x6}, N = 0, Ext^1 = 0
+PASS (2) det(tau I + i C) = tau (tau^2 - |xi|^2) = det(tau I - i C): stessa varieta'
+PASS (3) 48 onde piane, tutte soluzioni di Maxwell (vincoli inclusi)
+PASS (3) classe generale: rango 132 = 144 - 12 (ID-ker fallisce per ogni dato di Maxwell)
+PASS (3) le 12 direzioni di vincolo stanno nel nucleo e sono indipendenti
+PASS (3) gli A_j veri sono simmetrici
+PASS (3) (H-ex): la legge vera risolve il sistema
+PASS (4) classe simmetrica: rango 99 = numero di incognite (ID-ker)
+PASS (4) sistema compatibile (rango aumentato = 99)
+PASS (4) soluzione unica = Maxwell (A_j veri, B = 0)
+PASS (5) r = prod (d_1 - i k_1) e_{E_1} annulla ogni modo del dato EP
+PASS (5) ... ma non un'onda piana di Maxwell con k = (0,3,4), E_1 = 5: r non sta in U_P
+17/17 PASS

@@ -1,0 +1,14 @@
+W psi = I*(k**2 + 1)*exp(-I*k*x)
+OK   AdA = L0+1
+OK   AAd = Lq+1
+OK   W Lq = L0 W
+OK   ker W = sech
+OK   psi sol PT
+OK   W psi libera
+OK   [Lq,B]=0
+OK   A2d A2 = Lq1+4
+OK   A2 A2d = Lq2+4
+OK   W2 Lq2 = L0 W2
+OK   ker W2 = {sech^2, tanh sech}
+OK   Schrodinger dip. tempo
+TOTALE 12 / 12

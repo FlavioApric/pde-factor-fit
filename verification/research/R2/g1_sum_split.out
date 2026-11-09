@@ -1,0 +1,10 @@
+A) GB(L1+L2,L1L2) = [tau**2, -tau + xi**2]  GB(L1+L2,L1^2) = [tau**2, -tau + xi**2]
+   standard monomials: [(0, 0), (0, 1), (1, 0), (1, 1)]  dim = 4
+   u= 1  Lu= 0  L1L2 u= 0
+   u= x  Lu= 0  L1L2 u= 0
+   u= 2*t + x**2  Lu= 0  L1L2 u= 0
+   u= 6*t*x + x**3  Lu= 0  L1L2 u= 0
+   generic: Lu= 0  L1L2 u= -s**4*exp(s*(s*t + x))
+B) GB = [xi**2, tau + xi]  dim = 2  V(L1)∩V(L2) = [{tau: 0, xi: 0}]
+C) gcd(L1,L2) = xi  -> V(L1)∩V(L2) contains line xi=0 ; any a(t) lies in ker L1 ∩ ker L2 ∩ ker L: 0
+D) pairwise gcds: [1, 1, xi]

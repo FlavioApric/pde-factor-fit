@@ -1,0 +1,11 @@
+S N=4 K=8 d<=4 p=1000000007: classi=39 max=41 punti=61; nessuna relazione omogenea pesata di grado <= 4 [gen 0.1s, tot 0.2s]
+S N=4 K=8 d<=5 p=1000000007: classi=49 max=99 punti=119; relazione di grado minimo 5 (peso 10) [gen 0.2s, tot 0.5s]
+S N=4 K=6 d<=8 p=1000000007: classi=63 max=272 punti=292; relazione di grado minimo 8 (peso 17) [gen 0.2s, tot 3.9s]
+S N=4 K=7 d<=6 p=1000000007: classi=53 max=143 punti=163; relazione di grado minimo 6 (peso 12) [gen 0.2s, tot 0.8s]
+W N=4 K=8 d<=5 p=1000000007: classi=49 max=99 punti=119; relazione di grado minimo 5 (peso 10) [gen 0.1s, tot 0.4s]
+Wcheck N=5: identita stazionaria k=0 (ordini h verificati=12) True; U(x0) squarefree True; U(0)!=0 True
+Wcheck N=6: identita stazionaria k=0 (ordini h verificati=14) True; U(x0) squarefree True; U(0)!=0 True
+S N=5 K=9 d<=6 p=1000000007: classi=65 max=325 punti=345; nessuna relazione omogenea pesata di grado <= 6 [gen 0.3s, tot 7.2s]
+S N=5 K=10 d<=5 p=1000000007: classi=59 max=186 punti=206; nessuna relazione omogenea pesata di grado <= 5 [gen 0.3s, tot 1.7s]
+W N=5 K=10 d<=5 p=1000000007: classi=59 max=186 punti=206; nessuna relazione omogenea pesata di grado <= 5 [gen 0.4s, tot 1.9s]
+W N=5 K=9 d<=6 p=1000000007: classi=65 max=325 punti=345; nessuna relazione omogenea pesata di grado <= 6 [gen 0.7s, tot 8.2s]

@@ -1,0 +1,281 @@
+
+## Fase 8 — righe registrate al Gate 8 (27/10/2026, coordinator
+
+## Decisioni di stato del coordinatore (Gate 8)
+
+## S8-SYS (verbatim da work/S8-SYS/LEDGER_ROWS.md; i percorsi «
+SYS-T1 || DIMOSTRATO come strumento; **decla || u identifica P ⟺ nessuna relazione Σ_{p⊇q} r_{p,j}w_{p,j} = 0 con r_{q,j} ∉ q, per ogni q ∈ Ass(M_P)
+SYS-R1 || DIMOSTRATO || u ∈ EP^k ⇒ M_u ha lunghezza finita (delta rispetto a Schindelar–Levandovskyy–Zerz 2011)
+SYS-N1 || caso ℝ^n **NOTO** (Oberst, MCSS 6( || dim soc_m(M) ≥ 2 per qualche m ⇒ nessuna immersione M ↪ 𝒜, quindi nessuna u identificante
+EX-L1, EX-L2 || DIMOSTRATO || unicità di Fourier–Laplace sui momenti; sezioni reali di una varietà irriducibile
+SYS-EX || caso Ω = ℝ^n **NOTO** (Oberst, MCS || ∃ u ∈ Sol(P) con Ann(u) = U_P ⟺ dim Hom(R/m, M_P) ≤ 1 per ogni m massimale; più in generale M ↪ 𝒜 ⟺ zoccoli ≤ 1
+SYS-EX-C || DIMOSTRATO || (R/p)^N ↪ C^∞(Ω) per ogni N se p non è massimale; μ_p(C^∞) = ∞, μ_m = 1 su Ω convesso
+SYS-T0 || **NOTO** (in n = 1 nessun delta; O || EDO: ∃ u identificante ⟺ e_1 = … = e_{r−1} = 1 ⟺ gcd dei minori (r−1)×(r−1) = 1
+SYS-C1 || DIMOSTRATO || P quadrata, det P ≠ 0, n ≥ 2 ⇒ zoccoli nulli, ∃ u identificante; Ass(M_P) = fattori primi di det P
+SYS-S1(i⇒) || DIMOSTRATO || Sol(Q_1)+Sol(Q_2) = Sol(P) ⇒ U_1 ∩ U_2 = U_P
+SYS-S1(i⇐) || DIMOSTRATO || U_1 ∩ U_2 = U_P ⇒ somma dei nuclei = Sol(P), se Ext¹(N, 𝒜) = 0; vale se N ha lunghezza finita e H¹_dR(Ω) = 0
+SYS-S1-C || **FALSO** (controesempio esplicito || SYS-S1(i⇐) senza ipotesi su N è **falso** su un Ω ⊂ ℝ² a U, semplicemente connesso
+SYS-S1(ii) || DIMOSTRATO || Sol(Q_1) ∩ Sol(Q_2) = Sol(N); dimensione finita ⟺ ℓ(N) < ∞, e allora è EP con δ_sys = ℓ(N) = dim Sol(N)
+LAME-3 || DIMOSTRATO con l'ipotesi aggiunta  || Lamé n = 3: Ass = {q_P, q_S}, μ = (1, 2); u identifica ⟺ Ann(div u) = (q_P) e criterio R/q_S su rot u
+SYS-E1 || DIMOSTRATO (sostituisce "P1-T5 no" || Dirac 1+1 soddisfa (H) in Mat_2(ℂ[ξ]) ⇒ P1-T5 si applica (nessun prodotto finito di flussi di trasporto e massa uniforme nella massa)
+SYS-E2 || DIMOSTRATO || Lie_ℂ⟨X, Y⟩ = (sl_2 ⊗ ℂ[ξ])^θ, θ(Z)(ξ) = σ_x Z(−ξ) σ_x; dimensione infinita su ℂ
+SYS-E3 || DIMOSTRATO || e^{tA} = e^{g_1X}e^{g_2 mY}e^{g_1X} con g_1 = a/ξ, g_2 = −b/m espliciti, non polinomiali in ξ; i fattori sono moltiplicatori non locali; blocco cardan
+G-L0 || DIMOSTRATO || covarianza di gauge degli operatori nelle ∇_μ
+G-T2 || DIMOSTRATO, CON-FONTE in sostanza  || A′ ~ A ⟺ dA′ = dA e olonomie uguali; con dati invarianti si identifica al più [A]
+SYS-N3 || DIMOSTRATO || Schrödinger magnetico, n ≥ 2: le (A, V) compatibili con una u senza zeri formano uno spazio affine; le variazioni B = A′ − A soddisfano div(ρ²B) = 0 (
+G-T0 || osservazione (declassata, F8; conf || gauge fissato ⇒ un potenziale non identifica Maxwell; U_A = {r ∈ Ann(A): r·∂ = 0}
+H-DIRAC || DIMOSTRATO (H-DIRAC-1 e H-DIRAC-2) || forma hamiltoniana: se ψ identifica L_0 ∈ 𝒞, allora α^k e B sono determinati esattamente; ψ identificante esiste per ogni L_0 ∈ 𝒞; Dirac 3+1: criterio
+SYS-II-T2-C || FALSO (controesempio di una riga) || "incrocio di autovalori ⇒ polo del proiettore" falso per A derogatoria
+II-T2(b′) derog., Q-S8SYS-1 || APERTO || versione corretta per A derogatoria; prodotti finiti con tempi polinomiali in ξ
+
+## S8-VAR (verbatim da work/S8-VAR/LEDGER_ROWS.md; i percorsi «
+VAR-N1 || DIMOSTRATO || Ann_{𝒦[∂]}(u) = 𝒦[∂](∂_t − a) + 𝒦[∂](∂_x − b), 𝒦[∂]/J ≅ 𝒦u
+VAR-T1(a) || DIMOSTRATO || compatibili = θ_0 + ker Φ_u
+VAR-L0 || ² ≤ ∫e^{2λφ} || stima di Carleman μλ³∫e^{2λφ}
+VAR-L1 || DIMOSTRATO (prova autosufficiente; || continuazione unica attraverso x = g(t)
+VAR-L2 || DIMOSTRATO; PROBABILMENTE NOTO (Is || u = 0 su I × (α,β) ⇒ u ≡ 0 su I × J
+VAR-L2-cor || DA AUDITARE (nuovo, 27/10/2026, su || dati in D(H_0) con ψ = ψ̃ su I × ω ⇒ ψ_0 = ψ̃_0 (iniettività della restrizione a ω sulle traiettorie; mai a tempo fisso)
+VAR-T1(b) || DIMOSTRATO (in C^{1,2} e, dopo VAR || X_0 discreto; ogni u ≢ 0 identifica V(x) q.o.; V = (iu_t + u_xx)/u q.o. su {u ≠ 0}
+VAR-T1(c) || = 0 (V ∈ L^∞); int Z ≠ ∅ ⇒ fascia  || fuori dalle fasce di silenzio, in (SF) (ATTACK-8 O17): V(t,x) identificato ⟺ int Z(u) = ∅ (V continuo) o
+VAR-T1(c)-Q10 || > 0 e int Z(u) = ∅ || caso L^∞ con
+VAR-T1(c)-F || FALSO || "ogni u ≢ 0 identifica V(t,x)"
+VAR-P3 || u_1 || Lipschitz in C^{1,2}; non continuo da C¹; Hölder 1/3 nitido anche per V
+VAR-P4 || DIMOSTRATO dopo VAR-2 (applicato) || DM-φ: compatibili = {V + c}; ridondanza (P, q)
+VAR-P5(a)(b) || ²; int Y_0 ≠ ∅ possibile || Dirac: V = ⟨ψ,r⟩/
+VAR-P5(c) || DIMOSTRATO nella classe puntuale ( || V matriciale determinato in x_0 ⟺ span_t ψ(t,x_0) = ℂ²
+VAR-T2a || DIMOSTRATO || Ann = 𝒟L_u; identifica ⟺ indipendenza su K; ordine 2 ⟺ u′/u ∉ K
+VAR-T6 || CON-FONTE (E^G = K e corrispondenz || ord L_u = dim span(Gu); socle/Loewy; esistenza ⟺ V ciclico (m_i ≤ dim S_i)
+VAR-E1 || DIMOSTRATO dopo VAR-3 (applicato) || Airy irriducibile; ogni soluzione identifica
+VAR-E2 || DIMOSTRATO || oscillatore riducibile ⟺ E ∈ ±(2ℕ+1); per E = 2n+1, u identifica ⟺ u ∉ ℂh_n
+VAR-VMPUM || CON-FONTE (solo abstract) || delta rispetto a SLZ 2011 (delta (3) ristretto agli iperesponenziali)
+VAR-P8(a) || DIMOSTRATO || dim 𝔤_V < ∞ ⟺ V ∈ span{1, x, x²}
+VAR-P8(b) || "⟹" DIMOSTRATO; "⟸" CON-FONTE (Wei || Wei–Norman finito ⟺ V quadratico
+VAR-P8(c) || DIMOSTRATO (Crum, Q. J. Math. 6 (1 || U_ℓ di Pöschl–Teller modificato (iperbolico) esplicito per catena di Darboux
+VAR-P8(d) || forma chiusa DIMOSTRATO; sviluppo  || E_int esplicito per Pöschl–Teller modificato (iperbolico)
+VAR-P9 || DIMOSTRATO || E^mult = ∬[A_2(s_1), A_1(s_2)] + O(t³); commutare a tempi uguali non basta
+VAR-P11 || (a)–(d) DIMOSTRATO; (e) CON-FONTE  || Dyson–Phillips: esistenza, unicità, evoluzione, unitarietà
+VAR-T10 || (1), (3)(i)–(ii) DIMOSTRATO; (3)(i || Stark (A) globale; oscillatore: parola chirp·libero·chirp ⟺ M_12 ≠ 0 o M unipotente inferiore (⟺ cos t ≠ 0 per H = −∂² + x²; attraversa la lente t = π
+VAR-T10-F || FALSO (solo in questa forma; F5 di || "la parola chirp·libero·chirp si rompe al tempo della lente/Fourier"
+VAR-P12 || (a)–(c) DIMOSTRATO; (d) APERTO || Floquet: log limitato sempre; non differenziale per V = v(t) (J = ℝ); log differenziale illimitato in quel caso
+VAR-C3Q2 || (a)–(g) DIMOSTRATO; C3-Q2 CHIUSO p || L monico in ∂_t in A_2: identifica ⟺ indipendenza B-lineare; m = 1 ⟺ u non D-finita; esistenza per Schrödinger libero; x∂_t mai identificato
+VAR-C3Q2-open || APERTO (ostruzione registrata) || C3-Q2 nel caso generale: criterio intrinseco per m ≥ 2, caso non monico
+
+## S8-CONV (verbatim da work/S8-CONV/LEDGER_ROWS.md; i percorsi
+CONV-L1 || DIMOSTRATO (proposto dall'audit) || N_{m,K} decresce in K, ha intersezione Ann(u) ∩ R_{≤m} e si stabilizza esattamente da K\*(m) = m + ν_m(u)
+CONV-T1 || DIMOSTRATO (proposto dall'audit) || La regola L\* identifica nel limite g_d (P se Ann = (P)); con un maggiorante B identifica Ann; le uscite distinte sono ≤ (d+1)(d+2)/2, uniformemente i
+CONV-T2 || DIMOSTRATO (proposto dall'audit) || Nessuna successione di funzioni dei jet decide nel limite "Ann(u) ≠ 0" sulle funzioni intere reali
+CONV-T2′ || PROVA SCRITTA (il mini-audit propo || (ex CONV-Q10) Nessuna successione di funzioni dei jet decide nel limite la dicotomia legge/nessuna legge sulla classe 𝒞 = {Ann principale ≠ 0} ∪ {Ann 
+CONV-T3 || z || {Ann = 0} e {Ann ≠ 0} sono densi in X; Ann(·) è discontinua ovunque
+CONV-T4 || DIMOSTRATO (proposto dall'audit);  || Stabilità a livello 𝓓_n: Lipschitz 2δ/ρ (ottimale), Hölder (2δ)^{s/(n+s)}(2𝔐)^{n/(n+s)}, certificato di misfit
+CONV-T5 || DIMOSTRATO (proposto dall'audit) || La regola di discrepanza seleziona m = d ed è consistente (velocità δ o δ^{s/(d+s)}); se Ann = 0, m(δ) → ∞; la soglia δ₀ non è minorabile dai dati
+CONV-T6 || DIMOSTRATO (proposto dall'audit) || Ann(u) = I(Γ_E); I_J primo, nullo o principale irriducibile; legge non locale indistinguibile se a è algebrica; con spettro 2D, Ann = 0
+CONV-P6 || DIMOSTRATO (proposto dall'audit) || Frazionario irrazionale e ritardo (ramo di Lambert): Ann = 0; il ritardo è in L⁺ tramite trasporto ausiliario
+CONV-P7 || DIMOSTRATO (proposto dall'audit) || Senza la condizione di non banalità ogni u è in L⁺_𝒦; tricotomia L / L⁺ / N relativa a 𝒦, con esempi
+CONV-P8 || DIMOSTRATO (proposto dall'audit) || Ann(u) = (P) ⟺ Ann((P/P_i)u) = (P_i) per ogni i
+CONV-D1 || DIMOSTRATO (proposto dall'audit) || In 1+d, d ≥ 2: l'ambiguità della scomposizione è nulla se e solo se i fattori sono a due a due comassimali, altrimenti ha dimensione infinita; esiste 
+CONV-D2 || CON-FONTE (verificata): Malgrange  || Su Ω convesso, ker(Q_1Q_2) = ker Q_1 + ker Q_2 in C^∞(Ω) per Q_1, Q_2 coprimi
+CONV-B1 || DIMOSTRATO (proposto dall'audit) || Le condizioni al bordo sono invisibili ad Ann(u) (esempio Dirichlet/Neumann)
+CONV-B2 || DIMOSTRATO (proposto dall'audit) || Stabilità per un dizionario di tracce: 2C_tr√(D+1)δ/ρ_Γ
+CONV-B3 || DIMOSTRATO (proposto dall'audit) || Ostruzione tangenziale: sopra il livello minimo σ_2(Φ_Γ) = 0
+CONV-T8 || DIMOSTRATO in L² (proposto dall'au || Splitting con Dirichlet e trasporto (quadro P3-T3), al primo ordine in ε: Lie ha ordine globale 1 in L²; Strang ha ordine Θ(h^{5/4}) in L², sia locale
+CONV-R1 || DIMOSTRATO (proposto dall'audit) || Su I × 𝕋: ker(fg) = ker f + ker g ⟺ non ci sono k risonanti; la codimensione è Σ deg gcd(f_k, g_k)
+CONV-R1-F || FALSO (f = ξ, g = τ) || Criterio RT-R2a "nessuna risonanza V(f) ∩ V(g) ∩ (ℂ × iℤ)" senza la clausola sulle rette contenute
+CONV-MZ1 || DIMOSTRATO (proposto dall'audit) || Se det D ≠ 0 e DU = 0, allora (det D)U_i = 0
+CONV-MZ2 || DIMOSTRATO (proposto dall'audit) || Forma esatta di Mori–Zwanzig (Markov + memoria + rumore) per un sistema 2×2, e legge eliminata det(τ − A)
+CONV-MZ3 || DIMOSTRATO (proposto dall'audit) || Memoria nulla ⟺ a12·a21 = 0; memoria e rumore nulli ⟺ a12 = 0; [𝒫, A] = 0 ⟺ a12 = a21 = 0
+CONV-MZ3-F || FALSO (controesempi a21 = 0, a12 = || Criterio RT-S2d "E_int = 0 ⟺ [𝒫, L] = 0", in entrambe le letture (memoria nulla; memoria e rumore nulli)
+CONV-T7 || proposizione: DIMOSTRATO (proposto || Contratto A/B/C/Lim per ALGORITMO_ESTESO; errore della catena ≤ Σ(∏_{j>i}L_j)ε_i
+
+## S8-ENC (verbatim da work/S8-ENC/LEDGER_ROWS.md; i percorsi «
+ENC-D || DEFINIZIONE || encoder strutturato: (E1) dim ker W < ∞ su 𝒴, (E2′) W L_q = (L_0 + c)W, (E3) esplicito
+ENC-K0 || DIMOSTRATO (proposto da S-CHECK) || q ≡ c ≠ 0 non ha intertwiner differenziale stretto di nessun ordine; con (E2′) W = I
+ENC-1 || DIMOSTRATO (proposto da S-CHECK);  || Volterra simmetrico T = I + ∫_{−x}^{x}K: L_qT = TL_0 su C²(J), conserva i dati di Cauchy, biiettivo su C, C², C^∞; stima, stabilità Lipschitz; dipende
+ENC-U1 || DIMOSTRATO (proposto da S-CHECK) || intertwiner nella classe Volterra simmetrica = retta {T_{k_0}}; unico che conserva Cauchy: k_0 = 0
+ENC-C1 || DIMOSTRATO (proposto da S-CHECK) || P(∂_t, L_q)u = 0 ⟺ P(∂_t, L_0)(Wu) = 0 per ogni P ∈ S
+ENC-T2 || DIMOSTRATO (lemma; proposto da S-C || a q noto: Ann_q(u) = φ^{−1}(Ann(Wu)); generatore lcm(Q, Q̃) o ξ·lcm; getti in x_0 triangolari unipotenti; solo sottoanello pari; non è uno strumento d
+ENC-T2(c′) || PROVA SCRITTA (fix ENC2-6 recepito || in ogni punto (t_1, x_1), nessun getto finito certifica Ann_q(u) = (P_*) ≠ 0 nella classe C^∞(Ω) senza vincoli ("certifica" = ogni u′ della classe con
+ENC-P0(a) || DIMOSTRATO sotto (H-P0) (proposto  || W ∈ 𝔈 soddisfa (INT) ⟺ W(t) = U_0(t)W(0)U_V(t)^{−1}
+ENC-P0(b) || DIMOSTRATO (proposto da S-CHECK) || W indipendente da t, dim ker W < ∞ su L²(J), intreccia ⇒ V(t) − V(s) = c(t) − c(s); non copre gli encoder di Volterra
+ENC-P0(b)^cl || PROVA SCRITTA (fix ENC2-1 recepito || versione classica: W lineare con nucleo finito sul suo dominio, intreccia su C^∞_c ⇒ V(t, x) − V(s, x) = c(t) − c(s); con W_q di Volterra: V = q + c(t
+ENC-P0(b)^loc || rev. 2 (nucleo finito solo su C^∞_ || W che intreccia su C^∞_c(U), con le ipotesi (i)/(ii) su U ⇒ V(t, ·) − c(t) autonomo su U
+ENC-P0′ || astratto: DIMOSTRATO (proposto da  || forma normale: soluzioni → soluzioni libere riparametrizzate su un nucleo denso D_0 ⇒ W(t) = U_0(θ(t))W(0)U_V(t)^{−1}; θ non è invariante (W_id)
+ENC-P0′-DIC || forma della rev. 2 ("θ = id ⟺ ρ ≡  || V = α(t)x² + β(t)x + γ(t): **esiste** un rappresentante puntuale + gauge con θ = id ⟺ α ≡ 0; α ≢ 0 ⇒ θ non affine in ogni rappresentante
+ENC-P0-sintesi (rev. 1) || **FALSO come scritto** (Avron–Herb || "le eccezioni cambiano il tempo"
+POLE-N || DIMOSTRATO dopo ENC-4 (proposto da || intertwiner istantanei con V(t) che evolve non sono encoder per Schrödinger; servono solo al flusso di Lax
+POLE-N^cl || PROVA SCRITTA (fix ENC2-5 recepito || versione classica: W(t) differenziale con poli, intrecciamento istantaneo e in i∂_t ⇒ V autonomo modulo c su ogni rettangolo [s, t] × U privo di poli
+ENC-N1 (F6) || FALSO (testimone: ENC-N1′(iv)) || "encoder cieco ⟺ Φ(V, v) = W_V^{−1}v iniettiva"
+ENC-N1′ || DIMOSTRATO come lemma di riduzione || lemma di riduzione per una famiglia fissata: cieco ⟺ (C); identificabilità ⇒ (C); (C) ∧ (S) ⟺ identificabilità (per definizione); (iv) cieco senza ide
+ENC-K1′ || DIMOSTRATO dopo ENC-9 (proposto da || W differenziale con W L_q = (L_0 + c)W ⇒ su ogni componente di J ∖ Z (Z chiuso numerabile) W = w_nA_n⋯A_1, catena di Darboux da c; viceversa (Crum)
+ENC-K1 || CON-FONTE da verificare (Duisterma || V razionale, V → 0: esiste W differenziale ⟺ V è un Darboux iterato di 0 (Adler–Moser)
+ENC-TAB || SINTESI || tabella unica degli encoder (sostituisce SYNTHESIS-2 §3); riga "puntuale + gauge" corretta: dipendente dal tempo, si può scegliere θ = id ⟺ α ≡ 0, α ≢
+ENC-A9(a) || DIMOSTRATO (proposto da S-CHECK) || ‖E^mult f‖ ≤ (t²/2)(‖V″‖‖f‖ + 2‖V′‖‖f′‖) + (2t³/3)‖V′‖²‖f‖, costante 2/3 ottimale; E^mult/t² → ½[H_0, V]; E^mult ≡ 0 ⟺ V costante
+ENC-A9(b) || t²‖f′‖ + (2/3)F²t³‖f‖, norma 2); n || forme chiuse: V = c; V = Fx (Strang esatto più fase, ‖E^mult f‖ ≤ \
+NS-EQ-Ω || DIMOSTRATO dopo ENC-10 (proposto d || Avron–Herbst e lente su Ω limitato: dominio deformato (semplicemente connesso; lente non convessa, stellata se 0 ∈ I), Neumann → Robin, I/S sì nell'an
+FAD-1 || DIMOSTRATO dopo ENC-11 (proposto d || Faddeev su intervallo a λ fissato: Neumann convergente senza piccolezza, componenti esatte, E^add = Σ_{i≠j}G_0V_iG_0V_ju^{(0)} + R, ‖R‖ ≤ (Cℓ𝐕)³e^{Cℓ𝐕
+GAM-O1 || OSSERVAZIONE + CON-FONTE (Owhadi 2 || gamblets: scomposizione (S) per scala L_q-ortogonale, non encoder
+FW-1 || DIMOSTRATO per il libero (proposto || Foldy–Wouthuysen esatto per Dirac 1+1 libero (moltiplicatore non razionale, non locale); con V solo asintotico: scomposizione (S)
+ENC-L1 || FUSO in VAR-P8(a) (R5-P7) || —
+
+## S8-DICT (verbatim da work/S8-DICT/LEDGER_ROWS.md; i percorsi
+DICT-U1 || DIMOSTRATO || Ogni operatore lineare locale continuo è limite di elementi di 𝓓_∞ (LIN, LOC); vale N0
+DICT-U1b || singolari e L^p DIMOSTRATO; veloci || Classi di coefficienti: singolari e densità L^p; velocità 2–3
+DICT-U2 || DIMOSTRATO || Densità dei polinomi differenziali per operatori non lineari regolari; F liscia, dipendente da (f, K); U2-a = versione locale di KMS 18.16 sull'intorn
+DICT-N2 || DIMOSTRATO || S^m non è separabile
+DICT-U3c || DIMOSTRATO; caso dipendente da x C || Densità dei simboli con perdita ε
+DICT-U3d || DIMOSTRATO ((ii) dopo DICT-4) || Memoria c.m.: (i) rappresentazione diffusiva esatta, (ii) convergenza L¹ con nodo λ = 0 esatto, (iii) velocità uniforme in t per t^{−β}
+DICT-U3d-v || CANDIDATO || Velocità per nuclei c.m. generali
+DICT-RIT1 || DIMOSTRATO || Il ritardo equivale al trasporto w_t + w_θ = 0 (sistema aumentato)
+DICT-N3 || DIMOSTRATO || Distanza 1 su ℝ e ≥ 1 su (0,T) del ritardo dal dizionario locale
+DICT-CS1 || DIMOSTRATO || Estensione CS con c_s = 2^{1−2s}Γ(1−s)/Γ(s)
+DICT-U4 || DIMOSTRATO || Estensione ai sistemi per componenti
+DICT-N1 || DIMOSTRATO || (i) Baire, (ii) nessun dato finito certifica il fit, (iv)(a) modello (T)
+DICT-N1iii || DIMOSTRATO dopo DICT-6 || Non monotonia: Ann(u) ∩ R_{≤n} ⊋ (L) ∩ R_{≤n}
+DICT-N1iv-bc || DIMOSTRATO (come in AUDIT_S8-CONV) || (b) BSS stabilizzazione esatta; (c) "Ann ≠ 0" verificabile ma non decidibile nel limite
+DICT-N1v || DIMOSTRATO || Le u con una legge nel dizionario formano un insieme magro e shy; (v)-ALG: le u differenzialmente algebriche formano un insieme magro e shy (denso, no
+DICT-RANGO || DIMOSTRATO come ID-ker || (I)–(III) struttura, identificabilità nel significato **ID-ker** (ker Φ_u = 0), non falsificabilità
+DICT-RANGO-cor || DIMOSTRATO dopo DICT-2, DICT-3, co || (IV) conteggio, (a′) con d ≥ 1 o m ≥ 2, (b′) V complesso e V reale ("⟺" solo per u senza zeri), trasporto a(t,x)
+DICT-MAG || ²B) = 0; se supp B incontra Z(u) s || Il caso magnetico esce da RANGO. Per B con supp B ⊂ {u ≠ 0}: le leggi reali (A, V) e (A + B, V + δV) coesistono ⟺ div_x(\
+DICT-MAG-NU || ^{−2}(∂_2χ, −∂_1χ, 0, …), χ ∈ C_c^ || **Corollario di SYS-N3(c)**, non claim autonomo (O15): B = \
+DICT-N1vi || **FALSO** || N1(vi) originale: "con coefficienti C^∞(t,x) nessun operatore è identificato; (H1) fallisce sempre"
+DICT-MF || DIMOSTRATO || MF1, MF2, MF3 (a)–(d), MF-C
+DICT-A || DIMOSTRATO || Teorema A (i)–(ii): misfit aperto con certificato finito (topologia D′ per atomi differenziali); fit chiuso con interno vuoto
+DICT-A-iii || DIMOSTRATO dopo DICT-1 || Teorema A(iii): fit non certificabile con dati finiti esatti
+DICT-B2 || DIMOSTRATO || Stima dei coefficienti con 2η/√λ_min
+DICT-B3 || CON-FONTE da verificare || Ottimalità d'ordine dei polinomi (n-larghezze)
+DICT-R3 || DIMOSTRATO || Guadagno esatto di un atomo
+DICT-GR || DIMOSTRATO || Teorema G-R: R1 (test su r_n = dist(D_0u, W_n)) si ferma a n_0 sotto (H-ID); R2 segnala il fallimento
+DICT-R6 || DIMOSTRATO (la condizione su ENC-1 || Lemma R6-T: intrecciamento esatto W(Lu) = L̂(Wu); confronto di distanze e λ_min con ‖W‖, ‖W^{−1}‖ ≤ 1 + a²Q·e^{a√Q}; trasporto dei certificati ψ ↦ ψ∘W
+DICT-ILIM || DIMOSTRATO || I-LIM, ramo approssimato (a)–(d); ramo esatto = CONV-T1 (modello BSS)
+DICT-ILIM-H0 || DIMOSTRATO || Modulo hölderiano per s = 0
+DICT-ILIM-Hs || CANDIDATO || Hölder per s ≥ 1
+DICT-NS || DIMOSTRATO || NS-L1 (log globale: Ω semplicemente connesso o u modulo 2πi/λ), NS-T1 senza Ax; kink con nucleo 3; ALG-T1 solo per forme evolutive
+DICT-2KINK || V-ex || Il 2-kink ha nucleo 1
+DICT-AX || CON-FONTE **da leggere** (teorema  || Ax–Schanuel differenziale
+DICT-R4, DICT-PAINLEVE || STRUMENTO || Strumenti euristici
+
+## Fase 10 — chiusura dei problemi aperti (coordinatore, 27/10/
+
+## F10-A — S10-OPEN-A (audit S-CHECK-F10-A: SymPy indipendente 
+S10A-L1 || S-CHECK-F10-A PASS || **DIMOSTRATO**
+S10A-T1 || PASS-con-fix(A-2: E′ = 0 anche per || **DIMOSTRATO**
+S10A-C1 || PASS-con-fix(A-3) || **DIMOSTRATO**
+P1-Q6 (r. 14; chiusura r. 147–148  || PASS || **FALSO come scritto** (reazione–diffusione u_t = Du_xx + ru); **DIMOSTRATO** nella forma "≥ 2 monomi di grado ≥ 1" (OPA-T3(b) + S10A-T1(b))
+S10A-T2 || PASS-con-fix(A-4 facoltativo, A-5) || **DIMOSTRATO**
+P1-Q7 || PASS-con-fix(A-6) || **APERTO — ridotto ad algebre con (H) senza dilatazione pesata (Dil)**; DIMOSTRATO sotto (Dil) (S10A-T2)
+S10A-T3 || S-CHECK-F10-A || **APERTO — ridotto a [COL]** (campo trasversale/collare per lipschitziani: Grisvard 1.5.1.9, Verchota 1984 Thm 1.12, Hofmann–Mitrea–Taylor 2007); part
+S10A-P1 || PASS-con-fix(A-8) || **DIMOSTRATO** (anello, (i) completo); (ii) DIMOSTRATO con premessa topologica CON-FONTE Rudin RCA 13.11 o elementare (A-8b)
+P2-Q1, OPF-Q3 || PASS-con-fix(A-9) || convessi **DIMOSTRATO** (OPF5B-T1); **FALSO come enunciato universale**: per P = Δ su ogni lipschitziano con b₁ ≥ 1 (S10A-P1); lipschitziani semplicem
+C12-P7 ("chiusa ma non densa", not || PASS || **DIMOSTRATO** (esempio differenziale S10A-P1(i), m ≥ 1)
+S10A-L2 || PASS || **DIMOSTRATO**
+S10A-C2 || PASS || **DIMOSTRATO**
+C12-Q2 = OPF-Q2 || PASS(A-10 dicitura) || **APERTO — ridotto a** terne con ≥ 2 coppie Π_iΠ_j non compatte (S10A-C2), fuori dai trasporti reali (OPR2-T2)
+C3-Q1 || PASS-con-fix(A-11) || **DIMOSTRATO come classificazione per modello di dati** (composizione di P4-T5+P4-L7, OP-ALG-T3, OPR2-C2, OP-ALG-T1 mod (AC), CONV-T2); nessuna matema
+II-L1(b), P4-T5/P4-Q-min, OP-ALG-Q || PASS-con-fix || chiusure già registrate **confermate** (A-1, A-12)
+
+## F10-G9 — punti delegati dal Gate 9
+ALG-TK (ATTACK-9 O8) || DEVIL-9 O8 || **CON-FONTE** (Trotter 1959; Kato 1978; Engel–Nagel III.5.8): convergenza di Trotter–Kato/splitting solo per V limitato o relativamente limitato con i
+VAR-P3 (ATTACK-9 O31) || si chiama κ (non δ); δ è riservato || stato invariato; **rinomina**: il minorante di \
+
+## F10-B — S10-OPEN-B (audit S-CHECK-F10-B: work/CHECK-F10/AUDI
+S10B-T1 ([F4⁻]) || PASS-con-fix || **PROVA SCRITTA** (→ DIMOSTRATO dopo i fix redazionali T1-a,b,c)
+INT-T1(B) || — || **PROVA SCRITTA mod S10B-T1**
+S10B-T2, OPF5C-T5 || PASS || **DIMOSTRATO**
+S10B-P3 (densità di (SB)) || PASS-con-fix(P3-a,b) || **PROVA SCRITTA**
+S10B-L4 (L-loc), OPF5A-C1/OPA-Q1 || PASS-con-fix(L4-a..e); KA fallito || **PROVA SCRITTA mod [F1]**
+S10B-C1 || PASS(C1-a: serve un foro con inter || **DIMOSTRATO**: l'estensione di OPF5B-T1 ai domini non convessi è FALSA
+S10B-T3 ([Hm]) || PASS || **DIMOSTRATO** per u ∈ C(ℝ;𝒮)
+S10B-L8′ || PASS-con-fix(L8-a,b) || **PROVA SCRITTA**
+S10B-V9 || parziale || **PROVA SCRITTA assistita da calcolo** (N ≤ 4 riprodotto; N = 5, δ_5(8) = 9 non riprodotti)
+S10B-P10 || PASS || **DIMOSTRATO**
+OPF5C-Q1 || — || **APERTO — ridotto al caso graduato**
+OPR2-Q3 || — || **APERTO — ridotto alla realizzabilità degli atomi** (S10B-P10 caratterizza; la condizione sugli atomi è solo sufficiente)
+[GT-u], INT-Q1, OPR2-Q2′ || (U) riformula [GT-u]; (R) ⟺ INT-Q1 || **APERTO** (in attesa del secondo giro di S10-OPEN-B)
+
+## F10-LEAN — formalizzazione Lean (S10-LEAN; revisione indipen
+
+## F10-COL — (COL-ii) e S10A-T3 senza [COL] (S10-COL; audit S-C
+S10COL-L1, L2, L3, TA, TC (= (COL- || S-CHECK-COL PASS; KA (tangenti osc || **DIMOSTRATO**
+S10COL-TB || PASS-con-fix(COL-1) || **DIMOSTRATO**
+(COL-i) || AUDIT-COL || **CON-FONTE** (Grisvard Lemma 1.5.1.9 VERIFICATO; HMT 2007 Cor. 2.13)
+S10A-T3 || PASS-con-fix || **DIMOSTRATO mod F1, F2** (non dipende da [COL]), con il Passo B sostituito (campo di carta X = −Σθ_iе_i, θ_i ≥ 0) e i fix A-7(b,c), COL-2, COL-3
+P2-Q1, OPF-Q3 (parte lipschitziana || — || **DIMOSTRATO mod F1, F2**: densità su ogni lipschitziano semplicemente connesso; per δ(P) = 0 su ogni lipschitziano
+OPF5B-C1(d) || — || perde il condizionamento a [COL]; stato invariato (osservazione)
+
+## F10-GTU — [GT-u] (research/CIT-AUDIT/AUDIT-GTU.md)
+[GT-u₀] (senza derivate; dato con  || **APERTO — ridotto a** limitatezza || x\
+
+## F10-B2 — S10-OPEN-B rev2 (audit S-CHECK-F10-B2: work/CHECK-F
+S10B-T1 ([F4⁻]) || fix T1-a necessario (b2_t1a_jost:  || **DIMOSTRATO**
+INT-T1(B) || — || **DIMOSTRATO** (multi-solitone = soluzione di Hirota)
+S10B-P3 || — || **DIMOSTRATO** (densità); "aperta e densa" **PROVA SCRITTA** fino al fix P3-c (bump anche nei minimi di valore 0; controesempio u₀′ = −cos x − cos 2x)
+S10B-L4, OPF5A-C1 / OPA-Q1 || — || **DIMOSTRATO mod [F1]**
+S10B-C1 || — || **DIMOSTRATO** (la «Condizione generale» è sufficiente)
+S10B-T3 ([Hm]) || — || DIMOSTRATO (invariato)
+S4ID-P8, OPR2-P7 || vedi F10-GTU || **CONDIZIONALI** su [GT-u_m] e (WP)
+S10B-E8 || — || **DIMOSTRATO come implicazione mod S4ID-P8** (quindi condizionale su [GT-u_m], (WP)); fix E8-a: definire in(G) (componente omogenea di grado minimo) e
+INT-Q1 || — || **APERTO — ridotto a (R)** (equivalenza S10B-E8, mod S4ID-P8, [GT-u_m], (WP))
+S10B-L8′ || — || **DIMOSTRATO**
+S10B-V9 || — || N ≤ 4: **DIMOSTRATO (computer-assisted) mod (Nov)**; N = 5 e δ₅(8) = 9: **PROVA SCRITTA assistita da calcolo**, non riprodotti; N = 6 **NON ESEGUITO**
+S10B-P10 || — || DIMOSTRATO (invariato)
+OPR2-Q3 || — || **APERTO — caratterizzato da S10B-P10**; resta la realizzabilità degli atomi (la condizione nota è solo sufficiente)
+S10B-P11 || (L-int) ∧ (L-v) è condizione **suf || **DIMOSTRATO**
+OPR2-Q2′ || ℓ_iℓ_j) || **APERTO**; condizione sufficiente: (L-v) a ogni vertice (S10B-P11), perché (L-int) si dimostra in abbozzo con la norma di Hilbert–Schmidt ∫χ₀⁴/(\
+
+## F10-C — S10-OPEN-C (audit S-CHECK-F10-C: work/CHECK-F10/AUDI
+VAR-P11(e) || — || **DIMOSTRATO** (prova autonoma: Volterra + Gronwall)
+VAR-L2-cor || — || **DIMOSTRATO** (prima CON-FONTE via P11(e))
+VAR-Q18-CE || — || **DIMOSTRATO**: controesempio di rango 2, anche dentro L²(J) con H₀ di Neumann; «P11(e) con B solo continuo» **FALSO**
+VAR-Q18 (moltiplicazioni) || — || **APERTO**
+VAR-Q10-EX, VAR-T1(c)-Q10 || > 0, int Z = ∅ (Tychonoff + Cantor || **DIMOSTRATO**: u con V = 0, \
+VAR-Q17(a) || — || **DIMOSTRATO** per V₀(x) + v(t)
+VAR-Q17(b) (V(t,x), sorgente fuori || — || **APERTO — riformulato**
+VAR-P12(d)-quad || non registrare «(d) FALSO» || **DIMOSTRATO** nella classe quadratica (tr M = −26/5)
+VAR-P12(d) (generale) || — || **APERTO**
+VAR-C3Q2-R (a): Ann = A₂L ⟺ rank_B || — || **DIMOSTRATO**
+VAR-C3Q2-R (b): VAR-Q12 con f(x+t) || — || **DIMOSTRATO** (prova elementare con i polinomi di Touchard, C-8)
+VAR-C3Q2-R (a′): olonomo ⇒ mai || — || **CON-FONTE** (Bernstein, Björk)
+VAR-C3Q2-open (caso non monico), V || — || **APERTO** (equivalenza non provata)
+SYS-DIRAC-POL (a),(b) = Q-S8SYS-1  || tempi complessi: **APERTO** || **DIMOSTRATO**: formale in ℚ[ξ,m][[t]]; a t fisso nessuna parola finita a tempi polinomiali reali
+II-T2(b′)-CRIT (a): polo ⟺ E₀ ∩ F₀ || — || **DIMOSTRATO**
+Q-S8SYS-4 || — || **FALSO** («il polo dipende solo da A(ξ₀) e dalla fattorizzazione»: controesempio A₂′ = SA₂S⁻¹)
+SYS-MAXWELL (Q6) || — || **DIMOSTRATO**: pd ≤ 2 ⇒ soc = 0 ⇒ esiste un campo identificante (via SYS-EX)
+ENC-T2(c′)-P (classe principale) || — || **DIMOSTRATO**: u + e^{αt}f, Ann = (P_*(τ−α))
+ENC-Q4-S || vedi F10-C2 || **PROVA SCRITTA** (in attesa di C-15: localizzazione su {t : u(t,·) ≢ 0})
+ENC-Q4 (lettura DM3) || — || **APERTO**
+ENC-Q10-D (i),(ii): encoder di Dar || vedi F10-C2 || **PROVA SCRITTA** (in attesa di C-17: derivazione di κ a mano)
+ENC-Q10 (residuo V reale) || — || **APERTO — riformulato** (C-18): esempi reali che Galileo e lente non riconducono a potenziali stazionari; il boost di Galileo dà già V₁ = 2/(x−2kt+a)
+DICT-ILIM-Hs || vedi F10-C2 || **CON-FONTE** (in attesa di C-19: lemma del cono elementare)
+DICT-U3d-v (velocità L¹, ogni nucl || ottimalità: **APERTO** (C-21) || **DIMOSTRATO**
+DICT-Q3-R (b): test formale insuff || — || **DIMOSTRATO**
+DICT-Q3-R (a) || — || **CON-FONTE** (Malgrange)
+DICT-Q3 (c) || — || **APERTO — riformulato** (divisione C^∞)
+DICT-Q4-C (1)⟺(2), rango finito || — || **DIMOSTRATO**
+DICT-Q4-C, rango infinito ⇒ A(iii) || — || **CON-FONTE** (Amitsur 1965 / Brešar–Šemrl 1999)
+DM-δ-MINIMAX = VAR-Q19 || — || **DIMOSTRATO** con l'ipotesi M > δ₀: minimax Θ(ε^{1/3})
+
+## F10-INT — integrazione e esempi da manuale (S10-INT: work/S1
+EX10-a (Dirac libero 1+1) || ex10_a_dirac 13/13 || **V-ex**
+EX10-b (oscillatore armonico) || ex10_b_oscillatore 19/19 || **V-ex**
+EX10-c (Pöschl–Teller) || ex10_c_poschl_teller 18/18 || **V-ex**
+EX10-d (calore frazionario) || ex10_d_frazionario 13/13 || **V-ex**
+EX10-e (Maxwell nel vuoto) || ex10_e_maxwell 17/17 || **V-ex**
+EX10-b-ND, EX10-e-K, EX10-e-H || — || **PROVA SCRITTA** (audit S-CHECK-EX10 in corso)
+
+## F10-C2 — S10-OPEN-C rev2 (mini-audit S-CHECK-F10-C2: work/CH
+
+## F10-EX — audit degli argomenti degli esempi (S-CHECK-EX10: w
+
+## F10-TRIAGE — chiusure dopo il triage indipendente (coordinat
+P1-Q7-CAND || PASS-con-fix MINOR || In A₁, per X = (x³+x)∂, Y = ∂ e ogni ε₀ ≠ 0, non esistono una parola finita e g_i ∈ tℂ[[t]] con e^{t(X+ε₀Y)} = Π e^{g_i Z_i}. La prova usa solo (H) pe
+P1-Q7-FIL || solo abbozzo || generalizzazione con «dilatazione filtrata»
+P1-Q7 || — || caso generale: algebre con (H) senza alcuna dilatazione, nemmeno filtrata
+P2-Q1-NL-Δ || PASS-con-fix MINOR ((P′) al posto  || Ω ⊂ ℝ² connesso, semplicemente connesso, di misura finita, con L^{1,2}(Ω) ⊂ L²(Ω) (es. D∖[0,1)), m ≥ 1: ker_{H^m}Δ = ker_{H^m}∂_z̄ + ker_{H^m}∂_z
+P2-Q1-NL || — || P generale o m = 0
+SYS-DIRAC-POL-C || PASS-con-fix MINOR || per t, m ∈ ℝ∖{0} non esistono k e p_j, q_j ∈ ℂ[ξ] con Π_j e^{p_jX} e^{q_j mY} = e^{tA(ξ)} su una semiretta (Lemma E′: un esponenziale-polinomio ≢ 0 no
+SYS-DIRAC-POL (tempi complessi) || — || t o m non reali
+DICT-LOCDEP || PASS-con-fix MINOR || D_0..D_N: Z → V lineari e localmente dipendenti ⇒ ∃ c ≠ 0 con rank(Σ c_i D_i) ≤ N; da qui DICT-Q4-C «rango infinito ⇒ A(iii)» senza Amitsur / Brešar–Š
+VAR-C3Q2-R (a′) || PASS-con-fix MINOR || L ∈ A₂ non costante, Lu = 0, d_B(A₂u) ≤ 2 ⇒ Ann_{A₂}(u) ≠ A₂L, perché d_B(A₂/A₂L) = 3; non serve Björk
+S10B-V9 (N = 5, 6) || PASS-con-fix MAJOR, risolto con un || per ogni k ∈ U₀: δ₅(10) = 6, δ₅(9) = 7, δ₅(8) = 9, δ₆(12) = 7 (minoranti mod p = 10⁹+7 su S°₀ a k = 0 con due generatori indipendenti, via L8/L8′; mag
+S10B-V9-611 || — || δ₆(11) = 8
+AM-CL || — || getti di Adler–Moser ⊂ cl(S°₀)
+S10B-P3 || B2: fix redazionale, nessun nuovo  || aperto e denso in C^r: Morse+(SB) senza valori critici nulli (fix P3-c applicato in questa forma)

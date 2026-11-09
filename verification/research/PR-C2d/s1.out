@@ -1,0 +1,14 @@
+PASS a1 -e_n'' = n^2 e_n
+PASS a2 Gram of {sin nx}_{n<=4} = (pi/2) I
+PASS b1 -G_xx=0 off-diagonal
+PASS b2 BC G(0,y)=G(pi,y)=0
+PASS b3 jump of G_x at x=y equals -1 (delta)
+PASS b4 G(x,y)=sum (2/pi) sin(nx)sin(ny)/n^2  [coefficient check]
+PASS c1 <G(x0,.), v>_{H^1_0} = v(x0)  (RKHS reproducing property)
+PASS d1 Robin: phi'(0)=h phi(0)
+PASS d2 Robin eigen-equation phi(pi)=0 <=> k cos(k pi)+h sin(k pi)=0
+PASS e1 periodic: int_0^{2pi} e^{i2x} e^{-i3x} = 0
+PASS f1 (d_rr + (1/r) d_r + k^2) J0(kr) = 0
+PASS f2 Liouville normal form of radial Bessel
+PASS g1 Rayleigh quotient 10/pi^2 >= lambda_1=1
+ALL PASS

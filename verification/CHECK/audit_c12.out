@@ -1,0 +1,81 @@
+=== C12-L3 ===
+OK   L3(a) Res_tau(f,g) in (f,g) ∩ C[xi], != 0  | xi**4 - xi - 1
+OK   L3(a) dim R/(f,g) <= deg r * deg s  | 4
+OK   L3(b) additività con punto comune ai tre (0,0): dim(f,gh) = dim(f,g)+dim(f,h)  | (4, 2, 2)
+OK   L3(b) additività, punto triplo (1,1) e molteplicità  | (6, 4, 2)
+OK   L3(b) anche con g = h (serve solo gcd(f,g)=gcd(f,h)=1)
+OK   L3(c) comassimale: (tau-xi, tau-xi-1) = R, V vuoto
+OK   L3(c) non coprimi: V(f)∩V(g) ⊇ V(fattore comune) ≠ ∅ (tau·xi, tau·(xi-1))
+=== C12-L1 ===
+OK   L1 int theta = 1
+OK   L1 K psi nulla in x = 1 (supporto compatto)
+OK   L1 d_x K psi = psi - theta⊗Psi
+OK   L1 K d_t = d_t K
+OK   L1(b) [fix L1-1] su C^inf il J duale = int_xbar^x phi - c_theta(t)
+OK   L1(b) [rilievo L1-1] J duale ≠ int_xbar^x phi (differiscono per c_theta(t)⊗1)  | -0.000226000
+=== C12-L2 ===
+OK   L2 Koszul beta∘alpha = 0
+OK   L2 Hom(R/m,A) = C·e: contributo locale dim 1
+OK   L2(2) dim Sol(R/a) = dim R/a (a=(tau^2, xi^2-tau))  | (4, 4)
+OK   L2(iii) sol. particolare risonante
+OK   L2(iii) sol. particolare non risonante (grado l)
+=== C12-T1: delta(P) con tre o più fattori ===
+OK   T1(ii) E1 tre rette per 0: tau, xi, tau-xi: dim N (ansatz EP per punto) = sum_{i<j} dim R/(Q_i,Q_j)  | punti [(0, 0)], locali [3], formula 3
+OK   T1(ii) E2 tre parabole tangenti in 0: tau-xi^2, tau, tau-2xi^2: dim N (ansatz EP per punto) = sum_{i<j} dim R/(Q_i,Q_j)  | punti [(0, 0)], locali [6], formula 6
+OK   T1(ii) E3 punto triplo (1,1) + molteplicità: tau-xi^2, (tau-xi)^2, (xi-1)^2: dim N (ansatz EP per punto) = sum_{i<j} dim R/(Q_i,Q_j)  | punti [(0, 0), (1, 1)], locali [2, 8], formula 10
+OK   T1(ii) E4 quattro fattori: tau, xi, tau-xi, tau+xi-1: dim N (ansatz EP per punto) = sum_{i<j} dim R/(Q_i,Q_j)  | punti [(0, 0), (0, 1), (1, 0), (1/2, 1/2)], locali [3, 1, 1, 1], formula 6
+OK   T1(ii) E1: nessuna correzione di inclusione–esclusione (dim N = 3, non 3-1)
+OK   T1(ii) E1 verifica esplicita: (-alpha x+gamma) + (-alpha t-beta-gamma) + (alpha(t+x)+beta) = 0
+OK   T1 s=2 calore/trasporto  | (2, 2, [(0, 0), (1, 1)])
+OK   T1 s=2 onda  | (1, 1, [(0, 0)])
+OK   T1 s=2 trave tau^2+xi^4 vs tau  | (4, 4, [(0, 0)])
+=== Dominio: corona (controesempio a T1(i) fuori dalle ipotesi) ===
+OK   corona: supp(alpha'beta') ⊂ {|t|,|x|<=1/2} ⊂ {r<=0.71} disgiunto da Omega
+OK   corona: sistema delle costanti (R1..R4, x=±1.5, t=±1.5) incompatibile ⇒ u ∉ ker d_t + ker d_x
+OK   corona: 8 punti testimone in Omega
+=== C12-C1 ===
+OK   C1 m=0: u ∈ H^m(Ω'_c) (integrali pesati finiti), u2 ∉ H^m (∫|G^(m)|^2 s = ∞)  | oo
+OK   C1 m=0: f u1 = 0, g u2 = 0, u1+u2 = u, u2 = e^t G, u1 = -G
+OK   C1 m=1: u ∈ H^m(Ω'_c) (integrali pesati finiti), u2 ∉ H^m (∫|G^(m)|^2 s = ∞)  | oo
+OK   C1 m=1: G^(m) = (m-1)!/s
+OK   C1 m=1: f u1 = 0, g u2 = 0, u1+u2 = u, u2 = e^t G, u1 = -G
+OK   C1 m=2: u ∈ H^m(Ω'_c) (integrali pesati finiti), u2 ∉ H^m (∫|G^(m)|^2 s = ∞)  | oo
+OK   C1 m=2: G^(m) = (m-1)!/s
+OK   C1 m=2: f u1 = 0, g u2 = 0, u1+u2 = u, u2 = e^t G, u1 = -G
+OK   C1 m=3: u ∈ H^m(Ω'_c) (integrali pesati finiti), u2 ∉ H^m (∫|G^(m)|^2 s = ∞)  | oo
+OK   C1 m=3: G^(m) = (m-1)!/s
+OK   C1 m=3: f u1 = 0, g u2 = 0, u1+u2 = u, u2 = e^t G, u1 = -G
+OK   C1 m=4: u ∈ H^m(Ω'_c) (integrali pesati finiti), u2 ∉ H^m (∫|G^(m)|^2 s = ∞)  | oo
+OK   C1 m=4: G^(m) = (m-1)!/s
+OK   C1 m=4: f u1 = 0, g u2 = 0, u1+u2 = u, u2 = e^t G, u1 = -G
+OK   C1 m=2: ‖u‖^2_{H^2(Ω'_c)} finita (quadratura diretta)  | 1.1206221
+OK   C1 m=2: ∫_{s>eps}|d_s^2 u2|^2 cresce come log(1/eps) (diverge)  | ['10.6996', '19.91']
+OK   C1 |e^t-1| <= e t su (0,1)
+=== C12-L5 / C12-T3 ===
+OK   T3 Gram {1, e^{dt}} definita positiva per a<b (det>0 su campioni)
+OK   T3/P8 cos^2(1,e^{dt}) su (0,T) = tanh(dT/2)/(dT/2)
+OK   T3 |e^{lam t}-e^{lam a}| <= |lam| e^{|Re lam| M} |t-a|
+OK   T3 triangolo: ∫G^2 ell^3 < ∞ ma ∫G^2 ell = ∞ (G=1/s)
+OK   T3 corollario: corda del quadrato in direzione (1,1): ell(s)=1-|s|, inf = 0
+OK   C1 ⊂ T3: f = d_t - d_x (c=-1,d1=0), g = f-1 (d2=1); f-g = kappa = d2-d1 = 1
+=== C12-T2 ===
+OK   T2 det V = prod_{i<j}(a_j-a_i)
+OK   T2 adj(V) V = Delta I
+OK   T2(ii) (0, xi, xi+1): delta(P) = deg Delta  | (2, 2)
+OK   T2(iv) (0, xi, xi+1): colonne di V autovettori della compagna
+OK   T2(iv) (0, xi, xi+1): poli di Pi_1 = punti di collisione del ramo 1  | ({0, -1}, {0, -1})
+OK   T2(iv) (0, xi, xi+1): poli di Pi_2 = punti di collisione del ramo 2  | ({0}, {0})
+OK   T2(iv) (0, xi, xi+1): poli di Pi_3 = punti di collisione del ramo 3  | ({-1}, {-1})
+OK   T2(ii) (0, xi^2, -xi): delta(P) = deg Delta  | (5, 5)
+OK   T2(iv) (0, xi^2, -xi): colonne di V autovettori della compagna
+OK   T2(iv) (0, xi^2, -xi): poli di Pi_1 = punti di collisione del ramo 1  | ({0}, {0})
+OK   T2(iv) (0, xi^2, -xi): poli di Pi_2 = punti di collisione del ramo 2  | ({0, -1}, {0, -1})
+OK   T2(iv) (0, xi^2, -xi): poli di Pi_3 = punti di collisione del ramo 3  | ({0, -1}, {0, -1})
+OK   T2(ii) (0, xi, 2): delta(P) = deg Delta  | (2, 2)
+OK   T2(iv) (0, xi, 2): colonne di V autovettori della compagna
+OK   T2(iv) (0, xi, 2): poli di Pi_1 = punti di collisione del ramo 1  | ({0}, {0})
+OK   T2(iv) (0, xi, 2): poli di Pi_2 = punti di collisione del ramo 2  | ({0, 2}, {0, 2})
+OK   T2(iv) (0, xi, 2): poli di Pi_3 = punti di collisione del ramo 3  | ({2}, {2})
+
+TOTALE: 70/70 OK
+ESITO GLOBALE: OK

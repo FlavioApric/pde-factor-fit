@@ -1,0 +1,11 @@
+# Domande aperte — F6-SYS (26/10/2026)
+- **Q-SYS-1 (novità di SYS-T1).** Il criterio "M ↪ 𝒜 ⟺ μ_p(M) ≤ μ_p(𝒜) per ogni primo p" (con μ_m(𝒜) = 1 per i primi massimali, dalla dimensione 1 di {f : (∂−λ)f = 0}) è in Oberst 1990 (§2–4, *large injective cogenerators*) o in Zerz/Pommaret? Va verificato sul testo prima di passare SYS-T1 oltre "candidato". Serve anche il valore dei numeri di Bass μ_p(C^∞) per p non massimale: atteso infinito, DA VERIFICARE. Serve per l'esistenza di una u identificante, non per il test.
+- **Q-SYS-2 (esistenza).** Per quali M_P esiste u ∈ Sol(P) con Ann(u) = U_P? È dimostrato per le EDO (SYS-T0). In nD la congettura è: ⟺ dim soc_λ(M_P) ≤ 1 per ogni λ (cioè SYS-N1 è l'unica ostruzione).
+- **Q-SYS-3.** SYS-S1 su Ω semplicemente connesso non convesso, trasportando la tecnica di C12-T1′ (H¹_dR = 0) ai moduli. Analogo per tre o più fattori (cfr. S-CHECK-4 O-1).
+- **Q-SYS-4.** II-T2(b′) (polo forzato) per A(ξ) derogatoria. Enunciato candidato: polo in ξ₀ ⟺ esiste un blocco di Jordan di A(ξ₀) che mescola autovalori di Q_j e di B_j.
+- **Q-SYS-5.** Lamé in n = 3: calcolare Ass(M) e i numeri di Bass, e verificare che la parte trasversale abbia μ = 2 (test di molteplicità per un singolo campo di spostamento).
+- **Q-SYS-6 (con F6-VAR).** Sostituto di Ass e dei numeri di Bass per moduli sull'algebra di Weyl (coefficienti variabili), per avere SYS-T1 per (D^{1×k}/Ann_D(u), u).
+- **Q-SYS-7 (SYS-N2).** Gruppo delle classi del cono di luce 3+1 e non libertà di coker X (Weyl, m = 0). Verificare con Knörrer 1987 / Eisenbud 1980 che la fattorizzazione di Weyl non sia equivalente a quella banale.
+- **Q-SYS-8.** Libertà di M_D per Dirac massivo in dimensione dispari (senza rappresentazione chirale): M_D è ancora libero su R/(KG)?
+- **Q-SYS-9 (E).** Per 𝔤(ξ) non compatto (sl_2(ℝ), sistemi iperbolici non simmetrici) un prodotto finito di flussi esiste solo localmente? Va dato un teorema di confine preciso al posto di P1-T5 per i sistemi.
+- **Q-SYS-10 (gauge non abeliano).** Yang–Mills linearizzato e Dirac con SU(2) (Inglis–Jarvis 2012): G-T0 e G-T2 si trasportano con F = dA + A∧A? Esce dal lineare a coefficienti costanti.
