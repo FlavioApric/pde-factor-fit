@@ -27,7 +27,7 @@ import sympy as sp
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "code"))
 
 from pdefactor import aggregate as AG  # noqa: E402
 from pdefactor import bayes_split as BS  # noqa: E402

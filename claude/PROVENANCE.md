@@ -1,0 +1,17 @@
+# PROVENANCE: what every part of branch `ml-layers` is, why it is here, where it came from
+
+The earlier private research repository ("the old repo") had a pipeline folder `PDEFactorML/` (main branch), a separate copy `Larned layers/PDEFactorML` with the learned layers, a variant `PDEFactorML-S-INTERP`, notes in `ProblemaBase/NOTE_ML` and session reports.
+
+| now | what it is | why it is here | came from (old repo) | in the paper? |
+|---|---|---|---|---|
+| `paper/ml_layers.tex` + `.pdf` | 39-page paper: the pipeline and the learning inside it, contract, protocol, prerequisites, every layer as designed, what was built, the controller in detail, what was never built, lessons, ideas; appendices: failure-mode table, acceptance protocol, test inventory, libraries, the explained edition, the original pipeline note | the deliverable | new text from `analysis/PHASE4_ML_PLAN.md`, `sessions/LEARNED/*`, `EXPLAINED/ml_layers.tex` (explained edition, appended), `ProblemaBase/NOTE_ML/ml_pipeline_note.tex` (appended) | it is the paper |
+| `code/pdefactor/` | the pipeline at the commit the layers were developed on, plus the layers in `learned/` (memo, V1, calibration, high-kappa scan, controller, remedy table, seeds) | the layers hook into this exact version; `tests` pin the interface | `Larned layers/PDEFactorML/src` (branch `larned-layers`) | sections on layers |
+| `code/s_interp_variant/` | the separate interpolation variant: experiment scripts, session scripts and outputs (its source modules equal `pdefactor/interp`) | the variant was developed in parallel; its results back the interpolation claims | `PDEFactorML-S-INTERP` | interpolation section |
+| `tests/` | 31 test files: the layers, the golden "off = pipeline" test, the interface pin, the pipeline tests the layers rely on | verification | `PDEFactorML/tests` | test inventory appendix |
+| `benchmarks/*.py` | experiment, gate and corpus scripts of every layer, `runtime.json` | to rerun or extend the evaluations | `PDEFactorML/analysis/exp/ll_*.py`, `fastrun.py`, `slots.py` | protocol section |
+| `benchmarks/results/` | stored reports, gate tables, logs and data of the sessions (V1, LB, C, L2, ...) | the evidence behind every number in the paper | `PDEFactorML/sessions/LEARNED/*`, `analysis/exp/out/*` (small files) | yes |
+| `claude/archive/` | session plans, reports, hand-offs of the ML sessions and the S-INTERP variant | what was planned, tried and decided | `PDEFactorML/sessions/*`, `PDEFactorML-S-INTERP/sessions` | not needed to read the paper |
+| `claude/notes/` | the Phase 4 plan, the S-LEARNED plan and hand-off | the plan the paper evaluates | `PDEFactorML/analysis/PHASE4_ML_PLAN.md`, `sessions/LEARNED` | Section "The layers as designed" |
+| `claude/benchmark_tables/` | result tables in markdown | readable copies of benchmark outputs | `PDEFactorML/benchmarks/out/*.md` | numbers quoted in the paper |
+
+Merged into the paper (coverage checked with `tools/check_coverage.py` on branch `main`): the explained edition `ml_layers.tex` (all sections except the one on pipeline ML, which the new Section "Machine learning inside the pipeline" replaces) and the pipeline note (all labels and theorem titles). Not copied: build files, raw run logs, regenerable caches (225 MB of Gaussian-process posterior caches `analysis/exp/cache/*.npz`), backups. The complete old-vs-new inventory is `INVENTORY.md` on branch `main`.

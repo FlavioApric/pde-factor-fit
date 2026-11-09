@@ -1,6 +1,0 @@
-{
-  "tests/test_baselines_bench.py": true,
-  "tests/test_fastrun.py": true,
-  "tests/test_interp.py": true,
-  "tests/test_p4_reinterp.py": true
-}

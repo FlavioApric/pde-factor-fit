@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmarks" / "ml_layers"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmarks"))
 import ll_inject as I  # noqa: E402
 
 from pdefactor.simulator import FAMILIES, random_pde  # noqa: E402

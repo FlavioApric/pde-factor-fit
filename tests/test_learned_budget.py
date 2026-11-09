@@ -256,7 +256,7 @@ def test_harm_check_counts():
     import sys
     from pathlib import Path
 
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmarks" / "ml_layers"))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmarks"))
     import ll_budget_harm as H
 
     r = H.compare(_harm_rows())

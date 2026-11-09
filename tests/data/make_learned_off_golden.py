@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "code"))
 warnings.filterwarnings("ignore")
 
 OUT = Path(__file__).with_name("learned_off_golden.json")
@@ -38,7 +38,7 @@ def inputs():
     out["heat-grid-0.05"] = ([u + sig * rng.standard_normal(u.shape)], t, x, sig, dict(bootstrap=4))
     rng = np.random.default_rng(11)
     out["pure-noise-grid"] = ([rng.standard_normal(u.shape)], t, x, 1.0, dict(bootstrap=0))
-    p = ROOT / "analysis" / "exp" / "cache" / "heat_400_0.05_0.npz"
+    p = ROOT / "benchmarks" / "cache" / "heat_400_0.05_0.npz"
     if p.exists():  # scattered path: GP samples + raw observations (cache copied from the main repo)
         d = dict(np.load(p))
         S, w = d["samples"][:8], d["weights"][:8]

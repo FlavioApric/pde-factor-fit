@@ -6,7 +6,7 @@ Merge attempt: 3-way merge of `loop.py` conflicts in 7 hunks, `core/structfit.py
 | layer | verdict | where |
 |---|---|---|
 | LB exact memo | go, on (`PDEFACTOR_LB_MEMO=0` disables) | `learned/memo.py`, `budget.py` |
-| LB learned skip | no-go | `benchmarks/ml_layers/results/LB_REPORT.md` |
+| LB learned skip | no-go | `benchmarks/results/LB_REPORT.md` |
 | V1 | no-ship; `Learned(validator="downgrade")` exists, does nothing without a model | `results/V1_REPORT.md`, `v1_gate_resid_p7.md` |
 | L2b, L2c, L2d | no-go | `results/V1_REPORT.md`; L2c in `ll_l2c.py` |
 | H0 | no-go | `learned/highk.py` |
@@ -26,3 +26,6 @@ Long notes: `claude/notes/` (Phase 4 plan, S-LEARNED plan and handoff, written f
 ## Completeness (2026-11-09)
 The paper now covers every layer of the plan (21 pages): pipeline ML, P0 prerequisites, L0, L1, L2a-d, V0/V1, the controller C in full, L5, L6, differentiable core, build order, failure-mode table, acceptance protocol, test inventory.
 All session plans/reports are in `claude/archive/sessions/`; the S-INTERP variant is in `variants/s_interp/`. `INVENTORY.md` on `main` lists every old file and its new place.
+
+## Layout change (2026-11-09)
+The paper is one flat file (`paper/ml_layers.tex`, 39 pp): the explained edition and the original pipeline note are now appendices of it (coverage checked). `src/` became `code/`; `variants/s_interp` became `code/s_interp_variant/` (+ notes in `claude/archive/s_interp_variant/`); scripts and results are flat in `benchmarks/`.
