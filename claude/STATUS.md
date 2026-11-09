@@ -6,7 +6,7 @@ Merge attempt: 3-way merge of `loop.py` conflicts in 7 hunks, `core/structfit.py
 | layer | verdict | where |
 |---|---|---|
 | LB exact memo | go, on (`PDEFACTOR_LB_MEMO=0` disables) | `learned/memo.py`, `budget.py` |
-| LB learned skip | no-go | `benchmarks/results/LB_REPORT.md` |
+| LB learned skip | no-go | `claude/benchmark_tables/LB_REPORT.md` |
 | V1 | no-ship; `Learned(validator="downgrade")` exists, does nothing without a model | `results/V1_REPORT.md`, `v1_gate_resid_p7.md` |
 | L2b, L2c, L2d | no-go | `results/V1_REPORT.md`; L2c in `ll_l2c.py` |
 | H0 | no-go | `learned/highk.py` |
