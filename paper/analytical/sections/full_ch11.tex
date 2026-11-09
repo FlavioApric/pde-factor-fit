@@ -1,0 +1,65 @@
+\section{Limits, open problems and status}\label{f:ch:status}
+\sectionbrief
+{no new assumptions.}
+{to state what is impossible, what is open, which statements turned out false, and how reliable each result is.}
+{delimits every claim of this edition.}
+
+\subsection{What is impossible}
+
+Each item below is a proved negative theorem, not a gap.
+\begin{itemize}
+\item a finite certificate of identification, and identification from a black box (Theorems~\ref{f:thm:nocert} and~\ref{f:thm:blackbox});
+\item identification by restricting variable-coefficient operators to one solution (Proposition~\ref{prop:weyl});
+\item decomposition of a solution by additive terms (Proposition~\ref{f:prop:terms});
+\item factor decomposition on regions with holes, for some $P$ (Proposition~\ref{f:prop:holes});
+\item components in $H^m$ in general: one derivative can be lost (Counterexample~\ref{f:cex:loss});
+\item a continuous or stably regularised interaction term in $H^m$ (Theorems~\ref{f:thm:nocont} and~\ref{f:thm:noreg});
+\item a finite product of single-term flows reproducing non-commuting dynamics when the adjoint orbit is infinite (Theorem~\ref{f:thm:lie}(c)).
+\end{itemize}
+
+\subsection{Statements that turned out false}
+
+\begin{center}\small
+\begin{tabular}{@{}L{5.2cm}L{6.0cm}L{2.6cm}@{}}
+\toprule
+Statement & Counterexample or correction & Ledger\\\midrule
+the spectrum of an expansion decides identification on a bounded domain & $e^{x-t}$ on the unit square (Counterexample~\ref{cex:C3C1}) & C3-C1\\
+components keep the regularity of $u$ & parallel transports on the square & C12-C1\\
+$u\mapsto\Eint$ is continuous in $H^m$ & real exponentials in advection--diffusion & P1-P1(e)\\
+the companion matrix is normal iff $p=s^m-c$ & $s^2+s-1$ & R6-T3\\
+splitting by terms lies in $\ker(L_1,L_2)$ & $\tfrac12x^2+Dt$ for the heat equation & R2-T3 (corrected)\\
+exact interaction impossible for infinite Lie algebras (as first stated) & $e^{-tT_2}e^{-tT_1}e^{t(T_1+T_2)}$ & R5-Q5, P1-C1\\
+NLS identification by scattering data without multiplicity & explicit counterexample & OPF5D\\\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Open or conditional}
+
+\begin{itemize}
+\item closedness of the sum of kernels for $N\ge3$ differential factors \openq{} \led{C12-Q2}; solved for real transports in $L^2$;
+\item density of the sum of kernels on non-convex regions \openq;
+\item minimality of the bound $B$ on every region \openq{} \led{OP-ALG-Q2};
+\item identification for analytic KdV data with nonzero reflection \openq{} \led{INT-Q1};
+\item the uniform shock rate with several shock births \condl{} \led{OPA-Q1};
+\item the exact values of the syzygy degrees $\delta_N(K)$ for general $N$ \openq{} \led{OPF5C-Q1};
+\item no finite product of flows for $\partial_x^2$ and $x^k$, $k\ge3$ (the hypothesis of Theorem~\ref{f:thm:lie}(c) fails there) \openq{} \led{P1-Q3}, and Theorem~\ref{f:thm:lie}(c) without the assumption that the flows of $Y$ vanish at zero coupling \openq{} \led{P1-Q7}.
+\end{itemize}
+
+\subsection{How reliable the results are}
+
+\textbf{Proofs and audits.} Every statement labelled \proved{} has a complete proof that passed an independent review. The reviewers were AI agents with no access to the author's reasoning, not human referees. Statements labelled \pw{} have complete proofs that were not audited; none of them is on the critical path of the main theorems.
+
+\textbf{Formal verification.} Fifteen theorems of the algebraic core are formalised in Lean~4 with Mathlib, without \texttt{sorry}: the interaction identity for commuting flows, the comaximal factor decomposition with explicit projector, the normality criterion for $m=2$, and several irreducibility results. The analytic parts (distributions, Sobolev spaces, semigroups) are not formalised, because the libraries are missing.
+
+\textbf{Citations.} Many ingredients are classical: Malgrange--Ehrenpreis, the Nullstellensatz, Cole--Hopf, inverse scattering. The primary sources of the load-bearing citations (Malgrange, Fulton, Kru\v zkov, Novikov) were checked; several others only on secondary sources. A result relied upon should be traced to its primary source.
+
+\textbf{Novelty.} The contribution is the package: sharp characterisations, negative theorems and counterexamples, each with a verified status. Parts of the identification theory are folklore in commutative algebra (Oberst duality); parts of the finite-data theory are known in substance (Prony, Mourrain).
+
+\subsection{What this edition does not contain}
+
+\begin{itemize}
+\item Phases~6--11: systems and matrix coefficients, variable coefficients and the analytic encoder, the universal dictionary, convergence, the extended algorithm. They are summarised in \emph{Punto di partenza} and will enter the complete edition after Phase~11.
+\item The catalogue of about $60$ equation types and the tropical reading of scaling limits.
+\item The Lean sources.
+\end{itemize}
+

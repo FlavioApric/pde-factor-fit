@@ -1,0 +1,261 @@
+\section{The algebraic language}\label{f:ch:algebra}
+\sectionbrief
+{constant coefficients; functions or distributions on $\Omega\subset\R^2$ with complex values. The vocabulary of Section~\ref{ch:primer}.}
+{three notions carry the whole theory. The \emph{symbol} turns derivatives into polynomials. The \emph{annihilator} collects all equations a function satisfies. \emph{Exponential-polynomials} are the trivial solutions.}
+{foundation for every later chapter. It proves the two lemmas that every identification argument uses (Lemmas~\ref{f:lem:gcd} and~\ref{f:lem:ep}) and ends with the one-variable prototype (Section~\ref{sec:ode}).}
+
+\subsection{Derivatives as polynomials}
+
+A linear operator with constant coefficients is a polynomial in the two partial derivatives:
+\[
+P(\partial_t,\partial_x)=\sum_{j,k}c_{jk}\,\partial_t^{\,j}\,\partial_x^{\,k},\qquad c_{jk}\in\C .
+\]
+The exponentials are eigenfunctions of every derivative. Write
+\[
+e_{\tau,\xi}(t,x)=e^{\tau t+\xi x}.
+\]
+Then
+\[
+\partial_t\,e_{\tau,\xi}=\tau\,e_{\tau,\xi},\qquad
+\partial_x\,e_{\tau,\xi}=\xi\,e_{\tau,\xi},
+\]
+and therefore, for every operator $P$,
+\begin{equation}\label{eq:symbol}
+P(\partial)\,e_{\tau,\xi}=P(\tau,\xi)\,e_{\tau,\xi}.
+\end{equation}
+So applying the operator to an exponential is the same as multiplying by the value of a polynomial. This is the reason why all the algebra below is about polynomials in two variables.
+
+\begin{definition}[{Operator ring, symbol, characteristic variety}]\label{f:def:ring}
+The ring of constant-coefficient operators is
+\[
+\ring=\C[\partial_t,\partial_x]\;\cong\;\C[\tau,\xi].
+\]
+The polynomial $P(\tau,\xi)$ is the \emph{symbol} of $P(\partial)$. The \emph{characteristic variety} of $P$ is its zero set
+\[
+\Var(P)=\{(\tau,\xi)\in\C^2:\ P(\tau,\xi)=0\}.
+\]
+\end{definition}
+
+By~\eqref{eq:symbol}, the exponential $e_{\tau,\xi}$ solves $P(\partial)u=0$ exactly when $(\tau,\xi)$ lies on $\Var(P)$. Fourier modes are the special case $\xi=i\kappa$ with real frequency $\kappa$.
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=6.4cm,height=5.4cm,axis lines=middle,xlabel={$\xi$},ylabel={$\tau$},xmin=-2.2,xmax=2.2,ymin=-2.2,ymax=2.2,
+ ticks=none,title={\small Wave: $\tau^2-\xi^2=0$},every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+ every axis y label/.style={at={(current axis.above origin)},anchor=south}]
+\addplot[cA,very thick,domain=-2:2] {x}; \addplot[cB,very thick,domain=-2:2] {-x};
+\node[cA,font=\scriptsize] at (axis cs:1.45,1.95) {$\tau=\xi$}; \node[cB,font=\scriptsize] at (axis cs:1.45,-1.95) {$\tau=-\xi$};
+\addplot[only marks,mark=*] coordinates {(0,0)};
+\end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture}
+\begin{axis}[width=6.4cm,height=5.4cm,axis lines=middle,xlabel={$\xi$},ylabel={$\tau$},xmin=-2.2,xmax=2.2,ymin=-0.5,ymax=3.2,
+ ticks=none,title={\small Heat: $\tau-\tfrac12\xi^2=0$},every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+ every axis y label/.style={at={(current axis.above origin)},anchor=south}]
+\addplot[cA,very thick,domain=-2.2:2.2,samples=60] {0.5*x^2};
+\addplot[only marks,mark=*,cB,mark size=2.6pt] coordinates {(1.2,0.72)};
+\node[cB,font=\scriptsize,anchor=south east] at (axis cs:1.15,0.85) {one exponential};
+\end{axis}
+\end{tikzpicture}
+\caption{Real slices of two characteristic varieties. A single exponential solution is a single point of the variety. A rich, non-exponential solution ``fills'' the whole curve.}\label{fig:varieties}
+\end{figure}
+
+\subsection{Annihilators and what a solution knows}
+
+A single function is usually killed by many operators. For example, $e^x$ is killed by $\partial_x-1$, by $\partial_x^2-1$, by $\partial_t$, and by every combination of these.
+
+\begin{definition}[{Annihilator}]\label{f:def:ann}
+The annihilator of $u$ is the set of all operators that kill $u$:
+\[
+\Ann(u)=\{Q\in\ring:\ Q(\partial)u=0\}.
+\]
+\end{definition}
+
+$\Ann(u)$ is an ideal of $\ring$: if $Q(\partial)u=0$ and $S\in\ring$, then
+\[
+(SQ)(\partial)u=S(\partial)\big(Q(\partial)u\big)=0 ,
+\]
+and the sum of two annihilators is an annihilator. Three classical facts about $\C[\tau,\xi]$ are used throughout.
+
+\begin{notebox}{Three facts about polynomials in two variables}
+\textbf{(F1) Unique factorisation.} Every nonzero polynomial factors as
+\[
+P=c\prod_iP_i^{e_i},
+\]
+with $P_i$ irreducible and pairwise non-proportional (the ``primes''), $e_i\ge1$ their multiplicities, and $c$ a constant. The factorisation is unique up to constants, so $\Gcd$ is defined as for integers.
+
+\textbf{(F2) B\'ezout.} Two polynomials without a common factor have only finitely many common zeros, at most the product of their degrees. Geometrically: two curves without a common component meet in isolated points.
+
+\textbf{(F3) Nullstellensatz} (Hilbert). If a polynomial $q$ vanishes on the common zero set $\Var(I)$ of an ideal $I$, then $q^k\in I$ for some $k\ge1$. In particular, an ideal without common zeros is the whole ring.
+\end{notebox}
+
+All three are classical~\cite{clo,fu}. They hold over $\C$; the Nullstellensatz fails over $\R$.
+
+The next lemma says that every ideal splits into a ``curve part'' (one polynomial) and a residue that vanishes only at finitely many points.
+
+\begin{lemma}[{Splitting off the gcd \led{C3-L2} \proved}]\label{f:lem:gcd}
+Let $I\subset\ring$ be a nonzero ideal and $g=\Gcd(I)$. Then
+\[
+I=g\cdot J,\qquad J=\{f/g:\ f\in I\},
+\]
+where $J$ is an ideal whose zero set $\Var(J)$ is finite.
+
+\dimref{C3-L2}
+\end{lemma}
+
+\begin{intuition}
+Divide every element of $I$ by the common factor $g$. What is left has no common factor, so by B\'ezout any two ``generic'' elements of $J$ meet only at finitely many points.
+\end{intuition}
+
+For the annihilator of a function we use a fixed notation:
+\[
+G_u=\Gcd\Ann(u),\qquad \Ann(u)=G_u\cdot J_u .
+\]
+$G_u$ is the ``genuinely infinite-dimensional'' part of the equation of $u$. $J_u$ records the finitely many exponentials that happen to be present in $u$.
+
+\begin{example}[{Two extreme cases}]
+\textbf{A single exponential.} For $u=e^{x}$, seen as a function of $(t,x)$:
+\[
+\Ann(u)=(\tau,\ \xi-1),\qquad G_u=1,\qquad J_u=\Ann(u).
+\]
+The ideal is that of the single point $(0,1)$. The function has no infinite part.
+
+\textbf{A travelling profile.} For $u=f(x+t)$ with $f$ a Gaussian:
+\[
+\Ann(u)=(\tau-\xi),\qquad G_u=\tau-\xi,\qquad J_u=\ring .
+\]
+The whole ideal is the curve part; there are no isolated points. This is proved in Section~\ref{f:ch:ident}.
+\end{example}
+
+\subsection{Exponential-polynomials}
+
+\begin{definition}[{Exponential-polynomials}]\label{f:def:ep}
+$\EP$ is the set of finite sums
+\[
+w(t,x)=\sum_{j=1}^{r}p_j(t,x)\,e^{\tau_jt+\xi_jx},
+\]
+with polynomials $p_j$ and exponents $(\tau_j,\xi_j)\in\C^2$. We write $\EP(\Omega)$ for their restrictions to $\Omega$.
+\end{definition}
+
+For a function $w$, let $\ring w$ be the space of all its derivatives and their linear combinations:
+\[
+\ring w=\spn\{\partial_t^j\partial_x^k w:\ j,k\ge0\}=\{Q(\partial)w:\ Q\in\ring\}.
+\]
+The map $Q\mapsto Q(\partial)w$ goes from $\ring$ onto $\ring w$ and its kernel is $\Ann(w)$. Hence
+\[
+\ring w\;\cong\;\ring/\Ann(w).
+\]
+
+\begin{lemma}[{Finite-dimension criterion \led{C3-L3} \proved}]\label{f:lem:ep}
+For a function or distribution $w$ on a connected $\Omega$:
+\[
+w\in\EP(\Omega)\iff\dimc_\C(\ring w)<\infty .
+\]
+In that case $\Var(\Ann w)$ is the finite set of exponents $\{(\tau_j,\xi_j)\}$ that occur in $w$.
+
+\dimref{C3-L3}
+\end{lemma}
+
+\begin{intuition}
+($\Rightarrow$) Derivatives of $p\,e^{\tau t+\xi x}$ are polynomials of degree at most $\deg p$ times the same exponential, so they stay in a finite-dimensional space.
+
+($\Leftarrow$) On the finite-dimensional space $\ring w$, the derivatives $\partial_t$ and $\partial_x$ act as two commuting matrices. Commuting matrices can be triangularised together. Their joint eigenvalues are the exponents, and their nilpotent parts produce the polynomial prefactors.
+\end{intuition}
+
+\begin{example}[{The test on two functions}]
+For $w=xe^{x}$ the derivatives are $xe^x+e^x$, $xe^x+2e^x$, and so on: all lie in $\spn\{xe^x,e^x\}$, of dimension $2$. So $w\in\EP$.
+
+For $w=e^{-x^2}$, the $k$-th derivative is a polynomial of degree exactly $k$ times $e^{-x^2}$. These are linearly independent for all $k$, so $\dimc\ring w=\infty$ and $w\notin\EP$.
+\end{example}
+
+\begin{takeaway}
+Lemma~\ref{f:lem:ep} is the computational heart of the method. The question ``is $w$ an exponential-polynomial?'' is a question of finite-dimensional linear algebra. It is the test used in the identification criterion (Theorem~\ref{f:thm:ident}) and in Step~3 of the algorithm.
+\end{takeaway}
+
+\subsection{One variable: the ODE prototype}\label{sec:ode}
+
+In one variable every object of the later chapters appears with explicit formulas and without the geometry of curves. We consider an ODE $p(D)u=0$ in the variable $x$, with $D=d/dx$ in this section only.
+
+\begin{notebox}{Setting}
+The symbol factors over $\C$ as
+\[
+p(\lambda)=\prod_j(\lambda-\lambda_j)^{m_j},
+\]
+with distinct roots $\lambda_j$ and multiplicities $m_j\ge1$. The order is $m=\sum_jm_j$. The solution space is
+\[
+\ker p(D)=\Big\{\sum_jq_j(x)\,e^{\lambda_jx}:\ \deg q_j<m_j\Big\}.
+\]
+\end{notebox}
+
+The form of the solutions comes from one computation. For one root,
+\[
+(D-\lambda)\big(q\,e^{\lambda x}\big)=q'\,e^{\lambda x}:
+\]
+applying $D-\lambda$ lowers the degree of $q$ by one. So $(D-\lambda_j)^{m_j}$ kills $q\,e^{\lambda_jx}$ exactly when $\deg q<m_j$.
+
+\begin{example}[{Reading the solution space from the roots}]
+Let $p(\lambda)=(\lambda-1)^2(\lambda+2)^3$. The roots are $1$ (multiplicity $2$) and $-2$ (multiplicity $3$), and the order is $5$. A basis of solutions is
+\[
+e^{x},\quad xe^{x},\quad e^{-2x},\quad xe^{-2x},\quad x^2e^{-2x}.
+\]
+\end{example}
+
+\subsubsection{Identification by the Wronskian}
+
+\begin{proposition}[{ODE identification \led{R4-T1} \proved}]\label{prop:ode-ident}
+Let $u\in\ker p(D)$. The minimal annihilator of $u$ has degree equal to the number of basis functions actually present in $u$. It equals $p$ if and only if
+\[
+u,\ u',\ \dots,\ u^{(m-1)}
+\]
+are linearly independent (nonvanishing Wronskian), that is, iff every root of $p$ appears in $u$ with its full multiplicity.
+
+\dimref{R4-T1}
+\end{proposition}
+
+\begin{example}[{A missing root}]
+Let $p(\lambda)=(\lambda-1)(\lambda-2)$ and $u=3e^{x}$. Then $u'=u$, so $u$ and $u'$ are dependent and the minimal annihilator is $\lambda-1$, of degree $1$. The root $2$ is missing from $u$, and $u$ cannot tell $p$ from $\lambda-1$.
+\end{example}
+
+\subsubsection{The companion matrix and the spectral form}
+
+Write $p(\lambda)=\lambda^m+a_{m-1}\lambda^{m-1}+\dots+a_0$ and put $X=(u,u',\dots,u^{(m-1)})^{\top}$. Then $X'=CX$ with the companion matrix
+\[
+C=\begin{pmatrix}0&1&&\\&0&\ddots&\\&&\ddots&1\\-a_0&-a_1&\cdots&-a_{m-1}\end{pmatrix},
+\qquad X(x)=e^{xC}X(0).
+\]
+The eigenvalues of $C$ are the roots of $p$. For distinct roots the exponential has the spectral form
+\begin{equation}\label{f:eq:spectral}
+e^{xC}=\sum_{j=1}^me^{\lambda_jx}\,\Pi_j,\qquad
+\Pi_j=\prod_{k\ne j}\frac{C-\lambda_k\Id}{\lambda_j-\lambda_k},
+\end{equation}
+where the $\Pi_j$ are the Lagrange projectors onto the eigenspaces.
+
+\begin{proposition}[{Projectors of the companion matrix \led{II-T2, II-T3} \proved}]\label{prop:proj}
+For an operator monic in $\tau$ with pairwise coprime factors, the projectors onto the factor components are explicit rational functions of $\xi$. Their poles lie exactly where two factor varieties meet. They are polynomial if and only if the varieties are disjoint, that is, iff $(Q_i,Q_j)=\ring$ for all $i\ne j$.
+
+\dimref{II-T2}
+\end{proposition}
+
+\begin{caution}[title={The companion matrix is not normal in general}]
+An early conjecture said that the companion matrix is normal exactly when $p=s^m-c$ with $|c|=1$. For $m=2$ this is \falsest: the polynomial $s^2+s-1$ is a counterexample. The correct normality criterion for $m=2$ is \led{II-P5} \proved{}, and it is formalised in Lean. Consequence: Hilbert-space orthogonality arguments need an inner product adapted to the problem, not the standard one on coefficient vectors.
+\end{caution}
+
+\subsubsection{The jet is a cyclic vector}
+
+\begin{proposition}[{Cyclic vector \led{II-C1} \proved}]\label{prop:cyclic}
+Let $P$ be monic in $\tau$ of degree $k$. Then $\Ann(u)=(P)$ if and only if the $t$-jet
+\[
+u,\ \partial_tu,\ \dots,\ \partial_t^{k-1}u
+\]
+is linearly independent over the ring $\C[\partial_x]$.
+
+\dimref{II-C1}
+\end{proposition}
+
+This is the two-variable Wronskian: it replaces ``the derivatives are independent'' by ``the time derivatives are independent with coefficients that are operators in $x$''.
+
+\begin{keypoint}
+In one variable the polynomial encodes the solution space. Its roots give the exponential rates, the multiplicities give the polynomial prefactors, the companion matrix represents differentiation, and the Lagrange projectors isolate the modes. In two variables the same structure survives. The minimal annihilator becomes the ideal $\Ann(u)$ (Section~\ref{f:ch:ident}) and the Lagrange projectors become Eq.~\eqref{f:eq:lagrange} (Section~\ref{f:ch:decomp}).
+\end{keypoint}
+

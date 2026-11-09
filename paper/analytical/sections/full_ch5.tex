@@ -1,0 +1,175 @@
+\section{Finite data and decidability}\label{f:ch:data}
+\sectionbrief
+{the criterion of Section~\ref{f:ch:ident}: $\Ann(u)=(P)$ iff no $w_i$ is an exponential-polynomial. It is a statement about the whole function $u$.}
+{in practice we hold finitely many numbers: a jet at a point, samples, or a formula. We ask which data suffice, which never suffice, and when the test ``$\in\EP$'' becomes an algorithm.}
+{tells Step~3 of the algorithm what it can and cannot promise. The answer depends on the data model: positive for exponential-polynomials, negative for a black box, positive again with one extra integer.}
+
+\subsection{Three data models}
+
+The reconstruction is exact, so the input must be of an exact kind. Three models are analysed throughout \led{C3-D1}.
+
+\begin{description}[leftmargin=1.4cm,labelwidth=1.1cm,font=\sffamily\bfseries]
+\item[M1] A closed formula for $u$, for example a finite sum of exponentials and Gaussians.
+\item[M2] The jet of $u$ at a point $p_0$: all partial derivatives up to some order, given as exact numbers. In the ``black-box'' version M2$^+$ we may also ask a \emph{zero-test oracle} whether $Q(\partial)u=0$ for a given $Q$.
+\item[M3] $u$ real-analytic on a connected $\Omega$, described by finitely many linear equations with polynomial coefficients (a \emph{holonomic} description) with algebraic numbers as coefficients.
+\end{description}
+
+\begin{notebox}{Words used in this chapter}
+\begin{description}[leftmargin=3.3cm,labelwidth=3.1cm]
+\item[Jet of order $k$] the list of all partial derivatives of $u$ of order $\le k$ at $p_0$: its Taylor coefficients.
+\item[Zero-test oracle] a procedure that says whether a given expression built from $u$ is identically zero.
+\item[Holonomic] described by linear differential equations with polynomial coefficients whose solution space is finite-dimensional.
+\item[Weyl algebra] $A_1$ or $A_2$: the ring of differential operators with polynomial coefficients.
+\end{description}
+\end{notebox}
+
+\subsection{Exponential-polynomial data: a finite threshold}
+
+When $u$ itself is an exponential-polynomial, it never identifies its equation in the whole ring: its annihilator has finitely many zeros, while $\Var(P)$ is a curve \led{C3-C2}. What we can ask is whether $u$ identifies $P$ \emph{among operators of degree at most $n$}.
+
+\begin{theorem}[{B\'ezout threshold \led{C3-T2} \proved}]\label{thm:bezout}
+Let $u=\sum_kc_k\,e^{\langle z_k,(t,x)\rangle}$ be a sum of simple modes with distinct exponents $z_k\in\Var(P)$, $P$ reduced, and $n\ge\deg P$. If every factor curve carries enough exponents,
+\[
+\big|\{z_k\}\cap\Var(P_i)\big|>n\cdot\deg P_i\qquad\text{for every }i,
+\]
+then the annihilators of degree at most $n$ are exactly the multiples of $P$:
+\[
+\Ann(u)\cap\ring_{\le n}=P\cdot\ring_{\le n-\deg P}.
+\]
+The threshold cannot be lowered uniformly: for $P=\tau-\xi^2$ and every $n$ there are $2n$ exponents on the parabola that do not suffice.
+
+\dimref{C3-T2}
+\end{theorem}
+
+\begin{intuition}
+An operator $Q$ of degree $n$ that kills $u$ must vanish at every exponent $z_k$. If $P_i$ does not divide $Q$, the two curves meet in at most $n\deg P_i$ points (B\'ezout). More points than that force $P_i$ to divide $Q$.
+\end{intuition}
+
+\begin{example}[{The parabola needs $2n+1$ points}]
+Let $P=\tau-\xi^2$, so $\deg P=2$. Take the $2n$ exponents
+\[
+Z_n=\{(j^2,\pm j):\ j=1,\dots,n\}\subset\Var(P).
+\]
+The operator $Q_n=\prod_{j=1}^n(\tau-j^2)$ has degree $n$, vanishes on $Z_n$, and is not a multiple of $\tau-\xi^2$ because it does not depend on $\xi$. So $2n$ points are not enough. With $2n+1$ points the theorem applies.
+\end{example}
+
+The next theorem says how many derivatives at a single point are needed.
+
+\begin{theorem}[{Jet threshold $2d-1$ \led{C3-T3} \proved}]\label{thm:jet-threshold}
+Let $0\ne u\in\EP(\Omega)$ on a connected $\Omega$, and let $d=\dimc\ring u$. Then:
+\begin{enumerate}[label=(\roman*)]
+\item the operators of degree at most $n$ that kill $u$ are determined by the jet of $u$ of order $n+d-1$ at any point;
+\item $\Ann(u)$ is generated in degree at most $d$, so it is determined by the jet of order $2d-1$;
+\item the order $2d-1$ is optimal in the worst case, already in one variable: for $u=\sum_{j=1}^de^{jx}$ the jet of order $2d-2$ does not determine $\Ann(u)$.
+\end{enumerate}
+An upper bound $d'\ge d$ may replace $d$ everywhere.
+
+\dimref{C3-T3}
+\end{theorem}
+
+\begin{example}[{One exponential, $d=1$}]
+For $u=e^{2x}$, $d=1$ and the threshold is $2d-1=1$. The values $u(0)=1$ and $u'(0)=2$ give $u'=2u$, so $\Ann(u)$ contains $\xi-2$, and $\tau$ comes from the absence of $t$. The value $u(0)$ alone (order $0$) cannot distinguish $e^{2x}$ from $e^{3x}$.
+\end{example}
+
+\subsection{What no finite data can show}
+
+For a solution outside $\EP$, the situation reverses.
+
+\begin{theorem}[{No finite certificate \led{C3-P1} \proved{} / \cf}]\label{f:thm:nocert}
+Let $\Omega$ be connected, $P$ nonconstant and $u\in\ker P$. For every order $K$ there is an exponential-polynomial $v\in\ker P$ with the same jet of order $K$ at $p_0$ as $u$, and $\Ann(v)\ne(P)$.
+
+On convex $\Omega$ the same holds for any finite family of continuous linear functionals (Malgrange's density theorem) \cf. On a non-convex region a single functional can certify.
+
+\dimref{C3-P1}
+\end{theorem}
+
+\begin{intuition}
+Every finite jet is matched by a finite sum of exponentials taken from the curve $\Var(P)$. Finitely many numbers cannot distinguish $u$ from that sum, and the sum never identifies anything. So an algorithm that sees finitely many numbers can only \emph{refute} identification, never confirm it.
+\end{intuition}
+
+The black-box version is sharper.
+
+\begin{theorem}[{Black-box impossibility \led{P4-T5} \proved}]\label{f:thm:blackbox}
+In the model M2$^+$ (exact jets plus a zero-test oracle), for every nonconstant $P$ there is a solution $u$ with $\Ann(u)=(P)$ such that the following holds. For every jet order $k_0$ and every finite set of zero tests, some exponential-polynomial $v\in\ker P$ gives the same jet and the same answers, while $\Ann(v)\ne(P)$. Hence no algorithm decides ``$\Ann(u)=(P)$'' correctly on all inputs.
+
+\dimref{P4-T5}
+\end{theorem}
+
+\subsection{One extra integer makes it decidable}
+
+\begin{theorem}[{Decidability with a bound \led{P4-T4} \proved}]\label{thm:decide}
+In the model M2$^+$:
+\begin{enumerate}[label=(\roman*)]
+\item for every finite-dimensional space of operators $\mathcal L$, the annihilators of $u$ in $\mathcal L$ are computable;
+\item ``$\Ann(u)\ne(P)$'' is semi-decidable: an algorithm stops with ``yes'' exactly when it is true;
+\item if an integer $B\ge\dimc(\ring u\cap\EP)$ is given, ``$\Ann(u)=(P)$'' is decidable. With
+\[
+N=B+\deg P-1,
+\]
+one has $\Ann(u)=(P)$ iff $\Ann(u)\cap\ring_{\le N}=(P)\cap\ring_{\le N}$.
+\end{enumerate}
+The bound also makes $G_u$ computable.
+
+\dimref{P4-T4}
+\end{theorem}
+
+\begin{intuition}
+If identification fails, some $w_i$ is an exponential-polynomial of dimension at most $B$. Its annihilator has a generator of degree at most $B$ that is not a multiple of $P_i$. Multiplying by $P/P_i$ gives a witness of degree at most $B+\deg P-1$. So it is enough to look for witnesses up to that degree, and that is a finite linear-algebra problem.
+\end{intuition}
+
+Is the bound $B$ the least data that works? The minimal sufficient datum is ``a degree $D$ such that, if identification fails, a witness of degree $\le D$ exists'' \led{OP-ALG-T3} \pw. The bound $B$ is strictly stronger on some regions when $P$ has at least two irreducible factors counted with multiplicity. Whether it is strictly stronger on every region is open \openq{} \led{OP-ALG-Q2}.
+
+\subsection{A decidable class: holonomic solutions}
+
+\begin{theorem}[{Holonomic model \led{OP-ALG-T1, P4-T6} \modulo{(AC)}}]\label{thm:holo}
+In the model M3 (real-analytic $u$ with a holonomic description over algebraic numbers), assume (AC): jets at an algebraic point are computable in a computable field. Then
+\begin{itemize}
+\item ``$Q(\partial)u\in\EP$?'' is decidable for every $Q$;
+\item ``$\Ann(u)=(P)$?'' and ``$\Var(\Ann u)=\Var(P)$?'' are decidable, and $G_u$ is computable;
+\item a bound $B$ and a finite set of generators of $\Ann(u)$ are computable.
+\end{itemize}
+\dimref{OP-ALG-T1}
+\end{theorem}
+
+\begin{example}[{The heat kernel plus an exponential}]
+Let $u=G+e^{t+x}$, with $G$ the heat kernel. The slice $t=1$ is $x\mapsto G(1,x)+e^{1+x}$, a function with a holonomic description. The algorithm finds that the slice is not an exponential-polynomial, and concludes $\Ann(u)=(\tau-\xi^2)$. For the slice of $G$ alone the bound is $B=0$: the heat kernel identifies the heat equation without further computation.
+\end{example}
+
+\subsection{Variable coefficients: the first limits}
+
+With coefficients that depend on $x$, the ring of operators becomes the Weyl algebra. Two of its features break the constant-coefficient picture.
+
+\begin{proposition}[{Restriction does not identify \led{P4-C1} \pw}]\label{prop:weyl}
+For every nonzero smooth $u$ of one variable, the action of the Weyl algebra $A_1$ on the module $A_1\cdot u$ is faithful. Yet for $u=e^x$ and the class $\mathcal L=\spn\{1,\partial\}$, the operator $\partial-1$ kills $u$. So ``the restriction is injective'' does not detect identification. The correct object is the evaluation map $L\mapsto Lu$, whose kernel is $\Ann(u)\cap\mathcal L$.
+
+\dimref{P4-C1}
+\end{proposition}
+
+\begin{theorem}[{Saturated criterion \led{OP-ALG-T4} \pw}]\label{thm:sat}
+Let $P$ be monic in $\partial_t$ of degree $m$, with coefficients in a ring $\mathfrak A$ of operators in $x$, and $Pu=0$. Then $u$ identifies $P$ if and only if the $t$-jet $u,\partial_tu,\dots,\partial_t^{m-1}u$ is free over $\mathfrak A$: no nontrivial relation $\sum_{j<m}b_j\,\partial_t^ju=0$ with $b_j\in\mathfrak A$.
+
+\dimref{OP-ALG-T4}
+\end{theorem}
+
+In the commutative case this is Proposition~\ref{prop:cyclic}. With variable coefficients the reduction of the test to the finitely many quotients $P/P_i$ fails: an explicit counterexample with $\theta=x\partial_x$ exists \led{OP-ALG-C1} \pw. In the full Weyl algebra $A_2$, a holonomic solution never identifies its equation \led{OP-ALG-P5} \pw.
+
+\subsection{Summary}
+
+\begin{center}\small
+\begin{tabular}{@{}L{3.0cm}L{5.2cm}L{4.4cm}L{2.0cm}@{}}
+\toprule
+Data & What can be done & Meaning for the algorithm & Status\\\midrule
+$u\in\EP$ & jet of order $2d-1$ determines $\Ann(u)$; Bézout threshold for modes & a finite computation with a guarantee & \proved\\
+$u\notin\EP$, finite data & no finite certificate & output ``not refuted'', never ``identified'' & \proved{} / \cf\\
+black box & ``$\in\EP$?'' undecidable & extra hypothesis needed & \proved\\
+bound $B$ given & decidable, test degree $B+\deg P-1$ & stops with a certain verdict & \proved\\
+holonomic, algebraic & decidable & exact symbolic route & \modulo{(AC)}\\
+variable coefficients & restriction never identifies; jet freeness criterion & restrict to a finite class & \pw\\\bottomrule
+\end{tabular}
+\captionof{table}{When the identification test can be carried out, and what each case means for Step~3 of the algorithm.}\label{tab:limits}
+\end{center}
+
+\begin{keypoint}
+Identification is an infinite statement about $u$. It cannot be verified from finitely many numbers, and no black box can decide it. One extra integer, a bound on how much of $u$ is exponential-polynomial, turns it into a finite computation.
+\end{keypoint}
+
