@@ -1,0 +1,20 @@
+(a) kappa = 0 shared mode
+  tpd + 0.2 (constant)               noise= 0e+00 core: FIT-COMPATIBLE  shared=1 factors=['tau + 1.0*xi', 'tau - 0.3*xi**2']
+                                                  structfit: ((1, 1), (1, 2)) p=0.94 factors=['tau + 1.0*xi', 'tau - 0.3*xi**2']
+  tpd + 0.2 (constant)               noise= 1e-03 core: FIT-COMPATIBLE  shared=0 factors=['tau**2 - 0.2994886456*tau*xi**2 + 0.9971199195*tau*xi - 0.0016597901*tau - 0.299474476*xi**3 + 0.0022663242*xi**2 - 0.0020368273*xi + 0.0043989194']
+                                                  structfit: ((1, 1), (1, 2)) p=0.89 factors=['tau + 1.0001103163*xi', 'tau - 0.3001466602*xi**2 + 0.0010422742*xi - 0.0034242107']
+(b) repeated factor (tau + xi)^2
+  (A + B t) cos(k(x - t))            noise= 0e+00 core: FIT-COMPATIBLE  shared=12 factors=['tau - 6.6e-8*xi**2 + 0.9999998703*xi - 4.773e-7 - 8.06e-8*I', 'tau + 6.6e-8*xi**2 + 1.0000001297*xi + 4.773e-7 + 8.06e-8*I']
+                                                  structfit: ((1, 1),) p=0.96 factors=['tau + 1.0*xi']
+  (A + B t) cos(k(x - t))            noise= 1e-03 core: FIT-COMPATIBLE  shared=0 factors=['tau + 0.0028434561*xi**2 - 0.0015962278*I*xi**2 + 1.026420488*xi + 0.0513463165 - 0.0035716535*I', 'tau + 0.0016973259*I*xi**2 + 0.9794996657*xi - 0.0461457404 + 0.0037518442*I']
+                                                  structfit: ((1, 1), (1, 2)) p=0.75 factors=['tau + 1.0081787925*xi - 0.061994381*I*xi - 0.0011989133 + 0.0449954668*I', 'tau + 0.0069740176*xi**2 - 0.0010166974*I*xi**2 + 1.003414647*xi + 0.0304421599*I*xi + 0.0113514194 - 0.0459015683*I']
+(c) discriminant-square test on fitted quadratics
+  wave           noise= 0e+00 disc=4.0*xi**2  rel. residual of sqrt=6.7e-01
+  wave           noise= 1e-03 disc=4.077e-6*xi**4 + 1.535e-5*xi**3 + 3.949*xi**2 + 0.07059*xi - 0.3762  rel. residual of sqrt=1.1e-01
+  wave           noise= 1e-02 disc=2.688e-5*xi**4 - 8.575e-6*xi**3 + 3.989*xi**2 - 0.05222*xi - 0.05309  rel. residual of sqrt=1.1e-01
+  klein_gordon   noise= 0e+00 disc=4.0*xi**2 - 4.0  rel. residual of sqrt=7.0e-01
+  klein_gordon   noise= 1e-03 disc=1.839e-8*xi**4 - 4.3e-6*xi**3 + 4.01*xi**2 + 0.08573*xi - 3.924  rel. residual of sqrt=1.2e-01
+  klein_gordon   noise= 1e-02 disc=3.741e-6*xi**4 - 0.0001011*xi**3 + 4.024*xi**2 + 0.2029*xi - 3.843  rel. residual of sqrt=1.2e-01
+  telegraph      noise= 0e+00 disc=4.0*xi**2 + 0.64  rel. residual of sqrt=6.6e-01
+  telegraph      noise= 1e-03 disc=7.974e-7*xi**4 + 2.754e-5*xi**3 + 3.972*xi**2 + 0.1173*xi + 0.4097  rel. residual of sqrt=1.1e-01
+  telegraph      noise= 1e-02 disc=3.637e-5*xi**4 - 0.0002215*xi**3 + 4.022*xi**2 + 0.07653*xi + 0.7679  rel. residual of sqrt=1.1e-01

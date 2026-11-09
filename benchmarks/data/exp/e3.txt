@@ -1,0 +1,14 @@
+(a) sub-window [0, L] of the 2pi-periodic field; 2-D pencil; ok/err/top-weight/#modes
+  transport_plus_diffusion     0e+00   L=6.28: 0/ 1e+00/0.87/52   L=3.14: 0/ 9e-01/1.00/26   L=1.57: 0/ 1e+01/1.00/10
+  transport_plus_diffusion     1e-03   L=6.28: 0/   inf/1.00/7   L=3.14: 0/ 6e-01/1.00/6   L=1.57: no modes (2)
+  transport_plus_diffusion     1e-02   L=6.28: 0/ 1e+00/1.00/6   L=3.14: no modes (2)   L=1.57: no modes (0)
+  wave                         0e+00   L=6.28: 0/   inf/1.00/24   L=3.14: 0/   inf/0.98/24   L=1.57: 1/ 5e-06/0.94/24
+  wave                         1e-03   L=6.28: 0/ 1e+00/1.00/18   L=3.14: 0/ 2e+00/0.92/6   L=1.57: no modes (0)
+  wave                         1e-02   L=6.28: 0/ 1e+00/0.95/10   L=3.14: 0/ 2e+00/0.90/6   L=1.57: no modes (2)
+  heat                         0e+00   L=6.28: 1/ 0e+00/0.92/12   L=3.14: 1/ 0e+00/0.92/12   L=1.57: 1/ 0e+00/0.92/12
+  heat                         1e-03   L=6.28: 0/   inf/0.95/10   L=3.14: 0/ 1e+00/0.45/8   L=1.57: 0/   inf/0.99/6
+  heat                         1e-02   L=6.28: 0/ 1e+00/0.46/6   L=3.14: no modes (2)   L=1.57: 0/   inf/0.99/6
+(b) two regimes: transport on x<pi, heat on x>pi
+  whole [0,2pi]        #modes= 14 best=((1, 0), (1, 0), (1, 3)) p=1.00 factors=['tau + 0.4659378419 - 1.6254386749*I', 'tau - 0.0700947554', 'tau - 0.1768078473*xi**3 - 0.034868009*I*xi**3 - 0.288833215*xi**2 + 1.4646084035*I*xi**2 - 4.2702424785*xi - 0.8421280808*I*xi - 7.5887299429 + 42.4688511098*I']
+  left [0,pi-.5]       no modes
+  right [pi+.5,2pi]    #modes=  4 best=((2, 0),) p=0.47 factors=['tau**2 + 1.4609913979*tau + 0.350626891']

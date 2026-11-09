@@ -1,0 +1,90 @@
+\section{Notation from scratch: symbols, exponentials, the dispersion variety}\label{sec:prelim}
+\sectionbrief
+{nothing beyond calculus: a function $u(t,x)$ of time and one space variable, and derivatives. Every symbol used later is introduced here, in the order in which it is needed, with the reason it exists.}
+{the algorithm works on exponential modes, not on a chosen dictionary of functions. To follow it one must know what a symbol, a factor, a wavenumber and a mode are; this section builds them one at a time.}
+{foundation for everything after it. Each later section begins with a box listing the symbols it uses and where each comes from.}
+
+\subsection{The objects: field, region, equation}
+\begin{symbols}
+\begin{tabular}{@{}L{2.3cm}L{6.2cm}L{4.5cm}@{}}
+$t,\ x$ & time and one space coordinate (a rod, a string, a line) & the physical setting\\
+$\Omega$ & the region of the $(t,x)$-plane where the field is known, a rectangle $[t_0,t_1]\times[x_0,x_1]$ here & the data\\
+$u(t,x)$ & the \emph{field}: a number (real or complex) at each point of $\Omega$ (a temperature, a displacement) & the data, up to noise\\
+$\partial_t,\ \partial_x$ & partial derivatives $\partial/\partial t$ and $\partial/\partial x$ & calculus\\
+$P(\partial_t,\partial_x)$ & a \emph{linear operator with constant coefficients}: a polynomial in the derivatives, e.g.\ $\partial_t-D\partial_x^2$ (heat); the equation is $Pu=0$ & the unknown of the problem\\
+\end{tabular}
+\end{symbols}
+
+The problem is: given measurements of $u$ on $\Omega$, find $P$. ``Linear with constant coefficients'' means $P$ is a sum of terms $c\,\partial_t^a\partial_x^b$ with numbers $c$ (not functions of $t$ or $x$), so that for example $\partial_t u+\partial_xu=0$ (transport at speed $1$) and $\partial_tu-D\,\partial_x^2u=0$ (heat, with diffusion constant $D>0$) belong to the class, while $\partial_tu+u\,\partial_xu=0$ (Burgers) does not.
+
+\subsection{Derivatives become polynomials: the symbol}
+Because the coefficients are constant, an operator is \emph{multiplication-like}: composing $\partial_t^a\partial_x^b$ with $\partial_t^{a'}\partial_x^{b'}$ simply adds exponents, exactly as in a ring of polynomials. So one introduces two formal variables, $\tau$ standing for $\partial_t$ and $\xi$ standing for $\partial_x$, and writes the operator as a polynomial $P(\tau,\xi)$, its \emph{symbol}. Example: $\partial_t-D\partial_x^2\ \leftrightarrow\ \tau-D\xi^2$. The reason for the change of notation is that polynomials can be \emph{factored}, and factoring is the central operation of the method: if $P(\tau,\xi)=Q_1(\tau,\xi)\,Q_2(\tau,\xi)$ then the operator is the composition of the two simpler operators $Q_1(\partial)$ and $Q_2(\partial)$. The $Q_j$ are called the \emph{factors} (they are the ``basic behaviours'' of the equation: transport, diffusion, \dots).
+
+\subsection{An exponential is an eigenfunction}
+For a field of the form $e^{\lambda t+\mu x}$ (where $\lambda,\mu$ are complex numbers) every derivative just multiplies by a number: $\partial_te^{\lambda t+\mu x}=\lambda e^{\lambda t+\mu x}$ and $\partial_xe^{\lambda t+\mu x}=\mu\, e^{\lambda t+\mu x}$. Therefore
+\begin{equation}\label{eq:eigen}
+P(\partial_t,\partial_x)\,e^{\lambda t+\mu x}=P(\lambda,\mu)\,e^{\lambda t+\mu x}.
+\end{equation}
+So $e^{\lambda t+\mu x}$ is a solution of $Pu=0$ exactly when $P(\lambda,\mu)=0$. The set $V(P)=\{(\lambda,\mu)\in\C^2:\ P(\lambda,\mu)=0\}$ is the \emph{dispersion variety} (a curve in the plane of the two numbers); the word ``dispersion'' comes from physics, where $\lambda$ as a function of the spatial frequency is called the dispersion relation.
+
+\subsection{The wavenumber $\kappa$ and the rate $\lambda$}
+On a bounded region one expands in spatial exponentials that stay bounded in $x$, so $\mu$ is taken purely imaginary, $\mu=i\kappa$ with $\kappa$ \emph{real}. The two numbers then have clear roles:
+\begin{itemize}[nosep]
+\item $\kappa\in\R$, the \emph{wavenumber} (Fourier variable conjugate to $x$): which spatial exponential $e^{i\kappa x}$ we look at; its spatial period is $2\pi/|\kappa|$;
+\item $\lambda\in\C$, the \emph{rate}: how the equation makes that exponential evolve in time; $\operatorname{Re}\lambda<0$ means decay, $\operatorname{Im}\lambda\neq0$ means oscillation or motion.
+\end{itemize}
+A pair $(\kappa,\lambda)$ with $P(\lambda,i\kappa)=0$ is a \emph{mode}: the function $e^{\lambda t+i\kappa x}$ is an exact solution. Substituting $\mu=i\kappa$ in the symbol means $\xi=i\kappa$.
+
+\begin{notebox}{What $\kappa$ is (and what it is not)}
+$\kappa$ is the \emph{Fourier variable} conjugate to $x$: the frequency of the exponential $e^{i\kappa x}$ in which a field is expanded. It is called a ``wavenumber'' only by convention, and it has \emph{nothing to do with the wave equation}: it appears identically for transport, heat, beam, Schr\"odinger and so on. (If one wants a length, $2\pi/|\kappa|$ is the spatial period of that exponential.) The exponentials $e^{\lambda t+i\kappa x}$ are the ``basis functions'' of the method: $\kappa$ labels which basis function, and $\lambda$ is the rate at which the equation makes it evolve in time. The wave equation is just one of ten test cases.
+\end{notebox}
+
+\subsection{The Fourier transform in $x$ and the amplitudes}
+Because a general field is a superposition of modes, one separates them by the Fourier transform in $x$,
+\[
+\hat u(t,\kappa)=\int u(t,x)\,e^{-i\kappa x}\dd x\qquad(\text{on a grid: the discrete FFT}).
+\]
+If $u=\sum_mA_m\,e^{\lambda_mt+i\kappa_mx}$, then $\hat u(t,\kappa)$ keeps, at the frequency $\kappa$, only the modes with $\kappa_m=\kappa$: $\hat u(t,\kappa)=\sum_{m:\kappa_m=\kappa}A_me^{\lambda_mt}$. The numbers $A_m\in\C$ are the \emph{amplitudes} (how much of each mode is present). Extracting the $\lambda_m$ and $A_m$ from the time series $\hat u(\cdot,\kappa)$ is the job of Section~\ref{sec:modes}.
+
+\begin{explained}{from an equation to a curve of points}
+\textbf{Step 1: transport.} $u_t+u_x=0$ has symbol $\tau+\xi$. A mode $e^{\lambda t+i\kappa x}$ is a solution iff $\lambda+i\kappa=0$, i.e.\ $\lambda=-i\kappa$. In the $(\kappa,\lambda)$ plane the modes lie on a straight line: a bump $g(x-t)=\int\hat g(\kappa)e^{i\kappa(x-t)}\dd\kappa$ is a sum of modes with $\lambda=-i\kappa$.
+
+\medskip\textbf{Step 2: heat.} $u_t=Du_{xx}$ has symbol $\tau-D\xi^2$, so $\lambda=D(i\kappa)^2=-D\kappa^2$: a parabola, real and negative (every mode decays).
+
+\medskip\textbf{Step 3: wave.} $u_{tt}=c^2u_{xx}$ has symbol $\tau^2-c^2\xi^2$, so $\lambda=\pm ic\kappa$: two lines through the origin. At $\kappa=0$ the two roots coincide: this is the shared mode responsible for the ambiguity $\delta(P)=1$ of the theory (explained in Section~\ref{sec:core}).
+
+\medskip\textbf{Step 4: the algorithm reads the curve, not the function.} A solution of $P=(\tau+\xi)(\tau-D\xi^2)$ (transport plus a diffusing wave) produces, at each $\kappa$, \emph{two} rates: $-i\kappa$ and $-D\kappa^2$. The set of all measured $(\kappa,\lambda)$ sits on the union of a line and a parabola. Finding the factors of $P$ means finding the curves on which the points lie: this is a geometric fitting problem, which is the content of Section~\ref{sec:core}.
+\end{explained}
+
+\subsection{Why exponentials are the right ``basis''}
+The Ehrenpreis--Palamodov principle (a theorem of the analytic theory, \thy{T25}) says that on a convex region every solution of $Pu=0$ is a superposition (an integral) of such exponentials over $V(P)$. So in this class the exponentials are universal: no dictionary of functions has to be chosen. This is the reason the first design question (Section~\ref{sec:q}) has a clean answer.
+
+\subsection{Monic symbols, degrees, and structures}
+\begin{symbols}
+\begin{tabular}{@{}L{2.3cm}L{6.2cm}L{4.5cm}@{}}
+$Q(\tau,\xi)$ & one factor of the symbol & factorisation of $P$\\
+$m$ & degree of $Q$ in $\tau$ (``order in time''): $m=1$ for transport, heat; $m=2$ for wave, beam & the factor itself\\
+$p_k(\xi)$ & coefficients of $Q$ as a polynomial in $\tau$; each is a polynomial in $\xi$ & the factor itself\\
+$dx$ & upper bound for the degrees of the $p_k$ in $\xi$ (``order in space''); a \emph{bound}, not the true degree & chosen by the algorithm\\
+structure $\mathcal M$ & the list $((m_1,dx_1),\dots,(m_k,dx_k))$ of shapes of the factors & chosen by the algorithm\\
+\end{tabular}
+\end{symbols}
+The code fixes the shape of a factor to be \emph{monic in $\tau$}, meaning that its leading coefficient in $\tau$ is $1$:
+\begin{equation}\label{eq:monic}
+Q(\tau,\xi)=\tau^m+\sum_{k<m}p_k(\xi)\,\tau^k,\qquad \deg p_k\le dx .
+\end{equation}
+Monic in $\tau$ is the setting in which the identification theorems apply \thy{T13}: the evolution in time determines everything (one can solve for $\partial_t^mu$). For example $\tau-a_1\xi$ is a factor with $m=1$, $dx=1$ (transport, speed $-a_1$), $\tau-a_2\xi^2$ has $m=1$, $dx=2$ (diffusion), and $\tau^2-c^2\xi^2$ has $m=2$, $dx=2$. A \emph{structure} is then a hypothesis about the shapes of all factors, for example $((1,1),(1,2))$ for ``one factor $\tau-a_1\xi$ times one factor $\tau-a_2\xi^2$'' (transport times diffusion), whose unknowns are $a_1,a_2$ and, more generally, all the coefficients allowed by the bounds $dx_j$.
+
+\begin{explained}{a reader asks: exponentials, but exponential polynomials cause ambiguity?}
+Two different things are easily confused here.
+
+\medskip\textbf{Step 1: what is ambiguous.} If two factors share a root, a solution may contain $t\,e^{\lambda t}$ (a polynomial times an exponential), and a mode $e^{\lambda t+i\kappa x}$ lying on two factors' curves can be assigned to either one. The \emph{ambiguity} $\delta(P)$ is therefore about \emph{which factor owns a mode}, not about the representation of the field.
+
+\medskip\textbf{Step 2: why exponentials stay the basis.} Every solution is still a superposition of exponentials, with polynomial prefactors only at repeated roots; these are exceptional points (for the wave, only $\kappa=0$). The representation is complete. Changing to another basis would not remove the ambiguity: it lives in the solution space, not in the choice of functions.
+
+\medskip\textbf{Step 3: what the algorithm does about it.} Exponential-polynomial data never identify the annihilator itself, only a law \emph{relative to a class} \thy{T13}. So (i) a confluent test $(A+Bt)e^{\lambda t}$ labels such cases \texttt{UNDECIDED} rather than guessing (Section~\ref{sec:confluent}); (ii) a shared mode is split equally, the minimum-norm representative (Section~\ref{sec:core}); (iii) the output never says ``identified''. Exponentials are the right language; the ambiguity is reported, not hidden.
+\end{explained}
+
+\begin{takeaway}
+The unknowns are the coefficients of the polynomials $p_k$. A mode $(\kappa,\lambda)$ is a measurement of the variety: each one gives one equation $Q(\lambda,i\kappa)=0$ on these coefficients. This is why the first design question has a clean answer inside the linear constant-coefficient class and a hard one outside it (Section~\ref{sec:q}).
+\end{takeaway}

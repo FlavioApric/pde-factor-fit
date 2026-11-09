@@ -1,0 +1,42 @@
+\section{A worked example, from data to output}\label{sec:example}
+\sectionbrief
+{the test case \texttt{transport\_plus\_diffusion}: $P=(\tau+\xi)(\tau-0.3\xi^2)$, i.e.\ a superposition of a transport factor $\partial_t+\partial_x$ and a diffusion factor $\partial_t-0.3\partial_x^2$, with several modes per factor.}
+{to follow every stage on one case with the numbers measured in the experiments.}
+{makes Sections~\ref{sec:interp}--\ref{sec:loop} concrete. \emph{Honesty note:} the numbers come from a gridded field with relative noise $10^{-3}$--$10^{-2}$ and a \emph{stand-in} posterior (the grid plus independent noise draws, $N_s=8$, $\pi_s=1/S$); the GP stage was not part of these runs. The end-to-end benchmark of Section~\ref{sec:limits} does use GP samples.}
+
+The field has many modes per factor (it must: with one mode per factor the coefficients are not identifiable, \thy{T13}). Transport modes sit on the line $\lambda=-i\kappa$, diffusion modes on the parabola $\lambda=-0.3\kappa^2$.
+
+\begin{wstep}{Step 1 --- interpolate}
+\textbf{Goal.} Obtain plausible fields with weights.\\
+\textbf{Computation.} In the full pipeline: GP posterior from scattered data, $S$ samples $\hat u_s$ with weights $\pi_s$. In this example: $N_s=8$ copies of the grid with independent noise, $\pi_s=1/8$.\\
+\textbf{Outcome.} $\{(\hat u_s,\pi_s)\}_{s=1}^8$.
+\end{wstep}
+
+\begin{wstep}{Step 2 --- modes, per sample}
+\textbf{Computation.} FFT in $x$; in each bin with amplitude above $3\times$ the bin noise, matrix pencil in $t$ with the order chosen by BIC; Cram\'er--Rao $\sigma_\lambda$ for each point.\\
+\textbf{Outcome.} Two points per wavenumber: $(\kappa,-i\kappa)$ and $(\kappa,-0.3\kappa^2)$, up to noise.
+\end{wstep}
+
+\begin{wstep}{Step 3 --- structured fit, per sample}
+\textbf{Computation.} The $85$ structures are fitted by $k$-varieties regression and ranked by BIC \eqref{eq:bic}, \eqref{eq:postM}.\\
+\textbf{Outcome.} The top structure is two $\tau$-degree-$1$ factors, $\tau+\xi$ and $\tau-0.3\xi^2$ (pooled structure posterior $0.994$ on $k=2$ factors). Components $u_1,u_2$ and weights $w_j$ follow from \eqref{eq:wj}.
+\end{wstep}
+
+\begin{wstep}{Step 4 --- separability}
+\textbf{Computation.} Orthonormal kernel bases on the cell, $S^HS$, \eqref{eq:gammaN}.\\
+\textbf{Outcome.} $\bar\gamma_N=0.174$, $\bar c_F=0.826=1-\bar\gamma_N$ (as predicted for two factors); each factor is single-term, so $\bar\rho=0.002$ at noise $10^{-3}$ and $0.029$ at $10^{-2}$.
+\end{wstep}
+
+\begin{wstep}{Step 5 --- aggregate}
+\textbf{Computation.} Cloud $\mathcal W$ \eqref{eq:cloud}; DP mixture per $m$; merge step; $P(k)$.\\
+\textbf{Outcome.} $P(k=2)=1.0$; masses $W=(0.768,\,0.232)$ against the true weights; $k_{\mathrm{eff}}=1.72$, so $\lceil k_{\mathrm{eff}}\rceil=2$.
+\end{wstep}
+
+\begin{wstep}{Step 6 --- grouping and loop}
+\textbf{Computation.} The factors are superposed everywhere in $(t,x)$, so there is nothing to split in the domain (the quadtree finds no split with better evidence); the separation is the one of Step 3 in mode space. The loop's test: $\le2$ factors, $\bar\rho$ small, $\bar\gamma_N=0.174$ above the floor $0.02$.\\
+\textbf{Outcome.} Stop. (The implemented loop groups by factor and decides from the posterior on $k$ and the structure; this example was computed with the stage-by-stage scripts, not by a run of \texttt{run\_loop}, so it shows the decision, not a log of the loop.)
+\end{wstep}
+
+\begin{wstep}{Step 7 --- output}
+\textbf{Outcome.} The equation as a product of factors, $(\partial_t+\partial_x)(\partial_t-0.3\partial_x^2)$, with credible intervals on the coefficients; the probability of each structure; the weights with intervals (from stage 5, once implemented); label \textsc{fit-compatible}. The output never says ``identified''.
+\end{wstep}

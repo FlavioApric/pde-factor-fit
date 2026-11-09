@@ -1,0 +1,10 @@
+transport_plus_diffusion, noise 1e-02: T  c_F  coverage90(w1)  width(w1)  P(split)
+  T= 0.25  c_F=0.997  cov=0.70  width=0.0037  |bias|=0.0014  P(split)=1.000
+  T= 0.50  c_F=0.988  cov=0.70  width=0.0019  |bias|=0.0007  P(split)=1.000
+  T= 1.00  c_F=0.953  cov=0.70  width=0.0010  |bias|=0.0004  P(split)=1.000
+  T= 2.00  c_F=0.822  cov=0.65  width=0.0006  |bias|=0.0002  P(split)=1.000
+wave, noise 1e-02: T  c_F  coverage90(w1)  width(w1)  P(split)
+  T= 0.25  c_F=0.989  cov=0.65  width=0.0018  |bias|=0.0007  P(split)=1.000
+  T= 0.50  c_F=0.956  cov=0.70  width=0.0009  |bias|=0.0003  P(split)=1.000
+  T= 1.00  c_F=0.832  cov=0.75  width=0.0005  |bias|=0.0002  P(split)=1.000
+  T= 2.00  c_F=0.427  cov=0.85  width=0.0003  |bias|=0.0001  P(split)=1.000

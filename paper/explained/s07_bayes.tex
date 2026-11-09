@@ -1,0 +1,58 @@
+\section{Stage 5: the Bayesian output layer (Friedrichs angle)}\label{sec:bayes}
+\sectionbrief
+{the factors $Q_j$ returned by the core and the sampled kernel bases $B_j$ on a cell and a wavenumber band; noise level $\sigma^2$.}
+{the weights $w_j$ are ratios of norms, and how well they are determined depends on how \emph{close} the component spaces are. The layer must turn this geometry into credible intervals and into the probability that the split exists at all.}
+{it uses only the outputs of the core and leaves the core untouched. Its mean coincides with the core's minimum-norm choice, and it adds the spread around it. Status: implemented in \texttt{bayes\_split.py} (committed in Phase~3), called by the loop on every posterior sample; its coverage is logged but not certified.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+$V_j=\ker Q_j$ & the space of functions on the cell annihilated by the factor $Q_j$ (its solutions) & theory\\
+$B_j$ & a matrix whose columns are an orthonormal basis of the sampled $V_j$ & Sec.~\ref{sec:core}\\
+$S=[B_1\cdots B_N]$ & all bases side by side: the ``sum map'' that turns coefficients into a field & theory ($S$ of the regularity theorem)\\
+$a_j,\ a$ & coefficient vectors: $u=\sum_jB_ja_j+\varepsilon$ & the unknowns here\\
+$\varepsilon,\ \sigma^2$ & noise vector and its variance & from stage 1\\
+$\omega^2$ & prior variance of the coefficients ($a\sim\mathcal N(0,\omega^2I)$); fixed by empirical Bayes & model hyperparameter\\
+$\Gamma_a$ & posterior covariance matrix of $a$ & Eq.~\eqref{eq:postcov}\\
+$\theta_k,\ \theta_F$ & principal angles between $V_1$ and $V_2$; $\theta_F$ is the smallest nonzero one (Friedrichs angle), $c_F=\cos\theta_F$ & geometry of subspaces\\
+$M_{\mathrm{split}},\ M_{\mathrm{single}}$ & the two competing models: two factors versus one & model comparison\\
+\end{tabular}
+\end{symbols}
+
+\subsection{The linear-Gaussian model}
+Write the field on the cell as $u=\sum_jB_ja_j+\varepsilon$, with $B_j$ an orthonormal basis of $V_j=\ker Q_j$ (sampled on the cell and the band), $S=[B_1\cdots B_N]$, noise $\varepsilon\sim\mathcal N(0,\sigma^2I)$ and a Gaussian prior $a\sim\mathcal N(0,\omega^2I)$.
+
+\begin{theorem}{(Posterior of the components) \thy{T5, T6} \impl}\label{thm:bsplit}
+The posterior of $a$ is Gaussian with covariance
+\begin{equation}\label{eq:postcov}
+\Gamma_a=\sigma^2\Big(S^{H}S+\frac{\sigma^2}{\omega^2}I\Big)^{-1}.
+\end{equation}
+For $N=2$ the eigenvalues of $S^{H}S$ are $1\pm\cos\theta_k$, with $\theta_k$ the principal angles between $V_1$ and $V_2$. In the worst direction the posterior variance is
+\begin{equation}\label{eq:worstvar}
+\frac{\sigma^2}{\gamma_2+\sigma^2/\omega^2},\qquad \gamma_2=1-\cos\theta_F=1-c_F.
+\end{equation}
+On directions with $\theta_k=0$ (the intersection, the $\delta(P)$ ambiguity) the likelihood is flat: the posterior equals the prior, and with an equal-variance prior its mean splits the shared part equally, which is the minimum-norm representative of the core.
+\end{theorem}
+\begin{intuition}
+Equation~\eqref{eq:worstvar} is the Bayesian form of the analytic bound $\|S^{\dagger}\|=\gamma_N^{-1/2}$: error bars on the components widen like $\sigma/\sin(\theta_F/2)$ as the angle closes, but are capped by the prior when $\theta_F\to0$. In words: the closer two kernels are, the less the data can tell them apart, and the layer says so with wide intervals rather than a false split.
+\end{intuition}
+
+\begin{explained}{what the layer outputs, and how}
+\textbf{Step 1: weights by sampling.} $w_j=\|u_j\|/\sum_k\|u_k\|$ is nonlinear in $a$, so its interval is computed by Monte Carlo: draw $a$ from the Gaussian posterior and evaluate $w_j$. No linearisation, in line with the design rule.
+
+\medskip\textbf{Step 2: does the split exist?} Compare two models by their closed-form Gaussian evidence: $M_{\mathrm{split}}$ ($u\in V_1\oplus V_2$ with independent priors) against $M_{\mathrm{single}}$ (one factor, or the unsplit symbol). With the Woodbury identity, $\log p(u\mid S,\sigma^2,\omega^2)=\log\mathcal N(u;0,\sigma^2I+\omega^2SS^{H})$ is computed from the small Gram matrix. As $\theta_F\to0$ the evidence ratio tends to $1$ and $P(\text{split})$ returns to its prior: the honest statement that the data cannot separate the factors.
+
+\medskip\textbf{Step 3: the prior scale.} $\omega^2$ is set by empirical Bayes: maximise the closed-form evidence on a grid $10^{-6}\ldots10^{2}$. $\sigma^2$ comes from the GP posterior.
+
+\medskip\textbf{Step 4: noise is correlated after interpolation.} After GP interpolation the noise has covariance $K_{\mathrm{post}}$, so the angle must be measured in the $K_{\mathrm{post}}^{-1}$ inner product (a generalised Friedrichs angle); otherwise the intervals are miscalibrated. In the code this is done as a per-bin generalised least squares: the noise covariance of each Fourier bin is estimated from the interpolation draws (the core's \texttt{BinNoise}) and the model of each bin is whitened by it. The full generalised Friedrichs angle in the $K_{\mathrm{post}}^{-1}$ product is still approximated bin by bin.
+\end{explained}
+
+\subsection{What has been measured}
+Experiment E5, with the \emph{true} factors and noise $10^{-2}$: $P(\text{split})$ behaves as predicted, and the interval width grows with $c_F$. The first version had coverage of the nominal $90\%$ interval for $w_1$ of only $0.65$--$0.85$: undercoverage, attributed to fitting a complex-valued model to a real field. The fixes were made: a real (conjugate-pair) parametrisation (the $\kappa=0$ bin is real, with a real basis), per-bin correlated noise, and a null test. In the later log (noise $10^{-2}$) the coverage of the $90\%$ interval is $0.95$--$1.00$ for transport plus diffusion over $T\in[0.25,2]$ and $0.85$--$1.00$ for the wave, and on the null (heat with a spurious transport factor) $P(\text{split})$ has mean and maximum $0.000$. Coverage above $0.90$ on transport plus diffusion means the intervals are now conservative there; the wave at large $T$ is slightly below nominal. The done criterion is coverage within $\pm5$ points of nominal on transport plus diffusion, wave and beam for $T\in[0.25,2]$. For $N>2$ the full spectrum of $S^{H}S$ is used, not pairwise angles.
+
+\begin{explained}{a reader asks: this is a sum, so where is $\Eint$?}
+The sum $u=\sum_jB_ja_j$ is over \emph{factors}. For a linear equation the components of different factors add exactly (superposition), so there is no interaction between them and none is missing. $\Eint$ lives \emph{inside one factor with several terms}: it measures how far the evolution is from the \emph{sum of the increments} of the separate terms: with $\Delta_n=e^{TA_n}-1$, $\Eint=e^{TA_1}e^{TA_2}-1-\Delta_1-\Delta_2=\Delta_1\Delta_2$ (Section~\ref{sec:core}). It is not an extra component to add to $u=u_1+u_2$: a factor such as $\partial_t-D\partial_x^2$ has two additive terms but is still one factor, with one component. This layer only asks how well the components can be told apart and whether the split exists; $\Eint$ is a separate output of the core, reported through $\rho$.
+\end{explained}
+
+\begin{takeaway}
+The layer gives the output a \emph{calibrated humility}: wide intervals and a low split probability exactly where the analytic theory says separation is hard. It is implemented and its logged coverage is close to nominal on the tested cases, but the criterion of $\pm5$ points on all of them is not yet certified.
+\end{takeaway}

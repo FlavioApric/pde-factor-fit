@@ -1,0 +1,67 @@
+\section{Stage 4: grouping}\label{sec:group}
+\sectionbrief
+{the distribution $\mathcal W$ of factors and the original idea of the project: split the data into groups, each ideally carrying one factor, using an encoder (PCA, SVD, autoencoder) and a clustering algorithm.}
+{to decide \emph{what} can be grouped. In a superposition $u=u_1+u_2$ every data point carries every component, so grouping points cannot separate factors.}
+{stage 4 replaces ``cluster the data points'' by clustering in the spaces where factors are actually separate. It is the main conceptual change from the first version of the pipeline.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+cell, window & a rectangle $[t_a,t_b]\times[x_a,x_b]$ of $\Omega$ analysed on its own & choice of the algorithm\\
+$T,\ L$ & time span $t_b-t_a$ and spatial length $x_b-x_a$ of a cell & the cell\\
+$n_c$ & number of grid samples in the cell & the cell\\
+RSS & residual sum of squares: $\|u-\text{(best fit)}\|^2$ over the cell & least squares\\
+dof & ``degrees of freedom'': numerical rank of the matrix of kernel functions $e^{\lambda_r(\kappa)t+i\kappa x}$ used by the fit & linear algebra\\
+$n_{\mathrm{par}}$ & number of coefficients of the factors being fitted & the structure\\
+$\gamma_{\mathrm{floor}}$ & smallest allowed $\gamma_N$ for a cell ($0.02$ by default) & hyperparameter\\
+$b_1(\Omega)$ & first Betti number: the number of ``holes'' of a region; $b_1=0$ for a rectangle & topology\\
+ARI & adjusted Rand index: agreement between two partitions, $1$ identical, $0$ chance & clustering evaluation\\
+\end{tabular}
+\end{symbols}
+
+\subsection{Why raw data points cannot be grouped}
+If $u=u_1+u_2$ with $Q_1u_1=0$ and $Q_2u_2=0$, then at every point $(t_i,x_i)$ the value $y_i$ is the sum of two contributions: no point ``belongs'' to one factor. The analytic theory says more: no linear encoder on raw fields can make $\Eint\to0$ \thy{T8}, and sparse or $\ell^1$ separation of components acts only on the finite gauge $\delta(P)$ \thy{T7}. So PCA or an autoencoder on raw fields is excluded, and grouping happens at three levels where the factors \emph{are} separate.
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabular}{@{}L{2.5cm}L{4.1cm}L{4.5cm}L{2.2cm}@{}}
+\toprule
+Level & What is grouped & How & Status\\\midrule
+A. Mode space & dispersion points $(\lambda,i\kappa)$, by the curve they lie on & $k$-varieties regression + BIC (Section~\ref{sec:structfit}) & \impl{}\\
+B. Domain & rectangles of $(t,x)$ that follow different laws & quadtree with evidence, gated by $\gamma_N$ & \implu{}\\
+D. Hypothesis & the factor structures & posterior $p(\mathcal M)$, pooled over samples & \impl{}\\
+\bottomrule
+\end{tabular}
+\caption{The three levels of grouping (the labels follow the study of grouping types; the ``flow family'' level C was dropped because the terms already come out of the factor fit).}
+\end{table}
+
+\subsection{Level A: mode space}
+This is the structured fit of Section~\ref{sec:structfit}: it separates \emph{superposed} factors. In the $(\kappa,\lambda)$ plane a superposition of transport and diffusion is a line and a parabola, which clustering by curve resolves even though the field is mixed everywhere in $(t,x)$. This corresponds to the original idea of grouping so that each group carries one factor, applied where it is possible.
+
+\subsection{Level B: the domain}
+When \emph{different regions} follow \emph{different laws} (for example transport for $x<\pi$ and heat for $x>\pi$), grouping the domain makes sense. Cells are \textbf{rectangles}, always: the factor split is proved on simply connected domains and fails on domains with holes (defect up to $\delta(P)\,b_1(\Omega)$, \thy{T1}), and rectangles are simply connected by construction. A cell with no holes in a union of groups is checked explicitly.
+
+\begin{explained}{the quadtree, step by step}
+\textbf{Step 1: evidence of a cell.} For a rectangular cell the best structure is scored on the raw samples of the cell by the distance of the data to the band-limited kernel space $\sum_j\ker Q_j$ (variable projection on the factor coefficients). Its evidence is $\mathrm{BIC}=\mathrm{RSS}/\sigma^2+(2\,\mathrm{dof}+2\,n_{\mathrm{par}})\ln n_c$. Because $\sigma$ is known, the BIC of cells covering different samples \emph{adds}.
+
+\medskip\textbf{Step 2: split.} Try splitting the cell at fractions of a side. Accept a split if the \emph{sum of the children's BICs is lower than the parent's by more than $2$}. At equal evidence ($|\Delta\mathrm{BIC}|<2$), splits in $x$ are preferred to splits in $t$.
+
+\medskip\textbf{Step 3: admissibility.} A child must still be analysable: $\gamma_N\ge\gamma_{\mathrm{floor}}$ ($0.02$ by default) and every factor must have at least $dx+1$ Rayleigh-resolved wavenumbers. This matters because $\gamma_N$ falls like $T^2$ and $L^2$ on small cells: a cell that is too small cannot separate its components and must not be split further.
+
+\medskip\textbf{Step 4: merge.} After the recursion, adjacent leaves forming a rectangle with agreeing structure posteriors are merged when the merged evidence is not worse.
+
+\medskip\textbf{Why a special extractor.} On a non-periodic small cell, the free two-dimensional mode model is not identifiable: neighbouring $\kappa$ below the Rayleigh spacing $2\pi/L$ make the Fisher matrix singular. The factors are identifiable though, because $u$ lies in $\sum_j\ker Q_j$; this is why the cell fit works on that kernel span directly. At noise $10^{-3}$ and $10^{-2}$ it found the right structure for $L=2\pi$ and $L=\pi$ where the earlier two-dimensional pencil failed, and on the two-regime field the quadtree split at $x=\pi$.
+\end{explained}
+
+\subsection{Features and clustering of windows}
+Features are analytic only \thy{T8}: for each window, the mass of its factors on each \emph{global} cluster of $\mathcal W$, the two largest energy fractions and $\gamma_N$, each averaged over the posterior samples. The spread of a feature inside a window is used as the covariance floor (empirical Bayes). PCA may be applied on top. Four clustering methods were compared on the rectangles: a Gaussian mixture and $k$-means (both initialised at the ``pure factor'' centres $\bar{\bs\beta}_j$ of $\mathcal W$, followed by a connected-component split), spectral clustering (affinity masked by adjacency) and agglomerative clustering with connectivity. The number of groups is the MAP of a BIC posterior; the baseline ``dominant balance'' (GMM on $\log|u_t|,\log|u_x|,\log|u_{xx}|$ per point) was included for comparison.
+
+\subsection{What has been measured}
+With the \emph{exact components} of transport ($x<\pi$) and heat ($x>\pi$) as input, noise $10^{-2}$, $N_s=6$, and windows aligned with $x=\pi$: Adjusted Rand Index $1.0$ for all four methods, no group with a hole; dominant balance $0.20$--$0.35$. When one window straddles $x=\pi$ the ARI falls to $0.63$ for $k$-means, spectral and agglomerative clustering, with the number of groups estimated as $3$. The structure posterior over $k$ is a poor window feature (heat windows gave $P(k=1)=0.72$ on $t\in[0,1]$ but $0.44$ on $[1,2]$, because mass splits between equivalent structures) and is switched off; the coefficient cloud is the stable carrier of identity.
+
+\begin{caution}[title=What this does not show]
+These grouping results use exact components as input and a boundary that coincides with the window grid. They show that the method works when the regimes are cleanly separated; they do not yet show it on posterior samples from scattered data, nor with a boundary at an arbitrary position.
+\end{caution}
+
+\begin{takeaway}
+The idea ``one group = one factor'' survives in two forms: curves in mode space for superposed factors, rectangles in the domain for regional laws. Raw-point grouping, and encoders on raw fields, are excluded by theorems.
+\end{takeaway}

@@ -1,0 +1,133 @@
+\section{What was fixed, and why}\label{sec:fixes}
+\sectionbrief
+{the algorithm as described in Sections~\ref{sec:interp}--\ref{sec:refine}, and the theory-to-algorithm table of the project (rows T1--T103) in which each change is justified.}
+{after the first end-to-end benchmark many failures appeared that no single design decision explained. Each was diagnosed, traced to a cause, fixed, and tested. This section lists them by theme, so that a reader sees the \emph{kind} of problem the algorithm had and what the fix says about how it works.}
+{this is a guide to the fixes, not a full ledger: each row names its T-number, and the reasoning, the numbers and the test are in the project's table and test files.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.6cm}L{6.0cm}L{4.3cm}@{}}
+T$n$ & row $n$ of the theory-to-algorithm table: the justification of a choice & \texttt{analysis/THEORY\_TO\_ALGO.md}\\
+adopted / off & a fix is \emph{adopted} when it is on by default; \emph{off} means the code is kept behind a switch but not used & environment switches\\
+false-confident & the pipeline says \textsc{fit-compatible} with a wrong factor set: the worst outcome & scoring rule\\
+data-equivalent & the reported law and the truth fit the data equally well, up to the noise & Cochran / Wilks test\\
+micro suite & a set of at most $15$ inputs aimed at one problem, rerun after each change & \texttt{benchmarks/micro.py}\\
+A/B & the same inputs run with and without a change, to see what it breaks & discipline\\
+\end{tabular}
+\end{symbols}
+
+\begin{notebox}{The working rules behind every fix}
+\textbf{Gold rule:} a fix must hold for any factor structure, order, coefficient scale and equation in scope, never be tuned to the case that exposed the bug; it is justified from theory or a scale-free criterion, and tested on \emph{held-out} families. \textbf{Accuracy before speed:} a speed-up is allowed only if it gives the same decisions. \textbf{Keep the structure:} an algorithm inside a step may change, a step changes only if indispensable. \textbf{Always A/B:} a change that fixes one input is adopted only if it does not break the suites.
+\end{notebox}
+
+\subsection{Seeing the noise correctly}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+GP error is correlated in $t$, but the core assumed white noise; the first end-to-end run reached only $0.40$ weight on the right factors (T37) & per-bin generalised least squares, noise covariance from the sample draws & noise covariance recovers an AR(1) autocovariance; GLS with white draws equals the white core\\
+Complex fields: the noise level was declared inconsistently, so a correct Schr\"odinger law was reported as \textsc{id-ker} (T89, T91) & noise of a complex field declared as $\mathcal{CN}(0,\sigma^2)$ (real and imaginary parts each $\sigma^2/2$), on grids and scattered inputs & benchmark input test\\
+A growing mode overflowed $e^{\lambda t}$ and crashed the diagnostic SVD & columns scaled per mode & growing-mode test (fails on the old code)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Choosing the structure by the data, not the modes}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+Mode-level BIC prefers a fake $\tau+c$ factor at each $\kappa$ (T39) & decider scores each candidate by the evidence of the data in its kernel span & decider rejects constant factors per $\kappa$\\
+A symbol that passes through too few modes merely interpolates them (Schr\"odinger at $1\%$, T40, T46) & admissibility counts the \emph{observed} roots per $\kappa$, at most $m$ & decider rejects a symbol that interpolates few modes; counts only observed branches\\
+The GP mean adds its own decay as a factor on scattered data (heat at $400$ points, T44) & the decider and the factor subset are scored on the raw observations & raw evidence rejects an interpolation artefact\\
+Cubic-in-$\tau$ laws were unreachable (T57) & core candidates include irreducible orders up to $m_{\max}$ & cubic fit test\\
+Growth was only in $\xi$ (T59) & growth tries $(m,dx+1)$ and $(m+1,dx)$ & grow options both directions\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Refining numbers on the observations}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+Factors fitted to biased interpolant points carry spurious terms (T51, T52) & coefficients refitted to the raw data by variable projection; supports chosen by evidence minus Occam & refinement tests on grid and dense data\\
+Only the winning structure was refined, so a better one was lost (T56, T72) & every structure the decider scored is refined & Schr\"odinger spurious $m=2$ case\\
+A $0.2$-nat gain displaced a model through the optimiser's noise (T74, T78) & new model must win by $>1$ nat; otherwise fewer real parameters are kept & bare-mention tie rule\\
+The same model under two labels was compared on optimiser noise (T66, T68) & same-model signature on the expanded product & supports identify one model across labels\\
+A term the core rounded to zero could never return; the path started below the full support (T94, T100, T102) & the support path starts from the full support up to the class degree & class-degree path tests; F4-128 case\\
+Grid evidence was slow (T62, T81, T85, T87) & per-bin-pair exact form, vectorised, warm-started, triangular solve (about $100\times$) & equal to the dense value to rounding\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Splitting, and conjugate pairs of real fields}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+A real field with a $\tau^2$ factor needs complex factors (beam, T42, T49) & rerun with complex coefficients; accepted only for a non-real conjugate pair & beam case\\
+A complex split lost its conjugate (T53, T65) & conjugate closure; a split in a real field is rejected unless every non-real factor has its conjugate & conjugate-closure test\\
+Reducible factors of any order, not only square-discriminant quadratics (T54) & branch-partition split, accepted by refined evidence & reducible products split; irreducible heat and transport do not\\
+A split that is the same kernel was decided by noise (T80, T99) & exact split kept without refitting, repeated to the finest factorisation & wave with low $\kappa$\\
+Two conjugate pairs: the real fit used odd powers of $\xi$, and the complex fit needed too many factors (T98) & half-plane fit of a real field plus one amplitude scale per root branch & half-plane test\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Repeated roots, confluence and labels}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+A repeated root looked like a confident simple factor (T60, T67) & confluent test by variable projection and Levenberg--Marquardt; \textsc{undecided} for a repeated factor & repeated factor is undecided\\
+The branch point of an irreducible law looked confluent (damped beam, T60, T69, T73) & branch-point test; confluent bins re-checked against the final factors and their product & branch point is not confluent\\
+\textsc{id-ker} computed on samples of a structure later replaced described a law not reported (T103) & identifiability re-run on the reported factors; $\kappa$ support recomputed on the final factors & final identifiability tests\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Not claiming what the data reject}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+A good fit on the interpolant hid a bad fit on the raw points (T88) & goodness of fit on the raw data for scattered inputs; $\log_{10}p<-3$ becomes \textsc{misfit} & calibrated on fresh draws under the true law\\
+Fast exponentials spread over many degrees of freedom escaped the $\chi^2$ test on grids (T96) & smooth test on Legendre polynomials in $t$; downgrade to \textsc{undecided} & no false alarm on $150$ draws\\
+A subset drop removed the factor that carried the \textsc{id-ker} label, leaving an untested law (T101) & the goodness-of-fit test runs on the law left after the drop & final goodness-of-fit test\\
+The benchmark counted a data-equivalent law as wrong by summing $\chi^2$ over empty bins (T82, T95) & equivalence judged in the excited band with degrees of freedom adjusted & scoring test\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Intervals and weights}
+\begin{center}\small
+\begin{tabular}{@{}L{4.1cm}L{4.4cm}L{4.4cm}@{}}
+\toprule
+Problem & Fix & Test\\\midrule
+A single grid has no posterior spread (T50, T75) & parametric bootstrap of the refined estimator & bootstrap keeps supported terms\\
+Real field fitted with a complex model undercovered the weights (T38) & conjugate-pair parametrisation, empirical-Bayes prior scale per bin & weights cover the truth and the null stays low\\
+Split factors had zero-width intervals (beam, coverage $0.5$, T103) & interval of the unsplit factor carried through the split map by Monte Carlo & beam $400$ points, coverage $1.0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Tried and not adopted}
+\begin{explained}{why a fix is sometimes refused}
+Every candidate fix was run on held-out suites with and without the change. Several were refused, and the reason is as informative as the fixes that stayed.
+
+\medskip\textbf{One scale per bin everywhere (T76).} It fixed one case (damped beam) but made empty bins each fit a little noise, and the unsplit wave $\tau^2-\xi^2$ beat the true split $\tau\pm\xi$ (a regression), and it was $2$--$4\times$ slower. Replaced by pooling empty bins (T77, adopted) and, later, one scale per root branch (T98).
+
+\medskip\textbf{Growing past the degree limits (T83).} Its premise did not hold: the failing case never reached the limit, and with the switch on it still ended \textsc{undecided}. \textbf{A guard on every refinement change, and pre-regroup alternatives (T97).} Each fixed one case but produced false-confident answers on three others, so they stay off with the code kept.
+
+\medskip\textbf{Re-interpolating with the candidate factors' kernels (T84, T90).} It rescued a false-confident case but dropped the coverage of the intervals from $1.00$ to $0.50$ on beam, and cost $2\times$ the time.
+
+\medskip\textbf{Learned layers.} The failure detector, the calibration of probabilities and intervals, the global constants and the controller were evaluated on corpora and not shipped (see the companion document on the learned layers).
+\end{explained}
+
+\begin{caution}[title=What the fixes did not close]
+\textbf{Open:} two conjugate pairs (the true factors are found but the label stays \textsc{undecided} because of a confluent bin between different pairs); the scoring with one scale per root branch still does not charge a factor with no excited branch (a bare $\tau$); the beam at $400$ points still has a $0.5$ interval coverage on one seed (an ordinary $90\%$ miss); the weight interval over the ambiguity $\delta(P)$ of a shared $\kappa=0$ mode; non-monic, nonlinear, variable-coefficient and higher-dimensional laws are outside the algorithm. The cost rose: scattered cases at $400$ points take tens of minutes.
+\end{caution}
+
+\begin{takeaway}
+Almost every fix is one of three kinds: \emph{see the noise correctly}, \emph{judge candidates by the raw data with a fair price for terms}, or \emph{refuse to claim what the data reject}. None changes the architecture. Together they took the pipeline from $66\%$ and $18\%$ right on scattered data with a placeholder interpolator (an early benchmark) to the right factor set on all $30$ inputs of the final benchmark, with no false-confident answer; the two benchmarks differ in design (the final one is smaller and uses one seed), so the comparison shows direction, not a rate.
+\end{takeaway}

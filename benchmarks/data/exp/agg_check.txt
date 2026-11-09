@@ -1,0 +1,30 @@
+== transport_plus_diffusion noise=0.001 (46.8s)
+k_eff=1.718 (k_det=2); per-sample k_eff mean 1.718
+rho_bar=0.0022 cF_bar=0.826 gamma_bar=0.174
+labels={'FIT-COMPATIBLE': np.float64(1.0)}
+P(k) structures={1: np.float64(0.002), 2: np.float64(0.994), 3: np.float64(0.005)}
+P(k) DP={2: 1.0} finite-BIC={1: np.float64(0.0), 2: np.float64(1.0), 3: np.float64(0.0), 4: np.float64(0.0)}
+  track 0: W=0.768 tau + 0.9999697256*xi
+  track 1: W=0.232 tau - 0.3019313378*xi**2 - 0.009327347
+== transport_plus_diffusion noise=0.01 (50.5s)
+k_eff=1.712 (k_det=2); per-sample k_eff mean 1.711
+rho_bar=0.0291 cF_bar=0.826 gamma_bar=0.174
+labels={'FIT-COMPATIBLE': np.float64(1.0)}
+P(k) structures={1: np.float64(0.004), 2: np.float64(0.954), 3: np.float64(0.042)}
+P(k) DP={2: 1.0} finite-BIC={1: np.float64(0.0), 2: np.float64(1.0), 3: np.float64(0.0), 4: np.float64(0.0)}
+  track 0: W=0.772 tau + 0.002556911*xi**2 + 0.9998006441*xi + 0.0237953866
+  track 1: W=0.228 tau - 0.3199850891*xi**2 + 0.0014042737*xi - 0.0943434423
+== heat noise=0.001 (3.4s)
+k_eff=1.000 (k_det=1); per-sample k_eff mean 1.000
+rho_bar=0 cF_bar=0 gamma_bar=1
+labels={'FIT-COMPATIBLE': np.float64(1.0)}
+P(k) structures={1: np.float64(0.679), 2: np.float64(0.29), 3: np.float64(0.031)}
+P(k) DP={1: 1.0} finite-BIC={1: np.float64(0.992), 2: np.float64(0.008), 3: np.float64(0.0), 4: np.float64(0.0)}
+  track 0: W=1.000 tau - 0.3000963652*xi**2
+== heat noise=0.01 (2.9s)
+k_eff=1.000 (k_det=1); per-sample k_eff mean 1.000
+rho_bar=0.00082 cF_bar=0 gamma_bar=1
+labels={'FIT-COMPATIBLE': np.float64(1.0)}
+P(k) structures={1: np.float64(0.514), 2: np.float64(0.486)}
+P(k) DP={1: 1.0} finite-BIC={1: np.float64(0.998), 2: np.float64(0.002), 3: np.float64(0.0), 4: np.float64(0.0)}
+  track 0: W=1.000 tau - 0.3009663296*xi**2 - 0.0012767664

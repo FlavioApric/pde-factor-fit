@@ -1,0 +1,70 @@
+\section{Stage 1: interpolation with probabilities}\label{sec:interp}
+\sectionbrief
+{scattered noisy samples $(t_i,x_i,y_i)$, possibly periodic in $x$, no knowledge of the equation.}
+{the analytic core needs a field on a regular grid, and because data are finite there is no single correct field. The stage must return \emph{many} fields with weights, not one.}
+{first link of the chain. Its output $\{(\hat u_s,\pi_s)\}$ is what the core is run on, sample by sample.}
+
+\begin{symbols}
+\begin{tabular}{@{}L{2.5cm}L{6.0cm}L{4.4cm}@{}}
+$(t_i,x_i,y_i)$, $i\le n$ & the $n$ measurements: place $(t_i,x_i)$ and measured value $y_i\approx u(t_i,x_i)$ & the data\\
+$\varepsilon_i,\ s_n$ & measurement noise (random error) and its standard deviation & assumed Gaussian\\
+$f$ & the unknown smooth function we fit; it equals the field $u$ up to the constant $c$ & the quantity inferred\\
+$c$ & constant offset (mean level) of the standardised data & preprocessing\\
+kernel $k(\cdot,\cdot)$ & a function giving the prior covariance of $f$ between two points: it encodes how smooth $f$ is & the choice of model\\
+$k_t^{(r)},k_x^{(r)}$, $R$ & factors of the kernel in $t$ and in $x$ for the $r$-th of $R$ summed terms (``separable'' = a product of a function of $t$ and one of $x$) & the choice of model\\
+$s_r,\ \ell_t^r,\ \ell_x^r$ & amplitude of term $r$ and its correlation lengths in $t$ and in $x$ (the distance over which $f$ stays correlated) & hyperparameters\\
+$\eta$ & the list of all hyperparameters $(s_r,\ell_t^r,\ell_x^r,s_n,c)$, in logarithms & unknown, marginalised\\
+$\bar f,\ K_{\mathrm{post}}$ & posterior mean and covariance of $f$ given the data & output of the GP\\
+$N_s$ samples, $\hat u_s$, $\pi_s$ & $N_s$ fields drawn from the posterior on a regular grid, and their weights ($\pi_s\ge0$, $\sum_s\pi_s=1$) & output of this stage\\
+$q,\ \pi_h$ & proposal distribution for $\eta$ and the importance weight of draw $h$ & Monte Carlo device\\
+$H^m$ & Sobolev space: functions with $m$ square-integrable derivatives; ``not continuous in $H^m$'' means a small change in the data's \emph{smoothness-norm} can produce a large change in the output & functional analysis\\
+\end{tabular}
+\end{symbols}
+
+\subsection{The model}
+A Gaussian process is a probability distribution over functions, specified by a mean and a \emph{kernel} $k$ (a prior covariance between the values of $f$ at two points). In standardised units the data are modelled as $y_i=c+f(t_i,x_i)+\varepsilon_i$ with $\varepsilon_i\sim\mathcal N(0,s_n^2)$ and a Gaussian-process prior
+\begin{equation}\label{eq:gp}
+f\sim\mathcal{GP}\Big(0,\ \sum_{r=1}^{R}s_r^2\,k_t^{(r)}(t,t')\,k_x^{(r)}(x,x')\Big),
+\end{equation}
+a sum of $R$ separable terms. The sum is there for a theoretical reason: $u=\sum_ju_j$ with $\ker P=\sum\ker Q_j$ \thy{T1}, and the components of different factors have \emph{different correlation lengths} in $(t,x)$ (a travelling bump and a decaying wave do not share one). A single separable term undercovers on such fields. The kernel \emph{family} (\texttt{rbf}, \texttt{matern52}, \texttt{rbf+rbf}, \dots) gets a posterior from its evidence.
+
+\begin{explained}{what a GP posterior returns, and why samples}
+\textbf{Step 1: the posterior is a distribution over functions.} Given the data, the posterior of $f$ is Gaussian with a mean $\bar f$ and a covariance $K_{\mathrm{post}}$. The mean $\bar f$ is a smooth curve through the data. It is tempting to hand $\bar f$ to the analytic core, and the pipeline does \emph{not} do this.
+
+\medskip\textbf{Step 2: why not the mean.} The mean is smoother than any real realisation (it averages away the fluctuations), so its high-wavenumber content is biased; the core reads exactly that content (modes at large $\kappa$). Moreover the maps used downstream are discontinuous: $\Eint$ is not continuous in $H^m$ \thy{T12}, and the annihilator depends discontinuously on the data. For such maps ``the map of the mean'' is not ``the mean of the map''.
+
+\medskip\textbf{Step 3: sample.} Draw $N_s$ functions $\hat u_1,\dots,\hat u_{N_s}$ from the posterior (pathwise conditioning, Matheron's rule: an exact prior draw on the grid, corrected by the data). Run the core on each. The spread of the outputs \emph{is} the propagated uncertainty. This is a Monte Carlo estimate, and it is never linearised.
+
+\medskip\textbf{Step 4: the weights $\pi_s$.} Hyperparameters $\eta=((\log s_r,\log\ell_t^r,\log\ell_x^r)_r,\log s_n,c)$ are unknown too. Each hyperparameter draw is a Gaussian component of the posterior, and the draws carry weights: $\pi_h\propto p(y,\eta_h)/q(\eta_h)$, where $q$ is a heavy-tailed Laplace approximation (importance reweighting, truncated). So the family $\{(\hat u_s,\pi_s)\}$ also carries the uncertainty on the kernel scales.
+\end{explained}
+
+\subsection{Hyperparameters: marginalised, not fixed}
+Following the design rule that nothing of the loop is set by hand, the hyperparameters are integrated out:
+\begin{itemize}[nosep]
+\item \texttt{laplace}: type-II maximum a posteriori from several starts, a Laplace approximation, then the importance reweighting above. The same weights estimate the evidence of each kernel family.
+\item \texttt{nuts}: Hamiltonian Monte Carlo (NumPyro) for small $n$.
+\item \texttt{subset} (default for large $n$): the \texttt{laplace} path on a random subset of the data. It is a true posterior given less data, hence conservative (wider) rather than overconfident.
+\item \texttt{ski}: KISS-GP on the output grid, maximum likelihood only. Experimental and \emph{not calibrated}; opt-in.
+\end{itemize}
+A deep-ensemble interpolator exists only as an ablation: it is known to be under-dispersed away from the data.
+
+\subsection{What has been measured}
+The coverage of pointwise credible bands was logged on the synthetic cases for $n\in\{400,2000\}$ and noise $1\%$, $5\%$. The nominal-$90\%$ band covered between about $0.82$ and $0.94$ in the logged runs, with an estimated noise level $\hat\sigma$ close to the true one. Runtimes in the logs range from about $17$ s ($n=400$) to $80$--$435$ s ($n=2000$, exact Laplace path). The session report now exists: the done criterion ($\pm5$ points at $50,90,95\%$) is met in $11$ of $12$ cells with the default Mat\'ern-$5/2$ family set (the miss is the $50\%$ band at $n=400$, $1\%$ noise: $0.553$, on the conservative side), while an RBF set fails at $n=2000$ ($90\%$ band covering only $0.84$--$0.86$). The estimated noise level is within a few percent of the true one, so the miscalibration, when it appears, is in the function prior, not in the noise. The first end-to-end test (GP samples $\to$ core) reached only $0.40$ weight on the right factors, because the core then took a single scalar white noise; the later per-bin correlated noise in the core (GLS, from the sample draws) removed that obstacle, and Section~\ref{sec:limits} gives the benchmark that followed. Stage 1 is \impl{}.
+
+\begin{caution}[title=Why this stage decides the result]
+The early benchmark on scattered data used a \emph{placeholder} interpolator (one deterministic interpolant, one noise level). There the core recognised the right factor set in $66\%$ (2000 points) and $18\%$ (400 points) of the runs, no better than the weak-form baselines, because the interpolation bias was not propagated. The posterior samples of this stage, together with the refinement on the raw observations (Section~\ref{sec:loop}), are what closed that gap: in the end-to-end benchmark of Section~\ref{sec:limits} the full pipeline recovers the right set in $0.90$--$1.00$ of runs at $2000$ points and $0.73$--$1.00$ at $400$. The placeholder numbers are kept here only as the reason the stage matters.
+\end{caution}
+
+\begin{explained}{a reader asks: is the GP fitting the operator, and where is the interaction term?}
+\textbf{Step 1: the kernel is not the operator's.} The kernel $k$ in~\eqref{eq:gp} is only a prior on \emph{how smooth and how correlated} the field is (correlation lengths $\ell_t,\ell_x$ and a scale $s$). It contains no exponentials, no PDE terms and no dictionary of known terms. Stage 1 knows nothing about $P$.
+
+\medskip\textbf{Step 2: why a sum of $R$ terms.} $R$ counts \emph{correlation scales} (a wide bump and a narrow wave need different lengths), not PDE terms or factors.
+
+\medskip\textbf{Step 3: where is $\Eint$?} Not here. This stage only returns plausible fields. The interaction term is computed in stage 2 from the coefficients fitted on each sample (Section~\ref{sec:core}). No dictionary of terms is needed in either stage: the terms are read off the fitted polynomial.
+
+\medskip\textbf{Step 4: the key point.} Yes: every value $f(t_i,x_i)$ is modelled as a Gaussian random variable, jointly Gaussian across points with covariance given by $k$ (plus the noise $\varepsilon_i$). The posterior is again Gaussian, but over whole fields, and a sample is one complete field drawn from it.
+\end{explained}
+
+\begin{takeaway}
+Stage 1 turns ``one imperfect field'' into ``a weighted cloud of plausible fields''. Everything uncertain downstream is obtained by running the unchanged core on each member.
+\end{takeaway}
