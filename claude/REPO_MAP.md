@@ -28,5 +28,8 @@ flowchart LR
 
 Each branch has `claude/CLAUDE.md` (rules), `claude/MAP.md` (graph), `claude/STATUS.md` (worked / did not work).
 
+## Graphs
+The file/dependency graph of this repository and of the earlier research repository are in `graphs/` (`graph_new.json`, `graph_old.json`, `.mmd` overviews, `.html` interactive views); `INVENTORY.md` compares them. Rebuild with `tools/build_graph.py`.
+
 ## History
-The raw research history (all earlier sessions, logs, backups) is kept on the branches `archive/analytical`, `ml`, `other`, `larned-layers`, `final-report`, `phase4-ml-plan` until it is archived elsewhere. Nothing there is needed to use the repository.
+The raw research history of the earlier repository is kept privately. Everything of value from it (papers, code, tests, benchmarks, plans, reports, audits) is in the four branches; `INVENTORY.md` proves it.

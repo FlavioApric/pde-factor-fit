@@ -14,7 +14,10 @@ By **Flavio Pricoco**. Open for everyone to use under permissive licenses; pleas
 | read the same paper in the analytical-first order | [`paper/A_user_structure/main.pdf`](paper/A_user_structure/main.pdf) |
 | see how the two differ | [`paper/COMPARISON.md`](paper/COMPARISON.md) |
 | run the algorithm | `pip install -e .` then see [`src/pdefactor`](src/pdefactor) and [`tests/`](tests) |
-| see benchmarks and stored results | [`benchmarks/`](benchmarks) |
+| read the **explained edition** of the algorithm (46 pp, plain language, every layer with its tests) | [`paper/explained/alg_explained.pdf`](paper/explained/alg_explained.pdf) |
+| see benchmarks, experiments and stored results | [`benchmarks/`](benchmarks), [`analysis/exp/`](analysis/exp) |
+| see the theory-to-code map (rows T1-T103), limits, parameters, session reports | [`claude/archive/pipeline/`](claude/archive/pipeline), [`claude/archive/sessions/`](claude/archive/sessions) |
+| check that nothing of the research repository is missing | [`INVENTORY.md`](INVENTORY.md), [`graphs/`](graphs), [`tools/`](tools) |
 | work on it with Claude | [`claude/`](claude) (rules, map, status) |
 
 ## Branches
@@ -22,9 +25,9 @@ By **Flavio Pricoco**. Open for everyone to use under permissive licenses; pleas
 | branch | content | paper |
 |---|---|---|
 | `main` | the algorithm, tests, benchmarks and the two SIMODS manuscripts | Structure A and B |
-| `analytical` | all theory and proofs (annihilators, factor decomposition, interaction term, identification, limits) | one paper, B style |
-| `ml-layers` | learned layers on top of the pipeline: what worked, what did not, ideas | one paper, B style |
-| `model-expansion` | extending the model: nonlinear, variable coefficients, time dependence, systems, non-local | one paper, B style |
+| `analytical` | all theory and proofs, **all eleven phases 0-10** (annihilators, factor decomposition, interaction term, identification, systems, variable coefficients, encoder, dictionary, limits) | 57-page paper + the complete 117-page edition and 263-page proof catalogue |
+| `ml-layers` | learned layers on top of the pipeline: every layer as designed, built or not, the controller, what worked, what did not, ideas | 21-page paper |
+| `model-expansion` | extending the model: nonlinear, variable coefficients, time dependence, systems, non-local; the routes tried; the four founding questions | 13-page paper |
 
 Every branch has the same skeleton: `paper/`, code (`src/`), `tests/` and `benchmarks/`, and a `claude/` folder
 with `CLAUDE.md` (rules), `MAP.md` (graph of the branch) and `STATUS.md` (what worked, what did not).
@@ -44,7 +47,7 @@ flowchart LR
 
 ```bash
 pip install -e ".[dev]"
-pytest -q                      # full suite is slow (~13 min); tests/test_core_exact.py is quick
+pytest -q                      # full suite is slow (~40 min); tests/test_core_exact.py is quick (optional extras: pip install -e ".[ml,baselines]")
 cd paper/B_proposed_structure && latexmk -pdf main.tex
 ```
 
