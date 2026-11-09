@@ -76,12 +76,12 @@ PDEFactorML-S-INTERP/tests/test_core_v2.py,test,moved,variants/s_interp/tests/te
 PDEFactorML-S-INTERP/tests/test_interp.py,test,moved,tests/test_interp.py,5006
 PDEFactorML/.gitignore,other,modified,.gitignore,125
 PDEFactorML/CLAUDE.md,doc,moved,variants/s_interp/CLAUDE.md,2528
-PDEFactorML/EXPLAINED/alg_explained.aux,junk,modified,paper/explained/alg_explained.aux,13247
-PDEFactorML/EXPLAINED/alg_explained.log,log,modified,paper/explained/alg_explained.log,59777
-PDEFactorML/EXPLAINED/alg_explained.out,junk,modified,paper/explained/alg_explained.out,13226
+PDEFactorML/EXPLAINED/alg_explained.aux,junk,expected-missing,LaTeX build / Python cache files,13247
+PDEFactorML/EXPLAINED/alg_explained.log,log,expected-missing,raw run logs,59777
+PDEFactorML/EXPLAINED/alg_explained.out,junk,expected-missing,LaTeX build / Python cache files,13226
 PDEFactorML/EXPLAINED/alg_explained.pdf,pdf,moved,paper/explained/alg_explained.pdf,513098
 PDEFactorML/EXPLAINED/alg_explained.tex,paper-tex,moved,paper/explained/alg_explained.tex,3649
-PDEFactorML/EXPLAINED/alg_explained.toc,junk,modified,paper/explained/alg_explained.toc,5833
+PDEFactorML/EXPLAINED/alg_explained.toc,junk,expected-missing,LaTeX build / Python cache files,5833
 PDEFactorML/EXPLAINED/ml_layers.pdf,pdf,moved,paper/ml_explained/ml_layers.pdf,241871
 PDEFactorML/EXPLAINED/ml_layers.tex,paper-tex,moved,paper/ml_explained/ml_layers.tex,40142
 PDEFactorML/EXPLAINED/preamble_alg.tex,paper-tex,moved,paper/explained/preamble_alg.tex,6945
@@ -885,12 +885,12 @@ ProblemaBase/FASI_ALL/c_front.tex,paper-tex,moved,paper/analytical_complete/c_fr
 ProblemaBase/FASI_ALL/c_front_all.tex,paper-tex,moved,paper/analytical_complete/c_front_all.tex,5637
 ProblemaBase/FASI_ALL/c_index.tex,paper-tex,moved,paper/analytical_complete/c_index.tex,9252
 ProblemaBase/FASI_ALL/c_index_all.tex,paper-tex,moved,paper/analytical_complete/c_index_all.tex,25214
-ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.aux,junk,modified,paper/analytical_complete/dimostrazioni_tutte_le_fasi.aux,37243
-ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.log,log,modified,paper/analytical_complete/dimostrazioni_tutte_le_fasi.log,76062
-ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.out,junk,moved,paper/analytical_complete/dimostrazioni_tutte_le_fasi.out,20278
+ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.aux,junk,expected-missing,LaTeX build / Python cache files,37243
+ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.log,log,expected-missing,raw run logs,76062
+ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.out,junk,expected-missing,LaTeX build / Python cache files,20278
 ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.pdf,pdf,expected-missing,PDF rebuilt from the included LaTeX source,1902730
 ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.tex,paper-tex,moved,paper/analytical_complete/dimostrazioni_tutte_le_fasi.tex,3141
-ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.toc,junk,modified,paper/analytical_complete/dimostrazioni_tutte_le_fasi.toc,9027
+ProblemaBase/FASI_ALL/dimostrazioni_tutte_le_fasi.toc,junk,expected-missing,LaTeX build / Python cache files,9027
 ProblemaBase/FASI_ALL/p_appA.tex,paper-tex,moved,paper/analytical_complete/p_appA.tex,2472
 ProblemaBase/FASI_ALL/p_biblio.tex,paper-tex,moved,paper/analytical_complete/p_biblio.tex,23375
 ProblemaBase/FASI_ALL/p_ch1.tex,paper-tex,moved,paper/analytical_complete/p_ch1.tex,9984
@@ -917,12 +917,12 @@ ProblemaBase/FASI_ALL/p_ch9.tex,paper-tex,moved,paper/analytical_complete/p_ch9.
 ProblemaBase/FASI_ALL/p_front.tex,paper-tex,moved,paper/analytical_complete/p_front.tex,4137
 ProblemaBase/FASI_ALL/p_front_all.tex,paper-tex,moved,paper/analytical_complete/p_front_all.tex,5192
 ProblemaBase/FASI_ALL/p_refs.tex,paper-tex,moved,paper/analytical_complete/p_refs.tex,2206
-ProblemaBase/FASI_ALL/paper_tutte_le_fasi.aux,junk,modified,paper/analytical_complete/paper_tutte_le_fasi.aux,42015
-ProblemaBase/FASI_ALL/paper_tutte_le_fasi.log,log,modified,paper/analytical_complete/paper_tutte_le_fasi.log,64923
-ProblemaBase/FASI_ALL/paper_tutte_le_fasi.out,junk,moved,paper/analytical_complete/paper_tutte_le_fasi.out,25666
+ProblemaBase/FASI_ALL/paper_tutte_le_fasi.aux,junk,expected-missing,LaTeX build / Python cache files,42015
+ProblemaBase/FASI_ALL/paper_tutte_le_fasi.log,log,expected-missing,raw run logs,64923
+ProblemaBase/FASI_ALL/paper_tutte_le_fasi.out,junk,expected-missing,LaTeX build / Python cache files,25666
 ProblemaBase/FASI_ALL/paper_tutte_le_fasi.pdf,pdf,expected-missing,PDF rebuilt from the included LaTeX source,1086983
 ProblemaBase/FASI_ALL/paper_tutte_le_fasi.tex,paper-tex,moved,paper/analytical_complete/paper_tutte_le_fasi.tex,2679
-ProblemaBase/FASI_ALL/paper_tutte_le_fasi.toc,junk,modified,paper/analytical_complete/paper_tutte_le_fasi.toc,12978
+ProblemaBase/FASI_ALL/paper_tutte_le_fasi.toc,junk,expected-missing,LaTeX build / Python cache files,12978
 ProblemaBase/FASI_ALL/preamble_all.tex,paper-tex,moved,paper/analytical_complete/preamble_all.tex,9238
 ProblemaBase/FASI_ALL/tiers.md,report-plan,moved,paper/analytical_complete/tiers.md,4650
 ProblemaBase/GATE3.md,doc,moved,claude/archive/ProblemaBase/GATE3.md,10695
