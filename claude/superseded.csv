@@ -11,3 +11,4 @@
 ^ProblemaBase/FASI_ALL/,merged into paper/analytical.tex and analytical_proofs.tex (branch analytical; coverage checked)
 ^PDEFactorML-S-INTERP/(src|tests)/,identical to code/pdefactor/interp (branch ml-layers) or to tests of the pipeline
 ^PDEFactorML/(src|tests)/,pipeline sources moved to code/pdefactor and tests/ (edited paths)
+\.git_aside$,git-directory pointer file of the old S-INTERP worktree (junk)
