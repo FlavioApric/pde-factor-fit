@@ -1,0 +1,16 @@
+% Added section: prerequisites (P0) before any learned layer.
+\section{Prerequisites: the oracle study, the scoring and the simulator}\label{sec:p0}
+Three pieces of work with no machine learning come first, because without them a layer that ``fixes'' $400$ points at $5\%$ noise may only be importing its training prior: the current amplitude law makes $\kappa\ge5$ undetectable whatever the method.
+
+\paragraph{P0.1 Oracle information study} Every failing case (case, sampling, noise, seed) is classified on the \emph{raw} observations into information \emph{absent}, \emph{present but lost by the Gaussian process}, or \emph{present but lost by the search}.
+For each true mode the Fisher information and the Cram\'er--Rao bound of $(\lambda_j,a_j)$ are computed at the true values; the raw evidence of the true structure at the true coefficients, and after refinement started at the truth, is compared with the pipeline's answer; the matched-filter signal-to-noise per $\kappa$ is reported.
+``Absent'' is defined without reference to the pipeline's output, to avoid a circular benchmark: a factor is absent when fewer than $d_x+1$ distinct $\kappa$ have a bound on $\lambda$ below a declared tolerance, branch by branch (transport plus diffusion has one weak branch per $\kappa$, so heat's numbers do not carry over).
+
+\paragraph{P0.2 Scoring that rewards honest abstention} The benchmark adds \emph{correct abstention} (\IDK{} or \UND{} where P0.1 says the information is absent) and \emph{false-confident} (\FC{} with a wrong factor set), and reports risk--coverage curves of selective prediction.
+Without this every learned layer is pushed toward overconfidence.
+
+\paragraph{P0.3 Simulator extension} Ten fixed cases and the seed that only changes phases are not enough. The simulator draws random symbols by family (structure $k\le3$, factor degrees $m_j\in\{1,2\}$, $d_{x,j}\le4$, coefficients from a declared prior with a stability constraint, conjugate pairs for real fields, optional shared $\kappa=0$ modes and repeated factors),
+random excitation (number and range of $\kappa$, amplitude law, $T$, $L$, phases), random sampling (grid, $2000$, $400$, random $n\in[200,5000]$) and noise (white, AR(1), heteroscedastic, Student-$t$ outliers), and injects failures with labels known by construction (variable coefficient, weak nonlinearity by a split-step solver, fractional symbol, two laws in two halves, a single excited mode,
+$\kappa$ above the Nyquist limit, a degree beyond the start bounds, a near-reducible irreducible factor, a reducible product with a nearly square discriminant). Five \emph{families} define leave-one-family-out (LOFO) validation:
+F1 real first order, F2 dispersive with a complex symbol, F3 second order in $\tau$, F4 products and superpositions with $k\ge2$, F5 edge cases (shared $\kappa=0$, repeated factors, single mode). Held-out axes also include a degree, the noise colour and the density.
+The code is \texttt{simulator.py} (every draw has an exact dispersion relation, tested) and the injection generators in \texttt{benchmarks/ml\_layers/ll\_inject.py}.

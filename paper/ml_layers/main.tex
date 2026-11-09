@@ -1,6 +1,7 @@
 % Paper: learned layers on top of the factor pipeline (what worked, what did not, why).
 \input{../shared/docclass}
 \input{../shared/preamble}
+\usepackage{longtable}
 
 \title{Learned Layers for a Factor-Based PDE Pipeline:\\What Worked, What Did Not, and Why}
 \author{Flavio Pricoco\thanks{\email{flaflapr@gmail.com}}}
@@ -60,6 +61,9 @@ chooses reruns has an upper bound that no available trigger reaches (\cref{sec:c
 verdicts. \Cref{sec:lessons} extracts what the failures have in common, and \cref{sec:ideas} lists ideas not yet tried,
 including the author's own.
 
+\paragraph{Structure} \Cref{sec:pipeline,sec:inside-ml} describe the pipeline and the statistical learning already inside it; \cref{sec:contract,sec:protocol,sec:p0} give the contract, the protocol and the prerequisites; \cref{sec:design} states every layer as designed, built or not;
+\cref{sec:worked,sec:v1,sec:negative} report what was built and what happened, including the controller in detail (\cref{sec:controller-built}) and what was never built (\cref{sec:unbuilt}); the appendices hold the failure-mode table, the acceptance protocol and the test inventory.
+
 \paragraph{Scope} Everything here concerns linear, constant-coefficient, autonomous, scalar equations in one space and one
 time variable. The layers were developed on one version of the pipeline (\cref{sec:repro}); we say so wherever it matters.
 
@@ -107,6 +111,8 @@ repeated mode extractions (exact) or learns to skip optional steps. L2b, L2c and
 probability of the top structure, the interval widths, and the global constants of the decision rules. V1 predicts from the
 pipeline's own output whether the answer is wrong. C would read V1 and rerun the pipeline with other settings.
 
+\input{sections/s_inside}
+
 \section{The contract for a learned layer}\label{sec:contract}
 \begin{enumerate}
 \item \textbf{Off is today, bit for bit.} With every layer off the output equals the pipeline's output exactly: factor
@@ -144,6 +150,9 @@ dimensionless features.
 
 \paragraph{Gates} A layer ships only if its gate passes in every LOFO fold, not on average. We report ``go'', ``no-go'' or
 ``unclear'', the last when the sample cannot decide it.
+
+\input{sections/s_p0}
+\input{sections/s_design}
 
 \section{What worked: an exact speed-up}\label{sec:worked}
 The mode extraction and the confluence test inside the core depend only on the sample, the noise and the mode options, not on
@@ -228,6 +237,8 @@ C & reruns with other settings & oracle $8/12$; with V1 trigger $0/12$ & not bui
 \end{tabular}
 \end{table}
 
+\input{sections/s_controller}
+
 \section{Lessons}\label{sec:lessons}
 \paragraph{Average separation is not tail detection} V1 has a good AUROC and almost no detection at a $5\%$ false-alarm rate. A gate at a fixed operating
 point measures something different from a ranking metric, and the second can look good while the first fails.
@@ -255,7 +266,7 @@ These are not results. They are directions the evidence suggests, or that the au
 
 \section{Reproducibility and limits}\label{sec:repro}
 This branch holds the layers, their tests and the experiment scripts. The pipeline in \texttt{src/} is the snapshot the layers were developed and tested on (the main pipeline at commit \texttt{eaa8f9c} plus the layers). The current pipeline
-on branch \texttt{main} has later changes in \texttt{loop.py} and the structured fit that touch the same lines as the layer hooks, so the port in item~5 of \cref{sec:ideas} is real work and is not done here. All
+on branch \texttt{main} has later changes in \texttt{loop.py} and the structured fit that touch the same lines as the layer hooks, so the port in item~5 of \cref{sec:ideas} is real work and is not done here. The directory \texttt{variants/s\_interp/} holds the separate interpolation variant of the pipeline (15 source files, 3 tests, 14 analysis scripts and its session notes) that was developed in parallel; \texttt{claude/archive/sessions/} holds every session plan and report of the layers, and \texttt{benchmarks/ml\_layers/} the experiment scripts, tables and logs. All
 numbers in this paper are from stored reports in \texttt{benchmarks/ml\_layers/results/}. The off-snapshot tests compare against stored outputs whose last digits depend on the numerical library;
 the stored outputs were regenerated on Linux (NumPy/SciPy as pinned in \texttt{pyproject.toml}) and the test suite passes there. Corpora are simulated; no real data are used, and the findings are about this pipeline and this simulator prior.
 
@@ -263,6 +274,9 @@ the stored outputs were regenerated on Linux (NumPy/SciPy as pinned in \texttt{p
 Under a contract that forbids a learned layer from deciding, the pipeline gains almost nothing from learning on top of it: one exact speed-up, one failure detector that ranks well and flags poorly, and a negative result for every
 calibration layer. The most valuable outcome is the measurement of where the remaining error lives: false-confident answers that no output-based score points at, and a rerun space that could rescue two thirds of them if a trigger existed.
 Finding that trigger, not adding a layer, is the next step.
+
+\appendix
+\input{sections/app_ml}
 
 \IfFileExists{siamplain.bst}{\bibliographystyle{siamplain}}{\bibliographystyle{plain}}
 \bibliography{../shared/refs}

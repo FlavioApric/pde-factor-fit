@@ -3,7 +3,7 @@
 Learned layers on top of the factor pipeline for linear PDEs: what worked, what did not, and the ideas that remain.
 By **Flavio Pricoco**. Code: MIT. Paper: CC BY 4.0.
 
-**Read first:** [`paper/ml_layers/main.pdf`](paper/ml_layers/main.pdf) (8 pages; the table of verdicts is Table 1).
+**Read first:** [`paper/ml_layers/main.pdf`](paper/ml_layers/main.pdf) (21 pages; the table of verdicts is Table 5): the pipeline and the learning inside it, the contract and protocol, **every layer as designed** (L0, L1, L2a-d, V0/V1, the controller C, L5, L6, the differentiable core), what was built and what happened, the controller in detail, what was never built, appendices with the failure-mode table, acceptance protocol and test inventory.
 
 | layer | verdict |
 |---|---|
@@ -17,7 +17,9 @@ By **Flavio Pricoco**. Code: MIT. Paper: CC BY 4.0.
 ```
 paper/ml_layers/    the paper (LaTeX, built PDF)        paper/shared/   class fallback, macros, bibliography
 src/pdefactor/      pipeline snapshot + learned/ layers  tests/          pytest, incl. the off-is-bit-identical golden test
-benchmarks/ml_layers/  experiment scripts (ll_*.py) and results/ (the reports behind every number)
+benchmarks/ml_layers/  experiment scripts (ll_*.py), results/ and sessions/ (the reports and data behind every number)
+variants/s_interp/   the separate interpolation variant of the pipeline (src, tests, analysis, notes)
+paper/ml_explained/, paper/ml_pipeline_note/   the explained edition of the ML layers and the original pipeline note
 claude/             rules, map, status, notes for Claude sessions
 ```
 

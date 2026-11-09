@@ -1,0 +1,139 @@
+% Added section: every layer as designed (including the ones never built).
+\section{The layers as designed}\label{sec:design}
+This section states every layer of the plan with its reasoning, including the layers that were never built. \Cref{sec:negative} and \cref{sec:worked,sec:v1} give what happened to the ones that were.
+The central position of the plan is one sentence:
+\begin{quote}\emph{Machine learning may change where the Bayesian algorithm looks and how fast it gets there, and it may calibrate the prior on a declared simulator distribution. It may never change what the data say about a candidate.}\end{quote}
+Every learned output is therefore a \emph{proposal} (candidate modes, factors, structures, initial values, interpolation priors) scored afterwards by the exact raw-data evidence with its Occam term; a \emph{calibration} of a prior or constant fitted offline, checked by simulation-based calibration and reported as prior-dependent; or a \emph{diagnostic flag}.
+A proposal works like an enumeration aid: it decides which candidates are scored, not how they score. Correct importance weights would need the proposal density after refinement, which is not available, so no importance-sampling exactness is claimed; the claim is weaker and tested by the null gates: a candidate's score does not depend on who proposed it.
+
+\begin{table}[tbp]
+\centering\small
+\caption{The layers of the plan: verdict of the critical evaluation (before building) and what happened.}\label{tab:plan}
+\begin{tabular}{@{}p{1.5cm}p{4.2cm}p{3.1cm}p{3.1cm}@{}}
+\toprule
+layer & role & plan verdict & outcome\\
+\midrule
+P0 & oracle study, scoring, simulator & adopt, first & built (simulator, scoring); oracle study partial\\
+L0 & learned seeds for the per-bin exponential fit & adopt as a proposal & closed: true poles as seeds give no gain\\
+L1 & high-$\kappa$ correction after the Gaussian process & modify: L1a deterministic, L1b learned only if needed & L1a built as H0, no-go; L1b not built\\
+L2 & calibration of probabilities, intervals, constants & modify: fewer degrees of freedom & L2b, L2c, L2d built, all no-go\\
+V & validator & modify: V0 deterministic battery, V1 learned combiner & V0.1 etc.\ in the pipeline; V1 built, no-ship\\
+C & controller & modify: rule table with an honesty rule & built (C0, C1 and the machinery), not shipped; C$'$ not built\\
+L5 & learned grouping encoder & reject now, defer & not built\\
+L6 & amortised posterior (NPE) & defer, cross-check only & not built\\
+LB & exact memo, learned skip & (added during the work) & memo: go; skip: no-go\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{L0: learned seeds for the exponential fit}
+The matrix pencil is biased at low signal-to-noise and its order choice fails when exponentials merge (an open problem of the theory: Prony and Hankel conditioning has no theory). A learned estimator could give better \emph{seeds} (order and $\lambda$) for the existing BIC order choice and variable-projection refinement.
+\emph{Design}: a one-dimensional CNN or small transformer over the complex series of one $\kappa$-bin with a set-valued output, either a pseudo-spectrum head on a fine complex-$\lambda$ grid (in the style of DeepFreq for undamped lines, extended to damping) or an order classifier plus top-$K$ candidates.
+\emph{Training data}: generic damped exponential sums with random order $r\le8$, near-merged pairs ($\Delta\lambda$ down to $0.1/T$), amplitude ratios down to $10^{-3}$, white and coloured noise at SNR $1$ to $10^4$; these are not PDE solutions, since every bin of every in-scope field is such a sum, so the model never sees a PDE family.
+\emph{Guards}: seeds never bypass the order criterion; the null gate (no extra modes on single-mode and pure-noise bins). \emph{Outcome}: closed. Even the true poles as seeds do not improve the per-bin step, because the estimator is already efficient and its misses are information-limited.
+
+\subsection{L1: high-wavenumber correction}
+The proposal was ``raw data and interpolant in, the missing high-$\kappa$ parts out'' from a network. The plan's objections: the known part needs no learning (the posterior mean of a stationary-kernel Gaussian process is asymptotically a filter, and undoing it is either unnecessary or an amplification of noise);
+the unknown part is prior (whatever the network adds beyond what the raw data support comes from its training distribution, and neural interpolants have more spectral bias than a Gaussian process); the Gaussian process is the wrong input (the raw observations, not the GP mean, carry the evidence); and the real cause is prior mismatch (a separable stationary kernel gives a fast decay $e^{-10t}$ almost no prior mass).
+\emph{L1a, deterministic}: (i) a raw-residual mode search, a matched filter for damped exponentials over a $(\kappa,\lambda)$ grid on the residual of the current structure, peaks refined by variable projection and offered as candidates, with the acceptance threshold taken from the null distribution of the \emph{maximum} of the scan (the Davies look-elsewhere problem); (ii) a variety-aware interpolation prior (EPGP with learnable spectral points, or spectral-mixture kernels); (iii) a Kronecker Gaussian process on grids so that grids also give posterior samples.
+\emph{L1b, learned proposal}, only if L1a still leaves information present but missed: a set encoder over the raw residual points with a mixture-density head over $(\lambda,a)$ per $\kappa$, trained on $3$ to $5$ thousand pipeline residuals with LOFO. Rejected alternatives for this role: Fourier neural operators and DeepONets (forward surrogates for a known PDE), PDE foundation models (gridded fluids, no calibrated uncertainty),
+scattered-input reconstructors (trained per family; they reconstruct the prior), diffusion priors (circular for identification), SIREN and Fourier features (no uncertainty). \emph{Outcome}: L1a(i) was built as the H0 scan (\cref{sec:highk}), no-go; L1a(ii),(iii) and L1b were not built.
+
+\subsection{L2: calibration}
+About $60$ method constants exist; one evaluation on a $300$-run subset costs about an hour on six workers, so $30$ to $50$ Bayesian-optimisation evaluations are affordable, enough for four or five constants. The constants are of three kinds: likelihood-defining (they change what the evidence \emph{is}), decision thresholds (they act on probabilities and should follow from a stated loss once the probabilities are calibrated) and computational settings (more is better, subject to cost). Only the first kind needs data, and only globally. No method can guarantee extrapolation beyond the training family: conformal guarantees hold under exchangeability with the calibration set, i.e.\ within the simulator prior.
+\emph{L2a} is diagnostics without learning (simulation-based calibration and TARP coverage per family, reliability of the structure posterior). \emph{L2b} calibrates the structure probability with a g-prior on the coefficients and a structure prior $\log\pi=-\beta_1k-\beta_2\sum(m_j+d_{x,j})$ plus an isotonic map, and derives each decision threshold from a declared loss.
+\emph{L2c} recalibrates intervals with one monotone inflation map per quantity type on three to five dimensionless theory features (the split amplification $\gN^{-1/2}\noise/\abs w$, the mode-count margin, the Vandermonde condition, the per-factor SNR, the posterior disagreement), with Mondrian conformal coverage on top.
+\emph{L2d} tunes at most four or five likelihood-defining constants once and globally by multi-objective Bayesian optimisation. \emph{Outcomes}: L2b no-go (saturated input), L2c no-go (over-covers once the defect it repaired was fixed), L2d no-go (every fold picks today's values); L2a was run as reliability diagnostics.
+
+\subsection{V: the validator}
+The proposal was a network that takes all outputs of every previous iteration and returns $P(\text{valid})$, a diagnosis and decisions for the next loop. The objections: $P(\text{valid})$ is prior-relative and the most important failures (nonlinear, variable coefficient, fractional) are exactly the out-of-distribution inputs;
+``all outputs'' is too many inputs for a few thousand labelled runs; most diagnoses are computable deterministically as posterior-predictive checks with a known null; and diagnosis and action must be separate, since a network that does both cannot be tested component by component and changes the likelihood per run.
+The re-simulation idea is right: simulate the fitted PDE with the fitted amplitudes at the same design and noise and rerun the statistic, which gives the null distribution of every deterministic test.
+
+\begin{table}[tbp]
+\centering\small
+\caption{V0: the deterministic diagnostic battery (each statistic has a parametric-bootstrap null; the thirteen are combined into one omnibus statistic).}\label{tab:v0}
+\begin{tabular}{@{}p{0.9cm}p{6.2cm}p{4.6cm}@{}}
+\toprule
+id & statistic & detects\\
+\midrule
+V0.1 & raw-residual energy and whiteness per $\kappa$ band & high-$\kappa$ loss, missing factor\\
+V0.2 & mode-count margin $n_\kappa-(d_x+1)$ per factor & ID-KER, interpolating factor\\
+V0.3 & evidence gap to the second structure and to ``$\pm$ one factor''; posterior entropy & unresolved ambiguity, spurious factor\\
+V0.4 & per-sample disagreement of the raw evidence & local optimum, multimodal posterior\\
+V0.5 & Ljung--Box and spectral flatness of the residual in $t$, variogram in $x$ & correlated noise\\
+V0.6 & trend of the selected degree across a noise sweep & out of class (fractional, non-polynomial symbol)\\
+V0.7 & $\lambda(\kappa)$ drift across $t$-windows and subdomains & variable coefficients, mixed regimes\\
+V0.8 & amplitude scaling and $\kappa$-coupling test & nonlinearity\\
+V0.9 & discriminant-square gap, split-quadratic test & unsplit or near-reducible factor\\
+V0.10 & $\cF$, $\gN$, $\gN^{-1/2}\noise$ against the weight & weights inseparable at this noise\\
+V0.11 & confluent test $(A+Bt)e^{\lambda t}$ & repeated factor\\
+V0.12 & classifier two-sample test, observed vs.\ re-simulated residual field & any remaining misfit\\
+V0.13 & held-out-in-time score & overfit\\
+\bottomrule
+\end{tabular}
+\end{table}
+V0.1 (with its smooth variants), V0.2, V0.3, V0.10 and V0.13 are implemented in \texttt{validate.py}; the others were only specified (V0.6 needs a noise sweep). \emph{V1} is a learned multi-label combiner of the V0 vector (gradient-boosted trees, one-vs-rest per failure mode, with an out-of-distribution score from conformal outlier $p$-values and a Mahalanobis distance, and conformal risk control for the set of reported failures); \cref{sec:v1} gives its result.
+
+\subsection{C: the meta-controller}
+The proposal: the validator decides whether to loop again and how, instead of looping blindly. The idea of a \emph{targeted} loop is right (the pipeline already loops in a fixed order: degree growth, regroup, complex rerun, alternatives). The objections are the garden of forking paths, the cost of online optimisation, and the rejected learned encoder.
+If the controller changes the likelihood (the cap, the signal-to-noise cut, the noise model, the Occam weight) until the validator passes, the final evidence is the maximum over a search and its probabilities are inflated; about ten actions per run at $10$ seconds to $3$ minutes each leave no budget for per-dataset optimisation; a reinforcement-learning policy needs orders of magnitude more episodes and gives no reasons.
+\emph{The honesty rule} is the key rule of Phase 4. The controller may change only (a) the \emph{candidate set} (proposals, higher degrees, split and merge moves, complex rerun, alternatives), (b) \emph{computational settings} that do not change the target (more samples, restarts, more alternatives, Monte Carlo size), (c) the \emph{interpolation prior used to generate proposals}.
+It may never change likelihood-defining constants or the structure prior per run. Two effects remain even then (renormalising over the \emph{visited} set drops the mass of unvisited structures, and more restarts give a better optimum and a higher Laplace score), so the plan requires: (1) the candidate space declared before the run, with the structure prior split evenly within each complexity class and an upper bound on the unvisited mass reported;
+(2) an equal refinement budget per candidate, fixed in advance; (3) both noise models (white and coloured) as candidates from the start; (4) the \emph{forking-paths test}, on null data the rate of false \FC{} with the controller must equal the rate without it. Held-out confirmation is decided \emph{before} the run, by Gaussian data fission or thinning (valid when the noise covariance is known) or by a random point split fixed in advance (valid under any noise, at half the density). At most four actions; no anytime-validity claim.
+\Cref{tab:remedies} is the plan's remedy table; the order of remedies within a diagnosis is learned offline as the success rate per remedy on failure-injected runs (a contextual-bandit estimate with no online exploration). \Cref{sec:controller-built} reports what was built.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Diagnosis $\to$ remedies (the plan's table; the built controller extends it to thirteen remedies, \cref{sec:controller-built}).}\label{tab:remedies}
+\begin{tabular}{@{}p{4.3cm}p{7.4cm}@{}}
+\toprule
+diagnosis (V0/V1) & action\\
+\midrule
+high-$\kappa$ loss (V0.1) & residual scan, then seeds, then variety prior, then learned proposal; stop with ID-KER if V0.2 fails\\
+degree too low (V0.6 saturating) & the existing degree growth\\
+out of class (V0.6 non-saturating, V0.7, V0.8) & \textbf{stop}: \MIS{} or \UND{} with the reason and a subdomain report\\
+local optimum, disagreement (V0.4) & more initialisations and samples, more alternatives\\
+spurious factor (V0.3) & refine and drop (exists)\\
+unsplit reducible (V0.9) & split quadratics\\
+near-reducible irreducible (V0.9), weights inseparable (V0.10) & none: keep and report the floor\\
+correlated noise (V0.5) & none extra: coloured-noise candidates are always in the declared space\\
+repeated factor (V0.11) & stop: \UND\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{L5, L6 and the differentiable core}
+\textbf{L5, a learned grouping encoder} was rejected for now. A stable linear encoder that makes the interaction term vanish does not exist and the log-symbol reads terms linearly, so grouping features must be analytic; grouping is by factors only, and today's failures are not grouping failures.
+A learned metric over factor tracks would merge or split tracks without an evidence statement, hiding the disagreement that the pooling step reports; wrong augmentations merge branches that are close at low $\kappa$, exactly where the data are; new factor types are out of distribution and get confident wrong embeddings;
+and in $2{+}1$ dimensions with non-comaximal factors the decomposition ambiguity is infinite-dimensional, so an encoder would choose a decomposition arbitrarily. It could help later for variable coefficients through frozen-coefficient cells and for $2{+}1$ with comaximal factors, but even there the baseline is deterministic Hungarian matching with a Mahalanobis cost, and a learned similarity would only supply the cost matrix, judged by the adjusted Rand index against injected regimes.
+\textbf{L6, an amortised posterior} (neural posterior estimation) was deferred and demoted to a cross-check validated by simulation-based calibration: agreement is reported, disagreement raises a flag tagged prior-dependent, and it is never a label; its information is already covered by V0 and V1 at a fraction of the data ($\ge10^4$ runs would be needed).
+\textbf{A differentiable core} is not needed: refinement already optimises the raw evidence over the coefficients, which is the end-to-end step the original note asked for, without touching the core.
+
+\subsection{Build order}
+\begin{table}[tbp]
+\centering\small
+\caption{Ordered build plan; each step has a gate, and a step that fails its gate stays off.}\label{tab:order}
+\begin{tabular}{@{}p{0.5cm}p{6.7cm}p{4.6cm}@{}}
+\toprule
+\# & step & gate\\
+\midrule
+1 & P0.3 simulator extension & exact dispersion test of every draw\\
+2 & P0.1 oracle study, P0.2 scoring & every failure classified\\
+3 & L2a calibration diagnostics & report only\\
+4 & V0 battery with re-simulation null & $\pm5\%$ false-alarm rate on correct fits\\
+5 & L1a(i) residual search, (iii) grid GP & lost cases recovered, nulls clean\\
+6 & C controller with honesty rule and fixed order & forking-paths null test\\
+7 & L1a(ii) variety prior & right set up at $400$ points, coverage unchanged\\
+8 & L2b calibrated Occam prior, loss-derived thresholds & ECE down, LOFO\\
+9 & L2c monotone and conformal intervals & coverage $\pm5\%$ per family on LOFO\\
+10 & L2d global optimisation of $\le5$ constants & LOFO not worse\\
+11 & V1 combiner, out-of-distribution score, remedy order & fewer actions at equal accuracy\\
+12 & L0 learned seeds & efficiency vs.\ the bound; benchmark $\ge$ off\\
+13 & L1b learned residual proposal & LOFO, nulls clean\\
+14 & L6 posterior cross-check & simulation-based calibration\\
+15 & L5 encoder & only with $2{+}1$ or variable coefficients in scope\\
+\bottomrule
+\end{tabular}
+\end{table}
+Steps 1, 3--12 were taken in part (\cref{sec:negative}); steps 13--15 were not.
