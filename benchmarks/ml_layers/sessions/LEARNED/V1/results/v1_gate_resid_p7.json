@@ -1,0 +1,3600 @@
+{
+ "split": {
+  "B0_v0": {
+   "fa": 0.29411764705882354,
+   "n_clean": 17,
+   "fa_hi": 0.5595827187543372,
+   "det": 0.4,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.5,
+    "coloured": 0.0,
+    "fractional": 1.0,
+    "heteroscedastic": 1.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.4
+   }
+  },
+  "B1_minp": {
+   "fa": 0.0,
+   "n_clean": 17,
+   "fa_hi": 0.19506432296909318,
+   "det": 0.3333333333333333,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.5,
+    "coloured": 1.0,
+    "fractional": 0.0,
+    "heteroscedastic": 1.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.3333333333333333
+   }
+  },
+  "B2_iforest": {
+   "fa": 0.17647058823529413,
+   "n_clean": 17,
+   "fa_hi": 0.43431787284428397,
+   "det": 0.06666666666666667,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.0,
+    "coloured": 0.5,
+    "fractional": 0.0,
+    "heteroscedastic": 0.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.06666666666666667
+   }
+  },
+  "B3_mahal": {
+   "fa": 0.058823529411764705,
+   "n_clean": 17,
+   "fa_hi": 0.2868893966672207,
+   "det": 0.4,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.5,
+    "coloured": 1.0,
+    "fractional": 0.3333333333333333,
+    "heteroscedastic": 1.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.4
+   }
+  },
+  "B4_knn": {
+   "fa": 0.058823529411764705,
+   "n_clean": 17,
+   "fa_hi": 0.2868893966672207,
+   "det": 0.4,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.5,
+    "coloured": 1.0,
+    "fractional": 0.3333333333333333,
+    "heteroscedastic": 1.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.4
+   }
+  },
+  "V1_hgb": {
+   "fa": 0.0,
+   "n_clean": 17,
+   "fa_hi": 0.19506432296909318,
+   "det": 0.06666666666666667,
+   "n_fail": 15,
+   "fa_nulls": NaN,
+   "det_by_type": {
+    "aliasing": 0.0,
+    "coloured": 0.5,
+    "fractional": 0.0,
+    "heteroscedastic": 0.0,
+    "nonlinear": 0.0,
+    "two_laws": 0.0,
+    "varcoef": 0.0
+   },
+   "det_by_level": {
+    "1": 0.06666666666666667
+   },
+   "vs_B0": [
+    -0.3333333333333333,
+    -0.6,
+    -0.06666666666666667
+   ],
+   "type_acc_flagged": 1.0
+  }
+ },
+ "lofo": {
+  "F1": {
+   "B0_v0": {
+    "fa": 0.16666666666666666,
+    "n_clean": 24,
+    "fa_hi": 0.37384171348868267,
+    "det": 0.25925925925925924,
+    "n_fail": 27,
+    "det_mid": 0.21428571428571427
+   },
+   "B1_minp": {
+    "fa": 0.041666666666666664,
+    "n_clean": 24,
+    "fa_hi": 0.2112016834569731,
+    "det": 0.37037037037037035,
+    "n_fail": 27,
+    "det_mid": 0.35714285714285715
+   },
+   "B2_iforest": {
+    "fa": 0.0,
+    "n_clean": 24,
+    "fa_hi": 0.14247359772252563,
+    "det": 0.037037037037037035,
+    "n_fail": 27,
+    "det_mid": 0.07142857142857142
+   },
+   "B3_mahal": {
+    "fa": 0.0,
+    "n_clean": 24,
+    "fa_hi": 0.14247359772252563,
+    "det": 0.2962962962962963,
+    "n_fail": 27,
+    "det_mid": 0.2857142857142857
+   },
+   "B4_knn": {
+    "fa": 0.0,
+    "n_clean": 24,
+    "fa_hi": 0.14247359772252563,
+    "det": 0.2962962962962963,
+    "n_fail": 27,
+    "det_mid": 0.2857142857142857
+   },
+   "V1_hgb": {
+    "fa": 0.041666666666666664,
+    "n_clean": 24,
+    "fa_hi": 0.2112016834569731,
+    "det": 0.037037037037037035,
+    "n_fail": 27,
+    "det_mid": 0.07142857142857142
+   }
+  },
+  "F2": {
+   "B0_v0": {
+    "fa": 0.18181818181818182,
+    "n_clean": 22,
+    "fa_hi": 0.40284578307787133,
+    "det": 0.44,
+    "n_fail": 25,
+    "det_mid": 0.5833333333333334
+   },
+   "B1_minp": {
+    "fa": 0.0,
+    "n_clean": 22,
+    "fa_hi": 0.15437251281557454,
+    "det": 0.32,
+    "n_fail": 25,
+    "det_mid": 0.3333333333333333
+   },
+   "B2_iforest": {
+    "fa": 0.0,
+    "n_clean": 22,
+    "fa_hi": 0.15437251281557454,
+    "det": 0.0,
+    "n_fail": 25,
+    "det_mid": 0.0
+   },
+   "B3_mahal": {
+    "fa": 0.0,
+    "n_clean": 22,
+    "fa_hi": 0.15437251281557454,
+    "det": 0.32,
+    "n_fail": 25,
+    "det_mid": 0.3333333333333333
+   },
+   "B4_knn": {
+    "fa": 0.0,
+    "n_clean": 22,
+    "fa_hi": 0.15437251281557454,
+    "det": 0.32,
+    "n_fail": 25,
+    "det_mid": 0.3333333333333333
+   },
+   "V1_hgb": {
+    "fa": 0.0,
+    "n_clean": 22,
+    "fa_hi": 0.15437251281557454,
+    "det": 0.08,
+    "n_fail": 25,
+    "det_mid": 0.08333333333333333
+   }
+  },
+  "F3": {
+   "B0_v0": {
+    "fa": 0.19047619047619047,
+    "n_clean": 21,
+    "fa_hi": 0.41906604118352797,
+    "det": 0.4666666666666667,
+    "n_fail": 15,
+    "det_mid": 0.7142857142857143
+   },
+   "B1_minp": {
+    "fa": 0.0,
+    "n_clean": 21,
+    "fa_hi": 0.1610976152190796,
+    "det": 0.4,
+    "n_fail": 15,
+    "det_mid": 0.42857142857142855
+   },
+   "B2_iforest": {
+    "fa": 0.0,
+    "n_clean": 21,
+    "fa_hi": 0.1610976152190796,
+    "det": 0.0,
+    "n_fail": 15,
+    "det_mid": 0.0
+   },
+   "B3_mahal": {
+    "fa": 0.09523809523809523,
+    "n_clean": 21,
+    "fa_hi": 0.3037744069139242,
+    "det": 0.4666666666666667,
+    "n_fail": 15,
+    "det_mid": 0.5714285714285714
+   },
+   "B4_knn": {
+    "fa": 0.09523809523809523,
+    "n_clean": 21,
+    "fa_hi": 0.3037744069139242,
+    "det": 0.4666666666666667,
+    "n_fail": 15,
+    "det_mid": 0.5714285714285714
+   },
+   "V1_hgb": {
+    "fa": 0.047619047619047616,
+    "n_clean": 21,
+    "fa_hi": 0.23815990993682112,
+    "det": 0.06666666666666667,
+    "n_fail": 15,
+    "det_mid": 0.0
+   }
+  },
+  "F4": {
+   "B0_v0": {
+    "fa": 0.2727272727272727,
+    "n_clean": 11,
+    "fa_hi": 0.6097425595724212,
+    "det": 0.3333333333333333,
+    "n_fail": 6,
+    "det_mid": 0.4
+   },
+   "B1_minp": {
+    "fa": 0.0,
+    "n_clean": 11,
+    "fa_hi": 0.28491415291815436,
+    "det": 0.16666666666666666,
+    "n_fail": 6,
+    "det_mid": 0.2
+   },
+   "B2_iforest": {
+    "fa": 0.2727272727272727,
+    "n_clean": 11,
+    "fa_hi": 0.6097425595724212,
+    "det": 0.0,
+    "n_fail": 6,
+    "det_mid": 0.0
+   },
+   "B3_mahal": {
+    "fa": 0.09090909090909091,
+    "n_clean": 11,
+    "fa_hi": 0.4127799169883827,
+    "det": 0.16666666666666666,
+    "n_fail": 6,
+    "det_mid": 0.2
+   },
+   "B4_knn": {
+    "fa": 0.09090909090909091,
+    "n_clean": 11,
+    "fa_hi": 0.4127799169883827,
+    "det": 0.16666666666666666,
+    "n_fail": 6,
+    "det_mid": 0.2
+   },
+   "V1_hgb": {
+    "fa": 0.09090909090909091,
+    "n_clean": 11,
+    "fa_hi": 0.4127799169883827,
+    "det": 0.0,
+    "n_fail": 6,
+    "det_mid": 0.0
+   }
+  },
+  "F5": {
+   "B0_v0": {
+    "fa": 0.17647058823529413,
+    "n_clean": 17,
+    "fa_hi": 0.43431787284428397,
+    "det": 0.37037037037037035,
+    "n_fail": 27,
+    "det_mid": 0.42857142857142855
+   },
+   "B1_minp": {
+    "fa": 0.0,
+    "n_clean": 17,
+    "fa_hi": 0.19506432296909318,
+    "det": 0.4074074074074074,
+    "n_fail": 27,
+    "det_mid": 0.42857142857142855
+   },
+   "B2_iforest": {
+    "fa": 0.058823529411764705,
+    "n_clean": 17,
+    "fa_hi": 0.2868893966672207,
+    "det": 0.0,
+    "n_fail": 27,
+    "det_mid": 0.0
+   },
+   "B3_mahal": {
+    "fa": 0.058823529411764705,
+    "n_clean": 17,
+    "fa_hi": 0.2868893966672207,
+    "det": 0.4074074074074074,
+    "n_fail": 27,
+    "det_mid": 0.42857142857142855
+   },
+   "B4_knn": {
+    "fa": 0.058823529411764705,
+    "n_clean": 17,
+    "fa_hi": 0.2868893966672207,
+    "det": 0.4074074074074074,
+    "n_fail": 27,
+    "det_mid": 0.42857142857142855
+   },
+   "V1_hgb": {
+    "fa": 0.0,
+    "n_clean": 17,
+    "fa_hi": 0.19506432296909318,
+    "det": 0.0,
+    "n_fail": 27,
+    "det_mid": 0.0
+   }
+  }
+ },
+ "loto": {
+  "aliasing": {
+   "B0_v0": {
+    "det": 0.6428571428571429,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.5,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.07142857142857142,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 0.5,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 0.5,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.07142857142857142,
+    "fa": 0.0,
+    "wrong_type": 1.0,
+    "n_flagged": 1
+   }
+  },
+  "coloured": {
+   "B0_v0": {
+    "det": 0.0,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.875,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.125,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 1.0,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 1.0,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.0,
+    "fa": 0.0,
+    "wrong_type": 0.0,
+    "n_flagged": 0
+   }
+  },
+  "fractional": {
+   "B0_v0": {
+    "det": 0.3125,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.0,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.0,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 0.125,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 0.0625,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.0,
+    "fa": 0.0,
+    "wrong_type": 0.0,
+    "n_flagged": 0
+   }
+  },
+  "heteroscedastic": {
+   "B0_v0": {
+    "det": 0.47058823529411764,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 1.0,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.0,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 1.0,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 1.0,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.0,
+    "fa": 0.0,
+    "wrong_type": 0.0,
+    "n_flagged": 0
+   }
+  },
+  "nonlinear": {
+   "B0_v0": {
+    "det": 0.5333333333333333,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.06666666666666667,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.0,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 0.06666666666666667,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 0.06666666666666667,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.13333333333333333,
+    "fa": 0.0,
+    "wrong_type": 1.0,
+    "n_flagged": 2
+   }
+  },
+  "two_laws": {
+   "B0_v0": {
+    "det": 0.1875,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.0625,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.0,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 0.0625,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 0.0,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.0,
+    "fa": 0.0,
+    "wrong_type": 0.0,
+    "n_flagged": 0
+   }
+  },
+  "varcoef": {
+   "B0_v0": {
+    "det": 0.2857142857142857,
+    "fa": 0.29411764705882354
+   },
+   "B1_minp": {
+    "det": 0.07142857142857142,
+    "fa": 0.0
+   },
+   "B2_iforest": {
+    "det": 0.0,
+    "fa": 0.17647058823529413
+   },
+   "B3_mahal": {
+    "det": 0.07142857142857142,
+    "fa": 0.058823529411764705
+   },
+   "B4_knn": {
+    "det": 0.07142857142857142,
+    "fa": 0.058823529411764705
+   },
+   "V1_hgb": {
+    "det": 0.0,
+    "fa": 0.0,
+    "wrong_type": 0.0,
+    "n_flagged": 0
+   }
+  }
+ },
+ "lofo_pooled_vs_B0": [
+  -0.33,
+  -0.44,
+  -0.23
+ ],
+ "lofo_auc": {
+  "n_folds": 5,
+  "arms": {
+   "B0_v0": {
+    "auc": 0.624592894396816,
+    "by_fold": {
+     "F1": 0.5864197530864198,
+     "F2": 0.6818181818181818,
+     "F3": 0.6126984126984127,
+     "F4": 0.6363636363636364,
+     "F5": 0.6056644880174292
+    },
+    "ci": [
+     0.5121388080135342,
+     0.7239922341219095
+    ],
+    "vs_B0": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "B1_minp": {
+    "auc": 0.7384732856105405,
+    "by_fold": {
+     "F1": 0.7098765432098766,
+     "F2": 0.78,
+     "F3": 0.819047619047619,
+     "F4": 0.6666666666666666,
+     "F5": 0.7167755991285403
+    },
+    "ci": [
+     0.6340199780814557,
+     0.8162185675263293
+    ],
+    "vs_B0": [
+     0.11388039121372451,
+     -0.0418620305603301,
+     0.2641195380150303
+    ]
+   },
+   "B2_iforest": {
+    "auc": 0.6243136689019042,
+    "by_fold": {
+     "F1": 0.75,
+     "F2": 0.6072727272727273,
+     "F3": 0.6031746031746031,
+     "F4": 0.3484848484848485,
+     "F5": 0.8126361655773421
+    },
+    "ci": [
+     0.5443123671977611,
+     0.785488360834757
+    ],
+    "vs_B0": [
+     -0.0002792254949117723,
+     -0.11616551114297279,
+     0.21588787204475085
+    ]
+   },
+   "B3_mahal": {
+    "auc": 0.7260537588772883,
+    "by_fold": {
+     "F1": 0.8240740740740741,
+     "F2": 0.7254545454545455,
+     "F3": 0.7396825396825397,
+     "F4": 0.48484848484848486,
+     "F5": 0.8562091503267973
+    },
+    "ci": [
+     0.6278619465053021,
+     0.857067658836168
+    ],
+    "vs_B0": [
+     0.10146086448047231,
+     -0.03703462186022475,
+     0.30160410306581703
+    ]
+   },
+   "B4_knn": {
+    "auc": 0.7045465485857643,
+    "by_fold": {
+     "F1": 0.7993827160493827,
+     "F2": 0.7109090909090909,
+     "F3": 0.7015873015873015,
+     "F4": 0.4393939393939394,
+     "F5": 0.8714596949891068
+    },
+    "ci": [
+     0.603603263650285,
+     0.8452726773742492
+    ],
+    "vs_B0": [
+     0.07995365418894829,
+     -0.06883309906494654,
+     0.29016713146429146
+    ]
+   },
+   "V1_hgb": {
+    "auc": 0.8466231125446813,
+    "by_fold": {
+     "F1": 0.8549382716049383,
+     "F2": 0.8763636363636363,
+     "F3": 0.9619047619047619,
+     "F4": 0.7272727272727273,
+     "F5": 0.8126361655773421
+    },
+    "ci": [
+     0.7200918887757123,
+     0.9138845432910006
+    ],
+    "vs_B0": [
+     0.22203021814786528,
+     0.017734010721280464,
+     0.3556789307746272
+    ]
+   }
+  },
+  "types": {
+   "aliasing": {
+    "B0_v0": 0.7950757575757575,
+    "B1_minp": 0.8704545454545455,
+    "B2_iforest": 0.7424019607843138,
+    "B3_mahal": 0.8136363636363637,
+    "B4_knn": 0.7784090909090909,
+    "V1_hgb": 0.8240530303030302
+   },
+   "coloured": {
+    "B0_v0": 0.30358203887615653,
+    "B1_minp": 0.9166666666666666,
+    "B2_iforest": 0.845301757066463,
+    "B3_mahal": 1.0,
+    "B4_knn": 1.0,
+    "V1_hgb": 0.966986036838978
+   },
+   "fractional": {
+    "B0_v0": 0.6190655239368474,
+    "B1_minp": 0.6661195728291316,
+    "B2_iforest": 0.5079855805958747,
+    "B3_mahal": 0.6129201680672269,
+    "B4_knn": 0.5656970174433409,
+    "V1_hgb": 0.8044567258721671
+   },
+   "heteroscedastic": {
+    "B0_v0": 0.7077826585179527,
+    "B1_minp": 1.0,
+    "B2_iforest": 0.6805210720651897,
+    "B3_mahal": 1.0,
+    "B4_knn": 1.0,
+    "V1_hgb": 0.9230010185892539
+   },
+   "nonlinear": {
+    "B0_v0": 0.6938566335625159,
+    "B1_minp": 0.5338442195059842,
+    "B2_iforest": 0.658008658008658,
+    "B3_mahal": 0.6265819964349376,
+    "B4_knn": 0.6278918385536032,
+    "V1_hgb": 0.7776515151515151
+   },
+   "two_laws": {
+    "B0_v0": 0.4849503437738732,
+    "B1_minp": 0.7184873949579832,
+    "B2_iforest": 0.5271867838044308,
+    "B3_mahal": 0.5293831168831169,
+    "B4_knn": 0.5283151897122484,
+    "V1_hgb": 0.8213378533231473
+   },
+   "varcoef": {
+    "B0_v0": 0.6438614081996434,
+    "B1_minp": 0.4916189202953909,
+    "B2_iforest": 0.6186067608861727,
+    "B3_mahal": 0.7120161701044053,
+    "B4_knn": 0.6583985867074102,
+    "V1_hgb": 0.8952778838808252
+   }
+  },
+  "arms_fc": {
+   "B0_v0": {
+    "auc": 0.627212918660287,
+    "by_fold": {
+     "F1": 0.5965909090909091,
+     "F2": 0.6381578947368421,
+     "F3": 0.6096491228070176,
+     "F4": 0.75,
+     "F5": 0.5416666666666666
+    },
+    "ci": [
+     0.482969108539284,
+     0.7829748376623377
+    ],
+    "vs_B0": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "B1_minp": {
+    "auc": 0.7810705741626796,
+    "by_fold": {
+     "F1": 0.7244318181818182,
+     "F2": 0.7861842105263158,
+     "F3": 0.8114035087719298,
+     "F4": 0.875,
+     "F5": 0.7083333333333334
+    },
+    "ci": [
+     0.6588220019001751,
+     0.9004970698259539
+    ],
+    "vs_B0": [
+     0.1538576555023925,
+     -0.049208493534973814,
+     0.3438077943208461
+    ]
+   },
+   "B2_iforest": {
+    "auc": 0.6860645933014353,
+    "by_fold": {
+     "F1": 0.6704545454545454,
+     "F2": 0.555921052631579,
+     "F3": 0.5789473684210527,
+     "F4": 0.75,
+     "F5": 0.875
+    },
+    "ci": [
+     0.5564405258131421,
+     0.8711386657932713
+    ],
+    "vs_B0": [
+     0.058851674641148266,
+     -0.11716460296840175,
+     0.2937800229741017
+    ]
+   },
+   "B3_mahal": {
+    "auc": 0.8178728070175438,
+    "by_fold": {
+     "F1": 0.78125,
+     "F2": 0.7006578947368421,
+     "F3": 0.7324561403508771,
+     "F4": 0.875,
+     "F5": 1.0
+    },
+    "ci": [
+     0.7218003317953976,
+     0.9475120898838003
+    ],
+    "vs_B0": [
+     0.19065988835725678,
+     0.017638315413451244,
+     0.4058464664625989
+    ]
+   },
+   "B4_knn": {
+    "auc": 0.8021929824561405,
+    "by_fold": {
+     "F1": 0.75,
+     "F2": 0.6842105263157895,
+     "F3": 0.7017543859649122,
+     "F4": 0.875,
+     "F5": 1.0
+    },
+    "ci": [
+     0.6957625966804186,
+     0.9466742424242423
+    ],
+    "vs_B0": [
+     0.1749800637958534,
+     -0.0021470454210392696,
+     0.40153584255021607
+    ]
+   },
+   "V1_hgb": {
+    "auc": 0.9219397926634769,
+    "by_fold": {
+     "F1": 0.8607954545454546,
+     "F2": 0.8717105263157895,
+     "F3": 0.9605263157894737,
+     "F4": 1.0,
+     "F5": 0.9166666666666666
+    },
+    "ci": [
+     0.7860115515099784,
+     0.9603966806220096
+    ],
+    "vs_B0": [
+     0.29472687400318986,
+     0.05683530349939026,
+     0.4123915935362943
+    ]
+   }
+  },
+  "n_fc": [
+   70,
+   50
+  ],
+  "seeds": {
+   "level 1, draw 400": {
+    "B0_v0": 0.7142156862745098,
+    "B1_minp": 0.7680073847720907,
+    "B2_iforest": 0.5249821746880571,
+    "B3_mahal": 0.6374726254138018,
+    "B4_knn": 0.5932238349885408,
+    "V1_hgb": 0.8329882862235802
+   },
+   "level 1, fresh draws 402/403": {
+    "B0_v0": 0.6029093455564044,
+    "B1_minp": 0.7571046600458365,
+    "B2_iforest": 0.754615482556659,
+    "B3_mahal": 0.8363381716322893,
+    "B4_knn": 0.8201553348612173,
+    "V1_hgb": 0.8291380188439013
+   }
+  },
+  "levels": {
+   "0": {
+    "B0_v0": 0.4910215601392072,
+    "B1_minp": 0.625715134538664,
+    "B2_iforest": 0.5152363975893388,
+    "B3_mahal": 0.5888294711824124,
+    "B4_knn": 0.5776737967914438,
+    "V1_hgb": 0.7715877259994908
+   },
+   "1": {
+    "B0_v0": 0.6585346866019136,
+    "B1_minp": 0.7678528684200954,
+    "B2_iforest": 0.6579620939284804,
+    "B3_mahal": 0.7646048419367747,
+    "B4_knn": 0.7338509949434319,
+    "V1_hgb": 0.8480297573574884
+   },
+   "2": {
+    "B0_v0": 0.78410549825991,
+    "B1_minp": 0.7846996753246752,
+    "B2_iforest": 0.7369519777608013,
+    "B3_mahal": 0.8354010164671929,
+    "B4_knn": 0.8418255559799677,
+    "V1_hgb": 0.9203524212715388
+   }
+  }
+ },
+ "bad": {
+  "clean": {
+   "TIMEOUT": 25,
+   "CRASH": 0
+  },
+  "types": {
+   "aliasing": {
+    "n_scored": 14,
+    "TIMEOUT": 3,
+    "CRASH": 3,
+    "B0_v0": {
+     "det": 0.6428571428571429,
+     "det_incl_bad": 0.75
+    },
+    "B1_minp": {
+     "det": 0.5,
+     "det_incl_bad": 0.65
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.3
+    },
+    "B3_mahal": {
+     "det": 0.5,
+     "det_incl_bad": 0.65
+    },
+    "B4_knn": {
+     "det": 0.5,
+     "det_incl_bad": 0.65
+    },
+    "V1_hgb": {
+     "det": 0.0,
+     "det_incl_bad": 0.3
+    }
+   },
+   "coloured": {
+    "n_scored": 8,
+    "TIMEOUT": 12,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.0,
+     "det_incl_bad": 0.6
+    },
+    "B1_minp": {
+     "det": 0.875,
+     "det_incl_bad": 0.95
+    },
+    "B2_iforest": {
+     "det": 0.125,
+     "det_incl_bad": 0.65
+    },
+    "B3_mahal": {
+     "det": 1.0,
+     "det_incl_bad": 1.0
+    },
+    "B4_knn": {
+     "det": 1.0,
+     "det_incl_bad": 1.0
+    },
+    "V1_hgb": {
+     "det": 0.125,
+     "det_incl_bad": 0.65
+    }
+   },
+   "fractional": {
+    "n_scored": 16,
+    "TIMEOUT": 4,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.3125,
+     "det_incl_bad": 0.45
+    },
+    "B1_minp": {
+     "det": 0.0625,
+     "det_incl_bad": 0.25
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    },
+    "B3_mahal": {
+     "det": 0.0625,
+     "det_incl_bad": 0.25
+    },
+    "B4_knn": {
+     "det": 0.0625,
+     "det_incl_bad": 0.25
+    },
+    "V1_hgb": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    }
+   },
+   "heteroscedastic": {
+    "n_scored": 17,
+    "TIMEOUT": 3,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.47058823529411764,
+     "det_incl_bad": 0.55
+    },
+    "B1_minp": {
+     "det": 1.0,
+     "det_incl_bad": 1.0
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.15
+    },
+    "B3_mahal": {
+     "det": 1.0,
+     "det_incl_bad": 1.0
+    },
+    "B4_knn": {
+     "det": 1.0,
+     "det_incl_bad": 1.0
+    },
+    "V1_hgb": {
+     "det": 0.11764705882352941,
+     "det_incl_bad": 0.25
+    }
+   },
+   "nonlinear": {
+    "n_scored": 15,
+    "TIMEOUT": 5,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.5333333333333333,
+     "det_incl_bad": 0.65
+    },
+    "B1_minp": {
+     "det": 0.06666666666666667,
+     "det_incl_bad": 0.3
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.25
+    },
+    "B3_mahal": {
+     "det": 0.06666666666666667,
+     "det_incl_bad": 0.3
+    },
+    "B4_knn": {
+     "det": 0.06666666666666667,
+     "det_incl_bad": 0.3
+    },
+    "V1_hgb": {
+     "det": 0.06666666666666667,
+     "det_incl_bad": 0.3
+    }
+   },
+   "two_laws": {
+    "n_scored": 16,
+    "TIMEOUT": 4,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.1875,
+     "det_incl_bad": 0.35
+    },
+    "B1_minp": {
+     "det": 0.125,
+     "det_incl_bad": 0.3
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    },
+    "B3_mahal": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    },
+    "B4_knn": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    },
+    "V1_hgb": {
+     "det": 0.0,
+     "det_incl_bad": 0.2
+    }
+   },
+   "varcoef": {
+    "n_scored": 14,
+    "TIMEOUT": 6,
+    "CRASH": 0,
+    "B0_v0": {
+     "det": 0.2857142857142857,
+     "det_incl_bad": 0.5
+    },
+    "B1_minp": {
+     "det": 0.07142857142857142,
+     "det_incl_bad": 0.35
+    },
+    "B2_iforest": {
+     "det": 0.0,
+     "det_incl_bad": 0.3
+    },
+    "B3_mahal": {
+     "det": 0.07142857142857142,
+     "det_incl_bad": 0.35
+    },
+    "B4_knn": {
+     "det": 0.07142857142857142,
+     "det_incl_bad": 0.35
+    },
+    "V1_hgb": {
+     "det": 0.0,
+     "det_incl_bad": 0.3
+    }
+   }
+  }
+ },
+ "target_b": {
+  "split": {
+   "missed": 0.0,
+   "false_flag": 1.0,
+   "n_pos": 3,
+   "n_neg": 14
+  },
+  "lofo": {
+   "F1": {
+    "missed": NaN,
+    "false_flag": 1.0,
+    "n_pos": 0,
+    "n_neg": 24
+   },
+   "F3": {
+    "missed": NaN,
+    "false_flag": 1.0,
+    "n_pos": 0,
+    "n_neg": 21
+   },
+   "F4": {
+    "missed": 0.0,
+    "false_flag": 1.0,
+    "n_pos": 3,
+    "n_neg": 8
+   },
+   "F5": {
+    "missed": NaN,
+    "false_flag": 1.0,
+    "n_pos": 0,
+    "n_neg": 17
+   }
+  }
+ },
+ "downgrade": {
+  "n": 95,
+  "n_flagged": 3,
+  "before": {
+   "right": 46,
+   "equivalent": 37,
+   "false-confident": 7,
+   "abstain-ok": 3,
+   "abstain": 2,
+   "other": 0
+  },
+  "after": {
+   "right": 45,
+   "equivalent": 36,
+   "false-confident": 7,
+   "abstain-ok": 3,
+   "abstain": 4,
+   "other": 0
+  },
+  "moved": [
+   [
+    "F1",
+    616,
+    "right",
+    "abstain"
+   ],
+   [
+    "F3",
+    604,
+    "equivalent",
+    "abstain"
+   ]
+  ],
+  "rows": [
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 600,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 601,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 602,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 603,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 604,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 605,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 606,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 607,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 608,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 609,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 610,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 611,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 612,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 613,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 614,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 615,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 616,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": true
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 617,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 618,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F1",
+    "seed": 619,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F1",
+    "seed": 401,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F1",
+    "seed": 402,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F1",
+    "seed": 403,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 600,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 601,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 602,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 603,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 604,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 605,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 607,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 609,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 610,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 611,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 612,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "abstain",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 613,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 614,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 615,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 616,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 617,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 618,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F2",
+    "seed": 619,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F2",
+    "seed": 401,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F2",
+    "seed": 402,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F2",
+    "seed": 403,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 600,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 601,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 602,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 603,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 604,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": true
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 605,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 606,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 607,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 609,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 610,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 611,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 612,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 613,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 614,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 615,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 616,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 618,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F3",
+    "seed": 619,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F3",
+    "seed": 401,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F3",
+    "seed": 402,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 600,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 602,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 608,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 609,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 610,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": true
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 613,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 617,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 619,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F4",
+    "seed": 618,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F4",
+    "seed": 400,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F4",
+    "seed": 403,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 600,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 601,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 602,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 606,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 607,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 609,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 610,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 611,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 612,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 613,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 615,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 616,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 617,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "V",
+    "family": "F5",
+    "seed": 618,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F5",
+    "seed": 402,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "G",
+    "family": "F5",
+    "seed": 403,
+    "design": [
+     "grid",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   }
+  ]
+ },
+ "downgrade_injected": {
+  "n": 100,
+  "n_flagged": 4,
+  "before": {
+   "right": 26,
+   "equivalent": 63,
+   "false-confident": 3,
+   "abstain-ok": 6,
+   "abstain": 2,
+   "other": 0
+  },
+  "after": {
+   "right": 24,
+   "equivalent": 63,
+   "false-confident": 2,
+   "abstain-ok": 6,
+   "abstain": 5,
+   "other": 0
+  },
+  "moved": [
+   [
+    "F2",
+    400,
+    "right",
+    "abstain"
+   ],
+   [
+    "F2",
+    400,
+    "false-confident",
+    "abstain"
+   ],
+   [
+    "F3",
+    400,
+    "right",
+    "abstain"
+   ]
+  ],
+  "rows": [
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "two_laws:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "two_laws:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "coloured:0",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "coloured:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "nonlinear:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "nonlinear:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "varcoef:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "varcoef:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "fractional:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "fractional:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "aliasing:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 400,
+    "design": [
+     "aliasing:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 402,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 402,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 402,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 402,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 403,
+    "design": [
+     "coloured:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": true
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 403,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F1",
+    "seed": 403,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "two_laws:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "two_laws:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "coloured:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": true
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "nonlinear:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": true
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "nonlinear:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "varcoef:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "varcoef:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "fractional:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "fractional:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "aliasing:0",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 400,
+    "design": [
+     "aliasing:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "abstain",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 402,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 402,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 403,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 403,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 403,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F2",
+    "seed": 403,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "two_laws:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "coloured:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": true
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "nonlinear:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "varcoef:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "fractional:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "fractional:2",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 400,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "false-confident",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 402,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F3",
+    "seed": 403,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 400,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 400,
+    "design": [
+     "nonlinear:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 403,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 403,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 403,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F4",
+    "seed": 403,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "two_laws:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "two_laws:2",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "coloured:0",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "coloured:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:0",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "heteroscedastic:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "nonlinear:0",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "nonlinear:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "varcoef:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "FIT-COMPATIBLE",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "varcoef:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "fractional:0",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "fractional:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "aliasing:0",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 400,
+    "design": [
+     "aliasing:2",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain-ok",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 402,
+    "design": [
+     "two_laws:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 402,
+    "design": [
+     "heteroscedastic:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "right",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 402,
+    "design": [
+     "varcoef:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 402,
+    "design": [
+     "aliasing:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "abstain",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 403,
+    "design": [
+     "coloured:1",
+     0.05
+    ],
+    "label": "ID-KER",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 403,
+    "design": [
+     "nonlinear:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   },
+   {
+    "corpus": "I",
+    "family": "F5",
+    "seed": 403,
+    "design": [
+     "fractional:1",
+     0.05
+    ],
+    "label": "UNDECIDED",
+    "category": "equivalent",
+    "flag": false
+   }
+  ]
+ },
+ "gate": {
+  "primary_split": false,
+  "primary_lofo": false,
+  "fa_split": true,
+  "fa_lofo": true,
+  "loto": false,
+  "useful_mid_level": false,
+  "target_b": false,
+  "passed": false,
+  "ships_wrong_set_flag": false
+ }
+}

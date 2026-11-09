@@ -1,0 +1,321 @@
+{
+ "n": 2000,
+ "noise": 0.01,
+ "sigma": 0.009062569925833267,
+ "families": {
+  "matern32": {
+   "family_posterior": {
+    "matern32": 1.0
+   },
+   "coverage": {
+    "0.5": 0.5396728515625,
+    "0.9": 0.9237060546875,
+    "0.95": 0.961669921875
+   },
+   "per_kappa": {
+    "1": {
+     "transfer": 0.9995757353193722,
+     "decay_rel_err": 0.0006589391529356892,
+     "n_good_t": 64
+    },
+    "2": {
+     "transfer": 0.9983603342580377,
+     "decay_rel_err": 0.0005181090371525476,
+     "n_good_t": 64
+    },
+    "3": {
+     "transfer": 0.9977692200488295,
+     "decay_rel_err": 0.01672343474631044,
+     "n_good_t": 33
+    },
+    "4": {
+     "transfer": 1.0113951256904787,
+     "decay_rel_err": null,
+     "n_good_t": 9
+    },
+    "5": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    },
+    "6": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    }
+   },
+   "D_hat_mean_field": 0.2992764486748955,
+   "D_hat_samples": [
+    0.2996686672306321,
+    0.2984978962954832,
+    0.30076150673123203
+   ],
+   "frac_samples_with_D": 1.0,
+   "labels": [
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE"
+   ],
+   "time": 73.86399054527283,
+   "effective_noise": 0.030887951947664968
+  },
+  "matern52": {
+   "family_posterior": {
+    "matern52": 1.0
+   },
+   "coverage": {
+    "0.5": 0.4801025390625,
+    "0.9": 0.88916015625,
+    "0.95": 0.94140625
+   },
+   "per_kappa": {
+    "1": {
+     "transfer": 0.9997045680557577,
+     "decay_rel_err": 0.0012224689308200087,
+     "n_good_t": 64
+    },
+    "2": {
+     "transfer": 0.9987296138765807,
+     "decay_rel_err": 0.0007738140108488611,
+     "n_good_t": 64
+    },
+    "3": {
+     "transfer": 0.9908051164744021,
+     "decay_rel_err": 0.011087922672461947,
+     "n_good_t": 34
+    },
+    "4": {
+     "transfer": 1.0204019977892,
+     "decay_rel_err": null,
+     "n_good_t": 9
+    },
+    "5": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    },
+    "6": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    }
+   },
+   "D_hat_mean_field": 0.2998573892604742,
+   "D_hat_samples": [
+    0.30024738744732504,
+    0.2990739117685421,
+    0.3012882438512161
+   ],
+   "frac_samples_with_D": 1.0,
+   "labels": [
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE"
+   ],
+   "time": 74.16326260566711,
+   "effective_noise": 0.02898449590705702
+  },
+  "rbf": {
+   "family_posterior": {
+    "rbf": 1.0
+   },
+   "coverage": {
+    "0.5": 0.397216796875,
+    "0.9": 0.7794189453125,
+    "0.95": 0.8612060546875
+   },
+   "per_kappa": {
+    "1": {
+     "transfer": 1.000171450368944,
+     "decay_rel_err": 0.0012750784072159682,
+     "n_good_t": 64
+    },
+    "2": {
+     "transfer": 0.998840519657981,
+     "decay_rel_err": 0.0012241876678353858,
+     "n_good_t": 64
+    },
+    "3": {
+     "transfer": 0.9972240303311585,
+     "decay_rel_err": 0.007274945106320541,
+     "n_good_t": 35
+    },
+    "4": {
+     "transfer": 1.040973521677238,
+     "decay_rel_err": null,
+     "n_good_t": 10
+    },
+    "5": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    },
+    "6": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    }
+   },
+   "D_hat_mean_field": 0.3001249822220008,
+   "D_hat_samples": [
+    0.30028639055726253,
+    0.29934046295970745,
+    0.30117870260842355
+   ],
+   "frac_samples_with_D": 1.0,
+   "labels": [
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE"
+   ],
+   "time": 86.39035367965698,
+   "effective_noise": 0.027223609493192785
+  },
+  "evidence-mix": {
+   "family_posterior": {
+    "rbf": 9.563646204749337e-51,
+    "rbfe": 1.3937279739496386e-20,
+    "rbfe+rbfe": 1.0
+   },
+   "coverage": {
+    "0.5": 0.4517822265625,
+    "0.9": 0.8380126953125,
+    "0.95": 0.9002685546875
+   },
+   "per_kappa": {
+    "1": {
+     "transfer": 1.0000303763209344,
+     "decay_rel_err": 0.0014201564449261017,
+     "n_good_t": 64
+    },
+    "2": {
+     "transfer": 0.9984105645148477,
+     "decay_rel_err": 0.0010918957221326409,
+     "n_good_t": 64
+    },
+    "3": {
+     "transfer": 0.9943570064472563,
+     "decay_rel_err": 0.0016654677204586132,
+     "n_good_t": 33
+    },
+    "4": {
+     "transfer": 0.9870470097345683,
+     "decay_rel_err": null,
+     "n_good_t": 8
+    },
+    "5": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    },
+    "6": {
+     "transfer": null,
+     "decay_rel_err": null,
+     "n_good_t": 0
+    }
+   },
+   "D_hat_mean_field": 0.30031227261515686,
+   "D_hat_samples": [
+    0.30027288661467777,
+    0.2995548710011446,
+    0.30141476916603777
+   ],
+   "frac_samples_with_D": 1.0,
+   "labels": [
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE",
+    "FIT-COMPATIBLE"
+   ],
+   "time": 241.63462328910828,
+   "effective_noise": 0.032475984598676795
+  }
+ },
+ "reference_grid_noise": {
+  "per_kappa": {
+   "1": {
+    "transfer": 1.00000169015515,
+    "decay_rel_err": 0.00041713209339877544,
+    "n_good_t": 64
+   },
+   "2": {
+    "transfer": 1.0004723786579592,
+    "decay_rel_err": 0.0004387794448323934,
+    "n_good_t": 64
+   },
+   "3": {
+    "transfer": 1.0034673624155552,
+    "decay_rel_err": 0.004237108968230263,
+    "n_good_t": 48
+   },
+   "4": {
+    "transfer": 0.9956567080681303,
+    "decay_rel_err": null,
+    "n_good_t": 17
+   },
+   "5": {
+    "transfer": 0.7521439512938196,
+    "decay_rel_err": null,
+    "n_good_t": 2
+   },
+   "6": {
+    "transfer": null,
+    "decay_rel_err": null,
+    "n_good_t": 0
+   }
+  },
+  "D_hat": 0.3002388618008382,
+  "label": "FIT-COMPATIBLE"
+ }
+}
