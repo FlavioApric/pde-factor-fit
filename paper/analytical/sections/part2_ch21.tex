@@ -1,0 +1,74 @@
+\section{Directions for improvement and routes not taken}\label{ch:improve}
+\sectionbrief
+{the route registry \texttt{ROUTES.md} (decisions at Gates~1, 4a, 6 and 8), the research notes on the learning pipeline (\texttt{NOTE\_ML}), the open questions of the extended algorithm, and the honest limits of the final report.}
+{a record of what could make the work better: sharper constants, missing audits, whole directions that were scouted and parked, and the statistical wrapper that was proposed and postponed. It also records which routes were eliminated and why, so that nobody repeats them.}
+{companion to Section~\ref{ch:openlist}. That section lists open \emph{questions}; this one lists \emph{improvements and directions}.}
+
+\subsection{Improving what is already there}
+
+\begin{description}
+\item[Sharper encoder constants.] The only proved bound on the Volterra encoder is $C_W=1+a^2Q\,e^{a\sqrt Q}$; it overestimates by about four orders of magnitude at $a\sqrt Q=5$ ($C_W^2\approx1.4\cdot10^7$ against $\cosh^2\approx5.5\cdot10^3$). A $\cosh$ bound or an exact Gronwall estimate would make the transported certificates of Step~5 useful in practice. An \emph{explicit} Lipschitz constant of $q\mapsto W_q$ would allow Step~5 with an estimated potential.
+\item[Rigorous misfit.] The misfit certificate is class (A) only with a rigorous inclusion of $r_n$ (interval arithmetic or an error bound for the quadrature); with floating-point quadrature it is class (B). The numerically stable computation is the least-squares residual, not the Gram determinant ratio.
+\item[Cost model.] No general cost estimate is proved for the dictionary levels other than the linear family ($(n+1)(n+2)/2$ monomials in $1+1$); the cost of rule R1 per level, and of the Goursat solve ($O(M^2)$ evaluations of $q$ by iterated quadrature, indicative only), should be proved.
+\item[Audits not yet run.] The elimination procedure C3-A1 has a written proof, no audit and no ledger row; every output that depends on it is ``(A) conditional on C3-A1''. Trotter--Kato convergence has no ledger row. The final text of this edition has had no proof-checker audit, no citation audit and no kill-argument review (the Phase~11 plan required all three).
+\item[Citations.] Close the list of Section~\ref{ch:openlist} (van der Put--Singer, Whitney--Stein, Pazy, Thaller, Humphreys, Wei--Norman, Casas, Oberst) and read the sources that unblock the ``blocked'' items; read Saut--Scheurer and Isakov to decide whether the unique-continuation lemma is already known; read Schindelar--Levandovskyy--Zerz in full to confirm the stated delta.
+\item[Rates under stronger hypotheses.] Explicit jet thresholds beyond exponential-polynomials; explicit margins $\rho_d$ for the heat and wave equations as functions of the domain; stochastic noise with rates in probability; non-integer smoothness in the Hölder estimates.
+\item[Dimension.] The Volterra encoder is one-dimensional: in dimension $d\ge2$ the characteristic problem is not of Goursat type. A genuine multidimensional analogue, or a proof that none exists with a local kernel, is open.
+\item[A first-principles proof of the Burgers closure.] A written proof of the equivalence Oleinik $\Leftrightarrow$ Kru\v zkov by vanishing viscosity on Cole--Hopf would remove the ``modulo [F1]'' from the shock results; the triage gives the plan.
+\end{description}
+
+\subsection{Routes scouted and parked}
+
+During the project each candidate approach (a \emph{route}) was scouted, then promoted, merged, parked or eliminated with a stated reason. The parked routes are the natural next directions.
+
+\begin{center}\small
+\begin{longtable}{@{}L{3.3cm}L{7.0cm}L{4.3cm}@{}}
+\toprule
+Route & Content / why parked & Reopen when\\\midrule\endhead
+RT-5 (symbol tensor) & the tensor keeps only the principal symbol (R6-P1); useful as a geometric invariant; reopened for systems (RT-SYS) and parked again & a use as an invariant ``at infinity''\\
+RT-R1b & needs a sign hypothesis on the datum & such a hypothesis is acceptable\\
+Koopman / DMD & ``dynamic mode decomposition is regression'', excluded by the no-learning constraint; reopen with the normal form: eigenfunctions carry the nonlinear term & the no-ML rule is lifted\\
+Painlev\'e, NLSPEC, HAANTJES & triggers in the verdicts of the nonlinear scouting; Painlev\'e kept as a \emph{tool} (DICT-R4) & a nonlinear exact family needs it\\
+RT-NA (non-autonomous propagators) & parked after Phase~8 & triggers VAR-Q8, Q11, Q18\\
+RT-ENC (the encoder as a route) & parked; lemmas moved to the dictionary and variable-coefficient routes & triggers ENC-Q4, ENC-Q10\\
+RIGID, STOKES, CONV-BORDO & not touched in Phase~8 & boundary identification with margin (CONV-Q16)\\
+Weyl algebra for PDE & scouted only for ODE and $A_2$ & a $D$-module factorisation tool is available\\
+Inverse Sturm--Liouville (spectral data) & parked & spectral data become available as a datum\\
+U3(a) kernels, U5 & universality classes not covered & a use case\\
+Homogenisation / gamblets & approximate, a tool (S) per scale, not an encoder & oscillating or rough $V$ treated as noise\\
+Wave operators $\Omega_\pm^*$ & outside the bounded-domain model & scattering data are the datum\\
+Hartogs $1+d$ & $P$-convexity on non-convex domains in several variables (CONV-Q5) & non-convex $1+d$ decomposition needed\\
+MON, NAT, MOB & minor routes, remain parked & ---\\
+Mori--Zwanzig, RT-R2a, POLE, gamblets as \emph{methods} & eliminated: the criteria are false or only cited; the lemmas remain (Section~\ref{ch:convergence}) & ---\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\paragraph{Eliminated for good.} Statistical consistency as a method (excluded by the no-learning rule), SPLIT-f, free probability, ICA, quiver representations, microlocal analysis beyond the characteristic variety, and Lie/Olver symmetry methods were eliminated or merged. RT-S1g was eliminated for the core (it gives no information for elliptic or parabolic operators) and kept for the hyperbolic part.
+
+\subsection{The statistical wrapper that was proposed and postponed}
+
+At the end of Phase~5 a learning pipeline was drafted around the exact analytic core (the note \emph{Reading the structure of a differential equation from data}). It was \emph{excluded} from the project by decision of the user (no machine learning of any kind, including the autoencoder/mixture idea, ``Idea~I'', postponed to a later phase). It is recorded here as a direction.
+
+\begin{enumerate}
+\item \textbf{Interpolate.} A learning algorithm fits a smooth function to noisy data $(t_i,x_i,y_i)$ and returns not one function but a weighted family $(\hat u_s,\pi_s)$, with $\pi_s\ge0$, $\sum\pi_s=1$.
+\item \textbf{Analytic core.} Each plausible function is passed to the exact algorithm, which returns its factors and the component each carries.
+\item \textbf{Aggregate.} Weighted by the probabilities, this gives a distribution over factors (for example ``transport $0.7\pm0.1$, diffusion $0.3\pm0.1$'').
+\item \textbf{Group.} The distribution sets the parameters of a standard clustering (how many groups, how spread out), cutting the data into groups that ideally contain one factor each, with a small ``tangle number'' (the Friedrichs cosine between factors; the size of $E_{\rm int}$ between terms).
+\item \textbf{Repeat inside each group} until all groups are clean; the factors then rebuild the equation. The dashed loop of the pipeline: each group becomes a new data set.
+\end{enumerate}
+The exact parts are the analytic core and the two tangle measures; the interpolation, the aggregation and the clustering were left as a proposal. The note asked two questions: whether the basis functions of the first step must be chosen in advance (and therefore only discover equations whose building blocks were anticipated), and how to avoid that choice. The answer built in Phase~8 is the filtered dictionary with a misfit certificate and a stopping rule (Section~\ref{ch:dictionary}); the statistical aggregation itself remains open.
+
+\subsection{What was never done}
+
+\begin{itemize}
+\item the catalogue of about $60$ equation types (ODE, transport, diffusion, hyperbolic, integral and memory, beams and elasticity, quantum, non-linear) used as scouting material, and the tropical reading of scaling limits (only the dissipative-face estimate TROP-3$'$ and its corollary for advection--diffusion are proved);
+\item Lean sources and a Lean statement for the analytic parts (the Mathlib libraries are missing: no Weyl algebra, no $C_0$-semigroups);
+\item an independent human review: all reviewers were AI agents;
+\item the decision on global installation of the project skills and on Mathpix (Step~0 of the original plan, left to the user);
+\item the Phase~11 audits on the final text of this edition.
+\end{itemize}
+
+\subsection{Honest limits of the whole project}
+
+The overall novelty is modest: many building blocks are classical (Malgrange--Ehrenpreis, the Nullstellensatz, Cole--Hopf, inverse scattering, Peetre, Volterra transformation operators, Oberst duality). The contribution is the package of characterisations, the negative theorems and the counterexamples, with verified statuses. The source policy (decision of the user, 26 October 2026) allowed results to rest on published theorems provided the source is verified: of $112$ sources, $34$ had the theorem number checked, $75$ had the content checked ($45$ only in the metadata), none was not found, and three wrong citations were corrected (Humphreys Cor.~B, Gel'fand--Dikii 1976, DLMF 9.7.10). Several load-bearing numbers were still unchecked at the end (Section~\ref{ch:openlist}). Work interrupted by API usage limits was resumed from the files with no loss recorded.

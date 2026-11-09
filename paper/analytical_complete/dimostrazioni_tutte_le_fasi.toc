@@ -1,0 +1,100 @@
+\contentsline {chapter}{How to read this catalogue}{i}{chapter*.1}%
+\contentsline {part}{I\hspace {1em}Phases 0--5: the load-bearing proofs}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Algebra and identification}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}The algebraic toolkit}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}The identification theorems}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Finite data}{11}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Decomposition and regularity}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Terms and factors}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The factor decomposition}{20}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Regularity}{26}{section.2.3}%
+\contentsline {chapter}{\numberline {3}The interaction term}{34}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Exact form and cost}{35}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Instability}{37}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Perturbation and non-commuting terms}{41}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Nonlinear equations}{45}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The interaction term}{45}{section.4.1}%
+\contentsline {section}{\numberline {4.2}After the shock \emph {(condensed proofs)}}{49}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Identification in a dictionary}{52}{section.4.3}%
+\contentsline {part}{II\hspace {1em}Phases 6--10: the load-bearing proofs}{57}{part.2}%
+\contentsline {chapter}{\numberline {5}Systems and gauge}{58}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Existence of an identifying solution}{58}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sums of kernels}{61}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Hamiltonian Dirac systems}{64}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Variable coefficients}{66}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Structured identification}{66}{section.6.1}%
+\contentsline {section}{\numberline {6.2}The potential $V(x)$ is read from any non-zero solution}{67}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Time-dependent potentials: silent strips}{69}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Stability}{70}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Convergence and noise}{73}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Identification in the limit}{73}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Noisy data}{77}{section.7.2}%
+\contentsline {chapter}{\numberline {8}The analytic encoder}{80}{chapter.8}%
+\contentsline {section}{\numberline {8.1}The Volterra encoder}{80}{section.8.1}%
+\contentsline {section}{\numberline {8.2}What an encoder cannot do}{83}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Dictionary and misfit}{86}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Universality}{86}{section.9.1}%
+\contentsline {section}{\numberline {9.2}The negative theorem}{87}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Fit and misfit}{89}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Phase 10 corrections}{93}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The continuity no-go with constant terms}{93}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Holes: the sum of kernels is closed but not dense}{95}{section.10.2}%
+\contentsline {part}{III\hspace {1em}Phases 0--5: the other results}{97}{part.3}%
+\contentsline {chapter}{\numberline {11}Phases 0--1: the ODE prototype, identification, decidability}{98}{chapter.11}%
+\contentsline {section}{\numberline {11.1}The one-variable prototype and the companion matrix}{98}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Refinements of identification}{104}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Decidability and variable coefficients}{109}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Results used without proof}{112}{section.11.4}%
+\contentsline {chapter}{\numberline {12}Phase 2: decomposition and regularity}{113}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Rectangles and convex sets}{113}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Regions with holes}{119}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Closedness of sums of kernels}{120}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Complements: variable-coefficient identification}{124}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Results used without proof}{125}{section.12.5}%
+\contentsline {chapter}{\numberline {13}Phase 3: the interaction term}{126}{chapter.13}%
+\contentsline {section}{\numberline {13.1}The class $\mathfrak {B}$}{126}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Factors and second-order evolutions in $\mathfrak {B}$}{129}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Non-commuting terms}{130}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Boundaries}{131}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Where the interaction is continuous}{133}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Regularisation of the term split}{134}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Results used without proof here}{137}{section.13.7}%
+\contentsline {chapter}{\numberline {14}Phase 4: nonlinear equations}{139}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Tools before the shock}{139}{section.14.1}%
+\contentsline {section}{\numberline {14.2}After the shock}{141}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Identification in dictionaries}{144}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Nonlinear results whose proofs are not reproduced}{147}{section.14.4}%
+\contentsline {part}{IV\hspace {1em}Phases 6--10: the other results}{149}{part.4}%
+\contentsline {chapter}{\numberline {15}Systems, gauge, variable coefficients}{150}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Systems}{150}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Statements recorded without proof here}{159}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Variable coefficients}{160}{section.15.3}%
+\contentsline {chapter}{\numberline {16}Encoder and convergence}{161}{chapter.16}%
+\contentsline {section}{\numberline {16.1}The encoder}{161}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Convergence}{170}{section.16.2}%
+\contentsline {chapter}{\numberline {17}Dictionary}{172}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Universality by class}{172}{section.17.1}%
+\contentsline {section}{\numberline {17.2}The negative theorem and the rank theorem}{177}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Misfit, rank of an atom, change of frame}{181}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Limits, exponential families}{183}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Statements without a written proof}{184}{section.17.5}%
+\contentsline {chapter}{\numberline {18}Phase 10 closures}{186}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Non-commuting flows and the factor decomposition}{186}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Variable coefficients: regularity, counterexample and zeros}{191}{section.18.2}%
+\contentsline {section}{\numberline {18.3}Statements recorded without proof here}{195}{section.18.3}%
+\contentsline {section}{\numberline {18.4}Nonlinear and scattering closures}{197}{section.18.4}%
+\contentsline {section}{\numberline {18.5}Systems, variable coefficients, encoder and dictionary closures}{208}{section.18.5}%
+\contentsline {section}{\numberline {18.6}Integration, examples and formalisation}{221}{section.18.6}%
+\contentsline {chapter}{\numberline {19}Variable coefficients: more proofs}{223}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Linear ODEs over $\PazoBB {C}(x)$}{223}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Dynamical Lie algebras and the P\"oschl--Teller propagator}{225}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Non-autonomous evolution}{227}{section.19.3}%
+\contentsline {section}{\numberline {19.4}Identification in the Weyl algebra}{229}{section.19.4}%
+\contentsline {chapter}{\numberline {20}Encoder and convergence: more proofs}{231}{chapter.20}%
+\contentsline {section}{\numberline {20.1}The encoder}{231}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Locality, fractional laws and delays}{234}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Dimension $1+d$}{236}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Boundary conditions}{237}{section.20.4}%
+\contentsline {chapter}{\numberline {21}Convergence: splitting, resonance, contract}{240}{chapter.21}%
+\contentsline {chapter}{\numberline {A}Index of results}{246}{appendix.A}%
+\contentsline {chapter}{Bibliography}{255}{appendix*.242}%

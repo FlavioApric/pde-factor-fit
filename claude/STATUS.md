@@ -1,6 +1,8 @@
 # STATUS of `analytical` (2026-11-07)
 
-- Paper: 30 pages, builds clean (no undefined references). Written from the long manuscript (`ProblemaBase/PAPER`) in Structure B order.
+- Paper `paper/analytical`: 57 pages, builds clean. Part I (Phases 0-5) in Structure B order, Part II (Phases 6-10) added from the complete edition: systems/gauge, variable coefficients, convergence/noise, encoder, dictionary, Phase-10 corrections, extended algorithm, limits, open-problem list, directions.
+- Complete editions in original format: `paper/analytical_complete` (117 pp paper, 263 pp proof catalogue; both rebuilt from source, 0 undefined references), `analytical_phases05`, `analytical_explained`, `analytical_original`.
+- Everything else of the old repository (all session plans, reports, audits, scouting, ledgers, scripts) is in `claude/archive/` and `verification/`; `INVENTORY.md` on `main` proves nothing is missing.
 - Proofs: 29 proof packages in `proofs/<session>.md`; claim ledger `proofs/LEDGER.md` (final version only; earlier backups dropped).
 - Verification: 94 scripts; 76 passed within 90 s, 12 slow (not judged), 6 removed for missing data (`verification/RESULTS.md`). Quick subset in pytest: 8 passed.
 - Lean: `proofs/lean` holds the sources (core PBLean and the F10 files); not rebuilt in this environment.

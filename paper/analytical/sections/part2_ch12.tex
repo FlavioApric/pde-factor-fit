@@ -1,0 +1,99 @@
+\section{Systems of equations and gauge}\label{ch:systems}
+\sectionbrief
+{a vector field $u=(u_1,\dots,u_k)$ on a connected open set $\Omega\subset\R^n$ that solves a system $P(\partial)u=0$ with a \emph{matrix} of constant coefficients $P\in R^{l\times k}$, $R=\C[\zeta_1,\dots,\zeta_n]$. The operator $P$ is not given.}
+{the equations of physics that are not scalar (Dirac, Maxwell, elasticity) are systems; Phases~1--5 treated one scalar equation. We ask the same three questions: can one solution determine the system, when can a sum of kernels be split, and what does a change of gauge do to what can be known?}
+{extends Sections~\ref{ch:ident}--\ref{ch:decomp} from $R$ to matrices over $R$. It supplies Step~3b of the extended algorithm (Section~\ref{ch:extalgo}). The proofs are Dim.~A32--A35 and B73--B78.}
+
+\subsection{From one equation to a module}
+
+For a scalar equation the annihilator $\Ann(u)$ was an ideal of $R$. For a system the object that replaces it is a \emph{module}. The rows of $P$ generate a submodule $U_P\subseteq R^{1\times k}$, and the quotient
+\[
+M_P=R^{1\times k}/U_P
+\]
+is the module of the system: solutions of $P$ are exactly the homomorphisms $M_P\to\mathcal A$ (Malgrange--Oberst duality). A vector $u$ \emph{identifies} $P$ when its annihilator $\Ann(u)=\{r:r(\partial)u=0\}$ equals $U_P$, i.e.\ when the map $M_P\to\mathcal A$, $[r]\mapsto r(\partial)u$, is injective.
+
+\begin{intuition}
+Think of $M_P$ as the list of everything the system says, up to consequences. A single function $u$ must carry all of it in an injective way. The obstruction is local: at a point $\lambda$ the solutions of the system that are pure exponentials $e^{\lambda\cdot x}$ form one line, but $M_P$ may contain a plane of ``independent'' behaviours at that point. A plane cannot be embedded in a line.
+\end{intuition}
+
+\subsection{When does an identifying solution exist?}
+
+Define the \emph{socle} of $M$ at a maximal ideal $\mathfrak m_\lambda$ as the set of elements of $M$ killed by $\mathfrak m_\lambda$; it is the space of exponential behaviours $e^{\lambda\cdot x}$ the module contains.
+
+\begin{theorem}[{Existence of an identifying solution \led{SYS-EX} \proved}]\label{thm:sysex}
+Let $\Omega\subseteq\R^n$ be non-empty, open and connected. A finitely generated module $M$ embeds in $C^\infty(\Omega)$ (or $\mathcal D'(\Omega)$) if and only if $\dim_\C\mathrm{soc}_{\mathfrak m}(M)\le1$ for every maximal ideal $\mathfrak m$. In particular a system $P$ has an identifying solution if and only if $\dim\mathrm{Hom}_R(R/\mathfrak m,M_P)\le1$ for every maximal $\mathfrak m$.
+\dimref{SYS-EX}
+\end{theorem}
+
+\begin{example}{Two ODE systems}
+For $n=1$ let $P=\mathrm{diag}(s-1,s-1)$ (two copies of $u'=u$). The socle at $s=1$ has dimension $2$: no function $u$ ever identifies it. For $P=\begin{pmatrix}s-1&1\\0&s-2\end{pmatrix}$ all socles have dimension $\le1$, and $u=(ae^x-be^{2x},\,be^{2x})$ with $ab\ne0$ identifies it. In general an ODE system of rank $r$ with invariant factors $e_1\mid\dots\mid e_r$ has an identifying solution iff $e_1=\dots=e_{r-1}=1$ \led{SYS-T0} (known).
+\end{example}
+
+\begin{theorem}[{Square non-singular systems in two or more variables \led{SYS-C1} \proved}]\label{thm:sysc1}
+If $n\ge2$ and $P\in R^{k\times k}$ has $\det P\ne0$, every socle of $M_P$ is zero, so on every connected $\Omega$ some $u\in\mathrm{Sol}(P)$ identifies $P$. The associated primes of $M_P$ are the prime factors of $\det P$.
+\dimref{SYS-C1}
+\end{theorem}
+
+Dirac in $3+1$ dimensions, the matrix Klein--Gordon operator and the Lam\'e system of elasticity are all of this type. They always have an identifying field.
+
+\begin{caution}[title=Where this is not new]
+For $\Omega=\R^n$ the existence criterion is known (Oberst, Pommaret, Macaulay: the number of trajectories needed to generate a system). The new point here is only that $\Omega$ may be any connected open set, including one where $C^\infty(\Omega)$ is not an injective module.
+\end{caution}
+
+\subsection{Sums of kernels for systems}
+
+For a scalar $P=Q_1Q_2$ we proved $\ker P=\ker Q_1+\ker Q_2$ on a simply connected region (Theorem~\ref{thm:factor}). For systems the analogue is stated with the \emph{least common left multiple}: if $U_1,U_2$ are the row modules of two sub-systems and $N=R^{1\times k}/(U_1+U_2)$, then $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)=\mathrm{Sol}(P)$ requires $U_1\cap U_2=U_P$.
+
+\begin{theorem}[{Sum of kernels \led{SYS-S1} \proved}]\label{thm:syss1}
+On every open $\Omega$, $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)=\mathrm{Sol}(P)$ implies $U_1\cap U_2=U_P$. Conversely, if $U_1\cap U_2=U_P$ and $\mathrm{Ext}^1(N,\mathcal A)=0$ the equality holds; this is the case when $\Omega$ is convex, and when $N$ has finite length and $H^1_{dR}(\Omega)=0$. The intersection $\mathrm{Sol}(Q_1)\cap\mathrm{Sol}(Q_2)$ is finite-dimensional iff $N$ has finite length, with dimension $\delta_{\rm sys}=\ell(N)$. For one scalar equation in two variables this is Theorem~\ref{thm:factor}.
+\dimref{SYS-S1}
+\end{theorem}
+
+\begin{falsebox}{Simple connectivity does not suffice for infinite-length quotients}{\falsest}\label{cex:syss1}
+There are a simply connected open $\Omega\subset\R^2$ (a ``U''-shaped domain) and $Q_1=(1,0)$, $Q_2=(1,\partial_x)$ with $U_1\cap U_2=U_P$ but $\mathrm{Sol}(Q_1)+\mathrm{Sol}(Q_2)\subsetneq\mathrm{Sol}(P)$, in $C^\infty$ and in $\mathcal D'$. The obstruction is the failure of $P$-convexity of $\Omega$, not its topology.
+\dimref{SYS-S1}
+\end{falsebox}
+
+\subsection{Dirac in Hamiltonian form}
+
+Write the free or perturbed Dirac equation as $L=I\partial_t+\sum_k\alpha^k\partial_k+B$ with arbitrary constant $4\times4$ matrices $\alpha^k,B$ (no Clifford relations are assumed).
+
+\begin{theorem}[{Dirac coefficients are read exactly \led{H-DIRAC} \proved}]\label{thm:hdirac}
+If $\psi\in\mathrm{Sol}(L_0)$ identifies $L_0$ and $L$ is another operator of this form with $L\psi=0$, then $L=L_0$: the matrices $\alpha^k$ and $B$ are determined by $\psi$ exactly, with no ambiguity. An identifying $\psi$ always exists. For massive Dirac in $3+1$ dimensions $M_D\cong(R/\mathfrak q)^{2}$ with $\mathfrak q=(p_0^2-|p|^2-m^2)$, and $\psi$ identifies $D$ iff $\psi_3,\psi_4$ are independent over $R/\mathfrak q$; in $1+1$ dimensions $\psi$ identifies $D_2$ iff $\psi_2\notin\EP$.
+\dimref{H-DIRAC}
+\end{theorem}
+
+\begin{example}{Where the Dirac coefficients come from}
+Normalising the coefficient of $\partial_t$ to the identity removes the ambiguity $D\sim VD$ of the covariant form $\gamma^\mu\partial_\mu$. In $1+1$ dimensions the identification test is just the one of Section~\ref{ch:ident}: the second component must not be an exponential-polynomial.
+\end{example}
+
+\subsection{Gauge, magnetic fields, and Lam\'e}
+
+\begin{proposition}[{Gauge covariance and what invariant data reveal \led{G-L0, G-T2} \proved}]\label{prop:gauge}
+Under $A\mapsto A+d\chi$, $u\mapsto e^{i\chi}u$ the covariant operators transform covariantly, so the identification tests are gauge-invariant. If the observation is invariant under the phase, a reconstruction of the potential $A$ recovers at most its gauge class $[A]$: $A'\sim A$ iff $dA'=dA$ and the holonomies agree (Aharonov--Bohm). On a simply connected region, $A'\sim A$ iff $dA'=dA$.
+\dimref{G-T2}
+\end{proposition}
+
+\begin{proposition}[{Magnetic Schr\"odinger: one field does not identify $(A,V)$ \led{SYS-N3} \proved}]\label{prop:sysn3}
+For $n\ge2$ and a nowhere-zero solution $u$ the pairs $(A',V')$ compatible with $u$ form an infinite-dimensional affine space, parametrised by divergence-free fields $k$; their magnetic fields differ, so they are not gauge-equivalent, even in the non-stationary case. The obstruction is a count: one complex scalar equation against $n+1$ real unknowns.
+\dimref{SYS-N3}
+\end{proposition}
+
+\begin{proposition}[{Lam\'e in space \led{LAME-3} \proved}]\label{prop:lame3}
+For $\rho,\mu\ne0$, $\lambda+\mu\ne0$, $\lambda+2\mu\ne0$, the system has $\det P=q_Pq_S^2$ with Bass multiplicities $1$ and $2$; an identifying displacement field exists, and $u$ identifies it iff $\mathrm{div}\,u$ satisfies no equation besides the wave equation of speed $\sqrt{(\lambda+2\mu)/\rho}$ and the two transverse polarisations of $\mathrm{rot}\,u$ satisfy no extra relation. A pure P-wave ($\mathrm{rot}\,u=0$) never identifies.
+\dimref{LAME-3}
+\end{proposition}
+
+\begin{proposition}[{Dirac $1+1$ as an evolution: no uniform product \led{SYS-E1, E2, E3} \proved}]\label{prop:syse}
+Writing $\psi_t=(X+mY)\psi$ with $X$ the transport and $Y$ the mass term, the operators $X,\mathrm{ad}_X^kY$ are linearly independent, so no finite product of transport and mass flows with $\xi$-independent times equals $e^{t(X+mY)}$ uniformly in the mass. The Lie algebra they generate is infinite-dimensional. An explicit product (Euler angles) exists, with times that are not polynomial in $\xi$ and with non-local Fourier multipliers.
+\dimref{SYS-E}
+\end{proposition}
+
+\begin{proposition}[{Systems from finite data \led{SYS-R1} \proved}]\label{thm:sysr1}
+From exponential-polynomial data one can identify only systems with finite-dimensional solution space; for an ODE system the identifying solution exists iff $e_1=\dots=e_{r-1}=1$.
+\dimref{SYS-R1}
+\end{proposition}
+
+\begin{takeaway}
+For a system the unknown is a module and the datum is one vector function. The only obstruction to identification is the socle, a purely algebraic and local count, and it vanishes for every non-singular square system in $n\ge2$ variables. What a single field can never do is separate gauge from physics.
+\end{takeaway}

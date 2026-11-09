@@ -63,7 +63,7 @@ equation is \emph{identified}. It asks whether the modes it sees are \emph{compa
 symbol and are rich enough in each factor (enough distinct wavenumbers per branch) for the factor to
 be pinned down within its class. This is the meaning of the label \FC{} in the companion algorithm paper.}
 
-\subsection{What finite data can and cannot certify}\label{sec:certify}
+\subsection{What finite data can and cannot certify}\label{sec:certify}\label{ch:data}
 \Cref{thm:ident} speaks about $u$, not about finitely many numbers. Two facts frame what an algorithm
 can promise.
 
@@ -74,7 +74,7 @@ derivatives of order at most $M$ at that point; for example
   j^2_{z_0}(u)=\big(u,\ u_t,\ u_x,\ u_{tt},\ u_{tx},\ u_{xx}\big)\big|_{(t,x)=z_0}.
 \]
 
-\begin{proposition}[Finite data]\label{prop:certify}
+\begin{proposition}[Finite data]\label{prop:certify}\label{thm:nocert}\label{thm:blackbox}
 Let $\Omega$ be connected and $z_0\in\Omega$.
 \begin{enumerate}[label=(\roman*)]
   \item If $\dim_\C\ring u\le n$, the jet of order $2n-1$ of $u$ at $z_0$ determines $\Ann(u)$ among all functions

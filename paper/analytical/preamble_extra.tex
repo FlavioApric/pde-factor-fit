@@ -29,3 +29,16 @@
 % the algorithm is not part of this paper: drop the cross-references to it
 \renewcommand{\roleinalg}[1]{}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\dimref}[1]{\textsf{\footnotesize[proof: Dim.~#1]}}
+% further macros of the complete edition
+\usepackage{longtable}
+\newenvironment{falsebox}[2][]{\begin{remark}[Counterexample: #2]}{\end{remark}}
+\newenvironment{proofidea}{\begin{remark}[Idea of the proof]}{\end{remark}}
+\newcommand{\pw}{\badge{cD}{proof written, not audited}}
+\newcommand{\cf}{\badge{cD}{from cited source}}
+\newcommand{\vex}{\badge{cD}{checked on examples}}
+\newcommand{\Bclass}{\mathfrak{B}}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\step}[2]{\par\smallskip\noindent\textbf{Step~#1\enspace #2}\par\nopagebreak}
+\newcommand{\whyworks}[1]{\par\smallskip\noindent\emph{Why it works.} {\small #1}\par}
+\newcommand{\uses}[1]{\par\noindent{\footnotesize\textbf{Uses:} #1}\par\smallskip}

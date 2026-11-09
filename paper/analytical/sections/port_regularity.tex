@@ -6,7 +6,7 @@ u_j=\prod_{k\ne j}\frac{\partial_t-a_k(\partial_x)}{a_j(\partial_x)-a_k(\partial
 the Lagrange formula of Eq.~\eqref{eq:spectral} with $C$ replaced by $\partial_t$. The result is a Fourier multiplier in $x$ that is rational in $\xi$, with poles where $a_j(\xi)=a_k(\xi)$; this matches the characterization ``projectors rational in $\xi$ iff the factors are coprime'' \led{II-T2/T3}.
 
 \subsection{Where decomposition fails}
-\begin{proposition}[{(Holes) \led{C12-P10} \proved[]}]
+\begin{proposition}[{(Holes) \led{C12-P10} \proved[]}]\label{prop:holes}
 On a domain with a hole, the decomposition fails for some $P$.
 \end{proposition}
 Figure~\ref{fig:hole} shows the standard obstruction. In the theorem the hypothesis ``simply connected'' means $H^1_{dR}(\Omega)=0$, exactly what removes this obstruction; a cohomological criterion for non-simply connected $\Omega$ is also available \led{OP-FUN, C12-Q6}.
@@ -23,9 +23,9 @@ Figure~\ref{fig:hole} shows the standard obstruction. In the theorem the hypothe
 \caption{The Laplacian $\partial_x^2+\partial_y^2=(\partial_x+i\partial_y)(\partial_x-i\partial_y)$ factors, but the factor decomposition fails on a punctured disc: the obstruction is topological ($H^1_{dR}\neq0$).}\label{fig:hole}
 \end{figure}
 
-\subsection{Regularity: when are the components in $H^m$?}
+\subsection{Regularity: when are the components in $H^m$?}\label{ch:regular}
 The decomposition is an algebraic statement; analysis enters when we want components in a Sobolev space. For two components the governing condition is geometric: the two component spaces $M_1$ and $M_2$ must be separated by a positive angle (Figure~\ref{xfig:friedrichs}); the next theorem makes this precise for any number of components. Two difficulties appear along the way; they are collected in the box after the theorem.
-\begin{proposition}[{(Loss of a derivative) \led{C12-C1} \falsest}]\label{prop:loss}
+\begin{proposition}[{(Loss of a derivative) \led{C12-C1} \falsest}]\label{prop:loss}\label{cex:loss}
 ``If $u\in H^m(\Omega)$ then all $u_j\in H^m$'' is false: one derivative can be lost. In other words, the pieces of a smooth function may be rougher than the function itself.
 \end{proposition}
 \begin{theorem}[{(Regularity criterion) \led{C12-T3, C12-P7} \proved[]}]\label{xthm:hm}

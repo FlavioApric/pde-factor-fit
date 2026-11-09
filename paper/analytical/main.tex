@@ -77,38 +77,56 @@ Nonlinear & Burgers: closed form before the shock, sharp behaviour across it (\c
 
 \input{sections/fig_dependency}
 
-\section{Derivatives become polynomials}\label{sec:theory}
+\section{Derivatives become polynomials}\label{sec:theory}\label{ch:prelim}\label{ch:algebra}
 \inbrief{Before asking what a solution knows, we turn operators into polynomials and solutions into objects that carry an ideal of equations; the one-variable case shows every idea in miniature.}
 \input{sections/thy_ring}
 \input{sections/thy_ep}
 \input{sections/port_ode}
 
-\section{Groups are factors, not terms}\label{sec:groups}
+\section{Groups are factors, not terms}\label{sec:groups}\label{ch:decomp}
 \inbrief{The factor decomposition, its stability measured by an angle, and the regularity of the components.}
 \input{sections/thy_factor}
 \input{sections/thy_cond}
 \input{sections/port_regularity}
 
-\section{Inside one group: the interaction term}\label{sec:inside}
+\section{Inside one group: the interaction term}\label{sec:inside}\label{ch:interaction}
 \inbrief{What remains when a factor is built from several terms: an exact formula, its cost, its instability, and what happens when the terms do not commute.}
 \input{sections/thy_eint}
 \input{sections/port_terms}
 \input{sections/port_tdpt}
 
-\section{When does a solution determine its equation?}\label{sec:identify}
+\section{When does a solution determine its equation?}\label{sec:identify}\label{ch:ident}
 \inbrief{The identification criterion, uniqueness, and what finite data can and cannot certify. This explains why the algorithm of the companion paper never reports ``identified''.}
 \input{sections/thy_ident}
 
-\section{Nonlinear equations}\label{sec:nonlin}
+\section{Nonlinear equations}\label{sec:nonlin}\label{ch:nonlin}
 \inbrief{The same two questions, asked of Burgers-type equations: the interaction term for the flows of single terms, behaviour before, at and after a shock, and identification relative to a dictionary.}
 \input{sections/port_nonlinear}
+
+\section*{Part II: beyond constant coefficients (Phases 6--10)}
+\addcontentsline{toc}{section}{Part II: beyond constant coefficients (Phases 6--10)}
+\noindent Sections~\ref{ch:systems}--\ref{ch:extalgo} extend the theory of Sections~\ref{sec:theory}--\ref{sec:nonlin} (Phases~0--5) to systems, variable coefficients, noisy and
+finite data, encoders, dictionaries and the extended algorithm (Phases~6--10; Phase~11 was the audit of the whole). Each result names its proof as ``Dim.~An'' or ``Dim.~Bn'' in the
+companion \emph{Catalogue of proofs} (directory \texttt{paper/analytical\_complete}).
+\input{sections/part2_ch12}
+\input{sections/part2_ch13}
+\input{sections/part2_ch14}
+\input{sections/part2_ch15}
+\input{sections/part2_ch16}
+\input{sections/part2_ch17}
+\input{sections/part2_ch18}
 
 \section{Limits, open problems, and status}\label{sec:limits}
 \input{sections/status_table}
 \input{sections/port_limits}
+\input{sections/part2_ch19}
+\input{sections/part2_ch20}
+\input{sections/part2_ch21}
 
 \appendix
 \input{sections/app_proofs}
+
+\input{sections/part2_appA}
 
 \section{Primer for readers new to the concepts}\label{app:primer}
 \input{sections/port_primer}

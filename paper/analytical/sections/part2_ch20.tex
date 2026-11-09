@@ -1,0 +1,141 @@
+\section{The complete list of open problems}\label{ch:openlist}
+\sectionbrief
+{the registry \texttt{PROBLEMI\_APERTI.md} of 28 October 2026, the closing report of Phase~10, the final report of Phases~0--5, the open-question files of every research package, and Section~11 of the extended algorithm.}
+{Section~\ref{ch:status} states what is open in a few lines. This section is the full registry: every open or conditional item of the project, with what is already proved about it and what would be needed to close it. Nothing here is a central result.}
+{a starting point for any later research phase. The status of every item in the ledger is unchanged: a label is raised only after a proof and an audit.}
+
+\subsection{Why the analytic part can be closed}
+
+None of the items below carries a central result of the project (the linear characterisations, the algebraic theorems ALG-*, the dictionary criterion S4ID-T1, the sum-of-kernels theorems C12-T3 and P2-T3, the negative theorems and the counterexamples). Each item is of one of three kinds: (i) an extension to more general classes of a result already proved in a model case; (ii) a new question born during the work; (iii) a dependence on a published source that was not available offline.
+
+The only items from which statements of the report depend are listed with their dependence, and each is already marked ``modulo'' or ``conditional'' where it is used:
+\begin{itemize}
+\item \textbf{[F1] Lax--Oleinik $=$ Kru\v zkov.} The source is classical and was read (Kru\v zkov 1970, Thm~1, \S3); what is missing is an autonomous proof, for which the triage gives a plan (vanishing viscosity on Cole--Hopf). Burgers beyond the shock depends on it (S4T-T3(iii), OPA-T1, OPF5A-T1/T2/C1). This is \emph{not} an open problem.
+\item \textbf{[L-loc]}: the localisation lemma on which OPA-Q1 depends for several shock births; the case of a single shock birth (for example $\sin x$) is closed modulo [F1].
+\item \textbf{[GT-u]}, that is [GT-u$_0$] and [GT-u$_m$]: S4ID-P8 and OPR2-P7 (asymptotics with derivatives).
+\item \textbf{[F4$^-$]}: INT-T1(B) (reflectionless $N$-solitons), verified for $N=2$.
+\item \textbf{Malgrange 1966}: C3-P1 for general data on convex sets; the jet case is proved without it and the cited theorem is verified.
+\end{itemize}
+
+\subsection{Research problems with no known route}
+
+\begin{center}\small
+\begin{longtable}{@{}L{2.5cm}L{4.0cm}L{4.2cm}L{4.0cm}@{}}
+\toprule
+Item & Question & Already obtained & What is needed\\\midrule\endhead
+C12-Q2 $=$ OPF-Q2 & closedness of the sum of kernels for $N\ge3$ differential factors & false in abstract Hilbert space (counterexample); $N=2$ proved & a differential family with $\ge2$ non-compact interactions\\
+C12-Q1 & closedness for $(\tau-\xi^2)(\tau+c\xi)$ & --- & boundary-layer estimates (route OPR2-L1, heat $\times$ transport)\\
+OPF5C-Q1 & syzygy degrees $\delta_N(K)$ for general $N$ & nine exact values, computer-assisted; $\delta_6(12)=7$ new; conjectures $\delta_N(2N-1)=N+2$, $\delta_N(2N-2)=N+4$, $\delta_N(2N)=N+1$ & a structure for general $N$; for fixed $N$ it is a finite computation; $\delta_6(11)=8$ has a written proof, Hirota $N=5$ is not concluded (a run of about $17$ minutes was interrupted)\\
+OPR2-Q3 & repeated socle, ``no finite test'' & proved under (I) and (II) & a lifting theory of atoms\\
+OPR2-Q2$'$ & wedges with degenerate directions & tangent model closed and direct (OPF5B-P8); numerical check $7/7$ & (L-int): an explicit Hilbert--Schmidt estimate, a few hours of work; (L-v): analysis at the vertex of the cone\\
+INT-Q1 & KdV, $r\not\equiv0$, $u$ analytic: is there an autonomous ODE in $x$? & OPF5C-T6: order $\le3$ implies $0$ or a $1$-soliton & singular relations at the origin and sub-dominant terms of the radiative asymptotics (upstream: [GT-u$_m$])\\
+P1-Q7, general & Lie algebras with (H) but without a weighted dilation (Dil) & the candidate $(x^3+x)\partial,\partial$ is proved & no route without a dilation\\
+P2-Q1-NL & non-Lipschitz domains & $\Delta$, $m\ge1$, $L^{1,2}\subset L^2$ proved & general $P$ and $m=0$\\
+P2-Q1-COD & exact codimension for general $P$ & --- & continuous period functionals in $H^m$\\
+VAR-Q18 & multiplications & a rank-$2$ counterexample with $B$ merely continuous & a counterexample with rough $W$, $v$ merely continuous, and control of the whole Dyson series\\
+VAR-P12(d) & non-quadratic Floquet logarithms & partial observations (parity, dilations) & an obstruction for non-quadratic logarithms\\
+VAR-C3Q2-open, VAR-Q13 & non-monic case in the Weyl algebra & monic case (a$'$) proved (VAR-C3Q2-R) & a decomposition without monicity\\
+SYS-DIRAC-POL & polynomiality for complex $t$, $m$ & real $t$, $m$ proved & the triage sketches a lemma E$'$ ``by growth''; not audited\\
+ENC-Q4 & the DM3 reading & --- & the class $W(t)$ must be defined first\\
+DICT-Q3(c) & $C^\infty$ division at variable rank & --- & a general division criterion\\
+AM-CL & closure AM & no longer needed (ledger F10-TRIAGE) & ---\\
+OPA-Q2 & density of the Morse$+$(SB) class & a sketch (Sard with finitely many parameters) & write and audit the sketch\\
+non-convex regions & density of OPF5B-T1 outside convex sets & convex case proved; the extension is false on regions with holes (A53); simply connected Lipschitz modulo F1, F2 & ---\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{Items blocked on sources unavailable offline}
+
+The project forbids downloading files. Each item below is unblocked by placing the indicated text in the project folder.
+
+\begin{center}\small
+\begin{longtable}{@{}L{2.4cm}L{5.4cm}L{7.0cm}@{}}
+\toprule
+Item & Source needed & After reading\\\midrule\endhead
+{[GT-u$_0$]} & Grunert--Teschl \S5, Kr\"uger--Teschl & rewriting with explicit constants; a few days of work\\
+{[GT-u$_m$]} & Deift--Zhou, CMP 165 (1994) 175--191; Buslaev--Sukhanov 1986 & term-by-term derivation; not short\\
+VAR-Q17(b) & Baudouin--Puel; Lasiecka--Triggiani--Zhang; Mercado--Osses--Rosier (Carleman for Schr\"odinger with $V(t,x)$) & an adaptation\\
+ENC-Q10 & Matveev--Salle; Bagrov--Samsonov (pairwise Darboux) & an adaptation, plus a decision on the class $\mathfrak E$\\
+DICT-U3d-v & Braess; Braess--Hackbusch & for $t^{-\beta}$ probably the $\tau_k$ are not needed; the uniform limit on the class stays a hard problem\\
+Malgrange 1966 & \emph{Ideals of differentiable functions} & only to have an autonomous proof: the theorem is already cited\\
+(WP) & Bona--Smith; Kato 1983; Lax 1975 & alternatively an autonomous proof of several days\\
+{[F4$^-$]} & the primary source for reflectionless $N$-solitons & verified for $N=2$\\
+Oberst 1993 & MCSS 6 (read only as an abstract) & \emph{priority and novelty only}: SYS-EX is proved on an arbitrary $\Omega$ without it\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{Open questions of each research package}
+
+\paragraph{Systems (Phase 8).}
+\begin{itemize}
+\item \textbf{Q-S8SYS-1} (closed for real times; complex times open): finite words of Dirac flows with times polynomial in $\xi$.
+\item \textbf{Q-S8SYS-3}: for fixed $\Omega$, does (i$\Leftarrow$) of SYS-S1 hold for every pair iff $\mathrm{Ext}^1(N,C^\infty(\Omega))=0$ for every $N$ that occurs, i.e.\ iff $\Omega$ is $P$-convex for all $P$ ($C^\infty(\Omega)$ injective)?
+\item \textbf{Q-S8SYS-4} (derogatory $A$): the candidate ``the projector has a pole at $\xi_0$ iff $A(\xi_0)$ has a non-trivial Jordan block mixing eigenvalues of coprime factors''; not proved, high cost; the pole criterion $E_0\cap F_0\ne0$ was proved in Phase~10.
+\item \textbf{Q-S8SYS-5} (novelty of SYS-EX): read Oberst 1990 \S2--4, Oberst 1995 (\emph{Variations on the fundamental principle}) and Pillai--Shankar 1998 to decide whether SYS-EX on $\R^n$ is already stated.
+\item \textbf{Q-S8SYS-6} (Maxwell): socle of vacuum Maxwell in $(E,B)$, an over-determined $8\times6$ system; closed in Phase~10 (pd $\le2\Rightarrow$ soc $=0$) in the symmetric class; in the general Hamiltonian class ID-ker is impossible (EX10-e-K).
+\item \textbf{Q-S8SYS-7} (SYS-N2): the determinantal reduction for massless Weyl needs the class group of the light cone (Kn\"orrer/Eisenbud); not touched.
+\end{itemize}
+
+\paragraph{Variable coefficients (Phase 8).}
+\begin{itemize}
+\item \textbf{VAR-Q10} (closed in Phase~10 by an example). \textbf{VAR-Q6$'$}: the Galois group of $-\partial^2+x^2-E$ over $\C(x)$ ($SL_2$ for $E\notin\pm(2\N+1)$, the Borel group otherwise); not needed for identification; tool: Kovacic or a direct argument.
+\item \textbf{VAR-Q12}: for $L$ monic of order $m\ge2$ in $\partial_t$, an intrinsic characterisation of $B$-independence (holonomy of $A_2u$, characteristic dimension); is there a non-$D$-finite $u$ that does not identify? \textbf{VAR-Q13}: for non-constant leading coefficient in every direction, when is $\Ann(u)$ equal to the saturation $A_2\cap\C(t,x)\langle\partial\rangle L$? A decision procedure needs factorisation of $D$-modules (Grigoriev--Schwarz).
+\item \textbf{VAR-Q11}: for generic periodic $V(t,x)$, does $U(T,0)$ have a differential (unbounded) logarithm? Known for $V=v(t)$ and quadratic cases.
+\item \textbf{VAR-Q8, Q8$'$}: convergence of the Magnus series for unbounded operators; when $Y(t;\varepsilon)$ is normal for complex $\varepsilon$, as Casas 2007, Thm~3.4 requires in infinite dimension.
+\item \textbf{VAR-Q14}: whether Saut--Scheurer (1987) or Isakov (1993) contain VAR-L1 for $V\in L^\infty(t,x)$ in $1$D (probably VAR-L2 and VAR-T1(c)(ii)); if so, cite them. \textbf{VAR-Q15}: read Schindelar--Levandovskyy--Zerz (2011) to confirm the delta of the Weyl-algebra comparison.
+\item \textbf{VAR-Q16}: for continuous matrix $V$, does ``$V$ determined on an open $U$'' imply $\mathrm{span}_t\psi(t,x)=\C^2$ on a dense subset of $U$? \textbf{VAR-Q17}: lateral observability for mild solutions ($\psi_0\in L^2$, $V\in L^\infty$). \textbf{VAR-Q18}: see above. \textbf{VAR-Q19}: robustness in DM-$\delta$: construct an estimator of $V$ with guaranteed error, or prove that the H\"older exponent $1/3$ of VAR-P3 is also optimal for the estimation problem (settled with $M>\delta_0$ in Phase~10).
+\end{itemize}
+
+\paragraph{Encoder (Phase 8).}
+\begin{itemize}
+\item \textbf{Q1}: ENC-U1 in wider classes (kernel $K\in L^1$ for $q\in L^1$, non-triangular kernels). \textbf{Q2}: boundedness of $W$ on $H^{2k}(J)$ with explicit constants (the induction with $(Wf)''=W(f'')-W(qf)$ is only sketched; it is needed for rule R6 with Sobolev norms).
+\item \textbf{Q3} (ENC-S1): transport of the factor decomposition for coprime factors in $S=\C[\tau,\sigma]$ through $\varphi$ and C12-T1$'$; to be written out, and to check whether $\mathrm{lcm}(Q,\tilde Q)$ is the generator.
+\item \textbf{Q4}: a natural class of potentials with $\mathcal S_V\cap\mathcal S_{V'}\ne\{0\}$ for $V\ne V'$ and a structured encoder for each, so that separation (S) is non-empty. \textbf{Q14}: the same modulo the gauge of the data model.
+\item \textbf{Q5}: $E^{\rm mult}$ for Schr\"odinger on a bounded $\Omega$ with Dirichlet conditions (leading term $t^2/2\,[H_0,V]$ presumably, to be proved). \textbf{Q6}: ENC-1 in dimension $d\ge2$: no triangular Volterra operator with local kernel (the characteristic problem is not Goursat).
+\item \textbf{Q7}: does the local Darboux chain extend to all of $J$ across the zeros of the seeds, and is $Z$ discrete (it is only shown closed and countable)? Known for rational potentials (Duistermaat--Gr\"unbaum).
+\item \textbf{Q8}: a quantitative bound for the truncated Foldy--Wouthuysen series with $V\in W^{k,\infty}$ (error $O(m^{-k-1})$?). \textbf{Q10}: non-local but explicit encoders for non-quadratic $V$ (Bluman--Shtelen classify only pointwise encoders).
+\item \textbf{Q11}: $W$ commuting with $\partial_t$ with non-constant $c(t)$ and $W$ non-local in $t$ (for example convolutions in $t$). \textbf{Q12}: lateral continuation and (E1) on solutions. \textbf{Q13}: regularity of the propagator with $V$ merely norm-continuous (Kato asks for $t\mapsto H(t)$ strongly $C^1$). \textbf{Q15}: ENC-T2(c$'$) in the class of principal annihilators (proved for the specific family in Phase~10).
+\item \textbf{Q9}: theorem numbers to verify (Marchenko ch.~1, van der Put--Singer, Duistermaat--Gr\"unbaum, Casas).
+\end{itemize}
+
+\paragraph{Convergence (Phase 8).}
+\begin{itemize}
+\item \textbf{CONV-Q1}: without an upper bound, is $G_u=\gcd\Ann(u)$ identifiable in the limit when $\Ann(u)$ is not principal? (the rule converges to $g_d$, which can be a proper multiple of $G_u$). \textbf{CONV-Q2}: an explicit jet threshold $K^*$ for classes wider than EP (finite growth order). \textbf{CONV-Q3}: a quantitative version of T2 in terms of the complexity of changes of mind.
+\item \textbf{CONV-Q4}: characterise $\mathcal N_{\mathcal K}$ when $\mathcal K$ is the class of augmented systems with finitely many auxiliary variables. \textbf{CONV-Q5}: the decomposition $\ker(Q_1Q_2)=\ker Q_1+\ker Q_2$ on non-convex domains in $1+d$ ($P$-convexity, Hartogs--Ehrenpreis phenomenon). \textbf{CONV-Q17}: injectivity of $\mathcal D'(\Omega)$ on convex $\Omega$ (Malgrange calls it probable; to check in Palamodov 1970).
+\item \textbf{CONV-Q7}: T4 and T5 with stochastic noise, rates in probability. \textbf{CONV-Q8}: explicit margin $\rho_d$ for concrete families (heat, waves) as a function of $\Omega$. \textbf{CONV-Q14}: T4(b) and T5 for non-integer $s$ (complex or real interpolation; withdrawn from the statement).
+\item \textbf{CONV-Q11}: Mori--Zwanzig with variable coefficients (``closed local law $\iff$ finite elimination'' proved only in the direction $\Leftarrow$ with constant coefficients); look for a Weyl-algebra / $D$-module version. \textbf{CONV-Q12}: the $L^\infty$ order of Strang in the P3-T3 framework (numerically $1$, an example, not proved). \textbf{CONV-Q13}: higher orders in $\varepsilon$ for CONV-T8 and non-modal data in $H^1_0$ or $H^2$. \textbf{CONV-Q6$'$}: the norm of the orders $1$ (Dirichlet) and $1.5$ (Neumann/Robin) in Dang--Einkemmer--Ostermann 2025. \textbf{CONV-Q16}: identification of a boundary condition with positive margin through a quotient dictionary for tangential consequences (CONV-B3).
+\end{itemize}
+
+\paragraph{Dictionary (Phase 8).}
+\begin{itemize}
+\item \textbf{Q1}: a uniform-in-$t$ rate for general completely monotone kernels (the explicit rate is known for $t^{-\beta}$; closed in Phase~10; optimality is open). \textbf{Q2}: H\"older for $s\ge1$ in I-LIM needs a Gagliardo--Nirenberg interpolation $\|f\|_{C^s}\le C\|f\|_{L^2}^\theta\|f\|_{C^{s,1}}^{1-\theta}$, $\theta=2/(2s+2+N)$, on Lipschitz domains with a constant (the exponent is verified by scaling; the source is missing).
+\item \textbf{Q3}: the intermediate case of RANGO (the pointwise residue map $A_u(y)$ is neither injective on a dense set nor onto everywhere): is identifiability decided by division at variable rank, or are there counterexamples? \textbf{Q4}: Theorem~A(iii) for non-local atoms (memory, symbols, fractional): the proof uses locality.
+\item \textbf{Q5}: order optimality of polynomials via Kolmogorov $n$-widths (Pinkus 1985, source not read). \textbf{Q6}: the $2$-kink has kernel $1$ (only checked on examples; a proof needs exact independence of $u_{xt},u_{xx},u_{tt},u$). \textbf{Q8}: prior art for N1(v)-ALG, ``the generic $u$ is differentially transcendental''. \textbf{Q9}: R6 for $Y=H^{2k}$ and transport of the weak form MF3 with compactly supported test functions.
+\item \textbf{Q7}: theorem numbers and citations to verify: H\"ormander III 18.1.13; Trefethen--Weideman (trapezoid rule); Boman 1967; Christensen 1972 and Hunt--Sauer--Yorke 1992 (prevalence); Ax 1971; Weiss--Tabor--Carnevale 1983; Whitney extension.
+\end{itemize}
+
+\subsection{Open questions of the extended algorithm}
+
+The twelve questions of Section~11 of the extended algorithm:
+\begin{enumerate}
+\item robustness in DM-$\delta(Y)$ (VAR-Q19);
+\item an example at level L9 with infinitely many modes and an identified non-local atom, and DICT-A(iii) for non-local atoms;
+\item DICT-ILIM-Hs (closed in Phase~10 with an elementary cone lemma);
+\item CONV-Q1: $G_u$ in the limit without an upper bound;
+\item VAR-T1(c)-Q10 (closed by an example in Phase~10);
+\item C3-Q2 in general;
+\item CONV-Q9: unbounded $V$;
+\item the cost of rule R1 per level; the audit of C3-A1 (elimination at polynomial cost, a written proof without a ledger row); a rigorous inclusion for the misfit (A);
+\item rule R6 in $H^{2k}$ and with the weak form MF3; a bound on $\|W_q\|$ tighter than $C_W$ (at $a\sqrt Q=5$ the proved $C_W^2\approx1.4\cdot10^7$ against $\cosh^2(a\sqrt Q)\approx5.5\cdot10^3$);
+\item an explicit Lipschitz constant of $q\mapsto W_q$ (ENC-1) for Step~5 with an estimated $q$;
+\item ENC-T2(c$'$) in the principal class; VAR-P12(d); II-T2(b$'$) and Maxwell (Q6);
+\item a ledger row for Trotter--Kato; the closure of the citations of the next section.
+\end{enumerate}
+
+\paragraph{Citations to close.} so that the steps ``conditional on verification'' become fully grounded: van der Put--Singer Prop.~1.34/Thm~1.27 (VAR-T6); DICT-B3; Whitney--Stein (DICT-ILIM, (H2)); Pazy ch.~5 (VAR-P11(e), VAR-L2-cor); Thaller ch.~5 (FW-1 with $V$); Lax--Oleinik $=$ Kru\v zkov [F1] (S4T-T3); Humphreys \S4.1 Cor.~B (P1-T4); Wei--Norman 1964, content (VAR-P8(b) ``$\Leftarrow$''); Casas 2007 Thm~3.4 (VAR-T10(4)); Oberst 1993, full text; and the Phase~0--5 numbers not checked: Krantz--Parks Thm~2.3.5 (OP-T1), Cohen GTM 138 for (AC), H\"ormander SCV 1.4.4, Runge in Rudin.
+
+\subsection{Statuses of the claims used by the algorithm}
+
+For completeness, the statuses recorded in the table ``claims used $\to$ status'' of the extended algorithm that are \emph{not} fully proved: C3-A1 (written proof, not audited, no ledger row: every output that depends on it is ``(A) conditional on C3-A1''); VAR-T6, DICT-B3, DICT-ILIM-Hs (candidate, later closed), VAR-L2-cor (not used), FW-1 with $V$, VAR-P8(b) ``$\Leftarrow$'', VAR-P11(e), VAR-T10(2)(4)(5), P1-T4 (Lie from a cited source), S4T-L2 and S4T-T3 (modulo [F1]), ENC-A9(b3) (cited source and example), and the five textbook examples (checked on examples only).
