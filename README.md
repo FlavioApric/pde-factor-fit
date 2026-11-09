@@ -18,7 +18,7 @@ By **Flavio Pricoco**. Code: MIT. Paper: CC BY 4.0.
 paper/ml_layers/    the paper (LaTeX, built PDF)        paper/shared/   class fallback, macros, bibliography
 src/pdefactor/      pipeline snapshot + learned/ layers  tests/          pytest, incl. the off-is-bit-identical golden test
 benchmarks/ml_layers/  experiment scripts (ll_*.py), results/ and sessions/ (the reports and data behind every number)
-variants/s_interp/   the separate interpolation variant of the pipeline (src, tests, analysis, notes)
+variants/s_interp/   the separate interpolation variant (its notes, experiment scripts, session scripts and outputs; its source modules are identical to `src/pdefactor/interp/` and are not duplicated)
 paper/ml_explained/, paper/ml_pipeline_note/   the explained edition of the ML layers and the original pipeline note
 claude/             rules, map, status, notes for Claude sessions
 ```
