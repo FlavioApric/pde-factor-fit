@@ -15,7 +15,7 @@ See paper section 7: robustness for variable coefficients under noise, infinite-
 
 ## Completeness (2026-11-09)
 Paper now 13 pages: added the four questions and answers, the encoder table and boundary theorems, the registry of routes (Gates 1, 4a, 6, 8) with the author's ideas, and the algorithm-side state and open problems.
-Sources of every statement: `analytical` branch (`claude/notes/ROUTES.md`, `SYNTHESIS-2.md`, `claude/archive/origin/piano_di_ricerca.md`) and `claude/notes/ALGORITMO_ESTESO_it.md`.
+Sources of every statement: `analytical` branch (`analytical:claude/notes/ROUTES.md`, `SYNTHESIS-2.md`, `analytical:claude/archive/origin/piano_di_ricerca.md`) and `claude/notes/ALGORITMO_ESTESO_it.md`.
 
 ## Layout change (2026-11-09)
 The paper is one flat file (`paper/model_expansion.tex`, 21 pp, with the specification appendix). The duplicate copy of the pipeline (`src/`, 34 test files) was removed: the pipeline lives on `main`. Examples and the generator are flat in `code/`.
