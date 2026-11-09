@@ -1,63 +1,37 @@
 # pde-factor-fit
 
-Reading the **factor structure of a linear PDE** from data. For linear equations with constant coefficients the
-natural unit is not the term but the *factor of the symbol*: every Fourier mode of a solution lies on the zero set of
-one factor, so the modes fall into groups. This repository holds the theory, the algorithm, the code and the papers.
+**Reading the factor structure of a linear PDE from data.** For a linear equation with constant coefficients, the natural unit is not the term but the *factor of the symbol*: every Fourier mode of a solution lies on the zero set of one factor, so the modes fall into groups, and learning the equation means finding those groups. This repository holds the theory, the algorithm, the code and the papers. Author: **Flavio Pricoco**.
 
-By **Flavio Pricoco**. Open for everyone to use under permissive licenses; please keep the credit (see [License](#license)).
+## Open this first
 
-## Start here
+[`paper/structure_B.pdf`](paper/structure_B.pdf): the main paper (41 pages): one idea first, a running example, the algorithm, the benchmark. [`paper/structure_A.pdf`](paper/structure_A.pdf) is the same paper in the order theory first, then algorithm. [`paper/explained.pdf`](paper/explained.pdf) is the algorithm explained step by step in plain language (46 pages).
+Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
-| I want to... | go to |
-|---|---|
-| read the main paper (one idea first, running example, results) | [`paper/B_proposed_structure/main.pdf`](paper/B_proposed_structure/main.pdf) |
-| read the same paper in the analytical-first order | [`paper/A_user_structure/main.pdf`](paper/A_user_structure/main.pdf) |
-| see how the two differ | [`paper/COMPARISON.md`](paper/COMPARISON.md) |
-| run the algorithm | `pip install -e .` then see [`src/pdefactor`](src/pdefactor) and [`tests/`](tests) |
-| read the **explained edition** of the algorithm (46 pp, plain language, every layer with its tests) | [`paper/explained/alg_explained.pdf`](paper/explained/alg_explained.pdf) |
-| see benchmarks, experiments and stored results | [`benchmarks/`](benchmarks), [`analysis/exp/`](analysis/exp) |
-| see the theory-to-code map (rows T1-T103), limits, parameters, session reports | [`claude/archive/pipeline/`](claude/archive/pipeline), [`claude/archive/sessions/`](claude/archive/sessions) |
-| check that nothing of the research repository is missing | [`INVENTORY.md`](INVENTORY.md), [`graphs/`](graphs), [`tools/`](tools) |
-| work on it with Claude | [`claude/`](claude) (rules, map, status) |
+## The four branches
 
-## Branches
-
-| branch | content | paper |
+| branch | what it holds | open |
 |---|---|---|
-| `main` | the algorithm, tests, benchmarks and the two SIMODS manuscripts | Structure A and B |
-| `analytical` | all theory and proofs, **all eleven phases 0-10** (annihilators, factor decomposition, interaction term, identification, systems, variable coefficients, encoder, dictionary, limits) | 57-page paper + the complete 117-page edition and 263-page proof catalogue |
-| `ml-layers` | learned layers on top of the pipeline: every layer as designed, built or not, the controller, what worked, what did not, ideas | 21-page paper |
-| `model-expansion` | extending the model: nonlinear, variable coefficients, time dependence, systems, non-local; the routes tried; the four founding questions | 13-page paper |
+| **`main`** (you are here) | the algorithm, its tests and benchmarks, and the three papers above | `paper/structure_B.pdf` |
+| `analytical` | the mathematics, all eleven phases: identification, factor decomposition, interaction term, systems, variable coefficients, dictionary, with all proofs | `paper/analytical.pdf` (130 pp) and `paper/analytical_proofs.pdf` (263 pp) |
+| `ml-layers` | machine learning on top of the pipeline: every layer designed, which worked, which did not, why | `paper/ml_layers.pdf` (39 pp) |
+| `model-expansion` | going beyond linear constant coefficients: the ladder of extensions, the routes tried, worked examples | `paper/model_expansion.pdf` (21 pp) |
 
-Every branch has the same skeleton: `paper/`, code (`src/`), `tests/` and `benchmarks/`, and a `claude/` folder
-with `CLAUDE.md` (rules), `MAP.md` (graph of the branch) and `STATUS.md` (what worked, what did not).
-The graph of the whole repository is [`claude/REPO_MAP.md`](claude/REPO_MAP.md).
+## Folders of this branch
 
-```mermaid
-flowchart LR
-  main[main: algorithm + papers A/B] --> analytical[analytical: theory + proofs]
-  main --> mll[ml-layers: learned layers]
-  main --> mex[model-expansion: beyond linear constant coefficients]
-  analytical -. theorems used by .-> main
-  mll -. extends .-> main
-  mex -. extends .-> main
-```
+| folder | what is in it |
+|---|---|
+| `paper/` | the three papers (`.tex` + `.pdf`) and `figures/` |
+| `code/` | `pdefactor/` the algorithm (Python package), `experiments/` experiment and figure scripts, `tools/` repository tools (paper checks, graphs, coverage) |
+| `tests/` | pytest suite (224 tests) |
+| `benchmarks/` | benchmark scripts, and `out/`, `data/` with the stored results behind the papers' numbers |
+| `claude/` | for Claude sessions: rules, status, map, theory-to-code table, plans, reports, graph of the repository, inventory, where each file came from (`claude/PROVENANCE.md`) |
 
 ## Quick start
 
 ```bash
 pip install -e ".[dev]"
-pytest -q                      # full suite is slow (~40 min); tests/test_core_exact.py is quick (optional extras: pip install -e ".[ml,baselines]")
-cd paper/B_proposed_structure && latexmk -pdf main.tex
+pytest -q tests/test_core_exact.py          # quick; the full suite takes ~55 min
+cd paper && latexmk -pdf structure_B.tex
 ```
-
-## Cite
-
-See [`CITATION.cff`](CITATION.cff) (GitHub shows a "Cite this repository" button).
-
-## License
-
-- Code: MIT, see [`LICENSE`](LICENSE).
-- Papers, figures and documentation: CC BY 4.0, see [`LICENSE-papers.md`](LICENSE-papers.md).
-
-Both licenses allow any use, including commercial, and both require that you credit Flavio Pricoco.
+Optional extras for some tests and benchmarks: `pip install -e ".[ml,baselines]"`.
+`claude/REPO_MAP.md` shows how the four branches relate. Licenses: code MIT ([`LICENSE`](LICENSE)), papers CC BY 4.0 ([`LICENSE-papers.md`](LICENSE-papers.md)); please cite via [`CITATION.cff`](CITATION.cff).

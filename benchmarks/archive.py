@@ -3,7 +3,7 @@
     .venv/Scripts/python.exe benchmarks/archive.py
 
 benchmarks/out/ is scratch space (gitignored); this copies its result files (*.jsonl, micro suites,
-and the analysis/exp/out tables) into the tracked benchmarks/data/, never overwriting a different file
+and the code/experiments/out tables) into the tracked benchmarks/data/, never overwriting a different file
 of the same name, and rewrites benchmarks/data/INDEX.md with rows, size and the code commit at
 archive time. Descriptions of known files are kept in DESCRIBE; add one when a new run is archived.
 """
@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "benchmarks" / "data"
 SOURCES = [(ROOT / "benchmarks" / "out", "*.jsonl", ""), (ROOT / "benchmarks" / "out" / "micro", "*.jsonl", "micro/"),
-           (ROOT / "analysis" / "exp" / "out", "*.csv", "exp/"), (ROOT / "analysis" / "exp" / "out", "*.txt", "exp/")]
+           (ROOT / "code" / "experiments" / "out", "*.csv", "exp/"), (ROOT / "code" / "experiments" / "out", "*.txt", "exp/")]
 SKIP = {"e2e.jsonl"}  # the working copy of the latest full run (archived under its run name)
 DESCRIBE = {
     "e2e_grid_v1.jsonl": "full benchmark, grid only, core v1 era",

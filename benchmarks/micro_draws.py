@@ -24,12 +24,12 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
-sys.path.insert(0, str(ROOT / "analysis" / "exp"))
+sys.path.insert(0, str(ROOT / "code" / "experiments"))
 
 from bench_e2e import MARK, _init_worker, _run_pool  # noqa: E402
 
 OUT = ROOT / "benchmarks" / "out" / "micro"
-CACHES = [ROOT / "analysis" / "exp" / "cache", Path("D:/Larned layers/PDEFactorML/analysis/exp/cache")]
+CACHES = [ROOT / "code" / "experiments" / "cache", Path("D:/Larned layers/PDEFactorML/code/experiments/cache")]
 MAX_INPUTS = 15
 BOOT, S_LOOP = 16, 8
 G = "grid"

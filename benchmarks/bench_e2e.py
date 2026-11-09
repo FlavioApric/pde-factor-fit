@@ -5,7 +5,7 @@
 Inputs: every case of synthetic.CASES, noise 1e-3 / 1e-2 / 5e-2, seeds 0-2, sampled
 - on the grid (white noise, as bench.make_input), or
 - scattered (n = 400, 2000; the draw of bench.make_input), interpolated by the GP posterior of
-  S-INTERP (cached by analysis/exp/gp_cache_all.py).
+  S-INTERP (cached by code/experiments/gp_cache_all.py).
 
 Methods:
 - "pipeline": outer loop (loop.run_loop) on the posterior samples, core v2 per sample with the GLS
@@ -32,7 +32,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "analysis" / "exp"))
+sys.path.insert(0, str(ROOT / "code" / "experiments"))
 OUT = ROOT / "benchmarks" / "out" / "e2e.jsonl"
 
 NOISES = (1e-3, 1e-2, 5e-2)

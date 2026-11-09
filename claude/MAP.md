@@ -3,38 +3,38 @@
 ```mermaid
 flowchart TD
   R[README.md] --> P[paper/]
-  R --> S[src/pdefactor/]
+  R --> C[code/]
   R --> T[tests/]
   R --> B[benchmarks/]
-  R --> C[claude/]
-  P --> PA[A_user_structure: theory first]
-  P --> PB[B_proposed_structure: one idea first]
-  P --> PS[shared/: sections, figures, experiments, refs.bib]
-  PS --> PSS[sections/thy_*: theory]
-  PS --> PSA[sections/alg_*: algorithm]
-  PS --> PSB[sections/bayes*, bench, worked]
-  S --> CORE[core/: variety, structfit, components, spectral, analyze]
-  S --> LOOP[loop.py, refine_raw.py, bayes_split.py, raw_gof.py, validate.py]
-  S --> INT[interp/: gp, epgp, ski, ensemble, reinterp]
-  S --> DOM[domain/: quadtree, cell fits]
-  S --> AGG[aggregate.py, cluster.py]
-  S --> SIM[simulator.py, synthetic.py, symbols.py]
-  S --> BASE[baselines/: sindy, dmd]
-  S --> LRN[learned/: see branch ml-layers]
+  R --> CL[claude/]
+  P --> PA[structure_A.tex + .pdf]
+  P --> PB[structure_B.tex + .pdf]
+  P --> PE[explained.tex + .pdf]
+  P --> PF[figures/]
+  C --> CORE[pdefactor/core: variety, structfit, components, spectral, analyze]
+  C --> LOOP[pdefactor: loop, refine_raw, bayes_split, raw_gof, validate]
+  C --> INT[pdefactor/interp: gp, epgp, ski, ensemble, reinterp]
+  C --> DOM[pdefactor/domain, aggregate, cluster]
+  C --> SIM[pdefactor: simulator, synthetic, symbols]
+  C --> BASE[pdefactor/baselines: sindy, dmd]
+  C --> EXP[experiments/: e*.py, make_figs.py, worked_example.py]
+  C --> TL[tools/: paper_checks, build_graph, compare_graphs, flatten_tex, check_coverage]
   T --> TC[test_core_*: exact core]
-  T --> TL[test_loop, test_refine_grid, test_validate]
+  T --> TL2[test_loop, test_refine_grid, test_validate, test_t*]
   T --> TM[test_ml_contract: interface pin]
-  B --> BF[final_report.py]
-  B --> BR[p8_final_v5.md, e2e_summary.md]
+  B --> BS[bench.py, final_report.py, p8_report.py, micro.py]
+  B --> BO[out/, data/: stored results]
+  CL --> PV[PROVENANCE.md, INVENTORY.md, graph/]
+  CL --> AR[archive/pipeline: analysis docs, THEORY_TO_ALGO, hand-offs; sessions/]
 ```
 
 ## Paper section -> code -> test
-| paper content | code | tests |
+| paper content | code (`code/pdefactor/`) | tests |
 |---|---|---|
 | interpolation of the field | `interp/` | `test_interp.py`, `test_p4_reinterp.py` |
 | mode extraction (matrix pencil) | `core/spectral.py` | `test_core_exact.py` |
 | structured fit of factors | `core/structfit.py`, `core/variety.py` | `test_core_v2.py`, `test_general.py` |
 | components, separation | `core/components.py` | `test_core_exact.py` |
-| outer loop, evidence, labels | `loop.py`, `refine_raw.py`, `raw_gof.py`, `validate.py` | `test_loop.py`, `test_validate.py`, `test_t10*.py` |
+| outer loop, evidence, labels | `loop.py`, `refine_raw.py`, `raw_gof.py`, `validate.py` | `test_loop.py`, `test_validate.py`, `test_t*.py` |
 | clustering across samples | `bayes_split.py`, `aggregate.py`, `cluster.py` | `test_aggregate_cluster.py` |
-| benchmark and baselines | `simulator.py`, `synthetic.py`, `baselines/` | `test_baselines_bench.py`, `test_bench_sigma.py` |
+| benchmark and baselines | `simulator.py`, `synthetic.py`, `baselines/`, `benchmarks/` | `test_baselines_bench.py`, `test_bench_sigma.py`, `test_final_report.py` |

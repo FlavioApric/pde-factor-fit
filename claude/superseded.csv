@@ -1,0 +1,13 @@
+# regex on the old path, reason. Each rule is backed by a coverage check (code/tools/check_coverage.py) or a text-equality check; see claude/PROVENANCE.md
+^paper/(A_user_structure|B_proposed_structure)/,inlined into the flat manuscript paper/structure_A.tex / structure_B.tex (extracted text identical)
+^paper/shared/(sections|siamshim|siamshim_thm|docclass|preamble|macros|refs).*,inlined into the flat manuscripts (shared preamble, macros, sections, bibliography)
+^paper/tools/,replaced by code/tools/paper_checks.py (checks the flat manuscripts)
+^PDEFactorML/EXPLAINED/(s[0-9]+[a-z]*_[a-z_]+|alg_explained|preamble_alg)\.(tex|pdf|aux|toc|out|log),inlined into the flat paper/explained.tex (extracted text identical)
+^PDEFactorML/EXPLAINED/ml_layers\.(tex|pdf),appendix of the ML paper (branch ml-layers; coverage checked)
+^ProblemaBase/NOTE_ML/,appendix of the ML paper (branch ml-layers; coverage checked)
+^ProblemaBase/PAPER/,merged into paper/analytical.tex (branch analytical; coverage checked); non-paper files in claude/archive/editions
+^ProblemaBase/PAPER_EXPLAINED/,merged into paper/analytical.tex (the 15 walk-throughs) (branch analytical)
+^ProblemaBase/FASI05/,merged into paper/analytical.tex and analytical_proofs.tex (branch analytical; coverage checked)
+^ProblemaBase/FASI_ALL/,merged into paper/analytical.tex and analytical_proofs.tex (branch analytical; coverage checked)
+^PDEFactorML-S-INTERP/(src|tests)/,identical to code/pdefactor/interp (branch ml-layers) or to tests of the pipeline
+^PDEFactorML/(src|tests)/,pipeline sources moved to code/pdefactor and tests/ (edited paths)

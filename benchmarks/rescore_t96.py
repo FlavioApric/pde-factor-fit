@@ -27,7 +27,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-for _p in (ROOT / "src", ROOT, ROOT / "benchmarks", ROOT / "analysis" / "exp"):
+for _p in (ROOT / "code", ROOT, ROOT / "benchmarks", ROOT / "code" / "experiments"):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 OUT = ROOT / "benchmarks" / "out"

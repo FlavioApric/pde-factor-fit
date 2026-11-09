@@ -30,7 +30,7 @@ abstention).
   and is not run here); it is "wrong" when its label is neither FIT-COMPATIBLE nor n/a. An abstention
   is "abstain-ok" only when the row says the truth is not resolvable (all_ident false); the P8 rows
   carry no such flag, so every P8 abstention is "abstain".
-  E13 rows: analysis/exp/e13_summary.py classify() (its equivalent() regenerates the draw's grid and
+  E13 rows: code/experiments/e13_summary.py classify() (its equivalent() regenerates the draw's grid and
   compares predictive chi^2: a few seconds per non-right row), with CRASH for rows labelled CRASH, as
   in e13_v4_summary.md. --e13-cache PATH stores those classes so a rerun is instant.
 """
@@ -44,7 +44,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-for _p in (ROOT / "src", ROOT, ROOT / "benchmarks", ROOT / "analysis" / "exp"):
+for _p in (ROOT / "code", ROOT, ROOT / "benchmarks", ROOT / "code" / "experiments"):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 

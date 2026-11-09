@@ -2,7 +2,7 @@
 
     OMP_NUM_THREADS=1 .venv/Scripts/python.exe benchmarks/cprime_trigger.py [--ll "D:/Larned layers/PDEFactorML"]
 
-Data (read only) from the learned-layers tree: the off runs (analysis/exp/out/ll_V.jsonl, ll_Gmatch_p7.jsonl,
+Data (read only) from the learned-layers tree: the off runs (code/experiments/out/ll_V.jsonl, ll_Gmatch_p7.jsonl,
 learned == "off"), the oracle sweep (ll_Cprime.jsonl, ll_Cprime_timeout.jsonl; a case is rescued when an
 action gives right / equivalent), the 12 sweep cases (ll_Cprime_cases*.json) and the 86 clean cases of
 cprime_oracle_p7.md (rows of sessions/LEARNED/V1/results/v1_gate_resid_p7.json whose off category is right,
@@ -14,7 +14,7 @@ Detectors (truth-free; the T95 df-adjusted chi^2 gap is not one, it uses the tru
   V0.1  omnibus log10 p of validate.predictive_bins < PRED_LOGP (-3); also validate's V0.1 flag
         (omnibus p < P_OMNIBUS and a bin below P_BIN / #bins)
   T88   raw_gof: scattered inputs only, so n/a on every case here
-Output: <ll>/analysis/exp/out/cprime_trigger_p7.jsonl and .md (new files only).
+Output: <ll>/code/experiments/out/cprime_trigger_p7.jsonl and .md (new files only).
 """
 from __future__ import annotations
 
@@ -26,8 +26,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-sys.path.insert(0, str(ROOT / "analysis" / "exp"))
+sys.path.insert(0, str(ROOT / "code"))
+sys.path.insert(0, str(ROOT / "code" / "experiments"))
 GOOD = ("right", "equivalent")
 
 
@@ -97,7 +97,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--ll", type=Path, default=Path("D:/Larned layers/PDEFactorML"))
     a = ap.parse_args(argv)
-    out = a.ll / "analysis" / "exp" / "out"
+    out = a.ll / "code" / "experiments" / "out"
     off = {_key(r): r for p in ("ll_V.jsonl", "ll_Gmatch_p7.jsonl") for r in _jsonl(out / p) if r.get("learned") == "off"}
     cases = [_key(dict(c)) for p in ("ll_Cprime_cases.json", "ll_Cprime_cases_timeout.json")
              for c in json.loads((out / p).read_text())]

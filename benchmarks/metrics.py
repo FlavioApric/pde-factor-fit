@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import sympy as sp
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "analysis" / "exp"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code" / "experiments"))
 from e1_noise import coef_vec, match_err, truth  # noqa: E402,F401  (ground truth of E1/E1c)
 
 from pdefactor.baselines.common import structure_of  # noqa: E402

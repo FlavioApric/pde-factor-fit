@@ -2,46 +2,30 @@ name: paper
 
 on:
   push:
-    paths: ["paper/**", "src/**", "tests/**", ".github/workflows/paper.yml"]
+    paths: ["paper/**", "code/**", "tests/**", ".github/workflows/paper.yml"]
   pull_request:
-    paths: ["paper/**", "src/**", "tests/**", ".github/workflows/paper.yml"]
+    paths: ["paper/**", "code/**", "tests/**", ".github/workflows/paper.yml"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        paper: [A_user_structure, B_proposed_structure]
+        paper: [structure_A, structure_B, explained]
     steps:
       - uses: actions/checkout@v4
       - name: Hygiene and notation checks
-        run: |
-          bash paper/tools/hygiene.sh
-          python3 paper/tools/check_notation.py
+        run: python3 code/tools/paper_checks.py
       - name: TeX Live
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq --no-install-recommends texlive-latex-recommended texlive-latex-extra \
             texlive-fonts-recommended texlive-science texlive-pictures lmodern cm-super latexmk
-      - name: Try to fetch the official SIAM class (optional)
-        continue-on-error: true
-        run: |
-          # The SIAM macros are distributed from SIAM's author page; if the download fails the papers
-          # build with the compatible fallback in paper/shared/siamshim.tex.
-          curl -fsSL -o siam.zip "${SIAM_MACROS_URL:-https://epubs.siam.org/pb-assets/macros/standard/siam-latex-standard-sty.zip}" \
-            && unzip -o -j siam.zip '*.cls' '*.bst' -d paper/${{ matrix.paper }} || echo "official class not available"
       - name: Build
-        working-directory: paper/${{ matrix.paper }}
+        working-directory: paper
         run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-          if grep -E "undefined|multiply defined" main.log; then echo "unresolved references"; exit 1; fi
-      - uses: actions/upload-artifact@v4
-        # the PDFs are also committed in the repository; a full artifact quota must not fail the build
-        continue-on-error: true
-        with:
-          retention-days: 3
-          name: ${{ matrix.paper }}
-          path: paper/${{ matrix.paper }}/main.pdf
+          latexmk -pdf -interaction=nonstopmode -halt-on-error ${{ matrix.paper }}.tex
+          if grep -E "undefined|multiply defined" ${{ matrix.paper }}.log; then echo "unresolved references"; exit 1; fi
 
   tests:
     runs-on: ubuntu-latest

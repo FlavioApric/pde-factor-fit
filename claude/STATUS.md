@@ -7,7 +7,7 @@ bootstrap that keeps copies dropping a bare split-off factor, SPLIT_CI and IDKER
 
 ## Results
 - Final benchmark (30 inputs: 10 cases x grid 1 %, grid 5 %, 400 points 5 %): pipeline 30/30 right, 0 false-confident;
-  weak SINDy 23, ensemble 19, SBR 20, PDE-FIND 4, BOP-DMD 1. Table: `benchmarks/p8_final_v5.md`.
+  weak SINDy 23, ensemble 19, SBR 20, PDE-FIND 4, BOP-DMD 1. Table: `claude/benchmark_tables/p8_final_v5.md`.
 - 20 random equations not used in development: 12 right + 7 equivalent + 1 correct abstention, 0 false-confident
   (library-regression baselines: at most 6 right).
 - Full test suite: 238 passed.
@@ -21,3 +21,6 @@ GROW_PAST, EPGP_REINTERP, FIT_GUARD / ALT_PRE: regressions on held-out families.
 3. Beam, 400 points, one seed: 90 % interval covers 0.5 (honest miss).
 4. Weights over the ambiguity of a shared zero mode; coloured (AR(1)) noise is in no suite; benchmark seeds share one field in
    the older tables (the paper uses independent fields); some constants are hand-set (LOG_BF_STRONG, CAP, z, snr_min).
+
+## Layout change (2026-11-09)
+Papers are flat files in `paper/` (`structure_A`, `structure_B`, `explained`, with `paper/figures/`); `src/` became `code/pdefactor/`; `analysis/exp` and the paper experiment scripts are in `code/experiments/`; repository tools in `code/tools/`; stored results in `benchmarks/out` and `benchmarks/data`; all markdown (including benchmark tables) in `claude/`. The graph of the repository is in `claude/graph/`, the inventory in `claude/INVENTORY.md`.
