@@ -7,7 +7,7 @@ name = "pdefactor"
 version = "0.0.1"
 description = "Reading the factor structure of a linear PDE from data: analytic core + Bayesian outer layer"
 requires-python = ">=3.12"
-dependencies = ["numpy", "scipy", "sympy", "mpmath", "scikit-learn"]
+dependencies = ["numpy", "scipy", "sympy", "mpmath", "scikit-learn", "matplotlib"]
 
 [project.optional-dependencies]
 ml = ["torch", "gpytorch", "linear_operator", "scikit-learn", "numpyro", "jax", "arviz"]
