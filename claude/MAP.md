@@ -2,32 +2,27 @@
 
 ```mermaid
 flowchart TD
-  R[README.md] --> P[paper/analytical/main.tex]
-  R --> PR[proofs/]
-  R --> V[verification/]
+  R[README.md] --> P[paper/analytical.tex + .pdf: the paper, 11 phases]
+  R --> PR[paper/analytical_proofs.tex + .pdf: all proofs]
+  R --> C[code/]
   R --> T[tests/test_verification.py]
-  R --> N[claude/notes/]
-  P --> S1[sections/thy_ring, thy_ep, port_ode: algebra]
-  P --> S2[sections/thy_factor, thy_cond, port_regularity: groups are factors]
-  P --> S3[sections/thy_eint, port_terms, port_tdpt: interaction term]
-  P --> S4[sections/thy_ident: identification and certificates]
-  P --> S5[sections/port_nonlinear: Burgers, dictionary]
-  P --> S6[sections/app_proofs: proofs]
-  P --> S7[sections/part2_ch12..ch21: Part II, Phases 6-10]
-  R --> CE[paper/analytical_complete: 117 pp paper + 263 pp proof catalogue]
-  R --> AR[claude/archive: work, research, claims, inbox, origin]
-  PR --> L[LEDGER.md: claim -> status]
-  PR --> PP[29 PROOF_PACKAGE files]
-  PR --> LN[lean/: formalised core]
-  V --> VS[one folder per proof package]
-  N --> NP[PROBLEM, ROUTES, PROBLEMI_APERTI, REPORT_FINALE, NOTAZIONE, BIBLIOGRAFIA]
+  R --> CL[claude/]
+  C --> V[verification/: 534 checks and outputs]
+  C --> L[lean/: Lean 4 formalisation]
+  CL --> PP[proofs/: 29 proof packages + LEDGER.md]
+  CL --> AR[archive/: work, research, claims, inbox, origin, editions]
+  CL --> NO[notes/: problem, routes, open problems, final report, notation, bibliography]
+  CL --> PV[PROVENANCE.md, INVENTORY.md, verification_results.md]
+  P -. cites Dim. An/Bn .-> PR
+  PR -. each card checked by .-> V
+  PP -. source of .-> PR
 ```
 
-| paper content | proof package | checks |
+| paper content | proof package (`claude/proofs/`) | checks (`code/verification/`) |
 |---|---|---|
-| identification, annihilator, EP | `proofs/C3.md`, `II.md`, `P4.md` | `verification/c12_catalog.py`, `C3/` |
-| factor decomposition, overlap | `proofs/C1C2.md` | `verification/C1C2/` |
-| stability, Friedrichs angle | `proofs/C1C2.md`, `P2.md` | `verification/P2/`, `OP-F5C/` |
-| interaction term, cost, instability | `proofs/P1.md`, `P3.md` | `verification/P1/`, `P3/` |
-| Burgers, shock, dictionary | `proofs/S4-TERM.md`, `S4-ID.md`, `S4-INTEG.md` | `verification/S4-*/` |
-| beyond the paper (variable coefficients, systems, encoders) | `proofs/S8-*.md` | `verification/S8-*/` (see branch `model-expansion`) |
+| identification, annihilator, EP | `C3.md`, `II.md`, `P4.md` | `c12_catalog.py`, `c3_checks.*` |
+| factor decomposition, overlap | `C1C2.md` | `c12_*.py` |
+| stability, Friedrichs angle | `C1C2.md`, `P2.md` | `p2_*.py`, `opf5c_*.py` |
+| interaction term, cost, instability | `P1.md`, `P3.md` | `p1_checks.py`, `p3_checks.py` |
+| Burgers, shock, dictionary | `S4-TERM.md`, `S4-ID.md`, `S4-INTEG.md` | `s4*.py` |
+| systems, variable coefficients, encoders, convergence, dictionary (Phases 6-10) | `S8-*.md`, `S10-*.md`, `OP-*.md` | `s8*.py`, `s10*.py`, `opf5*.py` |

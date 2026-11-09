@@ -1,13 +1,13 @@
-"""Quick symbolic checks behind the proof packages (the full list and status is verification/RESULTS.md)."""
+"""Quick symbolic checks behind the proof packages (the full list and status is claude/verification_results.md)."""
 import subprocess
 import sys
 from pathlib import Path
 
 import pytest
 
-V = Path(__file__).resolve().parents[1] / "verification"
-QUICK = ["S10-COL/s10col_sym.py", "OP-F5C/opf5c_gd.py", "S8-VAR/s8_galois.py", "C1C2/c12_counterexample.py",
-         "S10-OPEN-A/s10a_q6.py", "S8-VAR/s8_osc.py", "P1/p1_checks.py", "S8-VAR/s8_carleman.py"]
+V = Path(__file__).resolve().parents[1] / "code" / "verification"
+QUICK = ["s10col_sym.py", "opf5c_gd.py", "s8_galois.py", "c12_counterexample.py",
+         "s10a_q6.py", "s8_osc.py", "p1_checks.py", "s8_carleman.py"]
 
 
 @pytest.mark.parametrize("script", QUICK)

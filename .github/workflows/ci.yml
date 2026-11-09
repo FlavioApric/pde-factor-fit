@@ -20,8 +20,10 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-science texlive-pictures lmodern latexmk
-      - name: Build
-        working-directory: paper/analytical
+      - name: Build the paper and the proofs
+        working-directory: paper
         run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-          if grep -E "undefined|multiply defined" main.log; then echo "unresolved references"; exit 1; fi
+          for f in analytical analytical_proofs; do
+            latexmk -pdf -interaction=nonstopmode -halt-on-error $f.tex
+            if grep -E "undefined|multiply defined" $f.log; then echo "unresolved references in $f"; exit 1; fi
+          done
