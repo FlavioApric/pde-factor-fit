@@ -9,8 +9,8 @@ posterior; on F3-3 it does not replace PATH_CLASS, see THEORY_TO_ALGO row T9x-t9
 Run everything from the worktree so `pdefactor` resolves there (check `pdefactor.__file__`), one suite at a time.
 
 ```sh
-cd C:/Users/flavi/pdef-wt/t96-v01-guard/PDEFactorML
-export PYTHONPATH="C:/Users/flavi/pdef-wt/t96-v01-guard/PDEFactorML/src;C:/Users/flavi/pdef-wt/t96-v01-guard/PDEFactorML"
+cd C:/Users/<user>/pdef-wt/t96-v01-guard/PDEFactorML
+export PYTHONPATH="C:/Users/<user>/pdef-wt/t96-v01-guard/PDEFactorML/src;C:/Users/<user>/pdef-wt/t96-v01-guard/PDEFactorML"
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 export PDEFACTOR_PATH_CLASS=1 PDEFACTOR_FIT_GUARD=1
 PY=D:/PDEFactorML/.venv/Scripts/python.exe

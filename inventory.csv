@@ -1,7 +1,7 @@
 old_path,type,status,new_path_or_reason,bytes
 .github/workflows/paper.yml,other,modified,.github/workflows/paper.yml,1857
 .gitignore,other,modified,.gitignore,265
-Flavios notes for presentation do not read.md,private,expected-missing,private notes (never published),2596
+<private notes file>,private,expected-missing,private notes (never published),2596
 PDEFactorML-S-INTERP/.git_aside,other,moved,variants/s_interp/.git_aside,59
 PDEFactorML-S-INTERP/.gitignore,other,moved,variants/s_interp/.gitignore,104
 PDEFactorML-S-INTERP/CLAUDE.md,doc,moved,variants/s_interp/CLAUDE.md,2131

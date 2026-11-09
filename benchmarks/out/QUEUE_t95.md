@@ -4,9 +4,9 @@ Rule: on a single real noisy grid with white sigma, a final FIT-COMPATIBLE whose
 residual structure in the excited band (validate.smooth_gof_log10p, combined log10 p < -3) becomes UNDECIDED.
 It changes only the final label (factors unchanged), so the grid rows of every suite can also be checked
 offline on stored factors; the reruns below confirm it end to end. Run from
-`C:/Users/flavi/pdef-wt/t95-f4128/PDEFactorML`, one process at a time, with
+`C:/Users/<user>/pdef-wt/t95-f4128/PDEFactorML`, one process at a time, with
 
-    set PYTHONPATH=C:/Users/flavi/pdef-wt/t95-f4128/PDEFactorML/src;C:/Users/flavi/pdef-wt/t95-f4128/PDEFactorML
+    set PYTHONPATH=C:/Users/<user>/pdef-wt/t95-f4128/PDEFactorML/src;C:/Users/<user>/pdef-wt/t95-f4128/PDEFactorML
     set OMP_NUM_THREADS=1 & set MKL_NUM_THREADS=1 & set OPENBLAS_NUM_THREADS=1
     set PDEFACTOR_GRID_SMOOTH_GOF=1
 

@@ -38,7 +38,7 @@ For the next session that continues the main-session work (outer loop, refinemen
 - Plans and docs: add only. Labels: FIT-COMPATIBLE / MISFIT / ID-KER / UNDECIDED, never "law identified".
 - The core (`src/pdefactor/core/`) changes only with tests. The outer layer is Bayesian, with Monte Carlo and no linearisation.
 - `D:\ProblemaBase` is read-only (only its `graphify-out` may be written). Leave `PDEFactorML/EXPLAINED/` alone; the user edits and commits it.
-- Never read `D:\Larned layers\Flavios notes for presentation do not read.md`.
+- Never read `D:\Larned layers\<private notes file>`.
 - Out of scope (parked, raise again later): nonlinear, variable coefficients, fractional, 2+1/3+1, non-monic in τ.
 
 **Commands:**

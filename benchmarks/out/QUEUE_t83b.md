@@ -5,7 +5,7 @@ Branch `t83-two-pairs`. Switches (all default off; off == main 6c0f34a):
 - `PDEFACTOR_SPLIT_FINEST` (T99): defaults to the value of `PDEFACTOR_BRANCH_ARD`, so arm A below has it on.
   An exact split (T80, same product to rounding) is repeated until no factor splits exactly any more.
 
-Run from `C:/Users/flavi/pdef-wt/t83-two-pairs/PDEFactorML` with
+Run from `C:/Users/<user>/pdef-wt/t83-two-pairs/PDEFactorML` with
 `PYTHONPATH=<wt>/PDEFactorML/src;<wt>/PDEFactorML`, `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`.
 Reference = `heldout_t94`, `conjugate_t94` (main) in `benchmarks/out/micro/` (already used by the t83 arm).
 

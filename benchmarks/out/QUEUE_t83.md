@@ -6,7 +6,7 @@ Branch `t83-two-pairs`. Two switches, both default off (off == main 6c0f34a):
 CONJ_HALF alone finds the true two_pairs factors but the per-bin evidence then reverts the split; the pair is meant to be
 tested together (arm A). Arm B (BRANCH_ARD alone) isolates the evidence change, which touches every grid input.
 
-Run from `C:/Users/flavi/pdef-wt/t83-two-pairs/PDEFactorML` with
+Run from `C:/Users/<user>/pdef-wt/t83-two-pairs/PDEFactorML` with
 `PYTHONPATH=<wt>/PDEFactorML/src;<wt>/PDEFactorML`, `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`.
 Reference = `heldout_t94`, `conjugate_t94` (main): copy those jsonl files into `benchmarks/out/micro/` of the worktree first.
 two_pairs grid takes > 20 min per input (main: ~25 min with bootstrap).

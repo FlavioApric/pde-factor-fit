@@ -24,7 +24,7 @@ from pathlib import Path, PurePosixPath
 TEXT_EXT = {".md", ".tex", ".py", ".bib", ".txt", ".json", ".jsonl", ".csv", ".lean", ".toml", ".yml", ".yaml", ".cff", ".sh",
             ".out", ".sty", ".cls", ".bst", ".gitignore", ".bat", ".cfg", ".ini", ".graphifyignore", ".err", ".log", ".tsv"}
 MAX_TEXT = 4_000_000
-SANITIZE = [(re.compile(r"C:\\Users\\flavi\b"), r"C:\\Users\\<user>"),
+SANITIZE = [(re.compile(r"C:/Users/<user>\b"), r"C:\\Users\\<user>"),
             (re.compile(r"[A-Za-z0-9._-]+@(?:gmail|outlook|hotmail)\.com"), "<email>")]
 PRIVATE_PAT = re.compile(r"do not read", re.I)
 BACKUP_PAT = re.compile(r"(_backup|_old\b|_pre[A-Z][A-Za-z0-9]*_backup|\.v1\.|_v[0-9]_backup|backup)", re.I)

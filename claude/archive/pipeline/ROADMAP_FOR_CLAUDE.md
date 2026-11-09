@@ -7,7 +7,7 @@ Paths: `PB` = `D:\ProblemaBase` (analytic theory, **read-only**); `PDF` = `D:\PD
 
 - Read first: `PDF/CLAUDE.md` (rules 1–8; rule 8 = every change general, tested on held-out families), `PDF/HANDOFF.md` §00 (latest state), `PDF/analysis/THEORY_TO_ALGO.md` (T1–T103; next free row **T104**, add-only).
 - Use only DIMOSTRATO rows (or CON-FONTE with a verified source) of `PB/claims/LEDGER.md` as foundations. Query the theory graph: `cd D:/ProblemaBase && graphify query "<topic>"`; the code graph is `PDF/graphify-out/graph.html` (+ `GRAPH_REPORT.md`).
-- Do not write in `PB` (only its `graphify-out`). Leave `PDF/EXPLAINED/` alone (the user edits it). Never read `D:\Larned layers\Flavios notes for presentation do not read.md`.
+- Do not write in `PB` (only its `graphify-out`). Leave `PDF/EXPLAINED/` alone (the user edits it). Never read `D:\Larned layers\<private notes file>`.
 - Output contract: labels `FIT-COMPATIBLE / MISFIT / ID-KER(class) / UNDECIDED`, never "law identified". An honest UNDECIDED beats a wrong FIT-COMPATIBLE.
 - Workflow used so far: one switch per change (`PDEFACTOR_*` env), A/B on micro-suites of ≤ 15 inputs (`PDF/benchmarks/micro.py <suite> --tag X --ref Y`), full suite (`.venv/Scripts/python.exe -m pytest -q`, ≈ 13 min), `test_ml_contract.py` green, CRLF-safe patching (Python, no `sed -i`), commits only via the `D:/` repo, no push without asking.
 
