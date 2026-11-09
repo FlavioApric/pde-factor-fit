@@ -11,4 +11,4 @@ python tools/compare_graphs.py --old graphs/graph_old.json --new graphs/graph_ne
 a directory-level Mermaid overview (`.mmd`) and an interactive HTML view (`.html`, loads vis-network from a CDN).
 `compare_graphs.py` matches every file of the old graph to the new one (identical content after line-ending and path normalisation, moved, or modified) and classifies what is missing as *expected*
 (build junk, logs, backups, caches, toolchain binaries, private notes, session reports) or a **real gap** (papers, code, tests, benchmarks, Lean, theory documents, small data); it exits with status 1 while a real gap exists.
-The migration helper that placed the files is `import_old.py` and is not needed to use the repository.
+The migration helper that placed the files is `migrate_files.py` and is not needed to use the repository.
