@@ -49,7 +49,7 @@ term or by factor? What can an algorithm promise from noisy samples?
 This paper answers these questions where answers exist and says where they do not. It has three parts. \Cref{sec:contract} fixes the
 vocabulary: five meanings of ``identify'' and four classes of guarantee. \Cref{sec:ladder} states the extended algorithm over a ladder of
 levels. \Cref{sec:directions} reviews each direction of extension with its proven results and its limits. \Cref{sec:examples} works four
-examples. \Cref{sec:route} describes the smallest sequence of steps by which the code can be extended, and \cref{sec:open} lists what is open.
+examples. \Cref{sec:questions} gives the answers to the four questions that started the project (matrix coefficients, variable coefficients, convergence, the universal dictionary), \cref{sec:routes} lists the routes tried, merged, parked or eliminated and what became of the author's ideas, and \cref{sec:algo-state} states the algorithm today. \Cref{sec:route} describes the smallest sequence of steps by which the code can be extended, and \cref{sec:open} lists what is open.
 
 \paragraph{Scope and status} The proofs are in the companion paper on the analytical branch. Every statement is quoted with its status:
 \emph{proved} (a complete proof exists, internally audited), \emph{known} (a published result with a verified source), \emph{conditional} (depends on a hypothesis or an unverified citation, named),
@@ -181,6 +181,8 @@ With a magnetic field the solution set is an affine family, never unique: only i
 \paragraph{Higher dimension and nonlocal} In $2{+}1$ and $3{+}1$ the ambiguity is infinite unless the factors are comaximal, so the factor split needs an extra condition. For nonlocal laws finite data cannot distinguish $u_t=-\lvert D\rvert u$ from a local law (every finite-mode datum satisfies a local law by symbol interpolation), and in the limit
 the multiplier degree $m(\delta)\to\infty$ means the pipeline can only report \UND{} with ``no finite degree''.
 
+\input{sections/s_questions}
+
 \section{Four worked examples}\label{sec:examples}
 All four are in \texttt{examples/}; each prints its checks and the number that pass. They are symbolic or high-precision verifications, not proofs.
 
@@ -197,6 +199,8 @@ Data up to phase gives $q-\varphi'(t)$ (ID-fam). The Darboux operator $A=\partia
 Under a perturbation $\varepsilon\cos3x$ the stability bound is vacuous at $\varepsilon=10^{-3}$ ($2\delta/\rho=1.43>1$) and non-trivial at $10^{-4}$ ($0.143$).
 Finally $u=t+\sin x$ in the class $u_t=au_{xx}+bu$ has $\ker\Phi_u=0$ but no law exists: ID-ker without H-ex identifies nothing. A nonlocal example with infinitely many modes that identifies a nonlocal atom is still missing.
 
+\input{sections/s_routes}
+
 \section{A minimal route for extending the code}\label{sec:route}
 The pipeline refuses before it extends. Its validators already compare residuals per cell and per time window: a nonlinear equation shows as amplitude-dependent coupling, a variable coefficient as drift of the dispersion relation across cells, two laws as two clusters. The minimal route is therefore:
 \begin{enumerate}
@@ -206,6 +210,8 @@ The pipeline refuses before it extends. Its validators already compare residuals
 \item \textbf{Nonlinear only through a declared dictionary}, never free-form, with the misfit certificate of step 4.
 \end{enumerate}
 An evaluation found that a learned detector flags none of the injected nonlinear, variable-coefficient or two-law failures; the first step therefore needs hand-built tests with a theoretical null (the residual per bin and the smooth-structure test), not a learned score.
+
+\input{sections/s_algorithm_open}
 
 \section{Open questions and honest limits}\label{sec:open}
 \begin{enumerate}

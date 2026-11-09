@@ -3,8 +3,8 @@
 How to go beyond linear constant coefficients: nonlinear equations, variable and time-dependent coefficients, systems, nonlocal laws.
 By **Flavio Pricoco**. Code: MIT. Paper: CC BY 4.0.
 
-**Read first:** [`paper/model_expansion/main.pdf`](paper/model_expansion/main.pdf) (8 pages): the ladder of levels L0-L10, the six-step extended algorithm,
-what is proved and what is impossible in each direction, four worked examples, the minimal route for extending the code, open questions.
+**Read first:** [`paper/model_expansion/main.pdf`](paper/model_expansion/main.pdf) (13 pages): the ladder of levels L0-L10, the six-step extended algorithm,
+what is proved and what is impossible in each direction, **the four questions that started the project and their answers** (matrix coefficients, variable coefficients, convergence, universal dictionary), **the routes tried, merged, parked or eliminated** (introducing linearity, introducing a direct equation, changing variables) and what became of your ideas (Idea I, Idea II, process G), four worked examples, the algorithm today, the minimal route for extending the code, open questions.
 
 ```
 paper/model_expansion/   the paper            examples/    four checked worked examples (7+11+5+12 checks)

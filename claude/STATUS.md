@@ -12,3 +12,7 @@
 
 ## Open
 See paper section 7: robustness for variable coefficients under noise, infinite-mode nonlocal example, rigorous enclosure for the misfit residual, tighter bound than C_W, non-monic symbols, higher-dimension sum closure.
+
+## Completeness (2026-11-09)
+Paper now 13 pages: added the four questions and answers, the encoder table and boundary theorems, the registry of routes (Gates 1, 4a, 6, 8) with the author's ideas, and the algorithm-side state and open problems.
+Sources of every statement: `analytical` branch (`claude/notes/ROUTES.md`, `SYNTHESIS-2.md`, `claude/archive/origin/piano_di_ricerca.md`) and `claude/notes/ALGORITMO_ESTESO_it.md`.

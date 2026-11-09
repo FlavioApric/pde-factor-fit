@@ -1,0 +1,34 @@
+% Added section: routes, linearisation ideas, your ideas.
+\section{Routes: what was tried, merged, parked or eliminated}\label{sec:routes}
+The extension was managed as a registry of \emph{routes}, each with a promotion and an elimination criterion written before it was evaluated, and decisions recorded at numbered gates. This section lists the routes that matter for extending the algorithm, grouped by what each tries to introduce: linearity, a direct equation, or a change of variables.
+
+\subsection{Introducing linearity}
+\begin{itemize}
+\item \textbf{Factorisation and the log-symbol} (RT-1, RT-2, \emph{promoted}): split an operator by the factors of its symbol (additive split) or a sum of commuting terms by the log-symbol (multiplicative split); proved for scalar evolution equations of first order in $t$.
+\item \textbf{Commutator series} (RT-3, BCH, Zassenhaus, Dyson, Wei--Norman, \emph{promoted}): non-commuting terms; the Wei--Norman factorisation is global for solvable algebras, the Dyson series converges for $c\in L^\infty$ plus diffusion, and the closure is finite iff the potential has degree at most two.
+\item \textbf{Cole--Hopf and the inverse scattering transform} (RT-R7a, RT-R7b): a nonlinear equation becomes linear in other variables ($u=-2\nu\varphi_x/\varphi$ for Burgers; scattering data that evolve linearly for KdV and NLS). Cole--Hopf, with its tropical version, and Hirota, Miura and Darboux transformations were kept as \emph{lemmas} of the nonlinear identification, not autonomous routes.
+\item \textbf{Carleman embedding and normal forms} (a tool of the interaction-term route, \emph{active}): a polynomial nonlinearity becomes an infinite linear system.
+\item \textbf{Koopman operator} (\emph{parked}): reopen only with normal forms, where eigenfunctions carry the nonlinear term; plain dynamic-mode decomposition is regression and was excluded by the no-learning constraint of the analytic part.
+\item \textbf{Faddeev--Lippmann--Schwinger} (RT-S2a, \emph{parked} after review): $u=u^{(0)}+\sum_iu^{(i)}$ with $u^{(i)}=-G_0V_iu$, an $N\times N$ coupled system; exact in $N$ pieces at constant coefficients, but the claimed uniqueness of the equivariant splitting was false (a one-parameter family $L_0^\theta=\partial_t-\theta\sum a_i$).
+\item \textbf{Mori--Zwanzig projection} (\emph{eliminated}): the criterion was false or only source-backed; the lemmas remain.
+\end{itemize}
+
+\subsection{Introducing a direct equation (a declared dictionary)}
+\begin{itemize}
+\item \textbf{Dictionary identification} (MODREL, S4-ID, RT-DICT, \emph{active}): the annihilator ideal is replaced by the differential ideal of relations of a \emph{declared} dictionary; identification is exact only modulo the differential consequences of the equation; misfit certificates MF1--MF3, rules R1--R6, a stopping rule, and the limit statement.
+\item \textbf{Algebraic non-linearities as differential variables} (sine-Gordon, $e^u$; fused into the dictionary route).
+\item \textbf{Systems} (RT-SYS, \emph{active}): Morita equivalence and Malgrange--Oberst; the earlier tensor route (RT-5) was \emph{reopened} here.
+\item \textbf{Structured identification} (RT-IDV, \emph{active}): the residual map, with the boundary VAR-N1; Weyl, Loewy and Galois methods for ODEs (RT-ODE-GAL, restricted to the general C3-Q2).
+\end{itemize}
+
+\subsection{Changing variables, encoders and limits}
+RT-ENC (Volterra transformation, Darboux--Crum chains, pointwise and gauge transformations; \emph{parked as a route} after the Gate 8 proofs, its lemmas going to the dictionary and structured routes), RT-CONV (convergence, noise, boundary and dimension, with the iterative contract; \emph{active}), RT-NA (non-autonomous propagators; \emph{parked}, triggers listed).
+Eliminated or merged: the microlocal route for the core (it gives nothing for elliptic and parabolic operators), morphological component analysis (reduces to choosing a representative in the finite ambiguity), the restriction to the cyclic subspace (in the Weyl algebra the restriction is always injective and does not identify), the tropical estimate (true only on dissipative faces).
+Parked until a trigger: rigidity and Stokes phenomena, Painlev\'e transcendents, the periodic boundary question, the Weyl algebra for PDEs, inverse Sturm--Liouville from spectral data, homogenisation, wave operators.
+
+\subsection{Your ideas, and what was found}
+\paragraph{Idea II: all equations as matrices} Treat every PDE as a matrix equation $J_\varphi\cdot\Phi=0$ with $J_\varphi$ a differential operator, in two ways: (a) a tensor $J_{\omega,\lambda}=\lambda\otimes J_\varphi$ of higher order, one order per order of the equation; (b) more rows, as for ODEs ($\dot X=AX$ with the companion matrix whose last row carries the equation), the last row not being a matrix of numbers.
+The proposed solution is $\hat a=\sum_a f(\lambda_a)v_a\otimes v_a$ with $V_a=\{v\mid J\cdot\Phi v=av\}$ (a generalised eigenvector for higher-order tensors), so that one can work on $f$ and $\Phi$ independently, solve the linear case first and then try $f$ nonlinear. \emph{What was found}: the tensor keeps only the principal symbol (it is a geometric invariant, \emph{parked}); the companion-matrix route gives complete invariants and was \emph{promoted} (RT-6, then RT-SYS for systems); with matrix coefficients the object is the module of \cref{sec:questions}; for variable coefficients the total symbol with the $\star$-product (Weyl, Kohn--Nirenberg) was proposed as the complete tensor version, with the commutator expansion linked to the Moyal product (expected to merge into the companion-matrix route).
+\paragraph{Idea I: encoding plus grouping} Prepare the data (t-SNE, autoencoder) so that components separate, then group with a mixture model, without making the algorithm depend on it; and show that encoding plus grouping drives the interaction term to zero. \emph{What was found}: the analytic result is that no stable \emph{linear} encoder makes the interaction term vanish, and the log-symbol (nonlinear) reads terms linearly; hence analytic features only; the learned version is analysed in the ML paper (rejected for now).
+\paragraph{Process proposed (G)} Solve everything for scalar linear coefficients; see whether nonlinear coefficients can be included; if not, study $f(S\cdot x)$ with $f$ nonlinear; study the reduced space with its eigenvectors and eigenvalues. This is the ladder of \cref{sec:ladder} in its present form (L0--L5, then L6 systems, L7--L8 variable coefficients, L9 nonlocal, L10 dictionary).
+\paragraph{Problems 1 and 2} A variable $V$ (Dirac, Schr\"odinger) treated as noise to be removed by an encoder, and matrix coefficients ($4\times4$ for Dirac) are answered in \cref{sec:questions}.
