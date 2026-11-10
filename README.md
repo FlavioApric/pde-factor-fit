@@ -4,6 +4,8 @@
 
 **Open this first:** [`paper/model_expansion.pdf`](paper/model_expansion.pdf) (21 pages; LaTeX source `paper/model_expansion.tex`).
 
+> **Who this branch is for.** For people who want to *extend* the algorithm. Today the algorithm (branch `main`) handles only **linear equations with constant coefficients**; it does not handle nonlinear terms, variable coefficients, systems or nonlocal laws. What you find here is **not working, optimised extension code**: it is the thinking done so far on how to extend it, namely a ladder of levels, a specified extended algorithm with the guarantees it could offer, the routes tried and parked, and small symbolic examples that check the key identities. Treat it as starting points, considerations and open questions to build on, not as a tool to run on data.
+
 | folder | what is in it |
 |---|---|
 | `paper/` | the paper: one `.tex` and one `.pdf` |
@@ -34,7 +36,7 @@ Each example `code/ex_L*.py` is a standalone symbolic check of one level of the 
 | check a worked example | `code/ex_L6_dirac.py`, `ex_L7_poschl_teller.py`, `ex_L8_stark.py`, `ex_L9_L10_dict.py` |
 | generate test inputs outside the base class (nonlinear, variable coefficient, fractional, two laws, coloured noise, aliasing) | `code/out_of_class_inject.py` (needs the pipeline: `pip install -e ".[pipeline]"`, installs it from `main`) |
 
-**Status in one line:** the extension is a specification plus symbolic checks; it is not implemented in the pipeline. The pipeline itself lives on `main`; the proofs on `analytical`.
+**Status:** specification and symbolic checks only; nothing here is implemented in the pipeline. The pipeline lives on `main`, the proofs on `analytical`.
 
 ## Troubleshooting
 
