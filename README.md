@@ -7,6 +7,8 @@
 [`paper/structure_B.pdf`](paper/structure_B.pdf): the main paper (41 pages): one idea first, a running example, the algorithm, the benchmark. [`paper/structure_A.pdf`](paper/structure_A.pdf) is the same paper in the order theory first, then algorithm. [`paper/explained.pdf`](paper/explained.pdf) is the algorithm explained step by step in plain language (46 pages).
 Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
+> **Structure A and Structure B are the same paper, written in two alternative orders.** Same results, same proofs, same numbers: Structure B opens with the idea and a running example (best for a first read); Structure A develops the theory first and the algorithm after (best if you prefer to see the mathematics before the method). Read one, not both. `explained` is a separate, plain-language walk through the algorithm.
+
 ## The four branches
 
 | branch | what it holds | open |
