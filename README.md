@@ -4,6 +4,10 @@
 
 **Open this first:** [`paper/analytical.pdf`](paper/analytical.pdf), the paper (130 pages; LaTeX source `paper/analytical.tex`). All proofs are in [`paper/analytical_proofs.pdf`](paper/analytical_proofs.pdf) (263 pages, 155 proofs; source `paper/analytical_proofs.tex`); the paper cites each proof as "Dim. An/Bn".
 
+> **What this branch is for.** It lays the mathematical foundations of the whole project: it shows, with proofs, *when* the factor structure of a linear PDE can be read from one solution, in which sense, and where it cannot (identification, factor splitting, the interaction term, the limits of exactness), and it checks that the idea extends beyond the base class (nonlinear, systems, variable coefficients). In short, it is the evidence that the approach is feasible, and the algorithm on `main` is built on it.
+>
+> **State of the work: well advanced, not finished.** All eleven phases (0-10) are written; 155 proofs are collected in the proofs volume; many are backed by symbolic or high-precision checks (`code/verification/`) and fifteen core algebraic theorems are formalised in Lean. The proofs were reviewed by independent Claude agents, **not yet by human referees**. Every statement carries a status label, and the open problems are listed in the paper.
+
 | folder | what is in it |
 |---|---|
 | `paper/` | the paper and the proofs, one `.tex` and one `.pdf` each |
