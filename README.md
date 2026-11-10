@@ -4,10 +4,10 @@
 
 ## Open this first
 
-[`paper/structure_B.pdf`](paper/structure_B.pdf): the main paper (41 pages): one idea first, a running example, the algorithm, the benchmark. [`paper/structure_A.pdf`](paper/structure_A.pdf) is the same paper in the order theory first, then algorithm. [`paper/explained.pdf`](paper/explained.pdf) is the algorithm explained step by step in plain language (46 pages).
+[`paper/structure_B.pdf`](paper/structure_B.pdf): the main paper (41 pages): one idea first, a running example, the algorithm, the benchmark. [`paper/structure_A.pdf`](paper/structure_A.pdf) is the same paper in the order theory first, then algorithm. [`paper/reading_results.pdf`](paper/reading_results.pdf) (10 pages) explains how to **read the results**: every returned parameter and distribution, which test each p-value comes from, and how to read the direction images.
 Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
-> **Structure A and Structure B are the same paper, written in two alternative orders.** Same results, same proofs, same numbers: Structure B opens with the idea and a running example (best for a first read); Structure A develops the theory first and the algorithm after (best if you prefer to see the mathematics before the method). Read one, not both. `explained` is a separate, plain-language walk through the algorithm.
+> **Structure A and Structure B are the same paper, written in two alternative orders.** Same results, same proofs, same numbers: Structure B opens with the idea and a running example (best for a first read); Structure A develops the theory first and the algorithm after (best if you prefer to see the mathematics before the method). Read one, not both. `reading_results` is a separate guide to reading the output.
 
 ## The four branches
 
@@ -22,7 +22,7 @@ Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
 | folder | what is in it |
 |---|---|
-| `paper/` | the three papers (`.tex` + `.pdf`) and `figures/` |
+| `paper/` | the papers (`.tex` + `.pdf`) and `figures/` |
 | `code/` | `pdefactor/` the algorithm (Python package), `experiments/` experiment and figure scripts, `tools/` repository tools (paper checks, graphs, coverage) |
 | `tests/` | pytest suite (224 tests) |
 | `benchmarks/` | benchmark scripts, and `out/`, `data/` with the stored results behind the papers' numbers |

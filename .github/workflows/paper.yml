@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        paper: [structure_A, structure_B, explained]
+        paper: [structure_A, structure_B, reading_results]
     steps:
       - uses: actions/checkout@v4
       - name: Hygiene and notation checks
