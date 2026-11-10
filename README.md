@@ -4,6 +4,8 @@
 
 **Open this first:** [`paper/ml_layers.pdf`](paper/ml_layers.pdf) (39 pages; LaTeX source `paper/ml_layers.tex`). Table 5 lists every verdict; appendices hold the failure-mode table, the acceptance protocol, the test inventory, the explained edition and the original pipeline note.
 
+> **No machine-learning layer is part of the algorithm today.** The shipped pipeline on branch `main` is analytic plus Bayesian (Gaussian-process interpolation and Bayesian model comparison; nothing is trained offline). Machine learning was explored on top of it, and since that work was done it is kept here in full, so that anyone who wants to inspect, check or reproduce it can: the code, the tests, the gates and the stored results. All layers are optional, off by default, and none of them changes a label; the paper says which worked and which did not.
+
 | folder | what is in it |
 |---|---|
 | `paper/` | the paper: one `.tex` and one `.pdf` |
