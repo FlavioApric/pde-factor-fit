@@ -37,4 +37,4 @@ flowchart TD
 | components, separation | `core/components.py` | `test_core_exact.py` |
 | outer loop, evidence, labels | `loop.py`, `refine_raw.py`, `raw_gof.py`, `validate.py` | `test_loop.py`, `test_validate.py`, `test_t*.py` |
 | clustering across samples | `bayes_split.py`, `aggregate.py`, `cluster.py` | `test_aggregate_cluster.py` |
-| benchmark and baselines | `simulator.py`, `synthetic.py`, `baselines/`, `benchmarks/` | `test_baselines_bench.py`, `test_bench_sigma.py`, `test_final_report.py` |
+| benchmark and baselines | `simulator.py`, `synthetic.py`, `baselines/`, `benchmarks/` (final: `bench_large.py`, `large_report.py`) | `test_baselines_bench.py`, `test_bench_sigma.py`, `test_final_report.py` |

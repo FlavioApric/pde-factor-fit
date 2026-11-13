@@ -9,6 +9,16 @@ Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
 > **Structure A and Structure B are the same paper, written in two alternative orders.** Same results, same proofs, same numbers: Structure B opens with the idea and a running example (best for a first read); Structure A develops the theory first and the algorithm after (best if you prefer to see the mathematics before the method). Read one, not both. `reading_results` is a separate guide to reading the output.
 
+## Results in one table
+
+| benchmark | inputs | this method: right or equivalent | this method: wrong without warning | best baseline |
+|---|---|---|---|---|
+| **large random-PDE benchmark** (final) | 285 independent random equations, 5 families, grid, 1 % noise; none used in development | **275 / 285 = 96.5 %** (95 % CI 93.7-98.1) | **0** (upper 95 % bound 1.0 %) | weak SINDy: 81 / 285 = 28.4 %, wrong without warning on 204 |
+| development benchmark | 10 equations x 3 designs (grid 1 %, grid 5 %, 400 scattered points 5 %) | 30 / 30 | 0 | weak SINDy: 25 / 30, wrong without warning on 5 |
+| independent repetitions | the two grid designs, 3 new fields and noise draws each | 60 / 60 | 0 | weak SINDy: 47 / 60, wrong without warning on 13 |
+
+In the large benchmark 15 of the 300 planned draws (12 in family F4, 3 in F5) hit the 3-hour time limit and have no result; counting every one of them as a failure still gives 275 / 300 = 91.7 %. Full table with per-family results and paired tests: [`claude/benchmark_tables/large.md`](claude/benchmark_tables/large.md); raw rows: [`benchmarks/out/large.jsonl`](benchmarks/out/large.jsonl). Development and repetition tables: [`claude/benchmark_tables/p8_final_v5.md`](claude/benchmark_tables/p8_final_v5.md).
+
 ## The four branches
 
 | branch | what it holds | open |
@@ -25,7 +35,7 @@ Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 | `paper/` | the papers (`.tex` + `.pdf`) and `figures/` |
 | `code/` | `pdefactor/` the algorithm (Python package), `experiments/` experiment and figure scripts, `tools/` repository tools (paper checks, graphs, coverage) |
 | `tests/` | pytest suite (224 tests) |
-| `benchmarks/` | benchmark scripts, and `out/`, `data/` with the stored results behind the papers' numbers |
+| `benchmarks/` | benchmark scripts (the final large benchmark is `bench_large.py` + `large_report.py`), and `out/`, `data/` with the stored results behind the papers' numbers |
 | `claude/` | for Claude sessions: rules, status, map, theory-to-code table, plans, reports, graph of the repository, inventory, where each file came from (`claude/PROVENANCE.md`) |
 
 ## Quick start (3 minutes)
@@ -58,6 +68,7 @@ Other built-in cases: `python -m pdefactor.demo --list`, e.g. `python -m pdefact
 | see the algorithm work in 10 seconds | `python -m pdefactor.demo` |
 | get a full report with figures for a case | `python benchmarks/final_report.py --case transport_plus_diffusion --noise 0.05 --out my_run` (then open `my_run/`) |
 | use it from my own Python code | `from pdefactor.loop import run_loop` (see below) |
+| reproduce the large random-PDE benchmark | `python benchmarks/bench_large.py --seeds 0-59 --noises 0.01 --workers 6` (resumable; hours), then `python benchmarks/large_report.py` |
 | check that everything works | `pytest -q tests/test_core_exact.py` (seconds); `pytest -q` is the full suite (about 55 min) |
 | read the idea | `paper/structure_B.pdf` |
 | rebuild a paper | `cd paper && latexmk -pdf structure_B.tex` |
