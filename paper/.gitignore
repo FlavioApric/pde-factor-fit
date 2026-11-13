@@ -9,3 +9,7 @@
 *.synctex.gz
 build.log
 *_prev*.png
+*.thm
+# SIAM class files: download from SIAM (https://epubs.siam.org/journal-authors), not redistributed here
+siamonline*.cls
+siamplain.bst

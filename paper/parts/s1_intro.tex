@@ -1,0 +1,156 @@
+\title{Groups Are Factors: Learning Linear PDEs\\by Clustering Modes on the Factors of the Symbol}
+\author{Flavio Pricoco\thanks{\email{flaflapr@gmail.com}}}
+\headers{Groups are factors: learning linear PDEs}{F. Pricoco}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Methods that learn partial differential equations from data usually regress a time derivative on a library of terms.
+We argue that for linear equations with constant coefficients the natural unit is not the term but the factor of the
+symbol. Every Fourier mode of a solution lies on the zero set of one factor, so learning the equation means grouping
+the modes by factor. We prove that every solution splits into one component per factor, uniquely up to an overlap
+counted by the intersection points of the zero sets; that additive terms admit no such split; that the split is stable
+exactly when the factors' solution spaces are well conditioned (for two factors, when their Friedrichs angle is
+positive); and that finite data can support but never certify an equation. The resulting algorithm groups twice:
+within one sample of the field it clusters Fourier modes onto the curves of the factors, and across posterior samples
+it clusters the factors with a Dirichlet-process mixture. Its output is a distribution over equations with intervals,
+the separation of each group, and a label stating what the data support. On 285 random equations never used in
+development it returns the right or an equivalent equation on 96.5\% and is never wrong without warning, while weak
+SINDy is right on 28.4\% and wrong without warning on 204. On a ten-equation development benchmark it recovers all
+thirty factor sets, including the products of factors on which the best library regression fails.
+\end{abstract}
+
+\begin{keywords}
+equation discovery, operator factorization, dispersion relation, Friedrichs angle, matrix pencil, Dirichlet process,
+uncertainty quantification
+\end{keywords}
+
+\begin{MSCcodes}
+35E20, 62F15, 65M32, 68T05
+\end{MSCcodes}
+
+\section{Introduction}\label{sec:intro}
+Consider a quantity that is carried by a flow and diffuses at the same time, observed with noise. A natural model is
+\begin{equation}\label{eq:intro-tpd}
+  (\partial_t+c\,\partial_x)(\partial_t-\nu\,\partial_x^2)\,u=0,
+\end{equation}
+whose solutions are sums of a travelling profile and a diffusing one. A method that regresses $u_t$ on a library of
+terms such as $u_x$, $u_{xx}$, $u_{xxx}$ looks for one equation $u_t=\sum_k\beta_k\,\partial_x^ku$. The data obey the
+\emph{product} of two such equations, and no single sum of terms fits them: every library-regression method we tested
+returns a wrong equation for \eqref{eq:intro-tpd} at $5\%$ noise, and none of them warns.
+
+\paragraph{The idea} In Fourier variables a constant-coefficient operator is a polynomial in $(\tau,\xi)$, with
+$\tau\leftrightarrow\partial_t$ and $\xi\leftrightarrow\partial_x$; the operator in \eqref{eq:intro-tpd} is
+$(\tau+c\,\xi)(\tau-\nu\,\xi^2)$. A Fourier mode $e^{\lambda t+i\kappa x}$ solves the equation exactly when $(\lambda,i\kappa)$
+is a zero of this polynomial, that is, a zero of one of its factors. So the modes of every solution lie on a few curves,
+one per factor: here the line $\lambda=-ic\kappa$ (transport) and the parabola $\lambda=-\nu\kappa^2$ (diffusion), as in
+\cref{fig:branches}. \emph{Learning the equation means finding these curves, which is a clustering problem whose
+clusters are curves rather than points.} This paper develops that idea from the algebra to an algorithm with calibrated
+uncertainty.
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[x=0.40cm,y=0.40cm,>=Stealth,font=\footnotesize]
+  \begin{scope}
+    \draw[->,gray] (-4.5,0)--(4.8,0) node[right,black]{$\kappa$};
+    \draw[->,gray] (0,-4.5)--(0,4.8) node[above,black]{$\operatorname{Im}\lambda$};
+    \draw[very thick,color={rgb,255:red,42;green,120;blue,214}] (-4.2,4.2)--(4.2,-4.2);
+    \draw[very thick,color={rgb,255:red,235;green,104;blue,52},dashed] (-4.2,0)--(4.2,0);
+    \foreach \k in {-3,-2,-1,1,2,3} \fill[color={rgb,255:red,42;green,120;blue,214}] (\k,-\k) circle (2.6pt);
+    \foreach \k in {-2,-1,1,2} \fill[color={rgb,255:red,235;green,104;blue,52}] (\k,0) +(-2.4pt,-2.4pt) rectangle +(2.4pt,2.4pt);
+    \node[anchor=west,align=left] at (1.2,3.3) {transport\\$\lambda=-ic\kappa$};
+    \node at (0,-5.8) {(a) oscillation};
+  \end{scope}
+  \begin{scope}[xshift=10.6cm]
+    \draw[->,gray] (-4.5,0)--(4.8,0) node[right,black]{$\kappa$};
+    \draw[->,gray] (0,-4.5)--(0,1.6) node[above,black]{$\operatorname{Re}\lambda$};
+    \draw[very thick,color={rgb,255:red,42;green,120;blue,214},dashed] (-4.2,0)--(4.2,0);
+    \draw[very thick,color={rgb,255:red,235;green,104;blue,52},domain=-3.8:3.8,samples=60] plot (\x,{-0.3*\x*\x});
+    \foreach \k in {-3,-2,-1,1,2,3} \fill[color={rgb,255:red,42;green,120;blue,214}] (\k,0) circle (2.6pt);
+    \foreach \k in {-2,-1,1,2} \fill[color={rgb,255:red,235;green,104;blue,52}] (\k,{-0.3*\k*\k}) +(-2.4pt,-2.4pt) rectangle +(2.4pt,2.4pt);
+    \node[anchor=west,align=left] at (1.8,1.6) {diffusion\\$\lambda=-\nu\kappa^2$};
+    \node at (0,-5.8) {(b) damping};
+  \end{scope}
+\end{tikzpicture}
+\caption{The idea of the paper on $(\partial_t+c\,\partial_x)(\partial_t-\nu\,\partial_x^2)u=0$. Every Fourier mode
+$e^{\lambda t+i\kappa x}$ of a solution lies on the zero set of one factor of the symbol $(\tau+c\xi)(\tau-\nu\xi^2)$:
+circles on the line of the transport factor, squares on the parabola of the diffusion factor (schematic;
+\cref{fig:directions} shows the modes found in noisy data). Learning the equation means learning these two
+groups.}\label{fig:branches}
+\end{figure}
+
+\paragraph{What the theory says} Three questions decide whether this clustering is well posed, and
+\cref{sec:theory} answers each. \emph{Are the groups really the factors?} Yes: every solution splits into one
+component per factor, uniquely up to an overlap whose dimension is the number of intersection points of the zero sets
+(\cref{thm:factor}); additive terms, by contrast, admit no such split (\cref{prop:terms}). \emph{How well can the
+groups be separated?} Exactly as well as the Friedrichs angle between the factors' solution spaces allows
+(\cref{thm:hm}). \emph{What can finite data establish?} They can support a factored equation but never certify it
+(\cref{prop:certify}); this is why the algorithm reports labels, not ``identified''.
+
+\paragraph{What the algorithm does} It groups twice (\cref{fig:roadmap}). \emph{Within one sample} of the field it
+reads the temporal rates of every wavenumber (the points of \cref{fig:branches}) and clusters them onto the curves of
+candidate factors. \emph{Across posterior samples} it clusters the factors found in each sample, with a Dirichlet-process
+mixture, so that the uncertainty of the data becomes a distribution over equations. Every decision is finally checked
+against the raw observations, and the output carries intervals, the separation of each group and a label.
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  node distance=3.5mm and 4.5mm,
+  box/.style={draw=black!55, rounded corners=2pt, align=center, font=\footnotesize, inner sep=3pt,
+              minimum height=10mm, text width=20mm, fill=white},
+  grp/.style={box, fill=blue!8, very thick},
+  thy/.style={font=\scriptsize\itshape, text=black!60, align=center},
+  arr/.style={-{Stealth[length=2mm]}, black!60, thick}]
+\node[box] (data) {noisy data\\$\{(t_i,x_i,y_i)\}$};
+\node[box, right=of data] (gp) {field samples\\$u^{(1)},\dots,u^{(\Nsamp)}$};
+\node[box, right=of gp] (modes) {modes $(\kappa,\lambda)$\\per wavenumber};
+\node[grp, right=of modes] (fac) {\textbf{grouping I}\\modes $\to$ factors};
+\node[grp, below=8mm of fac] (cloud) {\textbf{grouping II}\\factors over samples};
+\node[box, left=of cloud] (clus) {distribution\\over equations};
+\node[box, left=of clus] (split) {components $u_j$,\\separation $\gN$};
+\node[box, left=of split] (out) {equation with\\intervals and label};
+\draw[arr] (data)--(gp); \draw[arr] (gp)--(modes); \draw[arr] (modes)--(fac);
+\draw[arr] (fac)--(cloud); \draw[arr] (cloud)--(clus); \draw[arr] (clus)--(split); \draw[arr] (split)--(out);
+\node[thy, above=1mm of gp] {\S\ref{sec:modes}};
+\node[thy, above=1mm of modes] {\S\ref{sec:modes}};
+\node[thy, above=1mm of fac] {\S\ref{sec:group1}, Thm.~\ref{thm:factor}};
+\node[thy, below=1mm of cloud] {\S\ref{sec:group2}};
+\node[thy, below=1mm of clus] {\S\ref{sec:group2}};
+\node[thy, below=1mm of split] {Thm.~\ref{thm:hm}, Prop.~\ref{prop:bayes-angle}};
+\node[thy, below=1mm of out] {\S\ref{sec:labels}, Prop.~\ref{prop:certify}};
+\end{tikzpicture}
+\caption{The method at a glance. The two grouping steps (thick boxes) are the core of the paper: modes are clustered
+onto the curves of the factors within one sample, and factors are clustered across posterior samples. Each box names
+the section that describes it and the result that justifies it.}\label{fig:roadmap}
+\end{figure}
+
+\paragraph{Contributions}
+\begin{enumerate}
+  \item \emph{The grouping principle and its limits}: groups are factors, with the exact ambiguity $\deltaP$
+  (\cref{thm:factor}); terms are not groups (\cref{prop:terms}); the conditioning of the split (\cref{thm:hm}) and its
+  Bayesian form (\cref{prop:bayes-angle}); what finite data can certify (\cref{thm:ident,prop:certify}).
+  \item \emph{An algorithm that learns the groups} from noisy, gridded or scattered data, by clustering modes onto
+  curves and factors across samples, whose output encodes these limits as intervals and labels.
+  \item \emph{Evidence}: on $285$ random equations never used in development, $96.5\%$ right or equivalent and no
+  confident wrong answer, against $28.4\%$ and $204$ confident wrong answers for weak SINDy; on a ten-equation
+  benchmark in three designs, $30$ of $30$ factor sets.
+\end{enumerate}
+
+\paragraph{Relation to prior work}
+Most methods that learn a PDE from data regress a time derivative on a library of candidate terms: SINDy and
+PDE-FIND~\cite{BruProKut16,RudBruProKut17}, their weak, ensemble and Bayesian variants~\cite{MesBor21,FasKutBru22,HirBarKut22},
+and Gaussian-process formulations of linear operators~\cite{RaiPerKar17}. Their unit is the \emph{term}. Dynamic mode
+decomposition~\cite{Sch10,SasKut22} works with eigenvalues, as we do, but returns a linear operator on the data, not an
+equation, and does not group eigenvalues by the factor they belong to. Matrix pencils~\cite{HuaSar90}, the algebra of
+constant-coefficient operators and the Ehrenpreis--Palamodov fundamental principle~\cite{Ehr70,Pal70,Mal56,Hor90,Obe90},
+and Dirichlet-process mixtures~\cite{BleJor06} are classical. What is new is the connection: the \emph{factor} of the
+symbol, not the term, as the unit of learning; what finite data can certify about it and how stably it can be
+separated; and an algorithm that groups twice and reports these limits.
+
+\paragraph{Scope} Everything proved and implemented concerns scalar linear equations with constant coefficients in one
+time and one space variable, observed on a rectangle. Equation~\eqref{eq:intro-tpd} with $c=1$, $\nu=0.3$ is the running
+example. The proofs of the main results, the complete algorithm with its parameters, further cases, a guide to reading the
+output, and the code and benchmark data are in the supplementary materials; the code is public~\cite{Pri26code}.
+

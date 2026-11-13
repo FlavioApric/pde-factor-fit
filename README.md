@@ -2,6 +2,26 @@
 
 **Reading the factor structure of a linear PDE from data.** For a linear equation with constant coefficients, the natural unit is not the term but the *factor of the symbol*: every Fourier mode of a solution lies on the zero set of one factor, so the modes fall into groups, and learning the equation means finding those groups. This repository holds the theory, the algorithm, the code and the papers. Author: **Flavio Pricoco**.
 
+## This branch: the SIMODS submission (`simods-submission`)
+
+The paper compacted to SIAM's limit and submitted to the *SIAM Journal on Mathematics of Data Science*, with its
+supplementary materials:
+
+| file | what it is |
+|---|---|
+| [`paper/simods.pdf`](paper/simods.pdf) | **the paper** (17 pages in SIAM's class: 16 of text + references; limit 20): one idea, groups are factors, built around the two groupings, with the 285-equation benchmark as the main evidence |
+| [`paper/simods_supplement.pdf`](paper/simods_supplement.pdf) | the supplementary materials (12 pages): proofs of the main results written to be read, interaction term, complete algorithm and parameters, further cases, guide to the output, beyond the linear case |
+| `paper/parts/` | the editable sources, one file per section; `code/tools/assemble_simods.py paper` writes `paper/simods.tex` and `paper/simods_supplement.tex` from them |
+| `code/experiments/make_fig_evidence.py` | draws the new evidence figure `paper/figures/fig_evidence.pdf` |
+| `code/tools/build_supplement_zip.py` | builds the code-and-data archive sent as supplementary material (a byte-exact snapshot of this repository's code and benchmark data plus the worked-example run) |
+
+To rebuild the PDFs, put SIAM's class `siamonline250211.cls` and `siamplain.bst` (from
+https://epubs.siam.org/journal-authors) in `paper/`, then run `pdflatex` on `simods.tex` and `simods_supplement.tex`
+twice each, alternating, so that the cross-references between paper and supplement resolve. Without the class the
+paper builds with the fallback in its preamble, for reading only.
+
+The longer papers below are unchanged and remain the complete record.
+
 ## Open this first
 
 [`paper/structure_B.pdf`](paper/structure_B.pdf): the main paper (41 pages): one idea first, a running example, the algorithm, the benchmark. [`paper/structure_A.pdf`](paper/structure_A.pdf) is the same paper in the order theory first, then algorithm. [`paper/reading_results.pdf`](paper/reading_results.pdf) (10 pages) explains how to **read the results**: every returned parameter and distribution, which test each p-value comes from, and how to read the direction images.

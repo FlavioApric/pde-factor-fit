@@ -1,0 +1,57 @@
+\section{Discussion}\label{sec:discussion}
+\paragraph{What is proved, what is designed, what is measured} \Cref{tab:status} separates the three kinds of claim. The
+theorems hold under their hypotheses; the algorithm uses them as design rules, not as guarantees about its output; and
+the numbers are evidence on synthetic data.
+
+\begin{table}[tbp]
+\centering\small
+\caption{The kinds of claim made in the paper.}\label{tab:status}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.0cm}X@{}}
+\toprule
+Kind & Statements\\
+\midrule
+proved & groups are factors with overlap $\deltaP$ (\cref{thm:factor}); terms are not groups (\cref{prop:terms});
+stability via $\gN$ (\cref{thm:hm}) and its Bayesian form (\cref{prop:bayes-angle}); identification and its limits on
+finite data (\cref{thm:ident,prop:certify}); counting condition (\cref{prop:counting})\\
+design rule & cluster modes onto curves, not terms onto a library; labels instead of ``identified''; decisions on the raw
+observations; growth of the class instead of coefficient penalties; minimum-norm split of the overlap\\
+measured & $275/285$ right or equivalent and $0$ confident wrong answers on random equations not used in development;
+$30/30$ on the development benchmark and $60/60$ on its independent repetitions; coefficient coverage $0.94$ at nominal
+$0.90$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Limits that no amount of data removes} Some limits are theorems, and the output is built to show them rather
+than hide them. \emph{Error floor}: in the Gaussian model of \cref{sec:group2} every unbiased estimator of the components
+has variance at least $\noise^2/\gN$ in the worst direction, so closely aligned groups are intrinsically hard to separate.
+\emph{No data-free threshold}: whether a numerical symbol ``factors'' depends on the noise level, which is why decisions are
+made by evidence and not by a tolerance on coefficients. \emph{Repeated factors}: finite noisy data cannot distinguish
+$P_i^2$ from two nearby factors, hence the label \UND. \emph{No certificate}: by \cref{prop:certify}, outputs are
+compatibility statements with uncertainty, never identifications.
+
+\paragraph{Beyond the linear ring} The two groupings do not depend on the equation being linear with constant
+coefficients in one space dimension, and there are concrete reasons to expect the algorithm to extend. The matrix pencil
+reads the temporal rates at every wavenumber vector $\kappa\in\R^d$ exactly as in one dimension, and the groups become
+hypersurfaces $Q_j(\lambda,i\kappa)=0$ that grouping I can fit in the same way. For slowly varying coefficients a windowed
+transform gives local rates $\lambda(\kappa;x_0)$, and each group becomes a family of curves indexed by position. For a
+nonlinear equation, a short-time expansion shows that the flow is its linearization plus a quadratic interaction term,
+so modes of the linearized flow can still be grouped on short windows. What does not carry over unchanged is the
+theory: in higher dimension two factors can share a whole curve of zeros, the operators with variable coefficients form a
+non-commutative algebra without unique factorization, and nonlinear solutions do not superpose. The first task in each
+direction is therefore the one carried out here for the linear case: decide which pieces of the equation a solution
+carries, how uniquely and how stably, and only then design the learning procedure around them (\SMbeyond).
+
+\section{Conclusion}\label{sec:conclusion}
+Groups are factors. This one statement, made precise by \cref{thm:factor} and its companions, determines what an
+equation-learning algorithm should look for (modes on the curves of the factors), how it should combine evidence
+(clustering factors across posterior samples), how it should measure uncertainty (through the Friedrichs angle), and
+what it may claim (compatibility, never certification). On $285$ random equations never used in its development the
+resulting method is right or equivalent on $96.5\%$ and never wrong without warning, while regression on a library of
+terms is wrong without warning on most products and higher-order factors.
+
+\section*{Code and data availability}
+The code, the benchmark scripts and every stored result behind the numbers of this paper are at
+\url{https://github.com/FlavioApric/pde-factor-fit}~\cite{Pri26code}; a snapshot is included in the supplementary
+materials.
+

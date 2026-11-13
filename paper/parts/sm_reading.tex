@@ -1,0 +1,64 @@
+\subsection{How to read the output}\label{sm:reading}
+The worked example of \cref{sec:worked}, run with the benchmark protocol (one noisy grid, $16$ bootstrap refits),
+produces a text report and five images; all of them are in the folder \texttt{example\_run/} of the archive, and the
+report returns the equation of \cref{tab:worked}. This section says how to read them. With scattered data the same
+report is computed over posterior samples of the field instead of bootstrap refits.
+
+\paragraph{Three kinds of number} The output mixes three kinds of number, which must not be confused.
+\emph{Posterior probabilities} ($P(k)$, $P(\Mfit)$, $P(\text{split})$) come from model comparison and say which model wins
+within the models considered; they are not p-values. \emph{Goodness-of-fit p-values}, always printed as $\log_{10}p$, test
+the null hypothesis that the reported equation holds and the residual is white noise of the given level; a small $p$
+withdraws the claim (below $10^{-3}$ the label becomes \MIS), while a large $p$ only says that no misfit was found, which
+is why the label is \FC{} and never ``identified''. \emph{Distributions over posterior samples} (of $\cF$, $\gN$, $\rho$,
+the shares $w_j$ and every coefficient) are summarized by their $5\%$, $50\%$ and $95\%$ quantiles; read the width of the
+interval first.
+
+\paragraph{Directions} A factor $Q$ can carry the mode $e^{\lambda t+i\kappa x}$ exactly when $Q(\lambda,i\kappa)=0$. The image
+\texttt{directions.png} (\cref{sm:fig:directions}) therefore shows, for each factor, $\log_{10}\abs{Q(\lambda,i\kappa)}$ over the
+plane of wavenumber and rate: dark pixels are the modes the factor can carry, and reading a factor means reading its
+dark curve. Because $\lambda$ is complex each factor gets two panels, oscillation ($\operatorname{Im}\lambda$) and damping
+($\operatorname{Re}\lambda$). A tilted line in the oscillation panel with a flat line at zero in the damping panel is
+transport; a flat line in the oscillation panel with a downward parabola in the damping panel is diffusion; curves in
+both are damped waves. A blurred or broken curve means poorly determined coefficients.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{sm_directions}
+\caption{\texttt{directions.png}: each column is one reported factor; dark curves are the modes it can carry. Left:
+transport (tilted in the oscillation row, flat in the damping row). Right: diffusion (flat in the oscillation row, a
+parabola in the damping row).}\label{sm:fig:directions}
+\end{figure}
+
+\paragraph{Separation of the factors} The image \texttt{operator\_space.png} (\cref{sm:fig:opspace}) compares the reported
+factors and the factors found in the posterior samples by the largest principal angle between their solution spaces. Two
+compact blocks far apart mean two well separated factors on which the samples agree; a spread-out cloud, or samples
+halfway between two factors, means that the samples disagree about the structure; two reported factors close together
+mean a small $\gN$ and wide intervals for the components.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{sm_operator_space}
+\caption{\texttt{operator\_space.png}. Left: distance between operators. Middle: largest principal angle between the
+solution spaces of every pair of factors (the reported factors \texttt{f0}, \texttt{f1} and the factors \texttt{s0t0},
+\texttt{s0t1} found in the field sample), ordered by cluster; dark diagonal blocks are the groups, about $1.2$ rad apart.
+Right: a two-dimensional map of these angles; stars are the reported factors, dots the factors of the
+samples.}\label{sm:fig:opspace}
+\end{figure}
+
+\paragraph{Components} The image \texttt{modes\_and\_components.png} shows, for each factor, a few of its kernel modes and
+the component $u_j$ of the data attributed to it; the components add up to the data up to the residual. If a component
+looks like noise, or like a copy of another, that factor is not well separated. \texttt{directions\_uncertainty.png}
+shows where the posterior samples disagree about each curve, and \texttt{distributions.png} the histograms of $\cF$, $\gN$
+and $\rho$ over the samples.
+
+\paragraph{Five questions to ask of any result}
+\begin{enumerate}
+\item What is the label? Anything other than \FC: read the note that comes with it.
+\item Are the factors separated? $P(\text{split})$ close to one, $\gN$ not tiny, two distinct blocks in
+\cref{sm:fig:opspace}.
+\item Is each coefficient narrow and nonzero? Look at the $90\%$ interval of every term.
+\item Does the model pass the tests? No $\log_{10}p$ below $-3$.
+\item Do the pictures look like physics? Clean dark curves, components that look like the data, posterior samples on top
+of the reported factors.
+\end{enumerate}
+

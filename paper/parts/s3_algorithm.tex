@@ -1,0 +1,185 @@
+\section{Learning the groups}\label{sec:algorithm}
+The algorithm turns the data into modes (\cref{sec:modes}), clusters the modes onto the curves of factors within each
+sample of the field (grouping I, \cref{sec:group1}) inside a class of operators chosen by the data
+(\cref{sec:class}), clusters the factors across samples (grouping II, \cref{sec:group2}), and labels the result
+(\cref{sec:labels}). The complete algorithm, with every parameter and its default, is in \SMalgo.
+
+\subsection{From data to modes}\label{sec:modes}
+\paragraph{Field samples} The input is a set of noisy observations $y_i=u(t_i,x_i)+\varepsilon_i$,
+$\varepsilon_i\sim\Normal(0,\noise^2)$, on a window $[0,T]\times[0,L)$ periodic in $x$, or a noisy field on a regular grid.
+Scattered observations are interpolated by a Gaussian process whose kernel is a sum of separable Mat\'ern-$5/2$
+products (a transported profile and a diffusing one do not share a length scale), with the hyperparameters integrated
+out by importance sampling. The output of this stage is not the posterior mean but $\Nsamp$ posterior \emph{samples}
+$u^{(q)}$ of the field, each with a weight $\pi_q$. The reason is structural: the maps applied next are not continuous
+(factors of a numerical symbol jump where it becomes reducible), so the mean of the outputs differs from the output of
+the mean, and the mean, a Wiener filter, shrinks exactly the fast-decaying high-wavenumber modes that carry the
+diffusive factors. On gridded input the noisy grid itself is used, and parametric-bootstrap refits provide the spread.
+
+\paragraph{The usable band} Not every wavenumber carries information about the symbol. Three limits apply: spatial
+aliasing ($\abs{\kappa}\le\pi/\Delta x$); temporal aliasing along a branch, since a rate is read from samples spaced by
+$\Delta t$ only modulo $2\pi i/\Delta t$; and, usually the binding one, noise together with decay. After the spatial Fourier
+transform one wavenumber bin carries noise of standard deviation $\sigbin=\noise/\sqrt{n_x}$, and a mode is used only
+while its amplitude exceeds $z\,\sigbin$ ($z=3$). A diffusive mode of rate $-\nu\kappa^2$ falls below this threshold after
+a time of order $\log(\abs{A_\kappa}/z\sigbin)/(\nu\kappa^2)$, so the high wavenumbers of a dissipative group are lost
+first. This is a property of the data, not of the method. The band $\mathcal K$ is the set of wavenumbers that pass all
+three limits. It must hold enough distinct wavenumbers per group:
+
+\begin{proposition}[Counting condition]\label{prop:counting}
+Let $Q=\tau-\Lambda(\xi)$ with $\Lambda$ a polynomial of degree at most $d$. Its coefficients are determined by the rates
+$\lambda(\kappa_\ell)=\Lambda(i\kappa_\ell)$ at $d+1$ distinct wavenumbers, and not by fewer; the coefficient error is at
+most $\norm{V^{-1}}\max_\ell\abs{\delta\lambda_\ell}$ with $V=((i\kappa_\ell)^k)$ the Vandermonde matrix, whose inverse grows
+like $h_\kappa^{-d}$ when the nodes cluster within a spread $h_\kappa$~\cite{Gau62}. For real coefficients
+$\lfloor d/2\rfloor+1$ distinct values of $\abs{\kappa}$ suffice.
+\end{proposition}
+
+So the whole band is used, not the cleanest few bins: spreading the wavenumbers is what keeps $V$ well conditioned.
+
+\paragraph{Rates by the matrix pencil} For each sample and each $\kappa\in\mathcal K$, the spatial Fourier transform gives
+a time series that, for a constant-coefficient equation, is a sum of exponentials, one per root of the symbol at that
+wavenumber:
+\begin{equation}\label{eq:expsum}
+  \hat u(t,\kappa)=\sum_{p=1}^{r(\kappa)}A_p\,e^{\lambda_p(\kappa)t},\qquad Q_{j(p)}\big(\lambda_p,i\kappa\big)=0 .
+\end{equation}
+The rates are the eigenvalues of $\partial_t$ on the space spanned by the series and its shifts, and the matrix pencil
+method computes them~\cite{HuaSar90}. From the Hankel matrix $H_{\ell k}=\hat u(t_{\ell+k},\kappa)$ take $Y_0$ ($H$ without
+its last column) and $Y_1$ ($H$ without its first), both projected on the $r$ leading singular directions. Advancing a
+series by one step multiplies the term $A_pe^{\lambda_pt}$ by $\mu_p=e^{\lambda_p\Delta t}$, so
+\begin{equation}\label{eq:pencil}
+  \lambda_p=\tfrac{1}{\Delta t}\log\mu_p,\qquad \mu_p\in\operatorname{eig}\big(Y_0^{+}Y_1\big).
+\end{equation}
+The order $r$ is chosen per bin by BIC, and each rate receives a standard deviation $\sigma_{\lambda,p}$ from the
+Cram\'er--Rao bound of model \eqref{eq:expsum}; weak, fast-decaying or nearly coincident modes receive large ones.
+This step does \emph{not} fit the equation: it returns a cloud of points $(\kappa,\lambda_p(\kappa))$ with error bars, the
+noisy version of \cref{fig:branches}. Two rates closer than about $4/T$ cannot be resolved in a window of length $T$; such
+bins are flagged as confluent.
+
+\subsection{Grouping I: modes onto curves}\label{sec:group1}
+The obvious route, fitting one polynomial through all points and factoring it, is ill-posed: a polynomial with noisy
+coefficients is almost never reducible, and when it is, its factors move discontinuously with the coefficients (in our
+tests this route split the irreducible Klein--Gordon and telegraph symbols at noise $10^{-4}$). We therefore group and fit
+at the same time. Given a structure $\Mfit$ (the number $N$ of factors and their degrees, \cref{sec:class}), we solve the
+\emph{$N$-varieties problem}, a version of $k$-means in which the cluster centres are curves instead of points: assign
+every mode to the factor whose variety is nearest, refit each factor to the modes assigned to it, and repeat until the
+assignment stops changing. The distance of mode $p$ to factor $Q_j$ is its first-order distance to the variety in units
+of its own uncertainty,
+\begin{equation}\label{eq:dist}
+  r_j(p)=\frac{\abs{Q_j(\lambda_p,i\kappa_p)}}{\sigma_{\lambda,p}\,\abs{\partial_\tau Q_j(\lambda_p,i\kappa_p)}},
+\end{equation}
+and each mode costs $\min(r_j(p)^2,9)$, so an isolated outlier pays a fixed penalty instead of dragging a curve away.
+This is the grouping of \cref{thm:factor} learned directly from the spectrum.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{fig_directions}
+\caption{Grouping I on the running example ($64\times128$ grid, $5\%$ noise). Points: modes found by the matrix pencil,
+coloured by the factor they were assigned to. Dashed: the true branches $\lambda=-ic\kappa$ and $\lambda=-\nu\kappa^2$.
+Thin lines: the factors fitted to $32$ posterior samples; they bundle where there are modes and fan out where there are
+none. (a) Oscillation $\operatorname{Im}\lambda$: transport is the sloped line, diffusion the flat one. (b) Damping
+$\operatorname{Re}\lambda$: transport is flat at zero, diffusion the downward parabola.}\label{fig:directions}
+\end{figure}
+
+\Cref{fig:directions} shows the result on the running example. Each factor is a direction in the plane of rates, and the
+modes of one group line up along it. Once modes are assigned, the component of group $j$ is the sum of its modes,
+$u_j=\sum_{p:j(p)=j}A_p\,e^{\lambda_p(t-t_0)+i\kappa_px}$, the discrete counterpart of the projector \eqref{eq:lagrange}. A
+mode within distance $3$ of two varieties lies in the overlap $\deltaP$ (for the running example, $\kappa=0$) and is split
+equally between the groups: among all splits allowed by \cref{thm:factor} this one puts the least energy into the
+ambiguity, and it coincides with the posterior mean of \cref{prop:bayes-angle}. The energy shares
+$w_j=\norm{u_j}/\sum_k\norm{u_k}$ follow. A group can itself split further (two conjugate branches of the beam equation are
+first found as one factor of degree two in $\tau$); each component is therefore analysed again, and a split is kept only
+if it leaves the kernel unchanged or improves the evidence of \cref{sec:labels}.
+
+\subsection{Choosing the class of operators}\label{sec:class}
+A structure $\Mfit=((m_1,d_1),\dots,(m_N,d_N))$ fixes $N$ and, for each factor, its degree $m_j$ in $\tau$ and $d_j$ in
+$\xi$; the running example is $((1,1),(1,2))$. The class $C(m,d)$ holds all structures with $\sum_jm_j\le m$ and
+$d_j\le d$. Grouping I is run for every structure, and structures are compared by
+\begin{equation}\label{eq:bic}
+  \mathrm{BIC}(\Mfit)=2n_m\log\max\!\big(\chi^2/(2n_m),\,1\big)+n_{\mathrm{par}}(\Mfit)\log(2n_m),\qquad
+  P(\Mfit\mid\text{data})\propto e^{-\mathrm{BIC}(\Mfit)/2},
+\end{equation}
+where $\chi^2$ is the total capped misfit of the $n_m$ modes and $n_{\mathrm{par}}$ the number of coefficients. The floor
+$\max(\cdot,1)$ means that misfit is penalized only once it exceeds what the noise explains, so a fit better than the
+noise is never rewarded. The class is grown from $C(3,4)$ (90 structures) up to $C(4,8)$ (1353) only when the data demand
+it, i.e.\ when most of the posterior mass is on structures that fail the tests of \cref{sec:labels}, and a larger class is
+kept only if it also predicts the second half of the time window from the first. This is the only regularization of the
+method, and it acts on the class, by Occam's razor, not on the coefficients: by \cref{sec:factor} a coefficient penalty
+cannot remove the interaction of terms, and by \cref{thm:hm} it can push the error of the split below its floor only by
+shrinking the components, which the next layer does explicitly and reports.
+
+\subsection{Grouping II: factors across samples}\label{sec:group2}
+Grouping I gives one set of factors per field sample. Two questions remain: how well are the components determined given
+the factors, and which factors of different samples are the same factor?
+
+\paragraph{The angle sets the error bars} On the observation window write $u=\sum_jB_ja_j+\varepsilon=\sumop a+\varepsilon$,
+with $B_j$ an orthonormal basis of the sampled kernel of $Q_j$, $\varepsilon\sim\Normal(0,\noise^2I)$ and a Gaussian prior
+$a\sim\Normal(0,\omega^2I)$, whose scale $\omega^2$ is set by empirical Bayes. The posterior of the coefficients is Gaussian,
+$\Normal(\hat a,\Gamma_a)$ with $\Gamma_a=\noise^2(\sumop^H\sumop+(\noise^2/\omega^2)I)^{-1}$; the layer returns a distribution of
+splits, not one split.
+
+\begin{proposition}[The angle sets the error bars]\label{prop:bayes-angle}
+For two groups the eigenvalues of $\sumop^H\sumop$ are $1\pm\cos\theta_k$, with $\theta_k$ the principal angles between the
+sampled kernels (and $1$ on the directions of the larger kernel without a partner). In the worst direction orthogonal to
+$\ker\sumop$ the posterior variance of the component coefficients is
+\begin{equation}\label{eq:bayes-angle}
+  \frac{\noise^2}{\gamma_2+\noise^2/\omega^2},\qquad \gamma_2=1-\cF .
+\end{equation}
+On the shared directions ($\theta_k=0$, the overlap $\deltaP$) the posterior equals the prior, and its mean splits the
+shared part equally.
+\end{proposition}
+
+This is the Bayesian form of \eqref{eq:hm}: intervals grow like $\noise/\sin(\thetaF/2)$ as the angle closes and are capped
+by the prior when $\thetaF\to0$. The same evidence compares the two-factor model with the one-factor model and gives the
+probability $P(\text{split})$, which returns to its prior as $\thetaF\to0$.
+
+\paragraph{The cloud of factors} Each factor of each sample is mapped to the vector $\beta$ of its monic coefficients,
+zero-padded to the largest degrees in play, and receives the mass of its sample times its energy share:
+\begin{equation}\label{eq:cloud}
+  \cloud=\sum_{q=1}^{\Nsamp}\pi_q\sum_jw_j^{(q)}\,\delta_{\beta_j^{(q)}} .
+\end{equation}
+A sharp equation is a cloud with a few tight clusters, an uncertain one a diffuse cloud. Since the number of groups is
+unknown, the cloud is modelled by a Dirichlet-process Gaussian mixture~\cite{BleJor06} (truncated stick-breaking,
+variational inference), which lets the data choose the number of clusters; two clusters that never occur in the same
+sample are merged when one Gaussian explains them better. The cluster centres are the factors, quantiles over samples
+give their $90\%$ intervals, and the cluster responsibilities give the posterior $P(k)$ of the number $k$ of groups.
+\Cref{fig:grouping} shows the cloud of the running example.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{fig_grouping}
+\caption{Grouping II on the running example. (a) Each marker is one factor found in one of $32$ posterior samples,
+placed by its coefficients of $\xi$ and $\xi^2$; area is proportional to its mass $\pi_qw_j$; crosses mark the true
+factors. The cloud has two tight clusters and nothing in between. (b) Largest principal angle between the sampled
+kernels of every pair of factors, ordered by cluster: factors of the same group allow the same functions (light
+diagonal blocks), factors of different groups do not (dark off-diagonal blocks).}\label{fig:grouping}
+\end{figure}
+
+\subsection{Decision and labels}\label{sec:labels}
+The interpolated field has already smoothed the high wavenumbers, so the final decisions are made on the \emph{raw
+observations}. A candidate set of factors defines a linear model $y=Ea+\varepsilon$ for the $n$ observations, where the
+columns of $E$ are the kernel exponentials of the factors evaluated at the observation points. Integrating the
+amplitudes out gives $y\mid Q_1,\dots,Q_N\sim\Normal(0,\noise^2I+\omega^2EE^H)$, and the score
+\begin{equation}\label{eq:evidence}
+  S(Q_1,\dots,Q_N)=\log\Normal\big(y;0,\noise^2I+\omega^2EE^H\big)-\tfrac12n_{\mathrm{par}}\log n
+\end{equation}
+decides between dropping a factor, dropping a term whose interval contains zero, merging two factors or splitting one;
+a change needs more than one nat. The same model gives a goodness-of-fit statistic $\chi^2=\sum_i\abs{y_i-\hat y_i}^2/\noise^2$,
+approximately chi-squared with $n-\rank E$ degrees of freedom. The result then receives one of four labels, which encode
+what \cref{sec:certify} allows:
+
+\smallskip
+\noindent\begin{tabularx}{\linewidth}{@{}l X@{}}
+\toprule
+\FC & every factor has more modes than coefficients, at least $d_j+1$ distinct wavenumbers (\cref{prop:counting}), and
+the fit passes the goodness-of-fit test: the data are compatible with the factored equation and pin it down within the class.\\
+\IDK & the fit is good, but some factor is pinned down only relative to the declared class.\\
+\MIS & the goodness-of-fit test rejects the structure ($p<10^{-3}$).\\
+\UND & the data cannot decide, typically because of confluent rates or a repeated factor $P_i^2$, whose polynomial
+prefactors $t\,e^{\lambda t}$ finite noisy data cannot separate from two nearby rates.\\
+\bottomrule
+\end{tabularx}
+\smallskip
+
+\noindent The output is therefore a distribution, never a point estimate: the factors with $90\%$ intervals, $P(k)$ and
+the posterior over structures, the energy shares $w_j$ with intervals, $P(\text{split})$, the separation $\gN$, and the
+label. A small Friedrichs angle does not reject the equation; it widens the intervals, so the reader always sees how well
+each group is separated, not only whether the equation fits.
+
