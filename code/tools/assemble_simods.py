@@ -45,10 +45,31 @@ def bibliography(body):
     keep = sorted((it for it in pool if key(it) in cited), key=key)
     missing = cited - {key(k) for k in keep}
     assert not missing, missing
-    return head + "".join(keep) + "\\end{thebibliography}\n"
+    # never leave the References heading alone at the foot of a page
+    return "\\Needspace{8\\baselineskip}\n" + head + "".join(keep) + "\\end{thebibliography}\n"
 
 
 SIAM_ONLY = "\\makeatletter\\ifx\\paperclass\\pfshimname\\else\\externaldocument[][nocite]{%s}\\fi\\makeatother\n"
+
+# ---- typography for the SIAM page (fonts, spacing, float placement, figures drawn at the text width)
+TYPO = r"""
+% ---- typography
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[final]{microtype}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\setlength{\abovecaptionskip}{6pt}
+\usepackage{needspace}
+"""
+assert "\\graphicspath{{figures/}}" in pre
+pre = pre.replace("\\graphicspath{{figures/}}", "\\graphicspath{{figures/simods/}{figures/}}", 1)
+pre = pre + TYPO
 
 # ---- main paper
 sm = r"""
@@ -71,4 +92,13 @@ sbody = (P / "parts" / "sm_body.tex").read_text(encoding="utf8")
 sbody = sbody.replace("\\input{parts/sm_reading}", (P / "parts" / "sm_reading.tex").read_text(encoding="utf8"))
 (P / "simods_supplement.tex").write_text(spre + SIAM_ONLY % "simods" + "\n" + sbody + "\n" + bibliography(sbody)
                                          + "\n\\end{document}\n", encoding="utf8", newline="\n")
+
+# ---- reading copies: the same documents in SIAM's class without the review option (no line numbers, no
+# "for review purposes" footer). Cross-references still resolve against the review versions (same numbers).
+for name in ("simods", "simods_supplement"):
+    src = (P / f"{name}.tex").read_text(encoding="utf8")
+    out = src.replace("[review,onefignum,onetabnum]", "[onefignum,onetabnum]").replace(
+        "[review,supplement,onefignum,onetabnum]", "[supplement,onefignum,onetabnum]")
+    assert out != src
+    (P / f"{name}_reading.tex").write_text(out, encoding="utf8", newline="\n")
 print("ok")

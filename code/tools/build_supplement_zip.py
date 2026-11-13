@@ -31,8 +31,6 @@ with tarfile.open(fileobj=io.BytesIO(tar_bytes)) as tf:
             dest = root / m.name
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(tf.extractfile(m).read())
-# the one file of the submitted version that is not yet committed
-shutil.copy2(repo / "code/experiments/make_fig_evidence.py", root / "code/experiments/make_fig_evidence.py")
 
 ex = root / "example_run"
 ex.mkdir()
@@ -46,8 +44,8 @@ readme = f"""# Code and data for "Groups Are Factors: Learning Linear PDEs by Cl
 Author: Flavio Pricoco. Supplementary material for the SIMODS submission.
 
 This is a snapshot of the repository https://github.com/FlavioApric/pde-factor-fit at commit `{commit}`
-(branch `main`), plus the figure script `code/experiments/make_fig_evidence.py` of the submitted version. Later
-versions of the code are maintained in the repository. Code licence: MIT (`LICENSE`).
+(branch `simods-submission`, the version that produced the paper). Later versions of the code are maintained in the
+repository. Code licence: MIT (`LICENSE`).
 `CONTENTS.txt` lists every file.
 
 ## What is here
@@ -86,12 +84,10 @@ python benchmarks/bench_e2e.py --workers 6
 # independent repetitions of the grid designs (Table 3, column "independent")
 PDEFACTOR_FIELD_SEED=1 python code/experiments/multiseed.py --out ms.jsonl --workers 4 --methods pipeline weak_sindy
 
-# figures of the paper from the stored results
-python code/experiments/make_figs.py
-python code/experiments/make_fig_evidence.py
+# figures of the paper from the stored results, typeset for the SIAM page (writes paper/figures/simods/)
+mkdir -p paper/figures
+python code/experiments/make_figs_simods.py
 ```
-
-The figure scripts write to `paper/figures/`; create that folder first (`mkdir -p paper/figures`).
 
 ## Using the algorithm on your own data
 

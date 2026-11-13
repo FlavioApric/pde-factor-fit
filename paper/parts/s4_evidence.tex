@@ -63,7 +63,7 @@ hours per draw and are reported separately. \Cref{tab:large} and \cref{fig:evide
 \caption{Large benchmark: $285$ random equations not used in development, grid, $1\%$ noise. ``Right+eq.'' is the share
 of right or equivalent answers with a Wilson $95\%$ interval; ``abstain'' includes one correct abstention (F2) and one
 crash (F4).}\label{tab:large}
-\begin{tabular}{@{}llrrrrr@{\hspace{6pt}}l@{}}
+\begin{tabular}{@{}llrrrrr@{\hspace{14pt}}l@{}}
 \toprule
 family & method & $n$ & right & equiv. & abstain & false-conf. & right+eq.\\
 \midrule
@@ -134,6 +134,25 @@ number of posterior samples and bootstrap refits ($8$ and $16$); \SMalgo{} lists
 development and left unchanged for the large benchmark. The price of exploring a whole class of factored structures on
 every sample is time: a median of $127$\,s per input on the development benchmark and $13$ minutes on the random
 equations, against seconds for library regression.
+
+\begin{table}[b]
+\centering\small
+\caption{The kinds of claim made in the paper.}\label{tab:status}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.0cm}X@{}}
+\toprule
+Kind & Statements\\
+\midrule
+proved & groups are factors with overlap $\deltaP$ (\cref{thm:factor}); terms are not groups (\cref{prop:terms});
+stability via $\gN$ (\cref{thm:hm}) and its Bayesian form (\cref{prop:bayes-angle}); identification and its limits on
+finite data (\cref{thm:ident,prop:certify}); counting condition (\cref{prop:counting})\\
+design rule & cluster modes onto curves, not terms onto a library; labels instead of ``identified''; decisions on the raw
+observations; growth of the class instead of coefficient penalties; minimum-norm split of the overlap\\
+measured & $275/285$ right or equivalent and $0$ confident wrong answers on random equations not used in development;
+$30/30$ on the development benchmark and $60/60$ on its independent repetitions; coefficient coverage $0.94$ at nominal
+$0.90$\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \paragraph{What these numbers do and do not show} All inputs are synthetic and the noise is white; the large benchmark
 uses one noise level, gridded data and one baseline. The claims we draw are therefore qualitative but sharp: on

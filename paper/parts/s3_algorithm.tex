@@ -20,7 +20,11 @@ aliasing ($\abs{\kappa}\le\pi/\Delta x$); temporal aliasing along a branch, sinc
 $\Delta t$ only modulo $2\pi i/\Delta t$; and, usually the binding one, noise together with decay. After the spatial Fourier
 transform one wavenumber bin carries noise of standard deviation $\sigbin=\noise/\sqrt{n_x}$, and a mode is used only
 while its amplitude exceeds $z\,\sigbin$ ($z=3$). A diffusive mode of rate $-\nu\kappa^2$ falls below this threshold after
-a time of order $\log(\abs{A_\kappa}/z\sigbin)/(\nu\kappa^2)$, so the high wavenumbers of a dissipative group are lost
+a time of order
+\[
+  t_\kappa\approx\frac{\log\big(\abs{A_\kappa}/z\sigbin\big)}{\nu\kappa^2},
+\]
+so the high wavenumbers of a dissipative group are lost
 first. This is a property of the data, not of the method. The band $\mathcal K$ is the set of wavenumbers that pass all
 three limits. It must hold enough distinct wavenumbers per group:
 
@@ -80,7 +84,10 @@ $\operatorname{Re}\lambda$: transport is flat at zero, diffusion the downward pa
 
 \Cref{fig:directions} shows the result on the running example. Each factor is a direction in the plane of rates, and the
 modes of one group line up along it. Once modes are assigned, the component of group $j$ is the sum of its modes,
-$u_j=\sum_{p:j(p)=j}A_p\,e^{\lambda_p(t-t_0)+i\kappa_px}$, the discrete counterpart of the projector \eqref{eq:lagrange}. A
+\begin{equation}\label{eq:components}
+  u_j(t,x)=\sum_{p:\,j(p)=j}A_p\,e^{\lambda_p(t-t_0)+i\kappa_px},
+\end{equation}
+the discrete counterpart of the projector \eqref{eq:lagrange}. A
 mode within distance $3$ of two varieties lies in the overlap $\deltaP$ (for the running example, $\kappa=0$) and is split
 equally between the groups: among all splits allowed by \cref{thm:factor} this one puts the least energy into the
 ambiguity, and it coincides with the posterior mean of \cref{prop:bayes-angle}. The energy shares
@@ -92,10 +99,10 @@ if it leaves the kernel unchanged or improves the evidence of \cref{sec:labels}.
 A structure $\Mfit=((m_1,d_1),\dots,(m_N,d_N))$ fixes $N$ and, for each factor, its degree $m_j$ in $\tau$ and $d_j$ in
 $\xi$; the running example is $((1,1),(1,2))$. The class $C(m,d)$ holds all structures with $\sum_jm_j\le m$ and
 $d_j\le d$. Grouping I is run for every structure, and structures are compared by
-\begin{equation}\label{eq:bic}
-  \mathrm{BIC}(\Mfit)=2n_m\log\max\!\big(\chi^2/(2n_m),\,1\big)+n_{\mathrm{par}}(\Mfit)\log(2n_m),\qquad
-  P(\Mfit\mid\text{data})\propto e^{-\mathrm{BIC}(\Mfit)/2},
-\end{equation}
+\begin{align}
+  \mathrm{BIC}(\Mfit)&=2n_m\log\max\!\Big(\frac{\chi^2}{2n_m},\,1\Big)+n_{\mathrm{par}}(\Mfit)\log(2n_m),\label{eq:bic}\\
+  P(\Mfit\mid\text{data})&\propto e^{-\mathrm{BIC}(\Mfit)/2},\label{eq:pstruct}
+\end{align}
 where $\chi^2$ is the total capped misfit of the $n_m$ modes and $n_{\mathrm{par}}$ the number of coefficients. The floor
 $\max(\cdot,1)$ means that misfit is penalized only once it exceeds what the noise explains, so a fit better than the
 noise is never rewarded. The class is grown from $C(3,4)$ (90 structures) up to $C(4,8)$ (1353) only when the data demand
@@ -112,8 +119,11 @@ the factors, and which factors of different samples are the same factor?
 \paragraph{The angle sets the error bars} On the observation window write $u=\sum_jB_ja_j+\varepsilon=\sumop a+\varepsilon$,
 with $B_j$ an orthonormal basis of the sampled kernel of $Q_j$, $\varepsilon\sim\Normal(0,\noise^2I)$ and a Gaussian prior
 $a\sim\Normal(0,\omega^2I)$, whose scale $\omega^2$ is set by empirical Bayes. The posterior of the coefficients is Gaussian,
-$\Normal(\hat a,\Gamma_a)$ with $\Gamma_a=\noise^2(\sumop^H\sumop+(\noise^2/\omega^2)I)^{-1}$; the layer returns a distribution of
-splits, not one split.
+\begin{equation}\label{eq:posterior-a}
+  a\mid u\sim\Normal(\hat a,\Gamma_a),\qquad
+  \Gamma_a=\noise^2\Big(\sumop^H\sumop+\frac{\noise^2}{\omega^2}\,I\Big)^{-1};
+\end{equation}
+the layer returns a distribution of splits, not one split.
 
 \begin{proposition}[The angle sets the error bars]\label{prop:bayes-angle}
 For two groups the eigenvalues of $\sumop^H\sumop$ are $1\pm\cos\theta_k$, with $\theta_k$ the principal angles between the
@@ -156,13 +166,20 @@ diagonal blocks), factors of different groups do not (dark off-diagonal blocks).
 The interpolated field has already smoothed the high wavenumbers, so the final decisions are made on the \emph{raw
 observations}. A candidate set of factors defines a linear model $y=Ea+\varepsilon$ for the $n$ observations, where the
 columns of $E$ are the kernel exponentials of the factors evaluated at the observation points. Integrating the
-amplitudes out gives $y\mid Q_1,\dots,Q_N\sim\Normal(0,\noise^2I+\omega^2EE^H)$, and the score
+amplitudes out gives
+\[
+  y\mid Q_1,\dots,Q_N\sim\Normal\big(0,\ \noise^2I+\omega^2EE^H\big),
+\]
+and the score
 \begin{equation}\label{eq:evidence}
   S(Q_1,\dots,Q_N)=\log\Normal\big(y;0,\noise^2I+\omega^2EE^H\big)-\tfrac12n_{\mathrm{par}}\log n
 \end{equation}
 decides between dropping a factor, dropping a term whose interval contains zero, merging two factors or splitting one;
-a change needs more than one nat. The same model gives a goodness-of-fit statistic $\chi^2=\sum_i\abs{y_i-\hat y_i}^2/\noise^2$,
-approximately chi-squared with $n-\rank E$ degrees of freedom. The result then receives one of four labels, which encode
+a change needs more than one nat. The same model gives a goodness-of-fit statistic
+\[
+  \chi^2=\sum_{i=1}^n\frac{\abs{y_i-\hat y_i}^2}{\noise^2},
+\]
+with $\hat y$ the projection of $y$ on the columns of $E$, approximately chi-squared with $n-\rank E$ degrees of freedom. The result then receives one of four labels, which encode
 what \cref{sec:certify} allows:
 
 \smallskip

@@ -3,25 +3,6 @@
 theorems hold under their hypotheses; the algorithm uses them as design rules, not as guarantees about its output; and
 the numbers are evidence on synthetic data.
 
-\begin{table}[tbp]
-\centering\small
-\caption{The kinds of claim made in the paper.}\label{tab:status}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.0cm}X@{}}
-\toprule
-Kind & Statements\\
-\midrule
-proved & groups are factors with overlap $\deltaP$ (\cref{thm:factor}); terms are not groups (\cref{prop:terms});
-stability via $\gN$ (\cref{thm:hm}) and its Bayesian form (\cref{prop:bayes-angle}); identification and its limits on
-finite data (\cref{thm:ident,prop:certify}); counting condition (\cref{prop:counting})\\
-design rule & cluster modes onto curves, not terms onto a library; labels instead of ``identified''; decisions on the raw
-observations; growth of the class instead of coefficient penalties; minimum-norm split of the overlap\\
-measured & $275/285$ right or equivalent and $0$ confident wrong answers on random equations not used in development;
-$30/30$ on the development benchmark and $60/60$ on its independent repetitions; coefficient coverage $0.94$ at nominal
-$0.90$\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
 \paragraph{Limits that no amount of data removes} Some limits are theorems, and the output is built to show them rather
 than hide them. \emph{Error floor}: in the Gaussian model of \cref{sec:group2} every unbiased estimator of the components
 has variance at least $\noise^2/\gN$ in the worst direction, so closely aligned groups are intrinsically hard to separate.

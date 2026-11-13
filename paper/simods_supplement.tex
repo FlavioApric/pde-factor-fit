@@ -54,7 +54,7 @@
 \fi
 \usepackage{mathtools}
 \usepackage{graphicx}
-\graphicspath{{figures/}}
+\graphicspath{{figures/simods/}{figures/}}
 \usepackage{booktabs,array,tabularx,multirow}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
@@ -149,6 +149,20 @@
 % ---- end ../shared/preamble.tex
 
 
+
+% ---- typography
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[final]{microtype}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\setlength{\abovecaptionskip}{6pt}
+\usepackage{needspace}
 \makeatletter\ifx\paperclass\pfshimname\else\externaldocument[][nocite]{simods}\fi\makeatother
 
 \title{Groups Are Factors: Learning Linear PDEs\\by Clustering Modes on the Factors of the Symbol}
@@ -667,6 +681,7 @@ The \texttt{README.md} of the archive gives the commands to install the package,
 benchmarks and regenerate the figures.
 
 
+\Needspace{8\baselineskip}
 \begin{thebibliography}{10}
 
 \bibitem{Bre11}
