@@ -87,11 +87,24 @@ $A_1A_2(a+b)=A_2A_1a+A_1A_2b=0$ because the operators commute. A common zero of 
 and $A_2$, so the joint kernel of $P$ and $A_1A_2$ lives on a finite set of exponents.
 \end{proof}
 
+\paragraph{The interaction term} What does a split into single terms miss? Write an evolution factor as
+$u_t=\mathcal Au$ with $\mathcal A=\mathcal A_1+\dots+\mathcal A_K$ (its additive terms), and let $\flow_n(t)=e^{t\mathcal A_n}$
+be the flow of term $n$ acting alone. The \emph{interaction term} is what the true evolution does beyond the sum of the
+single-term changes,
+\begin{equation}\label{eq:eint}
+  \Eint(t)=u(t)-u_0-\sum_{n=1}^K\big(\flow_n(t)u_0-u_0\big);
+\end{equation}
+for two commuting terms it is $\Eint(t)=\big(\flow_1(t)-\Id\big)\big(\flow_2(t)-\Id\big)u_0$. It vanishes for a factor with
+a single term and is otherwise of the same size as the solution. Worse, on a bounded non-periodic window it can be
+arbitrarily large \emph{compared with the solution itself}: for advection--diffusion, diffusion acting alone amplifies
+some admissible data by $e^{\nu\zeta^2t}$, while the true solution grows only like $e^{(\nu\zeta^2-c\zeta)t}$, and the
+interaction must cancel the difference, so no bound $\norm{\Eint}\le C\norm{u}$ holds (\SMinteraction).
+
 For the heat equation, $A_1=\partial_t$ and $A_2=-\nu\partial_x^2$: a ``stationary part plus a diffusion part''
 $f(x)+a(t)+b(t)x$ is killed by $\partial_t\partial_x^2$, while a single heat mode $e^{-\nu\kappa^2t}\cos\kappa x$ is not. A
-generic solution is not a sum of single-term pieces. What a term-wise split leaves over is the \emph{interaction} of the
-terms; it is as large as the solution itself, and on a non-periodic window it cannot be removed by any continuous,
-hence any regularized, procedure (\SMinteraction). Different factors, in contrast, superpose exactly: \emph{factors, not
+generic solution is not a sum of single-term pieces. What a term-wise split leaves over is exactly the interaction
+term~\eqref{eq:eint}, which therefore cannot be removed by any continuous, hence any regularized, procedure. Different
+factors, in contrast, superpose exactly: \emph{factors, not
 terms, are the groups.}
 
 \roleinalg{The objects to cluster are modes, and a cluster is a factor: a curve $\Var(Q_j)$ in the plane of rates. The

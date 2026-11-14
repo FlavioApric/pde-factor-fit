@@ -380,6 +380,35 @@ centred at zero, and the posterior mean splits the shared part equally.
 Since $1-\cos\theta=2\sin^2(\theta/2)$, the posterior standard deviation in the worst direction is about
 $\noise/(\sqrt2\sin(\thetaF/2))$ while it is above the prior floor: halving a small angle doubles the error bars.
 
+\subsection{Where the variances come from}\label{sm:variances}
+All the Gaussian formulas of the paper follow from two rules. (a) A sum of independent Gaussians is Gaussian, and the
+covariances add; a linear map $L$ turns a covariance $C$ into $LCL^H$. (b) For a linear model with Gaussian noise and a
+Gaussian prior, the posterior is Gaussian, and its \emph{precision} (inverse covariance) is the sum of the precision
+brought by the data and the precision of the prior. ``Information adds'' is rule (b) in words.
+
+\paragraph{Noise in one Fourier bin} The normalized Fourier coefficient of one bin is a sum of $n_x$ grid values, each
+with independent noise of variance $\noise^2$, weighted by $e^{-i\kappa x_k}/n_x$. By rule (a) its variance is
+$n_x\cdot\noise^2/n_x^2=\noise^2/n_x$, hence $\sigbin=\noise/\sqrt{n_x}$: averaging $n_x$ points divides the noise by
+$\sqrt{n_x}$.
+
+\paragraph{The data given the factors} In $y=Ea+\varepsilon$ the signal $Ea$ has covariance $E(\omega^2I)E^H=\omega^2EE^H$ by
+rule (a), the noise has covariance $\noise^2I$, and the two are independent, so $y\sim\Normal(0,\noise^2I+\omega^2EE^H)$. This
+is the density whose logarithm enters the score~\eqref{eq:evidence}.
+
+\paragraph{The posterior of the coefficients} In $u=\sumop a+\varepsilon$ the log-likelihood is
+$-\norm{u-\sumop a}^2/(2\noise^2)$ and the log-prior is $-\norm{a}^2/(2\omega^2)$. Their sum is a quadratic form in $a$ whose
+matrix, the posterior precision, is $\sumop^H\sumop/\noise^2+I/\omega^2$ (rule (b)). Inverting it and taking $\noise^2$ out gives
+\[
+  \Gamma_a=\Big(\frac{\sumop^H\sumop}{\noise^2}+\frac{I}{\omega^2}\Big)^{-1}=\noise^2\Big(\sumop^H\sumop+\frac{\noise^2}{\omega^2}\,I\Big)^{-1},
+\]
+which is~\eqref{eq:posterior-a}; the posterior mean $\hat a$ is the ridge-regularized least-squares fit, with
+penalty $\noise^2/\omega^2$.
+
+\paragraph{The worst direction} Along an eigenvector of $\sumop^H\sumop$ with eigenvalue $\mu$ the precision is
+$\mu/\noise^2+1/\omega^2$, so the variance is $1/(\mu/\noise^2+1/\omega^2)=\noise^2/(\mu+\noise^2/\omega^2)$. By
+\cref{sm:proof-bayes} the smallest nonzero $\mu$ is $\gamma_2=1-\cF$, which gives~\eqref{eq:bayes-angle}: the data bring
+the information $\gamma_2/\noise^2$ in that direction, small when the angle is small.
+
 \subsection{The counting condition}\label{sm:proof-counting}
 \begin{proof}[Proof of \cref{prop:counting}]
 Write $\Lambda(\xi)=\sum_{k=0}^d\beta_k\xi^k$. The rates at the nodes $i\kappa_\ell$ are

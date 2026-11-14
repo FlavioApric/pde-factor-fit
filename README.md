@@ -9,8 +9,8 @@ supplementary materials:
 
 | file | what it is |
 |---|---|
-| [`paper/simods.pdf`](paper/simods.pdf) | **the paper** (17 pages in SIAM's class: 16 of text + references; limit 20): one idea, groups are factors, built around the two groupings, with the 285-equation benchmark as the main evidence |
-| [`paper/simods_supplement.pdf`](paper/simods_supplement.pdf) | the supplementary materials (12 pages): proofs of the main results written to be read, interaction term, complete algorithm and parameters, further cases, guide to the output, beyond the linear case |
+| [`paper/simods.pdf`](paper/simods.pdf) | **the paper** (19 pages in SIAM's class: 18 of text + references; limit 20): one idea, groups are factors, built around the two groupings, with the 285-equation benchmark as the main evidence |
+| [`paper/simods_supplement.pdf`](paper/simods_supplement.pdf) | the supplementary materials (13 pages): proofs of the main results written to be read, interaction term, complete algorithm and parameters, further cases, guide to the output, beyond the linear case |
 | [`paper/simods_reading.pdf`](paper/simods_reading.pdf), [`paper/simods_supplement_reading.pdf`](paper/simods_supplement_reading.pdf) | the same two documents in SIAM's class without the review line numbers, for reading |
 | `paper/parts/` | the editable sources, one file per section; `code/tools/assemble_simods.py paper` writes `paper/simods.tex` and `paper/simods_supplement.tex` from them |
 | `code/experiments/make_fig_evidence.py` | draws the new evidence figure `paper/figures/fig_evidence.pdf` |

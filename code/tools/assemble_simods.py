@@ -31,6 +31,16 @@ Georges de~Rham.
 \newblock {\em Vari\'et\'es diff\'erentiables: formes, courants, formes harmoniques}.
 \newblock Hermann, Paris, 1955.
 
+""", r"""\bibitem{Ein34}
+Albert Einstein.
+\newblock On the method of theoretical physics.
+\newblock {\em Philosophy of Science}, 1(2):163--169, 1934.
+
+""", r"""\bibitem{Dir63}
+Paul A.~M. Dirac.
+\newblock The evolution of the physicist's picture of nature.
+\newblock {\em Scientific American}, 208(5):45--53, 1963.
+
 """, r"""\bibitem{Bre11}
 Haim Brezis.
 \newblock {\em Functional Analysis, Sobolev Spaces and Partial Differential Equations}.
@@ -79,6 +89,7 @@ sm = r"""
 \newcommand{\SMalgo}{\cref{sm:algo}}
 \newcommand{\SMcases}{\cref{sm:cases}}
 \newcommand{\SMbeyond}{\cref{sm:beyond}}
+\newcommand{\SMvariances}{\cref{sm:variances}}
 """ + SIAM_ONLY % "simods_supplement"
 parts = ["s1_intro", "s2_theory", "s3_algorithm", "s4_evidence", "s5_discussion"]
 body = "".join((P / "parts" / f"{f}.tex").read_text(encoding="utf8") for f in parts)

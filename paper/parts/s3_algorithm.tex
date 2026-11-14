@@ -6,11 +6,22 @@ sample of the field (grouping I, \cref{sec:group1}) inside a class of operators 
 
 \subsection{From data to modes}\label{sec:modes}
 \paragraph{Field samples} The input is a set of noisy observations $y_i=u(t_i,x_i)+\varepsilon_i$,
-$\varepsilon_i\sim\Normal(0,\noise^2)$, on a window $[0,T]\times[0,L)$ periodic in $x$, or a noisy field on a regular grid.
-Scattered observations are interpolated by a Gaussian process whose kernel is a sum of separable Mat\'ern-$5/2$
-products (a transported profile and a diffusing one do not share a length scale), with the hyperparameters integrated
-out by importance sampling. The output of this stage is not the posterior mean but $\Nsamp$ posterior \emph{samples}
-$u^{(q)}$ of the field, each with a weight $\pi_q$. The reason is structural: the maps applied next are not continuous
+$\varepsilon_i\sim\Normal(0,\noise^2)$ (here and below $\Normal(m,C)$ is a Gaussian with mean $m$ and covariance $C$), on a window $[0,T]\times[0,L)$ periodic in $x$, or a noisy field on a regular grid.
+Scattered observations are interpolated by a Gaussian process, a probability distribution over functions. The data are
+modelled as $y=\bar y+f+\varepsilon$ with a constant $\bar y$ and
+\begin{equation}\label{eq:gp}
+  f\sim\mathrm{GP}\Big(0,\ \sum_{r=1}^R\eta_r^2\,k_t^{(r)}(t,t')\,k_x^{(r)}(x,x')\Big),
+\end{equation}
+where each $k^{(r)}$ is a Mat\'ern-$5/2$ kernel with its own length scale ($k_x$ periodic in $x$) and $\eta_r$ is its
+amplitude; several products are used because a transported profile and a diffusing one do not share a length scale.
+Conditioned on the data, the process is again a Gaussian distribution over functions: a mean function, and a
+covariance that says how far plausible fields can deviate from it. It contains infinitely many functions, which cannot be
+enumerated, so the algorithm represents it by $\Nsamp$ random draws $u^{(q)}$, each a plausible field consistent with the
+data, and runs every later step on each of them; the spread of the answers over the draws is the uncertainty. The
+hyperparameters (amplitudes, length scales, noise level) are themselves unknown: they are drawn from an approximation of
+their posterior and reweighted by how well they explain the data (importance sampling). The posterior is therefore a
+weighted mixture of Gaussian processes, not a single one, and each draw $u^{(q)}$ carries the weight $\pi_q$ of the
+hyperparameters it was drawn with. The posterior mean is deliberately not used. The reason is structural: the maps applied next are not continuous
 (factors of a numerical symbol jump where it becomes reducible), so the mean of the outputs differs from the output of
 the mean, and the mean, a Wiener filter, shrinks exactly the fast-decaying high-wavenumber modes that carry the
 diffusive factors. On gridded input the noisy grid itself is used, and parametric-bootstrap refits provide the spread.
@@ -26,7 +37,10 @@ a time of order
 \]
 so the high wavenumbers of a dissipative group are lost
 first. This is a property of the data, not of the method. The band $\mathcal K$ is the set of wavenumbers that pass all
-three limits. It must hold enough distinct wavenumbers per group:
+three limits.
+
+\paragraph{How many wavenumbers does a group need?} A factor is a curve, and a curve of degree $d$ is not fixed by too
+few of its points. The band must therefore hold enough distinct wavenumbers on each group:
 
 \begin{proposition}[Counting condition]\label{prop:counting}
 Let $Q=\tau-\Lambda(\xi)$ with $\Lambda$ a polynomial of degree at most $d$. Its coefficients are determined by the rates
@@ -87,8 +101,10 @@ modes of one group line up along it. Once modes are assigned, the component of g
 \begin{equation}\label{eq:components}
   u_j(t,x)=\sum_{p:\,j(p)=j}A_p\,e^{\lambda_p(t-t_0)+i\kappa_px},
 \end{equation}
-the discrete counterpart of the projector \eqref{eq:lagrange}. A
-mode within distance $3$ of two varieties lies in the overlap $\deltaP$ (for the running example, $\kappa=0$) and is split
+the discrete counterpart of the projector \eqref{eq:lagrange}. Indeed, on the sum of exponentials \eqref{eq:expsum} each
+factor $\partial_t-\Lambda_k(i\kappa)$ of that multiplier annihilates the modes of branch $k$ and multiplies a mode of
+branch $j$ by $\Lambda_j-\Lambda_k$, which the denominator cancels: the projector keeps exactly the modes of group $j$,
+and this is \eqref{eq:components}. A mode within distance $3$ of two varieties lies in the overlap $\deltaP$ (for the running example, $\kappa=0$) and is split
 equally between the groups: among all splits allowed by \cref{thm:factor} this one puts the least energy into the
 ambiguity, and it coincides with the posterior mean of \cref{prop:bayes-angle}. The energy shares
 $w_j=\norm{u_j}/\sum_k\norm{u_k}$ follow. A group can itself split further (two conjugate branches of the beam equation are
@@ -100,12 +116,25 @@ A structure $\Mfit=((m_1,d_1),\dots,(m_N,d_N))$ fixes $N$ and, for each factor, 
 $\xi$; the running example is $((1,1),(1,2))$. The class $C(m,d)$ holds all structures with $\sum_jm_j\le m$ and
 $d_j\le d$. Grouping I is run for every structure, and structures are compared by
 \begin{align}
-  \mathrm{BIC}(\Mfit)&=2n_m\log\max\!\Big(\frac{\chi^2}{2n_m},\,1\Big)+n_{\mathrm{par}}(\Mfit)\log(2n_m),\label{eq:bic}\\
+  \mathrm{BIC}(\Mfit)&=2n_m\log\max\!\Big(\frac{\chi^2_{\mathrm{modes}}}{2n_m},\,1\Big)+n_{\mathrm{par}}(\Mfit)\log(2n_m),\label{eq:bic}\\
   P(\Mfit\mid\text{data})&\propto e^{-\mathrm{BIC}(\Mfit)/2},\label{eq:pstruct}
 \end{align}
-where $\chi^2$ is the total capped misfit of the $n_m$ modes and $n_{\mathrm{par}}$ the number of coefficients. The floor
-$\max(\cdot,1)$ means that misfit is penalized only once it exceeds what the noise explains, so a fit better than the
-noise is never rewarded. The class is grown from $C(3,4)$ (90 structures) up to $C(4,8)$ (1353) only when the data demand
+where $n_m$ is the number of fitted modes, $n_{\mathrm{par}}$ the number of coefficients of the structure, and
+\[
+  \chi^2_{\mathrm{modes}}=\sum_{p=1}^{n_m}\min\big(r_{j(p)}(p)^2,\,9\big)
+\]
+is the misfit of the modes: the squared distance~\eqref{eq:dist} of each mode to the curve of its factor, in units of its
+own standard deviation, summed over the modes. On the data it is one number. If the structure is right, the same number
+computed over repeated noise realizations would follow approximately one half of a chi-squared distribution with
+$2n_m-n_{\mathrm{par}}$ degrees of freedom (each complex rate gives two real data), so $\chi^2_{\mathrm{modes}}/(2n_m)\approx\frac12$
+is what noise alone produces. The first term of \eqref{eq:bic} penalizes misfit beyond that level, and the floor
+$\max(\cdot,1)$ means that a fit better than the noise is never rewarded; the second term penalizes coefficients, and
+\eqref{eq:pstruct} turns the trade-off into a probability over structures. This is Occam's razor made quantitative:
+among structures that explain the data equally well, the one with fewer coefficients wins. It is also the preference
+for simple laws voiced by Einstein, who asked that the basic elements of a theory be as simple and as few as possible
+without giving up the adequate representation of experience~\cite{Ein34}, and by Dirac, who held that the fundamental
+equations of physics should have mathematical beauty~\cite{Dir63}; the criterion keeps simplicity subordinate to the
+data and never trades fit for it. The class is grown from $C(3,4)$ (90 structures) up to $C(4,8)$ (1353) only when the data demand
 it, i.e.\ when most of the posterior mass is on structures that fail the tests of \cref{sec:labels}, and a larger class is
 kept only if it also predicts the second half of the time window from the first. This is the only regularization of the
 method, and it acts on the class, by Occam's razor, not on the coefficients: by \cref{sec:factor} a coefficient penalty
@@ -113,17 +142,21 @@ cannot remove the interaction of terms, and by \cref{thm:hm} it can push the err
 shrinking the components, which the next layer does explicitly and reports.
 
 \subsection{Grouping II: factors across samples}\label{sec:group2}
-Grouping I gives one set of factors per field sample. Two questions remain: how well are the components determined given
-the factors, and which factors of different samples are the same factor?
+Grouping I gives one set of factors per field sample. Two questions remain, one about solutions and one about factors:
+given the factors, how well are the components $u_j$, the solutions of each factor, determined; and, since every sample
+gives slightly different factors, which factors of different samples are the same factor?
 
 \paragraph{The angle sets the error bars} On the observation window write $u=\sum_jB_ja_j+\varepsilon=\sumop a+\varepsilon$,
-with $B_j$ an orthonormal basis of the sampled kernel of $Q_j$, $\varepsilon\sim\Normal(0,\noise^2I)$ and a Gaussian prior
-$a\sim\Normal(0,\omega^2I)$, whose scale $\omega^2$ is set by empirical Bayes. The posterior of the coefficients is Gaussian,
+with $B_j$ an orthonormal basis of the sampled kernel of $Q_j$. The noise $\varepsilon\sim\Normal(0,\noise^2I)$ says that each
+observation carries independent noise of size $\noise$; the Gaussian prior $a\sim\Normal(0,\omega^2I)$ says that, before
+seeing the data, coefficients of size about $\omega$ are expected, and its scale $\omega^2$ is set by empirical Bayes. The posterior of the coefficients is Gaussian,
 \begin{equation}\label{eq:posterior-a}
   a\mid u\sim\Normal(\hat a,\Gamma_a),\qquad
   \Gamma_a=\noise^2\Big(\sumop^H\sumop+\frac{\noise^2}{\omega^2}\,I\Big)^{-1};
 \end{equation}
-the layer returns a distribution of splits, not one split.
+the layer returns a distribution of splits, not one split. The covariance has a simple reading: information adds. The
+data bring an amount of information $\sumop^H\sumop/\noise^2$ about the coefficients, the prior an amount $1/\omega^2$, and
+the posterior variance is one over the total (the derivation is in \SMvariances).
 
 \begin{proposition}[The angle sets the error bars]\label{prop:bayes-angle}
 For two groups the eigenvalues of $\sumop^H\sumop$ are $1\pm\cos\theta_k$, with $\theta_k$ the principal angles between the
@@ -136,20 +169,30 @@ On the shared directions ($\theta_k=0$, the overlap $\deltaP$) the posterior equ
 shared part equally.
 \end{proposition}
 
-This is the Bayesian form of \eqref{eq:hm}: intervals grow like $\noise/\sin(\thetaF/2)$ as the angle closes and are capped
+Read in the same way, \eqref{eq:bayes-angle} says that in the worst direction the data bring only the information
+$\gamma_2/\noise^2$: when the solution spaces of two groups are nearly aligned, the data hardly tell how much of $u$
+belongs to each, and the variance grows until the prior caps it. This is the Bayesian form of \eqref{eq:hm}: intervals grow like $\noise/\sin(\thetaF/2)$ as the angle closes and are capped
 by the prior when $\thetaF\to0$. The same evidence compares the two-factor model with the one-factor model and gives the
 probability $P(\text{split})$, which returns to its prior as $\thetaF\to0$.
 
-\paragraph{The cloud of factors} Each factor of each sample is mapped to the vector $\beta$ of its monic coefficients,
-zero-padded to the largest degrees in play, and receives the mass of its sample times its energy share:
+\paragraph{The cloud of factors} So far the factors were fixed and the question was about solutions. The second question is
+about the factors themselves: every field sample $u^{(q)}$ gave its own list of factors, slightly perturbed from sample to
+sample, and the lists are now pooled. Each factor of each sample is mapped to the vector $\beta$ of its monic
+coefficients, zero-padded to the largest degrees in play, and enters the cloud with a weight:
 \begin{equation}\label{eq:cloud}
   \cloud=\sum_{q=1}^{\Nsamp}\pi_q\sum_jw_j^{(q)}\,\delta_{\beta_j^{(q)}} .
 \end{equation}
-A sharp equation is a cloud with a few tight clusters, an uncertain one a diffuse cloud. Since the number of groups is
+Here $\pi_q$ is the weight of the field sample $u^{(q)}$, inherited from the hyperparameters it was drawn with
+(\cref{sec:modes}), and $w_j^{(q)}$ is the energy share of factor $j$ in that sample, the fraction of the field it explains:
+a factor counts in proportion to how plausible its sample is and how much of the field it carries. A sharp equation is a
+cloud with a few tight clusters, an uncertain one a diffuse cloud. Since the number of groups is
 unknown, the cloud is modelled by a Dirichlet-process Gaussian mixture~\cite{BleJor06} (truncated stick-breaking,
 variational inference), which lets the data choose the number of clusters; two clusters that never occur in the same
-sample are merged when one Gaussian explains them better. The cluster centres are the factors, quantiles over samples
-give their $90\%$ intervals, and the cluster responsibilities give the posterior $P(k)$ of the number $k$ of groups.
+sample are merged when one Gaussian explains them better. The output is a mixture of Gaussians in coefficient space, one
+per group: the centre of each Gaussian is a factor, its spread gives the $90\%$ intervals of the coefficients, its mass
+is the share of the cloud it explains, and the cluster responsibilities give the posterior $P(k)$ of the number $k$ of
+groups. Because the points of the cloud come from field samples drawn under different hyperparameters, each with its
+weight $\pi_q$, the uncertainty about the hyperparameters is part of this spread.
 \Cref{fig:grouping} shows the cloud of the running example.
 
 \begin{figure}[tbp]
@@ -168,18 +211,25 @@ observations}. A candidate set of factors defines a linear model $y=Ea+\varepsil
 columns of $E$ are the kernel exponentials of the factors evaluated at the observation points. Integrating the
 amplitudes out gives
 \[
-  y\mid Q_1,\dots,Q_N\sim\Normal\big(0,\ \noise^2I+\omega^2EE^H\big),
+  y\mid Q_1,\dots,Q_N\sim\Normal\big(0,\ \noise^2I+\omega^2EE^H\big):
 \]
-and the score
+the data are the sum of the signal $Ea$ and the noise, two independent Gaussians, so their covariances add. The score
 \begin{equation}\label{eq:evidence}
   S(Q_1,\dots,Q_N)=\log\Normal\big(y;0,\noise^2I+\omega^2EE^H\big)-\tfrac12n_{\mathrm{par}}\log n
 \end{equation}
-decides between dropping a factor, dropping a term whose interval contains zero, merging two factors or splitting one;
-a change needs more than one nat. The same model gives a goodness-of-fit statistic
+has two parts. The first is the logarithm of the probability of the observations actually made, under the candidate
+factors and with the amplitudes integrated out; the second penalizes the number of coefficients, as in \eqref{eq:bic}.
+So $e^{S}$ is, roughly, proportional to the probability that the candidate is the right one among those compared: the
+score \emph{compares} candidates and is not a p-value. It decides between dropping a factor, dropping a term whose
+interval contains zero, merging two factors or splitting one; a change needs more than one nat. A separate test judges
+one candidate on its own: the goodness-of-fit statistic of the observations,
 \[
-  \chi^2=\sum_{i=1}^n\frac{\abs{y_i-\hat y_i}^2}{\noise^2},
+  \chi^2_{\mathrm{obs}}=\sum_{i=1}^n\frac{\abs{y_i-\hat y_i}^2}{\noise^2},
 \]
-with $\hat y$ the projection of $y$ on the columns of $E$, approximately chi-squared with $n-\rank E$ degrees of freedom. The result then receives one of four labels, which encode
+with $\hat y$ the projection of $y$ on the columns of $E$. If the candidate is right it is approximately chi-squared with
+$n-\rank E$ degrees of freedom, and its p-value, the probability of a misfit at least this large under the candidate, is
+what can reject it. It is distinct from $\chi^2_{\mathrm{modes}}$ of \eqref{eq:bic}, which measures the modes against the
+curves, not the observations against the equation. The result then receives one of four labels, which encode
 what \cref{sec:certify} allows:
 
 \smallskip
