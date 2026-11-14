@@ -19,7 +19,7 @@ Each paper is one `.tex` file with its `.pdf` (figures in `paper/figures/`).
 
 In the large benchmark 15 of the 300 planned draws (12 in family F4, 3 in F5) hit the 3-hour time limit and have no result; counting every one of them as a failure still gives 275 / 300 = 91.7 %. Full table with per-family results and paired tests: [`claude/benchmark_tables/large.md`](claude/benchmark_tables/large.md); raw rows: [`benchmarks/out/large.jsonl`](benchmarks/out/large.jsonl). Development and repetition tables: [`claude/benchmark_tables/p8_final_v5.md`](claude/benchmark_tables/p8_final_v5.md).
 
-## The four branches
+## The five branches
 
 | branch | what it holds | open |
 |---|---|---|
@@ -27,6 +27,7 @@ In the large benchmark 15 of the 300 planned draws (12 in family F4, 3 in F5) hi
 | `analytical` | the mathematics, all eleven phases: identification, factor decomposition, interaction term, systems, variable coefficients, dictionary, with all proofs | [`paper/analytical.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/analytical/paper/analytical.pdf) (130 pp) and [`paper/analytical_proofs.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/analytical/paper/analytical_proofs.pdf) (263 pp) |
 | `ml-layers` | machine learning on top of the pipeline: every layer designed, which worked, which did not, why | [`paper/ml_layers.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/ml-layers/paper/ml_layers.pdf) (39 pp) |
 | `model-expansion` | going beyond linear constant coefficients: the ladder of extensions, the routes tried, worked examples | [`paper/model_expansion.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/model-expansion/paper/model_expansion.pdf) (21 pp) |
+| `simods-submission` | **the paper as submitted to SIAM's *Journal on Mathematics of Data Science***: the 41-page paper compacted to the 20-page limit around one idea, with its supplementary materials (proofs, algorithm, code and data) | [`paper/simods.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/simods-submission/paper/simods.pdf) (19 pp), [`paper/simods_supplement.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/simods-submission/paper/simods_supplement.pdf) (13 pp); reading copies without line numbers: [`simods_reading.pdf`](https://github.com/FlavioApric/pde-factor-fit/blob/simods-submission/paper/simods_reading.pdf) |
 
 ## Folders of this branch
 
@@ -134,4 +135,4 @@ Scattered (non-grid) data: first interpolate with `pdefactor.interp` (Gaussian-p
 
 ## More
 
-`claude/REPO_MAP.md` shows how the four branches relate; `claude/PROVENANCE.md` says where every file came from. Licenses: code MIT ([`LICENSE`](LICENSE)), papers CC BY 4.0 ([`LICENSE-papers.md`](LICENSE-papers.md)); please cite via [`CITATION.cff`](CITATION.cff). Author: Flavio Pricoco.
+`claude/REPO_MAP.md` shows how the branches relate; `claude/PROVENANCE.md` says where every file came from. Licenses: code MIT ([`LICENSE`](LICENSE)), papers CC BY 4.0 ([`LICENSE-papers.md`](LICENSE-papers.md)); please cite via [`CITATION.cff`](CITATION.cff). Author: Flavio Pricoco.
